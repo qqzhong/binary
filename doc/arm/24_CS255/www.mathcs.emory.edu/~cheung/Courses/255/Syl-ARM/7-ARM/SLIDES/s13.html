@@ -1,0 +1,1000 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Why</FONT> ARM 
+  <FONT color="blue">cannot</FONT> 
+   store a <FONT color="blue">32 bits number</FONT>
+   into a register
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+  <FONT color="red"><B>Why</B></FONT> the
+  <FONT color="blue"><B>ARM process</B></FONT> 
+  <FONT color="red"><B>cannot</B></FONT>
+   store a
+  <FONT color="blue"><B>32 bits</B></FONT>
+   <FONT color="red"><B>(binary) number</B></FONT> into a
+   <FONT color="blue"><B>register</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>ARM instructions</B></FONT>
+     are <FONT color="blue"><B>4 bytes or 32 bits</B></FONT>
+     long:
+
+
+<FONT color="blue" size="+1">
+<B>
+<PRE>
+   <------------------------------ <FONT color="red">32 bits</FONT> ----------------------->
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+</PRE>
+</B>
+</FONT>
+
+
+<P>
+  <LI> To <FONT color="red"><B>represent</B></FONT> a
+      <FONT color="blue"><B>32 bits</B></FONT>
+   <FONT color="red"><B> (binary) number</B></FONT>,
+      you <FONT color="blue"><B>need</B></FONT> to use
+      <FONT color="red"><B>32 bits</B></FONT>:
+<FONT color="blue" size="+1">
+<B>
+<PRE>
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|x|
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+</PRE>
+</B>
+</FONT>
+
+ <P>
+   <B>I.e.:</B> we use
+   <FONT color="red"><B><I>all</I> 32 bits</B></FONT> in
+   the <FONT color="blue"><B>ARM instruction</B></FONT> just to
+   <FONT color="red"><B>represent</B></FONT> the
+   <FONT color="blue"><B>binary number</B></FONT> !
+ <P>
+  <LI> The <FONT color="red"><B> ARM instruction</B></FONT>
+     does 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>not</B></FONT>
+    have <FONT color="red"><B>space left</B></FONT></SPAN>
+     to <FONT color="blue"><B>encode</B></FONT>
+     the <FONT color="blue"><B>operation code</B></FONT> !!!
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+  <FONT color="red"><B>ARM</B></FONT> must
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B> use</B></FONT>
+  <FONT color="red"><B><I>two</I> instructions</B></FONT></SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+ <FONT color="blue"><B>(<TT>movw</TT> and <TT>movt</TT>)</SPAN></B></FONT> to
+  <FONT color="red"><B>move</B></FONT> a
+  <FONT color="blue"><B>32 bits</B></FONT>
+   <FONT color="red"><B> binary number</B></FONT> into
+  a <FONT color="blue"><B>register</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+<!------------------------------ Delete the repeated slide
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">data "movement"</FONT> 
+   instructions in
+   <FONT color="blue">ARM</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+   <LI> The 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+      <FONT color="blue"><B><TT>mov</TT></B></FONT> (move) instruction</SPAN>:
+   <UL>
+   <LI>
+       can <FONT color="red"><B>"move" (= put, copy)</B></FONT>
+        a <FONT color="blue"><B>small (binary) number</B></FONT>
+	into a <FONT color="red"><B>register</B></FONT>
+      <B>and</B>
+    <LI>    can <FONT color="red"><B>"move" (= put, copy)</B></FONT>
+        the <FONT color="blue"><B>value (= binary number)
+    in a register</B></FONT>
+	into another <FONT color="red"><B>register</B></FONT>
+   </UL>
+ <P>
+ <LI> The 
+   <SPAN style="BACKGROUND-COLOR: orange">
+   <FONT color="blue"><B><TT>movw + movt</TT></B></FONT> instructions</SPAN>:
+  <UL>
+  <LI>   can <FONT color="red"><B>"move" (= put, copy)</B></FONT>
+         <FONT color="blue"><B><I>any</I> number</B></FONT>
+	into a <FONT color="red"><B>register</B></FONT>
+  </UL>
+<P>
+    <LI> The 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+      <FONT color="blue"><B><TT>ldr</TT></B></FONT> (load) instruction</SPAN>
+     can <FONT color="red"><B>"move" (= copy)</B></FONT>
+        a <FONT color="blue"><B>(binary) number stored in memory</B></FONT>
+	into a <FONT color="red"><B>register</B></FONT>
+ <P>
+    <LI> The 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+      <FONT color="blue"><B><TT>str</TT></B></FONT> (store) instruction</SPAN>
+     can <FONT color="red"><B>"move" (= copy)</B></FONT>
+        the
+      <FONT color="blue"><B>(binary) number stored in a register</B></FONT>
+	into the <FONT color="red"><B>RAM (memory)</B></FONT>
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We will now <FONT color="red"><B>study</B></FONT> the
+   <FONT color="blue"><B>usage</B></FONT> of
+   the <FONT color="red"><B><TT>mov</TT></B></FONT> instruction.
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+----------------------------------------------------------->
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue"><B><TT>movw</TT></B></FONT> 
+   ARM assembler instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> The &nbsp; <FONT color="red"><B><TT>movw rN,#x</TT></B></FONT> &nbsp;
+    <FONT color="blue"><B>instruction</B></FONT>
+    will <FONT color="red"><B>store</B></FONT>
+    a <FONT color="blue"><B>16 bits</B></FONT>
+     <FONT color="red"><B>binary number <TT>x</TT></B></FONT>
+    in the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>lower 16 bits</B></FONT></SPAN>
+    of the <FONT color="red"><B>register <TT>rN</TT></B></FONT>
+  <P>
+
+    The &nbsp; <FONT color="red"><B><TT>movw rN,#x</TT></B></FONT> &nbsp;
+  <FONT color="blue"><B>instruction</B></FONT>
+   will <FONT color="red"><B>also</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>clear</B></FONT> the
+    <FONT color="red"><B>upper 16 bits</B></FONT></SPAN> in
+    the <FONT color="blue"><B>register</B></FONT>
+  <FONT color="red"><B><TT>rN</TT></B></FONT>
+<P>
+
+<LI> <B>Example:</B>
+<P>
+  <UL>
+  <TABLE bgcolor="lightyellow" BORDER="5" width=700>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+1"><PRE>
+ R0:
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+
+ After executing  movw R0,#<FONT color="red">15</FONT>  (15 = <FONT color="red">0000000000001111</FONT> in 16 bits)
+
+ R0:
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |<FONT color="brown">0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0</font>|<FONT color="red">0|0|0|0|0|0|0|0|0|0|0|0|1|1|1|1</FONT>|
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </UL>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+
+  <p style="margin-left: 1.0in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/2-mov/movw.s
+   </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue"><B><TT>movt</TT></B></FONT> 
+   ARM assembler instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> The &nbsp; <FONT color="red"><B><TT>movt rN,#x</TT></B></FONT> &nbsp;
+    <FONT color="blue"><B>instruction</B></FONT>
+    will <FONT color="red"><B>store</B></FONT>
+    a <FONT color="blue"><B>16 bits</B></FONT>
+     <FONT color="red"><B>binary number <TT>x</TT></B></FONT>
+    in the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>upper 16 bits</B></FONT></SPAN>
+    of the <FONT color="red"><B>register <TT>rN</TT></B></FONT>
+  <P>
+
+    The &nbsp; <FONT color="red"><B><TT>movt rN,#x</TT></B></FONT> &nbsp;
+  <FONT color="blue"><B>instruction</B></FONT>
+   will 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>not update</B></FONT>
+    the
+    <FONT color="blue"><B>lower 16 bits</B></FONT></SPAN> of
+    the <FONT color="red"><B>register</B></FONT>
+ 
+<P>
+
+<LI> <B>Example:</B>
+<P>
+  <UL>
+  <TABLE bgcolor="lightyellow" BORDER="5" width=700>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+1"><PRE>
+ R0:
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+
+ After executing  movt R0,#<FONT color="red">15</FONT>  (15 = <FONT color="red">0000000000001111</FONT> in 16 bits)
+
+ R0:
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |<FONT color="red">0|0|0|0|0|0|0|0|0|0|0|0|1|1|1|1</FONT>|1|0|1|0|1|0|1|0|1|0|1|0|1|0|1|0|
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ 
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </UL>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+
+  <p style="margin-left: 1.0in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/2-mov/movt.s
+   </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">How</FONT> do we
+  use <FONT color="blue"><B><TT>movw</TT></B></FONT> and
+  <FONT color="blue"><B><TT>movt</TT></B></FONT> to 
+   <FONT color="blue">store</FONT>  a
+    <FONT color="blue">32 bits  number</FONT> into a register
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+   <LI>  We <FONT color="blue"><B>break</B></FONT> the
+ <FONT color="red"><B>32 bits binary number</B></FONT> into
+ <FONT color="blue"><B>2 (equal) halves</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+1">
+<B>
+<PRE>
+   <------------- <FONT color="red">32 bits</FONT> binary number ---------->
+  +-----------------------+-----------------------+ 
+  |<SPAN style="BACKGROUND-COLOR: #ffff00"> most significant bits </SPAN>|<SPAN style="BACKGROUND-COLOR: #aaffaa"> least signficant bits </SPAN>|
+  +-----------------------+-----------------------+
+   <-- <FONT color="red">16 bits</FONT> bin num --> <-- <FONT color="red">16 bits</FONT> bin num -->
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="blue"><B>First</B></FONT>,
+     use the 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><TT>movw</TT> instruction</B></FONT></SPAN> to
+    move the <FONT color="blue"><B>least significant 16 bits</B></FONT>
+    into the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><I>lower</I> 16 bits</B></FONT>
+    of a <FONT color="blue"><B>register</B></FONT></SPAN>
+
+<FONT color="blue" size="+1">
+<B>
+<PRE>
+      <------------- <FONT color="red">32 bits</FONT> binary number ---------->
+     +-----------------------+-----------------------+ 
+     | most significant bits |<SPAN style="BACKGROUND-COLOR: #aaffaa"> least signficant bits </SPAN>|
+     +-----------------------+-----------------------+
+      <-- <FONT color="red">16 bits</FONT> bin num --> <-- <FONT color="red">16 bits</FONT> bin num -->
+</PRE>
+</B>
+</FONT>
+<P>
+<LI> <FONT color="blue"><B>Then</B></FONT> use the 
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><TT>movt</TT> instruction </B></FONT></SPAN>
+   to
+    move the 
+   <FONT color="blue"><B>most significant 16 bits</B></FONT>
+    into the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><I>upper</I> 16 bits</B></FONT>
+    of the <FONT color="blue"><B><I>same</I> register</B></FONT></SPAN>
+<FONT color="blue" size="+1">
+<B>
+<PRE>
+      <------------- <FONT color="red">32 bits</FONT> binary number ---------->
+     +-----------------------+-----------------------+ 
+     |<SPAN style="BACKGROUND-COLOR: #ffff00"> most significant bits </SPAN>|<SPAN style="BACKGROUND-COLOR: #aaffaa"> least signficant bits </SPAN>|
+     +-----------------------+-----------------------+
+      <-- <FONT color="red">16 bits</FONT> bin num --> <-- <FONT color="red">16 bits</FONT> bin num -->
+</PRE>
+</B>
+</FONT>
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Additional support</FONT> 
+  for the <FONT color="blue"><B><TT>movw</TT></B></FONT> and
+  <FONT color="blue"><B><TT>movt</TT></B></FONT>
+  instructions
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.8in">
+  <font size="+2">
+ The <FONT color="red"><B>ARM assembler</B></FONT> provides
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>2  operators</B></FONT></SPAN>
+  to help you <B>use</B>
+ the <FONT color="red"><B><TT>movw</TT></B></FONT> and
+  <FONT color="red"><B><TT>movt</TT></B></FONT> 
+ <FONT color="blue"><B>instructions</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> The 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><TT>:lower16:</TT></B></FONT></SPAN>
+      <FONT color="blue"><B>operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5" width=700>
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+  <FONT color="red">:lower16:</FONT>x  &equiv;  x <FONT color="red">% 2<sup>16</sup></FONT> </PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B><TT>:lower16:</TT></B></FONT>
+      <FONT color="blue"><B>operation</B></FONT></SPAN> will
+  <FONT color="red"><B>return</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>lower 16 bits</B></FONT></SPAN> of
+  a <FONT color="red"><B> number</B></FONT>
+
+<P>
+
+  <LI> The 
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+    <FONT color="red"><B><TT>:upper16:</TT></B></FONT></SPAN>
+      <FONT color="blue"><B>operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5" width=700>
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+  <FONT color="red">:upper16:</FONT>x  &equiv;  x <FONT color="red">/ 2<sup>16</sup></FONT> </PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+ <FONT color="red"><B><TT>:upper16:</TT></B></FONT>
+      <FONT color="blue"><B>operation</B></FONT></SPAN> will
+  <FONT color="red"><B>return</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>upper 16 bits</B></FONT></SPAN> of
+  a <FONT color="red"><B> number</B></FONT>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  How do we move (= put) a 
+  <FONT color="blue">large (binary) number</FONT> into a register 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ Suppose we have a <FONT color="red">32 bits</FONT> number <FONT color="red">X</FONT>:
+
+          <FONT color="red">X</FONT> = UUUUUUUUUUUUUUUULLLLLLLLLLLLLLLL 
+              ^^^^^^^^^^^^^^^ ^^^^^^^^^^^^^^^
+               upper 16 bits    lower 16 bits
+
+ We want to store <FONT color="red">X</FONT> into register r0:
+
+            +----------------------------------+
+      r0 =  |           32 bits                |
+            +----------------------------------+
+                              |
+ <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">movw</FONT>  r0, #<FONT color="red">:lower16:X</FONT></SPAN>        | result after executing <FONT color="red">movw</FONT>
+                              V
+            +----------------------------------+
+      r0 =  | 0000000000000000LLLLLLLLLLLLLLLL |
+            +----------------------------------+
+                              |
+ <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">movt</FONT>  r0, #<FONT color="red">:upper16:X</FONT></SPAN>        | <FONT color="red">Final result</FONT>
+                              V
+            +----------------------------------+
+      r0 =  | UUUUUUUUUUUUUUUULLLLLLLLLLLLLLLL | = <FONT color="red">X</FONT> !!
+            +----------------------------------+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Example</FONT>:
+    storing a  large number into a register
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+   <LI> <FONT color="red"><B>Problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B>Store</B></FONT> the
+   <FONT color="blue"><B>number</B></FONT>
+    <FONT color="red"><B>1234567 (decimal)</B></FONT> into
+     <FONT color="blue"><B>register R0</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <SPAN style="BACKGROUND-COLOR: #000000">
+   <FONT color="orange"><B>Incorrect way:</B></FONT>
+   </SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ mov   r0, #<FONT color="red">1234567</FONT>   // Illegal value for mov    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <FONT color="red"><B>Correct solution:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#ccffcc" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ movw  r0, #<FONT color="red">:lower16:1234567</FONT>  // 1234567 % 2<sup>16</sup> = 54919 
+ movt  r0, #<FONT color="red">:upper16:1234567</FONT>  // 1234567 / 2<sup>16</sup> = 18 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+  <p style="margin-left: 0.5in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+
+   <p style="margin-left: 0.9in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/2-mov/mov-large.s 
+  </TT></B></FONT>
+   </font>
+   </p>
+
+
+ 
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

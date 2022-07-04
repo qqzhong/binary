@@ -1,0 +1,23 @@
+
+zelfbinary:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00010054 <_start>:
+   10054:	e3a00001 	mov	r0, #1
+   10058:	e59f1024 	ldr	r1, [pc, #36]	; 10084 <msg+0x10>
+   1005c:	e59f2024 	ldr	r2, [pc, #36]	; 10088 <msg+0x14>
+   10060:	e3a07004 	mov	r7, #4
+   10064:	ef000000 	svc	0x00000000
+   10068:	e3a00000 	mov	r0, #0
+   1006c:	e3a07001 	mov	r7, #1
+   10070:	ef000000 	svc	0x00000000
+
+00010074 <msg>:
+   10074:	6c6c6548 	.word	0x6c6c6548
+   10078:	41202c6f 	.word	0x41202c6f
+   1007c:	32334d52 	.word	0x32334d52
+   10080:	00000a21 	.word	0x00000a21
+   10084:	00010074 	.word	0x00010074
+   10088:	0000000e 	.word	0x0000000e

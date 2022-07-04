@@ -1,0 +1,285 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Java statements that manipulate character and strings
+<HR>
+</H3>
+
+
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Java statements and methods that manipulate characters and strings
+     </B></FONT>
+<P>
+<UL>
+<LI> The
+     <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B><TT>charAt( )</TT></B></FONT> method:</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Let <FONT color="red"><B><TT>s</TT></B></FONT> be
+       a <FONT color="blue"><B>string</B></FONT> (constant or variable)
+<P>
+ <B>Then:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">s.charAt(i)</FONT>  =  the <FONT color="red">character</FONT> at position <FONT color="red">i</FONT> in string <FONT color="red">s</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>"abc".charAt(0)</TT></B></FONT> is
+          <FONT color="red"><B><TT>'a'</TT></B></FONT>
+ <LI> <FONT color="blue"><B><TT>"abc".charAt(1)</TT></B></FONT> is
+          <FONT color="red"><B><TT>'b'</TT></B></FONT>
+ <LI> <FONT color="blue"><B><TT>"abc".charAt(2)</TT></B></FONT> is
+          <FONT color="red"><B><TT>'c'</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>+ (string concatenation) operator</B></FONT> </SPAN>
+    on <FONT color="blue"><B><TT>String</TT></B></FONT> data type:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Let <FONT color="red"><B><TT>s1</TT></B></FONT> and
+       <FONT color="red"><B><TT>s2</TT></B></FONT> be
+        <FONT color="blue"><B>2 strings</B></FONT>
+<P>
+ <B>Then:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">s1 + s2</FONT> = the <FONT color="red">concatenation</FONT> of strings <FONT color="red">s1</FONT> and <FONT color="red">s2</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>String + char</B></FONT> is
+    <FONT color="blue"><B>also</B></FONT>
+    a <FONT color="red"><B>concatenation</B></FONT> operation:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    String s;
+    char   c;
+
+    s + c  =  the <FONT color="red">concatenation</FONT> of string s and character c    
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   String <FONT color="red">s1 = "abc"</FONT>;  // = an array of 3 ASCII codes (for 'a', 'b', 'c')
+   String <FONT color="red">s2 = "123"</FONT>;  // = an array of 3 ASCII codes (for '1', '2', '3')   
+   char   <FONT color="red">c = 'H'</FONT>;   
+
+   <FONT color="red">s1 + s2</FONT> = <FONT color="red">"abc123"</FONT>  // an array of 6 ASCII codes
+
+   <FONT color="red">s1 + c</FONT>  = <FONT color="red">"abcH"</FONT>    // an array of 4 ASCII codes
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     I just 
+    have to <FONT color="red">emphasize</FONT> this fact over and over again....
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Students</B></FONT> often 
+     <FONT color="blue"><B>fail</B></FONT> to understand
+     this material because they
+     <FONT color="red"><B>missed</B></FONT> this
+     <FONT color="blue"><B>very important fact</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Every (decimal) number</B></FONT> that
+     <B>you</B> write in a
+     <FONT color="red"><B>Java program</B></FONT>
+     will be
+     <FONT color="blue"><B>converted</B></FONT> into
+     a <FONT color="red"><B>2's complement binary number</B></FONT>
+     by the <FONT color="blue"><B>Java compiler</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  x;
+
+    x = 0;            // Java compiler generates instructions that store
+                      // 00000000000000000000000000000000 into variable x
+
+    x = 4;            // Java compiler generates instructions that store
+                      // 00000000000000000000000000000100 into variable x
+
+    x = x + 1         // Java compiler generates instructions that
+                      // add binary number in x with 00000000000000000000000000000001
+
+    x = -x;           // Java compiler generates instructions that
+                      // inverts the binary number in x and store result in x
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="red"><B>concrete example:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+
+   x = <FONT color="red">0</FONT>;            //  variable x contains:  <FONT color="red">00000000000000000000000000000000</FONT>
+
+   x = <FONT color="red">4</FONT>;            //  variable x contains:  <FONT color="red">00000000000000000000000000000100</FONT>
+
+   x = <FONT color="red">x + 1</FONT>;        //  variable x contains:  <FONT color="red">00000000000000000000000000000101</FONT>    ( 5<sub>2's compl</sub> )
+
+   x = <FONT color="red">-x</FONT>;           //  variable x contains:  <FONT color="red">11111111111111111111111111111011</FONT>    ( -5<sub>2's compl</sub> )
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

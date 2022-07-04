@@ -1,0 +1,584 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<H3>
+Sample variable length instruction encoding: M68000 Instruction Encoding
+</H3>
+<HR>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     What is the M68000 processor ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>M68000</B></FONT> was a 
+    <FONT color="blue"><B>micro processor (CPU)</B></FONT>
+     designed by <FONT color="red"><B>Motorola</B></FONT>
+    at around <FONT color="blue"><B>1980</B></FONT>.
+<P>
+<LI> The <FONT color="red"><B>length</B></FONT> of
+      a <FONT color="blue"><B>Motorola M68000 instruction</B></FONT>
+       can <FONT color="red"><B>vary</B></FONT> between:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    2 bytes: 
+      +------------------+
+      |    2 bytes       |    
+      +------------------+
+
+   To a maximum of 10 bytes: 
+      +---------------------------------------------------------+
+      |                10 bytes                                 |    
+      +---------------------------------------------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The length is <FONT color="red"><B>adjusted</B></FONT> according
+ to the <FONT color="blue"><B>need</B></FONT> to
+ <FONT color="red"><B>encode more information</B></FONT>
+
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     M68000 instruction formats
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>M68000 processor</B></FONT> is
+    a <FONT color="blue"><B>Complex Instruction Set Computer</B></FONT> and
+    as such, it has
+    <FONT color="red"><B>many</B></FONT>
+    instruction formats
+<P>
+<LI> The various
+        instruction formats of the
+	M68000 processor are summarized in
+	<FONT color="blue"><B>Section 8</B></FONT>
+      (starting on <FONT color="red"><B>page 557</B></FONT> of this
+      document:
+      <A HREF="Docs/M68000PRM.pdf">
+      <FONT color="blue"><B>clock here</B></FONT></A>
+<P>
+    This document is only to show you (give you an idea) 
+   <FONT color="red"><B>how</B></FONT> to
+   <FONT color="blue"><B>encode</B></FONT>
+   various computer instructions - you don't need to know the
+   details in this huge document.
+<P>
+   I will <FONT color="red"><B>only</B></FONT> discuss
+   the <FONT color="blue"><B>encoding</B></FONT>
+   of <FONT color="red"><B>one specific instruction</B></FONT> next.
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "MOVE" instruction and its encoding in M68000
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>MOVE</B></FONT> instruction 
+    copies a value from a source operand to a destination operand
+<P>
+<LI> One of the format of the
+    <FONT color="red"><B>MOVE</B></FONT> instruction is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Copy a <FONT color="red"><B>specified value (= constant)</B></FONT>
+      to a <FONT color="blue"><B>register</B></FONT> in the CPU
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>syntax</B></FONT> of the
+ <FONT color="blue"><B>MOVE instruction</B></FONT> that copies
+ a <FONT color="red"><B>value <TT>x</TT></B></FONT> to
+ a <FONT color="blue"><B>register</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    move.l   #<FONT color="red">x</FONT>, registerName              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>M68000 processor</B></FONT> has
+   <FONT color="blue"><B>2 variants</B></FONT> of the
+   <FONT color="red"><B><TT>move</TT> instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is a <FONT color="red"><B>shorter (and quicker)</B></FONT>
+        variant used to move
+	<FONT color="blue"><B><I>smaller</I> values</B></FONT> into
+	a register of the the M68000 processor
+ <LI> There is a <FONT color="red"><B>longer (and slower)</B></FONT>
+        variant used to move
+	<FONT color="blue"><B><I>larger</I> values</B></FONT> into
+	a register of the the M68000 processor
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because program <FONT color="red"><B>often</B></FONT> use
+ <FONT color="blue"><B>small values</B></FONT>
+ (e.g.: <FONT color="red"><B><TT>i = 0;</TT></B></FONT> or
+  <FONT color="red"><B><TT>i = 1;</TT></B></FONT>),
+ M68000 provides a
+ <FONT color="blue"><B><I>quick</I> move</B></FONT> variant to
+ help optimize the program for running time.
+<P>
+The <FONT color="red"><B>longer (and slower) </B></FONT> variant
+ is for general use.
+<P>
+
+The <FONT color="red"><B>encoding format</B></FONT> of the
+     <FONT color="blue"><B>M68000's <TT>move</TT></B></FONT> instructions
+   are given on <FONT color="red"><B>pages 222 and 238</B></FONT> of 
+   the 
+   <A HREF="Docs/M68000PRM.pdf">
+      <FONT color="blue"><B>M68000 Programmer Manual</B></FONT></A>
+<P>
+ I have replicated the format here for our convenience:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">Short format</FONT> MOVEQ: (page 238) - for "small value"
+
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+       | 0 | 1 | 1 | 1 |   |   |   | 0 |   |   |   |   |   |   |   |   |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+                        <--------->     <----------------------------->
+                         dest reg#          value between -128..127
+
+<HR>
+   <FONT color="red">Long format</FONT> MOVE: (page 222) - for "larger values"
+
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+       | 0 | 0 |   |   |   |   |   | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | <FONT color="red">+ 32 bit value </FONT>   
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+                <-----> <---------> 
+                  size    dest reg#  
+
+   size:       00 = 1 byte
+               01 = 2 bytes
+               10 = 4 bytes
+
+   dest reg#: 000 = d0          
+              001 = d1                                 
+	      010 = d2
+	      011 = d3
+	      100 = d4
+	      101 = d5
+	      110 = d6
+	      111 = d7
+
+   <SPAN style="BACKGROUND-COLOR: yellow">The <FONT color="red">long format</FONT> can accomodate value in <FONT color="red">32 bits</FONT> !!!</SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> Here are a few of the
+       <FONT color="red"><B>MOVE</B></FONT> instruction  of
+    the <FONT color="blue"><B>M68000 processor</B></FONT>
+   that copies different values to
+   the <FONT color="red"><B>register <TT>d0</TT></B></FONT>
+   and their corresponding
+      <FONT color="blue"><B>instruction codes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    M68000 instruction          Binary machine code (given in Hexadecimal)
+   -----------------------    ---------------------------------------------     
+    move.l #<FONT color="red">1</FONT>, d0               * Instruction code: 70<FONT color="red">01</FONT>
+    move.l #<FONT color="red">127</FONT>, d0             * Instruction code: 70<FONT color="red">7F</FONT>
+    move.l #<FONT color="red">-128</FONT>, d0            * Instruction code: 70<FONT color="red">80</FONT>
+    move.l #<FONT color="red">128</FONT>, d0             * Instruction code: 203C <FONT color="red">0000 0080</FONT>
+    move.l #<FONT color="red">129</FONT>, d0             * Instruction code: 203C <FONT color="red">0000 0081</FONT>
+    move.l #<FONT color="red">2147483648</FONT>, d0      * Instruction code: 203C <FONT color="red">8000 0000</FONT>
+                                  (Note: 2147483648 = 2^31)
+
+ Explanation: 
+
+   Take a look at the instruction "move.l #<FONT color="red">1</FONT>, d0"
+   It's instruction code given in hexadecimal number is: 70<FONT color="red">01</FONT>
+   Expressed in binary, the instruction code is:
+
+        <----- 7 -----> <----- 0 -----> <----- 0 -----> <----- 1 -----> (Hex)
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+       | 0 | 1 | 1 | 1 |<FONT color="red"> 0 | 0 | 0</FONT> | 0 |<FONT color="red"> 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1</FONT> |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+                        <--------->     <----------------------------->
+                         dest reg#          value between -128..127
+
+   You can see that the "dest reg#" field represents the register "d0"
+   You can also see that the "value" field represents the (binary) number 1
+
+   The short format is used to encode the 2nd and the 3rd instruction in
+   the example: "move.l #<FONT color="red">127</FONT>, d0" and "move.l #<FONT color="red">-128</FONT>, d0". 
+   When you express their hexadecimal number code in binary, you will find 
+   the value <FONT color="red">127</FONT> and <FONT color="red">-128</FONT> in the value part of the instruction code.
+
+<HR>
+   Let's take a look at the instruction "move.l #<FONT color="red">128</FONT>, d0"
+   The first instruction code given in hexadecimal number is: 203C
+   Expressed in binary, the instruction code is:
+
+        <----- 2 -----> <----- 0 -----> <----- 3 -----> <----- C -----> (Hex)
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+       | 0 | 0 |<FONT color="darkred"> 1 | 0</FONT> |<FONT color="red"> 0 | 0 | 0</FONT> | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 0 | 0 |
+       +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+                <-----> <---------> 
+                  size    dest reg#  
+
+   You can see that this is a <FONT color="red">long format</FONT> "MOVE" instruction code where:
+
+          size      = 10 (4 bytes)
+          dest reg# = 000 = "d0"
+
+   This instruction code is followed by the <FONT color="red">value</FONT> given by the next <FONT color="red">32 bits</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I want to show you <FONT color="red"><B>how</B></FONT> the
+ <FONT color="blue"><B>value <TT>x</TT></B></FONT> is
+ <FONT color="red"><B>encoded</B></FONT> in the
+ <FONT color="blue"><B>M68000 instruction</B></FONT> -
+ specifically,
+ how <FONT color="red"><B>M68000's variable length instructions</B></FONT>
+ are used to
+ <FONT color="blue"><B>accommodate </B></FONT>
+ more information.
+<P>
+Notice that the
+ <FONT color="red"><B>value <TT>x</TT></B></FONT> must be
+ <FONT color="blue"><B>encoded</B></FONT> inside
+ the <FONT color="red"><B>instruction</B></FONT>
+<P>
+When the <FONT color="red"><B>value</B></FONT> is
+ <FONT color="blue"><B>small (between -128 and 127)</B></FONT>,
+ the <FONT color="red"><B>constant</B></FONT> is 
+  <FONT color="blue"><B>encoded</B></FONT> using the
+  <FONT color="red"><B>last 8 bits</B></FONT> of the
+ instruction:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    M68000 instruction          Binary machine code (given in Hexadecimal and Binary)
+   -----------------------    ---------------------------------------------     
+    move.l #<FONT color="red">1</FONT>, d0               * Instruction code: 70<FONT color="red">01</FONT>  = 01110000<FONT color="red">00000001</FONT>
+    move.l #<FONT color="red">127</FONT>, d0             * Instruction code: 70<FONT color="red">7F</FONT>  = 01110000<FONT color="red">01111111</FONT>
+    move.l #<FONT color="red">-128</FONT>, d0            * Instruction code: 70<FONT color="red">80</FONT>  = 01110000<FONT color="red">10000000</FONT>
+
+ The <FONT color="red">first half of the instruction code</FONT> (= 01110000) encodes <FONT color="red">"copy a value ...., to register d0"</FONT> 
+ 
+ The <FONT color="red">2nd half of the instruction code</FONT> encodes the <FONT color="red">value (in 8 bits binary)</FONT>:
+
+    <FONT color="red">00000001</FONT>  = 2's compl code for the value<FONT color="red">    1</FONT>
+    <FONT color="red">01111111</FONT>  = 2's compl code for the value <FONT color="red"> 127</FONT>
+    <FONT color="red">10000000</FONT>  = 2's compl code for the value<FONT color="red"> -128</FONT> !!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice when the <FONT color="red"><B>value</B></FONT> is
+  <FONT color="blue"><B>larger than 128</B></FONT>,
+  we will need to use
+  <FONT color="red"><B>more bits</B></FONT> to
+  encode the <FONT color="blue"><B>value</B></FONT>
+<P>
+The <FONT color="red"><B>M68000 assembler</B></FONT> knows this -
+ so when we use values that are
+  <FONT color="blue"><B>larger than 128</B></FONT>, the
+  <FONT color="red"><B>M68000 assembler</B></FONT> use
+  a <FONT color="blue"><B><I>different</I> machine code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    M68000 instruction          Binary machine code (given in Hexadecimal and Binary)
+   -----------------------    ---------------------------------------------     
+    move.l #<FONT color="red">128</FONT>, d0             * Instruction code: 203C <FONT color="red">0000 0080</FONT>
+                                                  = 0010000000111100<FONT color="red">00000000000000000000000010000000</FONT>
+    move.l #<FONT color="red">129</FONT>, d0             * Instruction code: 203C <FONT color="red">0000 0081</FONT>
+                                                  = 0010000000111100<FONT color="red">00000000000000000000000010000001</FONT>
+    move.l #<FONT color="red">2147483648</FONT>, d0      * Instruction code: 203C <FONT color="red">8000 0000</FONT>
+                                                  = 0010000000111100<FONT color="red">10000000000000000000000000000000</FONT>   
+                                  (Note: 2147483648 = 2^31)
+
+  As you can see, the instruction is represented logically; but the format is different:
+
+ The first 16 bits of the instruction code (= 0010000000111100) encodes "copy a value ...., to register d0" 
+ 
+ The last 32 bits of the instruction code encodes the value (in 32 bits binary):
+
+    <FONT color="red">00000000000000000000000010000000</FONT>  = 2's compl code for the value  <FONT color="red">128</FONT>
+    <FONT color="red">00000000000000000000000010000000</FONT>  = 2's compl code for the value  <FONT color="red">129</FONT>
+    <FONT color="red">10000000000000000000000000000000</FONT>  = 2's compl code for the value  <FONT color="red">2147483648</FONT> = 2^31 !!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see that <FONT color="red"><B>M68000</B></FONT> uses
+  <FONT color="blue"><B>fewer bits</B></FONT> (= shorter instruction code)
+  when the <FONT color="red"><B>value is <I>small</I></B></FONT>
+  (and requires fewer bits to encode)
+<P>
+When we use <FONT color="red"><B>larger value</B></FONT>,
+ <FONT color="blue"><B>M68000</B></FONT> uses
+  a <FONT color="red"><B>longer instruction code</B></FONT> to
+ represent the value
+<P>
+So:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Variable length instruction code</B></FONT>
+       can accomodate 
+     <FONT color="blue"><B><I>more</I> complex information</B></FONT>
+     (when you need more bits to represent the information)
+<P>
+ <LI> But <FONT color="blue"><B>variable length instructions</B></FONT> 
+     <B>also</B> complicate
+    <FONT color="red"><B>decoding</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="red"><B>2 different instruction codes</B></FONT>
+    for the <FONT color="blue"><B><I>same</I> instruction</B></FONT>
+    that means
+    "<FONT color="red"><B>move a value ... to register <TT>do</TT></B></FONT>
+
+   (a short form <FONT color="blue"><B><TT>01110000</TT></B></FONT> and
+   a long form
+  <FONT color="red"><B><TT>0010000000111100</TT></B></FONT>)
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>/home/cs255001/demo/instruction-encoding/m68000/asm-prog.s</TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make a m68000 in your cs255 folder:
+     <FONT color="blue"><B><TT>mkdir ~/cs255/m68000</TT></B></FONT>
+ <P>
+    Copy my demo:
+      <FONT color="red"><B><TT>cp -r /home/cs255001/demo/instruction-encoding/m68000/* ~/cs255/m68000</TT></B></FONT>    
+ <P>
+  Go to the copied directory:
+      <FONT color="blue"><B><TT>cd ~/cs255/m68000</TT></B></FONT>
+ <P>
+ <LI> Compile the assembler program: 
+  &nbsp; <FONT color="red"><B><TT>./as-m68000  asm-prog</TT></B></FONT>
+ <LI> Take a look at the <FONT color="red"><B>listing file</B></FONT>: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>gedit asm-prog.list</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will see this listing content:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   2                    *   Intro to assembler programming
+   3
+   4                            xdef  Start
+   5
+   6                    Start:
+   7
+   8 0000 <FONT color="red">7001</FONT>              move.l #1,d0                * Instruction code: 7001
+   9 0002 <FONT color="red">707F </FONT>             move.l #127,d0              * Instruction code: 707F
+  10 0004 <FONT color="red">7080  </FONT>            move.l #-128,d0             * Instruction code: 7080
+  11 0006<FONT color="red"> 203C 0000</FONT>         move.l #128,d0              * Instruction code: 203C 0000 0080
+  11      <FONT color="red">0080</FONT>
+  12 000c <FONT color="red">203C 0000</FONT>         move.l #129,d0              * Instruction code: 203C 0000 0081
+  12      <FONT color="red">0081</FONT>
+  13 0012 <FONT color="red">203C 8000</FONT>         move.l #2147483648,d0       * Instruction code: 203C 8000 0000
+  13      <FONT color="red">0000</FONT>
+  14                    *                                 (2147483648 = 2^31)
+  15
+  16
+  17                        end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Hexedecimal number in red</B></FONT> are
+ the <FONT color="blue"><B>instruction codes</B></FONT> generate
+ for the <FONT color="red"><B>assembler program</B></FONT>
+ (I entered it as comment on the right for your convenience)
+<P> 
+You can see that the instruction code I showed you are indeed
+ the real ones, and I did not "make it up"...
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+</UL>

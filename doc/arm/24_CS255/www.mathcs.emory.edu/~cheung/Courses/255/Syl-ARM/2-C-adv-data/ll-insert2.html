@@ -1,0 +1,470 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Deleting at the start of a list
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Deleting elements from a linked list: Java <I>vs.</I> C
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Java's</B> way to delete the
+     <FONT color="blue"><B>first element</B></FONT> from 
+     a <B>linked list</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List <FONT color="red">delete</FONT> ( List head )
+   {<FONT color="red">
+      return( head.next );</FONT>    // Make the second element the new head      
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Why</B></FONT> this 
+    <FONT color="blue"><B>will <I>not</I> work</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>deleted</B></FONT> <B>linked list elements</B>
+      becomes <FONT color="red"><B>garbage (inaccessible)</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/garbage1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <B>What will happen <I>sooner or later</I>:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Eventually</B>
+     (after <FONT color="blue"><B><I>many</I> deletions</B></FONT>),
+     the <B>computer memory</B> will become
+     <FONT color="red"><B>exhausted</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When  <B>computer memory</B> is
+     <FONT color="red"><B>exhausted</B></FONT>
+     (no more <B>unused memory cells</B>),
+     the <B>Java run time system</B> will
+     invoke the
+     <FONT color="blue"><B><I>garbage collector</I></B></FONT>
+     and <FONT color="red"><B>reclaim the <I>inaccessible</I>
+     memory cells</B></FONT>
+<P>
+<HR>
+<P>
+<LI> In a <B>C program</B>, when
+     <B>computer memory</B> is
+     <FONT color="red"><B>exhausted</B></FONT>,
+     the <B>C program</B> will
+     <FONT color="magenta"><B><I>crash</I></B></FONT>
+     (because <B>C</B> does 
+     <FONT color="red"><B>not</B></FONT> have any
+     <FONT color="blue"><B><I>garbage collector</I></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>You</I></B> (the C programmer) is
+      <FONT color="red"><B>responsible</B></FONT> for the
+      <FONT color="blue"><B><I>un-reserving</I></B></FONT> of
+      <B>memory cells</B> used for storing
+      the <B><I>deleted</I> list elements</B> !!!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Delete the first element in a list in <FONT color="red">Java</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> In <FONT color="red"><B>Java</B></FONT>, you <B>should</B> have 
+    <FONT color="blue"><B>seen</B></FONT> 
+     <FONT color="red"><B>some thing like this</B></FONT> to
+       <FONT color="blue"><B>delete</B></FONT> the
+   <FONT color="red"><B><I>first</I> element</B></FONT> from
+   a <FONT color="blue"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+class List
+{
+   int value;
+   List next;
+}
+
+public class delete 
+{
+   /* ====================================================
+      delete(h): delete the first elem from the list h
+                 return new list
+      ==================================================== */
+   public static <FONT color="red">List delete (List h)</FONT>
+   {
+      if ( <FONT color="red">h != null</FONT> )
+         return (<FONT color="red">h.next</FONT>); // Return new list that starts at h.next
+      else
+         return <FONT color="red">null</FONT>;
+   }
+
+   public static void main(String[] args)
+   {
+      List head = makeList( ); // Make an list for demo
+
+      print(head);  
+
+      /* -------------------------------------------------
+         Delete the first list element from list at head
+         ------------------------------------------------- */
+      head = <FONT color="red">delete(head)</FONT>;       // Delete first elem in head
+      print(head);  
+
+      /* -------------------------------------------------------
+         Delete the first list element from list at head AGAIN
+         ------------------------------------------------------- */
+      head = <FONT color="red">delete(head)</FONT>;       // Delete first elem in head
+      print(head);
+
+   }
+
+   // Make a list
+   static List makeList( )
+   {
+      List h = null;
+      List p;
+
+      for ( int i = 1; i <= 5; i++ )
+      {
+         p = new List( );
+	 p.value = i;
+
+	 p.next = h;
+	 h = p;
+      }
+
+      return h;
+   }
+
+
+   // Print the list
+   public static void print(List h)
+   {
+      while (h != null)
+      {
+         System.out.printf("%d ", h.value);
+         h = h.next;
+      }
+      System.out.printf("\n\n");
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Linked-list/delete.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac delete.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>java delete</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will again show you the
+ <FONT color="red"><B><I>same</I> code</B></FONT>
+ in <FONT color="blue"><B>C</B></FONT>.
+<P>
+But <FONT color="red"><B>now notice</B></FONT> 
+ <FONT color="blue"><B>how</B></FONT> we
+ must
+ <FONT color="red"><B><I>de-allocate</I></B></FONT> the
+ <FONT color="blue"><B>deleted List object</B></FONT>
+ <B>before</B> we
+  <FONT color="red"><B>return from the function</B></FONT> !!!
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Delete the first element in a list in <FONT color="red">C</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> This is the <FONT color="red"><B>same program</B></FONT> as
+   <FONT color="blue"><B>above</B></FONT>, but in the
+   <FONT color="red"><B>C language</B></FONT>.
+ <P>
+ I don't want to point out the
+ <FONT color="red"><B>syntax differences</B></FONT>
+ (it was pointed out in the
+ <FONT color="blue"><B><TT>insert( )</TT></B></FONT> function.
+<P>
+ I <FONT color="red"><B>highlighted</B></FONT> the
+  <FONT color="blue"><B>part</B></FONT> where you
+ <FONT color="red"><B>must <I>de-allocate</I></B></FONT> the
+  <FONT color="red"><B>deleted List element</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+#include &lt;stdlib.h>
+
+struct List
+{
+int          value;
+struct List *next;
+};
+
+struct List *makeList( );    // Declare these help functions to
+void print(struct List *h);  // avoid compile error
+
+
+/* ====================================================
+   delete(h): delete the first elem from the list h
+              return new list
+   ==================================================== */
+struct List *delete (struct List *h)
+{
+   struct List *newHead;
+
+   if ( h != NULL)
+   {
+      <FONT color="red">newHead = h->next;</FONT>  // <FONT color="red">Save the value h->next</FONT>
+                          // Because <FONT color="red">free(h) MAY corrupt h->next</FONT> !!!
+
+     <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> free( h )</FONT>;          // *** De-allocate the <FONT color="red">deleted list object at head h</FONT> !!!</SPAN>
+                          // *** <FONT color="red">free(h)</FONT> MAY <FONT color="red">corrupt h->value and h->next</FONT> !!
+
+      return (newHead);   // Return new list that starts at h.next
+   }
+   else
+      return NULL;
+}
+
+int main(int argc, char *argv[])
+{
+   struct List *head = makeList( ); // Make an list for demo
+
+   print(head);  
+
+   /* -------------------------------------------------
+      Delete the first list element from list at head
+      ------------------------------------------------- */
+   head = delete(head);       // Delete first elem in head
+   print(head);  
+
+   /* -------------------------------------------------------
+      Delete the first list element from list at head AGAIN
+      ------------------------------------------------------- */
+   head = delete(head);       // Delete first elem in head
+   print(head);
+}
+
+
+
+
+// Make a list
+struct List *makeList( )
+{
+   struct List *h = NULL;
+   struct List *p;
+
+   for ( int i = 1; i <= 5; i++ )
+   {
+      p = malloc( sizeof(struct List) );
+      p->value = i;
+
+      p->next = h;
+      h = p;
+   }
+
+   return h;
+}
+
+
+// Print the list
+void print(struct List *h)
+{
+   while (h != NULL)
+   {
+      printf("%d ", h->value);
+      h = h->next;
+   }
+   printf("\n\n");
+}   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Linked-list/delete.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc delete.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

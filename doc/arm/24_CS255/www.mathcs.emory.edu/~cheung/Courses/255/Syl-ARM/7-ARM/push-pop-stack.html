@@ -1,0 +1,720 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+<H3>
+<HR>
+The assembler <TT>push</TT> and <TT>pop</TT> instructions 
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens with the Program Stack when we push a value
+    onto the Program Stack
+     </B></FONT>
+<P>
+<UL>
+
+
+<LI> <FONT color="red"><B>Suppose</B></FONT> the <B>Program Stack</B> is 
+     <FONT color="blue"><B>as follows</B></FONT>
+        <FONT color="red"><B> before</B></FONT> we
+       <FONT color="blue"><B>push</B></FONT> a new value:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>stack pointer <TT>SP</TT></B></FONT>
+ points at the 
+  <FONT color="blue"><B>top </B></FONT>
+ of the <FONT color="red"><B>program stack</B></FONT>
+<P>
+<FONT color="red"><B>All memory cells</B></FONT>
+ that lies <FONT color="blue"><B>below</B></FONT> the
+  <FONT color="red"><B>memory location pointed to by <TT>SP</TT></B></FONT>
+  are <FONT color="blue"><B>used (= reserved/allocated)</B></FONT>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>state</B></FONT> the <B>Program Stack</B> 
+     will be 
+     <FONT color="blue"><B>like this</B></FONT>
+        <FONT color="red"><B><I>after</I></B></FONT> we
+       <FONT color="blue"><B>push</B></FONT> a new value
+       <B><I>X</I></B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+The <FONT color="red"><B>stack pointer</B></FONT> will
+  <FONT color="blue"><B>move up</B></FONT> to
+  indicate that
+  the <FONT color="red"><B>space</B></FONT> is
+  <FONT color="blue"><B>reserved</B></FONT>
+  (for the variable <FONT color="red"><B><TT>x</TT></B></FONT>).
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Academic reminder
+     </B></FONT>
+<P>
+<UL>
+<LI> <SPAN style="BACKGROUND-COLOR: yellow">
+   For <FONT color="red"><B>simplicity</B></FONT>, we will
+      <FONT color="blue"><B><I>only</I></B></FONT> store
+        <FONT color="red"><B><TT>int</TT> typed values</B></FONT> on
+	the <FONT color="blue"><B>program stack</B></FONT>
+   </SPAN>
+ <P>
+  (The <FONT color="red"><B>ARM processor</B></FONT> can
+  <FONT color="blue"><B>only</B></FONT> push
+  the <FONT color="red"><B>value</B></FONT> in
+  a <FONT color="blue"><B>whole register (= 32 bits)</B></FONT> on the stack.
+ <P>
+  If you push a data that consists of
+   <FONT color="red"><B>less than 32 bits</B></FONT>,
+   then you (as an assembler programmer) need to
+   <FONT color="blue"><B>manage</B></FONT> that
+   <FONT color="red"><B>yourself</B></FONT>.
+ <P>
+ To <FONT color="red"><B>avoid</B></FONT> this
+  <FONT color="blue"><B>tedious task</B></FONT>, I will 
+ <FONT color="red"><B><I>only</I></B></FONT> push
+ <FONT color="blue"><B><TT>int</TT> typed (= 32 bits)</B></FONT>
+  on the stack....)
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM (assembler) instruction to <FONT color="red">push</FONT> 
+       a value on the Program Stack
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">push  {regName}</FONT>    // Push the value in "regName" onto the program stack    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>push</B></FONT> instruction in
+    <FONT color="blue"><B>ARM</B></FONT> can push
+    <FONT color="red"><B><I>multiple</I> registers</B></FONT>
+    with a <FONT color="blue"><B>single <TT>push</TT> instruction</B></FONT>,
+    but you <FONT color="red"><B><I>must</I></B></FONT> specify
+    the <FONT color="blue"><B>list of registers</B></FONT> in a
+    <FONT color="red"><B><I>specific</I> order</B></FONT>.
+ <P>
+  To <FONT color="red"><B>minimize</B></FONT> the
+  <FONT color="blue"><B>amount</B></FONT> of
+  <FONT color="red"><B>knowledge</B></FONT> that you need to learn
+  (in order to write assembler program),
+  I will <FONT color="blue"><B>only</B></FONT> show you how to
+  <FONT color="red"><B>push 1 register</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #4                       
+       <FONT color="red"> push    {r0}</FONT>              // Push value in r0 on stack      
+
+        mov     r0, #9
+       <FONT color="red"> push    {r0}</FONT>              // Push value in r0 on stack
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result</B> after the
+ <FONT color="red"><B><I>first</I> <TT>push</TT> instruction</B></FONT>
+  (snapshot from
+  <FONT color="red"><B>EGTAPI</B></FONT>'s stack area)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/stack01.png" width=700 height=200></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+ the <FONT color="blue"><B>stack pointer register SP
+   (= 0x7affc)</B></FONT> is
+ pointing to the <FONT color="red"><B>top of the program stack</B></FONT>
+<P>
+<B>Result</B> after the
+ <FONT color="red"><B><I>second</I> <TT>push</TT> instruction</B></FONT>
+  (snapshot from
+  <FONT color="red"><B>EGTAPI</B></FONT>'s stack area)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/stack02.png" width=700 height=200></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+ the <FONT color="blue"><B>stack pointer register SP
+   (= 0x7aff8)</B></FONT> is <B>updated</B> and still
+ points to the <FONT color="red"><B>top of the program stack</B></FONT>
+
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+      <FONT color="red"><B><TT>
+	    /home/cs255001/demo/asm/8-sub/push.s
+	    </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 push</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Popping values off the Program Stack
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>ARM (assembler) instruction</B></FONT> to
+     <FONT color="blue"><B>pop</B></FONT> an
+       <FONT color="red"><B><TT>int</TT> typed value</B></FONT>
+       from the
+       (top of the) <FONT color="blue"><B>program stack</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">pop  {regName}</FONT>    // Pop the int typed value from the top
+                       // of the program stack and store it in register "regName"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #4
+        push    {r0}
+
+        mov     r0, #9
+        push    {r0}
+
+
+      <FONT color="red">  pop     {r1}</FONT>            // r1 = 9
+       <FONT color="red"> pop     {r2}</FONT>            // r2 = 4               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+      <FONT color="red"><B><TT>
+	    /home/cs255001/demo/asm/8-sub/push.s
+	    </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 push</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">De-allocating</FONT> variables from the Program Stack
+     </B></FONT>
+<P>
+<UL>
+<LI> When <FONT color="red"><B>memory</B></FONT> used to
+    <FONT color="blue"><B>stored</B></FONT> values of a
+       <FONT color="red"><B>variable</B></FONT> is
+       <FONT color="blue"><B>no longer needed</B></FONT>,
+       the <FONT color="red"><B>memory that was reserved</B></FONT> for
+       the <FONT color="blue"><B>variable</B></FONT> 
+       must be <FONT color="red"><B>de-allocated</B></FONT>
+       (= <FONT color="blue"><B>un-reserved</B></FONT>)
+<P>
+ Suppose the following is the
+  <FONT color="red"><B>state</B></FONT> of the
+  <FONT color="blue"><B>Program Stack</B></FONT> after we have 
+      <FONT color="red"><B>reserved some memory</B></FONT> for
+      the <FONT color="blue"><B>variable <TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+If we want to <FONT color="red"><B>de-allocate</B></FONT> the
+  <FONT color="blue"><B>memory space</B></FONT> used for
+  <FONT color="red"><B>variable <TT>x</TT></B></FONT>
+  <B>and</B>
+  <FONT color="blue"><B>discard</B></FONT> the
+   <FONT color="red"><B>value</B></FONT> in the <B>de-alocated variable</B>,
+    the
+  <FONT color="blue"><B>resulting stack</B></FONT> will
+ look like this:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+In this example, we
+  <FONT color="red"><B>assume</B></FONT> that the
+ <FONT color="blue"><B>value</B></FONT> in the
+  <FONT color="red"><B>variable <TT>x</TT></B></FONT> is
+  <FONT color="blue"><B>no longer needed</B></FONT> nor
+ used in future computation.
+<P>
+I.e.: we <FONT color="red"><B>discard</B></FONT> the
+   <FONT color="blue"><B>variable</B></FONT> stored in
+  the <FONT color="red"><B>variable <TT>x</TT></B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If we <FONT color="red"><B>only</B></FONT> want to
+    <FONT color="blue"><B>de-allocate</B></FONT> some space
+     on the <FONT color="red"><B>syatem stack</B></FONT>, there is
+    a <FONT color="blue"><B>more efficient way</B></FONT> to do this task
+    (rather than using the <FONT color="red"><B><TT>pop</TT> instruction !)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+<LI> In order to <FONT color="red"><B>de-allocate</B></FONT>
+      the <FONT color="blue"><B>space</B></FONT> used by
+     some <FONT color="red"><B>variables</B></FONT> that are stored
+   on the <FONT color="blue"><B>program stack</B></FONT>,
+  we can <B>simple</B>
+     <FONT color="red"><B><I>increase</I> the stack pointer</B></FONT>
+     (which will change the
+     <FONT color="blue"><B>stack top</B></FONT> that
+     marks the <FONT color="red"><B>boundary</B></FONT> of the
+     <FONT color="blue"><B>reserved memory area</B></FONT> !!!)
+     
+<P>
+<B>Example:</B>
+  to <FONT color="red"><B>de-allocate</B></FONT>
+       <FONT color="blue"><B><I>one</I> <TT>int</TT> typed variable</B></FONT>
+    from the (top of the) 
+       <FONT color="red"><B>program stack</B></FONT>, we use:
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">add   sp, sp, #4 </FONT>    // Move program stacktop down 4 bytes
+                           // This will remove the reservation of 4 bytes 
+                           // that was used to stored the int typed variable  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<B>Example:</B>
+  to <FONT color="red"><B>de-allocate</B></FONT>
+       <FONT color="blue"><B><I>two</I> <TT>int</TT> typed variable</B></FONT>
+    from the (top of the) 
+       <FONT color="red"><B>program stack</B></FONT>, we use:
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">add   sp, sp, #8 </FONT>    // Move program stacktop down 8 bytes
+                           // This will remove the reservation of 8 bytes 
+                           // that was used to stored TWO int typed variable  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Functions of the program stack pointer register SP
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>stack pointer SP</B></FONT>
+          has <FONT color="blue"><B>2 important functions</B></FONT>:
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>SP</B></FONT> indicate the
+       <FONT color="blue"><B><I>top</I></B></FONT> of the
+       <FONT color="red"><B>stack</B></FONT>; as such:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>SP</B></FONT> points to the
+      <FONT color="blue"><B>location</B></FONT> in the
+      <B>stack</B> that the 
+      <FONT color="red"><B><TT>push</TT></B></FONT> and
+      <FONT color="red"><B><TT>pop</TT></B></FONT> operations
+      will <FONT color="blue"><B>operate</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Another function</B></FONT>
+    of <FONT color="red"><B>SP</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL> 
+ <LI> <FONT color="red"><B>SP</B></FONT>
+      <FONT color="blue"><B><I>marks</I></B></FONT>
+      the <FONT color="red"><B>memory locations</B></FONT> that
+      are <FONT color="blue"><B><I>reserved</I> (= currently used !!!)
+      </B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Specifically:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        +----------+
+        |          |
+	|	   | AVAILABLE !!!! (not used) 
+        |          |<FONT color="red">   
+  SP -->+----------+
+        |          | ^
+	|     	   | | USED !!!!
+	|	   | | 
+	|  Program | | (= reserved !!!!)
+	|  stack   | |
+	|	   | |  
+	|	   | v 
+        +----------+</font>
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you perform a <FONT color="red"><B>push</B></FONT> 
+     operation (=
+      <FONT color="blue"><B>increase</B></FONT> the <B>stack size</B>),
+     you will:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>create</B></FONT> one or more
+      <FONT color="blue"><B>variables</B></FONT> (on the <B>stack</B> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> When you perform a <FONT color="red"><B>pop</B></FONT> 
+     operation (=
+      <FONT color="blue"><B>decrease</B></FONT> the <B>stack size</B>),
+     you will:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>destroy</B></FONT> one or more
+      <FONT color="blue"><B>variables</B></FONT> (on the <B>stack</B> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+
+
+
+

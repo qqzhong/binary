@@ -1,0 +1,206 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction to "if" and "while" statements
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">control structures</FONT> in a
+     high level programming languae
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Control structures</B></FONT>
+     in
+    <FONT color="blue"><B>high level programming language</B></FONT> can
+    <FONT color="red"><B>change</B></FONT> the
+    <FONT color="blue"><B>program (execution) flow</B></FONT>
+ <P>
+  For a <FONT color="red"><B>discussion</B></FONT> on
+  <FONT color="blue"><B>program flow</B></FONT>, refer to
+  this
+  <FONT color="red"><B>webpage</B></FONT>:
+  <A HREF="../4-intro/special-reg.html#program-flow">
+  <FONT color="blue"><B>click here</B></FONT></A>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>control structures</B></FONT>
+     in
+    <FONT color="blue"><B>high level programming language</B></FONT>
+    are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>if-statement</B></FONT>
+ <LI> The <FONT color="red"><B>if-else-statement</B></FONT>
+ <LI> The <FONT color="red"><B>while-statement</B></FONT>
+ <LI> The <FONT color="red"><B>for-statement</B></FONT>
+ <LI> The <FONT color="red"><B>do-while-statement</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+The <B>control constructs</B>
+     "if", "if-else", ("switch") "while-loop", "for-loop" and "do-while-loop"
+     is handled in assembler code by (only) 2 kinds of 
+   <FONT color="red"><B>assembler instructions</B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <OL>
+ <LI> <B>Compare instruction</B>: compares 2 values and
+	set the status flags (N, Z, V, C) according to
+	the compared result
+<P>
+ <LI> <B>Branch instruction(s)</B>: makes the CPU "jump" to a certain memory
+	location when a ceratin condition is satisfied.
+	And if that condition is <B>not</B> satisfied,
+	the CPU continues execution with the next instruction
+	(the one after the branch instruction).
+ </OL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+So you may wonder 
+   <FONT color="blue"><B>how</B></FONT> can
+ just <FONT color="red"><B>2 assember instructions
+ ((1) compare and
+   (2) conditional/unconditional branch)</B></FONT>
+   be 
+ enough to implement
+  "if", "if-else", ("switch") "while-loop", "for-loop" and "do-while-loop"
+  etc.
+<P>
+The answer is: 
+ these <FONT color="red"><B>high level programming language 
+  constructs</B></FONT>
+ ("if", "if-else", ("switch") "while-loop", "for-loop" and "do-while-loop")
+ <FONT color="blue"><B>only</B></FONT> changes
+ the <FONT color="red"><B>flow of program control</B></FONT> in
+ a <FONT color="blue"><B>computer program</B></FONT>.
+<P>
+<UL>
+Remember that the
+ <FONT color="red"><B>flow of program control</B></FONT> is
+ the <FONT color="blue"><B>order</B></FONT> in which the
+ <FONT color="red"><B>program instructions</B></FONT> are
+ executed
+ (See:
+ <A HREF="../4-intro/special-reg.html">
+  click here</A>)
+</UL>
+<P>
+The <FONT color="red"><B>mechanism</B></FONT> to
+ <FONT color="blue"><B>change</B></FONT> the
+ <FONT color="red"><B>flow of program control</B></FONT> is
+ <FONT color="blue"><B>very simple</B></FONT>
+<P>
+By using the
+ <FONT color="red"><B><I>same</I> mechanism</B></FONT>, we can
+ change the program execution order in 
+ <FONT color="blue"><B>any way</B></FONT> that  we want.
+<P>
+<HR>
+<P>
+<LI> So in the next few webpages, I will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> First explain the 
+    <FONT color="red"><B>mechanism</B></FONT> used in the
+    CPU to <FONT color="blue"><B>change</B></FONT> the
+    <FONT color="red"><B>program flow</B></FONT>
+ <P>
+ <LI> How to use this <FONT color="red"><B>mechanism</B></FONT> to
+    <FONT color="blue"><B>construct</B></FONT> the
+    <FONT color="red"><B>program flow</B></FONT> that
+    reflects the <FONT color="blue"><B>execution</B></FONT> of
+    <FONT color="red"><B>if/if-else</B></FONT> statements
+  <P>
+ <LI> How to use this <FONT color="red"><B>mechanism</B></FONT> to
+    <FONT color="blue"><B>construct</B></FONT> the
+    <FONT color="red"><B>program flow</B></FONT> that
+    reflects the <FONT color="blue"><B>execution</B></FONT> of
+    <FONT color="red"><B>while/for</B></FONT> statements
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have to stress that the
+ <FONT color="red"><B>highlight</B></FONT> of
+ the <FONT color="blue"><B>discussions</B></FONT> of
+ the 
+  "if", "if-else", ("switch") "while-loop", "for-loop" and "do-while-loop"
+ statement is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> How to <FONT color="red"><B>construct</B></FONT> the
+     <FONT color="blue"><B>program flow</B></FONT> that
+    <FONT color="red"><B><I>reflects</I></B></FONT> the
+    <FONT color="blue"><B>statement</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will use <FONT color="red"><B>flow charts</B></FONT> to
+ help us
+ <FONT color="blue"><B>visualize</B></FONT> the
+ <FONT color="red"><B>program flow</B></FONT> corresponding to
+ each type of <B>high level language statements</B>
+<P>
+After constructing the
+ <FONT color="red"><B>flow chart</B></FONT> of the
+  <FONT color="blue"><B>statement</B></FONT>, we will
+ <FONT color="red"><B>write assembler instructions</B></FONT> to
+ <FONT color="blue"><B>implement</B></FONT>
+ the <FONT color="red"><B>program flow</B></FONT>.
+</UL>
+<P>
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

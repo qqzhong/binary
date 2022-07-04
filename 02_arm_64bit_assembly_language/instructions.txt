@@ -1,0 +1,317 @@
+4.4 Alphabetized list of AArch64 instructions
+Name Page Operation
+adc 86 Add with Carry
+add 86 Add
+adr 78 Form PC-Relative Address
+adrp 78 Form PC-Relative Address to 4 KB Page
+and 88 Bitwise AND
+asr 91 Arithmetic shift right
+b 70 Branch
+bic 89 Bitwise Bit Clear
+bl 73 Branch and Link
+blr 73 Branch to Register and Link
+br 72 Branch to Register
+cbnz 76 Compare and Branch if Nonzero
+cbz 76 Compare and Branch if Zero
+ccmn 101 Conditional Compare Negative
+ccmp 101 Conditional Compare
+cinc 100 Conditional Increment
+cinv 100 Conditional Invert
+cls 104 Count Leading Sign Bits
+clz 104 Count Leading Zeros
+cmn 98 Compare Negative
+cmp 98 Compare
+cneg 101 Conditional Negate
+csel 100 Conditional Select
+cset 101 Conditional Set
+csetm 101 Conditional Set Mask
+csinc 100 Conditional Select Increment
+csinv 100 Conditional Select Invert
+csneg 100 Conditional Select Negate
+eon 89 Bitwise Exclusive OR NOT
+eor 89 Bitwise Exclusive OR
+ldp 68 Load Pair
+ldr 65 Load Register
+ldur 67 Load Register (Unscaled)
+lsl 91 Logical shift left
+lsr 91 Logical shift right
+madd 92 Multiply add
+mneg 92 Multiply negate
+mov 90 Move
+movk 90 Move wide with keep
+movn 90 Move wide with NOT
+movz 90 Move wide with zero
+mrs 105 Move Status to Register
+msr 105 Move Register to Status
+msub 92 Multiply subtract
+mul 92 Multiply
+mvn 89 Bitwise NOT
+neg 86 Negate
+ngc 86 Negate with Carry
+nop 107 No Operation
+orn 89 Bitwise OR NOT
+orr 89 Bitwise OR
+ret 72 Return from Subroutine
+ror 91 Rotate right
+sbc 86 Subtract with Carry
+sdiv 97 Signed divide
+smaddl 93 Signed multiply add long
+smnegl 93 Signed multiply negate long
+smsubl 93 Signed multiply subtract long
+smulh 95 Signed multiply high
+smull 93 Signed multiply long
+stp 68 Store Pair
+str 65 Store Register
+stur 67 Store Register (Unscaled)
+sub 86 Subtract
+svc 106 Supervisor Call
+tbnz 76 Test Bit and Branch if Nonzero
+tbz 76 Test Bit and Branch if Zero
+tst 98 Test Bits
+udiv 97 Unsigned divide
+umaddl 93 Unsigned multiply add long
+umnegl 93 Unsigned multiply negate long
+umsubl 93 Unsigned multiply subtract long
+umulh 95 Unsigned multiply high
+umull 93 Unsigned multiply long
+
+
+9.9 Alphabetized list of FP/NEON instructions
+Name Page Operation
+fabs 308 Absolute Value
+fadd 309 Add
+fccmp 312 Conditional Compare
+fccmpe 312 Conditional Compare with Exception
+fcmp 312 Compare
+fcmpe 312 Compare with Exception
+fcsel 313 Conditional Select
+fcvt 304 Convert Between Double, Single, and Half Precision
+fcvtas 305 Convert Float to Signed Integer, Round Away From Zero
+fcvtau 305 Convert Float to Unsigned Integer, Round Away From Zero
+fcvtms 305 Convert Float to Signed Integer, Round Towards −∞
+fcvtmu 305 Convert Float to Unsigned Integer, Round Towards −∞
+fcvtns 305 Convert Float to Signed Integer, Round To Even
+fcvtnu 305 Convert Float to Unsigned Integer, Round To Even
+fcvtps 305 Convert Float to Signed Integer, Round Towards +∞
+fcvtpu 305 Convert Float to Unsigned Integer, Round Towards +∞
+fcvtzs 306 Convert Float to Signed Fixed Point
+fcvtzs 305 Convert Float to Signed Integer, Round Towards Zero
+fcvtzu 306 Convert Float to Unsigned Fixed Point
+fcvtzu 305 Convert Float to Unsigned Integer, Round Towards Zero
+fdiv 309 Divide
+fmax 311 Max
+fmaxnm 311 Max Number
+fmin 311 Min
+fminnm 311 Min Number
+fmov 303 Floating Point Move Immediate
+fmov 302 Move Between Data Registers
+fmul 309 Multiply
+fneg 308 Negate
+fnmul 309 Multiply and Negate
+frinta 307 Round away from zero
+frinti 307 Round using the mode set in the FPCR.
+frintm 307 Round towards −∞
+frintn 307 Round with halfway cases rounding to even
+frintp 307 Round towards +∞
+frintx 307 Round using mode set in the FPCR and raise an exception if the result
+does not have the same value as the input.
+frintz 307 Round towards zero
+fsqrt 308 Square Root
+fsub 309 Subtract
+ldnp 301 Load Non-Temporal Pair
+ldp 301 Load Pair
+scvtf 306 Convert Signed Fixed Point to Float
+scvtf 305 Convert Signed Integer to Float Using FPCR Rounding Mode
+stnp 301 Store Non-Temporal Pair
+stp 301 Store Pair
+ucvtf 306 Convert Unsigned Fixed Point to Float
+ucvtf 305 Convert Unsigned Integer to Float Using FPCR rounding mode
+
+
+10.13 Alphabetized list of advanced SIMD instructions
+Name Page Operation
+aba 354 Vector integer absolute difference and accumulate
+abal 355 Vector absolute difference and accumulate long
+abd 354 Vector integer absolute difference
+abdl 355 Vector absolute difference long
+abs 383 Integer absolute value
+abs 356 Vector absolute value
+adalp 353 Vector add and accumulate long pairwise
+add 348 Vector integer add
+addhn 351 Vector add and narrow
+addl 348 Vector add long
+addlp 353 Vector add long pairwise
+addp 386 Integer Sum Elements to Scalar
+addp 353 Vector add pairwise
+addv 385 Integer Sum Elements to Scalar
+addw 349 Vector add wide
+and 346 Vector bitwise AND
+bic 347 Vector Bit clear immediate
+bic 346 Vector bit clear
+bif 346 Vector insert if false
+bit 346 Vector insert if true
+bsl 346 Vector bitwise select
+cls 359 Vector count leading sign bits
+clz 359 Vector count leading zero bits
+cm 391 Scalar integer compare mask
+cm 388 Vector integer compare mask
+cmtst 393 Scalar test bits compare mask
+cmtst 390 Vector test bits compare mask
+cnt 359 Vector count set bits
+cvtf 343 Vector convert integer or fixed point to floating point
+dup 333 Duplicate Scalar
+eor 346 Vector bitwise Exclusive-OR
+ext 339 Byte Extract
+faba 355 Vector floating point absolute difference and accumulate
+fabd 354 Vector floating point absolute difference
+fabs 356 Vector floating point absolute value
+fac 392 Scalar floating point absolute compare mask
+fac 389 Vector floating point absolute compare mask
+fadd 348 Vector floating point add
+faddp 386 Integer Maximum Element to Scalar
+fcm 391 Scalar floating point compare mask
+fcm 388 Vector floating point compare mask
+fcvt 343 Vector convert floating point to integer or fixed point
+fcvtl 344 Vector convert from half to single precision
+fcvtn 344 Vector convert from single to half precision
+fcvtxn 344 Vector convert from double to single precision
+fdiv 362 Vector floating point divide
+fmadd 310 Fused Multiply Accumulate
+fmax 357 Vector floating point maximum
+fmaxnm 357 Vector floating point maxnum
+fmaxnmp 357 Vector floating point pairwise maxnum
+fmaxp 386 Floating Point Maximum Element to Scalar
+fmaxp 357 Vector floating point pairwise maximum
+fmaxv 385 Floating Point Maximum Element to Scalar
+fmin 357 Vector floating point minimum
+fminnm 357 Vector floating point minnum
+fminnmp 357 Vector floating point pairwise minnum
+fminp 387 Floating Point Minimum Element to Scalar
+fminp 357 Vector floating point pairwise minimum
+fminv 385 Floating Point Minimum Element to Scalar
+fmla 364 Vector by scalar floating point multiply accumulate
+fmla 370 Vector by scalar floating point multiply accumulate
+fmla 362 Vector floating point multiply accumulate
+fmls 364 Vector by scalar floating point multiply subtract
+fmls 370 Vector by scalar floating point multiply subtract
+fmls 362 Vector floating point multiply subtract
+fmov 336 Vector Floating Point Move Immediate
+fmsub 310 Fused Multiply Subtract
+fmul 364 Vector by scalar floating point multiply
+fmul 370 Vector by scalar floating point multiply
+fmul 362 Vector floating point multiply
+fneg 356 Vector floating point negate
+fnmadd 310 Fused Multiply Accumulate and Negate
+fnmsub 310 Fused Multiply Subtract and Negate
+frecps 369 Reciprocal Step
+frint 345 Round Floating Point to Integer
+frsqrts 369 Reciprocal Square Root Step
+fsqrt 382 Vector Floating Point Square Root
+fsqrt 383 Vector Floating Point Square Root
+fsub 349 Vector floating point subtract
+hadd 352 Vector halving add
+hsub 352 Vector halving subtract
+ld<n> 329 Load Multiple Structured Data
+ld<n> 327 Load Structured Data
+ld<n>r 331 Load Copies of Structured Data
+max 357 Vector integer maximum
+maxp 357 Vector integer pairwise maximum
+maxv 385 Integer Maximum Element to Scalar
+min 357 Vector integer minimum
+minp 357 Vector integer pairwise minimum
+minv 385 Integer Minimum Element to Scalar
+mla 364 Vector by scalar integer multiply accumulate
+mla 362 Vector integer multiply accumulate
+mlal 364 Vector by scalar multiply accumulate long
+mlal 362 Vector multiply accumulate long
+mls 364 Vector by scalar integer multiply subtract
+mls 362 Vector integer multiply subtract
+mlsl 364 Vector by scalar multiply subtract long
+mlsl 362 Vector multiply subtract long
+mov 334 Copy element into vector
+movi 336 Vector Move Immediate
+mul 364 Vector by scalar integer multiply
+mul 362 Vector integer multiply
+mull 364 Vector by scalar multiply long
+mull 362 Vector multiply long
+mvni 336 Vector Move NOT Immediate
+neg 383 Integer absolute value
+neg 356 Vector negate
+not 382 Vector 1’s Complement
+orn 346 Vector bitwise NOR
+orr 346 Vector bitwise OR
+orr 347 Vector bitwise OR immediate
+pmul 362 Vector polynomial multiply
+pmull 362 Vector polynomial multiply long
+qadd 360 Scalar saturating add
+qadd 382 Vector Saturating Accumulate
+qadd 383 Vector Saturating Accumulate
+qadd 348 Vector saturating add
+qdmulh 360 Scalar saturating multiply (high half)
+qrshl 377 Saturating Shift Left or Right by Variable and Round
+qrshrn 376 Saturating Rounding Shift Right Narrow
+qrshrn 381 Saturating Rounding Shift Right Narrow
+qshl 377 Saturating Shift Left or Right by Variable
+qshl 373 Saturating Signed or Unsigned Shift Left Immediate
+qshl 379 Saturating Signed or Unsigned Shift Left Immediate
+qshl 360 Scalar saturating shift left
+qshrn 376 Saturating Shift Right Narrow
+qshrn 381 Saturating Shift Right Narrow
+qsub 360 Scalar saturating subtract
+qsub 349 Vector saturating subtract
+raddhn 351 Vector add, round, and narrow
+rbit 382 Vector bit reverse
+rbit 384 Vector bit reverse
+recpe 368 Reciprocal Estimate
+rev 382 Reverse Elements
+rev 384 Reverse Elements
+rhadd 352 Vector halving add and round
+rshl 377 Shift Left or Right by Variable and Round
+rshr 374 Shift Right Immediate and Round
+rshr 380 Shift Right Immediate and Round
+rshrn 374 Shift Right Immediate Round and Narrow
+rsqrte 368 Reciprocal Square Root Estimate
+rsra 374 Shift Right Round and Accumulate Immediate
+rsra 380 Shift Right Round and Accumulate Immediate
+rsubhn 351 Vector subtract, round, and narrow
+shl 377 Shift Left or Right by Variable
+shl 373 Unsigned Shift Left Immediate
+shl 379 Unsigned Shift Left Immediate
+shll 373 Signed or Unsigned Shift Left Immediate Long
+shll 379 Signed or Unsigned Shift Left Immediate Long
+shr 374 Shift Right Immediate
+shr 380 Shift Right Immediate
+shrn 374 Shift Right Immediate and Narrow
+sli 378 Shift Left and Insert
+smov 334 Copy signed integer element from vector to AARCH64 register
+sqdmlal 365 Saturating Multiply Double Accumulate
+sqdmlal 371 Saturating Multiply Scalar by Element, Double, and Accumulate
+sqdmlsl 365 Saturating Multiply Double Subtract
+sqdmlsl 371 Saturating Multiply Scalar by Element, Double, and Subtract
+sqdmulh 366 Saturating Multiply Double (High)
+sqdmull 365 Saturating Multiply Double
+sqdmull 371 Saturating Multiply Scalar by Element and Double
+sqrdmulh 367 Saturating Multiply Double and Round (High)
+sqrshrun 376 Signed Saturating Rounding Shift Right Unsigned Immediate
+sqrshrun 381 Signed Saturating Rounding Shift Right Unsigned Immediate
+sqshlu 373 Saturating Signed Shift Left Immediate Unsigned
+sqshlu 379 Saturating Signed Shift Left Immediate Unsigned
+sqshrun 376 Signed Saturating Shift Right Unsigned Narrow
+sqshrun 381 Signed Saturating Shift Right Unsigned Narrow
+sra 374 Shift Right and Accumulate Immediate
+sra 380 Shift Right and Accumulate Immediate
+sri 378 Shift Right and Insert
+st<n> 329 Store Multiple Structured Data
+st<n> 327 Store Structured Data
+sub 349 Vector integer subtract
+subhn 351 Vector subtract and narrow
+subl 349 Vector subtract long
+subw 349 Vector subtract wide
+tbl 341 Table Lookup
+tbx 341 Table Lookup with Extend
+trn 337 Transpose Matrix
+umov 334 Copy unsigned integer element from vector to AARCH64 register
+uzp 339 Unzip Vectors
+zip 339 Zip Vectors
+
+

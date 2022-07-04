@@ -1,0 +1,716 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The compare and conditional branch instructions
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making choices
+     </B></FONT>
+<P>
+<UL>
+<LI> Although we can <FONT color="red"><B>change</B></FONT> the
+  <FONT color="blue"><B>program flow</B></FONT> with
+  the <FONT color="red"><B>branch</B></FONT> instruction,
+  we still need a
+  <FONT color="blue"><B>mechanism</B></FONT> to
+  <FONT color="red"><B>make choices</B></FONT> in order to
+  implement
+  the <FONT color="blue"><B><TT>if</TT></B></FONT> and
+  the <FONT color="blue"><B><TT>while</TT></B></FONT> statement !!
+<P>
+<LI> We will study
+  <FONT color="red"><B>2 assembler instructions</B></FONT> first:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compare</B></FONT> instruction
+    that <FONT color="blue"><B>compares (= subtracts)</B></FONT>
+    2 values 
+ <P>
+<HR>
+ <P>
+ <LI> The <FONT color="red"><B><I>conditional</I> branch
+     instructions (plural !)</B></FONT> that
+     use the <FONT color="blue"><B>summary result</B></FONT> of
+     a <FONT color="red"><B>compare instruction</B></FONT>
+     to decide if
+     the <FONT color="blue"><B>branch</B></FONT> should be
+     <FONT color="red"><B>"taken"</B></FONT> or
+     <FONT color="red"><B>"not taken"</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The compare (<TT>cmp</TT>) assembler instruction
+     </B></FONT>
+<P>
+<UL>
+
+<LI>The <FONT color="red"><B>Compare Instruction</B></FONT>
+     of the <FONT color="blue"><B>ARM processor</B></FONT> has the following
+     <FONT color="red"><B>syntax</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  cmp  <FONT color="red">srcReg, op</FONT>	Computes the difference <FONT color="red">srcReg &minus; op</FONT>
+			and sets the status flags (N,Z,V,C) according
+			to the outcome of the subtraction
+
+			You can use as <FONT color="red">op</FONT>:
+
+			    1. a register
+			    2. a <FONT color="red">small</FONT> constant (between -1000 and 1000)
+<FONT COLOR="MAGENTA"><B>
+			The effect of a <FONT color="red">subtraction</FONT> is to compare the value in 
+			register <FONT color="red">srcReg</FONT> against the value specified 
+			by <FONT color="red">op</FONT>
+</B></FONT>
+			The register <FONT color="red">srcReg</FONT> is <B>NOT</B> updated by the compare instruction !
+			Only the <FONT color="red">N,Z,V,C</FONT> flags are updated
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> When you 
+  <FONT color="red"><B>compare 2 values <TT>x</TT> and <TT>y</TT></B></FONT>,
+  the
+  <FONT color="blue"><B>ARM processor</B></FONT>
+  will  <FONT color="red"><B>actually</B></FONT>
+   <FONT color="blue"><B>subtract</B></FONT> the
+  values
+   (i.e., computes: <FONT color="red"><B><TT>x - y</TT></B></FONT>)
+  and the <FONT color="blue"><B>ARM processor</B></FONT> will then
+  <FONT color="red"><B>set</B></FONT> the
+  <FONT color="blue"><B>condition flags</B></FONT> according to
+  the <FONT color="red"><B><I>result</I> </B></FONT> 
+  of the <B>subtraction</B>.
+
+
+
+<P>
+<LI> Here is a program that illustrate the effect of CMP:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File: /home/cs255001/demo/asm/6-if/cmp.s
+
+main:
+        mov     r0, #10                 // r0 = 10
+
+        // Compare 2 equal values: check the flags !!!
+        cmp     r0, #10                 // N=0, Z=1, C=1, V=0   
+
+        // Compare against a smaller value: check the flags !!!
+        cmp     r0, #6                  // N=0,Z=0,C=1,V=0
+
+        // Compare against a larger value: check the flags !!!
+        cmp     r0, #16                 // N=1,Z=0,C=0,V=0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   <P>
+    Look carefully at the flags when you run the program.
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>do not</B></FONT> need to know
+    <FONT color="blue"><B><I>how</I></B></FONT> the
+    <FONT color="red"><B>NZVC flag bits</B></FONT> are
+    <FONT color="blue"><B>changed</B></FONT> by the
+    <FONT color="red"><B><TT>cmp</TT> instruction</B></FONT> -
+    that is <FONT color="blue"><B>too much detail</B></FONT>
+<P>
+ <LI> The <FONT color="red"><B><I>only</I></B></FONT> fact I want yo
+     to take away from this <FONT color="blue"><B>demo program </B></FONT>
+  is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>flags</B></FONT> are
+   <FONT color="blue"><B>changed</B></FONT> to
+   <FONT color="red"><B>reflect</B></FONT> the
+   <FONT color="blue"><B>result</B></FONT> of the
+   <FONT color="red"><B>subtraction</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>setting </B></FONT> of the
+   <FONT color="blue"><B>flags</B></FONT> contains
+   <FONT color="red"><B>enough information</B></FONT> for the
+   <FONT color="blue"><B>processor</B></FONT> to
+   determine
+   <FONT color="red"><B><I>which</I> value</B></FONT> in
+   the <FONT color="blue"><B><TT>cmp</TT> instruction</B></FONT>
+   was <FONT color="red"><B>larger, smaller or equal</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<JR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The
+        <FONT color="red"><B><TT>cmp</TT> instruction</B></FONT> by itself
+       is not doing much (it only set flags...).
+  <P>
+    You will only appreciate its power  when the 
+  <FONT color="red"><B><TT>cmp</TT></B></FONT> instruction
+    is <FONT color="blue"><B>followed</B></FONT>
+   by a <FONT color="red"><B>conditional branch/jump</B></FONT>
+    instruction ! (discussed next)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">conditional</FONT> and
+  <FONT color="red">unconditional</FONT> branch instructions
+     </B></FONT>
+<P>
+<UL>
+
+ <LI> There are <FONT color="red"><B>16</B></FONT>
+       <B> branch conditions</B> possible in
+       <FONT color="blue"><B>(ARM) assembler programming</B></FONT>:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/0/cond-flags.jpg" width=500 height=600></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <FONT color="blue"><B>BUT</B></FONT>
+  <FONT color="red"><B><I>only</I> 6</B></FONT> of them
+     are <FONT color="blue"><B>relevant</B></FONT>
+     to compare
+     <FONT color="red"><B><I>signed</I> values</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/0/cmp-nzvc.jpg" width=500 height=250></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+We will <FONT color="red"><B>only</B></FONT> study (and use)
+ these <FONT color="blue"><B>6 conditional branch instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    beq       - branch on equal                 condition          
+    bne	      - branch on not equal             condition
+    bgt	      - branch on greater than          condition
+    blt	      - branch on less than             condition
+    bge	      - branch on greater than or equal condition
+    ble	      - branch on less than or equal    condition
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+
+<HR>
+<HR>
+
+
+
+
+<P>
+  <FONT color="red"><B>All</B></FONT> the <FONT color="blue"><B>conditional
+   branch</B></FONT> instructions
+   operate the same way. 
+ <P>
+ I will discuss <FONT color="red"><B>one</B></FONT> of them
+	in details first, and then the other 5 will be described just briefly.
+<P>
+
+
+
+
+
+
+<HR>
+<HR>
+<P>
+ <LI> I will use
+    <FONT color="red"><B> "Branch if LESS THAN" (BLT)</B></FONT>
+ for the discussion:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">blt  label</FONT>	If the status flags, at the moment that this
+			instruction is executed, indicates that the
+			<FONT color="red"><B>cmp</FONT> operation resulted in a <FONT color="red">"LESS THAN" condition</FONT>, 
+			the CPU will <FONT color="red">"<B>branch"</FONT> or <FONT color="red">"jump"</FONT> to the instruction 
+			marked by <FONT color="red">label</FONT>
+
+			If the status flags indicates the otherwise
+			(i.e., "NOT LESS THAN"), then the CPU will 
+			<FONT color="red">continue</FONT> the execution with the <FONT color="red">next</FONT>
+			instruction (i.e., the instruction that 
+			<FONT color="red">follows</FONT> the <FONT color="red">blt</FONT> instruction)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        mov     r0, <FONT color="red">#5</FONT>                  // r0 = 5 - <FONT color="red">try changing this to 15</FONT>
+
+        // Compare 2 values...
+        <FONT color="red">cmp     r0, #10</FONT>
+
+        <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">blt     there</FONT></SPAN>                   // Branch to label "there" if <FONT color="red">r0 < 10</FONT>    
+
+        mov     r1, #4444
+        mov     r2, #4444
+        mov     r3, #4444
+
+<FONT color="red">there:</FONT>
+        mov     r4, #4444
+        mov     r5, #4444
+        mov     r6, #4444
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Effect</B> of the
+  <FONT color="red"><B><TT>"blt there"</TT></B></FONT> instruction in
+   this program is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+
+
+ <UL>
+ <LI> If the value in
+      register <FONT color="red"><B><TT>r0</TT></B></FONT>
+      is <FONT color="blue"><B>less than 10</B></FONT>,
+       the 
+       <FONT color="red"><B><TT>"blt there"</TT></B></FONT>
+        instruction will make the CPU jump 
+      to the memory location
+      <FONT color="blue"><B>marked</B></FONT> by
+      the <FONT color="red"><B><TT>"there"</TT></B></FONT> label
+ <P>
+      The program execution will
+      <FONT color="red"><B>jump to</B></FONT> 
+        the <FONT color="blue"><B><TT>mov r4, #4444</TT></B></FONT> is at,
+      and continue the program execution from that point onward
+	(and it will not return back where it came from).
+<P>
+ <LI> If the value in
+      register <FONT color="red"><B><TT>r0</TT></B></FONT>
+      is <FONT color="blue"><B>greater than or equal to 10</B></FONT>,
+     the <FONT color="red"><B><TT>"blt there"</TT></B></FONT>
+    instruction does <B>nothing</B> at all
+	(since condition is false) and the CPU will 
+	<FONT color="blue"><B>continue</B></FONT> the program execution
+	with the next instruction 
+	which is
+	<FONT color="red"><B><TT>mov r1, #4444</TT></B></FONT>
+
+ </UL>
+
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/6-if/blt.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 blt</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: use
+ 
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Try <FONT color="red"><B>changing</B></FONT>
+ the instruction <FONT color="blue"><B><TT>mov r0, #5</TT></B></FONT>
+  to 
+ <FONT color="blue"><B><TT>mov r0, #15</TT></B></FONT> and
+ run the program again -
+ it will <FONT color="red"><B>not branch</B></FONT> in this case !!!
+
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Importan note</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Be <FONT COLOR="red"><B>very careful</B></FONT>
+      with the <FONT color="blue"><B>order</B></FONT>
+       of the <FONT color="red"><B>operands</B></FONT> in
+   the <FONT color="blue"><B><TT>cmp</TT> instruction</B></FONT> !
+ <P>
+  This <FONT color="red"><B>sequence</B></FONT> of
+   <FONT color="blue"><B>assembler code</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     cmp  <FONT color="red">r0</FONT>, r1                     
+
+     blt  there
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="red"><B>branch</B></FONT> to the
+  <FONT color="blue"><B>label <TT>there</TT></B></FONT> if
+   <FONT color="red"><B><TT>r0 < r1</TT></B></FONT>
+<P>
+<FONT color="red"><B>But:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     cmp  <FONT color="red">r1</FONT>, r0                     
+
+     blt  there
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="red"><B>branch</B></FONT> to the
+  <FONT color="blue"><B>label <TT>there</TT></B></FONT> if
+   <FONT color="red"><B><TT>r1 < r0</TT></B></FONT>
+  (i.e.: <FONT color="red"><B><TT>r0 > r1</TT></B></FONT> - 
+   <FONT color="blue"><B>greater than</B></FONT> !!!)
+<P>
+So don't put use
+ registers in the wrong order !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The 6 (signed value) conditional branch assembler instructions
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> Here is the list of all 6 <B>conditional</B> branches in ARM:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<P>
+ <UL>
+ <LI> <FONT color="red"><B><TT>beq</TT></B></FONT>:
+       branch if condition flags indicate last
+    <FONT color="red"><B><TT>cmp</TT></B></FONT> instruction 
+	resulted in the 
+   <FONT color="blue"><B>equal</B></FONT> condition (this one is easy: 
+	the Z flag is set !)
+<P>
+<FONT color="red"><B><TT>bne</TT></B></FONT>:
+       branch if condition flags indicate last
+    <FONT color="red"><B><TT>cmp</TT></B></FONT> instruction 
+	resulted in the 
+   <FONT color="blue"><B><I>not</I> 
+     equal</B></FONT> condition (this one is easy: 
+	the Z flag is reset !)
+<P>
+ <LI> <FONT color="red"><B><TT>blt</TT></B></FONT>:
+    branch if condition flags indicate last 
+   <FONT color="red"><B><TT>cmp</TT></B></FONT> instruction 
+	resulted in the <FONT color="blue"><B>less than</B></FONT> condition 
+<P>
+ <LI> <FONT color="red"><B><TT>ble</TT></B></FONT>:
+  branch if condition flags indicate last 
+   <FONT color="red"><B><TT>cmp</TT></B></FONT>
+    instruction 
+	resulted in the <FONT color="blue"><B>less than or equal</B></FONT>
+	 condition 
+<P>
+ <LI> <FONT color="red"><B><TT>bgt</TT></B></FONT>:
+    branch if condition flags indicate last 
+   <FONT color="red"><B><TT>cmp</TT></B></FONT> instruction 
+	resulted in the <FONT color="blue"><B>greater than</B></FONT>
+	 condition 
+<P>
+ <LI> <FONT color="red"><B><TT>bge</TT></B></FONT>:
+    branch if condition flags indicate last 
+    <FONT color="red"><B><TT>cmp</TT></B></FONT> instruction 
+	resulted in the 
+  <FONT color="blue"><B>greater than or equal</B></FONT> condition 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> And then there is one 
+   <FONT color="red"><B>unconditional</B></FONT> branch instruction in 
+  ARM:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>b</TT></B></FONT> or
+    <FONT color="red"><B><TT>bal</TT></B></FONT>: &nbsp;&nbsp;
+        branch <FONT color="blue"><B>always</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You know <FONT color="red"><B>all there is to know</B></FONT>
+       about <B>assembler instructions</B>
+	to write 
+      <FONT color="blue"><B>"if"</B></FONT>, 
+      <FONT color="blue"><B>"if-else"</B></FONT>, 
+     <FONT color="blue"><B>"while"</B></FONT>, 
+    <FONT color="blue"><B>"for"</B></FONT> and 
+    <FONT color="blue"><B>"do-while"</B></FONT>
+	control statements in any high level programming language !!!
+<P>
+ But doing it <B>corrrectly</B> requires that you 
+   <FONT color="red"><B>understand</B></FONT>
+ what is going on when each of these 
+   <FONT color="blue"><B>control statements</B></FONT> are executed.
+ <P>
+ <B>I.e.</B>: you need to <B>understand</B> the
+   <FONT color="red"><B><I>flow</I> of control</B></FONT> of the
+   <B>program</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ We will examine each control statement and give the "blue print"
+ on how the control statement can be translated into assembler code.
+</UL>
+<P>
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

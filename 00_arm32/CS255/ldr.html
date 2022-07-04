@@ -1,0 +1,836 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using (the value stored in) a simple memory variable
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problem description
+     </B></FONT>
+<P>
+ <UL>
+ <LI> To understand what's going on, I like to give you
+      a little background first - because
+      you may not know this when you are
+      <FONT color="blue"><B>writting programs</B></FONT>
+      in a <FONT color="red"><B>high level programming language</B></FONT>
+      (such as <FONT color="blue"><B>Java</B></FONT>).
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Fact 1:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>All</B></FONT> of the
+    <FONT color="red"><B>variables</B></FONT> that you define
+    in your <B>computer program</B> are
+    <FONT color="blue"><B>stored</B></FONT> inside the
+    <FONT color="red"><B>computer memory</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ldr01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Fact 2:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>computer memory</B></FONT> 
+      <FONT color="blue"><B>cannot</B></FONT> perform
+      <FONT color="red"><B>computations (calculations)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Only the <FONT color="red"><B>CPU</B></FONT> contains the
+  necessary 
+     <FONT color="blue"><B>circuitry (ALU !)</B></FONT> to
+     perform <FONT color="red"><B>computations</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ldr01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Therefore</B>: in order to perform
+    <FONT color="red"><B>computations</B></FONT> using
+    the <FONT color="blue"><B>values in program</B></FONT>
+    (that are <FONT color="red"><B>stored in memory</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI>  We  must be <FONT color="red"><B><I>first</I></B></FONT>
+    <FONT color="blue"><B>transfer</B></FONT> the
+     <FONT color="red"><B>value</B></FONT> stored in
+    a <FONT color="blue"><B>memory variable</B></FONT> to 
+    a <FONT color="red"><B>register</B></FONT> inside the
+    <FONT color="blue"><B>CPU</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ldr01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Notice that the <FONT color="blue"><B>register</B></FONT> contains
+  a <FONT color="red"><B><I>copy</I></B></FONT> of the
+ <FONT color="blue"><B>value</B></FONT> in the
+ <FONT color="red"><B>memory variable</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Then</B></FONT>, we
+     <FONT color="blue"><B>use</B></FONT> the
+     <FONT color="red"><B>register (copy value)</B></FONT> in the
+     <FONT color="blue"><B>computation</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ldr01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<A NAME="principle"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Principle of accessing data stored in the computer memory
+     </B></FONT>
+<P>
+<UL>
+ <FONT color="red"><B>Principle</B></FONT> of
+      <FONT color="blue"><B>access data</B></FONT> that is stored in
+      the <FONT color="red"><B>computer memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can <FONT color="red"><B>access (= read or write)</B></FONT> data
+   </B></FONT> stored in
+   <FONT color="blue"><B>computer memory</B></FONT> if we know:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>starting</I> location</B></FONT> in
+  <B>memory</B>
+       where the <FONT color="blue"><B>data is stored</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>number of bytes</B></FONT> used
+      to <FONT color="blue"><B>store</B></FONT> the
+      <FONT color="red"><B>data</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<FONT color="red"><B>Applying</B></FONT> this
+ <FONT color="blue"><B>principle</B></FONT> is
+ the <FONT color="red"><B>most challenging part</B></FONT> in
+ <FONT color="blue"><B>assembler programming</B></FONT> because:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You often need to
+    <FONT color="red"><B>find (= compute)</B></FONT> the
+     <FONT color="blue"><B>(starting) address</B></FONT>
+ <P>
+ <LI> You <FONT color="red"><B>must</B></FONT> know
+     <FONT color="blue"><B>exactly</B></FONT> how many bytes
+     of memory is used to store the data !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+It's very easy to make programming mistakes in accessing data in memory
+ when you write assembler programs...
+<P>
+ 
+ 
+</UL>
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Moving values stored in computer memory into a register
+     </B></FONT>
+<P>
+<UL>
+<LI> To <FONT color="red"><B>support</B></FONT> different
+  <FONT color="blue"><B>data types</B></FONT> in
+  a <FONT color="red"><B>high level programming language</B></FONT>,
+  a <FONT color="blue"><B>processor</B></FONT> will
+ provide
+ <FONT color="red"><B><I>different</I> instructions</B></FONT>
+ to move values between the
+ CPU and memory:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There will be an <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>byte</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>1 byte</B></FONT>
+ <LI> There will be an <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>short</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>2 bytes</B></FONT>
+ <LI> There will be an <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>int</TT> and 
+      <TT>float</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>4 bytes</B></FONT>
+<P>
+ <LI> <FONT color="blue"><B>Some processors</B></FONT>
+    <B>may</B> have an 
+ <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>long</TT> and 
+      <TT>double</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>8 bytes</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice that <FONT color="blue"><B>moving (= copying)</B></FONT>
+ instruction <FONT color="red"><B>only</B></FONT> need to know
+ <FONT color="blue"><B>how many bytes</B></FONT> it needs to
+ move (= copy) to perform correctly.
+<P>
+So you can use the <FONT color="red"><B><I>same</I> move instruction</B></FONT>
+ on <FONT color="blue"><B>data types</B></FONT> that contains the
+ <FONT color="red"><B><I>same</I> number of bytes</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>ARM instruction</B></FONT> that
+     move (= copy) data from the memory into a register is called:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The  <FONT color="red"><B>Load Register</B></FONT> instruction
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Load Register</B></FONT> instruction has
+ <FONT color="blue"><B>(too) <I>many</I> different formats</B></FONT>,
+ and we will <FONT color="red"><B><I>only</I></B></FONT> learn
+ <FONT color="blue"><B>3 formats</B></FONT> to save time for other
+ <FONT color="red"><B>more important material</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> To support <FONT color="red"><B><I>different</I> data types</B></FONT> in
+    a <FONT color="blue"><B>high level programming language</B></FONT>,
+    <B>every processor</B> (and the ARM processor is no execption)
+    will provide
+    <FONT color="red"><B><I>different</I> load register instruction</B></FONT>
+<P>
+ The <FONT color="red"><B>ARM processor</B></FONT> has
+   <FONT color="blue"><B>3 different </B></FONT>
+      <FONT color="red"><B><TT>load register</TT>
+    instructions</B></FONT>:
+  
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">ldr</FONT>   (load register (full)): moves <FONT color="red">4 (consecutive) bytes</FONT> from memory into a register      
+
+  <FONT color="red">ldrsh</FONT> (load register half):   moves <FONT color="red">2 (consecutive) bytes</FONT> from memory into a register
+                                and <FONT color="red">sign extends</FONT> the 16 bits (= 2 bytes) representation       
+				into a 32 bits (int) representation
+
+  <FONT color="red">ldrsb</FONT> (load register byte):   moves <FONT color="red">1 byte</FONT> from memory into a register
+                                and <FONT color="red">sign extends</FONT> the 8 bits representation
+				into a 32 bits (int) representation
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will now present the <FONT color="red"><B>most basic format</B></FONT>
+ of the <FONT color="blue"><B>load register instruction</B></FONT> that
+ will be used (discussed soon) to move
+ <FONT color="red"><B>values stored in <I>simple</I> variables</B></FONT>
+ into a <FONT color="blue"><B>register</B></FONT> in the CPU.
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B> basic form</B></FONT> of
+ the  <FONT color="red"><B><TT>load register</TT> instruction</B></FONT>
+is:
+</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldr  r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Load 4 bytes from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+
+        The 4 bytes are stored in the register as follows:
+
+               <IMG SRC="FIGS/reg03a.gif"></A>
+
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldrsh r<sub>N</sub>, [r<sub>M</sub>] </FONT> </SPAN>     Load 2 bytes from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+			AND fill the left half of register with the sign bit
+
+        The 2 bytes are stored at the right and then 
+        <FONT color="red">sign extended</FONT> to 32 bits:
+
+               <IMG SRC="FIGS/reg03b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> ldrsb r<sub>N</sub>, [r<sub>M</sub>]</FONT></SPAN>       Load 1 byte  from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+			AND fill the left 3/4 of register with the sign bit
+
+        The byte is stored at the right and then
+	<FONT color="red">sign extended</FONT> to 32 bits:
+
+
+               <IMG SRC="FIGS/reg03c.gif"></IMG>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>reason</B></FONT> that we
+ <FONT color="blue"><B>sign-extend</B></FONT> a
+ <FONT color="red"><B><TT>byte</TT></B></FONT> and
+ a <FONT color="blue"><B><TT>short</TT></B></FONT> is obvious:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>All (integer) arithmetic operations</B></FONT> are
+    <FONT color="blue"><B>performed</B></FONT>
+    in the <FONT color="red"><B><TT>int</TT> data type</B></FONT>
+ (see:
+  <A HREF="../5-repr/2s-comp-types.html#int-op">
+  <FONT color="blue"><B>click here</B></FONT> </A>)
+ <P>
+  The <FONT color="red"><B><TT>ldrsb</TT></B></FONT> and
+  the <FONT color="red"><B><TT>ldrsh</TT></B></FONT> instructions
+  <FONT color="blue"><B>convert</B></FONT> the
+  <FONT color="red"><B><TT>byte</TT></B></FONT> and
+  <FONT color="red"><B><TT>short</TT></B></FONT> representations
+  to an <FONT color="blue"><B><TT>int</TT></B></FONT> representation
+  so that the <FONT color="red"><B>arithmetic operation(s)</B></FONT> can
+  be performed with the
+  <FONT color="blue"><B><TT>int</TT></B></FONT> representation
+ for <FONT color="red"><B>better accuracy</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose <FONT color="red"><B><TT>r0</TT></B></FONT>
+   contains the value <FONT color="blue"><B>4000 (decimal)</B></FONT>
+<P>
+   (Remember that register
+   <FONT color="red"><B><TT>r0</TT></B></FONT> contains
+   a <FONT color="blue"><B>binary number</B></FONT>, what I mean is:
+   the <FONT color="red"><B>binary number</B></FONT> in
+   <FONT color="blue"><B>register <TT>r0</TT></B></FONT> represents
+   the <FONT color="red"><B>decimal value 4000</B></FONT>)
+<P>
+ The <B>instruction</B> &nbsp;
+   <FONT color="red"><B><TT>ldr r1,[r0]</TT></B></FONT>
+   &nbsp; will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Transfer</B></FONT>
+      <FONT color="blue"><B>4 bytes</B></FONT> stored in
+      memory locations
+      <FONT color="red"><B>4000,4001,4002,4003</B></FONT> into
+      the <FONT color="blue"><B>(destination) register <TT>r1</TT></B></FONT>:
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In picture:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ldr01e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Moving the value stored in a program variable in computer memory into
+     a register
+     </B></FONT>
+<P>
+<UL>
+<LI> Before we can use the
+     <FONT color="red"><B><TT>ldr</TT> instruction</B></FONT>
+     to <FONT color="blue"><B>move the value</B></FONT> stored
+     in a <FONT color="red"><B>program variable</B></FONT> into
+     a <FONT color="blue"><B>register</B></FONT>, we must
+     <FONT color="red"><B><I>first</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move the <FONT color="red"><B><I>address</I></B></FONT> of the
+      desired <FONT color="blue"><B>program variable</B></FONT>
+      into some <FONT color="red"><B>register</B></FONT>
+      (e.g., in <FONT color="blue"><B><TT>r0</TT></B></FONT> or
+    <FONT color="blue"><B><TT>r1</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We have <FONT color="red"><B>previously  </B></FONT>
+      <FONT color="blue"><B>learned</B></FONT>
+      <FONT color="red"><B>how to move</B></FONT> the
+   <FONT color="blue"><B>address</B></FONT> of a
+   <FONT color="red"><B>memory variable</B></FONT> into
+   a <FONT color="blue"><B>register</B></FONT>:
+  <A HREF="mov-3.html">
+   <FONT color="red"><B>click here</B></FONT></A> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ You must use a <FONT color="red"><B>register</B></FONT> that
+ is <FONT color="blue"><B>"free"</B></FONT>, i.e.:
+  the <FONT color="red"><B>register</B></FONT> does not
+  contain any value that is
+  <FONT color="blue"><B>needed in future operations</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Register "management"</B></FONT>
+       is  an <FONT color="blue"><B>integral part</B></FONT> of
+       <FONT color="red"><B>assembler programming</B></FONT>
+ <P>
+ <FONT color="red"><B>You</B></FONT> must learn to
+  <FONT color="blue"><B>manage (coordinate the usage)</B></FONT> of
+  the <FONT color="red"><B><I>limited</I> number of registers</B></FONT>
+  inside the <FONT color="blue"><B>CPU</B></FONT>
+<P>
+ That's why you need to <FONT color="red"><B>know</B></FONT>
+  <FONT color="blue"><B>how many registers</B></FONT> a <B>processor</B>
+  has and their <FONT color="red"><B>names</B></FONT> !!!
+<P>
+ Maybe it's time for you to
+  <FONT color="red"><B>check up</B></FONT> on the
+ <FONT color="blue"><B>registers</B></FONT> in the
+  <FONT color="red"><B>ARM processor</B></FONT>:
+ <A HREF="cpu.html#ARM"> <FONT color="blue"><B>click here</B></FONT> </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT> move a
+  <FONT color="blue"><B>value</B></FONT> stored in a
+ <FONT color="red"><B>memory variable</B></FONT> into
+ a  <FONT color="blue"><B>register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. Move the <FONT color="red">address</FONT> of the memory variable into a (free) register <FONT color="red">rX</FONT>     
+
+   2. Then use:
+
+              ldr   destreg, [<FONT color="red">rX</FONT>]       for an int/float typed variable
+              ldrsh destreg, [<FONT color="red">rX</FONT>]       for a short typed variable
+              ldrsb destreg, [<FONT color="red">rX</FONT>]       for a byte  typed variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Programming examples
+     </B></FONT>
+<P>
+<UL>
+<LI> Let's define
+       <FONT color="red"><B>3 different typed</B></FONT> of
+       <FONT color="blue"><B>integer values</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .data
+
+i:      .4byte 444444           // int   typed variable      
+s:      .2byte 2222             // short typed variable
+b:      .byte  111              // byte  typed variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The following <FONT color="red"><B>instructions</B></FONT>
+ will move the
+ <FONT color="blue"><B><TT>int</TT> typed (4 bytes)</B></FONT>
+ in <FONT color="red"><B>variable <TT>i</TT></B></FONT> into
+ the <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move i into r1
+        movw    r0, #:lower16:i         // Moves the address of memory
+        movt    r0, #:upper16:i         // variable i into register r0
+        ldr     r1,[r0]                 // Move int representation in var into r1      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+The following <FONT color="red"><B>instructions</B></FONT>
+ will move the
+ <FONT color="blue"><B><TT>short</TT> typed (2 bytes)</B></FONT>
+ in <FONT color="red"><B>variable <TT>s</TT></B></FONT> into
+ the <FONT color="blue"><B>register <TT>r2</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move s into r2
+        movw    r0, #:lower16:s         // Moves the address of memory
+        movt    r0, #:upper16:s         // variable s into register r0
+        <FONT color="red">ldrsh</FONT>   r2,[r0]                 // Move short representation in var into r2     
+                                        // <FONT color="red">and</FONT> sign-extend into an int representation
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+And the following <FONT color="red"><B>instructions</B></FONT>
+ will move the
+ <FONT color="blue"><B><TT>byte</TT> typed (1 byte)</B></FONT>
+ in <FONT color="red"><B>variable <TT>b</TT></B></FONT> into
+ the <FONT color="blue"><B>register <TT>r3</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move b into r3
+        movw    r0, #:lower16:b         // Moves the address of memory
+        movt    r0, #:upper16:b         // variable b into register r0
+        <FONT color="red">ldrsb</FONT>   r3,[r0]                 // Move byte representation in var into r3    
+	                                // <FONT color="red">and</FONT> sign-extend into an int representation
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/ldr.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get a copy first
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 ldr</TT></B></FONT>
+ <LI> To run: use
+  <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

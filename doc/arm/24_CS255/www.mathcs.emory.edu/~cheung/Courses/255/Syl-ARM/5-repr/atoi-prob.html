@@ -1,0 +1,299 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Problem: entering integer numbers  into the computer
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problem description: how to enter numbers  into the computer ?
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Internally</B></FONT>
+   (= inside a computer program),
+    <FONT color="red"><B>(signed) integer values</B></FONT>
+    are <FONT color="blue"><B>represented</B></FONT>
+    using the
+    <FONT color="red"><B>2's complement code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Value            Internal representation (in 32 bits)
+   ------------     ----------------------------------------
+     ...               ...
+     neg three         11111111111111111111111111111101
+     neg two           11111111111111111111111111111110
+     neg one           11111111111111111111111111111111
+     zero              00000000000000000000000000000000
+     one	       00000000000000000000000000000001
+     two	       00000000000000000000000000000010
+     three	       00000000000000000000000000000011
+     ...               ...
+     <FONT color="red">twelve            00000000000000000000000000001100</FONT>
+     ...               ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>2's complement representation</B></FONT>
+ is <FONT color="blue"><B>very efficient</B></FONT> to perform
+ <FONT color="red"><B>arithmetic calculations</B></FONT>
+<P>
+ (See: <A HREF="2s-comp.html"> click here </A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Numbers</B></FONT> are 
+ <FONT color="blue"><B>entered</B></FONT> into the 
+   <FONT color="red"><B>computer input</B></FONT> by
+   <FONT color="blue"><B>typing</B></FONT> the
+  <FONT color="red"><B><I>text</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ For example:
+
+     <FONT color="red">12</FONT>          
+     <FONT color="red">123</FONT>   
+     ...     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ <FONT color="red"><B>Problem</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you type in the <FONT color="red"><B>text</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">12</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="blue"><B>computer</B></FONT> will
+ receive these <FONT color="red"><B>ASCII codes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       00110001 00110010                      
+
+ which represents the characters: 1 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>computer</B></FONT> will
+  <FONT color="red"><B>not receive</B></FONT> the
+ <FONT color="blue"><B>2;s complement code <TT>00001100</TT></B></FONT>
+ for the value <FONT color="red"><B><TT>twelve</TT></B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> See it for yourself:
+
+<P>
+ <UL>
+ <LI> <B>Enter the text "true" or "false":</B>
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea pattern="[\x00-\xFF]*" autofocus cols=50>
+12</textarea>
+<BR>
+<LI> See the corresponding <B>binary ASCII codes<B> for the string:
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea cols=50 pattern="(\s*[01]{8}\s*)*">0100100001100101011100100110010100100000011000100110010100100000011100110110010101100011011100100110010101110100001000000110110101100101011100110111001101100001011001110110010101110011001000010010000100110001</textarea>
+<p id=footer>Made by <a href=http://mathiasbynens.be/>@mathias</a>  
+---- <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/binary-ascii>GitHub! source</a></p>
+<script>(function(i,o){var l=o.getElementsByTagName("textarea"),b=l[0],a=l[1],k=o.getElementById("permalink"),j=/\s*[01]{8}\s*/g,e=/[\s\S]/g,f=/^(\s*[01]{8}\s*)*$/,r=/^[\x00-\xff]*$/,p=(function(){var t=new Date,v,s;try{(v=i.localStorage).setItem(t,t);s=v.getItem(t)==t;v.removeItem(t);return s&&v}catch(u){}}()),n=String.fromCharCode;function d(s){return encodeURIComponent(s).replace(/['()_*]/g,function(t){return"%"+t.charCodeAt().toString(16)})}function m(s){return"00000000".slice(String(s).length)+s}function q(s){return s.replace(j,function(t){return n(parseInt(t,2))})}function c(s){return s.replace(e,function(t){return m(t.charCodeAt().toString(2))+' '})}function h(x,v,u,t){var w=x.value,s="";if(v.test(w)){t.value=s=u(w);x.className=t.className=""}else{t.value="ERROR: invalid input";x.className=t.className="invalid"}return x==b?w:s}function g(){var s=this==a?h(a,f,q,b):h(b,r,c,a);k.hash=d(s);p&&(p.ascii=s)}b.onkeyup=a.onkeyup=g;b.oninput=a.oninput=function(){b.onkeyup=a.onkeyup=null;g.call(this)};if(p){p.ascii&&(b.value=p.ascii);g()}i.onhashchange=function(){b.value=decodeURIComponent(location.hash.slice(1));g()};if(location.hash){i.onhashchange()}}(this,document));window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src="//www.google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"))</script>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/input02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> <FONT color="blue"><B>Human users</B></FONT> will
+        <FONT color="red"><B>enter</B></FONT> the
+    <FONT color="blue"><B>number 12</B></FONT> as a
+       <FONT color="red"><B>string <TT>"12"</TT></B></FONT>
+       (i.e.: as <FONT color="blue"><B>ASCII codes</B></FONT>
+       representing the characters
+       <FONT color="red"><B><TT>1</TT></B></FONT> and
+       <FONT color="red"><B><TT>2</TT></B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> But <FONT color="red"><B>internally</B></FONT>
+   (= <FONT color="blue"><B>inside a Java program</B></FONT>, the
+   <FONT color="red"><B><TT>boolean</TT> values</B></FONT> are
+   <FONT color="blue"><B>represented</B></FONT> by
+   the <FONT color="red"><B>binary numbers <TT>00000001</TT> and
+   <TT>00000000</T></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Therefore</B></FONT>:
+  we need to <FONT color="blue"><B>convert</B></FONT>
+  the <FONT color="red"><B>input (ASCII) representation</B></FONT>
+  to the <FONT color="blue"><B>internal
+  <TT>int</TT> (2's complement) representation</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>Java class <TT>Integer</TT></B></FONT>
+   has provide the
+  <FONT color="blue"><B>conversion method
+   <TT>parseInt( )</TT></B></FONT> to
+   Java programmers to do the
+   conversion.
+ <P>
+   In <FONT color="red"><B>CS170/CS171</B></FONT>, you have learned to
+  use this method.
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int i;
+    String s = "123";
+
+    i = <FONT color="red">Integer.parseInt</FONT>(s);   // Convert string s to integer representation   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In <FONT color="red"><B>CS255</B></FONT>, we will
+ <FONT color="blue"><B>reveal the secret</B></FONT> inside
+ the <FONT color="red"><B><TT>parseInt( )</TT></B></FONT> method
+ so you will understand the computer operation better.
+<P>
+ Unlike the Boolean example,
+ the <FONT color="red"><B>conversion</B></FONT> from
+  <FONT color="blue"><B>ASCII representation</B></FONT> of
+  numbers to
+  <FONT color="red"><B>2's complement representation</B></FONT>
+ of numbers
+ is <FONT color="blue"><B>more complex</B></FONT> and
+  will take more than 1 webpage to explain....
+<P>
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

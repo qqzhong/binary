@@ -1,0 +1,233 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Defining the <TT>head</TT> reference variable to a link list in assembler
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>head</TT> variable of a linked list
+     </B></FONT>
+<P>
+ <UL>
+ <LI> A <FONT color="red"><B>linked list</B></FONT> is
+        <FONT color="blue"><B><I>dynamically</I> created</B></FONT>
+ <P>
+ That means that the
+ <FONT color="red"><B>elements</B></FONT> of a
+  <FONT color="blue"><B>linked list</B></FONT> does
+  <FONT color="red"><B>not exist</B></FONT> when 
+  the <FONT color="blue"><B>program starts executing</B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><I>only</I> variable</B></FONT> that
+    is <FONT color="blue"><B>defined</B></FONT> in 
+    a program that uses
+    <FONT color="red"><B>linked lists</B></FONT> is
+    a <FONT color="blue"><B><I>reference</I> variable</B></FONT>
+    that is <B>often</B> called
+    <FONT color="red"><B><TT>head</TT></B></FONT>.
+ <P>
+ In <FONT color="red"><B>Java</B></FONT>, this variable is defined
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    List  <FONT color="red">head</FONT>;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>user-defined Java class</B></FONT>
+  <FONT color="blue"><B><TT>class</TT></B></FONT> will contain the
+  <FONT color="red"><B>definition</B></FONT> of
+  a <FONT color="blue"><B>list structure</B></FONT>.
+<P>
+<FONT color="red"><B>Regardless</B></FONT> of the
+ <FONT color="blue"><B>list structure</B></FONT>,
+ the variable <FONT color="red"><B><TT>head</TT></B></FONT> defined by
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    List  <FONT color="red">head</FONT>;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is a <FONT color="red"><B><I>reference</I> variable</B></FONT> in
+ <FONT color="blue"><B>Java</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><I>reference</I> variable</B></FONT>
+     in <FONT color="blue"><B>Java</B></FONT> contains
+     the <FONT color="red"><B>memory <I>address</I></B></FONT>  !!!
+ <P>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+ A <FONT color="red"><B>memory <I>address</I></B></FONT> 
+ is a <FONT color="blue"><B>32 bits binary number</B></FONT>
+ used to
+ <FONT color="red"><B>identify</B></FONT> a
+ <FONT color="blue"><B>memory location</B></FONT></SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We has discussed the
+ <FONT color="red"><B><I>reference</I> concept</B></FONT> in
+ <FONT color="blue"><B>CS255</B></FONT> already, here is the
+  <FONT color="red"><B>webpage</B></FONT> if you need
+  a <FONT color="blue"><B>review</B></FONT>:
+ <A HREF="../4-intro/170/ref.html">
+   <FONT color="red"><B>click here</B></FONT> </A>
+<P>
+<FONT color="red"><B>Very important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>head</TT></B></FONT> variable
+       used to <FONT color="blue"><B>point</B></FONT> to
+       the <FONT color="red"><B><I>first</I> element</B></FONT>
+       in a <FONT color="blue"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list02c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+is <FONT color="red"><B><I>not</I></B></FONT> a
+ <FONT color="blue"><B>linked list object</B></FONT> !!!
+<P>
+It's a <FONT color="red"><B>variable</B></FONT> that
+ <FONT color="blue"><B><I>only</I> contains</B></FONT>
+ a <FONT color="red"><B>memory <I>address</I></B></FONT> !!!
+ <P>
+ (You can see this visually in the figure above; 
+ the <FONT color="red"><B><TT>head</TT></B></FONT> variable in the
+ illustration contains the
+ <FONT color="blue"><B>memory <I>address</I> <TT>7000</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to define the <TT>head</TT> variable of a linked list
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>Java definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List  <FONT color="red">head</FONT>;            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+corresponds to the following
+ <FONT color="red"><B>(ARM) assembler directives</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">head:    .skip 4</FONT>       // Reserve 4 bytes to store a memory address
+                          // Memory address in ARM consists of 32 bits       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

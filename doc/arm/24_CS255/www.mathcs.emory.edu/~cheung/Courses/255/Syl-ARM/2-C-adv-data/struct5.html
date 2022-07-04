@@ -1,0 +1,469 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Size of a <TT>struct</TT> variable
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How big is the <TT>struct</TT> typed variable ???
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Sizeof</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><TT>sizeof</TT> operator</B></FONT> 
+   can be used with any
+   <FONT color="red"><B>user-defined</B></FONT> data type
+   to find out 
+   <FONT color="blue"><B>how many bytes</B></FONT>
+   of <B>memory space</B>
+   the variable will need.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+/* ------------------------
+   Structure definition
+   ------------------------ */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};
+    
+int main(int argc, char *argv[])
+{
+   printf("sizeof(struct BankAccount) = %d\n",        
+              <FONT color="red">sizeof(struct BankAccount)</FONT> );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    sizeof(struct BankAccount) = <FONT color="red">16</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/sizeof1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc sizeof1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Wait a minute...</B></FONT>
+       didn't we learned that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   sizeof(int) = 4
+   sizeof(double) = 8      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> is it that
+ <FONT color="blue"><B><TT>sizeof(struct BankAccount) = 16</TT> </B></FONT>
+ <B>???</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct BankAccount
+   {
+      int    accNum;        //  4 bytes
+      double balance;       //  8 bytes
+   };                    ----------------
+                               <FONT color="red">12 bytes !!!</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Should a <FONT color="blue"><B><TT>struct BanAccount</TT></B></FONT> variable
+ use <FONT color="red"><B>12 bytes</B></FONT> ????
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="red"><B><I>memory address</I>
+      alignment requirements</B></FONT> in the <B>computer hardware</B>
+      (the <B>manifacturer</B> set these
+      <FONT color="blue"><B>requirements</B></FONT> to
+      make the <B>memory operations</B>
+      <FONT color="red"><B>efficient</B></FONT>)
+ <P>
+<HR>
+<P>
+ <LI> <B>Commonly used requirments:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B><TT>double</TT> typed variable</B></FONT>
+    <B><I>must</I></B> be located at a
+  <FONT color="red"><B>memory address</B></FONT> that
+  is <FONT color="blue"><B>divisible by 8</B></FONT>
+ <P>
+ <LI> An <FONT color="blue"><B><TT>int</TT> typed variable</B></FONT>
+   (and a <FONT color="blue"><B><TT>float</TT> typed variable</B></FONT>)
+    <B><I>must</I></B> be located at a
+  <FONT color="red"><B>memory address</B></FONT> that
+  is <FONT color="blue"><B>divisible by 4</B></FONT>
+ <P>
+ <LI> A <FONT color="blue"><B><TT>short</TT> typed variable</B></FONT>
+    <B><I>must</I></B> be located at a
+  <FONT color="red"><B>memory address</B></FONT> that
+  is <FONT color="blue"><B>divisible by 2</B></FONT>
+ <P>
+ <LI> A <FONT color="blue"><B><TT>char</TT> typed variable</B></FONT>
+    can be located at 
+  <FONT color="red"><B>any memory address</B></FONT> that
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In order to <FONT color="blue"><B>store</B></FONT>
+     a <FONT color="red"><B><TT>struct BankAccount</TT></B></FONT>,
+     the <B>C compiler</B> must
+     use the following <FONT color="blue"><B>storage format</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/struct2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Experiment</B> that show the
+    <FONT color="red"><B>memory address alignment requirement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct s1
+   {
+      char a;
+      int  d;
+   };
+    
+   struct s2
+   {
+      char a;
+      char b;
+      int  d;
+   };
+    
+   struct s3
+   {
+      char a;
+      char b;
+      char c;
+      int  d;
+   };
+    
+   int main(int argc, char *argv[])
+   {
+      printf("sizeof(struct s1) = %d\n", <FONT color="red">sizeof(struct s1)</FONT> );
+      printf("sizeof(struct s2) = %d\n", <FONT color="red">sizeof(struct s2)</FONT> );
+      printf("sizeof(struct s3) = %d\n", <FONT color="red">sizeof(struct s3)</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   sizeof(struct s1) = 8
+   sizeof(struct s2) = 8
+   sizeof(struct s3) = 8              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>variables</B></FONT> of these
+      <FONT color="red"><B>3 structures</B></FONT> are stored
+      in the following manner:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/struct3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+That's why <FONT color="blue"><B>all 3 structures</B></FONT> will
+ use <FONT color="red"><B>8 bytes</B></FONT> to store their variables.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/sizeof2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc sizeof2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Note: <I>reference</I> (pointer) variables to <TT>struct</TT>
+     typed variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Teaching Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I will <FONT color="blue"><B>delay</B></FONT> the discussion
+    of <FONT color="red"><B><I>reference</I> (= pointer) variables</B></FONT>
+    to <FONT color="blue"><B><TT>struct</TT> variables</B></FONT>
+ <P>
+ <LI> This topic will be discusses
+     <B>after</B> I discussed the
+     <FONT color="blue"><B>other kinds</B></FONT> of
+     <FONT color="red"><B>user defined types</B></FONT>
+     in <B>C</B>
+ <P>
+  (You can defined <FONT color="blue"><B>reference variables</B></FONT> that
+  point to <B>variables</B> of
+  any of the <FONT color="red"><B>user-defined </B></FONT> data types.)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

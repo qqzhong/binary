@@ -1,0 +1,376 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting a 2's complement representation to 
+   it's ASCII string representation
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Sketch of the ASCII representation -> 2's complement representation
+     conversion algorithm
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The following diagram illustrates the steps to convert
+     a number given in the
+      2's complement representation
+      and convert it to an
+     <B>equivalent</B>
+     ASCII representation
+      using a <B>concrete example</B>
+      (12):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Input:                          12  
+
+   2's complement representation is:   00000000000000000000000000001100 
+
+   (1) Divide the input repeatedly by 10 and collect the remainder
+       of the division.
+
+       This step will generate the individual decimal digits as follows:
+
+                  12 &div; 10 =  1  with remainder  2
+         repeat:   1 &div; 10 =  0  with remainder  1
+         done
+
+   (2) Map each digit remainder to the corresponding ASCII code with:
+
+                ASCII code = digit <FONT color="red">+ 48</FONT>
+
+       This step will generate the ASCII codes:   50 ('2')   49 ('1')
+
+   (3) Concatenate the ASCII codes into a string
+       starting from the last remainder to the first remainder
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Caveat:</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+     We must take care of the
+    <FONT color="red"><B>negative integers</B></FONT> !!!</SPAN>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If the <FONT color="blue"><B>integer value</B></FONT> is
+ <FONT color="red"><B>negative (< 0)</B></FONT>,
+ we must:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Negate</B></FONT> the
+    <FONT color="blue"><B>integer</B></FONT>
+  (= flip the bits and add 1)
+ <P>
+  Now the <FONT color="blue"><B>integer</B></FONT> is
+   <FONT color="red"><B>positive</B></FONT> !!!
+<P>
+ <LI> We can perform the conversion (on the now positive value) using the
+    above algorithm
+ <P>
+ <LI> To finalize the string, we just
+    <FONT color="red"><B>prepend</B></FONT> the
+    <FONT color="blue"><B>dash character <TT>'-'</TT></B></FONT>
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+<P>
+<LI> The <FONT color="red"><B>complete conversion algorithm</B></FONT>
+      is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Input:     (sample)                  <FONT color="red">-</FONT>12
+
+   2's complement representation is:    <FONT color="red">11111111111111111111111111110100</FONT>
+
+   (0) If ( input < 0 )
+       {
+          Remember that input is negative;
+
+          input = <FONT color="red">-input</FONT>;  // This is the 2's compl negate operation
+                           // Input is now: 00000000000000000000000000001100 (=12)   
+       }
+
+   (1) Divide the input repeatedly by 10 and collect the remainder
+       of the division.
+
+       This step will generate the individual decimal digits as follows:
+
+                  12 Å˜ 10 =  1  with remainder  2
+         repeat:   1 Å˜ 10 =  0  with remainder  1
+         done
+
+   (2) Map each digit remainder to the corresponding ASCII code with:
+
+                ASCII code = digit + 48
+
+       This step will generate the ASCII codes:   50 ('2')   49 ('1')
+
+   (3) Concatenate the ASCII codes into a string
+       starting from the last remainder to the first remainder
+
+   (4) If ( input was negative )
+       {
+          prepend the character '-' to the output;
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>algorithm</B></FONT> expressed
+ in <FONT color="red"><B>Java</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /* ---
+      myToString(): Integer to Ascii conversion function
+      --- */
+   public static String myToString(int input)
+    {
+      boolean inputWasNeg;
+      int remainder[] = new int[100];
+      char digit[] = new char[100];  // Max 100 digits in number
+      String result;
+      int   nDigits;
+
+<FONT color="red">
+      /* ---------------------------------------
+         Check if input is negative
+         --------------------------------------- */</FONT>
+      if (input < 0)
+      {
+         inputWasNeg = true;
+         <FONT color="red">input = -input;</FONT>        // Negate to make input positive
+      }
+      else
+      {
+         inputWasNeg = false;
+      }
+<FONT color="red">
+      /* -------------------------------------------------------
+         Get all digit by collecting remainders divided by 10
+         ------------------------------------------------------- */</FONT>
+      nDigits = 0;              // Count # digits in number
+
+      while (input > 0)
+      {
+         remainder[nDigits] = input % 10;
+         nDigits++;
+
+         input = input / 10;
+      }
+<FONT color="red">
+      /* ---------------------------------------------------------
+         Convert "digits" to character (ASCII code) using:
+
+                ASCII code = digit + 48
+         --------------------------------------------------------- */</FONT>
+      for (int i = 0; i < nDigits; i++)
+      {
+         digit[i] = (char) (remainder[i] + 48);   // Or use '0' for 48
+      }
+
+      /* ---------------------------------------------------------
+         Make a string (start with last remainder)
+         --------------------------------------------------------- */
+      result = "";                              // Initialize output string
+
+      for (int i = nDigits-1; i >= 0; i--)
+         result = result + digit[i];            // Add next digit
+<FONT color="red">
+      /* ---------------------------------------------------------
+         Prepend '-' if input was negative
+         --------------------------------------------------------- */</FONT>
+      if ( <FONT color="red">inputWasNeg == true</FONT> )
+      {
+         result = "-" + result;   // Try: "******" + result for banks
+      }
+      else
+      {
+         result = result;        // Does nothing...
+      }
+
+      return(result);      
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The algorithm is doing exactly what I describe with the example...
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ (1) In the
+
+         <FONT color="red">"Check if input is negative"</FONT> code segment
+
+     we test <FONT color="red">input < 0</FONT>
+
+     If so:  we set inputWasNeg = true and negate the input
+     If not: we set inputWasNeg = false
+
+ (2) In the
+ 
+          <FONT color="red">"Get all digit by collecting remainders divided by 10"</FONT>
+
+     we divide the input repeatedly by 10
+
+     The remainders of the division are stored in: 
+
+              reminder[0]  reminder[1] ....  remainder[nDigits-1]
+
+  (3) In the 
+
+          <FONT color="red">Convert "digits" to character (ASCII code)</FONT>
+
+      we convert each  reminder[i]  to  its digits using:
+
+               digit[i] = remainder[i] + 48
+
+  (4) In the
+
+          <FONT color="red">Make a string (start with last remainder)</FONT>
+
+      we make this string:
+
+               "digit[nDigits-1] digit[..] .... digit[1] digit[0]"
+ 
+  (5) Finally, in the input was negative, we prepent a '-' character
+      to the result.
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+ <P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> get a copy of the program at:
+   <FONT color="red"><B><TT>/home/cs255001/demo/atoi/Itoa.java</TT></B></FONT>
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Itoa.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Itoa</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

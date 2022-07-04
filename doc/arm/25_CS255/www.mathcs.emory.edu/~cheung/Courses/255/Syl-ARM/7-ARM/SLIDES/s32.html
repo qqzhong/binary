@@ -1,0 +1,1167 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // Data field
+      <FONT color="red">List next;</FONT>    // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+ 
+
+   <p style="padding: 1.5in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // Data field
+      <FONT color="red">List next;</FONT>    // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  <FONT color="red"><B>Objects</B></FONT> of this
+  <FONT color="blue"><B>classes</B></FONT> are
+  <FONT color="red"><B>stored</B></FONT> as
+  <FONT color="blue"><B>follows</B></FONT> in
+  <FONT color="red"><B>memory</B></FONT>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04b.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // Data field
+      <FONT color="red">List next;</FONT>    // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>offset</B></FONT></SPAN> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>first</I></B></FONT>
+  <FONT color="red"><B>field</B></FONT></SPAN> in
+  <FONT color="blue"><B>object</B></FONT> is
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>always</B></FONT> equal to
+  <FONT color="blue"><B>0</B></FONT></SPAN>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04b1.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // Data field
+      <FONT color="red">List next;</FONT>    // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>offset</B></FONT></SPAN> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>2nd</I></B></FONT>
+  <FONT color="red"><B>field</B></FONT></SPAN> in
+  <FONT color="blue"><B>object</B></FONT> is
+   equal to
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>total length</B></FONT> of the
+   <FONT color="blue"><B>preceeding fields</B></FONT></SPAN>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04b2.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Given</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // Data field
+      <FONT color="red">List next;</FONT>    // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>offset</B></FONT> of
+  the <FONT color="blue"><B>fields</B></FONT></SPAN> in 
+  <FONT color="red"><B>objects</B></FONT> defined
+  by the
+  <FONT color="blue"><B>above</B></FONT>
+  <FONT color="red"><B>class definition</B></FONT> are:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Offset(value) = 0
+   Offset(next)  = 4
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  <FONT color="red"><B>Note:</B></FONT> &nbsp;
+   <SPAN style="BACKGROUND-COLOR: #ffff00">we need the
+  <FONT color="blue"><B>base address</B></FONT> of the
+  <FONT color="red"><B><TT>List</TT> object</B></FONT> -
+  will be discussed <FONT color="blue"><B>later</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+<!-------------- list structure 2 ------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+ 
+
+   <p style="padding: 1.5in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  <FONT color="red"><B>Objects</B></FONT> of this
+  <FONT color="blue"><B>classes</B></FONT> are
+  <FONT color="red"><B>stored</B></FONT> as
+  <FONT color="blue"><B>follows</B></FONT> in
+  <FONT color="red"><B>memory</B></FONT>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04c.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>offset</B></FONT></SPAN> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>first</I></B></FONT>
+  <FONT color="red"><B>field</B></FONT></SPAN> in
+  <FONT color="blue"><B>object</B></FONT> is
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>always</B></FONT> equal to
+  <FONT color="blue"><B>0</B></FONT></SPAN>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04c1.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>offset</B></FONT></SPAN> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>2nd</I></B></FONT>
+  <FONT color="red"><B>field</B></FONT></SPAN> in
+  <FONT color="blue"><B>object</B></FONT> is
+   equal to
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>total length</B></FONT> of the
+   <FONT color="blue"><B>preceeding fields</B></FONT></SPAN>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04c2.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>offset</B></FONT></SPAN> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>3rd</I></B></FONT>
+  <FONT color="red"><B>field</B></FONT></SPAN> in
+  <FONT color="blue"><B>object</B></FONT> is
+   equal to
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>total length</B></FONT> of the
+   <FONT color="blue"><B>preceeding fields</B></FONT></SPAN>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04c3.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>offset</B></FONT></SPAN> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>4th</I></B></FONT>
+  <FONT color="red"><B>field</B></FONT></SPAN> in
+  <FONT color="blue"><B>object</B></FONT> is
+   equal to
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>total length</B></FONT> of the
+   <FONT color="blue"><B>preceeding fields</B></FONT></SPAN>:
+   </font>
+   </p>
+
+<center>
+<IMG SRC="../FIGS/list04c4.gif" width=600></IMG>
+</center>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Given</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>offset</B></FONT> of
+  the <FONT color="blue"><B>fields</B></FONT></SPAN> in 
+  <FONT color="red"><B>objects</B></FONT> defined
+  by the
+  <FONT color="blue"><B>above</B></FONT>
+  <FONT color="red"><B>class definition</B></FONT> are:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Offset(value1) = 0
+   Offset(value2) = 4
+   Offset(value3) = 6 (4+2)
+   Offset(next)   = 8 (4+2+2)</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  We <FONT color="red"><B>discuss</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>how</B></FONT> to
+  <FONT color="blue"><B>obtain</B></FONT> the
+  <FONT color="red"><B>base address</B></FONT></SPAN> of
+ a <FONT color="blue"><B><TT>List</TT> object</B></FONT>
+ <FONT color="red"><B>next</B></FONT>.
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<!------------- Disclaimer ------------->
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Final comment: <FONT color="blue">offset computation</FONT> is
+  actually <FONT color="blue">more complicated</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> The <FONT color="red"><B>complete process</B></FONT> to
+    <FONT color="blue"><B>compute</B></FONT> the
+    <FONT color="red"><B>offset</B></FONT> of a
+    <FONT color="blue"><B>field</B></FONT> is
+    <FONT color="red"><B>more complicated</B></FONT>
+    due to
+    <FONT color="blue"><B><I>memory alignment</I></B></FONT>
+    <FONT color="red"><B>requirments</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> An <FONT color="red"><B><SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <TT>short</TT></SPAN> type</B></FONT>
+      <FONT color="blue"><B>field</B></FONT> must be
+      <FONT color="red"><B>placed</B></FONT> at an
+      <FONT color="blue"><B>address</B></FONT> that is
+      <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>divisible by 2</B></FONT></SPAN>
+<P>
+ <LI> An <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><TT>int</TT> type</B></FONT></SPAN>
+      <FONT color="blue"><B>field</B></FONT> must be
+      <FONT color="red"><B>placed</B></FONT> at an
+      <FONT color="blue"><B>address</B></FONT> that is
+      <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>divisible by 4</B></FONT></SPAN>
+<P>
+ <LI> <B>Etc</B>, <B>etc</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="red"><B>memory alignment</B></FONT>
+  <FONT color="blue"><B>requirement</B></FONT> will
+   <FONT color="red"><B>introduce</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>gaps</B></FONT></SPAN>
+   (= <FONT color="red"><B>unused memory bytes</B></FONT>)
+   within the <FONT color="blue"><B>object</B></FONT>
+<P>
+  The <FONT color="red"><B>gaps</B></FONT> makes the
+   <FONT color="blue"><B>offset computation</B></FONT> more
+   <FONT color="red"><B>complicated</B></FONT>
+<P>
+<LI> <SPAN style="BACKGROUND-COLOR: #ffdd00">In 
+   <FONT color="red"><B>CS255</B></FONT></SPAN>, we will
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>only</B></FONT> use</SPAN>
+   <FONT color="red"><B>object definitions</B></FONT> that
+   has 
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>no gaps</B></FONT>
+   between fields</SPAN>.
+ <P>
+ 
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">obtain</FONT> the
+  <FONT color="blue">base address</FONT> of a
+  <TT>List</TT> object
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The
+   <FONT color="blue"><B>linked list</B></FONT> is
+   <FONT color="red"><B>chained</B></FONT> by
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>storing</B></FONT>  the
+  <FONT color="red"><B>base address</B></FONT></SPAN> of the
+  <FONT color="blue"><B>next object</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">in the
+  <FONT color="red"><B><TT>next</TT></B></FONT></SPAN> 
+  <B>variable</B>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/list02d.gif" style="width:60%"></IMG>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <B>variable</B> 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>head</TT></B></FONT>
+   </SPAN>
+   contains
+   the 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>base address</B></FONT></SPAN> for
+   the 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><I>first</I> list element</B></FONT>
+   </SPAN>
+   <BR>
+   The <B>variable</B> 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>head.next</TT></B></FONT>
+   </SPAN>
+   contains
+   the 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>base address</B></FONT></SPAN> for
+   the 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><I>2nd</I> list element</B></FONT>
+   </SPAN>
+<BR>
+   The <B>variable</B> 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>head.next.next</TT></B></FONT>
+   </SPAN>
+   contains
+   the 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>base address</B></FONT></SPAN> for
+   the 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><I>3rd</I> list element</B></FONT>
+   </SPAN>
+   <BR>
+   <B>And so on</B>...
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

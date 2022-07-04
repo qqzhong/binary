@@ -1,0 +1,766 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>c = a + b</TT> statement
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> We have learned all the necessary ARM assembler instructions
+      and directives to write 
+      <FONT color="red"><B>assignment statements</B></FONT>
+      that uses <B>only</B>
+      <FONT color="blue"><B><I>simple</I> variables</B></FONT>
+  (i.e.: no arrays and linked lists)
+<P>
+  So we will now write the following 
+   <FONT color="blue"><B>very simple program</B></FONT>
+  in <FONT color="red"><B>ARM assembler</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int  a = 4;    // a,b,c  are all <FONT color="red">int</FONT> typed variables    
+   int  b = 5;
+   int  c;
+
+   main( )
+   {
+      c = a + b;                   
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining the variables
+     </B></FONT>
+<P>
+<UL>
+<LI> This webpage has presented the necessary knowledge on how to define
+     <FONT color="red"><B>permanent variables</B></FONT> in the
+     program:
+    <A HREF="data-section.html"> click here </A>
+ <P>
+  Read that page if you don't follow what I will do next.
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>int</TT> typed
+   variables <TT>a, b, c</TT></B></FONT>
+  are defined in the
+  <FONT color="blue"><B><TT>.data </TT> section </B></FONT>
+  using the following 
+  <FONT color="red"><B>directives</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">.data</FONT>
+a:    .4byte  4        // a contains the value 4
+b:    .4byte  5        // b contains the value 5
+c:    .skip   4        // c is not initialized (will contain 0)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Writing the statement in the program
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   c = a + b;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is writting in the 
+ <FONT color="red"><B><TT>.text</TT> section</B></FONT> of the
+  assembler program.
+<P>
+The <FONT color="red"><B>meaning</B></FONT> of the
+ <FONT color="blue"><B>statement <TT>c = a + b</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      1. Compute the <FONT color="red">value</FONT> in the <FONT color="red">expression</FONT> in the <FONT color="red">RHS</FONT> of the assignment
+
+      2. Store the <FONT color="red">result value</FONT> in memory at the <FONT color="red">address</FONT> of the variable given in the <FONT color="red">LHS</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In the assignment
+ <FONT color="red"><B><TT>c = a + b</TT></B></FONT>, we must do these
+  actions:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get the <FONT color="red"><B><TT>int</TT> value</B></FONT> in
+       the <FONT color="blue"><B>variable <TT>a</TT></B></FONT>
+       (into some register)
+ <LI> Get the <FONT color="red"><B><TT>int</TT> value</B></FONT> in
+       the <FONT color="blue"><B>variable <TT>b</TT></B></FONT>
+       (into another register)
+ <LI> <FONT color="red"><B>Add</B></FONT> the values
+ <LI> Then <FONT color="red"><B>store</B></FONT> the
+        result in <FONT color="blue"><B>memory</B></FONT> reserved for
+       the <FONT color="red"><B>variable <TT>c</TT></B></FONT>
+       (you must use the <FONT color="blue"><B>memory address</B></FONT>
+  marked by
+       the <FONT color="red"><B>label <TT>c</TT></B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+From what you have learned in
+ <FONT color="red"><B>ARM assembler programming</B></FONT>,
+ the following <FONT color="blue"><B>ARM instructions</B></FONT> will
+  perform the stated tasks above:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move a into r1
+        movw    r0, #:lower16:a         // Moves the address of memory
+        movt    r0, #:upper16:a         // variable a into register r0
+        ldr     r1,[r0]                 // Move int value from var into r1
+
+        // Move b into r2
+        movw    r0, #:lower16:b         // Moves the address of memory
+        movt    r0, #:upper16:b         // variable b into register r0
+        ldr     r2,[r0]                 // Move int value from var into r2
+
+        // Add them up
+        add     r2, r1, r2              // r2 = a + b
+
+        // Move sum in r2 to c 
+        movw    r0, #:lower16:c         // Moves the address of memory
+        movt    r0, #:upper16:c         // variable c into register r0
+        str     r2,[r0]             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/abc-1.s
+       </TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* --------------------------------------------------
+   Define required labels for EGTAPI
+   -------------------------------------------------- */
+        .global main, Stop, CodeEnd
+        .global DataStart, DataEnd
+
+        .global a, b, c
+
+/* --------------------------------------------------
+   Begin of the program instructions
+   -------------------------------------------------- */
+        .text
+main:
+
+        // Move a into r1
+        movw    r0, #:lower16:a         // Moves the address of memory
+        movt    r0, #:upper16:a         // variable a into register r0
+        ldr     r1,[r0]                 // Move int value from var into r1
+
+        // Move b into r2
+        movw    r0, #:lower16:b         // Moves the address of memory
+        movt    r0, #:upper16:b         // variable b into register r0
+        ldr     r2,[r0]                 // Move int value from var into r2
+
+        // Add them up
+        add     r2, r1, r2              // r2 = a + b
+
+        // Move sum in r2 to c
+        movw    r0, #:lower16:c         // Moves the address of memory
+        movt    r0, #:upper16:c         // variable c into register r0
+        str     r2,[r0]                 // Move sum in r2 to var c
+
+
+Stop:
+CodeEnd:
+        nop
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+DataStart:
+
+a:    .4byte  4        // int a contains the value 4
+b:    .4byte  5        // int b contains the value 5
+c:    .skip   4        // int c is not initialized (will contain 0)
+
+DataEnd:
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 abc-1</TT></B></FONT>
+ <LI> To run: use <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using different data types
+     </B></FONT>
+<P>
+<UL>
+<LI> You just saw an assembler program that uses
+    <FONT color="red"><B><TT>int</TT></B></FONT> data type.
+<P>
+  When you write assembler programs, it is
+  <FONT color="red"><B>very important</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>access</B></FONT> the
+       <FONT color="blue"><B>memory variables</B></FONT>
+       using the <FONT color="red"><B>correct</B></FONT>
+       <FONT color="blue"><B>load</B></FONT> and
+       <FONT color="blue"><B>store</B></FONT> instructions
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> From the
+   <A HREF="ldr.html">
+    <FONT color="red"><B>load instruction page</B></FONT></A>  and
+    the
+    <A HREF="str.html">
+    <FONT color="blue"><B>store instruction page</B></FONT> </A>,
+    you need to use:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Data type        Load instruction     Store instruction
+   -------------    ------------------   -------------------       
+      int                ldr                 str
+      short              <FONT color="red">ldrsh               strh</FONT>
+      byte               <FONT color="red">ldrsb               strb</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you use a
+ <FONT color="red"><B><I>wrong</I> instruction</B></FONT> for
+ a given data type,
+ your program <FONT color="blue"><B>may <I>not</I> work correctly</B></FONT>
+ (because <FONT color="red"><B>incorrect data</B></FONT> may be
+ <FONT color="blue"><B>copied</B></FONT> between the
+ CPU and the memory)
+<P>
+I will do 2 examples with
+ <FONT color="red"><B>mixed data type</B></FONT> operations.
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Mixed data type operation example 1
+     </B></FONT>
+<P>
+<UL>
+<LI> We will write the following 
+   <FONT color="blue"><B>high level program</B></FONT> in
+    <FONT color="red"><B>ARM assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   byte   a = 4;        // 3 different data types    
+   short  b = 5;
+   int    c = 256;
+
+   main( )
+   {
+      c = a + b;                   
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We need to <FONT color="red"><B>align</B></FONT> some variables
+ because of <FONT color="blue"><B>alignment requirements</B></FONT>
+  (see: <A HREF="align.html">click here</A>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .data
+a:    .byte   4        // a contains the value 4 in 8  bits
+      <FONT color="red">.align 1</FONT>
+b:    .2byte  5        // b contains the value 5 in 16 bits
+      <FONT color="red">.align 2</FONT>
+c:    .4byte  256      // c contains the value 256 in 32 bits          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>assembler program</B></FONT> must
+ use the <FONT color="blue"><B>correct load and store instructions</B></FONT>
+ for <FONT color="red"><B>each variable</B></FONT>.
+<P>
+Here are the changes (highlight in <FONT color="red"><B>red</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+
+        // Move a into r1
+        movw    r0, #:lower16:a         // Moves the address of memory
+        movt    r0, #:upper16:a         // variable a into register r0
+        <FONT color="red">ldrsb</FONT>   r1,[r0]                 // Move<FONT color="red"> byte</FONT> value from var into r1
+                                       <FONT color="red"> // ldrsb also sign-extend to int for computation !!</FONT>
+
+        // Move b into r2
+        movw    r0, #:lower16:b         // Moves the address of memory
+        movt    r0, #:upper16:b         // variable b into register r0
+        <FONT color="red">ldrsh </FONT>  r2,[r0]                 // Move <FONT color="red">short</FONT> value from var into r2
+                                        <FONT color="red">// ldrsh also sign-extend to int for computation !!</FONT>
+
+        // Add them up
+        add     r2, r1, r2              // r2 = a + b
+
+        // Move sum in r2 to c
+        movw    r0, #:lower16:c         // Moves the address of memory
+        movt    r0, #:upper16:c         // variable c into register r0
+        <FONT color="red">str</font>     r2,[r0]                 // Move sum in r2 to <FONT color="red">int</font> var c
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/abc-2.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 abc-2</TT></B></FONT>
+ <LI> To run: EGTAPI
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Mixed data type operation example 2 (overflow !)
+     </B></FONT>
+<P>
+<UL>
+<LI> We will write the following 
+   <FONT color="blue"><B>high level program</B></FONT> in
+    <FONT color="red"><B>ARM assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   byte   a = 4;        // 3 different data types    
+   short  b = 5;
+   int    c = 256;
+
+   main( )
+   {
+      <FONT color="red">a = b + c;</FONT>    //<FONT color="red"> a</FONT> is a <FONT color="red">byte</FONT> typed variable !!!                      
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because the <FONT color="red"><B>variable types</B></FONT> have 
+ <FONT color="blue"><B>not changed</B></FONT>, we
+ can use the same <FONT color="red"><B><TT>.data</TT> segment</B></FONT>
+ (I won't repeat it here).
+<P>
+The <FONT color="red"><B>statement</B></FONT> has 
+ <FONT color="blue"><B>changed</B></FONT>.
+<P>
+Now we must get the values from
+ <FONT color="red"><B><TT>b</TT></B></FONT> and 
+ <FONT color="red"><B><TT>c</TT></B></FONT>, add them up and
+ store the sum in
+  the variable <FONT color="red"><B><TT>a</TT></B></FONT>.
+<P>
+When you write the <FONT color="red"><B>assembler code</B></FONT>,
+ we need to make sure we use the
+ <FONT color="blue"><B>correct load/store instruction</B></FONT> for
+ each <FONT color="red"><B>data type</B></FONT>.
+<P>
+The assembler program is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+
+        // Move short b into r1
+        movw    r0, #:lower16:b         // Moves the address of memory
+        movt    r0, #:upper16:b         // variable b into register r0
+        <FONT color="red">ldrsh</FONT>   r1,[r0]                 // Move <FONT color="red">short</FONT> value from var into r1     
+                                        // ldrsb also sign-extend to int !!
+
+        // Move c into r2
+        movw    r0, #:lower16:c         // Moves the address of memory
+        movt    r0, #:upper16:c         // variable c into register r0
+        <FONT color="red">ldr</font>     r2,[r0]                 // Move <FONT color="red">int</font> value from var into r2
+
+        // Add them up
+        add     r2, r1, r2              // r2 = b + c
+
+        // Move sum in r2 to a
+        movw    r0, #:lower16:a         // Moves the address of memory
+        movt    r0, #:upper16:a         // variable a into register r0
+        <FONT color="red">strb</FONT>    r2,[r0]                 // Move sum in r2 to <FONT color="red">byte</FONT> var c
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/abc-3.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 abc-3</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: EGTAPI
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+Can you explan <FONT color="red"><B>why</B></FONT>
+  <FONT color="blue"><B><TT>a = 5</TT></B></FONT> after the
+  execution ???
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Answer:</B></FONT>
+    <FONT color="blue"><B><I>overflow</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Try <FONT color="red"><B><TT>c = 100</TT></B></FONT> -
+ you will see that there is
+ <FONT color="blue"><B>no overflow</B></FONT> and the
+ program is <FONT color="red"><B>correct</B></FONT>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Notice that in
+  <FONT color="red"><B>assembler programming</B></FONT>,
+  there is <FONT color="blue"><B>no casting operation</B></FONT> !!!
+ <P>
+ <LI> You have <FONT color="red"><B>performed</B></FONT>
+    the <FONT color="blue"><B>casting operating</B></FONT> when you
+    move <FONT color="red"><B>16 bits</B></FONT> from
+    the <FONT color="blue"><B>32 bits register</B></FONT> to
+    a <FONT color="red"><B>memory variable </B></FONT> !!!
+ <P>
+   (You did not use <FONT color="red"><B>all the bits</B></FONT> in
+   the <FONT color="blue"><B>register</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

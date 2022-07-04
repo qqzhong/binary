@@ -1,0 +1,486 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How computers print out Boolean outputs
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problem description: how to display/show Boolean values 
+   to the user ?
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The Boolean value 
+    <FONT color="red"><B><TT>false</TT></B></FONT>   is
+   represented by the 
+   <FONT color="blue"><B>binary number <TT>00000000</TT></B></FONT>
+ <LI> The Boolean value 
+    <FONT color="red"><B><TT>true</TT></B></FONT>   is
+   represented by the 
+   <FONT color="blue"><B>binary number <TT>00000001</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ (See: <A HREF="boolean.html"> click here </A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Boolean inputs</B></FONT> are 
+ <FONT color="blue"><B>printed out (shown)</B></FONT> to the 
+   <FONT color="red"><B>user(s)</B></FONT> by
+   <FONT color="blue"><B>displaying</B></FONT> the
+  <FONT color="red"><B><I>text</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">true</FONT>    
+ or: <FONT color="red">false</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ <FONT color="red"><B>Problem</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B>computer</B></FONT>
+      sends the <FONT color="blue"><B>Boolean values
+     <FONT color="red"><TT>true</TT></FONT>  (or
+     <TT>false</TT>)</B></FONT> to
+     the <FONT color="blue"><B>terminal</B></FONT>, it will
+     send this
+     <FONT color="red"><B>code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">00000001</FONT>   (or <TT>00000000</TT> (false))           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>terminal</B></FONT> 
+  <FONT color="blue"><B>cannot</B></FONT>
+display the <FONT color="red"><B>ASCII code <TT>00000001</TT></B></FONT>
+which is an
+ <FONT color="blue"><B><I>unprintable</I> character (Start of Heading)</B></FONT>
+<P>
+The <FONT color="blue"><B>terminal</B></FONT> will
+  <FONT color="red"><B>not display</B></FONT> the
+ text
+    <FONT color="blue"><B><TT>true</TT></B></FONT> for the
+ Boolean value to the user !!!
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/output02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ <LI> <FONT color="red"><B>Internally</B></FONT>
+   (= <FONT color="blue"><B>inside a Java program</B></FONT>), the
+   <FONT color="red"><B><TT>boolean</TT> valuem <TT>true</TT></B></FONT> is
+   <FONT color="blue"><B>represented</B></FONT> by
+   the <FONT color="red"><B>binary number <TT>00000001</TT></B></FONT>
+ <P>
+  When the computer sends the
+  <FONT color="red"><B>binary number <TT>00000001</TT></B></FONT>
+  to the <FONT color="blue"><B>terminal</B></FONT>,
+  the terminal will display
+  an <FONT color="blue"><B>unprintable character</B></FONT> -
+  because the <FONT color="red"><B>code <TT>00000001</TT></B></FONT>
+  represents "Start of Header" in
+  <FONT color="blue"><B>ASCII</B></FONT>.
+<P>
+ <LI> In order for the
+    <FONT color="red"><B>terminal</B></FONT> to
+   <FONT color="blue"><B>display</B></FONT> the
+   <FONT color="red"><B>text "true"</B></FONT>,
+   the <FONT color="blue"><B>computer</B></FONT> must
+   send these <FONT color="red"><B>ASCII codes</B></FONT> to
+   the <FONT color="blue"><B>terminal</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   01110100 01110010 01110101 01100101   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Therefore</B></FONT>:
+  we need to <FONT color="blue"><B>convert</B></FONT>
+  the <FONT color="red"><B>internal
+  <TT>boolean</TT> representation</B></FONT>
+  to
+  their <FONT color="blue"><B> (ASCII) representation</B></FONT>
+  for output operation <B>also</B>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting from
+     the internal boolean representation to its
+       ASCII representation  
+	
+     </B></FONT>
+<P>
+<UL>
+<LI> The  <FONT color="blue"><B>Java class <TT>Boolean</TT></B></FONT> provides
+  the
+  <FONT color="red"><B><TT>toString( )</TT> method</B></FONT> to
+ <FONT color="blue"><B>convert</B></FONT> 
+  the
+  <FONT color="red"><B>internal "program" representation</B></FONT> of
+ the <FONT color="blue"><B>boolean values</B></FONT> to their
+  <FONT color="red"><B>"ASCII" representation</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">String toString( boolean x )</font>: return a String that represents the boolean    
+                                 value<FONT color="red"> x</FONT>
+
+                                 If <FONT color="red">x</FONT> == true, we return the string "true"
+                                 If <FONT color="red">x</FONT> == false, we return the string "false"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+See:
+ <A HREF="https://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html">
+  <FONT color="red"><B>click here</B></FONT></A>
+<P>
+The method <FONT color="red"><B><TT>toString( )</TT></B></FONT>
+ performs the following
+ <FONT color="blue"><B>translation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Input           Output
+   ----------       -------------           
+    00000001   --->   <FONT color="red">"true"</FONT>   
+    00000000   --->   <FONT color="red">"false"</FONT>  
+
+ Note:
+
+    <FONT color="red">"true"</FONT>  means: the ASCII codes 01110100 01110010 01110101 01100101
+    <FONT color="red">"false"</FONT> maens: the ASCII codes 01100110 01100001 01101100 01110011 01100101 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      boolean x = true;
+      boolean y = false;
+
+      String  s;
+
+      s = <FONT color="red">Boolean.toString(x)</FONT>;   // Change to BooleanIO to use my own      
+
+      System.out.println("String for 'true' boolean value = " + s);
+
+      s = <FONT color="red">Boolean.toString(y)</FONT>;   // Change to BooleanIO to use my own
+
+      System.out.println("String for 'false' boolean value = " + s);
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/java/Bool2String.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Bool2String.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>java Bool2String</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to implement the
+   <FONT color="red"><TT>Boolean.toString( )</TT></FONT> method
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The
+    <FONT color="red"><B>Boolean.toString( )</TT></B></FONT>
+    method is <FONT color="blue"><B>also</B></FONT>
+   <FONT color="red"><B>very simple</B></FONT> and
+ I like to use it to
+ <FONT color="blue"><B>show you</B></FONT> a
+  <FONT color="red"><B><I>simple</I> example</B></FONT> of
+  <FONT color="blue"><B>conversion</B></FONT> between
+  <FONT color="red"><B>2 different representations</B></FONT>
+<P>
+This is <B>what</B> the <FONT color="red"><B><TT>toString( )</TT></B></FONT> 
+ method <FONT color="blue"><B>look like:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+  public static <FONT color="red">boolean  toString( boolean x )</font>            
+  {
+     if ( <FONT color="red">x == true</FONT> )
+        return "true";    // This is a String (= 4 ASCII codes !)
+     else
+        return "false";   // This is a String (= 5 ASCII codes !)  
+  }
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>statement</B></FONT>
+     <FONT color="blue"><B><TT>return "true"</TT></B></FONT>
+   will <FONT color="red"><B>return</B></FONT> a
+   <FONT color="blue"><B>string</B></FONT> containing
+   the <FONT color="red"><B>ASCII codes</B></FONT> for
+   the characters
+   <FONT color="blue"><B>'t' 'r' 'u' 'e'</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Program file:
+  <FONT color="red"><B><TT>
+   /home/cs255001/demo/java/Bool2String.java
+  </TT></B></FONT>
+ <P>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>Change</B></FONT>
+  <FONT color="blue"><B><TT>Boolean</TT></B></FONT> to
+  <FONT color="red"><B><TT>BooleanIO</TT></B></FONT> first !
+  </SPAN>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Bool2String.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Bool2String</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

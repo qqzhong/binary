@@ -1,0 +1,540 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The reference <I>data type</I>
+ and reference <I>variables</I>
+<HR>
+</H3>
+
+
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     What make <FONT color="red">C</FONT> special ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Historical fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> was
+    <FONT color="blue"><B>designed</B></FONT>
+    by <FONT color="red"><B>Kernighan and Ritchie</B></FONT>
+    to <FONT color="blue"><B>help them</B></FONT>
+    <FONT color="red"><B>write (= implement)</B></FONT> the
+   <FONT color="blue"><B>UNIX operating system</B></FONT>
+<P>
+ <LI> Even <FONT color="red"><B>today</B></FONT>,
+   the <FONT color="blue"><B>UNIX operating system</B></FONT> is
+   written (<B>mostly</B>, because
+   <FONT color="red"><B>some modules</B></FONT> must be
+   written in <FONT color="blue"><B>assembler code</B></FONT>) in
+  the <FONT color="red"><B>C programming language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>What</B></FONT> make
+  the <FONT color="blue"><B>C programming language </B></FONT>
+   so <FONT color="red"><B>special</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> has
+      a <FONT color="blue"><B>very <I>dangerous</I></B></FONT>
+      <FONT color="red"><B>data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>reference</I> data type</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ that <FONT color="red"><B>no other</B></FONT>
+    <FONT color="blue"><B> (popular)
+     programming language</B></FONT> has
+  (as far as I can tell).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>reference data type</B></FONT> allows
+  the <FONT color="blue"><B>program </B></FONT> 
+  <FONT color="red"><B>reference (= point)</B></FONT> to
+  <FONT color="blue"><B><I>any where</I></B></FONT> in
+  the <FONT color="red"><B>computer memory</B></FONT>
+  and <FONT color="blue"><B><I>access</I> data </B></FONT>
+  stored at that
+  <FONT color="red"><B>memory location</B></FONT> !!!
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reference <I>data type</I>
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <FONT color="red"><B><I>Reference</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Reference</B></FONT> =
+        an <FONT color="red"><B>address</B></FONT> in <B>memory</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>reference</B></FONT> is <B>also known as</B>
+      a <FONT color="red"><B><I>pointer</I></B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/pointer1b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>address 4</B></FONT> points to
+ <FONT color="blue"><B>memory location 4</B></FONT> in
+ the <B>memory</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Reference</I> (or
+     pointer) data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Reference <I>data type</I></B></FONT> =
+      a <FONT color="red"><B>data type</B></FONT> that consists of
+      all <FONT color="red"><B><I>address</I></B></FONT> of
+      the <FONT color="blue"><B>memory</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Consequently:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>variable</B></FONT> of
+  the <FONT color="blue"><B>reference data type</B></FONT> can
+      <FONT color="red"><B>store</B></FONT> an
+      <FONT color="blue"><B>address</B></FONT> of the <B>memory</B>
+  <P>
+  (And <FONT color="red"><B>C </B></FONT> has
+  <FONT color="blue"><B><I>operators</I></B></FONT> that
+  <FONT color="red"><B>manipulate</B></FONT> this
+   <FONT color="blue"><B>address</B></FONT> !!!!
+ <P>
+ Will be discussed <FONT color="red"><B>later</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"> <B>
+        <I>Reference</I> variables.... or <I>pointer variables</I>
+    (or "pointers")
+        </B></FONT>
+ <UL>
+ <P>
+
+<P>
+ <LI> <B><I>Reference</I> variable:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Reference variable</B></FONT> =
+    a <B>variable</B> that can contain
+    a <FONT color="red"><B>reference (= address)</B></FONT>
+ <P>
+ <HR>
+<P>
+ <LI> <B>Typically</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Reference variable</B></FONT> =
+    a <B>variable</B> that contains
+    the <FONT color="blue"><B>address</B></FONT>
+    of <FONT color="red"><B><I>another</I> variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="red"><B><I>reference</I> variable</B></FONT> is
+  <B>often called</B> a
+  <FONT color="blue"><B><I>pointer</I> variable</B></FONT>
+ <P>
+ I will <B>often</B> use <FONT color="red"><B>both terminology</B></FONT>
+ <FONT color="blue"><B>interchangeably</B></FONT> !!!
+<P>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining a reference variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">dataType   *</FONT>varName  ;         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Meaning:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>variable</B> <FONT color="blue"><B><TT>varName</TT></B></FONT>
+      can contain the
+      <B><I>address</I></B> of a <B>variable</B> of
+      the data type <FONT color="red"><B><TT>dataType</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>symbol</B> <FONT color="red"><B>*</B></FONT> is
+      <FONT color="blue"><B>also</B></FONT> used
+      a the <FONT color="red"><B>multiply operator</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>* multiply operator</B></FONT> 
+     <FONT color="blue"><B>must</B></FONT> be used
+     in a <FONT color="red"><B>statement</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> When the  <FONT color="red"><B>C compiler</B></FONT> see
+    the <FONT color="blue"><B>* symbol</B></FONT> used
+    in a <FONT color="red"><B>variable <I>definition</I></B></FONT>, it
+   <FONT color="blue"><B>know</B></FONT> that this
+    <FONT color="red"><B>* symbol</B></FONT> is used to
+    <FONT color="blue"><B>define</B></FONT> an
+    <FONT color="red"><B><I>address</I> typed variable</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>
+<FONT color="red"><B>Reference variable:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We call a <FONT color="red"><B>variable</B></FONT> that
+      <FONT color="blue"><B>holds </B></FONT> an
+      <FONT color="red"><B>address value</B></FONT>:
+      a <FONT color="blue"><B><I>reference</I> variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int   *</FONT>p ;     // p can contain the address of an <FONT color="red">int typed</FONT> variable   
+
+     <FONT color="red">float *</FONT>q ;     // q can contain the address of a <FONT color="red">float typed</FONT> variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So <FONT color="blue"><B><TT>p</TT></B></FONT> and
+  <FONT color="blue"><B><TT>q</TT></B></FONT> are
+  <FONT color="red"><B><I>reference</I> variables</B></FONT>.
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because  <FONT color="blue"><B><TT>p</TT></B></FONT> and
+  <FONT color="blue"><B><TT>q</TT></B></FONT>
+ points to
+  <FONT color="red"><B><I>different</I> types</B></FONT> of
+  <FONT color="blue"><B>variables</B></FONT>
+  (<B><TT>p</TT></B> points to an
+   <FONT color="red"><B><TT>int</TT> typed variable</B></FONT> while
+   <B><TT>q</TT></B> points to a
+   <FONT color="blue"><B><TT>float</TT> type variable</B></FONT>,
+   the
+  <FONT color="red"><B>data types</B></FONT> of
+  <FONT color="blue"><B><TT>p</TT></B></FONT> and
+  <FONT color="blue"><B><TT>q</TT></B></FONT>
+  are <FONT color="red"><B><I>different</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+</UL>
+
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Mixed data type definition
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You will <FONT color="red"><B>often</B></FONT> see
+      <FONT color="blue"><B>C programs</B></FONT> with
+       <FONT color="blue"><B><I>mixed</I> data type variable
+       definitions</B></FONT>.
+<P>
+<B>Example:</B> the following 
+  <FONT color="red"><B>variable definition</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  <FONT color="red">a</FONT>, *<FONT color="red">p</FONT>;               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>2 variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Variable  <FONT color="red"> a</FONT>    is an  <FONT color="red"> int typed           </FONT> variable
+
+   Variable  <FONT color="red"> p</FONT>    is an  <FONT color="red"> int reference  typed</FONT> variable  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So the <FONT color="red"><B>single definition</B></FONT> will
+ <FONT color="blue"><B>define</B></FONT>
+ variables of
+  <FONT color="red"><B><I>different</I> data types</B></FONT> !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(Persoanlly, I wish <FONT color="red"><B>C</B></FONT>
+ had a <FONT color="blue"><B>cleaner way</B></FONT> to
+ <FONT color="red"><B>define</B></FONT>
+ the <FONT color="blue"><B>reference typed variable</B></FONT>...)
+<P>
+</UL>
+
+
+
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

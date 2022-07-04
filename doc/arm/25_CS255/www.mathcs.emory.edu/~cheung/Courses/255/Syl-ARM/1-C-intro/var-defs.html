@@ -1,0 +1,639 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Defining variables in a C program
+<HR> 
+</H3>
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Syntax to define a variable in C
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Syntax</B></FONT> to 
+    <FONT color="blue"><B>define a variable</B></FONT> in
+    <FONT color="red"><B>C</B></FONT>
+    (same as <FONT color="blue"><B>Java</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">data-type</FONT>  variableName  [= initialValue] ;       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int</FONT>   x;
+   <FONT color="red">float</FONT> y = 4.0;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Where can you define variables in C ?
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Places</B></FONT> in the
+     <FONT color="blue"><B>C program</B></FONT> where you 
+     <FONT color="red"><B>define</B></FONT>
+     <FONT color="blue"><B>variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+       A <FONT color="red"><B>variable</B></FONT> can be
+   <FONT color="blue"><B>defined</B></FONT>
+   <FONT color="red"><B><I>inside</I> a function</B></FONT></SPAN>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  main(int argc, char *argv[] )               
+    {<FONT color="red">
+       int x;            // Variables can be defined      
+       float y = 4.0;    // inside a function</FONT>
+
+       ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Variables</B></FONT> defined
+  <FONT color="blue"><B><I>inside</I> a function</B></FONT> are
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>local variables</B></FONT>
+  </SPAN>
+<P>
+<FONT color="red"><B>Local variables</B></FONT> in 
+ <FONT color="blue"><B>C</B></FONT> behaves
+  <FONT color="red"><B>exactly the same</B></FONT> as
+  <FONT color="blue"><B>local variables</B></FONT> in
+  <FONT color="red"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Local variables</B></FONT> can
+   <FONT color="blue"><B>only be accessed (= used)</B></FONT>
+   by <FONT color="red"><B>statements</B></FONT> inside
+   the <FONT color="blue"><B>defining function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+       A <FONT color="red"><B>variable</B></FONT> can be
+   <FONT color="blue"><B>defined</B></FONT>
+   <FONT color="red"><B><I>outside</I> every function</B></FONT></SPAN>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE><FONT color="red">
+    int x;            // Variables can be defined      
+    float y = 4.0;    // outside EVERY function</FONT>
+
+    int  main(int argc, char *argv[] )               
+    {
+       ...
+       ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Variables</B></FONT> defined
+  <FONT color="blue"><B><I>outside</I> every function</B></FONT> are
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B><I>global</I> variables</B></FONT>:
+  </SPAN>
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Global</I> variables</B></FONT> can
+   <FONT color="blue"><B>be accessed (= used)</B></FONT>
+   by <FONT color="red"><B>statements</B></FONT> inside
+   <FONT color="blue"><B><I>any</I> function</B></FONT>
+   in the <FONT color="red"><B>C program</B></FONT>
+ <P>
+ <FONT color="red"><B>However</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You may need to make some
+     <FONT color="red"><B>provisions ("hints")</B></FONT>
+     in the <FONT color="blue"><B>program</B></FONT> to
+     "let the C compiler know" that a
+     <FONT color="red"><B>variable</B></FONT> is
+     a <FONT color="blue"><B>global variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int x = 1;              // Global variable</FONT>                 
+    
+   void f( )
+   {
+     <FONT color="red"> int y = 4;           // Local variable</FONT>
+    
+      printf("x = %d, y = %d\n", x, y );
+   }
+    
+    
+   int main(int argc, char *argv[] )
+   {
+      <FONT color="red">int z = 2;           // Local variable</FONT>
+    
+      printf("x = %d, z = %d\n", x, z );
+    
+      x = 777;              // Update the global variable         
+      f( );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+x = 1, z = 2
+x = 777, y = 4              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>global variable <TT>x</TT></B></FONT> can
+ be <FONT color="blue"><B>accessed</B></FONT> in
+ <FONT color="red"><B><TT>main( )</TT></B></FONT> and
+ <FONT color="red"><B><TT>f( )</TT></B></FONT>
+<P>
+The <FONT color="red"><B>local variable <TT>y</TT></B></FONT> can
+ <B>only</B> be <FONT color="blue"><B>accessed</B></FONT> in
+ <FONT color="red"><B><TT>f( )</TT></B></FONT> 
+<P>
+The <FONT color="red"><B>local variable <TT>z</TT></B></FONT> can
+ <B>only</B> be <FONT color="blue"><B>accessed</B></FONT> in
+ <FONT color="red"><B><TT>main( )</TT></B></FONT>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/variables1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc variables1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important properties of global and local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Now that you know
+   <FONT color="red"><B>how</B></FONT> to 
+  <FONT color="blue"><B>define</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Global </B></FONT> variables
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>and</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B>Local </B></FONT> variables 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+you still need to
+ <FONT color="red"><B>learn</B></FONT>
+ <FONT color="blue"><B><I>how</I></B></FONT> these
+  <FONT color="red"><B>variables <I>behave</I></B></FONT>
+<P>
+<HR>
+<P>
+<LI> I think the <FONT color="red"><B>best way</B></FONT>
+    to <FONT color="blue"><B>illustrate/teach</B></FONT> the
+     <FONT color="red"><B>C features</B></FONT> is
+     <FONT color="blue"><B>relate</B></FONT> to
+     <FONT color="red"><B><I>same</I> (or similar) features</B></FONT>
+     that you <FONT color="blue"><B>have already learned</B></FONT>
+<P>
+ <FONT color="red"><B>Relating</B></FONT> to
+    <FONT color="blue"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Global</B></FONT> variables
+    in <FONT color="blue"><B>C</B></FONT> is
+    the <B><I>same</I></B> as
+    <FONT color="red"><B>class</B></FONT> variables in
+    <FONT color="blue"><B>Java</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Local</B></FONT> variables
+    in <FONT color="blue"><B>C</B></FONT> is
+    the <B><I>same</I></B> as
+    <FONT color="red"><B>local</B></FONT> variables in
+    <FONT color="blue"><B>Java</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int x = 1;              // Global variable</FONT>                 
+    
+   void f( )
+   {
+     <FONT color="red"> int y = 4;           // Local variable</FONT>
+    
+      printf("x = %d, y = %d\n", x, y );
+   }
+    
+    
+   int main(int argc, char *argv[] )
+   {
+      <FONT color="red">int z = 2;           // Local variable</FONT>
+    
+      printf("x = %d, z = %d\n", x, z );
+    
+      x = 777;              // Update the global variable         
+      f( );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is <FONT color="red"><B>equivalent</B></FONT> to the following
+ <FONT color="blue"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class variables1
+{
+   <FONT color="red">static int x = 1;            // Global variable = class variable
+                                // (Only 1 copy of this variable)</FONT>
+
+   static void f( )
+   {
+      <FONT color="red">int y = 4;                // Local variable</FONT>
+
+      System.out.printf("x = %d, y = %d\n", x, y );
+   }
+
+
+   static void main(String argv[] )
+   {
+      <FONT color="red">int z = 2;                // Local variable</FONT>
+
+      System.out.printf("x = %d, z = %d\n", x, z );
+
+      x = 777;             // Update the class (~= global) variable
+      f( );
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Therefore</B></FONT>,
+   I can <FONT color="blue"><B>use</B></FONT> what you have learned in
+    <FONT color="red"><B>Java</B></FONT> to state
+    these 
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue"><B>properties</B></FONT>:<?SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="red"><B>one copy</B></FONT>
+    of each <FONT color="blue"><B>global variable</B></FONT>
+ <LI> <FONT color="red"><B>Each invocation</B></FONT> of
+      a <FONT color="blue"><B>function</B></FONT> will
+      <FONT color="red"><B>create</B></FONT> a
+      <FONT color="blue"><B><I>new</I> copy</B></FONT> of
+      all <FONT color="red"><B>local variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     (Simple) Rule for selecting global vs local variable
+     </B></FONT>
+<P>
+<UL>
+<LI> Suppose you need to create a
+     <FONT color="red"><B>variable</B></FONT> to 
+  <FONT color="blue"><B>store information</B></FONT>
+<P>
+ <FONT color="red"><B>Question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> do you 
+   <FONT color="blue"><B>decide</B></FONT> whether
+   it should be a
+   <FONT color="red"><B>global variable</B></FONT> or
+   a <FONT color="blue"><B>local variable</B></FONT> ???
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the <FONT color="red"><B>information</B></FONT> stored
+     in the <FONT color="blue"><B>variable</B></FONT> is
+     <FONT color="red"><B><I>only</I> used</B></FONT> by
+     <FONT color="blue"><B><I>one</I> function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>variable</B></FONT> is
+     a <FONT color="red"><B>local</B></FONT> variable in
+     <FONT color="blue"><B><I>that</I> function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> If the <FONT color="red"><B>information</B></FONT> stored
+     in the <FONT color="blue"><B>variable</B></FONT> is
+     <FONT color="red"><B> used</B></FONT> by
+     <FONT color="blue"><B><I>multiple</I> function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>variable</B></FONT> is
+     a <FONT color="red"><B>glocal</B></FONT> variable that will
+     be <FONT color="blue"><B>accessible (= shared !!!)</B></FONT> by
+     <FONT color="red"><B><I>all</I> function</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ It is <FONT color="red"><B>your job</B></FONT> to
+ <FONT color="blue"><B>manage</B></FONT> the
+ <FONT color="red"><B>(<I>shared</I>) global variables</B></FONT> in 
+  <FONT color="blue"><B>C</B></FONT> !!!
+<P>
+ I.e.: make sure you don't <FONT color="red"><B>abuse</B></FONT> the
+  <FONT color="blue"><B>global variables</B></FONT> in a way 
+ that it is <FONT color="red"><B>not meant</B></FONT> to be
+ <FONT color="blue"><B>used</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

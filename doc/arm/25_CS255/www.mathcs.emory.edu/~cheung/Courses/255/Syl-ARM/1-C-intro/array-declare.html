@@ -1,0 +1,326 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Declaring array variables
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Declaring array variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> from
+   <FONT color="blue"><B>this webpage</B></FONT>:
+   (<A HREF="declare.html#declare">
+   <FONT color="red"><B>click here</B></FONT></A>), that the
+   <FONT color="blue"><B>syntax</B></FONT> to
+   <FONT color="red"><B><I>declare</I> a variable</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">extern</FONT>   dataType  varName ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can basically use
+ <FONT color="red"><B>this method</B></FONT> to
+ <FONT color="blue"><B>declare</B></FONT> an
+ <FONT color="red"><B>array variable</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+
+
+
+<LI> <FONT color="red"><B>How</B></FONT> 
+  <FONT color="blue"><B>I</B></FONT> usually 
+  <FONT color="red"><B>declare</B></FONT> an
+  <FONT color="blue"><B>array variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>If</B></FONT> the
+    <FONT color="blue"><B>array variables</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int   A[10];
+   float B[4][7];    // 2 dimensional array       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>declare</B></FONT> the 
+  <FONT color="blue"><B>array variables</B></FONT> by
+  <FONT color="red"><B>prepending</B></FONT>
+  the <FONT color="blue"><B><TT>extern</TT> keyword</B></FONT>
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">extern</FONT> int   A[10];   </SPAN>
+   <FONT color="red">extern</FONT> float B[4][7];    // 2 dimensional array       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">extern</FONT> int A[10];       <FONT color="red">// Declare array </FONT>   </SPAN>       
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">extern</FONT> float B[4][7];   <FONT color="red">// Declare array</FONT>    </SPAN>
+
+int main(int argc, char *argv[] )
+{
+   int i, j;
+
+   for (i = 0; i < 10; i++)
+      A[i] = i;
+
+   for (i = 0; i < 10; i++)
+      printf("%d ", A[i]);
+   printf("\n\n");
+
+   for (i = 0; i < 4; i++)
+      for (j = 0; j < 7; j++)
+         B[i][j] = i+j;
+
+   for (i = 0; i < 4; i++) {
+      for (j = 0; j < 7; j++)
+         printf("%f ", B[i][j]);
+      printf("\n");
+   }
+   printf("\n\n");
+}
+
+<FONT color="red">int   A[10];    // Define array
+float B[4][7];  // Define array</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Declare-array/declare-array1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc declare-array1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Alternate way to declare an array in C
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>first</I> dimension</B></FONT>
+      of an <FONT color="blue"><B>array <I>declaration</I></B></FONT>
+      is <FONT color="red"><B><I>optional</I></B></FONT> !!!
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words, you 
+ <FONT color="red"><B>can declare</B></FONT>
+  <FONT color="blue"><B>array variables</B></FONT> as
+ <B>follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">extern</FONT> int A<SPAN style="BACKGROUND-COLOR: yellow">[ ]</SPAN>;        <FONT color="red">// Declare array </FONT>          
+<FONT color="red">extern</FONT> float B<SPAN style="BACKGROUND-COLOR: yellow">[ ]</SPAN>[7];   <FONT color="red">// Declare array</FONT>
+
+int main(int argc, char *argv[] )
+{
+   int i, j;
+
+   for (i = 0; i < 10; i++)
+      A[i] = i;
+
+   for (i = 0; i < 10; i++)
+      printf("%d ", A[i]);
+   printf("\n\n");
+
+   for (i = 0; i < 4; i++)
+      for (j = 0; j < 7; j++)
+         B[i][j] = i+j;
+
+   for (i = 0; i < 4; i++) {
+      for (j = 0; j < 7; j++)
+         printf("%f ", B[i][j]);
+      printf("\n");
+   }
+   printf("\n\n");
+}
+
+<FONT color="red">int   A[10];    // Define array
+float B[4][7];  // Define array</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>reason</B></FONT> for this is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>first</I> dimension</B></FONT> is
+    <FONT color="blue"><B><I>not</I> needed</B></FONT> to
+    <FONT color="red"><B>find</B></FONT> the
+    <FONT color="blue"><B>address (= location)</B></FONT> of
+    an <FONT color="red"><B>array element</B></FONT>
+ <P>
+ (The <FONT color="red"><B><I>first</I> dimension</B></FONT> is
+ <FONT color="blue"><B><I>only</I> used</B></FONT> for
+ <FONT color="red"><B>array "out-of-bound" check</B></FONT>.
+ <P>
+ Since <FONT color="red"><B>C </B></FONT> does not
+  <FONT color="blue"><B>check array-out-bound errors</B></FONT>,
+  the  <FONT color="red"><B><I>first</I> dimension</B></FONT> is
+  <FONT color="blue"><B>optional</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,140 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Hexadecimal Numbers
+<HR>
+<UL>
+<LI> <B>Hexademical number system</B>: number system based on number 16
+  <P>
+  <UL>
+  <LI> Has <B>16</B> digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+  <LI> Value of digits increase by  <B>16</B> for each position
+  </UL>
+<PRE>
+   Example:
+
+      BAD<SUB>(16)</SUB> = 11 x 16<SUP>2</SUP> + 10 x 16<SUP>1</SUP> + 13 x 8<SUP>0</SUP>
+	     = 2816 + 160 + 13 = 2989<sub>10</sub>
+</PRE>
+<P>
+<LI> Finding the representation of a value in the hexadecimal number system:
+  <P>
+  <UL>
+  <LI> Divide the value repeated by 16
+  <LI> Collect the remainders in the reverse order
+  </UL>
+  <P>
+  (The procedure is exactly the same as the one to find the
+        representation for a value in the binary number system,
+        except you need to divide by 8 instead of 2)
+ <PRE>
+ Example:
+
+     value = 30
+
+ Find the representation in the octal number system:
+
+        30
+   16 ------ 14  (= E)
+         1
+   16 ------ 1
+         0
+
+    representation is ----> 1E<sub>(16)</sub>
+ </PRE>
+
+
+
+<LI> Hexadecimal numbers are also mainly used to show binary code
+     because hexadecimal number can be converted easily to binary numbers
+     and vice versa.
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Converting hexadecimal numbers to binary numbers:
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> Convert each octal digit to 4 binary digits using:
+<PRE>
+      Hex digit         Binary digits
+      -----------       -------------
+            0      -->        0000
+            1      -->        0001
+            2      -->        0010
+            3      -->        0011
+            4      -->        0100
+            5      -->        0101
+            6      -->        0110
+            7      -->        0111
+            8      -->        1000
+            9      -->        1001
+            A      -->        1010
+            B      -->        1011
+            C      -->        1100
+            D      -->        1101
+            E      -->        1110
+            F      -->        1111
+
+   Example:
+
+      <FONT color="red"><B>B</B></FONT>AD<SUB>(16)</SUB> = <FONT color="red"><B>1011</B></FONT>10101101
+      <FONT color="red"><B>9</B></FONT>01<SUB>(16)</SUB> = <FONT color="red"><B>1001</B></FONT>00000001  
+</PRE>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Converting binary numbers to hexadecimal numbers:
+         </B></FONT>
+ <P>
+ <UL>
+ <LI> Convert (starting from the right) each <FONT color="red"><B>group</B></FONT> of <FONT color="blue"><B>4 binary digits</B></FONT> into
+      <FONT color="red"><B>one hexadecimal digit</B></FONT> using:
+<PRE>
+      Binary digits      Hex digit
+      -------------     -----------
+         0000       -->      0
+         0001       -->      1
+         0010       -->      2
+         0011       -->      3
+         0100       -->      4
+         0101       -->      5
+         0110       -->      6
+         0111       -->      7
+         1000       -->      8
+         1001       -->      9
+         1010       -->      A
+         1011       -->      B
+         1100       -->      C
+         1101       -->      D
+         1110       -->      E
+         1111       -->      F
+
+   Example:
+
+      <FONT color="red"><B>1101</B></FONT><FONT color="blue"><B>0101</B></FONT> = <FONT color="red"><B>D</B></FONT><FONT color="blue"><B>5</B></FONT><sub>(16)</sub>
+      <FONT color="red"><B>1001</B></FONT><FONT color="blue"><B>0001</B></FONT> = <FONT color="red"><B>9</B></FONT><FONT color="blue"><B>1</B></FONT><sub>(16)</sub> (Note: this is NOT equal to 91 decimal !)
+</PRE>
+  </UL>
+<P>
+
+<LI> NOTE: we prefer to use hexadecimal number to represent binary numbers
+	because 2 hexadecimal digits is equal to 1 byte !

@@ -1,0 +1,627 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Automatic type conversion  in function calls
+<HR>
+</H3>
+<UL>
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Automatic type conversions are performed in a
+     function call
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>C's</B> <FONT color="blue"><B>conversion rule</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B><I>mismatched</I> data types</B></FONT>
+      are used in a <FONT color="blue"><B>function call</B></FONT> in
+    <FONT color="red"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> will
+    <FONT color="blue"><B><I>always</I></B></FONT> <B>convert</B>
+    the <FONT color="red"><B>values</B></FONT> to the
+    <FONT color="blue"><B>data type</B></FONT> of the
+    <FONT color="red"><B>receiving variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT> will
+       <FONT color="red"><B>always</B></FONT> <B>perform</B> 
+      the necessary <FONT color="red"><B><I> conversions</I></B></FONT> to
+      make the <B>data types</B>
+      <FONT color="blue"><B>match</B></FONT>
+<P>
+  <FONT color="red"><B>Even</B></FONT> if the
+    <FONT color="blue"><B>conversion will 
+    result in
+   <FONT color="red"><B><I>loss</I></B></FONT> of
+   <FONT color="red"><B>accuracy</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI>
+<B>Example:</B> 
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x)
+{
+   float r;
+
+   r = x*x;
+
+   return(r);
+}
+
+int main(int argc, char *argv[] )                
+{
+   <FONT color="red">int a, b;</FONT>
+
+   a = 2;
+
+   <FONT color="red">b</FONT> = f(<FONT color="red">a</FONT>);
+}
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In the <FONT color="red"><B>function call</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">b</FONT> = f(<FONT color="red">a</FONT>)
+
+<HR>
+ The compiler will:
+
+    (1) convert the <FONT color="red">int</FONT> representation in variable <FONT color="red">a</FONT> to a <FONT color="red">float</FONT> representation
+    (2) convert the <FONT color="red">return value</FONT> from <FONT color="red">float</FONT> representation to an <FONT color="red">int</FONT> representation
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To <FONT color="red"><B>show</B></FONT> you that
+  these <FONT color="blue"><B>conversion</B></FONT> indeed
+  takes place,
+  I have added
+  a number of
+  <FONT color="red"><B><TT>printBits( ) </TT></B></FONT> calls
+  to show the <FONT color="blue"><B>binary representation</B></FONT>
+  of the variables:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+    
+<FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x)
+{<FONT color="darkgreen">
+   printf("   f: x = %f , in binary: ", x);
+   printBits(&x);
+   printf("\n");</FONT>
+
+   float r;
+
+   r = x*x;
+<FONT color="darkgreen">
+   printf("   f: r = %f , in binary: ", r);
+   printBits(&r);
+   printf("\n");</FONT>
+
+   return(r);
+}
+
+int main(int argc, char *argv[] )
+{
+   <FONT color="red">int a, b;</FONT>
+
+   a = 2;
+<FONT color="darkgreen">
+   printf("main: a = %d , in binary: ", a);                         
+   printBits(&a);
+   printf("\n");</font>
+
+   <FONT color="red">b</FONT> = f(<FONT color="red">a</FONT>);
+<FONT color="darkgreen">
+   printf("main: b = %d , in binary: ", b);
+   printBits(&b);
+   printf("\n\n");</FONT>
+}
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:  a = 2 , in binary: 00000000000000000000000000000010         (int repr of 2)
+   f: x = 2.000000 , in binary: 01000000000000000000000000000000   (float repr of 2) 
+   f: r = 4.000000 , in binary: 01000000100000000000000000000000   (float repr of 4)
+main:  b = 4 , in binary: 00000000000000000000000000000100         (int repr of 4)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/func-call-conv1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc func-call-conv1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Java's behavior in function calls
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Java's behavior</B></FONT> in
+     a <FONT color="blue"><B>function call</B></FONT> is
+     the <FONT color="red"><B>same</B></FONT> as
+     <FONT color="blue"><B>C's behavior</B></FONT>,
+     <FONT color="red"><B>except</B></FONT>
+     (due to its
+     <FONT color="blue"><B>nanny property</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B><I>mismatched</I> data types</B></FONT>
+      are used in a <FONT color="blue"><B>function call</B></FONT>
+      in <FONT color="red"><B>Java</B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Java compiler</B></FONT> will
+     <FONT color="blue"><B><I>only</I></B></FONT> perform
+     <FONT color="red"><B><I>automatic</I> conversion (casting)</B></FONT>
+     if the <FONT color="blue"><B>conversion</B></FONT> is
+     <FONT color="red"><B><I>safe</I></B></FONT>
+     (i.e., <FONT color="blue"><B>no loss</B></FONT> in
+     <FONT color="red"><B>accuracy</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI>
+<B>Example 1:</B> 
+  <FONT color="blue"><B>Java</B></FONT> will
+   perform
+   <FONT color="red"><B><I>safe</I> conversions</B></FONT>
+   <FONT color="blue"><B><I>automatically</I></B></FONT>
+   (= <FONT color="red"><B>without</B></FONT> a
+   <FONT color="red"><B>cast operator</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class func_call_conv1
+{
+
+   static <FONT color="red">int</FONT> f( <FONT color="red">float</FONT> x)
+   {
+      System.out.printf("   f: x = %f , in binary: ", x);
+      printBitFloat(x);
+      System.out.println();
+
+      int r;
+
+      r = (int) (x*x);
+
+      System.out.printf("   f: r = %d , in binary: ", r);
+      printBitInt(r);
+      System.out.println("\n");
+
+      return(r);
+   }
+
+   public static void main(String[] args)
+   {<FONT color="red">
+      int a;
+      float b;</FONT>
+
+      a = 2;
+      System.out.printf("main: a = %d , in binary: ", a);                  
+      printBitInt(a);
+      System.out.println("\n");
+<FONT color="red">
+      b = f(a);  // Compiler performs these conversions:
+                 //    int a            ---> float x  (safe !)
+		 //    int return value ---> float b  (safe !)</FONT>
+
+      System.out.printf("main: b = %f , in binary: ", b);
+      printBitFloat(b);
+      System.out.println("\n");
+   }
+
+   .... // Conversion methods omitted
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main: a = 2 , in binary: 00000000000000000000000000000010
+
+   f: x = 2.000000 , in binary: 01000000000000000000000000000000
+   f: r = 4 , in binary: 00000000000000000000000000000100
+
+main: b = 4.000000 , in binary: 01000000100000000000000000000000         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/func_call_conv1.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac func_call_conv1.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>java func_call_conv1</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<HR>
+<P>
+<LI>
+<B>Example 2:</B> The <FONT color="red"><B>Java compiler</B></FONT> 
+    <B>requires</B>
+    <FONT color="blue"><B>casting</B></FONT> to
+    perform <FONT color="red"><B><I>
+     <SPAN style="BACKGROUND-COLOR: yellow"> unsafe</SPAN>
+    </I> conversions</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class func_call_conv2
+{
+
+   static float f( int x)
+   {
+      System.out.printf("   f: x = %d , in binary: ", x);
+      printBitInt(x);
+      System.out.println();
+
+      float r;
+
+      r = x*x;
+
+      System.out.printf("   f: r = %f , in binary: ", r);
+      printBitFloat(r);
+      System.out.println("\n");
+
+      return(r);
+   }
+
+   public static void main(String[] args)
+   {
+      float a;
+      int   b;
+
+      a = 2.0f;
+      System.out.printf("main: a = %f , in binary: ", a);              
+      printBitFloat(a);
+      System.out.println("\n");
+<FONT color="red">
+      b = (int) f((int) a);  // *** Need 2 casts !!!   
+                             // You need to request explicit casting for
+			     //    float a            --> int x  (unsafe !)
+			     //    float return value --> int b  (unsafe !)      
+</FONT>     
+      System.out.printf("main: b = %d , in binary: ", b);
+      printBitInt(b);
+      System.out.println("\n");
+   }
+
+   // Conversion methods omitted....
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main: a = 2.000000 , in binary: 01000000000000000000000000000000
+
+   f: x = 2 , in binary: 00000000000000000000000000000010
+   f: r = 4.000000 , in binary: 01000000100000000000000000000000
+
+main: b = 4 , in binary: 00000000000000000000000000000100
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/func_call_conv2.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac func_call_conv2.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>java func_call_conv2</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

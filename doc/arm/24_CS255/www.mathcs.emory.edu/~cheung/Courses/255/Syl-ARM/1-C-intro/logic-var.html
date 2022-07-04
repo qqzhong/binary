@@ -1,0 +1,203 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Boolean variables in C
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to define <I>boolean</I> variables in <I>C</I>
+     if C does not have a boolean data type ?
+     </B></FONT>
+<P>
+<UL>
+
+
+<P>
+<LI><FONT color="red"><B> How to</B></FONT>
+  define a
+   <FONT color="blue"><B>boolean type variable</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you need a <FONT color="blue"><B>boolean</B></FONT> variable,
+     define an <FONT color="red"><B><TT>int</TT> type
+   </B></FONT> variable instead
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Because:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compare operators
+     (<TT> < , <= , > , >= , == , != </TT>)</B></FONT>
+      and 
+    <FONT color="blue"><B>logical operators
+    (<TT> && , || , ! </TT>)</B></FONT>
+  returns
+  <FONT color="red"><B>0 or 1</B></FONT>,
+  we can
+  <FONT color="blue"><B>store</B></FONT> the
+  <FONT color="red"><B>result</B></FONT> of
+  these <B>operations</B> in an
+  <FONT color="blue"><B><TT>int</TT> typed variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+  the <FONT color="red"><B>Bubblesort</B></FONT> in
+ <FONT color="blue"><B>C</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+<FONT color="red">#include &lt;stdbool.h></FONT>
+
+
+int main( int argc, char* argv[] )
+{
+   <FONT color="red">int Done;            // int var pretending to be a Boolean variable</FONT>
+
+   int k; 
+   int Help; 
+   int N = 10;
+   int A[10] = {10, 5, 7, 8, 2, 1, 4, 3, 6, 9}; <FONT color="red">// Array, discussed later</FONT>          
+
+    /* ------------------------------------------------------
+       Bubble Sort code from pj7
+       ------------------------------------------------------ */
+    <FONT color="red">Done = false;             // *** Use boolean variable</FONT>
+    k = 1;
+
+    while ( <FONT color="red">! Done</FONT> )    
+    {
+       Done = true;          // *** Use boolean variable
+
+       for (int i = 0; i < N-k; i++)
+       {
+          if (A[i] > A[i+1])
+          {
+             Help = A[i];
+             A[i] = A[i+1];
+             A[i+1] = Help;
+             Done = false;          // Not sorted...
+          }
+       }
+
+       k = k + 1;
+    }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+10 5 7 8 2 1 4 3 6 9 
+1 2 3 4 5 6 7 8 9 10                      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/logic3.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc logic3.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

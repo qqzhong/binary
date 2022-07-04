@@ -1,0 +1,925 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Some String functions in the C standard library
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String functions in C's standard library
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>header file</B> of
+     <FONT color="blue"><B>string manipulation functions</B></FONT>
+     in the <B>C standard library</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include <<FONT color="red">strings.h</FONT>>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>header file</B> contains
+  <FONT color="blue"><B>declarations (function prototypes</B></FONT>
+  of the <B>string manipulation functions</B>
+<P>
+<HR>
+<P>
+<LI> Some <FONT color="blue"><B>string manipulation functions</B></FONT>
+     in the <B>C standard library</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>strlen(s):</TT></B></FONT>
+       returns the 
+    <FONT color="blue"><B>length</B></FONT>
+     (number of characters not including the
+       sentinel '\0') in the string s
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strcpy(s1, s2):</TT></B></FONT>
+     <FONT color="blue"><B>copy</B></FONT>
+    the string s2 into the string s1
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strncpy(s1, s2, n):</TT></B></FONT>
+     <FONT color="blue"><B>copy <I>n</I> characters</B></FONT>
+     from the string s2 into the string s1
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strcat(s1, s2):</TT></B></FONT>
+     <FONT color="blue"><B>append</B></FONT>
+   <FONT color="red"><B> (catenate)</B></FONT>
+     the string s2 after the string s1
+     (string s2 is unchanged)
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strncat(s1, s2):</TT></B></FONT>
+     <FONT color="blue"><B>append <FONT color="red">(catenate)</FONT>
+      n characters</B></FONT> of
+     the string s2 after the string s1
+     (string s2 is unchanged)
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strcmp(s1, s2):</TT></B></FONT>
+      <FONT color="blue"><B>compare</B></FONT> the strings s1 and s2.
+ <P>
+   <UL>
+   <LI>
+      Returns a <FONT color="blue"><B>value < 0</B></FONT>
+      if s1 is 
+     <FONT color="red"><B>lexicographically smaller</B></FONT>
+       than s2,
+   <LI> 
+       returns the <FONT color="blue"><B>value 0</B></FONT>
+      if s1 and s2 are <FONT color="red"><B>equal</B></FONT> and
+   <LI>
+       return a <FONT color="blue"><B>value > 0</B></FONT>
+       if s1 is 
+      <FONT color="red"><B>lexicographically greater</B></FONT>
+     than s2.
+   </UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strncmp(s1, s2):</TT></B></FONT>
+      same as 
+    <FONT color="darkmagenta"><B><TT>strcmp(s1, s2)</TT></B></FONT>,
+     except  the <FONT color="blue"><B>result</B></FONT>
+     is <B>based only</B> on
+      the <FONT color="red"><B>first n characters</B></FONT> in the strings.
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strcasecmp(s1, s2):</TT></B></FONT>
+       same as 
+    <FONT color="darkmagenta"><B><TT>strcmp(s1, s2)</TT></B></FONT>, except
+      the
+       <FONT color="blue"><B>case (upper/lower) is ignored</B></FONT>.
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>strncasecmp(s1, s2):</TT></B></FONT>
+        same as 
+    <FONT color="darkmagenta"><B><TT>strcmp(s1, s2)</TT></B></FONT>,
+     except  the <FONT color="blue"><B>result</B></FONT>
+    is <B>based only</B> on
+      the 
+   <FONT color="red"><B>first n characters</B></FONT> in the strings.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String copy
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    char *strcpy( char s1[],  char s2[] )             
+
+  or:
+
+    char *strcpy( char *s1,  char *s2 )   <FONT color="red">// Recall that  char a[] <==>  char *a  in C !!!</FONT>    
+
+<HR>
+
+    <FONT color="red">Copy</FONT> the string s2 to the string s1                   
+    (Function returns s1)
+</PRE> 
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>naive</B></FONT> way to
+     implement the <FONT color="red"><B><TT>strcpy()</TT></B></FONT>
+     function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char *strcpy( char s1[], char s2[] )
+   {
+      int i = 0;
+
+      /* ----------------------------------
+         '\0' marks the end of the string !
+	 ---------------------------------- */
+      while ( <FONT color="red">s2[i] != '\0'</FONT> )
+      {
+         <FONT color="red">s1[i] = s2[i];</FONT>   // Copy character at position i       
+	 <FONT color="red">i++; </FONT>            // Move to next character
+      }
+<FONT color="magenta">
+      s1[i] = '\0'; </FONT>  // <FONT color="red">Mark the end</FONT> of the s1 string    
+
+      return(s1);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/strcpy1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc strcpy1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>C intermediate</B> way to implement the
+     <FONT color="red"><B><TT>strcpy()</TT></B></FONT> function
+   (it is a <FONT color="blue"><B>direct <I>transcription</I></B></FONT>
+     from the previous version using
+     <FONT color="red"><B>pointer arithmetic</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char *strcpy( char *s1,  char *s2 )           
+   {
+      while ( <FONT color="red">*s2 != '\0'</FONT> )
+         <FONT color="red">*s1++ = *s2++; </FONT>   
+<FONT color="magenta">
+      *s1 = '\0';</FONT>        // <FONT color="red">Mark the end</FONT> of the s1 string  
+
+      return(s1);      
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> The <B>C Pro</B> way to implement the
+     <FONT color="red"><B><TT>strcpy()</TT></B></FONT> function:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char *strcpy( char *s1,  char *s2 )
+   {
+      char *r = s1;  // Save return value 
+
+      while ( <FONT color="red"><FONT color="darkred">(*s1++ = *s2++)</FONT> != '\0'</FONT> );               
+
+      return(r);
+   }
+
+<HR>
+ Or (after taking advantage of C's way to interpret non-zero as TRUE):      
+
+   char *strcpy( char *s1,  char *s2 )
+   {
+      char *r = s1;  // Save return value 
+
+      while ( <FONT color="red">(*s1++ = *s2++)</FONT> );               
+
+      return(r);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>input parameters</B>
+    <FONT color="blue"><B><TT>s1</TT></B></FONT> and
+    <FONT color="blue"><B><TT>s2</TT></B></FONT> points to
+    <FONT color="red"><B>2 different</B></FONT>
+    character arrays:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      +---+---+---+---+---+---+---+        +---+---+---+---+---+
+      |   |   |   |   |   |   |   | ...    | a | b | c | \0|   | ...      
+      +---+---+---+---+---+---+---+        +---+---+---+---+---+
+        ^                                    ^
+        |				     |<FONT color="red">
+        s1				     s2</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Iteration 1</B> of <FONT color="blue"><B>while loop</B></FONT>....
+  <P>
+  The <B>expression</B> of the
+     <FONT color="blue"><B>while-statement</B></FONT> must be
+     evaluated from the <FONT color="red"><B>inside out</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1.  ( *s1++ = *s2++ )     // <FONT color="red">*s2++</FONT> returns 'a' and then increments s2
+                              // <FONT color="red">*s1++</FONT> = 'a' will store 'a' in first position of s1
+			      //    and then increment s1
+			      // The entire expression ( *s1++ = *s2++ ) 
+			      //    evaluates to <FONT color="red">'a'</FONT> (assignment operator
+			      //    returns the value assigned !)
+			      //
+			      // Result: copies the first char
+                              //         from s2 to s1   AND 
+			      //         increment s1 and s2
+
+
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+         | <FONT color="red">a</FONT> |   |   |   |   |   |   | ...    | a | b | c | \0|   | ...      
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+               ^                                    ^
+	       |				    |
+	       s1				    s2
+
+<HR>
+    2. ( *s1++ = *s2++ ) != '\0'    // replace ( *s1++ = *s2++ ) with return value
+
+        ==> <FONT color="red">'a'</FONT> != '\0'             // TRUE 
+<FONT color="red">
+        while loop repeats....</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Iteration 2</B> of <FONT color="blue"><B>while loop</B></FONT>....
+  <P>
+  <B>Again</B>, evaluate the <B>expression</B> of the
+     <FONT color="blue"><B>while-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1.  ( *s1++ = *s2++ )     // <FONT color="red">*s2++</FONT> now returns 'b' and then increments s2
+                              // <FONT color="red">*s1++</FONT> = 'b' will store 'b' in next position of s1
+			      //    and then increment s1
+			      // The entire expression ( *s1++ = *s2++ ) 
+			      //    evaluates to <FONT color="red">'b'</FONT> (assignment operator
+			      //    returns the value assigned !)
+			      //
+			      // Result: copies the second char
+                              //         from s2 to s1   AND 
+			      //         increment s1 and s2
+
+
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+         | a | <FONT color="red">b</FONT> |   |   |   |   |   | ...    | a | b | c | \0|   | ...      
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+                   ^                                    ^
+	           |				        |
+	           s1				        s2
+
+<HR>
+    2. ( *s1++ = *s2++ ) != '\0'    // replace ( *s1++ = *s2++ ) with return value
+
+        ==> <FONT color="red">'b'</FONT> != '\0'             // TRUE 
+<FONT color="red">
+        while loop repeats....</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Iteration 3</B> of <FONT color="blue"><B>while loop</B></FONT>....
+  <P>
+  <B>Again</B>, evaluate the <B>expression</B> of the
+     <FONT color="blue"><B>while-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1.  ( *s1++ = *s2++ )     // <FONT color="red">*s2++</FONT> now returns 'c' and then increments s2
+                              // <FONT color="red">*s1++</FONT> = 'c' will store 'c' in next position of s1
+			      //    and then increment s1
+			      // The entire expression ( *s1++ = *s2++ ) 
+			      //    evaluates to <FONT color="red">'c'</FONT> (assignment operator
+			      //    returns the value assigned !)
+			      //
+			      // Result: copies the third char
+                              //         from s2 to s1   AND 
+			      //         increment s1 and s2
+
+
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+         | a | b | <FONT color="red">c</FONT> |   |   |   |   | ...    | a | b | c | \0|   | ...      
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+                       ^                                    ^
+	               |				    |
+	               s1				    s2
+
+<HR>
+    2. ( *s1++ = *s2++ ) != '\0'    // replace ( *s1++ = *s2++ ) with return value
+
+        ==> <FONT color="red">'c'</FONT> != '\0'             // TRUE 
+<FONT color="red">
+        while loop repeats....</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Iteration 4</B> of <FONT color="blue"><B>while loop</B></FONT>....
+  <P>
+  <B>Again</B>, evaluate the <B>expression</B> of the
+     <FONT color="blue"><B>while-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1.  ( *s1++ = *s2++ )     // <FONT color="red">*s2++</FONT> now returns '\0' and then increments s2
+                              // <FONT color="red">*s1++</FONT> = '\0' will store '\0' in next position of s1
+			      //    and then increment s1
+			      // The entire expression ( *s1++ = *s2++ ) 
+			      //    evaluates to <FONT color="red">'\0'</FONT> (assignment operator
+			      //    returns the value assigned !)
+			      //
+			      // Result: copies the <FONT color="red">SENTINEL</FONT> char
+                              //         from s2 to s1   AND 
+			      //         increment s1 and s2
+
+
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+         | a | b | c | <FONT color="red">\0</FONT>|   |   |   | ...    | a | b | c | \0|   | ...      
+         +---+---+---+---+---+---+---+        +---+---+---+---+---+
+                           ^                                 ^
+	                   |			             |
+	                   s1				     s2
+
+<HR>
+    2. ( *s1++ = *s2++ ) != '\0'    // replace ( *s1++ = *s2++ ) with return value
+
+        ==> <FONT color="red">'\0'</FONT> != '\0'             // <FONT color="red">FALSE</FONT> 
+<FONT color="magenta">
+        while loop END</FONT>   <FONT color="red">(String has been copied !!!)</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><TT>strcpy()</TT></B></FONT> function
+      is one of the <FONT color="red"><B>classic <I>one-liner</I></B></FONT>
+      code of <B>C</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/strcpy2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc strcpy2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String compare
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  strcmp( char s1[],  char s2[] )             
+
+  or:
+
+    int  strcmp( char *s1,  char *s2 )   <FONT color="red">// Recall that  char a[] <==>  char *a  in C !!!</FONT>    
+
+<HR>
+
+    <FONT color="red">Compare</FONT> the string s1 and s2                   
+
+    Returns:  value < 0  if  s1 < s2
+              value 0    if  s1 equals to s2
+	      value > 0  if  s1 > s2
+</PRE> 
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>naive</B></FONT> way to
+     implement the <FONT color="red"><B><TT>strcmp()</TT></B></FONT>
+     function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int strcmp( char s1[], char s2[] )
+   {
+      int i = 0;
+    
+      /* ----------------------------------
+   	 '\0' marks the end of the string !
+   	 ---------------------------------- */
+      while ( <FONT color="red">s2[i] != '\0' && s1[i] != 0</FONT> )
+      {
+   	 if ( <FONT color="red">s1[i] != s2[i]</FONT> )          // If s1 and s2 differ in char i
+   	    <FONT color="magenta">break;</FONT>                      // exit while loop !
+    
+   	 i++;
+      }
+    <FONT color="darkred">
+      /* ----------------------------------------------------------------
+   	 If we reach here, then:
+           1. one or both of s1 and s2 are exhausted !
+	   2. character position i in s1 and s2 are different
+   	 ---------------------------------------------------------------- */</FONT>
+    
+      return <FONT color="red">s1[i] - s2[i]</FONT>;     // s1[i] - s2[i] will tell us which string
+   				// is lexicographically smaller
+   				// If they are equal, we will get
+				//   '\0' - '\0' = 0
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/strcmp1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc strcmp1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>C intermediate</B> way to implement the
+     <FONT color="red"><B><TT>strcmp()</TT></B></FONT> function
+     (it is a <FONT color="blue"><B>direct <I>transcription</I></B></FONT>
+     from the previous version using
+     <FONT color="red"><B>pointer arithmetic</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int  strcmp( char *s1,  char *s2 )           
+   {
+      while ( <FONT color="red">*s1 != '\0' && *s2 != '\0'</FONT> )
+      {
+         if ( <FONT color="red">*s1 != *s2</FONT> )
+	    break;
+
+	 s1++;
+	 s2++;
+      }
+
+      return( *s1 - *s2 );      
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> We can <B>move</B> the <B>break test</B> into
+	 the <B>if-condition</B> to make the
+     <FONT color="red"><B><TT>strcmp()</TT></B></FONT> function
+	"sexier":
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int strcmp( char *s1,  char *s2 )
+   {
+      while ( <FONT color="darkred">*s1 != '\0' && *s2 != '\0'</font> && <font color="red"><FONT color="darkgreen">(*s1 - *s2)</FONT> == 0</FONT> )    
+      {
+         s1++;
+         s2++;
+      }
+
+      return( *s1 - *s2 );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>advanced</B> way to code
+     <FONT color="red"><B><TT>strcmp()</TT></B></FONT> function
+	is as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   int strcmp( char *s1,  char *s2 )
+   {
+      int res = 0;
+
+      while ( <FONT color="red">*s1 != '\0' && *s2 != '\0'</font> && <font color="darkgreen">( res = <FONT color="darkred">(*s1 - *s2)</FONT> )</font> == 0 )     
+      {
+         s1++;
+         s2++;
+      }
+
+      return( <font color="darkgreen">res</font> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/strcmp2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc strcmp2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

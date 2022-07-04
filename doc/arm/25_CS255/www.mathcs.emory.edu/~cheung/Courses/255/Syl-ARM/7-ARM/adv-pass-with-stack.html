@@ -1,0 +1,219 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Why can the stack avoid the overwrite problem ???
+<HR>
+</H3>
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Terminology: active function/method
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Active method/function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Active method/function</B></FONT> =
+   the <FONT color="blue"><B>method/function</B></FONT> that is
+    <FONT color="red"><B>executing</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P><FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Only</B></FONT> the
+     <FONT color="blue"><B>method</B></FONT> that
+     is <FONT color="red"><B>invoked <I>last</I></B></FONT> is
+     <FONT color="blue"><B>active</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B><TT>main( )</TT></B></FONT> calls
+   <FONT color="blue"><B><TT>A( )</TT></B></FONT> and
+   <FONT color="red"><B><TT>A( )</TT></B></FONT> calls
+   <FONT color="blue"><B><TT>B( )</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>B( )</TT></B></FONT> is
+     <FONT color="blue"><B>active</B></FONT>
+ <LI> <FONT color="red"><B><TT>main( )</TT></B></FONT> and
+       <FONT color="red"><B><TT>A( )</TT></B></FONT> are
+       <FONT color="blue"><B><I>inactive</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How  the program stack avoids the
+    overwrite problem in  parameters passing and
+     storing local variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Property</B></FONT> of
+      a <FONT color="blue"><B>stack</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>stack</B></FONT> will
+      <FONT color="blue"><B>grow</B></FONT> when 
+   things are <FONT color="red"><B>pushed</B></FONT> on the
+   <FONT color="blue"><B>stack</B></FONT>
+<P>
+  (That is  as long
+      as there are
+      <FONT color="red"><B>available memory space</B></FONT>
+      left)
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<LI> The <FONT color="red"><B>new things</B></FONT> pushed
+    on the <FONT color="blue"><B>stack</B></FONT> will
+    <FONT color="red"><B><I>not</I> overwrite</B></FONT> the
+     <FONT color="blue"><B>old things inside the stack</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When <FONT color="red"><B><TT>main( )</TT></B></FONT> passes
+      <FONT color="blue"><B>parameters</B></FONT> to
+      <FONT color="red"><B><TT>A( )</TT></B></FONT>
+      and <FONT color="blue"><B><TT>A( )</TT></B></FONT> creates its
+      <FONT color="red"><B>local variables</B></FONT> using the
+      <FONT color="blue"><B>stack</B></FONT>, we
+      will <FONT color="red"><B>create</B></FONT>
+      a <FONT color="blue"><B>stack frame</B></FONT> for
+      <FONT color="red"><B><TT>A( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Then</B>
+    if  <FONT color="red"><B><TT>A( )</TT></B></FONT> passes
+      <FONT color="blue"><B>parameters</B></FONT> to <B>another function</B>
+      <FONT color="red"><B><TT>B( )</TT></B></FONT>
+      and <FONT color="blue"><B><TT>B( )</TT></B></FONT> creates its
+      <FONT color="red"><B>local variables</B></FONT> using the
+      <FONT color="blue"><B>stack</B></FONT>, we
+      will <FONT color="red"><B>create</B></FONT>
+      <B>another</B> <FONT color="blue"><B>stack frame</B></FONT>
+  (on top of A's stack frame) for
+      <FONT color="red"><B><TT>B( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So this is how a
+ <FONT color="red"><B>stack</B></FONT> can
+ <FONT color="blue"><B>avoid</B></FONT> the
+ <FONT color="red"><B>overwriting problem</B></FONT> of
+ <FONT color="blue"><B>registers</B></FONT> !!!!
+<P>
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

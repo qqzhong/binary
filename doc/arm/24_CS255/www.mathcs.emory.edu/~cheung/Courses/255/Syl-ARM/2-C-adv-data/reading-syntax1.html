@@ -1,0 +1,503 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How to read C's <font color="red"><TT>type *</TT></font> variable definition
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>variable definition</I> clause in
+      <I>modern</I> programming languages
+     </B></FONT>
+<P>
+<UL>
+<LI> Students in <B>Emory</B> 
+    studied <FONT color="blue"><B>programming</B></FONT>
+     using the 
+     <B>modern</B>
+     <FONT color="red"><B>Java</B></FONT>
+      programming language
+     which has a <B><I>simple to understand</I></B>
+     <FONT color="blue"><B>syntax</B></FONT> for
+     <B>variable definition</B>
+<P>
+<HR>
+<P>
+<LI> <B>Java's</B> syntax to
+     <FONT color="blue"><B>define</B></FONT> a <B>variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">DataType</FONT>   variableName ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int</FONT>    a ;         a is an <FONT color="red">int</FONT>
+    <FONT color="red">int[]</FONT>  b ;         b is an <FONT color="red">int[] (array of int)</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <B>Java</B>, you can 
+     <FONT color="blue"><B>also</B></FONT> define an
+     <B>array (object) variable</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  a[] ;               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> This <B>syntax</B> is
+     to <FONT color="blue"><B>accommodate</B></FONT> the
+     <FONT color="red"><B><I>older</I> generation </B></FONT> of
+     <B>C style</B> 
+     array definition.
+ <P>
+   The <FONT color="red"><B>proper form</B></FONT> of
+   <FONT color="blue"><B>array definition</B></FONT> in <B>Java</B> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int[]</FONT>  a ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reading C's syntax for variable definitions
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>How to</B></FONT> read a
+      <FONT color="red"><B>simple</B> </FONT>
+     <B>variable definition</B> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT>   <FONT color="darkred">a</FONT> ;      // meaning: the expression <FONT color="darkred">a</FONT> is of the type <FONT color="red">int</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How to</B></FONT> read a
+      <FONT color="red"><B><I>reference</I></B> </FONT>
+     <B>variable definition</B> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int *</FONT><FONT color="darkred">a</FONT> ;
+
+  should be read as:
+
+     <FONT color="red">int </FONT><FONT color="darkred">*a</FONT> ;    // meaning: the expression  <FONT color="darkred">*a</FONT>  is an <FONT color="red">int</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>How</B></FONT> can the fact that
+ <P>
+  <UL>
+      "<FONT color="red"><B><TT>*a</TT></B></FONT> is an 
+    <FONT color="blue"><B><TT>int</TT></B></FONT> variable"
+  </UL>
+  <P>
+    be <B><I>equivalent</I></B> to
+    the fact that
+  <P>
+  <UL>
+   "<FONT color="red"><B><TT>a</TT></B></FONT> is an 
+   <FONT color="blue"><B><I>reference</I> variable</B></FONT> to an
+    <FONT color="red"><B><TT>int</TT></B></FONT> variable"
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<B>Explanation:</B> 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>If:</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">*a</FONT> is an <FONT color="red">int</font>     (and <FONT color="red">*</FONT> is the <FONT color="red">de-reference operator</FONT> !)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><I>then:</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">a</FONT>    contains  an <FONT color="red">address</FONT> of an <FONT color="darkred">int</font> variable !!!      
+
+ i.e.:
+
+     <FONT color="red">a</FONT>    is a <FONT color="red">reference variable</FONT> to an <FONT color="darkred">int</font> variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     More common way to write a definition of <I>reference</I> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Some times, you see programmers use the following "style"
+     (that is 
+      <FONT color="blue"><B>not used</B></FONT> by
+      <B><I>mature</I> C programmers</B>) to
+      write the <FONT color="red"><B>definition</B></FONT> of
+      a <B><I>reference</I> variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int*</FONT>  a ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The "intention is to <FONT color="blue"><B>mimic</B></FONT> the
+  <FONT color="red"><B>Java style</B></FONT> of
+   <B>variable definition</B> to reflect the fact that
+   the variable <FONT color="blue"><B><TT>a</TT></B></FONT>
+   has the <B>type</B> <FONT color="red"><B><TT>int*</TT></B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>conventional (and proper) way</B></FONT>
+     in <B>C</B> to write 
+     the <FONT color="red"><B>definition</B></FONT> of
+      a <B><I>reference</I> variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT>  *a ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+because this <B>notation</B>
+ <FONT color="blue"><B>reflects</B></FONT> the
+ <B>underlying meaning</B> of the
+ <FONT color="red"><B>definition</B></FONT> as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B><I>expression</I></B> 
+ &nbsp;
+    <FONT color="blue"><B><TT>*a</TT></B></FONT> &nbsp; 
+  is
+    of the type <FONT color="red"><B><TT>int</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Some more advanced examples of <I>variable definition</I> syntax
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following
+    <FONT color="blue"><B>variable definition</B></FONT> that
+    defines <FONT color="red"><B>2 variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT>  *a, b ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <B>variable definition</B> defines:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">*a</FONT>    is an int   ===>  <FONT color="red">a</FONT>   is a <FONT color="darkred">reference variable</FONT> to an int    
+       <FONT color="red">b</FONT>    is an int   ===>  <FONT color="red">b</FONT>   is an int
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example 2:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int</FONT>  *a, *b ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <B>variable definition</B> defines:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">*a</FONT>    is an int   ===>  <FONT color="red">a</FONT>   is a <FONT color="darkred">reference variable</FONT> to an int    
+      <FONT color="red">*b</FONT>    is an int   ===>  <FONT color="red">b</FONT>   is <FONT color="red">also</FONT> a <FONT color="darkred">reference variable</FONT> an int
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

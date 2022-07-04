@@ -1,0 +1,175 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Removing the implicit function declaration problem in C
+<HR>
+</H3>
+<UL>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Solving the <I>missing</I> function prototype information in C
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> the
+   <FONT color="blue"><B>previous example</B></FONT>
+    where the <FONT color="red"><B>function</B></FONT>
+    information was <FONT color="blue"><B>not available</B></FONT>
+    when the <B>C compiler</B>
+    needs to
+    <FONT color="red"><B>translate</B></FONT> a <B>function call</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char *argv[] )
+   {
+      <FONT color="red">float</FONT> a, b;
+
+      a = 2;
+
+      b = f( a ); <FONT color="red">// The C compiler has NOT seen the definition of float f(float x)
+                  //   1. Input  conversion ???:  float a --> ???
+                  //   2. Output conversion ???:  ???   --> float</FONT>
+ 
+      printf("b = %f\n", b);
+   }
+
+<SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x ) <FONT color="red"> // This definition is too late !!</FONT>                           </SPAN>
+   {
+      float r;        // Define a local variable         
+
+      printf("Input parameter = %f\n", x);
+
+      r = x * x;       // Statement
+
+      return ( r );    // Return statement
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We can use a
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Function declaration</B></FONT>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to
+<FONT color="blue"><B>provide</B></FONT>
+     the <FONT color="red"><B>function <I>prototpe</I></B></FONT> information:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="red">float f( float x );     // Function prototype (function declaration)</FONT>    </SPAN>
+
+   int main( int argc, char *argv[] )
+   {
+      <FONT color="red">float</FONT> a, b;
+
+      a = 2;
+
+      b = f( a ); <FONT color="red">// The C compiler knows that: float f(float x)
+                  //   1. Input  conversion:  no conversion necessary
+                  //   2. Output conversion:  no conversion necessaty</FONT>
+ 
+      printf("b = %f\n", b);
+   }
+
+
+   <FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x ) <FONT color="red"> // This definition is too late !!</FONT>   
+   {
+      float r;        // Define a local variable         
+
+      printf("Input parameter = %f\n", x);
+
+      r = x * x;       // Statement
+
+      return ( r );    // Return statement
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Experiment 2B:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Program:  /home/cs255000/demo/c/set1/<FONT color="red">experiment2b.c </FONT>       
+  
+   cs255 (1744)> a.out
+   Input parameter = <FONT color="red">2.000000</FONT>
+   b = <FONT color="red">4.000000</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

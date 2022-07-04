@@ -1,0 +1,290 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Recursion: insert at tail, delete at tail and print list
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Show off recursion
+     </B></FONT>
+<P>
+ <UL>
+ <LI> In this web page, I just want to show off how 
+     <FONT color="blue"><B>easy</B></FONT> it is to
+     use <FONT color="red"><B>recursion</B></FONT> to
+     manipulate the <FONT color="blue"><B>tail element</B></FONT>
+     of a <B>list</B>
+<P>
+<HR>
+<P>
+<LI> I am applying this <FONT color="blue"><B>recursive</B></FONT>
+     solution technique:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     if ( problem is easy )
+        return solution
+     else
+     {
+        have someone else some a smaller problem                
+	use the solution to solve MY problem
+     }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Insert at <I>tail</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct ListElem *insertTail(struct ListElem *h, struct ListElem *e)
+   {
+      struct ListElem *sol;      // The solution returned by my helper
+      struct ListElem *mySol;    // My solution
+    
+      if ( h == NULL )
+      {<FONT color="red">
+   	 /* EASY case: list contains only element e */</FONT>
+    
+   	 e->next = NULL;
+   	 return(<FONT color="red">e</FONT>);
+      }
+      else
+      {
+   	 /* ---------------------------------------------
+   	    DIFFICULT case:
+   	       1. give someone a smaller problem and
+   	       2. use its sol to solve my problem
+   	    ---------------------------------------------- */
+    
+   	 sol = <FONT color="red">insertTail( h->next, e)</FONT>;   // (1) Have someone solve smaller prob
+   					  //     (Insert e in shorter list)
+    
+   	 <FONT color="red">h->next = sol</FONT>;                   // (2) use sol to solve my problem
+   					  //     (Add sol after the first elem)
+    
+   	 return(<FONT color="red">h</FONT>);                       // Claim glory...
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Delete at <I>tail</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct ListElem *deleteTail ( struct ListElem *h )
+   {
+    
+      struct ListElem *sol;      // The solution returned by my helper
+    
+      if ( <FONT color="red">h == NULL</FONT> )
+      {
+   	 /* EASY case: list is empty, nothing to delete  */
+
+   	 return(<FONT color="red">NULL</FONT>);   // Return empty list
+      }
+      else if ( <FONT color="red">h->next == NULL</FONT> )
+      {
+   	 /* EASY case: (<FONT color="red">last element !</FONT>) after deleting, list is empty */
+    <FONT color="magenta">
+   	 free(h); </FONT>       <FONT color="red">// De-allocate !!!</FONT>
+    
+   	 return(<FONT color="red">NULL</FONT>);   // Return empty list
+      }
+      else
+      {
+   	 /* ---------------------------------------------
+   	    DIFFICULT case:
+   	       1. give someone a smaller problem and
+   	       2. use its sol to solve my problem
+   	    ---------------------------------------------- */
+    
+   	 sol = <FONT color="red">deleteTail( h->next )</FONT>;  // (1) Have someone solve smaller prob
+   				       //     (Delete tail in shorter list)
+    
+   	 <FONT color="red">h->next = sol</FONT>;                // (2) use sol to solve my problem
+   				       //     (Add sol after the first elem)
+    
+   	 return(<FONT color="red">h</FONT>);                    // Claim glory...
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Print a list (using recursion)
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void printList( struct ListElem *h )
+   {
+      if ( <FONT color="red">h == NULL</FONT> )
+      {
+   	 /* EASY case: nothing to print !  */
+   	 <FONT color="red">return</FONT>;
+      }
+      else
+      {
+   	 /* ---------------------------------------------
+   	    DIFFICULT case:
+   	       1. give someone a smaller problem and
+   	       2. use its sol to solve my problem
+   	    ---------------------------------------------- */
+   	 printf("%d ", <FONT color="red">h->value</FONT>);  // <FONT color="red">I print the head elem out first</FONT>
+   	 <FONT color="darkred">printList(h->next)</FONT>;       // <FONT color="red">Have someone print the rest</FONT>
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Demo
+     </B></FONT>
+<P>
+<UL>
+ 
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/recurse1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc recurse1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

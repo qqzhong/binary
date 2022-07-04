@@ -1,0 +1,51 @@
+
+// Quiz: anyone know what's going on ?
+
+#include <stdio.h>
+
+void PrintFloatInBits(float x)
+{
+   int i;
+
+   int *p = (int *) &x;
+
+   for (i = 31; i >= 0; i--)
+      if ( (*p & (1 << i)) != 0 )
+         putchar('1');
+      else
+         putchar('0');
+}
+
+void PrintIntInBits(int x)
+{
+   int i;
+
+   int *p = (int *) &x;
+
+   for (i = 31; i >= 0; i--)
+      if ( (*p & (1 << i)) != 0 )
+         putchar('1');
+      else
+         putchar('0');
+}
+
+int main( int argc, char* argv[] )
+{
+   float x = 2.0;
+
+   printf("float value %f is stored as: ", x);
+   printf("(the binary pattern): \n\t\t");
+   PrintFloatInBits(x);
+   printf("\n\n");
+   
+   printf( "float x printed with %%f: %f\n", x );
+   printf( "float x printed with %%d: %d\n", x );
+
+   int y = 1412091904;
+
+   printf("\n\nint value %d is stored as: ", y);
+   printf("(the binary pattern): \n\t\t");
+   PrintIntInBits(x);
+   printf("\n\n");
+
+}

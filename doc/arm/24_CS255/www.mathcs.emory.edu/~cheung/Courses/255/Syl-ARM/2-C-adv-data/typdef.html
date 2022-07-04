@@ -1,0 +1,605 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<TT>typedef</TT>: give an existing type  another name...
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>typedef</TT>: giving a user-defined data type a name
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B><TT>typedef</TT> clause</B></FONT>
+  in the <FONT color="blue"><B>C programming language</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> A <FONT color="red"><B><TT>typedef</TT> definition</B></FONT> is an
+   <FONT color="blue"><B>single word <I>alias</I></B></FONT> for a
+   <FONT color="red"><B> <I>user-defined</I> data type</B></FONT>
+   (such as a <FONT color="blue"><B><TT>struct</TT></B></FONT>)
+   
+ </UL>
+
+
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> of the
+     <FONT color="blue"><B><TT>typedef</TT> clause</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">typedef</FONT>  Any-data-type  <FONT color="red">Single-word-alias</font>  ;  </SPAN>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">typedef</FONT>   int  <FONT color="red">my_int</font>  ;            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B><TT>typedef</TT></B></FONT> clause
+ will <FONT color="blue"><B>define</B></FONT> 
+   <FONT color="red"><B><TT>my_int</TT></B></FONT> as
+ an <FONT color="blue"><B><I>alias</I></B></FONT> for
+ <FONT color="red"><B><TT>int</TT></B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">typedef int my_int;</FONT>    </SPAN>
+    
+   int main(int argc, char *argv[])
+   {
+      int a;
+      <FONT color="red">my_int b;</FONT>   // <FONT color="red">b</FONT> is actually an <FONT color="red">int</FONT> !!!
+    
+      a = 123;
+    
+      printf("a = %d\n", a);
+   <FONT color="red">
+      /* ==================================================
+   	 If my_int is really a NEW type, then you CANNOT
+   	 assign an int to an my_int variable !!!
+   	 =================================================== */</FONT>      
+     <FONT color="magenta"> b = a;</FONT>     // Proof that my_int is no different than int
+
+      printf("b = %d\n", b);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/typedef3.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc typedef3.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<!--------------------------------------------------------------------------
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Experiment that shows <TT>typedef</TT> does
+     <I>not</I> define a <I>new</I> data type
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following 
+   <FONT color="blue"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">struct typeA</FONT>
+   {
+      int a;
+   };
+    
+   typedef  <FONT color="red">struct typeA</FONT>  <FONT color="magenta">newTypeName</FONT>;
+    
+   int main(int argc, char *argv[])
+   {
+      struct typeA x;
+      struct typeA y;
+      <FONT color="magenta">newTypeName</FONT>  z;
+    
+      x = y;     // Of cource OK, they are same type
+      x = z;     // OK also, so typedef is NOT a new type !           
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you <FONT color="blue"><B>compile</B></FONT> the
+  <B>above program</B>,
+ the <FONT color="red"><B>C compiler</B></FONT> will
+ <FONT color="blue"><B><I>not</I> generate any error</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> <B>Conclusion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>"type" <TT>newTypeName</TT></B></FONT>
+     is the <FONT color="red"><B><I>same</I> data type</B></FONT>
+     as
+     <FONT color="blue"><B><TT>struct typeA</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/type2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc type2.c</TT></B></FONT>
+  <P>
+  (Check for compile errors)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+--------------------------------------------------------------->
+<P>
+<HR>
+<HR>
+
+<HR>
+<HR>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Common use</FONT> of <TT>typedef</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI>  The <FONT color="blue"><B>most common usage</B></FONT> of
+    <FONT color="red"><B><TT>typedef</TT></B></FONT> is
+    to <FONT color="blue"><B><I>shortened</I></B></FONT> a
+    <FONT color="red"><B><TT>struct</TT></B></FONT>
+    <FONT color="blue"><B>data type</B></FONT>
+    defined by the programmer.
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It is <FONT color="red"><B>common practice</B></FONT> among
+ <FONT color="blue"><B>C programmers</B></FONT> to
+   use the <FONT color="red"><B>name</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    structureName<FONT color="red">_t</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+for the <FONT color="red"><B><TT>typedef</TT> name</B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="red">  /* -----------------------------------------------
+      The struct definition and the typedef 
+      should be placed inside a <FONT color="blue">header file</FONT>
+      and included by the main program file....
+      ----------------------------------------------- */</FONT>
+   struct BankAccount
+   {
+      int    accNum;
+      double balance;
+   };
+    <FONT color="red">
+   <SPAN style="BACKGROUND-COLOR: yellow">typedef <FONT color="blue">struct BankAccount</FONT> <FONT color="red">BankAccount_t</font> ; // new name (alias)</FONT></SPAN>
+    
+    
+   int main(int argc, char *argv[])
+   {
+     <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> BankAccount_t b;       // We can use the typedef-ed name</FONT></SPAN>
+      struct BankAccount a;  // AND you can STILL use the original method     
+
+
+      a.accNum = 123;
+      a.balance = 4000;
+    
+      printf("a.accNum = %d  a.balance = %f\n", a.accNum, a.balance);
+<FONT color="red">
+      /* ===============================================
+         Proof that they are the same type of variable
+	 ================================================ */</FONT>
+      <FONT color="magenta">b = a;</FONT>   // You can assign them to each other !
+      printf("b.accNum = %d  b.balance = %f\n", b.accNum, b.balance);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a.accNum = 123  a.balance = 4000.000000         
+   b.accNum = 123  b.balance = 4000.000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/typedef1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc typedef1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+
+<HR>
+<HR>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Alternative syntax of <TT>typedef</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B><TT>typedef</TT> clause</B></FONT> 
+     can be <B>combined</B> with a
+    <FONT color="red"><B>structure definition</B></FONT> and the
+    <FONT color="blue"><B>shortened form</B></FONT>
+    has the following <B>syntax</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">typedef</FONT>
+       <FONT color="darkred">struct/union definition</FONT>           
+       new-name ;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> typedef                  </SPAN>
+  <SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="darkred"> struct BankAccount    </SPAN>
+  <SPAN style="BACKGROUND-COLOR: yellow">    {                     </SPAN>
+  <SPAN style="BACKGROUND-COLOR: yellow"> 	 int    accNum;     </SPAN>
+  <SPAN style="BACKGROUND-COLOR: yellow"> 	 double balance;    </SPAN>
+  <SPAN style="BACKGROUND-COLOR: yellow">    }                     </FONT></SPAN>
+  <SPAN style="BACKGROUND-COLOR: yellow">    BankAccount_t;        </FONT></SPAN>
+    
+    
+   int main(int argc, char *argv[])
+   {
+      <FONT color="red">struct BankAccount a</FONT>;  // You STILL can use struct BankAccount ! 
+      BankAccount_t b;
+    
+      a.accNum = 123;
+      a.balance = 4000;
+    
+      printf("a.accNum = %d  a.balance = %f\n", a.accNum, a.balance);
+    
+      b = a;
+      printf("b.accNum = %d  b.balance = %f\n", b.accNum, b.balance);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/typedef2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc typedef2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>typedef</TT></B></FONT> gives a
+    <FONT color="blue"><B>new name</B></FONT> to an 
+    <FONT color="red"><B>existing data type</B></FONT>...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

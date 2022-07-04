@@ -1,0 +1,270 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+A fleshed out example in passing parameters and return values using
+  <FONT color="red"> CPU registers</FONT>
+<HR>
+</H3>
+<UL>
+
+
+
+
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: passing parameters and return values using register
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following 
+  <FONT color="red"><B>function invocation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="magenta">/* ----------------------------------------------
+      sumSquares(a,b):  returns  (a*a + b*b)
+      ---------------------------------------------- */  </FONT>       
+   <FONT color="red">int sumSquares( int a, int b )</FONT>           
+   {
+      return (<FONT color="red">a*a + b*b</FONT>);
+   }
+
+   void main( )
+   {
+      int x, y, z;
+
+      <FONT color="red">z = sumSquares(x, y)</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We will <FONT color="red"><B>pass the parameters</B></FONT>
+     and <FONT color="blue"><B>pass the return value</B></FONT> as follows
+    <FONT color="red"><B>using register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <IMG SRC="FIGS/pass-param01a.gif"></IMG>
+
+  sumSquares assumes that all register are <FONT color="red">"free" (unused)</FONT>
+
+     <FONT color="red">sumSquares</FONT> reserves <FONT color="red">r0</FONT> to store parameter <FONT color="red">x</FONT> and <FONT color="red">r1</FONT> to store parameter <FONT color="red">y</FONT>
+
+     <FONT color="red">main</FONT> passes the parameter <FONT color="red">x</FONT> in the register <FONT color="red">r0</FONT>
+     <FONT color="red">main</FONT> passes the parameter <FONT color="red">y</FONT> in the register <FONT color="red">r1</FONT>
+
+     <FONT color="red">sumSquares</FONT> passes the <FONT color="red">return value</FONT> back in the register <FONT color="red">r0</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>main( )</TT> method</B></FONT>
+    will pass the
+    <FONT color="blue"><B>parameters <TT>x</TT> and <TT>y</TT></B></FONT>
+    and
+    <FONT color="red"><B>use the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red"> /* -------------------------------------------------
+           Pass parameter x by copying its value in reg r0
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x
+        ldr     r0, [r0]
+
+        <FONT color="red">/* -------------------------------------------------
+           Pass parameter y by copying its value in reg r1
+           ------------------------------------------------- */</FONT>
+        movw    r1, #:lower16:y
+        movt    r1, #:upper16:y
+        ldr     r1, [r1]
+<FONT color="magenta">
+        /* ----------------------------------------------------------------
+           call z = sumSquares(x,y):
+                agreed inputs:  r0 = x, r1 = y
+
+           <IMG SRC="FIGS/pass-param01b.gif"></IMG>
+           ---------------------------------------------------------------- */</FONT>      
+        bl      sumSquares          // Call sumSquares 
+
+        <FONT color="red">/* -----------------------------------------------------------------
+           <FONT color="magenta">Agreed return location:  r0 = return value</FONT>
+
+           <IMG SRC="FIGS/pass-param01c.gif"></IMG>
+
+           Save return value (in r0) to variable z (z = sumSquares(..))
+           ----------------------------------------------------------------- */</FONT>
+        movw    r1, #:lower16:z    // Do NOT use r0 !!!
+        movt    r1, #:upper16:z    // (Because r0 contains the return value)
+
+        str     <FONT color="red">r0</font>, [r1]           // This will store return value in z
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>sumSquares( )</TT> method</B></FONT>
+    will get the
+    <FONT color="blue"><B>parameters <TT>a</TT> and <TT>b</TT></B></FONT>
+    and
+    <FONT color="red"><B>pass the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">/* ----------------------------------------------------------------
+   Function sumSquares(a,b):
+        agreed inputs:  r0 = a, r1 = b
+        agreed return:  r0 = return value
+   ---------------------------------------------------------------- */</FONT>
+
+sumSquares:
+
+        <FONT color="red">// When  sumSquares begin, we will have: r0 = a, r1 = b</FONT>
+
+        <IMG SRC="FIGS/pass-param01b.gif"></IMG>
+        mul     r2, <FONT color="red">r0, r0</FONT>      // r2 = a*a (use r0 as var a)
+        mul     r3, <FONT color="red">r1, r1</FONT>      // r3 = b*b (use r1 as var b)
+
+
+        <IMG SRC="FIGS/pass-param01c.gif"></IMG>
+        add     <FONT color="red">r0</FONT>, r2, r3      // r0 = a*a + b*b
+                                // The return value is now in r0
+
+        mov     pc, lr          // Return to the caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/reg-param1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 reg-param1</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+</UL>
+
+<P>
+<UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

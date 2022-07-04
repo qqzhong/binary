@@ -1,0 +1,526 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Dynamic</I> arrays in C
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Do-it-yourself <I>dynamic</I> array in C
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B> C programming language</B> does
+     <FONT color="red"><B>not have</B></FONT>
+     <FONT color="blue"><B><I>dynamic array</I></B></FONT>
+     as a <B>language feature</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>However:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C programming language</B> does
+      <FONT color="blue"><B>have</B></FONT> sufficient number
+       of <FONT color="red"><B>powerful features</B></FONT> that
+       a <B>C programmer</B> can
+       <FONT color="blue"><B>implement</B></FONT>
+       <FONT color="red"><B><I>dynamic array</I></B></FONT>
+       (among other things)
+       <B><I>using</I></B> these features !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Features</B> in <FONT color="blue"><B>C</B></FONT> that
+     enable you to
+     <B>implement</B> your own
+     <FONT color="red"><B><I>dynamic array</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Memory management functions:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">malloc( )</FONT>    (we will use <FONT color="red">calloc()</FONT> for arrays)           
+    <FONT color="red">free( )</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Pointer arithmetic:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    if  <FONT color="red">p</FONT>  points to <FONT color="red">a[0]</FONT> then 
+
+          <FONT color="red">*(p + i)</FONT>      is an <FONT color="magenta">alias</FONT>  for   <FONT color="red">a[i] </FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically illustrated:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pointer-arithm3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Steps</B> to
+      <FONT color="blue"><B>create</B></FONT> a
+      <FONT color="red"><B><I>dynamic</I> array</B></FONT>
+      (of any data type):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Define</B> a
+    <FONT color="blue"><B><I>reference</I> variable</B></FONT>
+    (say <FONT color="red"><B><TT>p</TT></B></FONT>)
+    of the <B>desired data type</B>
+<P>
+<B>Example</B>: suppose we want to 
+   create a <FONT color="blue"><B>dynamic array</B></FONT> of
+   <FONT color="red"><B><TT>double</TT></B></FONT> variables
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">double*</FONT>  p;       // <FONT color="red">reference</FONT> variable to a <FONT color="red">double</FONT> variable        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Illustrated:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/dyn-array1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Allocate</B></FONT> memory cells for
+      the <FONT color="blue"><B>array elements</B></FONT> and
+      make <FONT color="red"><B><TT>p</TT></B></FONT>
+      point to the
+      <FONT color="blue"><B><I>first</I> array element</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/dyn-array2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>array elements</B></FONT>
+     can <B>now</B> be <FONT color="red"><B>accessed</B></FONT> as:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">*(p+0)</FONT>      first array element
+   <FONT color="red">*(p+1)</FONT>      second array element
+   <FONT color="red">*(p+2)</FONT>      third array element
+   ...
+
+   <FONT color="red">*(p+i)</FONT>      i<sup>th</sup> array element       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>calloc()</TT> function: memory allocation function
+      for <I>arrays</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Each <FONT color="blue"><B>computer system</B></FONT> has its own
+     peculiar
+     <FONT color="red"><B>memory alignment <I>requirements</I></B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><TT>malloc()</TT></B></FONT> function
+      <B><I>only</I></B> alocate <B>memory cells</B>
+      for <FONT color="blue"><B><I>one</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>malloc(nBytes)</TT></B></FONT>
+     will allocates a block of <B>memory cells</B>
+     of 
+     <FONT color="blue"><B>at least</B></FONT>
+       <FONT color="red"><B><TT>nBytes</TT></B></FONT> bytes
+       that us
+     <FONT color="blue"><B>suitably  aligned</B></FONT>
+      for <FONT color="red"><B>any usage</B></FONT>. 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To <FONT color="blue"><B>allocate memory cells</B></FONT>
+     for <FONT color="red"><B><I>N</I> consecutive variable
+     (= array)</B></FONT>,
+     you must use this function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">calloc</FONT>( nElems, nBytes )            
+
+  Example:
+
+    <FONT color="red">calloc</FONT>( 10, 8 )
+         // Allocate space for 10 elements of size 8 (= array of 10 double) 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>calloc</B> function:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>calloc()</TT></B></FONT>
+      function <B>allocates space</B>
+      for an <FONT color="blue"><B>array</B></FONT>
+     of  
+    <FONT color="red"><B><TT>nElems</TT>
+     elements</B></FONT>
+      of 
+      <FONT color="blue"><B>size <TT>nBytes</TT></B></FONT>. 
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>allocated space</B>
+    will <FONT color="blue"><B>alos</B></FONT> be 
+     <FONT color="red"><B>initialized to zeros</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: dynamic array
+     </B></FONT>
+<P>
+<UL>
+<LI> We have now learn <FONT color="blue"><B>everything</B></FONT>
+     we will need to
+     <FONT color="red"><B>build our own</B></FONT>
+     <FONT color="blue"><B><I>dynamic</I> array</B></FONT>
+     in <B>C</B>
+<P>
+<HR>
+<P>
+<LI> <B>C program</B> that illustrates a
+     <FONT color="blue"><B><I>dynamic</I> array</B></FONT> of
+     <FONT color="red"><B>double variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int i;
+    <FONT color="magenta">
+       <FONT color="red">double* p</FONT>;    // We uses this reference variable to access
+   		     // dynamically created array elements</FONT>
+   <FONT color="red"> 
+       p = calloc(10, sizeof(double) ); </FONT> // Make double array of 10 elements
+    
+       for ( i = 0; i < 10; i++ )
+   	  <FONT color="red">*(p + i)</FONT> = i;            // put value i in array element i
+    
+       for ( i = 0; i < 10; i++ )
+   	  printf("*(p + %d) = %lf\n", i, *(p+i) );
+    
+    <FONT color="magenta">
+       free(p);  </FONT>    <FONT color="red">// Un-reserve the first array</FONT>
+    
+       putchar('\n');
+  <FONT color="red">  
+       p = calloc(4, sizeof(double) );</FONT>  // Make a <FONT color="red">NEW</FONT> double array of 4 elements    
+      <FONT color="darkmagenta">
+       // ***** Notice that the array size has CHANGED !!! ****</FONT>
+
+       for ( i = 0; i < 4; i++ )
+   	  <FONT color="red">*(p + i)</FONT> = i*i;            // put value i*i in array element i
+    
+       for ( i = 0; i < 4; i++ )
+   	  printf("*(p + %d) = %lf\n", i, *(p+i) );
+    <FONT color="magenta">
+       free(p);</FONT>      <FONT color="red">// Un-reserve the second array</FONT>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   *(p + 0) = 0.000000
+   *(p + 1) = 1.000000
+   *(p + 2) = 2.000000
+   *(p + 3) = 3.000000
+   *(p + 4) = 4.000000
+   *(p + 5) = 5.000000
+   *(p + 6) = 6.000000
+   *(p + 7) = 7.000000
+   *(p + 8) = 8.000000
+   *(p + 9) = 9.000000
+   		      
+   *(p + 0) = 0.000000
+   *(p + 1) = 1.000000
+   *(p + 2) = 4.000000
+   *(p + 3) = 9.000000              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/dyn-array1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc dyn-array1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

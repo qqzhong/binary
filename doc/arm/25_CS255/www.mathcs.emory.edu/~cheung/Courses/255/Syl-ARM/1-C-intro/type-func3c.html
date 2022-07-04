@@ -1,0 +1,1203 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Implicit</I> function prototyping and
+ <I>declaring</I> a function in C
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Function "prototype"
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Review :</B></FONT>
+    <FONT color="red"><B>function prototype</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>function prototype</B></FONT> 
+   specifies:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>function's name</B></FONT>
+ <LI> The <FONT color="blue"><B>number</B></FONT> and
+      <FONT color="red"><B>data types</B></FONT>
+      of <FONT color="blue"><B>parameters</B></FONT>
+ <LI> The <FONT color="red"><B> return type</B></FONT>
+ <P>
+   (<FONT color="red"><B>omits</B></FONT> the 
+  <FONT color="blue"><B>function body</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Function definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int f(int x)</FONT>
+   {
+      return(x*x);                
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>function prototype</B></FONT> of
+  <FONT color="blue"><B><TT>f( )</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/func-proto1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review</FONT>: variable
+     <FONT color="red">declaration</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Previously</B></FONT>,
+     we <FONT color="blue"><B>have seen</B></FONT> that a
+     <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B>variable</B></FONT> 
+     <B>must</B> be
+     <FONT color="blue"><B><I>declared</I> (or defined)</B></FONT>
+     </SPAN>
+      before
+     it is <FONT color="red"><B>used</B></FONT>
+     (see:
+     <A HREF="declare.html#declare">
+     <FONT color="blue"><B>click here</B></FONT></A>)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">extern int x;     // Declare x</FONT>  </SPAN>
+
+    int main( int argc, char *argv[] )
+
+    {
+       printf("x = %d\n", <FONT color="red">x</FONT>);
+    }
+
+    <FONT color="red">int x = 4;           /* Definition of global var x */</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+<B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Will this rule apply for
+   <FONT color="red"><B>functions</B></FONT> ???
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ I.e.:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Does a <FONT color="red"><B>function</B></FONT> need to be
+     <FONT color="blue"><B>defined or declared</B></FONT> before
+     it ise <FONT color="red"><B>used</B></FONT> ???
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>No !!!</B></FONT>
+ <P>
+  For some strange reason,
+  <FONT color="red"><B>Kernighan and Richie (designers of C)</B></FONT>
+  made their <FONT color="blue"><B><I>original</I> C 
+   compiler <I>assume</I></B></FONT>
+  a <FONT color="red"><B>default function type</B></FONT> if the
+  function is <FONT color="blue"><B>not defined</B></FONT>
+<P>
+ (I read long ago that Kernighan and Ritchie designed C to write
+ the <FONT color="red"><B>UNIX operating system</B></FONT> and
+  the <FONT color="blue"><B>functions</B></FONT> in this operating system
+ mainly have
+ <FONT color="red"><B><TT>int</TT> typed parameters</B></FONT> and
+ returned <FONT color="blue"><B><TT>int</TT> typed return values</B></FONT>
+ <P>
+ So they made the
+ <FONT color="red"><B>C compiler</B></FONT>
+ assume <FONT color="blue"><B><TT>int</TT> typed parameters and
+  return value</B></FONT> to
+  <FONT color="red"><B>expediate</B></FONT> the
+  <FONT color="blue"><B>program development </B></FONT> of
+  UNIX...)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>practice</B></FONT> of
+  <FONT color="blue"><B>making the C compiler assume</B></FONT>
+  about the <FONT color="red"><B>data types</B></FONT> of
+  <FONT color="blue"><B>parameters</B></FONT> of an
+  <B>undefined function</B> has
+ been <FONT color="red"><B>preserved</B></FONT> in the
+  <FONT color="blue"><B>C programming language</B></FONT>
+  (maybe to accomodate
+  <FONT color="red"><B><I>older</I> C programs</B></FONT>)
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     The <I>implicit</I> function  prototyping mechanism defined in the
+    C99 standard
+    </SPAN>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>C99 standard</B></FONT>
+   (<A HREF="Docs/C99-std.pdf"> 
+  <FONT color="blue"><B>click here</B></FONT></A>)
+   specifies the following
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B><I>default</I> argument (= parameter) 
+   promotion rule</B></FONT>:
+   </SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If  the  expression  that  denotes  the  called  function  has
+    a  type  that  
+  <FONT color="red"><B>does  not  include  a (function) prototype</B></FONT>,
+   the  
+   <FONT color="blue"><B>integer  promotions</B></FONT>
+   are  performed  on  
+  <FONT color="red"><B>each  argument</B></FONT>,  and 
+  arguments  that have 
+   <FONT color="blue"><B> type
+   <TT>float</TT></B></FONT>
+  are  promoted  to 
+ <FONT color="red"><B><TT>double</TT></B></FONT>. 
+ <P>
+ These  are  called  the
+  <FONT color="red"><B>default  argument promotions</B></FONT>. 
+ <P>
+   (See page 71 in the 
+  <A HREF="Docs/C99-std.pdf"> 
+  <FONT color="blue"><B>C99 standard</B></FONT></A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Let me 
+ <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>rephrase</B></FONT> this <B>rule</B>
+  </SPAN>
+ to make it <FONT color="blue"><B>easier
+ to understand</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>function </B></FONT> is
+    <FONT color="blue"><B><I>used</I></B></FONT> before the
+  <FONT color="red"><B>function</B></FONT> is
+  <FONT color="blue"><B><I>defined</I> or <I>declared</I></B></FONT>,
+   the <FONT color="red"><B>C compiler</B></FONT> will
+   use the <FONT color="blue"><B>data type(s)</B></FONT> of
+   the <FONT color="red"><B>parameters</B></FONT> of the
+   <FONT color="blue"><B>function</B></FONT> to
+   construct the <FONT color="red"><B>function <I>prototype</I></B></FONT>.
+<P>
+<HR>
+<P>
+ <LI>  The <FONT color="red"><B>C compiler</B></FONT>
+  will make the
+  <FONT color="blue"><B>following <I>assumptions</I></B></FONT>
+  about the
+  <FONT color="red"><B>data type(s)</B></FONT> about
+  a <FONT color="blue"><B>parameter type</B></FONT>
+  when the <FONT color="red"><B>function</B></FONT> is
+  <FONT color="blue"><B>not defined or declared</B></FONT>
+  <FONT color="red"><B>before</B></FONT> it is
+ <FONT color="blue"><B>used</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   data type of the passed variable  |  C compiler assume this parameter type
+  -----------------------------------+----------------------------------------
+      <FONT color="red">(unsigned) char, short, int</FONT>    |   <FONT color="red"> int</FONT>
+           <FONT color="red">float, double</FONT> 	     |    <FONT color="red">double</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> The <FONT color="red"><B><I>return</I> data type</B></FONT> 
+     of an <B>undefined or undeclared function</B> is
+       <FONT color="blue"><B>(always) assumed</B></FONT> to be
+      <FONT color="red"><B><TT>int</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Suppose</B></FONT> you write the
+     following <FONT color="blue"><B>function call</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   short x;
+   int   y;
+   float z;
+
+   .... = <FONT color="red"> f( x, y , z )</FONT> ;           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>When</B></FONT> 
+ the <FONT color="blue"><B>C compiler</B></FONT>
+ <B>processes</B> the
+  <FONT color="red"><B>function call <TT>f( x, y, z )</TT></B></FONT>,
+ the <FONT color="blue"><B>C compiler</B></FONT> will
+  <FONT color="red"><B><I>assume</I></B></FONT> that the
+  <FONT color="blue"><B>function prototype</B></FONT> for
+  <FONT color="red"><B><TT>f( )</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int</FONT> f ( <FONT color="red">int</FONT> x, <FONT color="red">int</FONT> y, <FONT color="red">double</FONT> z )                 
+   {
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example C program to show the
+      default parameter promotion mechanism in C
+     </B></FONT>
+<P>
+<UL>
+
+<LI> Let's start with a
+    <FONT color="red"><B>correctly</B></FONT> written
+    <FONT color="blue"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+<FONT color="red">
+/* ---------------------------------------------------
+   Function f( ) is defined before main's use of f( )
+   --------------------------------------------------- */        
+int f(int x) 
+{  
+   return(x*x);                   
+} </FONT>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;</FONT>   // *** Short !!
+   int y = 0;
+
+   y = <FONT color="red">f(x)</FONT>;    <FONT color="red">// Compiler needs to convert short x --> int and pass to func</FONT>     
+
+   printf("x = %d, y = %d\n", x, y);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>function <TT>f( )</TT></B></FONT> is
+  <FONT color="blue"><B>defined</B></FONT>
+  <FONT color="red"><B><I> before</I></B></FONT>
+ it  was <FONT color="blue"><B>used</B></FONT>
+
+<P>
+<FONT color="red"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>
+ The <FONT color="blue"><B>C compiler</B></FONT> knows the
+   <FONT color="red"><B>data types </B></FONT> of the
+  <FONT color="blue"><B>parameters</B></FONT> when it 
+  <B>processes</B> the
+   <FONT color="red"><B>function call  <TT>f(x)</TT></B></FONT>.
+<P>
+<LI> Because the <FONT color="blue"><B>C compiler</B></FONT> knows
+  <FONT color="red"><B>exactly</B></FONT> 
+  <FONT color="blue"><B>what type</B></FONT> of
+  <FONT color="red"><B>data </B></FONT> it need to
+  <FONT color="blue"><B>pass to the function <TT>f( )</TT></B></FONT>,
+   the <B>C compiler</B>
+   can (and will) <FONT color="red"><B>convert the data</B></FONT>
+   if <FONT color="blue"><B>necessary</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+This program will
+ <SPAN style="BACKGROUND-COLOR: yellow">
+ <FONT color="red"><B>compile</B></FONT> 
+ <FONT color="blue"><B>without any error or <I>warnings</I></B></FONT>
+ </SPAN>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/impl-declare1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc impl-declare1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Now</B></FONT> consider the
+  <FONT color="blue"><B>following C program</B></FONT> where
+  <SPAN style="BACKGROUND-COLOR: yellow"> we
+  <FONT color="red"><B>define</B></FONT>
+  the <FONT color="blue"><B>function <TT>f( )</TT></B></FONT>
+  <FONT color="red"><B><I>after</I></B></FONT> its
+  <FONT color="blue"><B>use in <TT>main( )</TT></B></FONT>:</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;</FONT>   // *** Short !!
+   int y = 0;
+
+   y = <FONT color="red">f(x)</FONT>;    <FONT color="red">// C compiler will assume:  int f(int x) !!! </FONT>
+                <FONT color="darkgreen">// Compiler will convert short x --> int and pass to func !!</FONT>     
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+<FONT color="red">
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */    
+int f(int x)
+{
+   return(x*x);                
+}</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="red"><B>function <TT>f( )</TT></B></FONT> is
+  <FONT color="blue"><B>defined</B></FONT> 
+  <FONT color="red"><B><I>after</I></B></FONT>
+ it was <FONT color="red"><B>used</B></FONT> !!!</SPAN>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>When</B></FONT>
+    the <FONT color="blue"><B>C compiler</B></FONT> <B>processes</B>
+   the <FONT color="red"><B>function call <TT>f(x)</TT></B></FONT>,
+  the <FONT color="blue"><B>C compiler</B></FONT> does
+ <FONT color="red"><B><I>not</I> know</B></FONT>
+   <FONT color="blue"><B><I>how</I> to pass the parameters</B></FONT> !!!
+<P>
+ (The C compiler has <FONT color="red"><B>no information</B></FONT> on
+  the <FONT color="blue"><B>function <TT>f( )</TT></B></FONT>
+  <P>
+  At this moment, the <FONT color="blue"><B>compiler</B></FONT> for
+  <FONT color="red"><B>most programming languages</B></FONT> will
+   signal an <FONT color="blue"><B>error</B></FONT>, but
+  <FONT color="red"><B>C behaves <I>differently</I></B></FONT>)
+<P>
+<HR>
+<P>
+<LI> Instead of stopping, the
+  <FONT color="blue"><B>C compiler</B></FONT> will
+  <FONT color="red"><B>make this assumption</B></FONT> for
+  the <FONT color="blue"><B>function <TT>f( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int f( int x ) </FONT>                   
+    {
+       ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>prints a <I>warning</I></B></FONT> and
+ <FONT color="blue"><B><I>continues</I></B></FONT> the translation !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  
+<P>
+Here's the <FONT color="red"><B>compiler's message</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4837)> gcc impl-declare2.c
+impl-declare2.c: In function 'main':
+impl-declare2.c:9:8: <FONT color="red">warning:</FONT> <FONT color="darkgreen"><B>implicit declaration of function 'f'</FONT> [-Wimplicit-function-declaration]
+    y = f(x);  // **** Call f( ) ****
+        ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>compiler</B></FONT>
+ issues
+ a <FONT color="blue"><B>warning</B></FONT> 
+ <B>but</B> there is
+ no <FONT color="red"><B>(fatal) error</B></FONT> !!!
+<P>
+The <FONT color="red"><B>compilation</B></FONT> is
+ <FONT color="blue"><B><I>successful</I></B></FONT> !!
+ (You can run the program !!!)
+<P>
+The program will <FONT color="red"><B>run correctly</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4840)> a.out                   
+x = 2, y = 4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/impl-declare2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc impl-declare2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Explanation:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B>C compiler</B></FONT> reaches
+    <FONT color="red"><B>this line</B></FONT> in the program
+    during the <FONT color="blue"><B>translation process</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // **** short </FONT>
+   int y = 0;
+
+<FONT color="red">   y = f(x);            // **** Call f( ) **** <------- Compiler reaches here</FONT>  
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */    
+int f(int x)
+{
+   return(x*x);                
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>C compiler</B></FONT> did 
+ <FONT color="blue"><B>not find</B></FONT> the
+  <FONT color="red"><B>function definition or declaration</B></FONT> 
+ <B>yet</B>.
+<P>
+<B>Therefore</B>, 
+ the <FONT color="red"><B>C compiler</B></FONT> will perform
+ the <FONT color="blue"><B><I>default</I> argument promotion</B></FONT>
+<P>
+Because the <FONT color="red"><B>input parameter <TT>x</TT></B></FONT>
+ is a <FONT color="blue"><B><TT>short</TT></B></FONT>, the
+  <FONT color="red"><B>C compiler</B></FONT> will
+  <FONT color="blue"><B>make the following assumption</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  f(<FONT color="red"> int x</FONT> )           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="red"><B>convert</B></FONT>
+  <FONT color="blue"><B><TT>short x</TT></B></FONT> to
+ an <FONT color="red"><B><TT>int</TT></B></FONT> represention
+ before
+  <FONT color="blue"><B>passing</B></FONT> the parameter.
+<P>
+<FONT color="red"><B>Also</B></FONT>,
+ the <FONT color="blue"><B>C compiler</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Print a <FONT color="red"><B>warning message</B></FONT> 
+ that it has
+ <FONT color="blue"><B>made an <I>implicit</I> function declaration</B></FONT>
+  (= an <FONT color="red"><B>assumption</B></FONT>)
+ <P>
+ This <FONT color="red"><B>warning</B></FONT> will
+  help the <FONT color="blue"><B>programmer</B></FONT>
+  <FONT color="red"><B>debug</B></FONT> his/her program
+  in case the
+  <FONT color="blue"><B>execution</B></FONT> goes
+  <FONT color="red"><B>wrong</B></FONT>
+  (it can happen in
+  <FONT color="blue"><B>multi-file C programs</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>C compiler</B></FONT> will
+<FONT color="red"><B>continue</B></FONT> with
+ the <FONT color="blue"><B>program translation</B></FONT>
+<P>
+<HR>
+<P>
+<LI> 
+ <FONT color="red"><B>When</B></FONT>
+   the <FONT color="blue"><B>C compiler</B></FONT> reaches 
+   <FONT color="red"><B>this line</B></FONT> in the program
+    during the <FONT color="blue"><B>translation process</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main(int argc, char *argv[])
+{
+   <FONT color="blue">short x = 2;         // **** short </FONT>
+   int y = 0;
+
+   y = f(x);            // **** Call f( ) **** 
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */    
+<FONT color="red">int f(int x)      <------- Compiler reaches here</FONT>  
+{
+   return(x*x);                
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>C compiler</B></FONT> will
+ <FONT color="blue"><B><I>verify</I></B></FONT> if
+ the <FONT color="red"><B>assumption</B></FONT> was
+ <FONT color="blue"><B><I>correct</I></B></FONT>
+<P>
+ It was <FONT color="red"><B>correct</B></FONT> in
+ <FONT color="blue"><B><I>this</I> case</B></FONT>
+<P>
+ (If the <FONT color="red"><B>C compiler</B></FONT>
+  <FONT color="blue"><B>fails to verify</B></FONT> the
+  <FONT color="red"><B>assumption</B></FONT>,
+  it will <FONT color="blue"><B>print an error</B></FONT> and
+  <FONT color="red"><B>abort</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     An example where the default type assumption
+     <FONT color="red">mismatches</FONT> with a
+     <FONT color="red">later function definition</FONT>
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> To <FONT color="red"><B>show you</B></FONT> that
+   the <FONT color="blue"><B>C compiler</B></FONT> will
+   <FONT color="red"><B>abort</B></FONT> when the
+   <FONT color="blue"><B>default parameter type assumption's
+   verification <I>fails</I></B></FONT>,
+   consider this
+   <FONT color="red"><B>C program</B></FONT> where the
+   <FONT color="blue"><B>definition</B></FONT>
+   of <FONT color="red"><B><TT>f( )</TT></B></FONT> is
+   <FONT color="blue"><B>changed</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // *** short !!! </FONT>
+   int y = 0;
+
+   <FONT color="red">y = f(x);            // Assumes: int f(int x)</FONT>
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */
+int f(<FONT color="red">short</FONT> x)
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>compiler error message</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4845)> gcc impl-declare3.c
+<FONT color="darkgreen">impl-declare3.c: In function 'main':
+impl-declare3.c:9:8: warning: implicit declaration of function 'f' [-Wimplicit-function-declaration]
+    y = f(x);  // C compiler will assume:   int f(int x)
+        ^</FONT>
+impl-declare3.c: At top level:
+impl-declare3.c:24:5: error: <FONT color="red">conflicting types for 'f'</FONT>
+<FONT color="red"> int f( short x )</FONT>
+     ^
+impl-declare3.c:25:1: note: an argument type that has a default promotion can't match an empty parameter name list declaration
+ {
+ ^
+impl-declare3.c:9:8: note: <FONT color="red">previous implicit declaration of 'f'</FONT> was here
+   <FONT color="red"> y = f(x);</FONT>  // C compiler will assume:   <FONT color="red">int f(int x)</FONT>
+        ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because the <FONT color="red"><B>C compiler</B></FONT> had
+     <FONT color="blue"><B>assumed</B></FONT> that
+     the <FONT color="red"><B>function <TT>f( )</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  f (<FONT color="red"> int</FONT> x )            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+when the
+ <FONT color="red"><B>C compiler</B></FONT>
+  processes the
+ <FONT color="blue"><B>actual function definition</B></FONT> for
+  <FONT color="red"><B>function <TT>f( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int f( <FONT color="red">short</FONT> x )              
+   {
+      return(x*x);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>C compiler</B></FONT> 
+ discovers a
+ <FONT color="blue"><B><I>conflicting</I> type information</B></FONT>
+<P>
+When this happens,
+ the <FONT color="red"><B>C compiler</B></FONT> will
+ <FONT color="blue"><B>print the error</B></FONT> and
+ <FONT color="red"><B><I>abort</I></B></FONT> !!!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/impl-declare3.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc impl-declare3.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>cannot be run</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Good C programming  practice
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Common sense rule:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Always</B></FONT> 
+      <FONT color="blue"><B><I>declare</I></B></FONT> a
+      <FONT color="red"><B>function</B></FONT> 
+      <B><I>before</I></B> you <FONT color="blue"><B>call (use) </B></FONT>
+      the <B>function</B> !!!!
+ <P>
+ (Just like you must
+  <FONT color="red"><B>declare</B></FONT>
+  a <FONT color="blue"><B>variable</B></FONT> before you can
+  <FONT color="red"><B>use it</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+We discuss  <FONT color="blue"><B>how to</B></FONT> 
+  <FONT color="red"><B>declare a function</B></FONT> <B>next</B>....
+<P>
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

@@ -1,0 +1,1149 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Review:</FONT> &nbsp;
+   function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Function call + return</B></FONT>
+   <B>expressed</B> in
+   <FONT color="blue"><B>high level programming language</B></FONT>
+   syntax:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   function f1( )               function f2( ) 
+   {                   +------->{         
+       ...             |            ...  |
+       ...             |            ...  |
+       ...       call  |            ...  |
+       f2( ) ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ return;
+   }                             } 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   We have <FONT color="red"><B>learned</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="blue"><B>how</B></FONT></SPAN> the
+   <FONT color="red"><B>compiler</B></FONT>
+   will 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>translate (= <I>implement</I>)</B></FONT></SPAN>
+   the
+   <FONT color="red"><B>function call + return</B></FONT>.
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Review:</FONT> &nbsp;
+   function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Function call + return</B></FONT>
+    in
+   <FONT color="blue"><B>ARM assembler</B></FONT>
+   &nbsp; - &nbsp; works 
+   <FONT color="red"><B>only</B></FONT> if
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B><TT>f2</TT></B></FONT> is a
+   <FONT color="red"><B>leaf function</B></FONT>:</SPAN>
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:  <FONT color="blue">...</FONT>
+       ...             |            ...  |
+       ...             |            ...  |
+       ...       call  |            ...  |
+       <FONT color="red">bl f2</FONT> ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ <FONT color="red">mov  pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Review:</FONT> &nbsp;
+   function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Function call + return</B></FONT>
+    in
+   <FONT color="blue"><B>ARM assembler</B></FONT>
+   &nbsp; - &nbsp; 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>general solution</B></FONT></SPAN>
+ (will <FONT color="blue"><B>always</B></FONT>
+   <FONT color="red"><B>work</B></FONT>):
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:  <FONT color="red">push {lr}</FONT>
+       ...             |            ...  |
+       ...             |            ...  |
+       ...       call  |            ...  |
+       <FONT color="red">bl f2</FONT> ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ <FONT color="red">pop {pc}</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<!--------------------- 3 things to discuss ---------------->
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   There are 
+   <FONT color="blue">3 more things</FONT>
+     to discussed in 
+    function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Consider</B></FONT> a
+  <FONT color="blue"><B>function (= method) definition</B></FONT> in a
+  <FONT color="red"><B>high level programming language</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ /* ------------------------------------------------------
+    sumRange(A,a,b): returns (A[a] + A[a+1] + ... + A[b-1]) 
+    ------------------------------------------------------ */ 
+ <FONT color="red">int</FONT> sumRange( <FONT color="red">int[] A, int a, int b</FONT> )           
+ {
+    <FONT color="red"> int i, s;</FONT>
+
+     s = 0;
+     for (i = a, i < b; i++)
+        s = s + A[i];
+     <FONT color="red">return(s)</FONT>;
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ There are 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>3 things</B></FONT>
+  <FONT color="blue"><B>missing</B></FONT></SPAN> in the
+  <FONT color="red"><B>discussion</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   There are 
+   <FONT color="blue">3 more things</FONT>
+     to discussed in 
+    function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <B>(1):</B> &nbsp;
+   a <FONT color="red"><B>function</B></FONT> can 
+   <FONT color="blue"><B>receive</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>parameters</B></FONT></SPAN>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ /* ------------------------------------------------------
+    sumRange(A,a,b): returns (A[a] + A[a+1] + ... + A[b-1]) 
+    ------------------------------------------------------ */ 
+ <FONT color="red">int</FONT> sumRange( <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">int[] A, int a, int b</FONT></SPAN> )           
+ {
+    <FONT color="red"> int i, s;</FONT>
+
+     s = 0;
+     for (i = a, i < b; i++)
+        s = s + A[i];
+     <FONT color="red">return(s)</FONT>;
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+   <FONT color="yellow"><B>Questions:</B></FONT></SPAN> &nbsp;
+   <B>(a)</B> <FONT color="red"><B>how</B></FONT> are
+   <FONT color="blue"><B>parameters</B></FONT>
+   <FONT color="red"><B>passed</B></FONT> to a 
+   <FONT color="blue"><B>function</B></FONT> and
+  <B>(2)</B>
+  <FONT color="red"><B>how</B></FONT> to
+  <FONT color="blue"><B>access</B></FONT> them ?
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   There are 
+   <FONT color="blue">3 more things</FONT>
+     to discussed in 
+    function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>(2):</B> &nbsp;
+  a <FONT color="red"><B>function</B></FONT> can
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>return</B></FONT> a
+  <FONT color="red"><B>value</B></FONT></SPAN>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ /* ------------------------------------------------------
+    sumRange(A,a,b): returns (A[a] + A[a+1] + ... + A[b-1]) 
+    ------------------------------------------------------ */ 
+ <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">int</FONT></SPAN> sumRange( <FONT color="red">int[] A, int a, int b</FONT> )           
+ {
+    <FONT color="red"> int i, s;</FONT>
+
+     s = 0;
+     for (i = a, i < b; i++)
+        s = s + A[i];
+     <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">return(s)</FONT>;</SPAN>
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+   <FONT color="yellow"><B>Questions:</B></FONT></SPAN> &nbsp;
+   <B>(a)</B> <FONT color="red"><B>how</B></FONT> does a
+   <FONT color="blue"><B>function</B></FONT>
+   <FONT color="red"><B>return</B></FONT> a 
+   <FONT color="blue"><B>value</B></FONT> and
+  <B>(2)</B>
+  <FONT color="red"><B>how</B></FONT> to
+  <FONT color="blue"><B>use</B></FONT> the
+  <FONT color="red"><B>return value</B></FONT> ?
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   There are 
+   <FONT color="blue">3 more things</FONT>
+     to discussed in 
+    function call + return
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>(3):</B>  &nbsp;
+   a <FONT color="red"><B>function</B></FONT> can
+   have 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>local variables</B></FONT></SPAN>
+   (that are <FONT color="red"><B>only accessible</B></FONT> within
+   the <FONT color="blue"><B>function body</B></FONT>):
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ /* ------------------------------------------------------
+    sumRange(A,a,b): returns (A[a] + A[a+1] + ... + A[b-1]) 
+    ------------------------------------------------------ */ 
+ <FONT color="red">int</FONT> sumRange( <FONT color="red">int[] A, int a, int b</FONT> )           
+ {
+    <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red"> int i, s;</FONT> // Local variables </SPAN>
+
+     s = 0;
+     for (i = a, i < b; i++)
+        s = s + A[i];
+     <FONT color="red">return(s)</FONT>;
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+   <FONT color="yellow"><B>Questions:</B></FONT></SPAN> &nbsp;
+   <B>(a)</B> <FONT color="red"><B>how</B></FONT> to
+   <FONT color="blue"><B>create</B></FONT>
+   <FONT color="red"><B>local variables</B></FONT> and
+  <B>(2)</B>
+  <FONT color="blue"><B>how</B></FONT> to
+  <FONT color="red"><B>use</B></FONT> the
+  <FONT color="blue"><B>local variables</B></FONT> ?
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Parameter passing, returning a value and allocating local variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+   <LI> <FONT color="red"><B>Important fact</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> We have <FONT color="red"><B>learned</B></FONT>
+   <FONT color="blue"><B><I>all the necessary</I>
+   assembler instructions</B></FONT>
+   to <FONT color="red"><B>implement</B></FONT>
+   <FONT color="blue"><B>function call + return</B></FONT>
+   for
+   <FONT color="red"><B>function</B></FONT> 
+   <B>with</B>
+   <FONT color="blue"><B>parameters</B></FONT>,
+   <FONT color="red"><B>return value</B></FONT> and
+   <FONT color="blue"><B>local variables</B></FONT> !!!
+ </UL>
+ </FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>I.e.:</B> there is
+  <SPAN style="BACKGROUND-COLOR: #000000">
+  <FONT color="yellow"><B>NO</B></FONT></SPAN>
+  <FONT color="red"><B>"special" computer instructions</B></FONT> that
+  are <FONT color="blue"><B>used</B></FONT> to
+  <FONT color="red"><B>pass parameters</B></FONT>,
+  <FONT color="blue"><B>return value</B></FONT> or
+  <FONT color="red"><B>create</B></FONT>
+  <FONT color="blue"><B>local variables</B></FONT>....
+<P>
+
+   <LI> <B>How</B> to <FONT color="red"><B>implement</B></FONT>
+      <FONT color="blue"><B>parameter passing</B></FONT>,
+      <FONT color="red"><B>returning a value</B></FONT> and
+      <FONT color="blue"><B>allocating local variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI>  
+   <FONT color="red"><B>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">organize</SPAN></B></FONT> 
+   (the <FONT color="blue"><B>registers</B></FONT> or 
+   the <FONT color="red"><B>stack</B></FONT>) !
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Prelude to the discussion - 
+  <FONT color="blue">terminology</FONT>: caller and callee
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Terminology:</B></FONT>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+<LI> <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>Caller</B></FONT></SPAN> (= 
+    <FONT color="blue"><B>calling method</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: #ffff00">
+     <FONT color="red"><B>Caller</B></FONT></SPAN> =
+    the <FONT color="blue"><B>method</B></FONT> that
+   <FONT color="red"><B>calls</B></FONT> another method
+<P>
+   The <FONT color="red"><B>caller</B></FONT> may
+   <FONT color="blue"><B>pass</B></FONT>
+   one or more <FONT color="red"><B>parameter(s)</B></FONT> to
+     a called method
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <SPAN style="BACKGROUND-COLOR: #ffff00">
+     <FONT color="red"><B>Callee</B></FONT></SPAN>
+     (= <FONT color="blue"><B>called method</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#ffeeee" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>Callee</B></FONT></SPAN> =
+     the <FONT color="blue"><B>method</B></FONT> that
+     <FONT color="red"><B>got called</B></FONT> (by another method)
+ 
+ <P>
+  The <FONT color="red"><B>callee</B></FONT> may
+   <FONT color="blue"><B>pass a (= one) <I>return value</I></B></FONT> back
+   to its <FONT color="red"><B>caller</B></FONT>
+&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">pass parameters</FONT> to
+   a callee 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>How</B></FONT> the
+   <FONT color="blue"><B>caller</B></FONT>
+  <FONT color="red"><B>passes</B></FONT>
+  <FONT color="blue"><B>parameters</B></FONT> to the
+  <FONT color="red"><B>callee</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="red"><B>Parameter passing</B></FONT> is
+     <FONT color="blue"><B>implemented</B></FONT> by
+       an 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><I>agreement</I> (= contract)</B></FONT></SPAN> between
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <OL>
+ <LI> The <FONT color="red"><B>caller</B></FONT>
+   (= <FONT color="blue"><B><I>calling</I> method</B></FONT>)
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>and</B>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ <LI> The <FONT color="red"><B>callee</B></FONT>
+   (= <FONT color="blue"><B><I>called</I> method</I></B></FONT>)
+ </OL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+on:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <OL>
+ <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B><I>Where</I> (= location)</B></FONT></SPAN> to
+      <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B>pass (= store)</B></FONT></SPAN> the
+      <B>value</B> of each
+      <FONT color="red"><B>parameter</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B><I>How</I>
+   (= by value or by reference)</B></FONT></SPAN> to
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">   
+   <FONT color="blue"><B>pass</B></FONT></SPAN> each
+      <FONT color="red"><B>parameter</B></FONT>
+    (<FONT color="blue"><B>by value</B></FONT> or 
+  <FONT color="red"><B>by reference</B></FONT>)
+ </OL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to <FONT color="blue">pass the return value</FONT> to
+   the caller
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>How</B></FONT> the
+   <FONT color="blue"><B>callee</B></FONT>
+  <FONT color="red"><B>passes</B></FONT> a
+  <FONT color="blue"><B>return value</B></FONT> to the
+  <FONT color="red"><B>caller</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="red"><B>Returning a value</B></FONT> is
+     <FONT color="blue"><B>implemented</B></FONT> by
+       an 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><I>agreement</I></B></FONT></SPAN> between
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <OL>
+ <LI> The <FONT color="red"><B><I>calling</I> method</B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>and</B>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ <LI> The <FONT color="red"><B><I>called</I> method</I></B></FONT>
+ </OL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+on:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <OL>
+ <LI> <FONT color="red"><B><I>Where</I> (= 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">location</SPAN>)</B></FONT> to
+      <FONT color="blue"><B>pass (= store)</B></FONT> the
+      <FONT color="red"><B>return value</B></FONT>
+      produced by the <FONT color="blue"><B>callee</B></FONT>
+
+ </OL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  Because <FONT color="red"><B>function</B></FONT> 
+   <FONT color="blue"><B>returns</B></FONT>
+   a <FONT color="red"><B><I>single</I> value</B></FONT>,
+   the 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>return <I>location</I></B></FONT> is
+   <FONT color="red"><B><I>always</I></B></FONT> a
+   <FONT color="blue"><B>register</B></FONT></SPAN>
+   (<SPAN style="BACKGROUND-COLOR: #ffff00">usually
+  <FONT color="red"><B>register <TT>r0</TT></B></FONT></SPAN>)
+   </font>
+   </p>
+
+   <p style="padding: 0.1in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Places (= locations)</FONT> that you can use to
+    <FONT color="blue">pass parameters</FONT>,
+	and
+    <FONT color="blue">store local variables</FONT> 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   The <FONT color="red"><B>(memory) locations</B></FONT> used to
+   <FONT color="blue"><B>pass</B></FONT>
+   <FONT color="red"><B>parameters</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+   <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>Registers</B></FONT></SPAN> inside
+          the <FONT color="blue"><B>CPU</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B>Advantage:</B></FONT> &nbsp;
+     <FONT color="blue"><B>simple</B></FONT>
+      to <FONT color="red"><B>use</B></FONT>
+      and <FONT color="red"><B>understand</B></FONT>
+ <LI> <FONT color="red"><B>Disadvantage:</B></FONT> &nbsp;
+     will <FONT color="blue"><B>only</B></FONT> work
+     with <FONT color="red"><B><I>leaf</I> functions</B></FONT>
+   &nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+  <LI> <FONT color="red"><B>Program (runtime) 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">stack</SPAN></B></FONT> in
+          the <FONT color="blue"><B>memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B>Advantage:</B></FONT> &nbsp;
+     <FONT color="blue"><B>will work</B></FONT> with
+     <FONT color="red"><B><I>any</I> (leaf + non-leaf) function</B></FONT>
+&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B>Disadvantage:</B></FONT> &nbsp;
+     <FONT color="blue"><B>more difficult</B></FONT> to
+     <FONT color="red"><B>use</B></FONT> and 
+    <FONT color="red"><B>understand</B></FONT>
+   &nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   I will <FONT color="red"><B>discuss</B></FONT> 
+  <FONT color="blue"><B>method 1</B></FONT>
+  (using <FONT color="red"><B>registers</B></FONT>) 
+  <B>first</B>...
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

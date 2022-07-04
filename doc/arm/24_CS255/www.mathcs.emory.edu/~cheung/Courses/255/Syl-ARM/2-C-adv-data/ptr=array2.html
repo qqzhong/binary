@@ -1,0 +1,160 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using the [ ] operator to implement
+ <I>dynamic</I> arrays
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: <I>dynamic</I> array using the [ ] operator
+     </B></FONT>
+<P>
+<UL>
+<LI> Here is the previous example on
+     <FONT color="blue"><B>dynamic arrays</B></FONT>, now using the
+     <FONT color="red"><B><TT>p[...]</TT></B></FONT> syntax:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int i;
+    
+       double* p;    // We uses this reference variable to access
+   		     // dynamically created array elements
+    <FONT color="red">
+       p = calloc(10, sizeof(double) );  // Make double array of 10 elements</FONT>
+    
+       for ( i = 0; i < 10; i++ )
+   	  <FONT color="red">p[i]</FONT> = i;            // put value i in array element i
+    
+       for ( i = 0; i < 10; i++ )
+   	  printf("*(p + %d) = %lf, p[i] = %lf\n", i, <FONT color="red">*(p+i), p[i]</FONT> );
+    
+    
+       free(p);      // Un-reserve the first array
+    
+       putchar('\n');
+    
+       p = calloc(4, sizeof(double) );  // Make a NEW double array of 4 elements
+    
+       for ( i = 0; i < 4; i++ )
+   	  p[i] = i*i;            // put value i*i in array element i
+    
+       for ( i = 0; i < 4; i++ )
+   	  printf("*(p + %d) = %lf, p[i] = %lf\n", i, *(p+i), p[i] );
+    
+       free(p);      // Un-reserve the second array
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   *(p + 0) = 0.000000, p[i] = 0.000000    <FONT color="red">(SAME value !!!)</FONT>   
+   *(p + 1) = 1.000000, p[i] = 1.000000
+   *(p + 2) = 2.000000, p[i] = 2.000000
+   *(p + 3) = 3.000000, p[i] = 3.000000
+   *(p + 4) = 4.000000, p[i] = 4.000000
+   *(p + 5) = 5.000000, p[i] = 5.000000
+   *(p + 6) = 6.000000, p[i] = 6.000000
+   *(p + 7) = 7.000000, p[i] = 7.000000
+   *(p + 8) = 8.000000, p[i] = 8.000000
+   *(p + 9) = 9.000000, p[i] = 9.000000
+   				       
+   *(p + 0) = 0.000000, p[i] = 0.000000
+   *(p + 1) = 1.000000, p[i] = 1.000000
+   *(p + 2) = 4.000000, p[i] = 4.000000
+   *(p + 3) = 9.000000, p[i] = 9.000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/dyn-array2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc dyn-array2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

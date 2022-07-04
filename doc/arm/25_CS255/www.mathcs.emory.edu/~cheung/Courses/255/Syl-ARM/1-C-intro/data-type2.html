@@ -1,0 +1,651 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>
+Operations involving <I>same</I> and <I>different</I> data types </B></FONT>
+<HR>
+
+<UL>
+
+
+<LI> <FONT color="darkmagenta"><B>
+        Operations involving values from <I>same</I> data type
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> Just like <B>Java</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B><I>only</I></B></FONT> perform
+      <B>operations</B> of 2 values of
+      the <FONT color="blue"><B><I>same</I> data type</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+
+  <P>
+ <LI> <B>Example:</B>
+   <P>
+<UL>
+<TABLE BGCOLOR="lightcyan" BORDER=5>
+<TR><TD>
+<B><PRE>
+
+  float A, B, C;	- Defines 3 float variables                   
+
+  A = 4;
+  B = 5;
+  C = A + B;
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+     This is the similar situation as "adding apples and apples".
+<HR>
+<P>
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT color="darkmagenta"><B>
+        Operations involving values from <I>different</I> data types
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> Just like <B>Java</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> 
+      <B>Operations</B> using values of
+      the <FONT color="blue"><B><I>different</I> data type</B></FONT>
+      must first <FONT color="red"><B>convert</B></FONT> one type
+      into the other before the operation can be performed.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+  <P>
+ <LI> <B>Example:</B>
+   <P>
+<UL>
+   <TABLE BGCOLOR="lightcyan" BORDER=5>
+   <TR><TD>
+   <B><PRE>
+
+  int A;       - Defines integer
+  float B, C;  - Defines 2 float variables   
+
+  <FONT color="darkmagenta"><B>A = 4;     // Integer</B></FONT>
+  <FONT color="blue">B = 5;     // Float</FONT>
+
+  <FONT color="red">C = A + B;  - The value of A is converted to FLOAT first      
+              - Then the addition is performed </FONT>
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+     This is the similar situation as "adding apples and oranges".
+	We must convert the apples to oranges first before we can add
+<HR>
+<P>
+
+ <P>
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+        Converting between different types of data
+        </B></FONT>
+ <P>
+ <UL>
+
+ 
+<LI> <B>Data conversion</B> must take place in the following
+    <FONT color="blue"><B>operations</B></FONT> involving
+    <FONT color="red"><B>different data types</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5" width=800>
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Binary</B> (arithmethic) <FONT color="red"><B>operations</B></FONT>
+<P>
+ <B>Example:</B>
+ <P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int   a;
+    float b;
+
+    a + b     // a in <FONT color="red">converted</font> to a <FONT color="red">float</font>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>Assignment operations</B></FONT>
+<P>
+ <B>Example:</B>
+ <P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int   a;
+    float b;
+
+    a = b ;  // b in <FONT color="red">converted</font> to a <FONT color="red">int</font>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Yes</B></FONT>, this is
+   <FONT color="blue"><B>allowed</B></FONT> in 
+   <FONT color="red"><B>C</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> In <FONT color="red"><B>Java</B></FONT>, you need to use
+   <FONT color="blue"><B>casting</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = <FONT color="red">(int)</font> b;    // Because b is float !        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+ <P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Warning:</font>
+     C is for <FONT color="red">adults <I>only</I></font> !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> was 
+    <FONT color="blue"><B>designed</B></FONT>
+    to <FONT color="red"><B>write</B></FONT> the
+    <FONT color="blue"><B>UNIX operating system</B></FONT>
+    (they used to write
+    <B>operating systems</B> in
+    <FONT color="red"><B>assembler code</B></FONT> !!!)
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>designer </B></FONT> of
+    <FONT color="red"><B>C</B></FONT> has
+    <FONT color="blue"><B>included</B></FONT> many
+    <FONT color="red"><B><I>features</I></B></FONT> to make
+    <FONT color="blue"><B>system programming</B></FONT>
+    <FONT color="red"><B><I>easy</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> But these <FONT color="blue"><B>features</B></FONT> can
+      <FONT color="red"><B><I>also</I></B></FONT> cause
+      <FONT color="blue"><B>major pain (harm)</B></FONT>
+      to <B>programmers</B> that
+      <FONT color="red"><B>do not</B></FONT> fully
+      understand
+      its <FONT color="blue"><B>effects</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Your <FONT color="red"><B>first feature</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> will
+     <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B><I>always</I></B></FONT></SPAN>
+       perform
+     an <FONT color="red"><B>assignment operation</B></FONT>
+     <B>with</B>
+     <FONT color="blue"><B>
+       <SPAN style="BACKGROUND-COLOR: yellow">
+       <I>automatic</I> (= "implicit")
+       </SPAN> type conversion</B></FONT>
+     on <FONT color="red"><B><I>ordinary</I> data types</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Even</B></FONT> when the
+      <FONT color="blue"><B>type conversion</B></FONT> results
+      in <FONT color="red"><B><I>loss</I> of accuracy</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(That's because <B>Ritchie</B> wants
+  <FONT color="red"><B>type <I>less</I></B></FONT> 
+	so he can write program <B>faster</B>...
+  (he knows that you need to 
+  <FONT color="blue"><B>cast (= convert)</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main(int argc, char* argv[] )
+{
+   int i;
+   short s;
+   double d;
+
+   i = 9827563;
+   s = i;	/* Unsafe conversion, allowed in C !!! */              
+
+   printf( "i = %d , s = %d \n", i, s );
+
+   d = 9827563.444;
+   i = d;	/* Unsafe conversion, allowed in C !!! */
+
+   printf( "d = %lf , i = %d \n", d, i );
+
+   d = 9827563.444;
+   s = d;	/* Unsafe conversion, allowed in C !!! */
+
+   printf( "d = %lf , s = %d \n", d, s );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/casting1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc casting1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<!-----------------------------  Deleted
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making <I>automatic</I> conversion "explicit" with assembler programming
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Every computer (CPU)</B></FONT>
+      has a number of
+      <FONT color="red"><B><I>conversion</I> instructions</B></FONT>
+      (e.g., <FONT color="blue"><B>int &rArr; float</B></FONT>,
+      <FONT color="blue"><B>int &rArr; double</B></FONT> and so on)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> We can <FONT color="blue"><B>make</B></FONT>
+    the <FONT color="red"><B>automatic convert</B></FONT>
+    by the <FONT color="blue"><B>C compiler</B></FONT>
+    <B>explicit</B> by examining the
+    <FONT color="red"><B><I>generated</I> assembler code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   int y;
+
+   main(int argc, char * argv[])              
+   {<FONT color="red">
+      x = y;</font>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ will generate
+    the following <FONT color="blue"><B>Intel Code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	%edi, -4(%rbp)
+	movq	%rsi, -16(%rbp)<FONT color="red">
+	movl	y(%rip), %eax           move y into register "eax"     
+	movl	%eax, x(%rip)           move rigster "eax" to x</font>
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> A <FONT color="blue"><B>C program</B></FONT> that uses 
+    <FONT color="red"><B><I>different</I> data types</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   <FONT color="red">float y;</font>
+
+   main(int argc, char * argv[])              
+   {<FONT color="red">
+      x = y;</font>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will contain
+ an <FONT color="red"><B><I>appropriate</I> conversion instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	%edi, -4(%rbp)
+	movq	%rsi, -16(%rbp)<FONT color="red">
+	movss	y(%rip), %xmm0         Get y
+	cvttss2si	%xmm0, %eax    Convert float to int
+	movl	%eax, x(%rip)          Put in x</font>
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here's an explanation of the
+  <FONT color="red"><B><TT>cvttss2si</TT></B></FONT> instruction:
+ <A HREF="http://software.intel.com/en-us/articles/fast-floating-point-to-integer-conversions">
+ <FONT color="blue"><B>click here</B></FONT>
+</A>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> <B>C program</B> Prog file
+     <FONT color="blue"><B>without</B></FONT> the need of conversion:
+       <A HREF="Progs/convert1.c"> click here </A>
+  <LI> <B>C program</B> Prog file that
+     <FONT color="blue"><B>uses</B></FONT>  conversion:
+       <A HREF="Progs/convert2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -S convert?.c</TT></B></FONT>
+ <LI> Examine <FONT color="red"><B>convert?.s</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+------------------------------------------------------------->
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

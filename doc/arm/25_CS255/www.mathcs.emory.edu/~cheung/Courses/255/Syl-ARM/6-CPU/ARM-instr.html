@@ -1,0 +1,426 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+ARM instruction encoding
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM processor
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>ARM</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>ARM</B></FONT> =
+        <FONT color="red"><B>ACORN/Advanced RISC Machine</B></FONT>
+   is a family of 
+   <FONT color="blue"><B>Reduced Instruction Set Computing</B></FONT>
+   architecture for
+   <FONT color="red"><B>computer processors</B></FONT>
+<P>
+ Wiki:
+  <A HREF="https://en.wikipedia.org/wiki/ARM_architecture">
+   click here</A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>ARM processor</B></FONT> nowadays
+   is used in <FONT color="blue"><B>many appliances</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Mobile phones
+ <LI> Tablet computers
+ <LI> EBook readers
+ <LI> Smart TV
+ <LI> Cable TV boxes
+ <LI> Blue Ray/DVD players
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Microwave oven
+ <LI> Washing machines
+ <LI> etc. etc (See: 
+  <A HREF="https://www.quora.com/Where-are-ARM-processors-used">
+  click here</A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM instruction code for the <TT>move</TT> instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>ARM instructions</B></FONT> have
+      a <FONT color="blue"><B>fixed length format</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Each ARM instruction</B></FONT> is
+    <FONT color="red"><B>encoded (= represented)</B></FONT> in
+    <FONT color="blue"><B>32 bits</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> Here is a <FONT color="blue"><B>full description</B></FONT> of
+  the <FONT color="red"><B>ARM instructions</B></FONT> 
+  with their <FONT color="blue"><B>encoding</B></FONT> that I used to 
+  make the teaching material on this webpage:
+    <A HREF="../7-ARM/Docs/arm-instructionset.pdf">
+  click here </A>
+<P>
+I will discuss the
+ <FONT color="red"><B>encoding</B></FONT> for the
+ <FONT color="blue"><B><TT>move</TT></B></FONT> instruction that
+ store a value into the first register
+ <FONT color="red"><B>register <TT>r0</TT></B></FONT> of the
+ <B>ARM processor</B> - as a
+  comparison to the same instruction in the M68000 processor
+<P>
+The <FONT color="red"><B>documentation</B></FONT> for the
+ <FONT color="blue"><B>ARM's <TT>move</TT></B></FONT> instruction is
+ on <FONT color="red"><B>page 10</B></FONT> of the
+ <A HREF="../7-ARM/Docs/arm-instructionset.pdf">
+  <FONT color="blue"><B>ARM instruction set document</B></FONT></A>
+<P>
+<LI> The 
+     <FONT color="red"><B>assembler syntax</B></FONT> to
+      move the <FONT color="red"><B>value <TT>x</TT></B></FONT> to
+ register <FONT color="blue"><B><TT>r0</TT></B></FONT>
+ (= the first register of the ARM processor) is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov r0, #<FONT color="red">x</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>format</B></FONT> to 
+ <FONT color="blue"><B>encode</B></FONT> the
+ instruction to
+ move the <FONT color="red"><B>value <TT>x</TT></B></FONT> to
+ register number <FONT color="blue"><B><TT>dest</TT></B></FONT>
+  is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  mov  r0, #x    is encoded in ARM as:
+
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    | | | | |0|0|1|<FONT color="red">1|1|0|1</FONT>|S|x|x|x|x|  dest |            <FONT color="red">value (x) </FONT>         |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+       
+     <----->       <----->   <----->
+     1 1 1 0         "mov"   not used
+  unconditional
+
+    (S = 0  means: don't set the condition codes)
+    (S = 1  means: set the condition codes according to the result of the operation)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here are some samples of the
+ <FONT color="red"><B><TT>move</TT></B></FONT> instructions
+ and their <FONT color="blue"><B>instruction codes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                        // Instruction code
+    mov r0, <FONT color="red">#1</FONT>          // E3A00001 = 1110 0011 1010 0000 <FONT color="red">0000 0000 0000 0001</FONT>
+    mov r<FONT color="red">5</FONT>, #1          // E3A05001 = 1110 0011 1010<FONT color="red"> 0101</FONT> 0000 0000 0000 0001
+    mov r0, #127        // E3A0007F = 1110 0011 1010 0000 0000 0000 0111 1111
+    mov r0, #128        // E3A00080 = 1110 0011 1010 0000 0000 0000 1000 0000
+    mov r0, #129        // E3A00081 = 1110 0011 1010 0000 0000 0000 1000 0001
+    mov r0, #255        // E3A00FFF = 1110 0011 1010 0000 0000 0000 1111 1111    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The interpretation of the first instruction code is as follows:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov <FONT color="darkred">r0</FONT>, #<FONT color="red">1</FONT>          // E3A00001 = 1110 0011 1010 0000 0000 0000 0000 0001
+
+ When we put this bit pattern in the in the format of the mov instruction,
+ you can identify the meaning of each bit easier:
+
+     1110 0011 1010 0000 0000 0000 0000 0001
+
+     1 1 1 0 0 0 1 1 1 0 1 0 0 0 0 0<FONT color="darkred"> 0 0 0 0</FONT> <FONT color="red">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1</FONT>
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    | | | | |0|0|1|1|1|0|1|S|x|x|x|x|  dest |            value (x)          |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+       
+     <----->       <----->   <----->
+     1 1 1 0         "mov"   not used
+  unconditional
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see that the
+  <FONT color="darkred"><B>register <TT>r0</TT></B></FONT>
+ is <FONT color="blue"><B>encoded</B></FONT> by
+ the 4 bits <FONT color="darkred"><B>register <TT>0 0 0 0</TT></B></FONT>
+ in the <FONT color="blue"><B>middle</B></FONT> of the
+ instruction code.
+<P>
+The <FONT color="red"><B>value 1</B></FONT> 
+ is <FONT color="blue"><B>encoded</B></FONT> by
+ the 12 bits <FONT color="red"><B><TT>0 0 0 0 0 0 ... 0 1</TT></B></FONT>
+ at the <FONT color="blue"><B>end</B></FONT> of the
+ instruction code.
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/instruction-encoding/arm/asm-prog.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>/home/cs255001/bin/as255 asm-prog.s</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Look inside the list file
+  <FONT color="red"><B><TT>asm-prog.list</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+   
+<P>
+<HR>
+<P>
+<LI> To show you that 
+     that the  4 bits
+     <FONT color="darkred"><B>register <TT>0 0 0 0</TT></B></FONT>
+     in the <FONT color="blue"><B>middle</B></FONT> of the
+     instruction code encodes
+     the <FONT color="red"><B>register</B></FONT>, I used
+     <FONT color="red"><B>r5</B></FONT> in the
+     2nd instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov <FONT color="darkred">r5</FONT>, #<FONT color="red">1</FONT>          // E3A05001 = 1110 0011 1010 0000 0101 0000 0000 0001
+
+ When we put this bit pattern in the in the format of the mov instruction,
+ you can identify the meaning of each bit easier:
+
+     1110 0011 1010 0000 0101 0000 0000 0001
+
+     1 1 1 0 0 0 1 1 1 0 1 0 0 0 0 0<FONT color="darkred"> 0 1 0 1</FONT> <FONT color="red">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1</FONT>
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    | | | | |0|0|1|1|1|0|1|S|x|x|x|x|  dest |            value (x)          |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+       
+     <----->       <----->   <----->
+     1 1 1 0         "mov"   not used
+  unconditional
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see that the
+  <FONT color="darkred"><B>register <TT>r5</TT></B></FONT>
+ is <FONT color="blue"><B>encoded</B></FONT> by
+ the 4 bits <FONT color="darkred"><B>register <TT>0 1 0 1</TT></B></FONT>
+ in the <FONT color="blue"><B>middle</B></FONT> of the
+ instruction code.
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Final comment
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>ARM processor</B></FONT> is
+     a <FONT color="blue"><B>RISC processor</B></FONT> with
+     <FONT color="red"><B><I>less complex</I> instructions</B></FONT>
+<P>
+<LI> One of the <FONT color="red"><B>consequence</B></FONT> of
+     this <FONT color="blue"><B>"simplified" instruction set</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>ARM processor</B></FONT> cannot
+       <FONT color="blue"><B>store</B></FONT> an
+       <FONT color="red"><B><I>arbitrary</I> large</B></FONT>
+       value in a <FONT color="blue"><B>register</B></FONT> using
+       <FONT color="red"><B><I>one</I> instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(Recall the <FONT color="red"><B>M68000 processor</B></FONT>
+  has a <FONT color="blue"><B><I>longer</I> but slower variant</B></FONT>
+  that can handle <FONT color="red"><B><I>any</I> value</B></FONT> and
+ a <FONT color="blue"><B>shorter variant</B></FONT> that
+ can be used for <FONT color="red"><B>smaller values</B></FONT>.
+<P>
+ The <FONT color="red"><B>ARM processor</B></FONT> does not
+  have the <FONT color="blue"><B>longer (= more complex) variant</B></FONT>
+  of the <FONT color="red"><B><TT>move</TT></B></FONT> instruction !!!)
+<P>
+<HR>
+<P>
+<LI> We will learn <FONT color="red"><B>later</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>ARM processor</B></FONT> requires
+    <FONT color="blue"><B>two (2) instructions</B></FONT> to
+    store a <FONT color="red"><B>large value</B></FONT> into
+    a <FONT color="blue"><B>register</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

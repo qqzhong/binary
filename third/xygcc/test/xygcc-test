@@ -1,0 +1,19 @@
+../xygcc -q -x32 -s -e x32s.c -o x32s.out
+../xygcc -q -x32 -d -e x32d.c -o x32d.out
+../xygcc -q -x64 -s -e x64s.c -o x64s.out
+../xygcc -q -x64 -d -e x64d.c -o x64d.out
+../xygcc -q -a32 -s -e a32s.c -o a32s.out
+../xygcc -q -a32 -d -e a32d.c -o a32d.out
+../xygcc -q -a64 -s -e a64s.c -o a64s.out
+../xygcc -q -a64 -d -e a64d.c -o a64d.out
+
+../xygcc -q -x32 -a -s -e x32s.s -o x32s.out
+../xygcc -q -x32 -a -d -e x32d.s -o x32d.out
+../xygcc -q -x64 -a -s -e x64s.s -o x64s.out
+../xygcc -q -x64 -a -d -e x64d.s -o x64d.out
+../xygcc -q -a32 -a -s -e a32s.s -o a32s.out
+../xygcc -q -a32 -a -d -e a32d.s -o a32d.out
+../xygcc -q -a64 -a -s -e a64s.s -o a64s.out
+../xygcc -q -a64 -a -d -e a64d.s -o a64d.out
+
+echo "done"

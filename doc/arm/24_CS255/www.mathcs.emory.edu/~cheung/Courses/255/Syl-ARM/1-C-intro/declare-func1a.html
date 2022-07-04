@@ -1,0 +1,333 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>simplest</I> way to compile a C program that consists 
+ of multiple program files 
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">simplest (amateur)</FONT> way to compile
+     a <FONT color="red">multi-file</FONT> C program
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example</B> of a
+      <FONT color="blue"><B>multi-file</B></FONT>
+      <FONT color="red"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File 1 (prog1.c)
+</TH> 
+<TH>
+ File 2 (prog2.c)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">float f(float x);    // Declare function f( )</FONT>
+
+int <FONT color="red">main</FONT>( int argc, char *argv[] )
+{
+   int a, b;
+   float c, d;
+
+   a = 2;
+   b = f( a );       // Call f( )
+
+   printf( "f(%d) = %d\n", a, b);
+
+   c = 2.0;
+   d = f( c );       // Call f( )
+
+   printf( "f(%f) = %f\n", c, d);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+float <FONT color="red">f</FONT>( float x )        
+{
+   return ( x*x );
+}
+
+
+
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>simplest way</B></FONT> to
+  <FONT color="blue"><B>compile</B></FONT> a
+  <FONT color="red"><B>multi-file</B></FONT>
+  <B>C program</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc   <FONT color="red">prog1.c  prog2.c   .... </FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B> <FONT color="red"><B>demo</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     cd  <FONT color="red">/home/cs255000/demo/c/multiple-files</FONT>     
+
+     gcc <FONT color="red">prog1.c  prog2.c</FONT>
+
+     <FONT color="red">a.out</FONT>
+
+     Output:
+          f(2) = 4
+          f(2.000000) = 4.000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How the C compiler processes
+    <FONT color="red">multi-file</FONT> C programs
+
+     </B></FONT>
+<P>
+ <UL>
+ <LI>  <FONT color="blue"><B>Compiling</B></FONT> 
+       a
+       <FONT color="red"><B><I>multi-file</I> C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT>
+        <B>compiles (= translates)</B>
+	<FONT color="red"><B><I>one</I> C program file</B></FONT>
+	at a time
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Each</B></FONT>
+     <FONT color="blue"><B>C program</B></FONT> is
+     <B>compiled (= translated)</B>
+     <SPAN style="BACKGROUND-COLOR: yellow"> 
+      <FONT color="red"><B><I>independently</I></B></FONT>
+      </SPAN>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>information</B></FONT>
+       gathered
+      in the <FONT color="blue"><B>translation process</B></FONT> of
+      a <B>C program file</B> is
+      <SPAN style="BACKGROUND-COLOR: yellow"> 
+      <FONT color="red"><B><I>discarded</I></B></FONT>
+      </SPAN>
+      at the
+      <FONT color="blue"><B>end</B></FONT> of the
+      <FONT color="red"><B>C program file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-compiler1a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What's <FONT color="red">wrong</FONT> with the
+    <FONT color="red">simplest</FONT> way to compile
+    multi-file C program
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Problem</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc   <FONT color="red">prog1.c  prog2.c   .... </FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>(Re-)compile</B></FONT>
+      <FONT color="blue"><B><I>all</I> the source code</B></FONT> in 
+      program files
+      <FONT color="red"><B><TT>prog1.c</TT></B></FONT>,
+      <FONT color="red"><B><TT>prog2.c</TT></B></FONT>, ....
+<P>
+  <FONT color="red"><B>Even</B></FONT> if the
+  <FONT color="blue"><B>source code</B></FONT> has
+  <FONT color="red"><B><I>not</I> changed</B></FONT> !!!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If there are <FONT color="blue"><B>many </B></FONT>
+         <B>C program files</B>, it will take a
+	 <FONT color="red"><B><I>long</I> time</B></FONT> to
+	 <FONT color="blue"><B>recompile</B></FONT> !!!!
+<P>
+ (When I was a <FONT color="red"><B>graduate student</B></FONT>,
+   I saw a couple of students working on their
+  <B>MS thesis</B> using the
+  <FONT color="red"><B>naive compilation</B></FONT>....
+  every time they <FONT color="blue"><B>compile</B></FONT> their
+  <B>project</B>, they take a
+  <FONT color="red"><B>1 hr  coffee break</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

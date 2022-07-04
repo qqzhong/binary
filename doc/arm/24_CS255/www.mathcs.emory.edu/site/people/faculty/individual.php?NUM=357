@@ -1,0 +1,198 @@
+
+    <!DOCTYPE html>
+    <html class="no-js" lang="en">
+    <head>  
+	    <title>Department of CS - Individual</title>
+	    <link rel="shortcut icon" href="/resources/images/favicon.ico">
+	    <meta charset="UTF-8">
+	    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	    <link href="/resources/css/bootstrap.min.css" rel="stylesheet"/>
+	    <link href="/resources/css/main.min.css" rel="stylesheet"/>
+	    <link href="/resources/css/components.min.css" rel="stylesheet"/>
+	    <link href="/resources/css/home.min.css" rel="stylesheet"/>
+	    <link href="/resources/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="/resources/js/modernizr-2.6.2.min.js"></script>
+        <script src="/resources/js/jquery.min.js"></script>
+        <script src="/resources/js/plugins/bootstrap.min.js"></script>
+        <script src="/resources/js/template/main.min.js"></script>
+        <script src="/resources/js/jquery-ui.min.js"></script>
+        
+         <script>$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script>
+        
+    <div class="wrapper">
+            <!-- header tag added via xslt -->
+            <header class="container blue mobile-logo" id="header" role="banner">
+                <h1 class="container logo-tall-som"><img alt="" class="classic" id="logo" src="/resources/images/logo_cs.png">
+                <a href="https://www.emory.edu/" id="emory-logo">Emory College of Arts and Sciences</a>
+                <a href="/home/" id="unit-logo">Department of Computer Science</a>
+                    <a href="#" id="">
+                        <img alt="" class="classic" src="/resources/images/mobil_logo.png"></a></h1>
+                        <div class="toggles container">
+                            <a class="toggle-nav" href="#"> <span class="icon-list"></span> Navigation</a>
+                                <a class="toggle-search" href="#" title="Search"><span class="icon-search"></span> Search</a></div>
+                                <nav id="emory-wide">
+                                    <a class="skip" href="#main-content">Skip to Content</a><ul><li class="top"><a>Schools</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Undergraduate</h4>
+                <ul>
+                <li><a href="http://www.college.emory.edu/" target="_blank" title="Emory College">Emory College</a></li>
+                <li><a href="http://oxford.emory.edu/" target="_blank" title="Oxford College">Oxford College</a></li>
+                <li><a href="http://goizueta.emory.edu/" target="_blank" title="Business School">Business School</a></li>
+                <li><a href="http://www.nursing.emory.edu/" target="_blank" title="School of Nursing">School of Nursing</a></li>
+                </ul>
+                <h4>Community</h4>
+                <ul>
+                <li><a href="http://www.ece.emory.edu/" target="_blank" title="Emory Continuing Education">Emory Continuing Education</a></li>
+                <li><a href="http://www.emory.edu/home/academics/continuing-education.html" target="_blank" title="Continuing Professional Education">Professional Education</a></li>
+                <li><a href="http://precollege.emory.edu/" target="_blank" title="Pre-College Program">Pre-College Program</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Graduate</h4>
+                <ul>
+                <li><a href="http://goizueta.emory.edu/" target="_blank" title="Business School">Business School</a></li>
+                <li><a href="http://www.gs.emory.edu/" target="_blank" title="Graduate School">Graduate School</a></li>
+                <li><a href="http://www.law.emory.edu/" target="_blank" title="School of Law">School of Law</a></li>
+                <li><a href="http://www.med.emory.edu/" target="_blank" title="School of Medicine">School of Medicine</a></li>
+                <li><a href="http://www.nursing.emory.edu/" target="_blank" title="School of Nursing">School of Nursing</a></li>
+                <li><a href="http://www.sph.emory.edu/" target="_blank" title="School of Public Health">School of Public Health</a></li>
+                <li><a href="http://www.candler.emory.edu/" target="_blank" title="School of Theology">School of Theology</a></li>
+                </ul>
+                </div>
+                </div></li><li class="top"><a>Libraries</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Libraries</h4>
+                <ul>
+                <li><a href="http://web.library.emory.edu/" target="_blank" title="Robert W. Woodruff">Robert W. Woodruff</a></li>
+                <li><a href="http://business.library.emory.edu/" target="_blank" title="Business">Business</a></li>
+                <li><a href="http://web.library.emory.edu/about/libraries/other-libraries/chemistry-library/" target="_blank" title="Science Commons">Science Commons</a></li>
+                <li><a href="http://health.library.emory.edu/" target="_blank" title="Health Sciences">Health Sciences</a></li>
+                <li><a href="http://library.law.emory.edu/" target="_blank" title="Law">Law</a></li>
+                <li><a href="http://marbl.library.emory.edu/" target="_blank" title="MARBL">MARBL</a></li>
+                <li><a href="http://web.library.emory.edu/about/libraries/woodruff-building/music-media-library.html" target="_blank" title="Music and Media">Music &amp; Media</a></li>
+                <li><a href="http://oxford.library.emory.edu/" target="_blank" title="Oxford College">Oxford College</a></li>
+                <li><a href="http://www.pitts.emory.edu/" target="_blank" title="Theology">Theology</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Library Tools</h4>
+                <ul>
+                <li><a href="https://ereserves.library.emory.edu/reserves2/index.php" target="_blank" title="Course Reserves">Course Reserves</a></li>
+                <li><a href="http://web.library.emory.edu/library-materials/databases-ebooks-ejournals/databases/" target="_blank" title="Databases">Databases</a></li>
+                <li><a href="http://digitalscholarship.emory.edu/" target="_blank" title="Emory Center for Digital Scholarship (ECDS)">Digital Scholarship (ECDS)</a></li>
+                <li><a href="https://search.libraries.emory.edu/" target="_blank" title="Library Search">Library Search</a></li>
+                <li><a href="http://ejournals.emory.edu/" target="_blank" title="eJournals">eJournals</a></li>
+                <li><a href="https://etd.library.emory.edu/" target="_blank" title="Electronic Dissertations">Electronic Dissertations</a></li>
+                <li><a href="http://findingaids.library.emory.edu/" target="_blank" title="EmoryFindingAids">EmoryFindingAids</a></li>
+                <li><a href="http://www.library.emory.edu/uhtbin/nph-illiad" target="_blank" title="ILLiad">ILLiad</a></li>
+                <li><a href="https://open.library.emory.edu/" target="_blank" title="OpenEmory">OpenEmory</a></li>
+                <li><a href="http://guides.main.library.emory.edu/" target="_blank" title="Research Guides">Research Guides</a></li>
+                </ul>
+                </div>
+                </div></li><li class="top"><a>Resources</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Resources</h4>
+                <ul>
+                <li><a href="http://www.emory.edu/" target="_blank" title="Emory University main site">Emory University main site</a></li>
+                <li><a href="http://www.emory.edu/home/about/administration/index.html" target="_blank" title="Administrative Offices">Administrative Offices</a></li>
+                <li><a href="http://www.emoryhealthcare.org/" target="_blank" title="Emory Healthcare">Emory Healthcare</a></li>
+                <li><a href="http://www.emory.edu/home/giving/index.html" target="_blank" title="Give to Emory">Give to Emory</a></li>
+                <li><a href="http://registrar.emory.edu/Students/Calendars/" target="_blank" title="Academic Calendars">Academic Calendars</a></li>
+                <li><a href="http://www.bookstore.emory.edu/" target="_blank" title="Bookstore">Bookstore</a></li>
+                <li><a href="http://map.emory.edu/" target="_blank" title="Campus Maps">Campus Maps</a></li>
+                <li><a href="http://transportation.emory.edu/" target="_blank" title="Shuttles and Parking">Shuttles and Parking</a></li>
+                <li><a href="http://www.emoryathletics.com/" target="_blank" title="Athletics: Emory Eagles">Athletics: Emory Eagles</a></li>
+                <li><a href="http://www.arts.emory.edu/" target="_blank" title="Arts at Emory">Arts at Emory</a></li>
+                <li><a href="http://news.emory.edu/" target="_blank" title="Emory News Center">Emory News Center</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Resources</h4>
+                <ul>
+                <li><a href="http://www.emory.edu/home/emergency/index.html" target="_blank" title="Emergency">Emergency</a></li>
+                <li><a href="http://www.it.emory.edu/" target="_blank" title="Information Technology (IT)">Information Technology (IT)</a></li>
+                <li><a href="https://owa.emory.edu/" target="_blank" title="Outlook Web Access">Outlook Web Access</a></li>
+                <li><a href="http://it.emory.edu/student_community/office365/" target="_blank" title="Office 365">Office 365</a></li>
+                <li><a href="https://classes.emory.edu/webapps/portal/frameset.jsp" target="_blank" title="Blackboard">Blackboard</a></li>
+                <li><a href="https://www.opus.emory.edu/" target="_blank" title="OPUS">OPUS</a></li>
+                <li><a href="https://compass-login.emory.edu/" target="_blank" title="PeopleSoft Financials: Compass">PeopleSoft Financials: Compass</a></li>
+                <li><a href="http://www.hr.emory.edu/eu/careers/" target="_blank" title="Careers">Careers</a></li>
+                <li><a href="http://www.hr.emory.edu/eu/" target="_blank" title="Human Resources">Human Resources</a></li>
+                <li><a href="http://news.emory.edu/campus/index.html" target="_blank" title="Emory Report">Emory Report</a></li>
+                </ul>
+                </div>
+    </div></li>
+            <li class="top search">
+                <div class="nav-box search">
+                    <form action="https://search.emory.edu/search" id="form-search" method="get" name="searchForm">
+                        <input name="searchString" type="hidden">
+                        <input name="numgm" value="5" type="hidden">
+                        <input name="client" value="default_frontend" type="hidden">
+                        <input name="output" value="xml_no_dtd" type="hidden">
+                        <input name="proxystylesheet" value="homepage" type="hidden">
+                        <div class="input-append">
+                        <label>
+                            <input autocomplete="off" class="input-medium" id="q" maxlength="2048" name="q" placeholder="Search" type="search">
+                        </label>
+                        <button class="btn" type="submit">
+                            <strong class="label">Search</strong><span class="icon-search"></span>
+                        </button>
+                </div>
+                        <fieldset style="display: none;" class="search-scope">
+                        <!-- <label class="checked"><input checked="checked" id="search-site" name="site" value="default_collection" type="radio"> This Site</label> -->
+                        <label class="checked"><input id="search-emory" name="site" value="default_collection" type="radio"> All Emory Sites</label>
+                        <label><input id="search-directory" name="site" value="directory" type="radio"> People</label>
+                    </fieldset>
+                </form>
+            </div>
+        </li>
+    </ul>
+    </nav>
+</header>
+<style>#navbar-li-ele{ border-left:none!important;}</style><nav class="container blue" id="main-nav" role="navigation"><ul><li id="navbar-li-ele"><a href="/home"/>Home</a></li><li id="navbar-li-ele"><a href="/undergraduate"/>Undergraduate</a></li><li id="navbar-li-ele"><a href="/graduate"/>Graduate</a></li><li id="navbar-li-ele"><a href="/courses"/>Courses</a></li><li id="navbar-li-ele"><a href="/research"/>Research</a></li><li id="navbar-li-ele"><a class="active" href="/people"/>People</a></li><li id="navbar-li-ele"><a href="/events"/>Events</a></li><li id="navbar-li-ele"><a href="/about"/>About</a></li></ul></nav><div class="container"><div class="container" style="background-color:white!important">
+    <div class="row col1col2" >
+        <!-- column 1-->
+        <div class="span3" id="context"  style="background-color:white!important;display:table-header-group!important">
+            <nav class="gold" id="sub-nav"  role="navigation">
+                <ul id="section-nav"><li class="selected"><a href='/people/faculty/'  >Faculty</a></li><li ><a href='/people/faculty-admin'  >Administration</a></li><li ><a href='/people/grad-students/'  >Graduate Students</a></li></div><!-- end span3 menu -->   </ul>
+            </nav>
+    <!-- column 2-->
+    <div class="span9" id="main-content" style="background-color:white!important"><br>
+
+        <h1 id="title-heading">People - Faculty</h1>
+        <div class="data-entry ">
+
+            <div class='row'><div class="span2"><img style="display:block;margin-left:auto;margin-right:auto;" src=https://www.cs.emory.edu/api/v3/getImage.php?file=PER-00357.png&resize=crop&width=420&height=540 border="0"></div><div class="span6 "><table style="width:100%!important"><tr><th><h2>Ymir Vigfusson</h2></th></tr><tr><td>Associate Professor</td></tr><tr><td><br></td></tr><tr><td><b>Office</b>: W302-H</td></tr><tr><td><b>Phone</b>: <a href='tel:1-404-727-3637'>404-727-3637</a></td></tr><tr><td><b>Email</b>: <img style="margin:0; max-height:14px;" src="data:image/png;base64,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" /></td></tr><tr><td><b>Personal Website</b>: <a href="http://www.ymsir.com/">http://www.ymsir.com/</a></td></tr><tr><td><b>Research Groups</b>: Databases and Information Management</td></tr><tr><td> <br><h5>Office Hours:</h5><ul><li>Wednesday: 1:00PM - 2:00PM</li></ul></tr></td><tr><td> <br><h5>Research:</h5><ul><li>My academic research is focused on distributed systems and data science, and I am particularly interested in socially motivated real-world problems that embody deep trade-offs. My primary interests are on making distributed data replication smarter -- including caching, live streaming and multicast -- and on practical ways to improve security. I am also interested in optimization, data mining, network science, wireless ad-hoc networks and epidemiology. Check out my website or shoot met an e-mail for more information.</li></ul></tr></td><tr><td> <br><h5>Education:</h5><ul><li>Ph.D. (2010), Cornell University (Department of Computer Science)</li><li>M.Sc. (2008), Cornell University (Department of Computer Science)</li><li>B.Sc. (2005), University of Iceland (Department of Mathematics)</li></ul></tr></td><tr><td> <br><h5>Honors and Awards:</h5><ul><li>NSF CAREER Award</li></ul></tr></td></table></div></div>        </div><!-- end of span9 main-content -->
+    </div>
+    </div>
+
+<footer class="container" id="footer">
+    <ul id="footLinks">
+    <li><a href="http://www.emory.edu/" target="_blank" title="Emory University main website">EMORY HOME</a></li>
+    <li><a href="http://www.emory.edu/home/contact-emory/index.html" target="_blank" title="Contacts">CONTACTS</a></li>
+    <li><a href="http://www.emory.edu/home/emergency/index.html" target="_blank" title="Emergency">EMERGENCY</a></li>
+    <li><a href="http://www.hr.emory.edu/eu/careers/" target="_blank" title="Careers">CAREERS</a></li>
+    <li><a href="http://www.emory.edu/home/giving/index.html" target="_blank" title="Give to Emory">GIVE TO EMORY</a></li>
+    <li><a href="http://communications.emory.edu/tools/web-guide/about.html" target="_blank" title="About Emory's Web">ABOUT EMORY'S WEB</a></li>
+    </ul>
+    <p><a href="http://communications.emory.edu/tools/web-guide/copyright-dmca.html" target="_blank" title="Copyright">Copyright</a> 
+    ©
+    <span id="copyright-date">2022</span> 
+    <a href="https://www.emory.edu/" target="_blank" title="Emory Homepage">Emory University</a> 
+    - All Rights Reserved <span class="address">| 201 Dowman Drive, Atlanta, Georgia 30322 USA 404.727.6123</span></p></footer>
+    </div>
+    
+    </body></html>

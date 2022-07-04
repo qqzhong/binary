@@ -1,0 +1,316 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Representing computer instructions
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Parts of a computer instruction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The following <FONT color="red"><B>information</B></FONT> must
+  be <FONT color="blue"><B>encoding</B></FONT> inside
+  a <FONT color="red"><B>computer instruction</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Operation</B></FONT>, such as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move (= copy a value from a source location to a destination location)
+ <LI> Add
+ <LI> Subtract 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Multiply
+ <LI> Divide
+ <LI> Negate
+ <LI> And
+ <LI> Or
+ <LI> Not
+ <LI> And so on...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>What</B></FONT> 
+     does the <FONT color="blue"><B>operation</B></FONT> use
+     as <FONT color="red"><B><I>source</I> operands</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Where</B></FONT> does the
+     <FONT color="blue"><B>operation</B></FONT> store the
+     <FONT color="red"><B>result</B></FONT> of the
+     <FONT color="blue"><B>operation</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>computer instruction</B></FONT> typically
+     consists of
+     <FONT color="blue"><B>4 to 32 bytes</B></FONT>
+<P>
+    The <FONT color="red"><B>computer instruction</B></FONT>
+    has a <FONT color="blue"><B>instruction format</B></FONT> that
+    is <FONT color="red"><B>different</B></FONT> for
+    <FONT color="blue"><B>each type of computer</B></FONT>
+<P>
+ But <FONT color="red"><B><I>all</I></B></FONT>
+  <FONT color="blue"><B>computer instructions</B></FONT> can be
+  <B>sub-divided</B> into
+   <FONT color="red"><B>3 parts</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>opcode part</B></FONT>
+       that <FONT color="red"><B>encodes (= represents)</B></FONT>
+    the <FONT color="blue"><B>computer operation</B></FONT>
+ <LI> A <FONT color="blue"><B>source part</B></FONT> that
+        <FONT color="red"><B>encode</B></FONT> one or two
+	 <FONT color="blue"><B>source operands</B></FONT>
+ <LI> A <FONT color="blue"><B>destination part</B></FONT> that 
+      <FONT color="red"><B>encode</B></FONT> the
+      <FONT color="blue"><B>destination</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Let me show you a concrete example: suppose
+ a computer instruction consist of 4 bytes (= 32 bits):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ 1 computer instruction:
+
+                        4 bytes (= 32 bits)
+   <------------------------------------------------------------->
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+      
+  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B>Some</B></FONT> of the
+      bits will be used to <FONT color="red"><B>encode</B></FONT>
+ the <FONT color="blue"><B>operation</B></FONT>
+ <LI>  <FONT color="blue"><B>Some</B></FONT> of the
+      bits will be used to <FONT color="red"><B>encode</B></FONT>
+ the <FONT color="blue"><B>source operands</B></FONT>
+ <LI>  <FONT color="blue"><B>Some</B></FONT> of the
+      bits will be used to <FONT color="red"><B>encode</B></FONT>
+ the <FONT color="blue"><B>destination  operands</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+For example:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ 1 computer instruction:
+
+                        4 bytes (= 32 bits)
+   <------------------------------------------------------------->
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+      
+  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ <FONT color="red">  <-----------> <-------> <------------------> <----------------->
+     opcode        dest         source1               source2</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In fact,
+ the bits that encode the various part 
+ <FONT color="red"><B>need not</B></FONT> be
+  <FONT color="blue"><B>contiguous</B></FONT>.
+<P>
+But there is <FONT color="red"><B>always</B></FONT> a
+ <FONT color="blue"><B>logical scheme</B></FONT> to
+  <FONT color="red"><B>encode</B></FONT> the various parts.
+<P>
+The <FONT color="red"><B>logical scheme</B></FONT> to
+  <FONT color="blue"><B>encode</B></FONT> the 
+  <FONT color="red"><B>opcode</B></FONT>,
+  <FONT color="blue"><B>source operands</B></FONT> and
+ <FONT color="red"><B>destinations</B></FONT> varies from computer to
+ computer.
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Sample encoding scheme for the computer operation
+     </B></FONT>
+<P>
+<UL>
+<LI> To <FONT color="red"><B>encode (=represent)</B></FONT>
+      the <FONT color="blue"><B>computer instruction</B></FONT>,
+      each computer instruction is represented by
+      a <FONT color="red"><B>unqiue  operation code</B></FONT> 
+      (it's called <FONT color="blue"><B>opcode</B></FONT>
+      for short)
+<P>
+<B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Operation        Opcode
+   -------------    --------
+       Move           0000
+       Add            0001
+       Subtract       0010
+       Multiply       0011
+       Divide         0100
+        ...            ...     (and so on)         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Again, each computer has its own 
+ <FONT color="red"><B>encoding scheme</B></FONT> and it is
+ not important to memorize the encoding.
+<P>
+It's enough that you know there is a
+ <FONT color="red"><B>systematic way</B></FONT> to
+ <FONT color="blue"><B>encode</B></FONT> 
+ the operation code.
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Encoding the source operands and destination
+     </B></FONT>
+<P>
+<UL>
+<LI> To <FONT color="red"><B>encode (= represent)</B></FONT> the
+      <FONT color="blue"><B>source operand(s)</B></FONT> and
+      the <FONT color="red"><B>destination</B></FONT>,
+     the <FONT color="blue"><B>location information</B></FONT> 
+     is <FONT color="red"><B>encoded</B></FONT>
+<P>
+    Again, <FONT color="red"><B>each computer CPU</B></FONT> has
+   its own way to
+   <FONT color="blue"><B>encode</B></FONT> the
+   <FONT color="red"><B>operand information</B></FONT>
+ <P>
+   The <FONT color="red"><B>encoding technique</B></FONT> is
+   <FONT color="blue"><B>not part</B></FONT> of the
+   <FONT color="red"><B>CS 255 material</B></FONT> - all you need to
+   know is each computer CPU has its
+   <FONT color="blue"><B>own systematic way</B></FONT> to
+   encode where the operands are located
+ <P>
+  Also, the same encoding technique is used to
+  encode the <FONT color="red"><B>destination</B></FONT>
+<P>
+<HR>
+<P>
+<LI> A few webpages later, I will show you how the
+      <FONT color="red"><B>ARM</B></FONT> and the
+      <FONT color="blue"><B>M68000</B></FONT> CPUs
+      encode their source and destination operands.
+  <P>
+   And I only do it to satisfy your curiosity - and not to discuss
+   encoding technique in general.
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

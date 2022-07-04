@@ -1,0 +1,1788 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+<H3>
+<HR>
+Intro to "twos complement encoding"
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     2s complement codes
+     </B></FONT>
+<P>
+<UL>
+<LI> Just like <FONT color="red"><B>10s complement codes</B></FONT>, there
+       are <FONT color="blue"><B>many different</B></FONT>
+       <FONT color="red"><B>2s complement codes</B></FONT> -
+       depending on the
+       <FONT color="blue"><B>length (= number of bits)</B></FONT>
+       of the <FONT color="red"><B>code words</B></FONT>
+<P>
+
+<LI> Let's start with a
+   <FONT color="red"><B> small</B></FONT>
+   "Odometer code" using binary numbers.
+ <P>
+  This is the
+    <FONT color="red"><B>3 bits (binary) "odometer" code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Binary
+Odometer reading:   100  101  110  111  000  001  010  011        
+-----------------    +----+----+----+----+----+----+----+
+Value represented:  -4   -3   -2   -1    0    1    2    3
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<P>
+<LI> Note:
+<P>
+  <UL>
+  <LI> With 3 bits, we can represent <B>only</B> values between [-4 .. 3]
+  <LI> With 3 bits, we can represent values between
+     [-2<SUP>2</SUP> .. 2<SUP>2</SUP>-1]
+  </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Let's look at the
+   <FONT color="red"><B>2s complement code</B></FONT>
+   using one byte (= 8 bits):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        2s comp   Represented
+	Code      Value
+	========================
+	10000000  -128  <--- smallest negative value with 8 bits (-2<SUP>7</SUP>)
+	10000001  -127
+	.....
+	11111000    -8
+	11111001    -7
+	11111010    -6
+	11111011    -5
+	11111100    -4
+	11111101    -3
+	11111110    -2
+	11111111    -1
+<FONT COLOR="red"><B>	00000000     0</B></FONT>
+	00000001     1
+	00000010     2
+	00000011     3
+	00000100     4
+	00000101     5
+	00000110     6
+	00000111     7
+	00001000     8
+	.....
+	01111111   127  <--- largest positive value with 8 bits (2<SUP>7</SUP>-1)        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <P>
+  <UL>
+ 
+  <LI> With 8 bits, we can 
+    <FONT color="blue"><B>represent (= encode)</B></FONT>
+  the values between
+        <FONT color="red"><B> [-2<SUP>7</SUP>, 2<SUP>7</SUP>-1]
+	= [-128, 127]</B></FONT>
+
+  </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> 
+The <FONT color="red"><B>mapping</B></FONT> of the
+  <FONT color="blue"><B>representation</B></FONT> to
+  the <FONT color="red"><B>value</B></FONT> that it represents
+  is based on
+  the following <FONT color="blue"><B>circular (modulo) addition</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/2s-comp.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Property:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you move
+     <FONT color="red"><B>clock-wise</B></FONT>
+     on  <FONT color="blue"><B>representation wheel</B></FONT>,
+     you will <FONT color="red"><B>add 1</B></FONT> to
+     the <B>representation</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Therefore, the <FONT color="blue"><B>representation</B></FONT>
+      that you get by 
+      <FONT color="red"><B>moving clock-wise</B></FONT>
+      must be
+      <FONT color="blue"><B>1 larger</B></FONT> in
+      <FONT color="red"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> If you move
+     <FONT color="red"><B><I>counter</I> clock-wise</B></FONT>
+     on  <FONT color="blue"><B>representation wheel</B></FONT>,
+     you will <FONT color="red"><B>subtract 1</B></FONT> to
+     the <B>representation</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Therefore, the <FONT color="blue"><B>representation</B></FONT>
+      that you get by 
+      <FONT color="red"><B>moving <I>counter</I> clock-wise</B></FONT>
+      must be
+      <FONT color="blue"><B>1 larger</B></FONT> in
+      <FONT color="red"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Encoding a value in the 2's complement representation
+     </B></FONT>
+<P>
+<UL>
+
+
+
+<LI> As I mentioned before,
+     to use a code effectively,
+       -- in this case the 2s complement code ---
+     you need to know how to convert a
+    value to 2s complement and vice versa
+<P>
+ Let's see how we can
+  <FONT color="red"><B>encode</B></FONT> a
+  <FONT color="blue"><B>value</B></FONT> in
+  the <FONT color="red"><B>2s complement code</B></FONT>
+ <P>
+  (Which is similar to the <FONT color="blue"><B>10s complement</B></FONT>
+  example)
+<P>
+
+<LI> Look at the following table carefully to discover the coding & decoding
+	method:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                                              Absolute
+	2's compl   Value      Compare with:  Value     Binary number       
+	================                      =============================
+	10000000    -128  			128	10000000
+	10000001    -127			127	01111111
+	.....
+	11111000      -8			  8	00001000
+	11111001      -7			  7	00000111
+	11111010      -6			  6     00000110
+	<FONT color="red">11111011</FONT>      -5			  5	<FONT color="magenta">00000101</FONT> (<FONT color="red">11111011</FONT> = 100000000 - <FONT color="magenta">00000101</FONT>)
+	11111100      -4			  4	00000100
+	11111101      -3			  3	00000011
+	11111110      -2			  2	00000010
+	11111111      -1			  1	00000001
+<FONT COLOR="red"><B>	00000000       0</B></FONT>
+	00000001       1			  1     00000001
+	00000010       2			  2     00000010
+	00000011       3			  3     00000011
+	00000100       4			  4     00000100
+	00000101       5			  5     00000101
+	00000110       6			  6     00000110
+	00000111       7			  7     00000111
+	00001000       8			  8     00001000
+	.....
+	01111111     127  			127     01111111         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<PRE>
+
+</PRE>
+
+We see that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B>value &ge; 0</B></FONT>
+     (he <FONT color="blue"><B>bottom-half</B></FONT> of the <B>values</B>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>2s complement code</B></FONT> 
+        &equiv;
+	<FONT color="blue"><B>binary number representation</B></FONT>
+   (if we keep the <FONT color="red"><B>leading 0's</B></FONT>)
+<P>
+   Example:
+<PRE>
+     <FONT COLOR="red"><B>   00000000</B></FONT>
+        00000001       1 
+        00000010       2 
+        00000011       3 
+        00000100       4 
+        00000101       5 <-----
+<B>
+   Representation
+   ---------------
+   00000101          ->   4 + 1 = 5
+   ^    ^ ^
+	| |
+	4 1 </B>
+</PRE>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When the <FONT color="red"><B>value &lt; 0</B></FONT>
+     (he <FONT color="blue"><B>top-half</B></FONT> of the <B>values</B>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  2s complement code(value) =  <FONT color="red">10000000 &minus;</FONT>  abs(value) in binary     
+
+  For the <FONT color="red">8 bit</FONT> 2s complement code
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> how to find the
+   <FONT color="red"><B>2s complement code</B></FONT> for the value
+  <FONT color="blue"><B>&minus;5</B></FONT>
+<PRE><B>
+        2s compl      Represented      Absolute           Binary
+        code          value            value (abs(-5))    number of 5
+       ---------------------------     -------------------------------
+	<FONT color="red">11111011</FONT>      -5               5	          <FONT color="magenta">00000101</FONT>
+
+   How to find the 2s compl code for <FONT color="red">-5</FONT>:
+
+       100000000 
+     -  <FONT color="magenta">00000101</FONT>
+    ------------
+        <FONT color="red">11111011</FONT>   <---- 2s compl code for -5
+</PRE>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> For a <FONT color="red"><B>16 bits</B></FONT>
+      <FONT color="blue"><B>2s complement code</B></FONT>, we will need to use
+       <FONT color="red"><B><TT>10000000000000000</TT></B></FONT> in the
+   <FONT color="blue"><B>subtraction</B></FONT> instead of
+   <FONT color="red"><B><TT>100000000</TT></B></FONT>
+<P>
+ <LI> For a <FONT color="red"><B>32 bits</B></FONT>
+      <FONT color="blue"><B>2s complement code</B></FONT>, we will need to use
+       <FONT color="red"><B><TT>100000000000000000000000000000000</TT></B></FONT> in the
+   <FONT color="blue"><B>subtraction</B></FONT> instead of
+   <FONT color="red"><B><TT>100000000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Later</B></FONT> in this <FONT color="blue"><B>webpage</B></FONT>,
+ I will show you a <FONT color="red"><B>quicker way</B></FONT> to
+ handle the <FONT color="blue"><B>negative values</B></FONT>....
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Decoding a 2s complement code to find the value that it represents
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>First</B></FONT>, observe that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B><I>left</I>-most bit</B></FONT> of the
+      <FONT color="blue"><B>2s complement code = 0</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>code word</B></FONT> represents a
+       <FONT color="red"><B><I>positive</I> value (or 0)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> When the <FONT color="red"><B><I>left</I>-most bit</B></FONT> of the
+      <FONT color="blue"><B>2s complement code = 1</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>code word</B></FONT> represents a
+       <FONT color="red"><B><I>negative</I> value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<P>
+<LI> Converting a 
+       <FONT color="red"><B>2's complement code <TT>c</TT></B></FONT>
+           to its <FONT color="blue"><B> signed value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the
+     <FONT color="blue"><B>2s complement code</B></FONT>
+      <FONT color="red"><B> <TT>c</TT></B></FONT> begins with 
+      <FONT color="blue"><B>0 bit</B></FONT> (= positive value or 0):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use the
+       <FONT color="red"><B>formula</B></FONT>:
+   (see: <A HREF="../4-intro/binary-numbers.html">click here</A>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">d<sub>n</sub>&times;2<sup>n</sup> + d<sub>n-1</sub>&times;2<sup>n-1</sup> ... + d<sub>1</sub>&times;2<sup>1</sup> + d<sub>0</sub>&times;2<sup>0</sup></FONT>  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to find the <FONT color="red"><B>(decimal) value</B></FONT> reprsented by the
+  <FONT color="blue"><B>2s complement code</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+  <LI>  If the
+     <FONT color="blue"><B>2s complement code</B></FONT>
+      <FONT color="red"><B> <TT>c</TT></B></FONT> begins with 
+      <FONT color="blue"><B>1 bit</B></FONT> (= negative value):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Represented value in binary = - ( 100000000 - <FONT color="red">c</FONT> )     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  2s complement code c = 00010010
+
+  What value does this code represent ?
+
+          <FONT color="red">0</FONT>0010010 -> it is a positive value
+
+		      the value = 00010010 in <B>binary</B>
+
+		      Convert to decimal:  0  0  0  1  0  0  1  0
+						   16  +     2     = 18
+		      Value = 18
+
+<HR>
+  2s complement code c = 11101110
+
+  What value does this code represent ?
+
+          <FONT color="red">1</FONT>1101110 -> it is a negative number...
+
+		      (1) Compute:      100000000 
+				      -	 11101110
+				      -----------
+					 00010010 
+
+		      (2) the absolute value of the <B>negative</B> value
+			  is equal to 00010010 (binary), which is equal
+			  to 18 (decimal)
+
+		      (3) Since the value is negative, the value represented
+			  by 11101110 is: <FONT color="red">-18</FONT> !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to negate a value in the 2s complement representation
+     </B></FONT>
+<P>
+<UL>
+
+
+<P>
+<LI> We have seen <FONT color="red"><B>2 examples</B></FONT>  above
+     on <FONT color="blue"><B>encoding and decoding</B></FONT>
+     <FONT color="red"><B>values</B></FONT> in
+     the <FONT color="blue"><B>2s complement code</B></FONT>
+<P>
+  Here is a <FONT color="red"><B>summary</B></FONT> of
+  the <FONT color="blue"><B>examples</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     2s complement code         Value represented by the code
+    --------------------       -------------------------------     
+         00000111                       7
+         11111001                      -7
+
+         00010010                      18
+	 11101110		      -18
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Can you see the <FONT color="red"><B>how</B></FONT> the
+ <FONT color="blue"><B>representation</B></FONT> for
+  <FONT color="red"><B><TT>x</TT></B></FONT> and
+ <FONT color="red"><B><TT>&minus;x</TT></B></FONT> are
+ related ??
+<P>
+Take a close look at this table with more 
+  <FONT color="blue"><B>representations</B></FONT>
+ of
+ <FONT color="red"><B>positive</B></FONT> and
+  <FONT color="red"><B>negative</B></FONT> values:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                                              Absolute
+	2's compl   Value      Compare with:  Value     Binary number       
+	================                      =============================
+	10000000    -128  			128	10000000
+	10000001    -127			127	01111111
+	.....
+	11111000      -8			  8	00001000
+	11111001      -7			  7	00000111
+	11111010      -6			  6     00000110
+	<FONT color="red">11111011</FONT>      -5			  5	<FONT color="magenta">00000101</FONT> (<FONT color="red">11111011</FONT> = 100000000 - <FONT color="magenta">00000101</FONT>)
+	11111100      -4			  4	00000100
+	11111101      -3			  3	00000011
+	11111110      -2			  2	00000010
+	11111111      -1			  1	00000001
+<FONT COLOR="red"><B>	00000000       0</B></FONT>
+	00000001       1			  1     00000001
+	00000010       2			  2     00000010
+	00000011       3			  3     00000011
+	00000100       4			  4     00000100
+	00000101       5			  5     00000101
+	00000110       6			  6     00000110
+	00000111       7			  7     00000111
+	00001000       8			  8     00001000
+	.....
+	01111111     127  			127     01111111         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can <FONT color="blue"><B>notice</B></FONT> the following
+  <FONT color="red"><B>relationship</B></FONT>
+ between the <FONT color="blue"><B>representations</B></FONT> for
+  <FONT color="red"><B><TT>x</TT></B></FONT> and
+  <FONT color="red"><B><TT>-x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  2s compl code(<FONT color="red">-x</FONT>) = <FONT color="red">10000000 -</FONT> 2s complement code(<FONT color="red">x</FONT>)      
+
+<HR>
+  Example:
+
+        2s compl code for <FONT color="red">-5</FONT> = 10000000 - 2s compl code for <FONT color="red">5</FONT>    
+
+             100000000
+           -  00000101
+           -----------
+              11111011      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+So 
+to <FONT color="red"><B>negate</B></FONT>  a 
+   <FONT color="blue"><B>value</B></FONT> represented in the
+   <FONT color="red"><B>2s complement code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>You must <FONT color="blue"><B>subtract the 2s complement code</B></FONT>
+     from <FONT color="red"><B>1000...000</B></FONT>
+<P>
+ (I use <FONT color="red"><B>...</B></FONT> in the
+    number, because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL> 
+ <LI> To <FONT color="red"><B>negate</B></FONT> a
+      <FONT color="blue"><B>8 bits</B></FONT>
+      <FONT color="red"><B>2s complement code</B></FONT>,
+      you must subtract from
+      <FONT color="blue"><B><TT>100000000</TT></B></FONT>
+ <LI> To <FONT color="red"><B>negate</B></FONT> a
+      <FONT color="blue"><B>16 bits</B></FONT>
+      <FONT color="red"><B>2s complement code</B></FONT>,
+      you must subtract from
+      <FONT color="blue"><B><TT>10000000000000000</TT></B></FONT>
+ <LI> To <FONT color="red"><B>negate</B></FONT> a
+      <FONT color="blue"><B>32 bits</B></FONT>
+      <FONT color="red"><B>2s complement code</B></FONT>,
+      you must subtract from
+      <FONT color="blue"><B><TT>100000000000000000000000000000000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ 
+<P>
+</UL>
+
+<A NAME="NEGATE"></A>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A faster way to negate a 2s complement code
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> In <FONT color="red"><B>high school</B></FONT>,
+     you may have learned an <FONT color="blue"><B>easier way</B></FONT>
+      to <FONT color="red"><B>negate a 2s complement code</B></FONT>.
+ <P>
+ What you may have learned is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Flip the bits</B></FONT> in the
+     <FONT color="blue"><B>binary number</B></FONT>
+ <LI> <FONT color="red"><B>Add 1</B></FONT> to the <FONT color="blue"><B>result</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You probably have <FONT color="red"><B>no idea</B></FONT> why this works...
+<P>
+<HR>
+<HR>
+<P>
+Let me explain this procedure using an <FONT color="red"><B>example</B></FONT>...
+<P>
+The <FONT color="red"><B>binary representation</B></FONT> for
+ the <FONT color="blue"><B>value 7</B></FONT> in <FONT color="red"><B>8 bits</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      00000111     (= 7)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+To find the <FONT color="red"><B>2s complement representation</B></FONT> for
+  <FONT color="blue"><B>&minus;7</B></FONT>, we subtract
+   <FONT color="red"><B><TT>00000111</TT></B></FONT> from
+  <FONT color="blue"><B>100000000</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    100000000        
+   - 00000111 (= 7) 
+  -----------
+     11111001 (= -7)           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+The <B>subtraction</B> can be broken up in <FONT color="red"><B>2 steps</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   100000000 - 00000111 = (1 + 11111111) - 00000111
+		        = 1 + <FONT color="red">(11111111 - 00000111)    [easy subtraction !]</FONT>
+			= 1 + <FONT color="red">11111000</FONT>                 [result is same as <FONT color="red">flipping bits</FONT> !]   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Subtraction using
+  <FONT color="red"><B><TT>11111111</TT></B></FONT> will result in
+  <FONT color="blue"><B>flipping the bits</B></FONT> in the
+  other binary number because you never have to borrow and
+   <FONT color="red"><B><TT>1 - <FONT color="blue">0</FONT> = <FONT color="blue">1</FONT>
+   </TT></B></FONT>
+  and
+   <FONT color="red"><B><TT>1 - <FONT color="blue">1</FONT> = <FONT color="blue">0</FONT>
+   </TT></B></FONT>
+   !!!
+<P>
+<B>Summary:</B> to negate a 2s complement representation:
+<P>
+ <UL>
+ <LI> Flip every bit in the 2s complement representation
+ <LI> Add 1 to the result
+ </UL>
+<P>
+<B>Another example:</B>
+<PRE>
+	As you saw above:    00010010 represents +18
+
+        To get the representation for -18, you can do this:
+
+
+	(1) Flip each bit:      00010010 -> 11101101
+
+	(2) Add 1 to result:    11101101
+			      +        1
+			      ----------
+				11101110
+
+   which is - as you saw above - the representation for -18
+</PRE>
+                  
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Why use 2s complement code instead of the sign-magnitude encoding ?
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B> 2s complement encoding</B></FONT> has
+   the following
+   <FONT color="blue"><B>"nice" properties</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> There is <FONT color="red"><B>only one representation</B></FONT>
+       for the <FONT color="blue"><B>value ZERO</B></FONT> (check for yourself)
+<P>
+<HR>
+  <LI> <FONT color="red"><B>Arithmetic operations</B></FONT> using
+      <FONT color="blue"><B>2s compliment code</B></FONT>  are "natural" 
+      (i.e., you don't need to worry about 
+   <FONT color="red"><B>negative numbers</B></FONT> when you 
+   <FONT color="blue"><B>add</B></FONT>) - see examples below
+  </UL>
+
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Arithmetic with 2's complement encoding
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <B>Adding</B> 2's complement numbers:
+<P>
+<PRE>
+               Values        8 digit 2's compl repr
+Adding 2 
+positive           5                 00000101
+values          +  9               + 00001001
+                -----              ----------
+                  14                 00001110  -> 8 + 4 + 2 = 14
+
+Adding  
+positive +         5                 00000101
+negative        + -9               + 11110111
+                -----              ----------
+                  -4                 11111100 -> represents -4
+
+
+Adding  
+negative +        -5                 11111011
+positive        +  9               + 00001001
+                -----              ----------
+                   4                 00000100 -> represents 4
+
+Adding 2 
+negative          -5                 11111011
+values          + -9               + 11110111
+                -----              ----------
+		 -14                 11110010 -> represents -14
+</PRE>
+
+<P>
+<LI> <B>Subtracting</B> 2's complement numbers:
+<P>
+<PRE>
+               Values        8 digit 2's compl repr
+Subtract 2 
+positive           5                 00000101
+values          -  9               - 00001001
+                -----              ----------
+                  -4                 11111100 -> represents -4
+
+Subtract  
+positive -         5                 00000101
+negative        - -9               - 11110111
+                -----              ----------
+                  14                 00001110 -> represents 14
+
+
+Subtract  
+negative -        -5                 11111011
+positive        -  9               - 00001001
+                -----              ----------
+                 -14                 11110010 -> represents -14
+
+Subtract 2 
+negative          -5                 11111011
+values          - -9               - 11110111
+                -----              ----------
+		   4                 00000100 -> represents 4
+</PRE>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+        <FONT color="red"><B><TT>
+	/home/cs255001/demo/Java/ShowIntTypes.java
+	</TT></B></FONT>
+      
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>javac ShowIntTypes.java</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ShowIntTypes</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Overflow
+     </B></FONT>
+<P>
+<UL>
+
+
+<HR>
+<B>Overflow</B>
+<HR>
+<LI> What is "overflow":
+  <P>
+  <UL>
+  <LI> Using 8 bits, we can represent the binary values between -128 and 127
+  <P>
+  <LI> Computer operation manipulate (change) the <B>representation</B>
+   <P>
+	For example:
+<PRE>
+	00000011   <---- representation for the value *** (3)
+      +	00000101   <---- representation for the value ***** (5)
+     ------------
+	00001000   <---- representation for the value ******** (8)
+</PRE>
+  <P>
+  <LI> When the result of some operation on <B>byte</B> representations 
+	<B>falls outside</B> this range, then the <B>value</B> that
+	is represented by the result is <B>different</B> from
+	the correct value.
+  <P>
+  <LI> This phenomenon is called <B>overflow</B>
+  <P>
+  <LI> Overflow is a part of our daily life now that the computer
+	is an integral part of our society and you should be aware of
+	this phenomenon so you do not get caught by surprise...
+  </UL>
+
+<P>
+<LI> Here is a program that demonstrates the overflow phenomenon:
+    <A HREF="../../demo/ByteAdd.java"> click here</A>
+    <FONT COLOR="Magenta"><B>DEMO</B></FONT>
+ <P>
+ <UL>
+ <LI> Try entering 1 + 1
+ <LI> and then: 127 + 1 (this will cause an overflow)
+ <LI> Do you understand why there is overflow at 127 using <B>byte</B>
+     variables ??
+ </UL>
+<P>
+<LI> The following program is the same as the previous one, except I have
+	added a function to print out the <B>binary representation</B>
+	of the values.
+    <P>
+    You can use this program to see why the program prints certain results:
+    <A HREF="../../demo/ShowByteAdd.java"> click here</A>
+    <FONT COLOR="Magenta"><B>DEMO</B></FONT>
+<P>
+<LI> Computer can manipluate integers of various lengths: 
+  <P>
+  <UL>
+  <LI> <FONT color="red"><B>8 bits</B></FONT>  
+     (<FONT color="blue"><B>byte type</B></FONT> in Java, char type in C, C++)
+  <LI> <FONT color="red"><B>16 bits</B></FONT> 
+     (<FONT color="blue"><B>short type</B></FONT> in Java, C and C++)
+  <LI> <FONT color="red"><B>32 bits</B></FONT>
+       (<FONT color="blue"><B>int type</B></FONT> in Java, C and C++)
+  <LI> <FONT color="red"><B>64 bits</B></FONT> 
+       (<FONT color="blue"><B>long type</B></FONT> in Java, C and C++)
+  <LI> <FONT color="red"><B>128 bits</B></FONT>
+      (<FONT color="blue"><B>long long type</B></FONT> in C and C++)
+  <LI> This program shows the effect of using more bits:
+    <A HREF="../../demo/ShowIntTypes.java"> click here</A>
+    <FONT COLOR="Magenta"><B>DEMO</B></FONT>
+  </UL>
+<P>
+<LI> Other types of variables also have 
+   <FONT color="red"><B>overflow problems</B></FONT>, just later...
+  <P>
+  <UL>
+  <LI> <B>short</B> type variables will overflow at around 32000 
+        (2<SUP>15</SUP>)
+  <LI> <B>int</B> type variables overflow at around 2 billion
+        (2<SUP>31</SUP>)
+  <LI> Use the previous demo program to verify.
+  </UL>
+<P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+        <FONT color="red"><B><TT>
+	/home/cs255001/demo/Java/ShowByteAdd.java
+	</TT></B></FONT>
+      
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>javac ShowByteAdd.java</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ShowByteAdd</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Comment
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Overflow</B></FONT> has
+     <FONT color="blue"><B>nothing to do </B></FONT> with
+     the <FONT color="red"><B>2s complement representation</B></FONT>
+ <P>
+     You can use <FONT color="red"><B>any code</B></FONT>, and you
+   <FONT color="blue"><B>will still</B></FONT> have
+   the <FONT color="red"><B>overflow</B></FONT> problem....
+<P>
+   Because...
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>reason</B></FONT> that you 
+  <FONT color="blue"><B>cannot represent</B></FONT>
+  some <FONT color="red"><B>result</B></FONT> is because:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We are using a <FONT color="red"><B><I>finite</I> number
+      bytes</B></FONT> to
+      represent the <FONT color="blue"><B>values</B></FONT> !!!
+ <P>
+ Since the <FONT color="red"><B>set of possible values</B></FONT> in
+  <FONT color="blue"><B>computations</B></FONT> are
+  <FONT color="red"><B><I>infinite</I></B></FONT>,
+  you <FONT color="blue"><B>will not</B></FONT> be
+  able to <FONT color="red"><B>represent</B></FONT>
+  <FONT color="blue"><B><I>some</I> result</B></FONT>
+  (that are <FONT color="red"><B>too large</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So please don't blame the
+ <FONT color="red"><B>2s complement code</B></FONT> for
+ the <FONT color="blue"><B>overflow phenomenon</B></FONT>....
+<P>
+Blame it on the fact that we use
+ <FONT color="red"><B>4 bytes</B></FONT> to
+ store an <FONT color="blue"><B><TT>int</TT></B></FONT> typed variable !!!
+
+</UL>
+
+
+
+
+<!-- ----------------------------- Material is now on a separate webpage
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting between 2's complement representation of 
+     <I>different sizes</I>
+     </B></FONT>
+<P>
+<UL>
+
+  <LI> The computer can use different numbers of bits to represent 
+     <FONT color="red"><B>signed integer</B></FONT>
+	quantities:
+    <P>
+    <UL>
+    <LI> byte (very short integer, values between -127 and 128)
+    <LI> short integer (values between -32767 and 32768)
+    <LI> (ordinary) integer (values between -2<sup>31</sup> and
+	 2<sup>31</sup> - 1)
+    <LI> long integer (values between -2<sup>63</sup> and
+	 2<sup>63</sup> - 1)
+    </UL>
+  <P>
+  <LI> Sometimes, the programmer needs to convert a byte to a short or
+	a short to an integer in the program.
+  <P>
+  <LI> This kind of operations is called a <B>type conversion</B>
+   <P>
+	A <B>data type</B> is a certain data representation  used in the
+	computer
+   <P>
+	The various kinds of integer representations 
+	(byte, short, int and long)
+	are considered as <B>different data representations</B>
+  <P>
+  <LI> When the computer computer needs to convert (change) from
+	one <B>represention</B> to another representation, the
+	key of the change must be that: 
+	<B>the value of BOTH representation MUST BE EQUAL</B>
+	(because the <B>value is intrinsic</B> and does not change)
+  </UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting from a shorter representation to a longer representation
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <B>Sign extension</B> (widening conversion):
+<P>
+ <UL>
+ <LI> Notice that:
+   <UL>
+   <LI> 8 bit 2s compl. repr. for 7 is: 00000111
+   <LI> 16 bit 2s compl. repr. for 7 is: 0000000000000111
+   <LI> 8 bit 2s compl. repr. for -7 is: 11111001
+   <LI> 16 bit 2s compl. repr. for -7 is: 1111111111111001
+   </UL>
+ <P>
+ <LI> To obtain the <B>representation</B> for the <B>same</B> value
+      using more bits, the computer must "extend" the left most bit.
+ <P>
+ <LI> <B>Example</B>
+<PRE>
+     int i;
+     short s;
+
+     s = 9;   <---- s is assigned 0000000000001001
+     i = s;   <---- assign an 16 bit integer to a 32 bit integer
+                    (1) 0000000000001001 is sign-extended to:
+		        00000000000000000000000000001001
+		    (2) Then the value is store in variable i
+
+     s = -9;  <---- s is assigned 1111111111110111
+     i = s;   <---- assign an 16 bit integer to a 32 bit integer
+                    (1) 1111111111110111 is sign-extended to:
+		        11111111111111111111111111110111
+		    (2) Then the value is store in variable i
+</PRE>
+ </UL>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>left most bit</B></FONT> in
+      a <FONT color="blue"><B>2's complement code</B></FONT> is a
+      <FONT color="red"><B><I>sign</I> bit</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>All</B></FONT> of the
+       <FONT color="red"><B>positive (and 0) values</B></FONT>
+       are <B>represented</B> by 
+       <FONT color="blue"><B>2's complement codes</B></FONT> that 
+       <B><I>starts</I></B>
+       with <FONT color="red"><B><TT>0.......</TT></B></FONT>
+ <LI> <FONT color="blue"><B>All</B></FONT> of the
+       <FONT color="red"><B>negative  values</B></FONT>
+       are <B>represented</B> by 
+       <FONT color="blue"><B>2's complement codes</B></FONT> that 
+       <B><I>starts</I></B>
+       with <FONT color="red"><B><TT>0.......</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Therefore</B></FONT>,
+     we call this <FONT color="red"><B>"extend" the left bit</B></FONT>
+     operation:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Sign extension</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+        <FONT color="red"><B><TT>
+	/home/cs255001/demo/Java/ShowSignExt.java
+	</TT></B></FONT>
+       <A HREF="../demo/ShowSignExt.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>javac ShowSignExt.java</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ShowSignExt</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting from a longer representation to a shorter representation
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> Narrowing conversion (casting):
+ <P>
+ <UL>
+ <LI> Narrowing conversion is when you convert a value
+	from a "longer" representation to a "shorter" representation.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>truncate</B></FONT> the
+     <FONT color="blue"><B>left-most portion</B></FONT> of
+     the <FONT color="red"><B>longer representation</B></FONT>
+     to obtain the
+     <FONT color="blue"><B>shorter representation</B></FONT>
+     of the 
+     <FONT color="red"><B>same value</B></FONT>
+ <P>
+ <FONT color="red"><B>But:</B></FONT>
+   you may <FONT color="blue"><B>not</B></FONT> obtain a
+   <FONT color="red"><B><I>correct</I> representation</B></FONT> due to
+   <FONT color="blue"><B>overflow</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <LI> <B>Example:</B>
+<PRE>
+     int i;
+     short s;
+
+     i = 9;   <---- i is assigned 00000000000000000000000000001001
+     s = i;   <---- assign an 32 bit integer to a 16 bit integer
+                    (1) 00000000000000000000000000001001 is 
+			<B>truncated</B> to 0000000000001001
+		    (2) Then the value is store in variable s
+
+     i = -9;  <---- i is assigned 11111111111111111111111111110111
+     s = i;   <---- assign an 32 bit integer to a 16 bit integer
+                    (1) 11111111111111111111111111110111 is 
+			<B>truncated</B> to 1111111111110111
+		    (2) Then the value is store in variable i
+</PRE>
+ <P>
+<HR>
+<P>
+ <LI> Narrowing conversion (truncation) can result in a represention
+	for a value that is 
+   <FONT color="red"><B>different than the original value</B></FONT>:
+<P>
+<PRE>
+      i = 90000;   i is assigned 00000000000000010101111110010000
+      s = i;       (1) 00000000000000010101111110010000 is truncated to
+		       0101111110010000 
+		   (2) assigned to s
+		       <B>Problem:</B> s represents <FONT color="red">24464</font>, (some bits lost !)
+</PRE>
+
+<P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+        <FONT color="red"><B><TT>
+	/home/cs255001/demo/Java/ShowNarrowing.java
+	</TT></B></FONT>
+       <A HREF="../demo/ShowNarrowing.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>javac ShowNarrowing.java</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ShowNarrowing</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary: converting between different <TT>integer</TT> data types
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Goal</B></FONT> of
+    <FONT color="blue"><B>conversion</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Represent</B></FONT> the
+         <FONT color="red"><B>same <I>value</I></B></FONT>
+	 in the <FONT color="blue"><B>appropriate data type</B></FONT>
+	 (e.g.:
+	<FONT color="red"><B><TT>byte</TT></B></FONT>, or
+	<FONT color="red"><B><TT>short</TT> </B></FONT>
+	or <FONT color="red"><B><TT>int</TT></B></FONT>)
+ </UL> 
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>However</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>value</B></FONT> may 
+      <FONT color="red"><B><I>not</I></B></FONT> be able to
+      be <FONT color="blue"><B>represented</B></FONT> in a
+      <B>particular</B> <FONT color="red"><B>data type</B></FONT>
+<P>
+ <B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Overflow</B></FONT> !!!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In <FONT color="red"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Conversions</B></FONT> that
+      <FONT color="red"><B>do <I>not</I></B></FONT> result in
+      <FONT color="blue"><B>overflow</B></FONT> are
+      <FONT color="red"><B><I>always</I> allowed</B></FONT>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int x;
+    short y;
+
+    x = y;              // Never result in overflow.           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Conversions</B></FONT> that
+      <FONT color="red"><B><I>can</I></B></FONT> result in
+      <FONT color="blue"><B>overflow</B></FONT> 
+      <FONT color="red"><B><I>require</I> </B></FONT>
+      the <B>programmer</B> to
+      <FONT color="blue"><B>specify</B></FONT> the
+      <FONT color="red"><B>casting operator</B></FONT>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int x;
+    short y;
+
+    y = <FONT color="red">(short)</FONT> x;   // <FONT color="red">CAN</FONT> result in overflow.           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+        <FONT color="red"><B><TT>
+	/home/cs255001/demo/Java/ShowIntConv.java
+	</TT></B></FONT>
+       <A HREF="../demo/ShowIntConv.java"> click here </A>
+  </UL>
+<P>
+
+ The  program shows what happens when
+	you convert:
+
+   <P>
+   <UL>
+   <LI> byte -> short or int
+   <LI> short -> byte or int
+   <LI> int -> byte or short
+   </UL>
+   <P>
+
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>javac ShowIntConv.java</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ShowIntConv</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ ----------------------------------------------------------- -->
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

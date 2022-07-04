@@ -1,0 +1,177 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Two</I>-dimensional arrays in <I>C</I>
+<HR>
+</H3>
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Syntax</I> to define a <I>one</I>-dimensional arrays in <I>C</I>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax</B> to define an
+    <FONT color="blue"><B><I>two</I> dimensional array</B></FONT>
+    in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   DataType  <FONT color="red">varName</FONT> [ size1 ] [ size2 ]  ;           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">double a[5][10];</FONT>   // Define 5x10 array of double      
+
+   <FONT color="red">int b[4][20];</FONT>      // Define 4x20 array of int     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )                 
+   {      
+      double <FONT color="red">a[3][6]</FONT>;   <FONT color="red"> // Define 2 dim array</FONT>
+      int    i, j;
+   	  
+      for ( i = 0; i < 3; i++ )
+   	 for ( j = 0; j < 6; j++ )
+   	    <FONT color="red">a[i][j]</FONT> = i+j;       <FONT color="red"> // Access element in 2 dim array</FONT>      
+   	  
+      for ( i = 0; i < 3; i++ )
+      {
+   	 for ( j = 0; j < 6; j++ )
+   	    printf( "%lf ", <FONT color="red">a[i][j]</FONT> );       
+     
+   	 printf( "\n" );
+      }
+   }     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   0.000000 1.000000 2.000000 3.000000 4.000000 5.000000 
+   1.000000 2.000000 3.000000 4.000000 5.000000 6.000000 
+   2.000000 3.000000 4.000000 5.000000 6.000000 7.000000       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

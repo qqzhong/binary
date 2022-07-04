@@ -1,0 +1,324 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Saving registers in an interrupted computation in the program stack
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review:</FONT> interrupted computation
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> this
+     <FONT color="blue"><B>program</B></FONT>
+   (found on this webpage:
+   <A HREF="new-problem-with-regs.html#problem">
+    <FONT color="red"><B>click here</B></FONT></A>)
+     that computes:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    result = square(3) <FONT color="red">+ square(4)</FONT>;         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The following
+ <FONT color="red"><B>naive code</B></FONT> does not work:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        //  result = square(3)
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(3)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #3
+        bl      square
+
+	<SPAN style="BACKGROUND-COLOR: yellow">mov	r1, r0           // Save 3<sup>2</sup> in r1 <FONT color="red">*** FAILED !!!</FONT></SPAN>
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(4)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #4
+        bl      square
+
+	add	r0, r0, r1       // Computes 3<sup>2</sup>+ 4<sup>2</sup>
+<FONT color="red">
+        /* -------------------------------------------------
+           Store in result
+           ------------------------------------------------- */</FONT>      
+        movw    r1, #:lower16:result
+        movt    r1, #:upper16:result
+
+        str     r0, [r1]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Because:</B> the <FONT color="blue"><B>addition</B></FONT>
+   was <FONT color="red"><B>interrupted</B></FONT> by
+  a <FONT color="blue"><B>function call</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>naive code</B></FONT>
+       <FONT color="blue"><B>assumes</B></FONT> that
+       the <FONT color="red"><B><TT>square</TT></B></FONT> subroutine
+       will <FONT color="blue"><B><I>preserve</I></B></FONT> the
+       <FONT color="red"><B>saved value in register <TT>r1</TT></B></FONT> !!!
+ <P>
+ <FONT color="red"><B>Consequently:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This code will <FONT color="red"><B>not work</B></FONT> 
+       <FONT color="blue"><B>if</B></FONT>
+       the <FONT color="red"><B><TT>square</TT></B></FONT> subroutine
+       <FONT color="blue"><B>uses register <TT>r1</TT></B></FONT> in
+       its <FONT color="red"><B>computation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Solution: save the value in a place where other function will
+     not change
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Values</B> saved on the
+  <FONT color="red"><B>program stack</B></FONT> are
+  <FONT color="blue"><B>used <I>only</I></B></FONT> by the
+  <FONT color="red"><B>function</B></FONT> that has
+  <FONT color="blue"><B>allocated (= reserve) the space in the stack</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can <FONT color="red"><B>save</B></FONT> 
+      <FONT color="blue"><B>register values</B></FONT> on the
+      <FONT color="red"><B>stack</B></FONT> and
+      <FONT color="blue"><B>no function</B></FONT> will
+      <FONT color="red"><B>change the value</B></FONT>
+ <P>
+  But I must add that:
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B>unless</B></FONT> your program
+   contains a <FONT color="blue"><B>bug</B></FONT>,</SPAN>
+  (in that case, your <FONT color="red"><B>bug</B></FONT> in the
+  <B>program</B> can change values store in the
+  <FONT color="blue"><B>program stack</B></FONT>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> How I can show you the
+   <FONT color="red"><B>solution</B></FONT> to compute:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    result = square(3) <FONT color="red">+ square(4)</FONT>;         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The following
+ <FONT color="red"><B>modified code</B></FONT> save
+  <FONT color="blue"><B>register <TT>r0</TT></B></FONT> on the 
+  <FONT color="red"><B>program stack</B></FONT> and
+  <FONT color="blue"><B>retrieve</B></FONT> the value 
+  <FONT color="red"><B>after the function call</B></FONT> to continue
+  with the <FONT color="blue"><B>(interrupted) computation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        //  result = square(3)
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(3)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #3
+        bl      square
+
+	<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">push    {r0}</FONT>             // Save 3<sup>2</sup> in stack <FONT color="red">*** !!!</FONT></SPAN>
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(4)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #4
+        bl      square
+
+	<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">pop    {r1}</FONT>             // Retrieve 3<sup>2</sup> from stack <FONT color="red">*** !!!</FONT></SPAN>
+
+	add	r0, r0, <FONT color="red">r1</FONT>       // Computes 3<sup>2</sup>+ 4<sup>2</sup>
+<FONT color="red">
+        /* -------------------------------------------------
+           Store in result
+           ------------------------------------------------- */</FONT>      
+        movw    r1, #:lower16:result
+        movt    r1, #:upper16:result
+
+        str     r0, [r1]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Use the prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/reg-problem.s
+       </TT></B></FONT>
+ <P>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B>Change</B></FONT> the program into
+   the <FONT color="blue"><B>above code</B></FONT>
+   </SPAN>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 reg-problem</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

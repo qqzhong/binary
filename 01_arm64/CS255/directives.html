@@ -1,0 +1,744 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Assembler directives in ARM programming
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Dictactic disclaimer
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>CS255</B></FONT> is
+     <FONT color="blue"><B><I>not</I></B></FONT> a course
+     where you
+     <FONT color="red"><B>primarily </B></FONT>
+     learn
+     <FONT color="blue"><B>assembler programming</B></FONT>
+ <P>
+ The <FONT color="red"><B>purpose</B></FONT> of
+ the <FONT color="blue"><B>CS255 course</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B>CS255</B></FONT>, I 
+   <B>use</B>
+   <FONT color="red"><B>assembler programming</B></FONT> to
+   <FONT color="blue"><B>reveal</B></FONT> the
+   <FONT color="red"><B>inner workings</B></FONT> of
+    <FONT color="blue"><B>high level programming constructs</B></FONT>
+ <P>
+ I.e.: I let you look "under the hood" and show you what
+   <FONT color="red"><B>if-statements</B></FONT>,
+  <FONT color="darkmagenta"><B>while-statements</B></FONT>,
+  <FONT color="blue"><B>method calls</B></FONT>, etc. are
+   actually doing.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I will <B>only</B> discuss
+     a <FONT color="red"><B>subset</B></FONT> of
+     the <FONT color="blue"><B>assembler directives</B></FONT> 
+ <P>
+   You will learn <FONT color="red"><B>enough</B></FONT> about
+  <FONT color="blue"><B>assembler directives</B></FONT> to understand
+  what they do to 
+  <FONT color="red"><B>support</B></FONT>
+  <FONT color="blue"><B>high level programming features</B></FONT>
+ <P>
+  Also, by limiting to a
+   <FONT color="red"><B>useful subset</B></FONT>,
+   I <FONT color="blue"><B>don't waste time</B></FONT> teaching
+   the <FONT color="red"><B>other directives</B></FONT> that
+   are <FONT color="blue"><B>not often used</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+BTW, the 
+ <FONT color="red"><B>complete list</B></FONT> of
+ <FONT color="blue"><B>GNU assembler directives</B></FONT> are in this
+ <FONT color="red"><B>online document</B></FONT>:
+ <A HREF="https://sourceware.org/binutils/docs/as/Pseudo-Ops.html#Pseudo-Ops">
+  click here</A>
+<P>
+You can see it's a <FONT color="red"><B>very long list</B></FONT> and
+ I don't have to time to cover it all !!!
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "text" and "data" segments of a computer program
+     </B></FONT>
+<P>
+<UL>
+<LI> A <FONT color="blue"><B>computer program</B></FONT> consists
+   in general of
+   <FONT color="red"><B>2 parts</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time1.gif" width=300 height=300></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> A <FONT color="blue"><B>part</B></FONT> that contains
+      <FONT color="red"><B>computer instructions</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>assembler programming</B></FONT>, the
+      <FONT color="blue"><B>program instruction part</B></FONT> is called:
+      the <FONT color="red"><B><I>text</I> segment</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> A <FONT color="blue"><B>part</B></FONT> that contains
+      <FONT color="red"><B>data (constants and variables)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>assembler programming</B></FONT>, the
+      <FONT color="blue"><B>program instruction part</B></FONT> is called:
+      the <FONT color="red"><B><I>data</I> segment</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>.text</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> I'll start the discussion with the 
+   <FONT color="red"><B>easier</B></FONT> assembler directive first.
+<P>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">.text</FONT>
+
+     // Tell the assmbler to put the lines that<FONT color="red"> follows .text</FONT> in the <FONT color="red">text segment</FONT>
+
+     // I.e.: the lines that <FONT color="red">follows .text</FONT> will considered as <FONT color="red">assembler instructions</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Example:</B></FONT> see the
+   <FONT color="blue"><B><TT>hello.s</TT></B></FONT> program
+  in the
+  <FONT color="red"><B>webpage</B></FONT>:
+ <A HREF="hello.html"> <FONT color="blue"><B>click here</B></FONT> </A>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>.data</TT>
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">.data</FONT>
+
+     // Tell the assmbler to put the lines that<FONT color="red"> follows .data</FONT> in the <FONT color="red">data segment</FONT>   
+
+     // I.e.: treat these lines as <FONT color="red">variable definitions</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Example:</B></FONT> see the
+    <FONT color="blue"><B>string data</B></FONT>
+  defined in after
+   <FONT color="red"><B><TT>.data</TT></B></FONT> in the
+   <FONT color="blue"><B><TT>hello.s</TT></B></FONT> program
+  in the
+  <FONT color="red"><B>webpage</B></FONT>:
+ <A HREF="hello.html"> <FONT color="blue"><B>click here</B></FONT> </A>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I will discuss 
+    <FONT color="red"><B>how to define</B></FONT> different kinds
+    of variables in the
+    <FONT color="blue"><B><I>next</I> webpage</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Identifiers in assembler programming
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Identifiers</B></FONT> in
+     <B>assembler programming</B>  are
+     <FONT color="blue"><B>names</B></FONT> used represent
+     a <FONT color="red"><B>value</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>syntax</B></FONT> of an
+  <FONT color="blue"><B>identifier</B></FONT> in
+   <B>assembler programming</B> is 
+   <FONT color="red"><B>similar</B></FONT> to
+   that in <FONT color="blue"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Identifier</B></FONT> must 
+    <FONT color="blue"><B>start</B></FONT> with a
+    <FONT color="red"><B>letter</B></FONT> or
+    an <FONT color="blue"><B>underscore</B></FONT>
+<P>
+ <LI> Then it can be <FONT color="blue"><B>followed</B></FONT> by
+     a <FONT color="red"><B>letter, digit or underscore</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Identifiers</B></FONT> are
+  <FONT color="blue"><B>case-sensitive</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Examples</B> of <FONT color="red"><B>identifiers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    radius
+    pi
+    X
+    x
+    _X           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<A NAME="label"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Labels
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Label:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>identifier</B></FONT> that is used
+       to 
+     <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="blue"><B>identify</B></FONT> a
+       <FONT color="red"><B>location in memory</B></FONT></SPAN>
+        is called
+       a <FONT color="blue"><B><I>label</I></B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ As you recall,
+  a <FONT color="red"><B>location in memory</B></FONT> is
+  <FONT color="blue"><B>uniquely identified</B></FONT> by its
+  <FONT color="red"><B>memory address</B></FONT>
+<P>
+ Therefore,
+ a  <FONT color="red"><B>label</B></FONT> is actually a
+  <FONT color="blue"><B>symbolic name</B></FONT> for
+  some <FONT color="red"><B>memory address</B></FONT>
+<P>
+ I.e.: a <FONT color="red"><B>label</B></FONT> is
+   an <FONT color="blue"><B>identifier</B></FONT> that is used to
+   <FONT color="red"><B>represent</B></FONT>  some
+   <FONT color="blue"><B>memory address</B></FONT>
+<P>
+We will learn about <FONT color="red"><B>labels</B></FONT>
+ in the next <FONT color="blue"><B>webpage</B></FONT>.
+<P>
+</UL>
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Notations used
+     </B></FONT>
+<P>
+<UL>
+<LI> In the explanation of the directives, I used the following
+   <FONT color="red"><B>notations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="red">[</FONT> stuff <FONT color="red">]</FONT>       - the <FONT color="red">stuff</FONT> inside the square brackets<FONT color="red"> [ ]</FONT> are <FONT color="red">optional</FONT>         
+
+ stuff <FONT color="red">...</FONT>       - means: the stuff may be repeated 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will see in the 
+ <FONT color="red"><B>syntax examples</B></FONT> in each
+ <FONT color="blue"><B>directive</B></FONT> hwo I use these
+ <FONT color="red"><B>notations</B></FONT>
+<P>
+</UL>
+
+
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>.global</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">.global</FONT>   identifier [, identifer ... ]           
+
+<HR>
+ Examples:
+
+    <FONT color="red">.global</FONT>   main
+    <FONT color="red">.global</FONT>   main, radius, pi
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The
+     <FONT color="red"><B><TT>.global</TT></B></FONT> directive
+       makes an <FONT color="blue"><B>identifier</B></FONT>
+       <FONT color="red"><B>accessible</B></FONT>
+       to the <FONT color="blue"><B>"loader" program <TT>ld</TT></B></FONT>
+       that <FONT color="red"><B>combine multiple program files</B></FONT> into
+   <FONT color="blue"><B>one executable program</B></FONT>
+<P>
+  You don't need to know the details how
+  the <FONT color="red"><B><TT>ld</TT> (loader) program</B></FONT> work,
+ you only need to know the
+  <FONT color="blue"><B>effect</B></FONT> of the
+ <FONT color="red"><B><TT>.global</TT></B></FONT> directive:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>identifier</B></FONT> that has been
+   <FONT color="blue"><B>declared</B></FONT> by
+   <FONT color="red"><B><TT>.global</TT></B></FONT> is
+   <FONT color="blue"><B>visible (= accessible)</B></FONT> by
+   <FONT color="red"><B>EGTAPI</B></FONT>
+<P>
+ I.e.: <FONT color="red"><B>EGTAPI</B></FONT> can
+     <FONT color="blue"><B>access</B></FONT> the
+     <FONT color="red"><B>identifier</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>/home/cs255001/demo/1-directives/global.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get a copy of this program into your cs255 directory first
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 global</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>use EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Type <FONT color="red"><B><TT>x</TT></B></FONT> into
+ the <FONT color="blue"><B>Variable Name</B></FONT> area.
+<P>
+Select <FONT color="red"><B>SI (signed integer)</B></FONT>
+<P>
+Then click <FONT color="red"><B>Add</B></FONT>.
+<P>
+The <FONT color="blue"><B>value</B></FONT> in
+ the <FONT color="red"><B>variable <TT>x</TT></B></FONT> will be
+ be displayed in <FONT color="blue"><B>EGTAPI</B></FONT>
+ (you should see <FONT color="red"><B>4444</B></FONT>)
+  
+</UL>
+
+
+
+
+<!--------------------------------------------- NOT USED !!!
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>.equiv</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">.equiv</FONT>   identifier, expression                      
+
+<HR>
+ Examples:
+
+    <FONT color="red">.equiv</FONT>   MAX, 100
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The
+     <FONT color="red"><B><TT>.equiv</TT></B></FONT> directive
+       defines the <FONT color="blue"><B>identifier</B></FONT>
+       to be <FONT color="red"><B>equivalent (<I>same as</I>)</B></FONT>
+       the
+       <FONT color="blue"><B>expression</B></FONT>
+<P>
+The <FONT color="red"><B>assembler</B></FONT> will
+  <FONT color="blue"><B>replace</B></FONT>
+  every occurence of
+  <FONT color="red"><B><TT>identifier</TT></B></FONT> by
+  the defined <FONT color="blue"><B>expression</B></FONT>
+<P>
+In other words:
+  <FONT color="red"><B><TT>.equiv</TT></B></FONT> is used to
+  <FONT color="blue"><B>define</B></FONT>
+  <FONT color="red"><B>symbolic constants</B></FONT> in
+  assembler programming.
+
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>/home/cs255001/demo/asm/1-directives/equiv.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get a copy of this program into your cs255 directory first
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 equiv</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>use EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Click <FONT color="red"><B>Step</B></FONT>, you will see
+  <FONT color="blue"><B>44 </B></FONT> in 
+  <FONT color="red"><B>register <TT>r0</TT></B></FONT>
+<P>
+Click <FONT color="red"><B>Step</B></FONT> again, you will see
+  <FONT color="blue"><B>44 </B></FONT> in 
+  <FONT color="red"><B>register <TT>r1</TT></B></FONT>
+<P>
+The <FONT color="red"><B>second value (44)</B></FONT> was
+ expressed using an
+ <FONT color="blue"><B><TT>.equiv</TT></B></FONT> directive
+ in the assembler program.
+</UL>
+
+----------------------------------------------------------------------->
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>.end</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    .end             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Tells the <FONT color="red"><B>assembler</B></FONT> to
+ <FONT color="blue"><B>stop</B></FONT>.
+<P>
+<FONT color="red"><B>All text</B></FONT>
+  that <FONT color="blue"><B>follows</B></FONT> the
+  <FONT color="blue"><B><TT>.end</TT></B></FONT> directive
+ will be <FONT color="blue"><B><I>ignored</I></B></FONT>
+ by the <FONT color="red"><B>assembler</B></FONT>
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

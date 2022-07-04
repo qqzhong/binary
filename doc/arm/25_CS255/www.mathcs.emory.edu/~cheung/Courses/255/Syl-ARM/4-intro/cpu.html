@@ -1,0 +1,629 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The structure of the Central Processing Unit (CPU)
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Keep this in mind...
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Compute</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compute</B></FONT> =
+      <FONT color="blue"><B>calculate</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Computer</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Computer</B></FONT> =
+      a <FONT color="blue"><B>machine</B></FONT> that
+      <FONT color="red"><B><I>repeatedly</I></B></FONT>
+      performs a <FONT color="red"><B>(series of different)
+      <I>computing</I> 
+      instructions</B></FONT>
+<P>
+<B>My</B> <FONT color="red"><B><I>mechanical</I> representation</B></FONT> 
+ of a <FONT color="blue"><B>computer</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="170/FIGS/0/computer01.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+ I.e.:
+ a <FONT color="blue"><B>computer</B></FONT> can
+  <B>only</B>
+  <FONT color="red"><B>compute</B></FONT>
+  (and <FONT color="blue"><B>store</B></FONT> the
+   <FONT color="red"><B>result of a computing</B></FONT>
+   away)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Specifically</B></FONT>,
+ a <FONT color="blue"><B>computer</B></FONT> can
+	<B>only</B> 
+      <FONT color="red"><B>execute</B></FONT> these
+      <FONT color="blue"><B>(<I>computing</I>) instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Arithmetic operations</B></FONT>
+      on <FONT color="blue"><B>2 <I>numerical</I> values</B></FONT>
+      (e.g.: <FONT color="red"><B>+, &minus;, &times;, /</B></FONT>)
+ <LI> <FONT color="red"><B>Compare</B></FONT>
+       <FONT color="blue"><B>2 numerical values</B></FONT>
+        (e.g., <FONT color="red"><B> >, &ge;, <, &le;, ==, !=
+       </B></FONT>)
+ <LI> <FONT color="red"><B>Logical operations</B></FONT> on
+      <FONT color="blue"><B>2 <I>boolean</I> values</B></FONT>
+      (e.g.: <FONT color="red"><B>AND, OR, NOT</B></FONT>)
+<P>
+ <LI> <FONT color="red"><B>Store (save)</B></FONT> the
+	<FONT color="blue"><B>(computed) value</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In <FONT color="red"><B>CS355</B></FONT>, you will learn 
+    <FONT color="blue"><B>how</B></FONT> to make
+    <FONT color="red"><B>electrical circuits</B></FONT> that perform
+    <FONT color="blue"><B>computations</B></FONT> on
+    <FONT color="red"><B>binary numbers</B></FONT>
+<P>
+ Just a <FONT color="red"><B>taste</B></FONT> of some
+  <FONT color="blue"><B>circuits</B></FONT> that you will learn:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A circuit that can <FONT color="red"><B>add</B></FONT>
+       <FONT color="blue"><B>two 4-digit binary numbers</B></FONT>:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/355/add-circuit
+       </TT></B></FONT>
+ <LI> A circuit that can <FONT color="red"><B>multiply</B></FONT>
+       <FONT color="blue"><B>two 4-digit binary numbers</B></FONT>:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/355/multiply-circuit
+       </TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recall: the function of the CPU
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B>most important component</B></FONT>
+       (in fact, it's the component that
+   <FONT color="blue"><B>performs</B></FONT> the
+   <FONT color="red"><B>repeated computations</B></FONT>) is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Central Processing Unit (CPU)</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> <FONT color="red"><B>Function</B></FONT> of the
+    <FONT color="blue"><B>Central Processing Unit</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Fetch (obtain)</B></FONT> the
+      <FONT color="red"><B>next computer instruction</B></FONT>
+ <LI> <FONT color="red"><B>Execute</B></FONT> the
+        <FONT color="blue"><B>(fetched) instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In order to <FONT color="red"><B>perform</B></FONT>
+      these <FONT color="blue"><B>functions</B></FONT>,
+      the <FONT color="red"><B>CPU</B></FONT> contains
+      <FONT color="blue"><B>components</B></FONT>
+         (= circuits that will be discussed
+      in <B>CS355</B>) that
+      enable the <FONT color="red"><B>CPU</B></FONT> to
+      do its <FONT color="blue"><B>job</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>   We will now 
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   study the
+  <FONT color="red"><B>logical structure</B></FONT></SPAN>
+  (= the components and their functions) of the
+  <FONT color="blue"><B>CPU</B></FONT>
+  (that enable it to perform its functions)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Logical structure of the CPU
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>CPU</B></FONT> contains the
+     following <FONT color="blue"><B>component</B></FONT> to
+     enable it to perform its <FONT color="red"><B>function</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>CPU</B></FONT> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A number (about 10 or so) of
+      <FONT color="red"><B><I>general</I> purpose registers</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>register</B></FONT> is
+      a <FONT color="red"><B>memory device</B></FONT> that can store
+      <FONT color="blue"><B>8, 16, or 32 bits values</B></FONT>
+ <LI> <FONT color="red"><B>General purpose</B></FONT> means that the
+       <FONT color="blue"><B>register</B></FONT> can
+       be used for <FONT color="red"><B><I>multiple</I> (different) 
+	purposes</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Most common use</B></FONT> of
+ <FONT color="blue"><B>general purpose registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>General purpose registers</B></FONT> are
+	used as 
+	<FONT color="red"><B>inputs</B></FONT> and 
+	<FONT color="blue"><B>outputs</B></FONT>
+      in <FONT color="red"><B>arithmetic and logical operations</B></FONT>
+      performed by the <FONT color="blue"><B>CPU</B></FONT>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B>CPU</B></FONT> add 
+         <FONT color="red"><B>2 values</B></FONT> ....
+ <LI> The <FONT color="blue"><B>first value</B></FONT> of the addition
+       is <FONT color="red"><B>obtained</B></FONT> from
+       a <FONT color="blue"><B>general purpose register</B></FONT>
+ <LI> The <FONT color="blue"><B>second  value</B></FONT> of the addition
+       is <FONT color="red"><B>obtained</B></FONT> from
+       <B>another</B> <FONT color="blue"><B>general purpose register</B></FONT>
+ <LI> The <FONT color="blue"><B>sum</B></FONT> is
+         stored in a
+	 <FONT color="red"><B>general purpose register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<P>
+<LI> An <FONT color="blue"><B>Arithmetic and Logic Unit (ALU)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>ALU</B></FONT>
+       is a <FONT color="blue"><B>complex digital circuit</B></FONT>
+    can perform <FONT color="red"><B>arithmetic (+, &minus;, &times;, /)
+     </B></FONT> and
+     <FONT color="blue"><B>logical (<TT>AND, OR, NOT</TT>)</B></FONT>
+     operations
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here is a 
+ <FONT color="blue"><B>simple ALU circuit</B></FONT>
+  that can perform <FONT color="red"><B>4 operations</B></FONT>
+ on its <FONT color="blue"><B>inputs</B></FONT>:
+   <FONT color="red"><B><TT>/home/cs255001/demo/355/ALU-circuit</TT></B></FONT>
+<P>
+In <FONT color="red"><B>CS355</B></FONT>, you will learn how to
+  make this simple <FONT color="blue"><B>ALU circuit</B></FONT>
+  
+
+
+<P>
+<HR>
+<P>
+<LI> A number of <FONT color="red"><B>special purpose register</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> These <FONT color="blue"><B>registers</B></FONT> also store
+      <FONT color="red"><B>binary values</B></FONT>
+      (32 or 64 bits)
+ <LI> They are <FONT color="red"><B>"special purpose"</B></FONT> meaning that
+      the <FONT color="blue"><B>value</B></FONT> stored
+      in the <FONT color="red"><B>register</B></FONT> is used
+      for <FONT color="blue"><B><I>one</I> (special) purpose</B></FONT> 
+<P>
+ (I.e.: each <FONT color="red"><B>special purpose register</B></FONT> has
+        a <FONT color="blue"><B><I>dedicated</I> function</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="blue"><B>CPU</B></FONT> will
+ <B>always</B> contain
+ the following 
+   <FONT color="red"><B>3 special purpose registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Program Counter (PC)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>value</B></FONT> in
+     the <FONT color="red"><B>PC register</B></FONT> is the
+     <FONT color="blue"><B><I>adddress</I></B></FONT> 
+     (in the <B>RAM</B>) of the
+     <FONT color="red"><B>next computer instruction</B></FONT>
+   
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Instruction Register (IR)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>value</B></FONT> in the
+      <FONT color="red"><B>IR register</B></FONT> is the
+      <FONT color="blue"><B>instruction code</B></FONT> of the
+      <FONT color="red"><B>current instruction</B></FONT> that
+      the <FONT color="blue"><B>CPU</B></FONT> will
+      execute.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Processor Status Register (PSR)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>value</B></FONT> in the
+      <FONT color="red"><B>PSR register</B></FONT> is the
+      <FONT color="blue"><B>status code</B></FONT> of the
+      <FONT color="red"><B>result</B></FONT> after
+      executing the <FONT color="blue"><B>last (executed)
+     instruction</B></FONT> 
+ <P>
+ <B>Example:</B> if
+  the <FONT color="red"><B>last instruction</B></FONT> was
+   <FONT color="blue"><B><TT>"x &minus; y"</TT></B></FONT>, then
+   <FONT color="red"><B>PSR</B></FONT> will contain
+   <FONT color="blue"><B>status information</B></FONT> that indicate
+   whether <FONT color="red"><B><TT> x < y</TT></B></FONT>
+   or <FONT color="red"><B><TT> x &le; y</TT></B></FONT> 
+      or <FONT color="red"><B><TT> x > y</TT></B></FONT>  etc...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Each</B></FONT> of the
+ <FONT color="blue"><B><I>special</I> purpose register</B></FONT> 
+ is used for a <FONT color="red"><B><I>specific</I> purpose</B></FONT>
+<P>
+These <FONT color="red"><B>3 special purpose registers</B></FONT>
+ <B>together</B> enable the <FONT color="blue"><B>CPU</B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Fetch</B></FONT> the
+     <FONT color="blue"><B><I>next</I> computer instruction</B></FONT>
+     (in memory given by the <FONT color="red"><B>Program Counter</B></FONT> !)
+ <LI> <FONT color="red"><B>Execute</B></FONT> the
+      <FONT color="blue"><B>(fetched) instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will see <FONT color="blue"><B>how</B></FONT> this is 
+ done <FONT color="red"><B>soon</B></FONT>.
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+BTW: In <FONT color="red"><B>CS255</B></FONT>,
+    we will only study the
+ <FONT color="blue"><B>CPU operation</B></FONT> at the
+ <FONT color="red"><B><I>functional</I> level</B></FONT>.
+<P>
+In <FONT color="red"><B>CS355</B></FONT>, you will learn how
+ <FONT color="blue"><B>make</B></FONT>
+    a <FONT color="red"><B>complete working CPU</B></FONT> 
+  using <FONT color="blue"><B>digital circuits</B></FONT> !!!
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The complete picture
+     </B></FONT>
+<P>
+<UL>
+<LI> The following
+     <FONT color="blue"><B>diagram</B></FONT> show
+     the <FONT color="red"><B>complete picture</B></FONT>
+     of the <FONT color="blue"><B>computer system</B></FONT>
+     (consisting of the <FONT color="red"><B>CPU</B></FONT> 
+     and 
+    <FONT color="blue"><B>memory</B></FONT>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu02.gif" width=700 height=360></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+There are <FONT color="red"><B>additional details</B></FONT>
+ inside the <FONT color="blue"><B>CPU</B></FONT> and
+ <FONT color="blue"><B>memory</B></FONT> that have been
+ <FONT color="red"><B>omitted</B></FONT> for
+ <FONT color="blue"><B>simplicity</B></FONT>
+<P>
+<B>Specifically:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I did not show <FONT color="red"><B>how</B></FONT>
+       the <FONT color="blue"><B>wires</B></FONT> of
+       the <FONT color="red"><B>address bus</B></FONT> 
+       <FONT color="red"><B>data bus</B></FONT> and
+       <FONT color="red"><B>control bus</B></FONT> are
+       connected to 
+       <FONT color="blue"><B>components</B></FONT> inside the
+       <FONT color="red"><B>CPU</B></FONT> or inside the
+       <FONT color="red"><B>memory</B></FONT>
+<P>
+  You need to take <FONT color="red"><B>CS355</B></FONT> if you want
+  to know the <FONT color="blue"><B>details</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> It is <FONT color="red"><B>sufficient</B></FONT> to know
+        that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Values (= signals)</B></FONT> from the
+       <FONT color="red"><B>address, data and control buses</B></FONT>
+       are <FONT color="blue"><B>processed</B></FONT> by
+       the <FONT color="red"><B>CPU</B></FONT> and
+       <FONT color="red"><B>memory</B></FONT> to
+       enable them to perform
+       theire <FONT color="blue"><B>functions</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,458 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+A <I>trick</I> to prevent a file being included <I>multiple</I> times
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Inclusion of header files
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Large programming project:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>Large</I> programming projects</B></FONT>
+      will have <FONT color="red"><B>many</B></FONT>
+      "header files" that are being
+      <FONT color="blue"><B>included</B></FONT> into
+      various <B>program files</B>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Nested inclusion</B></FONT> with
+      such a <FONT color="red"><B><I>large</I> number</B></FONT> of
+      <B>header file</B> can
+      <FONT color="blue"><B>sometimes</B></FONT> create
+      <FONT color="red"><B><I>recursive</I> inclusion</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> <B>Fact:</B>
+    <FONT color="blue"><B>Header files</B></FONT> 
+  <B>usually</B> contains
+    <FONT color="red"><B><I>only</I></B></FONT> the following:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>macros definitions (<TT>#define</TT>)</B></FONT>
+ <LI> 
+	<FONT color="blue"><B>data type definitions</B></FONT>
+ <LI> <FONT color="red"><B>variable definitions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You should <FONT color="blue"><B>define</B></FONT> these <B>items</B>
+  <FONT color="red"><B><I>only</I> once</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>header file</B></FONT> must
+       <B>included</B> for
+       <FONT color="red"><B>processing</B></FONT> 
+       <FONT color="blue"><B>at most</B></FONT>
+       <FONT color="red"><B><I>once</I> </B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>How</B></FONT> can we
+       <FONT color="red"><B><I>ensure</I></B></FONT>
+       that a <FONT color="blue"><B>header file</B></FONT> will
+       be <B>processed</B>
+       <FONT color="red"><B><I>at most</I> once</B></FONT> ????
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Trick</I> using <TT>#ifndef</TT> to prevent a header file
+     being included <I>multiple</I> times
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following
+        <FONT color="blue"><B>header file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   line 1
+   line 2
+   ....
+   line n                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> We <FONT color="blue"><B>add</B></FONT> the following
+     <FONT color="red"><B>conditional include lines</B></FONT>
+     to the  <FONT color="blue"><B>header file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">#ifndef  KEY</font>                            
+<FONT color="magenta">
+   #define KEY</font>
+   line 1
+   line 2
+   ....
+   line n
+
+   <FONT color="red">#endif</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Suppose</B></FONT> this
+      <FONT color="blue"><B>header file</B></FONT> is
+      somehow
+      <B>included</B>
+      <FONT color="red"><B><I>multiple</I> times</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #include <FONT color="red">"this-header-fiile.h"</font>         
+    ....
+    ....
+
+    #include <FONT color="red">"this-header-fiile.h"</font>
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Then:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>first</I> time</B></FONT> we
+      <FONT color="blue"><B>process</B></FONT> this
+      <FONT color="red"><B>include file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>symbol</B> <FONT color="red"><B><TT>KEY</TT></B></FONT> was
+       <FONT color="blue"><B><I>not</I> defined</B></FONT>, <B>so</B> we
+     <FONT color="red"><B>process</B></FONT> the
+     <B>text</B> between
+     <FONT color="blue"><B><TT>#ifndef KEY .... #endif</TT></B></FONT>
+     in the <FONT color="red"><B>include file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="magenta">
+   #define KEY</font>       
+   line 1
+   line 2
+   ....
+   line n
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="red"><B>process</B></FONT> the
+   <FONT color="blue"><B>include file</B></FONT>
+   <FONT color="red"><B>one time</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> We <FONT color="blue"><B>define</B></FONT> the
+       <B>symbol</B> <FONT color="red"><B><TT>KEY</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><I>second</I> time</B></FONT> we
+      <FONT color="blue"><B>process</B></FONT> this
+      <FONT color="red"><B>include file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <B>symbol</B> <FONT color="red"><B><TT>KEY</TT></B></FONT> 
+     has been 
+       <FONT color="blue"><B><I>defined</I> </B></FONT> !!!!
+ <P>
+ <B>Therefore:</B> the
+  <FONT color="red"><B>while include file</B></FONT> 
+  will be <FONT color="blue"><B><I>skipped</I> (not processed !!)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">#ifndef  KEY   --- KEY is defined !!! FALSE !!! SKIP !!!</font>  
+<FONT color="magenta">
+   #define KEY</font>
+   line 1
+   line 2
+   ....
+   line n
+
+   <FONT color="red">#endif</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Stopping recursive include
+     </B></FONT>
+<P>
+<UL>
+<LI> This <FONT color="blue"><B>include trick</B></FONT> is
+    <B>often used</B> by
+    <FONT color="red"><B>C programmers</B></FONT> to
+    <FONT color="blue"><B>stop</B></FONT>
+    <FONT color="red"><B>accidental <I>recursive</I> include files</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* (1) use conditional include --- the key must be unique !!!  */
+#ifndef <FONT color="red">RECURSE_H</font>
+
+
+/* (2) inside the conditional include: define the key !!!  */
+#define <FONT color="red">RECURSE_H</font>
+/* ========================================================
+   We define RECURSE_H to STOP the processing if
+   this header file is INCLUDED AGAIN !!!
+   ======================================================== */
+
+
+<FONT color="red">// This is a recursive include:
+
+#include "recurse.h"</font>
+
+#define  MAX  99999
+
+
+
+/* (3) this ends the conitional include from above*/
+#endif
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B>/home/cs255000/demo/c/Cprep/recurse-sol.h
+     </B></FONT>
+  </UL>
+<P>
+ <B>How to run the demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Edit and change the 
+       <FONT color="red"><B>/home/cs255000/demo/c/Cprep/recurse.h
+	</B></FONT>
+     to the content of
+	<FONT color="red"><B>/home/cs255000/demo/c/Cprep/recurse-sol.h
+        </B></FONT>
+	
+ <LI> Then: <FONT color="red"><B>gcc -E include-r.c</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

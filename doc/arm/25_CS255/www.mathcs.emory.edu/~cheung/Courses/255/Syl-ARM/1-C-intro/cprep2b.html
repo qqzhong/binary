@@ -1,0 +1,741 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+A commonly used <I>C preprocessor trick</I> to handle 
+  definition and declaration of <I>global</I> variables
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">What</FONT> do we want to
+   <FONT color="red">achieve</FONT> ???
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Suppose</B> we have a (one)
+    <FONT color="red"><B>global variable <TT>x</TT></B></FONT>
+ <P>
+ We want to <FONT color="red"><B>achieve</B></FONT> the
+  <FONT color="blue"><B>following</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>global variable <TT>x</TT></B></FONT> 
+    is <FONT color="red"><B><I>defined</I></B></FONT> inside
+    <FONT color="blue"><B><I>exactly</I> one</B></FONT>
+     of the <FONT color="red"><B>C program files</B></FONT>
+ <P>
+ <LI> The <FONT color="blue"><B>global variable <TT>x</TT></B></FONT> 
+    is <FONT color="red"><B><I>declared</I></B></FONT> inside
+    all <FONT color="blue"><B><I>other</I></B></FONT>
+    <FONT color="red"><B> C program files</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-trick1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It does <FONT color="red"><B>not matter</B></FONT> in
+       <FONT color="blue"><B><I>which</I> file</B></FONT>
+       the <FONT color="red"><B>global variable</B></FONT> is
+       <FONT color="blue"><B>defined</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>All</B></FONT> that 
+     <FONT color="blue"><B>matters</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>global variable</B></FONT>
+       is <FONT color="red"><B><I>exactly</I> once</B></FONT>
+       (can <FONT color="blue"><B>not </B></FONT> be 
+       <B>defined</B>
+    <FONT color="red"><B><I>multiple</I> times</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recall: <FONT color="red"><TT>#ifndef</TT></FONT> of the C pre-processor
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <FONT color="red"><B><TT>#ifndef</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>#ifndef</TT></B></FONT>
+      <B>conditional</B> clause:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #ifndef  <FONT color="red">MACRO-NAME</FONT>                 
+<FONT color="darkred">
+        text segment
+</FONT>
+   #endif
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B><TT>text segment</TT></B></FONT> is
+ <B>kept (= included)</B> when the
+ macro name <FONT color="red"><B><TT>MACR-NAME</TT></B></FONT>
+ is <FONT color="blue"><B><I>not</I> defined</B></FONT>
+<P>
+The <FONT color="red"><B><TT>text segment</TT></B></FONT> is
+ <B>omitted</B> <FONT color="magenta"><B>otherwise</B></FONT>
+  (<B>i.e.</B>:
+   when the
+ macro name <FONT color="red"><B><TT>MACR-NAME</TT></B></FONT>
+ is <FONT color="blue"><B>defined</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A <I>programming trick</I> to manage
+     <I>definitions/declarations</I> of global variables
+     used in multiple C program files
+     </B></FONT>
+<P>
+<UL>
+<P>
+
+<P>
+<LI> <FONT color="red"><B>Recall:</B></FONT> 
+    <FONT color="blue"><B>header file</B></FONT> for
+      <FONT color="red"><B>function declarations</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B>should</B></FONT> create
+     a <FONT color="red"><B>header file
+     <TT>prog.h</TT></B></FONT> containing the
+     <FONT color="blue"><B>function <I>declarations</I></B></FONT>
+     of <FONT color="red"><B>all functions</B></FONT> in the
+     <B>C program file</B>
+     <FONT color="blue"><B><TT>prog.c</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File: <FONT color="red"><B><TT>glob2.c</TT></B></FONT>
+</TH> 
+<TH>
+ File: <FONT color="red"><B><TT>glob2.h</TT></B></FONT>
+</TH> 
+</TR>
+  
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  int a, b;
+  float c, d;
+   
+  void <FONT color="red">print</FONT>()
+  {
+     printf( ">> a = %d, b = %d\n", a, b);
+     printf( ">> c = %f, d = %f\n", c, d);  
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  // Prevent recursive include.....
+  #ifndef  h_glob_h
+  #define  h_glob_h
+
+  void <FONT color="red">print</FONT>();   // Function declaration   
+
+  #endif
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Programming trick</B> to
+  <FONT color="red"><B>maintain</B></FONT>
+  <FONT color="blue"><B>global variables</B></FONT> 
+  used in a <B>C program file</B>
+  <FONT color="red"><B><TT>glob2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Move</B></FONT> all the
+    <FONT color="red"><B>global variables</B></FONT>
+    into the <B>corresponding</B>
+    <FONT color="blue"><B>header file</B></FONT> using the
+    following
+    <FONT color="red"><B>construct</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE><FONT color="red">
+     #ifndef  EXTERN
+     #define  EXTERN  extern
+     #endif</FONT>
+
+     <FONT color="red">EXTERN</FONT>  type1  globalvar1;                 
+     <FONT color="red">EXTERN</FONT>  type2  globalvar2;
+     ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File: <FONT color="red"><B><TT>glob2.c</TT></B></FONT>
+</TH> 
+<TH>
+ File: <FONT color="red"><B><TT>glob2.h</TT></B></FONT>
+</TH> 
+</TR>
+  
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <strike>int   a, b;  </strike>
+  <strike>float c, d;  </strike>
+   
+  void <FONT color="red">print</FONT>()
+  {
+     printf( ">> a = %d, b = %d\n", a, b);
+     printf( ">> c = %f, d = %f\n", c, d);  
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  // Prevent recursive include.....
+  #ifndef  h_glob_h
+  #define  h_glob_h
+<FONT color="red">
+  #ifndef  EXTERN
+  #define  EXTERN  extern
+  #endif</FONT>
+
+  <FONT color="red">EXTERN</FONT> int   a, b;
+  <FONT color="red">EXTERN</FONT> float c, d;
+
+  void <FONT color="red">print</FONT>();   // Function declaration   
+
+  #endif
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Include</B></FONT> the
+    <FONT color="red"><B>header file <TT>glob2.h</TT></B></FONT> in
+    <B><I>every</I> C program file</B>
+  <P>
+  (You <FONT color="red"><B>should</B></FONT>
+     have <FONT color="blue"><B>done</B></FONT> this
+   <FONT color="red"><B>already</B></FONT> to
+   <FONT color="blue"><B>declare</B></FONT> the
+   <FONT color="red"><B>functions</B></FONT> !!! I just state this
+   for <FONT color="blue"><B>emphasis</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> In <FONT color="blue"><B><I>one</I></B></FONT> of the
+    <B>C program files</B>
+    (typically, the <FONT color="red"><B>program file</B></FONT> containing
+    the <FONT color="blue"><B><TT>main( )</TT></B></FONT> function)
+    , add this definition
+    at the <FONT color="red"><B><I>start</I> of the file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #define  <FONT color="red">EXTERN</FONT>  
+                    // This defines <FONT color="red">EXTERN</FONT> as the <FONT color="red">empty string</FONT>)     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(This defines <FONT color="red"><B><TT>EXTERN</TT></B></FONT> as
+ the <FONT color="blue"><B>empty string</B></FONT>).
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File: <FONT color="red"><B><TT>glob1.c</TT></B></FONT>
+</TH> 
+<TH>
+ File: <FONT color="red"><B><TT>glob2.c</TT></B></FONT>
+</TH> 
+</TR>
+  
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">  #define <FONT color="red">EXTERN</FONT>             </span>
+  #include <FONT color="red">"glob2.h"</FONT>
+   
+  int main( int argc, char *argv[] )
+  {
+     a = 2;
+     b = 3;
+   
+     printf( "a = %d, b = %d\n", a, b);
+   
+     c = 2.0;
+     d = 3.0;
+   
+     printf( "c = %f, d = %f\n", c, d);
+   
+     print( );         // Call print( );   
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+ #include <FONT color="red">"h-glob2.h"</FONT>
+ 
+ 
+ void print()
+ {
+    printf( "a = %d, b = %d\n", a, b);
+    printf( "c = %f, d = %f\n", c, d);  
+ }
+ 
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Summary:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-trick2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>How</B> the <FONT color="blue"><B>trick </B></FONT> works:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In the <FONT color="blue"><B><I>one</I></B></FONT> 
+   <B>program file</B> that
+    contains the 
+   <FONT color="red"><B>definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define <FONT color="red">EXTERN</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the content of
+ <FONT color="red"><B><TT>#include "vars.h"</TT></B></FONT> will be
+ <B>processed</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">EXTERN</FONT> double x;      &rArr;    double x;   
+   <FONT color="red">EXTERN</FONT> int    y;      &rArr;    int    y;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Because</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>macro</B> <FONT color="red"><B><TT>EXTERN</TT></B></FONT> was
+      <B>defined</B> (as the <FONT color="blue"><B>empty string</B></FONT>)
+ <P>
+ <LI> Hence, the <FONT color="red"><B><TT>#ifndef EXTERN</TT></B></FONT>
+    will be <FONT color="blue"><B>skipped</B></FONT> and
+    the <B>C pre-processor</B> will replace
+    <FONT color="red"><B><TT>EXTERN</TT></B></FONT> with the
+    <FONT color="blue"><B>empty string</B></FONT>
+    in the <B>rest</B> of the file
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>global variables</B></FONT> are
+   <FONT color="red"><B>defined</B></FONT> inside this
+   <FONT color="blue"><B><I>one</I> program file</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> In  <FONT color="blue"><B><I>all</I> other</B></FONT> 
+   <B>program files</B>
+  the content of
+ <FONT color="red"><B><TT>#include "vars.h"</TT></B></FONT> will be
+ <B>processed</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">EXTERN</FONT> double x;      &rArr;    <FONT color="red">extern</FONT>  double x;   
+   <FONT color="red">EXTERN</FONT> int    y;      &rArr;    <FONT color="red">extern</FONT>  int    y;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Because</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>macro</B> <FONT color="red"><B><TT>EXTERN</TT></B></FONT> is
+      <B><I>not</I> defined</B> 
+ <P>
+ <LI> Hence, the <FONT color="red"><B><TT>#ifndef EXTERN</TT></B></FONT>
+    will be <FONT color="blue"><B>keep</B></FONT> the 
+   <B>then portion</B> and the 
+   <FONT color="red"><B>header file <TT>vars.h</TT></B></FONT> becomes:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">#define  EXTERN   extern </FONT>        
+
+    EXTERN  double  x;
+    EXTERN  int     y;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+and
+    the <B>C pre-processor</B> will replace
+    <FONT color="red"><B><TT>EXTERN</TT></B></FONT> with 
+    <FONT color="blue"><B>extern</B></FONT> !!!!
+   
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>global variables</B></FONT> are
+   <FONT color="red"><B><I>declared</I></B></FONT> inside 
+   <FONT color="blue"><B><I>all</I> other program files</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+<P>
+<LI> <B>Demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cd  <FONT color="red">/home/cs255000/demo/c/multiple-files</FONT>   
+
+   gcc -E  h-glob1.c
+
+        # 10 <FONT color="red">#include "h-glob2.h"</FONT> got processed to:      
+         <FONT color="red">int a, b;    
+         float c, d;  </FONT>
+        	      
+         void print( );
+
+   gcc -E  h-glob2.c
+
+        # 10 <FONT color="red">#include "h-glob2.h"</FONT> got processed to:
+         <FONT color="red"><SPAN style="BACKGROUND-COLOR: yellow">extern</SPAN> int a, b;    
+         <SPAN style="BACKGROUND-COLOR: yellow">extern</SPAN> float c, d;  </FONT>
+        	      
+         void print( );
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,381 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Calling a subroutine --- the 
+<TT>bl</TT> (branch and <I>link</I>) instruction
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     General discussion:
+     Assembler Instructions to implement subroutine (method) calling
+     </B></FONT>
+<P>
+ <UL>
+<LI> Modern computer
+         <FONT color="red"><B>typically</B></FONT>
+     provides 
+     <FONT color="blue"><B>2 assembler instructions</B></FONT>
+      that user can use
+	to implement
+	<FONT color="red"><B>methods</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> An <FONT color="red"><B>assembler instruction</B></FONT> that is
+       used by the
+       <FONT color="blue"><B>caller</B></FONT> to
+       <FONT color="red"><B>invoke a method</B></FONT>
+ <LI> An <FONT color="red"><B>assembler instruction</B></FONT> that is
+       used by the
+       <FONT color="blue"><B>callee (= the called method)</B></FONT> to
+       <FONT color="red"><B>return to <I>its</I> caller</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will now discuss the first of these 2 instruction for ARM.
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM assembler instructions used to implement subrouting (method)
+     calling 
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>branch <I>and</I> link
+        (<TT>bl</TT></B></FONT>
+	<B>instruction</B> in the
+	<FONT color="blue"><B>ARM processor</B></FONT> is used
+	to
+	<FONT color="red"><B>invoke (= call)</B></FONT> a
+	method.
+<P>
+<LI> Syntax of the 
+   <FONT color="red"><B>branch and link</B></FONT> instruction:
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+  bl  label       
+
+  <font color="red">Effect:</font>
+        (1) Save the Program Counter (PC) in the Link Register (LR)
+	(2) Branch to memory location marked by the label "label"   
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that the
+   <FONT color="blue"><B>Program Counter (PC)</B></FONT> contains
+   the <FONT color="red"><B><I>address</I></B></FONT> of the
+   <FONT color="blue"><B><I>next</I> instruction</B></FONT> that the
+   <FONT color="red"><B>CPU</B></FONT> will
+   <FONT color="blue"><B>fetch</B></FONT> (and execute) after it processed
+   the <FONT color="red"><B>current instruction</B></FONT> in the
+   <FONT color="blue"><B>Instruction Register (IR)</B></FONT>
+<P>
+ In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>PC</B></FONT> contains the
+     <FONT color="blue"><B>location</B></FONT> of the
+     <FONT color="red"><B>instruction</B></FONT>
+     <FONT color="blue"><B><I>following</I></B></FONT> the
+     <FONT color="red"><B><TT>bl</TT> instruction</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Assembler program in memory:
+
+          ....
+	  ....
+	  <FONT color="red">bl</FONT>    method    <--- CPU currently executing the bl instruction
+          next instr      <--- The PC contains the address of this instruction ! 
+	  ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+By <FONT color="red"><B>saving</B></FONT> the
+ <FONT color="blue"><B>value in the PC</B></FONT> 
+ (in the <FONT color="red"><B>LR register</B></FONT>),
+ we have <FONT color="blue"><B>saved</B></FONT> the
+ <FONT color="red"><B>return address</B></FONT> that the
+ <FONT color="blue"><B>invoked method</B></FONT> must use
+ to <FONT color="red"><B>return back</B></FONT> to
+ its <FONT color="blue"><B>caller</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ <LI> The <FONT color="red"><B> retrurn address</B></FONT>
+  saved in the <FONT color="blue"><B>LR register</B></FONT>
+     is a <FONT color="red"><B>"bread crump"</B></FONT> - using the analogy of
+	Hansel and Gretel....
+
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+ <LI> <FONT COLOR="darkmagenta"><B>
+     Example of the <TT>bl</TT> instruction
+     </B></FONT>
+ <P>
+ <UL>
+ <LI> Consider the
+      following <FONT color="red"><B>ARM assembler program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #1111
+        mov     r1, #1111
+        <FONT color="red">bl      myMethod</FONT>                         
+        mov     r2, #2222
+        mov     r3, #2222
+
+
+<FONT color="red">myMethod:</FONT>
+        mov     r8, #4444
+        mov     r9, #4444
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will use <FONT color="red"><B>EGTAPI</B></FONT> in class
+ to show you the
+ <FONT color="blue"><B>executing</B></FONT>.
+<P>
+I have taken some <FONT color="red"><B>snapshot</B></FONT>
+ of the <FONT color="blue"><B>execution</B></FONT> for my notes.
+<P>
+The <FONT color="red"><B>content</B></FONT> of the
+ <FONT color="blue"><B>registers</B></FONT> at the moment
+ the <FONT color="red"><B>ARM processor</B></FONT> executes the
+  <FONT color="blue"><B><TT>bl</TT> instruction</B></FONT>
+  is as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/bl-1.jpg" width=300 heigh=500></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Notice that
+ <FONT color="red"><B>PC = 33280</B></FONT> which is the
+  <FONT color="blue"><B>location</B></FONT> of the
+  <FONT color="red"><B><TT>"bl myMethod"</TT></B></FONT> instruction
+<P>
+The <FONT color="red"><B><TT>"bl myMethod"</TT></B></FONT> instruction
+ will <FONT color="blue"><B>call (= run, jump)</B></FONT> the
+  <FONT color="red"><B><TT>myMethod</TT></B></FONT> function which is
+ located at address <FONT color="blue"><B>33292</B></FONT> as
+ given by <FONT color="red"><B>EGTAPI</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/bl-3.jpg" width=400 heigh=100></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+When we <FONT color="red"><B>click <TT>STEP</TT></B></FONT> and
+  <FONT color="blue"><B>execute</B></FONT> the
+  <FONT color="red"><B><TT>"bl myMethod"</TT></B></FONT> in
+  <FONT color="blue"><B>EGTAPI</B></FONT>, we will see these values
+ in the <FONT color="red"><B>registers</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/bl-2.jpg" width=300 heigh=500></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>PC = 33292</B></FONT> - the program
+      made a <FONT color="blue"><B>jump</B></FONT> to
+      the <FONT color="red"><B><TT>myMethod</TT></B></FONT> function
+      <P>
+    (So the <FONT color="blue"><B>instructions</B></FONT> in the
+      <FONT color="red"><B><TT>myMethod</TT></B></FONT> function
+      will now be <FONT color="blue"><B>executed</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Notice</B></FONT> that
+   the <FONT color="blue"><B>LR register</B></FONT> contains:
+      <FONT color="red"><B>33284</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is the <FONT color="red"><B>address</B></FONT> of the
+        <FONT color="blue"><B>instruction</B></FONT> that
+	<FONT color="red"><B><I>follows</I></B></FONT> the
+	<FONT color="blue"><B><TT>"bl myMethod"</TT></B></FONT> instruction !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ So the <FONT color="red"><B><TT>bl</TT> (branch and link)</B></FONT>
+ instruct has <FONT color="blue"><B><I>saved</I></B></FONT> the
+ <FONT color="red"><B>return address</B></FONT> in the
+ <FONT color="blue"><B><TT>lr</TT> register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/bl.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 bl</TT></B></FONT>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+OK, now that we left the <B>return address</B>
+ in the <B>LR</B> register;
+ let's see how we can use it to return to its caller.
+<P>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

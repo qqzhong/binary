@@ -1,0 +1,202 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H1>
+<HR>
+Compare and Branching
+<HR>
+</H1>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Compare
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>CMP</B> compares two values without changing either,
+	then sets or clears the processor flags according to
+	the results of the comparison.
+ <P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  cmp ax, bx		;; computes  ax - bx   
+			;; Set the flags according to result   
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Branch instructions
+     </B></FONT>
+<P>
+<UL>
+ <LI> The opcode for the branch instructions are:
+
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  je        jump when equal
+  jne       jump when not equal
+  jl        jump when less than
+  jle       jump when less than or equal
+  jg        jump when greater than
+  jge       jump when greater than or equal   
+
+  jmp       unconditional jump
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> <B>How to use compare and branch:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+   cmp  <FONT color="red"><B>eax, ebx</B></FONT>	;; computes  EAX - EBX
+
+   <FONT color="red"><B>jg</B></FONT>   next		;; jump to "next" when <FONT color="red"><B>EAX > EBX</B></FONT>    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example Program
+     </B></FONT>
+<P>
+<UL>
+ <LI> Consider this program:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+   int x, y;
+
+   if ( <FONT color="red"><B>x >= y</B></FONT> )
+      System.out.print( x + " >= " + y );    
+   else
+      System.out.print( x + " < " + y );
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B> Intel Assembler code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  .data
+    Str1  db "%d >= %d", 13, 10, 0     
+    Str2  db "%d < %d", 13, 10, 0
+    x     dd  40
+    y     dd  6
+
+.code
+start:
+
+
+    mov     eax, x
+    mov     edx, y
+    cmp     eax, edx	;; x - y  
+
+    jl      Else1       ;; <FONT color="red"><B>jump if x < y</B></FONT>    
+<FONT color="red"><B>
+  ;;   Then part: x >= y</B></FONT>
+    push y
+    push x
+    push offset Str1
+    call crt_printf<FONT color="red"><B>
+    jmp     Done</B></FONT>
+<FONT color="red"><B>
+  ;;   Else part: x < y</B></FONT>
+Else1:
+    push y
+    push x
+    push offset Str2
+    call crt_printf
+Done:
+
+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="Progs/if1.asm"> click here </A>
+   </UL>
+
+<P>
+ </UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+

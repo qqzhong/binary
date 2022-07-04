@@ -1,0 +1,269 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Branching - out of order program flow
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Normal and out of order program flow
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> 
+      (from this webpage:
+     <A HREF="../4-intro/special-reg.html">click here</A>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>    The <FONT color="blue"><B>in-order</B></FONT> or
+   <FONT color="red"><B><I>normal</I> program flow</B></FONT> is when:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>After executing</B></FONT> the
+     <FONT color="blue"><B><I>current</I> instruction</B></FONT>
+    in the <B>program</B>,
+     the <FONT color="red"><B>CPU</B></FONT> fetches and
+      executes the
+      <FONT color="blue"><B>instruction</B></FONT> that
+      <FONT color="red"><B><I>physically</I>
+      follows</B></FONT> the
+      <FONT color="blue"><B>current instruction</B></FONT> in the program
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>    An
+   <FONT color="red"><B><I>out-of-order</I> program flow</B></FONT> is when:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>After executing</B></FONT> an
+     <FONT color="blue"><B>instruction</B></FONT> in the <B>program</B>,
+     the <FONT color="red"><B>CPU</B></FONT> fetches and
+      executes a <FONT color="blue"><B>instruction</B></FONT> that
+     is <FONT color="red"><B>not</B></FONT> the
+      <FONT color="blue"><B>physically next
+      instruction</B></FONT> in the program
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">branch</FONT> assembler instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red"> b</FONT>     label     // Branch to label               
+
+  or
+
+     <FONT color="red">bal</FONT>   label     // Branch always to label
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Effect:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Jump</B></FONT> to the
+     <FONT color="blue"><B>instruction</B></FONT> <B>marked</B> by
+     the <FONT color="red"><B>label <TT>label</TT></B></FONT>
+ <P>
+ I.e.: after <FONT color="blue"><B>executing</B></FONT> the
+   <FONT color="red"><B><TT>b&nbsp;label</TT></B></FONT> instruction,
+   the <FONT color="blue"><B><I>next</I> instruction</B></FONT> that
+   will be <FONT color="red"><B>executed</B></FONT> is
+   the <FONT color="blue"><B>instruction</B></FONT> at
+   the location
+   <B>marked</B> by
+   the <FONT color="red"><B>label <TT>label</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> consider the following program
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .text
+main:
+        mov     r1, #1111               // Instructions executed in sequence
+        mov     r2, #1111               // "normal" program flow
+        mov     r3, #1111
+
+       <FONT color="red"> b       there</FONT>                   // Branch to location marked by "there"
+<FONT color="darkred">
+        mov     r4, #2222              <FONT color="red"> // These instructions are SKIPPED over !</FONT>
+        mov     r5, #2222
+        mov     r6, #2222</FONT>
+
+<FONT color="red">there:</FONT>
+        mov     r4, #4444               // Out of order program flow
+        mov     r5, #4444
+        mov     r6, #4444
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>program flow</B></FONT> will
+ <FONT color="blue"><B>execute</B></FONT> these 
+ <FONT color="red"><B>instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        mov     r1, #1111               // Instructions executed in sequence
+        mov     r2, #1111               // "normal" program flow
+        mov     r3, #1111
+
+        mov     r4, #4444               // Out of order program flow
+        mov     r5, #4444
+        mov     r6, #4444
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/6-if/branch.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 branch</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+

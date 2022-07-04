@@ -1,0 +1,369 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction: recursion
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: recursion
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Recursion:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>recursive method/function
+        <TT>F( )</TT></B></FONT> is
+         a <FONT color="blue"><B>method/function</B></FONT> that
+	 contains a
+	 <FONT color="red"><B>call (= invocation)</B></FONT> of the
+	 <FONT color="blue"><B>method/function <TT>F( )</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recursion is nothing special !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Although you <B>may</B> have heard that
+      a <FONT color="red"><B>recursive method/function</B></FONT>
+      calls
+      <FONT color="blue"><B><I>ifself</I></B></FONT>;
+      I have to say that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>recursive method/function</B></FONT>
+      <B>always</B> calls
+      <FONT color="blue"><B><I>another</I> method/function</B></FONT> !!!
+ <LI> It just happnes that
+ the <FONT color="blue"><B><I>other</I> method/function</B></FONT>
+      has the <FONT color="red"><B><I>same</I> name</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> What I mean is this:
+ <P>
+  When a <FONT color="red"><B>(recursive) function
+      <TT>F(n)</TT></B></FONT> calls
+      the <FONT color="red"><B>(recursive) function
+      <TT>F(n-1)</TT></B></FONT>:
+      
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>F(n)</TT></B></FONT> and
+      <FONT color="blue"><B><TT>F(n-1)</TT></B></FONT>
+      shares
+      <FONT color="red"><B><I>nothing</I></B></FONT> !!
+<P>
+ I.e.:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>F(n)</TT></B></FONT> and
+      <FONT color="blue"><B><TT>F(n-1)</TT></B></FONT>
+      do <FONT color="red"><B>not share</B></FONT>
+      their <FONT color="blue"><B>parameters</B></FONT>
+ <LI> <FONT color="red"><B><TT>F(n)</TT></B></FONT> and
+      <FONT color="blue"><B><TT>F(n-1)</TT></B></FONT>
+      do <FONT color="red"><B>not share</B></FONT>
+      their <FONT color="blue"><B>local variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If <FONT color="red"><B>2 methods</B></FONT> do 
+ <FONT color="blue"><B>not share</B></FONT> their
+ <FONT color="red"><B>state (= information in variables)</B></FONT>, then
+ they are
+  <FONT color="blue"><B>actually</B></FONT>
+  <FONT color="red"><B><I>2 different</I> activations</B></FONT>
+ that operate
+ <FONT color="blue"><B><I>independently</I></B></FONT> from each other.
+<P>
+<B>Analogy:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A pair of <FONT color="red"><B>identical twins</B></FONT>
+       look alike.
+ <P>
+ <LI> <FONT color="blue"><B>But</B></FONT>: 
+       we will <FONT color="red"><B>never</B></FONT> call
+      the <FONT color="blue"><B>twins</B></FONT> the
+      <FONT color="red"><B><I>same</I> person</B></FONT> because they
+   do <FONT color="blue"><B>not share</B></FONT> anything !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to implement recursive methods/functions
+     </B></FONT>
+<P>
+<UL>
+<LI> Implementing <FONT color="red"><B>recursive methods/functions</B></FONT>
+     is <FONT color="blue"><B>very simple</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because a
+  <FONT color="red"><B>recursive method/function</B></FONT>
+       <B>always</B> contains
+       a <FONT color="blue"><B>call/invocation</B></FONT> of
+       <B>another method/function</B>
+       (that happens to have the
+   <FONT color="red"><B><I>same</I> method/function name</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>recursive method/function</B></FONT>
+       is <FONT color="blue"><B>always</B></FONT> a
+        <FONT color="red"><B><I>non-leaf</I> method/function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="red"><B>cannot</B></FONT> keep the
+     <FONT color="blue"><B>parameters</B></FONT> and
+     <FONT color="blue"><B>local variables</B></FONT> in
+     <FONT color="red"><B>registers</B></FONT>
+     <P>
+  (Because the <FONT color="red"><B>values</B></FONT> of
+   the <FONT color="blue"><B>parameters</B></FONT> and
+     <FONT color="blue"><B>local variables</B></FONT>
+     kept in <FONT color="red"><B>registers</B></FONT> of
+     <FONT color="blue"><B><TT>F(n)</TT></B></FONT> will
+     be <FONT color="red"><B>destroyed</B></FONT>
+     by <FONT color="blue"><B><TT>F(n-1)</TT></B></FONT> !!!)
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Conclussion:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recursive methods/functions</B></FONT>
+    <FONT color="blue"><B>must</B></FONT> use the
+    <FONT color="red"><B>program stack</B></FONT> to store
+    <FONT color="blue"><B>parameters</B></FONT> and
+    <FONT color="blue"><B>local variables</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Surprise:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you use the
+  <FONT color="red"><B>program stack</B></FONT> to
+    store the
+    <FONT color="blue"><B>parameters</B></FONT> and
+    <FONT color="blue"><B>local variables</B></FONT>
+    (a technique that we have <FONT color="red"><B>discussed already</B></FONT>
+    !!!), the
+    <FONT color="blue"><B>method/function</B></FONT>
+    will be <FONT color="red"><B>recursive</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>how to guide</B></FONT> to
+   write <FONT color="blue"><B>recursive methods/functions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B>must</B></FONT> store
+       the <FONT color="red"><B>parameters</B></FONT> and
+     <FONT color="red"><B>local variables</B></FONT> of
+     <FONT color="blue"><B>recursive methods/functions</B></FONT> on
+     the <FONT color="red"><B>program stack</B></FONT> !!!
+<P>
+ That means:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>caller</B></FONT> (of the
+    <B>recursive method</B> must
+     <FONT color="blue"><B>push</B></FONT> the
+    <FONT color="red"><B>parameters</B></FONT> onto the
+    <FONT color="blue"><B>program stack</B></FONT>
+<P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>recursive method</B></FONT> 
+         must <FONT color="blue"><B>allocate</B></FONT> its
+	 <FONT color="red"><B>local variables</B></FONT> on the
+	 <FONT color="blue"><B>program stack</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We have <FONT color="red"><B>already studied</B></FONT> how to
+  <FONT color="blue"><B>pass parameters using the stack</B></FONT> and
+  how to
+  <FONT color="red"><B>allocate local variables on the stack</B></FONT>
+<P>
+I will illustrate the
+ <FONT color="blue"><B>how to guide</B></FONT> by writing a few
+ <FONT color="red"><B>recursive methods</B></FONT> in
+  <FONT color="blue"><B>assembler code</B></FONT> next.
+<P>
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+

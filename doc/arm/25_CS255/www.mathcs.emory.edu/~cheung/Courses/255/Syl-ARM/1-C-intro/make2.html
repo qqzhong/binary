@@ -1,0 +1,430 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The make (UNIX) utility
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Make</I> utility
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B><I>Make</I></B></FONT> utility:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Make</B></FONT> application =
+      a <FONT color="red"><B>program</B></FONT> that
+      <FONT color="blue"><B>reads in</B></FONT> the
+      <B><I>file dependencies</I></B> in a
+      <FONT color="red"><B><I>Make</I> file</B></FONT> and
+      <FONT color="blue"><B>execute</B></FONT> the
+      <FONT color="red"><B><I>maintenance</I> commands</B></FONT>
+       when
+      the <FONT color="blue"><B><I>target</I> file</B></FONT>
+      is <FONT color="red"><B>out-of-date</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT> use the
+  <FONT color="blue"><B>Make</B></FONT> application:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Write</B></FONT> a
+     <FONT color="blue"><B>Make file</B></FONT> specifying
+     the <FONT color="red"><B>file dependencies</B></FONT> and
+     the <FONT color="blue"><B><I>maintenance</I> commands</B></FONT>
+     for <FONT color="red"><B><I>each</I> target file</B></FONT> that
+     you need to maintain.
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Issue</B></FONT> the following
+   <FONT color="blue"><B>Make command</B></FONT> to
+   <FONT color="red"><B>refresh</B></FONT> the
+   <FONT color="blue"><B>target file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   make <FONT color="red">targetName</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Default Make target:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you run the 
+   <FONT color="red"><B><TT>make</TT> command</B></FONT>
+   <FONT color="blue"><B>without specifying</B></FONT> a
+    <FONT color="red"><B>target name</B></FONT>, then
+    the  <FONT color="blue"><B><TT>make</TT> command</B></FONT>
+    will use the <FONT color="red"><B><I>first</I> target name</B></FONT>
+    in the <FONT color="blue"><B>Make file</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Sample file dependencies and maintenance commands used in the demo
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>demo files</B></FONT> are stored in
+    <FONT color="blue"><B><TT>
+    /home/cs255001/demo/C/Make/1
+    </TT></B></FONT>
+<P>
+<LI> 
+The <FONT color="red"><B>file dependencies</B></FONT> of this
+ <FONT color="blue"><B>simple C project</B></FONT>
+  (consisting of <FONT color="red"><B>one C program file</B></FONT>) is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      Source file:   <FONT color="red">hello.c         <==== source file</FONT>    
+                       |
+		       | gcc -c hello.c          
+		       |
+		       V
+       Object file:  <FONT color="red">hello.o</FONT>
+                       |
+		       | gcc -o hello hello.o          
+		       |
+		       V
+       Executable:   <FONT color="red">hello</FONT>       <FONT color="red"> <==== end product</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> 
+The <FONT color="red"><B>Make file</B></FONT> that
+ <FONT color="blue"><B>describes</B></FONT> the
+ <FONT color="red"><B>file dependencies</B></FONT> and
+ the <FONT color="blue"><B><I>maintenance</I> commands</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">hello</FONT>: hello.o                # Meaning: <FONT color="red">target hello</FONT> depends of hello.o   
+  <FONT color="red">&lt;TAB></FONT>  gcc -o hello hello.o   # Command to <FONT color="red">update</FONT> the target <FONT color="red">hello</FONT>
+
+
+  <FONT color="red">hello.o</FONT>: hello.c              # Meaning: <FONT color="red">target hello.o</FONT> depends of hello.c
+  <FONT color="red">&lt;TAB></FONT>  gcc -c hello.c         # Command to <FONT color="red">update</FONT> the target <FONT color="red">hello.o</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog files:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Make/1/*
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Demo: 
+  &nbsp; <FONT color="red"><B><TT>make TARGET</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Watch what commands will be executed
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you want to <FONT color="red"><B>make</B></FONT> the
+     <FONT color="blue"><B>target <TT>hello.o</TT></B></FONT>,
+     execute this command:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make hello.o                      
+   <FONT color="red">gcc -c hello.c</FONT>  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and the <FONT color="blue"><B>make utility</B></FONT> creates the
+ <FONT color="red"><B>target <TT>hello.o</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> Now, run <FONT color="blue"><B>make hello.o</B></FONT>
+    <FONT color="red"><B>again</B></FONT>, and you will see:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make
+   <FONT color="red">`hello.o' is up to date.</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>make utility</B></FONT> has
+ determined that <FONT color="red"><B><TT>hello.o</TT></B></FONT> is
+  <FONT color="blue"><B>up-to-date</B></FONT> !!!
+<P>
+ (The <FONT color="red"><B>timestamp</B></FONT> of
+  <FONT color="blue"><B><TT>hello.o</TT></B></FONT> is
+ <FONT color="red"><B>more recent</B></FONT> than the source file
+  <FONT color="blue"><B><TT>hello.c</TT></B></FONT> and
+ <FONT color="red"><B>make</B></FONT> skips the 
+  <FONT color="blue"><B>maintenance commands</B></FONT> !!!)
+<P>
+<HR>
+<P>
+<LI> <B>Next</B>, <FONT color="blue"><B>remove <TT>hello.o</TT></B></FONT>
+   and type <FONT color="red"><B><TT>make hello</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make <FONT color="red">hello</FONT>
+   <FONT color="red">gcc -c hello.c</FONT>  
+   <FONT color="red">gcc -o hello hello.o</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>make utility</B></FONT> will
+  <FONT color="red"><B>first</B></FONT> make
+ <FONT color="blue"><B><TT>hello.o</TT></B></FONT>
+ and <FONT color="red"><B>then</B></FONT> it will
+ <FONT color="blue"><B>use</B></FONT>
+ <FONT color="red"><B><TT>hello.o</TT></B></FONT> to
+ make <FONT color="blue"><B><TT>hello</TT></B></FONT>  !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P> 
+<HR>
+<P>
+<LI> <FONT color="red"><B>Default make target</B></FONT> illustrated:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Typing</B></FONT>
+        <FONT color="red"><B><TT>make</TT></B></FONT> without
+     any target:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    make          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will cause <FONT color="red"><B>make</B></FONT> to 
+ <FONT color="blue"><B>make</B></FONT> the
+ <FONT color="red"><B><I>first</I> target</B></FONT> in
+ the <FONT color="blue"><B>make file</B></FONT> which is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">hello</FONT>: hello.o         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So it's the same as <FONT color="blue"><B>typing</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    make  <FONT color="red">hello</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+in the above example.
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ For this reason, the
+    <FONT color="red"><B><I>first</I> target</B></FONT> 
+    is <FONT color="blue"><B>usually</B></FONT> the
+    <FONT color="red"><B>end product program </B></FONT> of
+    the <FONT color="blue"><B>C project</B></FONT>
+
+</UL>
+<P>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

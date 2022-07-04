@@ -1,0 +1,310 @@
+﻿Larry D. Pyeatt with William Ughetta
+ISBN: 978-0-12-819221-4
+
+
+1.4 Memory layout of an executing program
+Uninitialized Data
+.bss
+Read Only Data
+.rodata
+Initialized Data
+.data
+Program Code
+.text
+
+
+2.3.1 Selecting the current section
+.data subsection
+指示汇编器将以下指令或数据附加到数据子节编号的子节中。如果省略小节编号，则默认为零。
+此部分通常用于具有标签的全局变量和常量。
+.text subsection
+告诉汇编器将以下语句附加到文本小节的末尾 编号的小节。如果省略小节编号，则小节编号为零。该部分通常用于可执行指令。
+.bss subsection
+bss（Block Started by Symbol 的缩写）部分用于定义应在程序执行开始时初始化为零的数据存储区域。 .bss
+指令告诉汇编器将以下语句附加到 bss 的末尾小节编号的小节。如果省略小节编号，则小节使用数字零。这部分通常用于需要的全局变量
+被初始化为零。无论在编译时将什么放入该部分，当程序开始执行时，所有字节将被设置为零。此部分实际上不占用对象或可执行文件中的任何空间。这实际上只是一个请求
+loader 在程序加载到内存时保留一些空间
+.section name
+除了三个公共部分之外，程序员还可以使用该指令创建其他部分。但是，为了将自定义部分链接到程序中，必须让链接器知道它们。
+使用 GNU 工具，这可以实现通过提供链接描述文件。该主题超出了本书的范围，但感兴趣读者可参考 GNU 链接器文档。
+
+2.3.2 Allocating space for variables and constants
+# .byte expressions
+# .2byte expressions
+.hword expressions
+.short expressions
+# .4byte expressions
+.word expressions
+.long expressions
+# .8byte expressions
+.quad expressions
+# .ascii "string"
+It assembles each string (with no trailing ASCII NULL character) into consecutive addresses.
+# .asciz "string"
+.string "string"
+# .float flonums
+.single flonums
+# .double flonums
+
+2.3.3 Filling and aligning
+# .align abs-expr, abs-expr, abs-expr
+# .balign[lw] abs-expr, abs-expr, abs-expr
+# .skip size, fill
+.space size, fill
+
+2.3.4 Setting and manipulating symbols
+
+# .equ symbol, expression
+.set symbol, expression
+该指令将符号的值设置为表达式。它类似于C语言#define 指令。
+
+# .equiv symbol, expression
+.equiv 指令类似于 .equ 和 .set，不同之处在于汇编器将发出一个信号 如果符号已定义，则会出错。
+
+# .global symbol
+.globl symbol
+该指令使符号对链接器可见。如果符号在文件中定义，并且该指令用于使其全局化，然后它将可用于与包含该符号的文件链接的任何文件。
+没有这个指令，符号是可见的仅在定义它们的文件中
+
+# .comm symbol, length
+该指令将 symbol 声明为通用符号，这意味着如果它在多个文件，则所有实例都应合并为一个符号。
+如果符号只定义在一个文件中，那么链接器将分配未初始化的长度字节
+记忆。如果符号有多个定义，并且它们具有不同的大小，则链接器将使用定义的最大大小将它们合并到一个实例中。
+
+
+2.3.5 Functions and objects
+# .size name,expression
+.size 指令用于设置与符号关联的大小。此信息帮助链接器在创建可执行文件时排除不需要的代码和/或数据，并帮助调试器跟踪它在程序中的位置。
+# .type name,type_description
+%function The symbol is a function name.
+%gnu_indirect_function The symbol is an indirect function (may be called
+through a function pointer table).
+%object The symbol is a data object.
+%tls_object The symbol is a thread-local data object.
+%common The symbol is a common (shared) object.
+%notype The symbol has no type.
+
+
+2.3.6 Conditional assembly
+# .if expression
+# .ifdef symbol
+# .ifndef symbol
+# .else
+# .endif
+
+2.3.7 Including other source files
+# .include "file"
+
+2.3.8 Macros
+# .macro macname
+.macro macname macargs ...
+
+# .endm
+# .exitm
+
+
+.macro enum first=0, last=5
+.long \first
+.if \last-\first
+enum "(\first+1)",\last
+.endif
+.endm
+
+.long 0
+.long 1
+.long 2
+.long 3
+.long 4
+.long 5
+
+
+3.3.1 Setting and using condition flags
+                    Table 3.1: Flag bits NZCV in PSTATE.
+Name          Logical instruction             Arithmetic instruction
+N (Negative)  No meaning                      Bit 31 of the result is set. Indicates a
+                                                negative number in signed operations.
+Z (Zero)      Result is all zeroes            Result of operation was zero
+C (Carry)     After Shift operation,          Result was greater than 64 bits
+                '1' was left in carry flag
+V (oVerflow)  No meaning                      The signed two's complement result
+                                                requires more than 64 bits. Indicates a
+                                                possible corruption of the result.
+
+
+
+3.3.3 Addressing modes
+                   Table 3.4: Load/Store memory addressing modes.
+Name                              Syntax                        Range
+Register Address                  [Xn|sp]
+Signed Immediate Offset           [Xn|sp, #±<imm9>]             [#256, 255]
+Unsigned Immediate Offset         [Xn|sp, #<imm12>]             [0, 0x7ff8]
+Pre-indexed Immediate Offset      [Xn|sp, #±<imm9>]!            [#256, 255]
+Post-indexed Immediate Offset     [Xn|sp], #±<imm9>             [#256, 255]
+Register Offset                   [Xn|sp, Xm, (U|S)XTW]         (or LSL #1-3)
+Literal                           label                         ±1 MB
+Pseudo Load                       =<immediate|symbol>           64 bits
+
+
+
+3.4.1 Load/store single register
+3.4.1.1 Syntax
+<op>{<size>} Rd, <addr>
+# <op> is either ldr or str.
+# The optional <size> is one of:
+	b unsigned byte
+	h unsigned half-word
+	sb signed byte
+	sh signed half-word
+	sw signed word
+# <addr> is one of the address specifiers described in Section 3.3.3.
+# str cannot use a signed <size>. It also cannot use the literal addressing mode.
+3.4.1.2 Operations
+Name Effect Description
+ldr Rd <- Mem[addr] Load register from memory at addr
+str Mem[addr] <- Rd Store register in memory at addr
+
+
+3.4.2 Load/store single register (unscaled)
+3.4.2.1 Syntax
+<op>{<size>} Rd, [Xn, #imm9]
+# <op> is either ldur or stur.
+# The optional <size> is one of:
+	b unsigned byte
+	h unsigned half-word
+	sb signed byte
+	sh signed half-word
+	sw signed word
+# The addressing mode is signed immediate with 9 bits.
+# stur cannot use a signed <size>.
+3.4.2.2 Operations
+Name Effect Description
+ldur Rd <- Mem[addr] Load register from memory at addr
+stur Mem[addr] <- Rd Store register in memory at addr
+
+
+3.4.3 Load/store pair
+3.4.3.1 Syntax
+<op>{<size>} Rt, Rt2, <addr>
+# <op> is either ldp or stp.
+# <size> is optionally sw for signed words.
+# <addr> is 7 bits Pre-indexed, Post-indexed, or Signed immediate.
+# Signed immediate Xt range: [-0x200, 0x1f8]. Wt range: [-0x100, 0xfc].
+
+3.4.3.2 Operations
+Name      Effect                             Description
+ldp       Rt # Mem[addr]                     Load register pair from memory at
+          Rt2 # Mem[addr+size(Rt)]           addr where sizeof(Rt) is 4 for Wt
+                                             registers and 8 for Xt registers
+stp       Mem[addr] # Rt                     Store register pair in memory at addr
+          Mem[addr+size(Rt)] # Rt2
+
+
+
+
+
+
+Chapter 4: Data processing and other instructions
+Arithmetic
+Logical,
+Data Movement,
+Multiplication,
+Division,
+Comparison,
+Conditional, and
+Special.
+
+
+
+
+
+
+Chapter 5: Structured programming
+Before IBM released FORTRAN in 1957, almost all programming was done in assembly language.
+
+Listing 5.2 if statement in AArch64 assembly.
+if: cmp x0, x1          // perform test
+    blt endif           // if (x < y) goto endif
+    ;                   // if statement body
+endif:
+
+
+Listing 5.4 Selection in AArch64 assembly using branch instructions.
+
+    adr x0, a                 // load pointer to a
+    adr x1, b                 // load pointer to b
+    ldr x0, [x0]              // load a
+    ldr x1, [x1]              // load b
+if:
+    cmp x0, x1                // compare them
+    bge else                  // if a >= b then skip forward
+    mov x0, #1                // THEN section - load 1 into x0
+    b endif                   // skip the else section
+else:
+    mov x0, #0                // ELSE section - load 0 into x0
+endif:
+    adr x1, x // load pointer to x
+    str x0, [x1] // store x0 in x
+
+
+
+
+
+
+
+
+
+9.1 Floating point overview
+VFPv1: Vector Floating Point coprocessor version 1 is obsolete.
+VFPv2: An optional extension to the ARMv5 and ARMv6 processors. VFPv2 has 16 64-bit FPU registers.
+VFPv3: An optional extension to the ARMv7 processors. It is backwards compatible with
+    VFPv2, except that it cannot trap floating-point exceptions. VFPv3-D32 has 32 64-bit
+    FPU registers. Some processors have VFPv3-D16, which supports only 16 64-bit FPU
+    registers. VFPv3 adds several new instructions to the VFP instruction set.
+VFPv4: Implemented on some Cortex ARMv7 processors. VFPv4 has 32 64-bit FPU registers.
+    It adds both half-precision extensions and multiply-accumulate instructions to the
+    features of VFPv3. Some processors have VFPv4-D16, which supports only 16 64-bit
+    FPU registers.
+NEON: Defines Single Instruction Multiple Data (SIMD) extensions to the instruction set.
+    NEON supports the floating point instruction set along with integer operations. The
+    NEON instruction set allows for a single instruction to perform operations on multiple
+    pieces of data.
+
+
+
+
+
+
+
+
+
+12.3 AArch64 vector table
+Figure 12.4: AArch64 vector table structure.
+0x780 SError/vSError         Lower EL using AArch32
+0x700 FIQ/vFIQ               Lower EL using AArch32
+0x680 IRQ/vIRQ               Lower EL using AArch32
+0x600 Synchronous            Lower EL using AArch32
+0x580 SError/vSError         Lower EL using AArch64
+0x500 FIQ/vFIQ               Lower EL using AArch64
+0x480 IRQ/vIRQ               Lower EL using AArch64
+0x400 Synchronous            Lower EL using AArch64
+0x380 SError/vSError         Current EL with SPn
+0x300 FIQ/vFIQ               Current EL with SPn
+0x280 IRQ/vIRQ               Current EL with SPn
+0x200 Synchronous            Current EL with SPn
+0x180 SError/vSError         Current EL with SP0
+0x100 FIQ/vFIQ               Current EL with SP0
+0x080 IRQ/vIRQ               Current EL with SP0
+0x000 Synchronous            Current EL with SP0
+
+12.5.1 Startup code
+On startup or reset, the processor begins execution in EL3. The bare-metal program must include some start-up code. The startup code will:
+# initialize the stack pointers for all of the modes,
+# set up interrupt and exception handling,
+# initialize the .bss section,
+# configure the CPU and critical systems (optional),
+# set up memory management (optional),
+# set up process and/or thread management (optional),
+# initialize devices (optional), and
+# branch to main()
+
+

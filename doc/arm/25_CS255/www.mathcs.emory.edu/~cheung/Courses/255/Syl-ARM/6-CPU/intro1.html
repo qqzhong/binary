@@ -1,0 +1,976 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Evolution of the art of "<FONT color="red">programming a computer</FONT>"
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Recall:</FONT>
+     What is a <FONT color="red">computer program</FONT> ???
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Computer program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Computer program</B></FONT> =
+ <P>
+      a <B>series</B> of
+      <FONT color="red"><B>computer instruction</B></FONT>
+      (a.k.a.
+      <FONT color="blue"><B>machine instructions</B></FONT>)
+      that
+      <B>tells</B> the
+      <FONT color="red"><B>computer</B></FONT>
+      <FONT color="blue"><B>what operations</B></FONT> it
+      needs to
+      <FONT color="red"><B>perform</B></FONT>
+      at each <FONT color="blue"><B>step</B></FONT>
+ <P>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<B>+</B>
+ <P>
+   a <B>number</B> of
+       <FONT color="red"><B><I>variables</I></B></FONT> used to store
+    <FONT color="blue"><B>information (values)</B></FONT> used by
+    <FONT color="red"><B>instructions</B></FONT> in the
+    <FONT color="blue"><B>computer program</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/program01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Machine Instructions
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Machine instruction:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Machine instruction</B></FONT> =
+       a <FONT color="red"><B><I>binary</I> number</B></FONT> that 
+       <FONT color="blue"><B>encodes</B></FONT> 
+       an <B>action</B> that a computer
+       must <FONT color="red"><B>perform</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Each</B> <FONT color="red"><B>machine instructions</B></FONT> is
+      <FONT color="blue"><B>represented</B></FONT> by a
+      <B>specific</B>
+      <FONT color="red"><B><I>binary</I> pattern</B></FONT>
+ <P>
+  See: <FONT color="blue"><B>instruction encoding</B></FONT>
+    <A HREF="../5-repr/m8k-instr.html"</B></FONT>
+    <FONT color="red"><B>click here</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+This is what a <FONT color="red"><B>machine (= computer) instruction</B></FONT>
+  would <FONT color="blue"><B>look like</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    11010100  10100010  00010001  11110000    ......  <FONT color="red">binary numbers !</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>computer</B></FONT>  
+ uses these <FONT color="red"><B>binary numbers</B></FONT>
+ to <FONT color="blue"><B>control</B></FONT> its
+ <FONT color="red"><B>internal <I>circuitry</I></B></FONT> 
+ to <FONT color="blue"><B>execute</B></FONT>
+ the <FONT color="red"><B>encoded instruction</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can learn <FONT color="red"><B>more</B></FONT>
+       about <FONT color="blue"><B>how</B></FONT>
+       <B>computer instructions</B>
+       are <FONT color="red"><B>executed</B></FONT> in
+       the course <FONT color="blue"><B>CS355</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Machine instruction codes
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <FONT color="red"><B>Machine codes</B></FONT> 
+      (a.k.a. <FONT color="blue"><B>computer instruction codes</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Each</B>
+    <FONT color="blue"><B> machine operation</B></FONT>
+      is <FONT color="red"><B>uniquely</B></FONT> represented
+      by a 
+      <FONT color="red"><B>binary number (= code)</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B><I>Sample</I></B></FONT>
+       <B>machine operations</B> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Copy</B></FONT> 
+      the <B>value</B> stored
+     in a  <FONT color="red"><B>memory location</B></FONT> to
+     <FONT color="blue"><B><I>another</I> memory location</B></FONT>
+ <LI> <FONT color="blue"><B>Add</B></FONT> two
+        <FONT color="red"><B>values</B></FONT> and
+	<FONT color="blue"><B>store</B></FONT> the 
+	<FONT color="red"><B>sum</B></FONT> in the <B>destination</B>
+ <LI> <FONT color="blue"><B>Subtract</B></FONT> two
+        <FONT color="red"><B>values</B></FONT> and
+	<FONT color="blue"><B>store</B></FONT> the 
+	<FONT color="red"><B>difference</B></FONT> in the <B>destination</B>
+ <LI> <FONT color="blue"><B>Jump</B></FONT> to
+       a <FONT color="red"><B>certain location</B></FONT> in
+       <FONT color="blue"><B>computer (RAM) memory</B></FONT>
+ <LI> And so on....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Computer program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Computer program</B></FONT> =
+      a <FONT color="red"><B>sequence</B></FONT> of
+      <FONT color="blue"><B>machine instructions (codes)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">In the beginning</FONT>: programming a computer
+     in the <FONT color="red">pioneer days</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Program</B></FONT> a
+       <FONT color="blue"><B>computer</B></FONT> =
+       <B>write</B> a
+       <FONT color="red"><B>sequence</B></FONT> of
+       <SPAN style="BACKGROUND-COLOR: yellow">
+       <FONT color="blue"><B>machine codes</B></FONT>
+       ( = <FONT color="red"><B>binary numbers !!!</B></FONT>)</SPAN>
+         to
+       <B>tell</B> the <FONT color="blue"><B>computer</B></FONT>
+       to <FONT color="red"><B>do what you want</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>  <FONT color="red"><B>How</B></FONT> we
+    <FONT color="blue"><B>program</B></FONT> a 
+    <FONT color="red"><B>computer</B></FONT> in the
+    <FONT color="blue"><B><I>pioneer</I> days</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/1st-gen.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/1st-gen2.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+What you <FONT color="red"><B>need</B></FONT> to do is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Flip a row switches</B></FONT> to
+     <FONT color="blue"><B>ON/OFF</B></FONT> to
+     <B>represent</B> a <FONT color="red"><B>row</B></FONT> of
+     <FONT color="blue"><B>0/1</B></FONT> that
+     represent the
+     <FONT color="red"><B>binary code</B></FONT> for
+     a <FONT color="blue"><B>computer instruction</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> Then <FONT color="blue"><B>press <I>store</I></B></FONT> to
+         <FONT color="red"><B>store</B></FONT> the
+	 <FONT color="blue"><B>instruction</B></FONT> into the
+	 <B>next</B>
+	 <FONT color="red"><B>computer memory</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <B>Repeat</B> the steps
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Observation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It's  <FONT color="red"><B>very tedious</B></FONT>
+      to <B>write</B>
+      <FONT color="blue"><B>binary numbers</B></FONT> 
+      (by <FONT color="red"><B>flipping switches</B></FONT>)  !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Next step</FONT> in
+       computer programming: 
+       <FONT color="red">Assembler programs</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Assembler instruction:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler instruction</B></FONT> =
+       a <FONT color="red"><B>mnemonic code</B></FONT> to
+       <B>represent</B> a
+       <FONT color="blue"><B>machine instruction</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Each</B></FONT>
+       <FONT color="red"><B>machine instruction</B></FONT> corresponds
+     to <FONT color="blue"><B>exactly <I>one</I></B></FONT>
+     <FONT color="red"><B>assembler instruction</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Assembler program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler program</B></FONT> =
+       a <B>program</B> written in
+       <FONT color="red"><B>assembler instructions</B></FONT>
+        or 
+	<FONT color="blue"><B>assembler <I>language</I></B></FONT>
+<P>
+<HR>
+<P>
+ <LI> An <FONT color="blue"><B>assembler language</B></FONT> is 
+       <B>also</B> known as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>2nd generation programming language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Examples</B> of
+     <FONT color="red"><B>assembler instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">move   x, y</FONT>      ; copy data stored in memory location x to mem loc y    
+
+     <FONT color="red">add   #1, y</FONT>      ; y = y + 1
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Assembler programming:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>programmer</B></FONT> writes
+       his/her <B>program</B> with
+       <FONT color="red"><B>assembler instructions</B></FONT>
+       using a <FONT color="blue"><B>text editor (e.g.: 
+       <TT>gedit</TT>)</B></FONT>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Assembler:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> <FONT color="blue"><B>Assembler</B></FONT> =
+      a <FONT color="red"><B>computer program</B></FONT> 
+   that
+    <FONT color="blue"><B>translate</B></FONT> the
+    <FONT color="red"><B>assembler instructions</B></FONT> 
+    in an <B>(low level) assembler program</B> into
+    (executable)
+    <FONT color="blue"><B>machine instructions</B></FONT>
+
+<P>
+<B>Graphically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/assembler01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is a <FONT color="red"><B>one-to-one correspondence</B></FONT>
+      between
+      <FONT color="blue"><B>assembler instruction</B></FONT> and
+      <FONT color="red"><B>machine instruction</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> One <FONT color="blue"><B>assembler instruction</B></FONT>
+      will <B>translate</B> to
+      one <FONT color="red"><B>machine instruction
+      (= binary number)</B></FONT>
+<P>
+ <LI> One <FONT color="red"><B>machine instruction</B></FONT> has
+     one <FONT color="blue"><B>assembler instruction (nmemonic)</B></FONT>
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Properties of assembler programming
+     </B></FONT>
+<P>
+<UL>
+<LI> 
+       <FONT color="blue"><B>Assembler programming</B></FONT>
+       vs.
+       <FONT color="red"><B>machine language (binary) programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Assembler programming </B></FONT> was
+      <FONT color="blue"><B><I>much</I> easier</B></FONT> to
+      program than
+      <FONT color="red"><B>flipping switches</B></FONT> to
+      <B>code</B>
+      <FONT color="blue"><B>binary numbers</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>However:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>Assembler programming</B></FONT> 
+       was <FONT color="blue"><B><I>very closely</I></B></FONT>
+       <B>related</B> to
+       <FONT color="red"><B>machine language programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is an
+    <FONT color="red"><B><I>one-to-one</I></B></FONT> 
+    correspondence between
+    an <FONT color="blue"><B>assembler instruction</B></FONT> and
+    a <FONT color="red"><B>machine instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>More importantly:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="blue"><B>assembler programmer</B></FONT>
+       <FONT color="red"><B>must</B></FONT> have
+       <FONT color="magenta"><B>intimate understanding</B></FONT> of
+       the <FONT color="red"><B><I>internals</I></B></FONT> of
+       the <FONT color="blue"><B>CPU</B></FONT> before 
+       s/he can
+       <FONT color="red"><B>write</B></FONT>
+       an <FONT color="blue"><B>assembler program</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler programming and CPU structure
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler instructions</B></FONT>
+     (= <B>machine instruction !!!</B>)
+      <B>must</B> use
+      <FONT color="red"><B><I>resources</I>
+      (registers !!!)</B></FONT> inside the
+      <FONT color="blue"><B>CPU</B></FONT>
+      (Central Processing Unit)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B> when we
+ <FONT color="blue"><B>learn</B></FONT> assembler programming
+ using <FONT color="red"><B>M68000</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We will need to <FONT color="blue"><B>know</B></FONT>
+     the <FONT color="red"><B>structure</B></FONT> of the
+     <FONT color="blue"><B>M68000 CPU</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will study the <FONT color="red"><B>M68000 CPU</B></FONT> <B>soon</B>...
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">3rd generation</FONT> programming:
+        <FONT color="red">high level programming language</FONT>
+        (compiler)
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>High level programming language:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>High level programming language</B></FONT> =
+       a <FONT color="red"><B>programming language</B></FONT> that
+       <B>allows</B> the
+       <FONT color="blue"><B>programmer</B></FONT> to
+       <FONT color="red"><B>express</B></FONT> an
+       <FONT color="blue"><B>algorithm</B></FONT> 
+       <FONT color="red"><B><I>without</I></B></FONT> knowing the
+       <FONT color="blue"><B><I>internal</I> details</B></FONT> of
+       the <FONT color="red"><B>computer</B></FONT> used to
+       <FONT color="blue"><B>execute</B></FONT> the
+       <FONT color="red"><B>computer program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample high level programming languages:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Java</B></FONT> !!!
+ <LI> <FONT color="blue"><B>C</B></FONT>
+ <LI> <FONT color="blue"><B>Python</B></FONT>
+ <LI> And so on (too many to mention)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Compiler:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> <FONT color="blue"><B>Compiler</B></FONT> =
+      a <FONT color="red"><B>computer program</B></FONT> 
+   that
+    <FONT color="blue"><B>translate</B></FONT> the
+    <FONT color="red"><B>statements</B></FONT> in a
+    <B>(high level) programming language</B> into
+    (executable)
+    <FONT color="blue"><B>machine instructions</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>One</B>
+         <FONT color="blue"><B>statement</B></FONT> in a
+	 <FONT color="red"><B>high level</B></FONT> language
+	 usually <FONT color="blue"><B>translates</B></FONT> into
+	 <FONT color="red"><B><I>multiple</I> (many) 
+	 machine instructions</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Graphically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/assembler01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How a high level programming language program can be
+     executed by <FONT color="red">different</FONT> computers
+     
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Key:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> For <FONT color="blue"><B>each computer</B></FONT>,
+     we must <FONT color="red"><B>write</B></FONT>
+     a <FONT color="blue"><B>compiler</B></FONT> that
+     <FONT color="red"><B>translate</B></FONT> the
+     <FONT color="blue"><B>high level language program</B></FONT> to
+     the <FONT color="red"><B>assembler language</B></FONT> of
+     <FONT color="blue"><B><I>that</I> machine</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How</B></FONT> to
+       <FONT color="red"><B>achieve</B></FONT>
+       <B>"machine independence"</B> using
+       a <FONT color="blue"><B>compiler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Suppose</B></FONT> we
+      have <FONT color="red"><B>2 different computers</B></FONT>
+      <B>X</B> and <B>Y</B>
+ <P>
+ <LI> We want to <FONT color="blue"><B>run</B></FONT>
+      the <FONT color="red"><B><I>same</I> program</B></FONT> on
+      <B>these computers</B>
+<P>
+<HR>
+<P>
+ <LI> How to <FONT color="blue"><B>execute</B></FONT>
+      the <FONT color="red"><B><I>same</I> program</B></FONT> on the
+      <FONT color="blue"><B><I>different</I> computers</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/compile02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

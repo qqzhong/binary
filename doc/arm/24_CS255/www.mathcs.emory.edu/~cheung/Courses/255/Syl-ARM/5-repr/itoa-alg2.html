@@ -1,0 +1,276 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting a TWO-digits 2's complement representation to 
+   it's ASCII string representation
+<HR>
+</H3>
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example to help you understand
+      the conversion algorithm: convert a number string of 2 characters
+     to 2's complement
+     </B></FONT>
+<P>
+<UL>
+<LI> A good way to understand this
+    conversion algorithm is to look at an
+     <FONT color="blue"><B>example</B></FONT>
+    of
+    <FONT color="red"><B>converting</B></FONT> the
+   <FONT color="blue"><B>2's complement binary number 12
+   (= <TT>00001111</TT>)</B></FONT> to its
+   <FONT color="red"><B>string representation</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>binary number
+      <TT>000011000</TT></B></FONT> represent
+      the <FONT color="blue"><B>decimal number 12</B></FONT>
+ <P>
+   The <FONT color="blue"><B>decimal number 12</B></FONT> has
+    <FONT color="red"><B>2 digits</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1  and  2
+
+  How can you get the digits 1 and 2 from 12 ?
+
+  Answer:
+
+    The digit 1 can be obtained from 12 by the computation:  12/10 = 1
+    The digit 2 can be obtained from 12 by the computation:  12%10 = 2        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Once we obtain the <FONT color="red"><B>individual digit</B></FONT>,
+ we can use the
+ <FONT color="blue"><B>mapping</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   ASCII code = 2's complement code + 48       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to obtain their <FONT color="red"><B>ASCII codes
+  <TT>00110001 (= 49) 00110010 (= 50)</TT></B></FONT>.
+<P>
+The 
+ string <FONT color="blue"><B><TT>"12"</TT></B></FONT> can then
+  by found by
+  <B>concatenating</B> the 
+  <FONT color="red"><B>ASCII codes</B></FONT> !!!
+<P>
+&nbsp;&nbsp;&nbsp;<textarea pattern="[\x00-\xFF]*" autofocus cols=40>
+12</textarea>
+<BR>
+their <B>binary ASCII code:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea cols=40 pattern="(\s*[01]{8}\s*)*">0100100001100101011100100110010100100000011000100110010100100000011100110110010101100011011100100110010101110100001000000110110101100101011100110111001101100001011001110110010101110011001000010010000100110001</textarea>
+<p id=footer>Made by <a href=http://mathiasbynens.be/>@mathias</a>  
+---- <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/binary-ascii>GitHub! source</a></p>
+<script>(function(i,o){var l=o.getElementsByTagName("textarea"),b=l[0],a=l[1],k=o.getElementById("permalink"),j=/\s*[01]{8}\s*/g,e=/[\s\S]/g,f=/^(\s*[01]{8}\s*)*$/,r=/^[\x00-\xff]*$/,p=(function(){var t=new Date,v,s;try{(v=i.localStorage).setItem(t,t);s=v.getItem(t)==t;v.removeItem(t);return s&&v}catch(u){}}()),n=String.fromCharCode;function d(s){return encodeURIComponent(s).replace(/['()_*]/g,function(t){return"%"+t.charCodeAt().toString(16)})}function m(s){return"00000000".slice(String(s).length)+s}function q(s){return s.replace(j,function(t){return n(parseInt(t,2))})}function c(s){return s.replace(e,function(t){return m(t.charCodeAt().toString(2))+' '})}function h(x,v,u,t){var w=x.value,s="";if(v.test(w)){t.value=s=u(w);x.className=t.className=""}else{t.value="ERROR: invalid input";x.className=t.className="invalid"}return x==b?w:s}function g(){var s=this==a?h(a,f,q,b):h(b,r,c,a);k.hash=d(s);p&&(p.ascii=s)}b.onkeyup=a.onkeyup=g;b.oninput=a.oninput=function(){b.onkeyup=a.onkeyup=null;g.call(this)};if(p){p.ascii&&(b.value=p.ascii);g()}i.onhashchange=function(){b.value=decodeURIComponent(location.hash.slice(1));g()};if(location.hash){i.onhashchange()}}(this,document));window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src="//www.google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"))</script>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> I made a simple Java program to
+   show you the steps to convert the
+   <FONT color="red"><B>2's complement integer <TT>00001100</TT></B></FONT>
+   to its <FONT color="blue"><B>string "12"</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File:  /home/cs255001/demo/atoi/JavaOutput_3.java
+//
+// Converting a binary number between 0 and 99 to a String
+//
+
+public class JavaOutput_3
+{
+   public static void main(String[] args)  throws Exception
+   {
+      int i;
+      char[] c = new char[2];         // char array of size 1
+                                      // (because we only have 1 character)
+
+      i = 12;                     // This statement will assign the
+                                  // 2's compl code 00001100 to variable i
+				  // It actually uses 32 bits, but I list
+				  // the last 8 bits for brevity.
+                                  // *** Change to any value between 0 and 99
+
+      c[0] = (char) <FONT color="red">(i/10 + 48)</FONT>;  // c[0] is the left most digit in number i
+      c[1] = (char) <FONT color="red">(i%10 + 48)</FONT>;  // c[1] is the right most digit in number i
+
+      /* ---------------------------------------------
+         Make a string out of the character(s)
+         ---------------------------------------------- */
+      String s = <FONT color="red">new String(c);</FONT>   // Make a string using the characters
+
+      System.out.println(">>> " + s);
+<FONT color="red">
+      /* ---------------------------------------------
+         Prove to students that s is a string
+         ---------------------------------------------- */</FONT>
+      s = s + " - hello, this is a string !";
+      System.out.println(">>> " + s);
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@aruba> java JavaOutput_3      
+>>> 12
+>>> 12 - hello, this is a string !              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/atoi/JavaOutput_3.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac JavaOutput_3.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run:
+  <FONT color="red"><B><TT>java JavaOutput_3</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Quiz:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What will the above program print when
+       <FONT color="red"><B><TT>i = 102"</B></FONT> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Answer:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>:2</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The reason is similar to the previous quiz; the character in
+ <FONT color="red"><B><TT>c[0]</TT></B></FONT> is the
+  <FONT color="blue"><B>:</B></FONT> character because
+ the <FONT color="red"><B>ASCII code 58 </B></FONT> represents
+  <FONT color="blue"><B>:</B></FONT>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

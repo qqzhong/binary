@@ -1,0 +1,1039 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction: (1) how to pass parameters to functions, 
+  (2) how to create local variables and 
+  (3) how to pass return values back
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+<UL>
+<LI> Just like in the discussion of the
+    <FONT color="red"><B><TT>if (if-else)</TT></B></FONT> and
+    the <FONT color="red"><B><TT>while (for)</TT></B></FONT> statements
+    where:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We learn <FONT color="red"><B>2
+  <FONT color="blue"> new</FONT> assembler instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compare (<TT>cmp</TT>)</B></FONT>
+   instruction
+ <LI> The <FONT color="red"><B>conditional and unconditional
+          branch</B></FONT> instruction(s)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and use them to
+ <FONT color="red"><B>construct</B></FONT> the
+  <FONT color="blue"><B><TT>if (if-else)</TT></B></FONT> and
+ <FONT color="blue"><B><TT>while (for)</TT></B></FONT> statement
+ <FONT color="red"><B>program flow</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I can tell you that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You have learned
+     <FONT color="red"><B>everything</B></FONT>
+    in <FONT color="blue"><B>ARM assembler</B></FONT> to
+    write
+    <FONT color="red"><B>subroutines/functions/methods</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Here</B> a <FONT color="red"><B>summary</B></FONT>
+  of what  you <FONT color="blue"><B>have learned</B></FONT> 
+ about <FONT color="red"><B>subroutine call/return</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>caller</B></FONT> uses
+      <FONT color="red"><B><TT>bl</TT></B></FONT> to 
+       <FONT color="blue"><B>call</B></FONT>
+       a <FONT color="red"><B>subroutine</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>bl</TT></B></FONT> instruction will
+       <FONT color="blue"><B>store</B></FONT> the
+       <FONT color="red"><B>return address</B></FONT> in the
+       <FONT color="blue"><B>Link Register <TT>lr</TT></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> A <FONT color="red"><B><I>non</I>-leaf subroutine</B></FONT> 
+     <FONT color="blue"><B>must</B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B><TT>push&nbsp;{lr}</TT></B></FONT> to
+      <FONT color="blue"><B>save</B></FONT>
+     its <FONT color="red"><B>return address</B></FONT>
+      on the <B>system stack</B>
+ <LI>  <FONT color="red"><B><TT>pop&nbsp;{pc}</TT></B></FONT> to
+      <FONT color="blue"><B>return</B></FONT> to
+      the <FONT color="red"><B>caller</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> A <FONT color="red"><B><I>leaf</I> subroutine</B></FONT> 
+        <FONT color="blue"><B> may</B></FONT>  use:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B><TT>push&nbsp;{lr}</TT></B></FONT> to
+      <FONT color="blue"><B>save</B></FONT>
+     its <FONT color="red"><B>return address</B></FONT>
+      on the <B>system stack</B>
+ <LI>  <FONT color="red"><B><TT>pop&nbsp;{pc}</TT></B></FONT> to
+      <FONT color="blue"><B>return</B></FONT> to
+      the <FONT color="red"><B>caller</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>or:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Don't save the <FONT color="red"><B>return address</B></FONT>
+        (in <FONT color="blue"><B><TT>lr</TT></B></FONT>)
+ <LI> Use <FONT color="red"><B><TT>mov&nbsp;pc,lr</TT></B></FONT> to
+      <FONT color="blue"><B>return</B></FONT> to
+      the <FONT color="red"><B>caller</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Other things that are available in a function call in a high level 
+     programming language
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="red"><B>3 things</B></FONT> that
+   are <FONT color="blue"><B>available</B></FONT> in
+   a <FONT color="red"><B>method/function</B></FONT>
+   written in a
+   <FONT color="blue"><B>high level programming language</B></FONT>.
+<P>
+ I will illustrate them with a
+  <FONT color="blue"><B>commonly used</B></FONT>
+  <FONT color="red"><B>method definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /* ----------------------------------------------------------
+      sumRange(A,a,b):  returns  (A[a] + A[a+1] + ... + A[b-1]) 
+      ---------------------------------------------------------- */         
+   <FONT color="red">int</FONT> sumRange(<FONT color="red">int[] A, int a, int b</FONT> )           
+   {
+      <FONT color="red"> int i, s;</FONT>
+
+       s = 0;
+       for (i = a, i < b; i++)
+          s = s + A[i];
+       <FONT color="red">return(s)</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see that <FONT color="blue"><B>besides</B></FONT> the
+  <FONT color="red"><B>function/method name</B></FONT> (which
+  translates to a <FONT color="blue"><B>label</B></FONT>) and
+ the <FONT color="red"><B>statements</B></FONT> inside the <B>method</B>
+  (which will translate into <FONT color="blue"><B>assembler instructions
+  </B></FONT> - just like in the <FONT color="red"><B><TT>main</TT></B></FONT>
+  program that we have seen in so
+  <FONT color="blue"><B>many prior examples</B></FONT>), you find these
+  <FONT color="red"><B>new features</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Parameters</B></FONT>
+<P>
+ <LI> <FONT color="red"><B>Return value</B></FONT>
+<P>
+ <LI> <FONT color="red"><B>Local variables</B></FONT> that are
+         <FONT color="blue"><B>created</B></FONT> when the
+	 <FONT color="red"><B>method</B></FONT> starts
+	 <FONT color="blue"><B>running</B></FONT> and that are
+	 <FONT color="red"><B>destroyed</B></FONT> when method
+	 <FONT color="blue"><B>finishes</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> So far, we have only use
+    <FONT color="red"><B>permanent variables</B></FONT> 
+    (defined with <FONT color="blue"><B><TT>.byte</TT></B></FONT>,
+    <FONT color="blue"><B><TT>.2byte</TT></B></FONT>,
+    <FONT color="blue"><B><TT>.4byte</TT></B></FONT> or
+    <FONT color="blue"><B><TT>.skip</TT></B></FONT> that
+    exist
+    <FONT color="red"><B>throughout</B></FONT> the
+    <FONT color="blue"><B>entire execution</B></FONT> of
+    the <FONT color="red"><B>program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> And <B>just like</B> in the
+    discussion of
+   <FONT color="red"><B><TT>if (if-else)</TT></B></FONT> and
+      <FONT color="red"><B><TT>while (for)</TT></B></FONT> statements,
+      the <FONT color="blue"><B>realization</B></FONT> of
+      these <FONT color="red"><B>new features</B></FONT> is not
+      achieve with new assembler instructions, but throught:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Organize</B></FONT> your
+      <FONT color="blue"><B>assembler program</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In the next discussions, we will <FONT color="red"><B>organize</B></FONT> the
+  <FONT color="blue"><B>memory cells</B></FONT> in
+ the <FONT color="red"><B>CPU</B></FONT> and
+ in the <FONT color="blue"><B>computer memory</B></FONT> to
+ store <FONT color="red"><B>parameters</B></FONT>,
+  <FONT color="blue"><B>return values</B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT>
+<P>
+So pay attention to <FONT color="red"><B>how</B></FONT>
+  we <FONT color="blue"><B>organize</B></FONT> !!!
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Terminology: caller and callee
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Caller</B></FONT> (= 
+    <FONT color="blue"><B>calling method</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Caller</B></FONT> =
+    the <FONT color="blue"><B>method</B></FONT> that
+   <FONT color="red"><B>calls</B></FONT> another method
+<P>
+   The <FONT color="red"><B>caller</B></FONT> may
+   <FONT color="blue"><B>pass one or more parameter(s)</B></FONT> to
+     a called method
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Callee</B></FONT>
+     (= <FONT color="blue"><B>called method</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Callee</B></FONT> =
+     the <FONT color="blue"><B>method</B></FONT> that
+     <FONT color="red"><B>got called</B></FONT> (by another method)
+ <P>
+  (The <FONT color="red"><B><TT>main( )</TT></B></FONT> program is
+  <B>also</B> a <FONT color="blue"><B>method</B></FONT> !!!)
+ <P>
+  The <FONT color="red"><B>callee</B></FONT> may
+   <FONT color="blue"><B>pass a <I>return value</I></B></FONT> back
+   to its <FONT color="red"><B>caller</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+   <FONT color="red">How</FONT> to 
+     <FONT color="blue">pass</FONT>
+       <FONT color="red"> parameters</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Principle</B></FONT> of
+    <FONT color="blue"><B>passing parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Parameter passing</B></FONT> is
+       an <FONT color="blue"><B><I>agreement</I></B></FONT> between
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>calling</I> method</B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>and</B>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="red"><B><I>called</I> method</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+on:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B><I>Where</I></B></FONT> to
+      <FONT color="blue"><B>pass (= store)</B></FONT> the
+      <B>value</B> of each
+      <FONT color="red"><B>parameter</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><I>How</I></B></FONT> to
+      <FONT color="blue"><B>pass</B></FONT> the
+      <B>value</B> of each
+      <FONT color="red"><B>parameter</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">How</FONT> to 
+     <FONT color="blue">pass</FONT>
+       <FONT color="red"> return values</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Principle</B></FONT> of
+    <FONT color="blue"><B>passing return values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Passing <I>return values</I></B></FONT> is
+      <B>also</B>
+     an <FONT color="blue"><B><I>agreement</I></B></FONT> between
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>calling</I> method</B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>and</B>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="red"><B><I>called</I> method</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+on:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B><I>Where</I></B></FONT> to
+      <FONT color="blue"><B>pass (= store)</B></FONT> the
+      <B>value</B> of each
+      <FONT color="red"><B>parameter</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><I>How</I></B></FONT> to
+      <FONT color="blue"><B>pass</B></FONT> the
+      <B>value</B> of each
+      <FONT color="red"><B>parameter</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>  <FONT color="red"><B>Important note</B></FONT> about
+   <FONT color="blue"><B>return values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="blue"><B>method <I>returns</I></B></FONT>
+       its <FONT color="red"><B>return value</B></FONT>,
+       the <FONT color="blue"><B>method</B></FONT>
+       has <FONT color="red"><B>completed execution</B></FONT> !!!
+<P>
+  <FONT color="red"><B>Therefore</B></FONT>:
+      <FONT color="blue"><B><I>all</I> parameters</B></FONT> and
+       <FONT color="blue"><B><I>all</I> local variables</B></FONT> in
+       the <FONT color="red"><B>method</B></FONT> are
+       <FONT color="blue"><B><I>no longer needed</I></B></FONT>
+     
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><I>return value</I></B></FONT>
+      is (<B>usually</B>) 
+      <FONT color="blue"><B><I>one</I> simple value</B></FONT>
+      that can
+      (<B>always</B>) be
+      <FONT color="red"><B>stored in <I>one</I>
+      CPU register</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">common theme</FONT> of
+     (1) how to pass parameters to functions, 
+  (2) how to create local variables and 
+  (3) how to pass return values back
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Passing parameters</B>,
+      <B>creating local variables</B> and
+      <B>passing return values</B> has
+      the <FONT color="red"><B>following theme</B></FONT> in
+      <FONT color="blue"><B>common</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> They <B>all</B> involves
+      <FONT color="red"><B>storing information (or data)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Parameters</B></FONT> are
+       <FONT color="blue"><B>passed</B></FONT> using
+       <FONT color="red"><B>"things" that store parameter values</B></FONT>
+<P>
+<HR>
+<P>
+ <LI>  <FONT color="red"><B>Local variables</B></FONT> are
+       <FONT color="blue"><B>stored</B></FONT> using
+     <FONT color="red"><B>"things" that store values</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Return value</B></FONT> are <B>also</B>
+       <FONT color="blue"><B>passed</B></FONT> using
+        <FONT color="red"><B>"things" that store values</B></FONT>
+      &#128578;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     "Things" that store values inside the computer system
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Recall</B></FONT> that
+      the <FONT color="red"><B>computer system</B></FONT> consists of:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/logical-org2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> The <FONT color="red"><B>CPU</B></FONT>
+ <LI> The <FONT color="blue"><B>computer memory (RAM)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>"Things"</B></FONT> in the
+   <FONT color="blue"><B>CPU</B></FONT> that can be used to
+   store
+     <FONT color="red"><B>values</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>general purpose registers</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>"Things"</B></FONT> in the
+   <FONT color="blue"><B>RAM (computer memory)</B></FONT> that can be used to
+   store
+     <FONT color="red"><B>values</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>Every memory cell</B></FONT> in
+  the <FONT color="blue"><B>RAM</B></FONT> can be used
+     to store <FONT color="red"><B>values</B></FONT>...
+<P>
+<FONT color="red"><B><I>However</I></B></FONT>:
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B>Due to</B></FONT> 
+    the <FONT color="red"><B>FILO ordering</B></FONT> of
+    <FONT color="blue"><B>function calls/returns</B></FONT>:
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>most suitable <I>data structure</I></B></FONT>
+    to store the 
+    <FONT color="blue"><B>parameters and local variables</B></FONT>
+    in <FONT color="red"><B>function calls</B></FONT> is
+    the <FONT color="blue"><B><I>stack</I></B></FONT>
+    (because the
+    <FONT color="red"><B>stack</B></FONT> is
+    a <FONT color="blue"><B>FILO data structure</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So the
+  <FONT color="red"><B>parameters </B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT> are
+  <FONT color="blue"><B>placed</B></FONT> in the
+  <FONT color="red"><B>system stack</B></FONT>
+  when they are store in the <FONT color="blue"><B>memory</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Commonly used "things" (= storage location) to
+     put parameters 
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Commonly used "things" (= places)</B></FONT>
+       to 
+     <FONT color="blue"><B>store</B></FONT>
+     <FONT color="red"><B>parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> 
+     <FONT color="red"><B>Parameters</B></FONT> can be
+    <FONT color="blue"><B>passed</B></FONT> by
+     <FONT color="red"><B>copying the value</B></FONT> of the
+     <FONT color="blue"><B>parameters</B></FONT> in
+     a <B>pre-agreed</B>
+     <FONT color="red"><B>register</B></FONT> in the 
+     <FONT color="blue"><B>CPU</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>Parameters</B></FONT> can be
+    <FONT color="blue"><B>passed</B></FONT> by
+     <FONT color="red"><B><I>pushing</I> the value</B></FONT> of the
+     <FONT color="blue"><B>parameters</B></FONT> on
+    the
+     <FONT color="red"><B>system stack</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will discuss
+  <FONT color="red"><B>method 1</B></FONT>
+   <FONT color="blue"><B>next</B></FONT>
+<P>
+<FONT color="red"><B>Method 2</B></FONT> will be
+ discussed <FONT color="blue"><B> later</B></FONT>.
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+      Technique used to pass <FONT color="red">return values</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> Because <FONT color="red"><B>return values</B></FONT> of
+    <FONT color="blue"><B>methods</B></FONT> are
+    <FONT color="red"><B><I>simple</I> values</B></FONT> that
+    can be stored
+    in a <FONT color="blue"><B>CPU register</B></FONT>:
+    
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>return value</B></FONT> of
+    <FONT color="blue"><B>methods</B></FONT> are
+    <FONT color="red"><B>always</B></FONT>
+    passed back to its <B>caller</B>
+    in a <FONT color="blue"><B>CPU register</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Commonly used techniques to create (= reserve)
+      <FONT color="red">local variables</FONT>
+
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Local variables</B></FONT> have the
+     <FONT color="blue"><B><I>same</I> lifetime</B></FONT> as
+    <FONT color="red"><B>parameter variables</B></FONT> in
+    a <FONT color="blue"><B>method</B></FONT>.
+<P>
+<FONT color="blue"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can use the
+      <FONT color="red"><B><I>same</I> techniques</B></FONT> to
+      <FONT color="blue"><B>allocate memory</B></FONT> for
+      <FONT color="red"><B>local varaibles</B></FONT> as
+      for <FONT color="blue"><B>parameter variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI>
+
+
+ <FONT color="red"><B>Commonly used techniques</B></FONT>
+       to 
+     <FONT color="blue"><B>reserve (memory)</B></FONT> for
+     <FONT color="red"><B>local variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Method <FONT color="red"><B>reserves (= designate)</B></FONT> a specific
+     <FONT color="blue"><B>register</B></FONT> to
+     "represent" a
+     specific
+     <FONT color="red"><B>local variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This method will <FONT color="red"><B>only</B></FONT> work
+     when there are a <FONT color="blue"><B>few</B></FONT>
+   <FONT color="red"><B><I>simple</I> (= non-arrays or objets)
+   local variables</B></FONT>
+   <P>
+ <LI> This method does <FONT color="red"><B>not</B></FONT> work
+       when there are
+       <FONT color="blue"><B><I>too many</I></B></FONT>
+     local variables</B></FONT>
+     or for <FONT color="red"><B>arrays </B></FONT> or
+     <FONT color="blue"><B>objects</B></FONT> as
+     <B>local variables</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <P>
+<HR>
+ <P>
+ <LI> Method <FONT color="red"><B>reserves (= allocate)</B></FONT> 
+      memory on the
+     <FONT color="blue"><B>system stack</B></FONT> to
+     store the <FONT color="red"><B>value</B></FONT> of  a
+     specific
+     <FONT color="blue"><B>local variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This method will
+   <FONT color="red"><B>always work</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will discuss
+  <FONT color="red"><B>method 1</B></FONT>
+   <FONT color="blue"><B>next</B></FONT>
+<P>
+<FONT color="red"><B>Method 2</B></FONT> will be
+ discussed after <FONT color="blue"><B> later</B></FONT>.
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

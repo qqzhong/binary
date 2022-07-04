@@ -1,0 +1,666 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+From high level programming language to machine executable code
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Compiler
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Compiler:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Compiler</B></FONT> =
+       a <FONT color="red"><B>program (application)</B></FONT> that
+       <FONT color="blue"><B>translates</B></FONT> a
+       <FONT color="red"><B>computer program</B></FONT> written
+       in a <FONT color="blue"><B>high level programming language</B></FONT>
+       into <FONT color="red"><B><I>machine</I>
+        code (= binary numbers)</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Commonly</B> used
+       <FONT color="red"><B>high level programming languages</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Java</B></FONT> (<B>CS170</B>)
+ <LI> <FONT color="red"><B>C/C++</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Translating a <FONT color="red">high level</FONT> language program
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="blue"><B>Translating</B></FONT> a
+      <B>program</B> written in
+      a <FONT color="red"><B>high level programming langaue</B></FONT> into
+      <FONT color="blue"><B>machine code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="blue"><B>Step 1:</B></FONT>
+       translate the  <B>program</B> written in
+      a <FONT color="red"><B>high level programming langaue</B></FONT> into
+      an <FONT color="blue"><B><I>equivalent</I> program</B></FONT> written
+      in <FONT color="red"><B><I>assembler</I> programming language</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Step 2:</B></FONT> use an
+        <FONT color="red"><B>assembler</B></FONT> to
+	<B>translate</B> the
+	<FONT color="blue"><B><I>assembler</I> language program</B></FONT>
+	into <FONT color="red"><B>machine code</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/compile01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> Here is the <FONT color="red"><B>details</B></FONT> on
+    <FONT color="blue"><B>what </B></FONT> happens
+    during this <FONT color="red"><B>process</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>programmer</B></FONT> (= <B>you</B>)
+      use an <FONT color="red"><B>editor</B></FONT> and
+      write the <B>program</B> in
+      a <FONT color="blue"><B>high level programming language</B></FONT>
+      (e.g.: <FONT color="red"><B>C</B></FONT> or
+     <FONT color="red"><B>Java</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>programmer</B></FONT> <B>types</B> the
+     <B>program</B> using a <FONT color="red"><B>key board</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>key board</B></FONT> sends
+      <FONT color="red"><B>ASCII codes</B></FONT> to the 
+      <FONT color="blue"><B>editor</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>editor (program)</B></FONT> <B>stores</B>
+     the <FONT color="red"><B>program</B></FONT>
+     <B><I>encoded</I></B> using <FONT color="blue"><B>ASCII code</B></FONT>
+     in a <FONT color="red"><B>program source file</B></FONT>
+     (e.g.: <B>main.c</B> or <B>main.java</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Programmer</B> use
+      <FONT color="blue"><B>editor</B></FONT> to
+     create a <FONT color="red"><B>C program source file:</B></FONT>
+        (<FONT color="blue"><B><TT>main.c</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">i</FONT>nt x;
+    
+   int main( )                  
+   {
+      x = <FONT color="red">5</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Stored</B> as: (<FONT color="red"><B><TT>od -b main.c</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+(Octal numbers)
+0000000 <FONT color="red">151</FONT> 156 164 040 170 073 012 012 151 156 164 040 155 141 151 156
+0000020 050 040 051 012 173 012 040 040 040 170 040 075 040 <FONT color="red">065</FONT> 073 012
+0000040 175 012
+
+You can see that the file uses <FONT color="red">ASCII code</FONT>:
+ 
+   <FONT color="red">151<sub>(8)</sub> = 01101001<sub>(2)</sub></FONT> is the <FONT color="red">ASCII code</FONT> for the letter <FONT color="red">i</FONT>
+   <FONT color="red">065<sub>(8)</sub> = 00110101<sub>(2)</sub></FONT> is the <FONT color="red">ASCII code</FONT> for the symbol <FONT color="red">5</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>C program source file</B></FONT>
+      (encoded in <FONT color="red"><B>ASCII code</B></FONT> is
+      <B>first</B> <FONT color="blue"><B>translated</B></FONT> by
+      the <FONT color="red"><B>C compiler</B></FONT> to
+      an <FONT color="blue"><B><I>equivalent</I> program</B></FONT> in
+      <FONT color="red"><B><I>assembler</I> instruction</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B><I>this</I> course</B></FONT> we will
+     <FONT color="red"><B>study</B></FONT> <B>how</B> to
+     <FONT color="blue"><B>translate</B></FONT> a
+     <FONT color="red"><B>C statements</B></FONT> into
+     <FONT color="blue"><B>assembler instructions</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>assembler program</B></FONT> is
+     <B><I>also</I></B> encoded using the
+     <FONT color="blue"><B>ASCII code</B></FONT>
+     (so it's still a <FONT color="red"><B>text file</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Run: <FONT color="red"><B><TT>gcc -S main.c</TT></B></FONT> 
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT> will
+       <B>output</B> the
+       <FONT color="red"><B>assembler program <TT> main.s</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .<FONT color="red">f</FONT>ile   "main.c"
+        .comm   x,4,4
+        .text
+.globl main
+        .type   main, @function
+main:
+.LFB0:
+        .cfi_startproc
+        pushq   %rbp
+        .cfi_def_cfa_offset 16
+        .cfi_offset 6, -16
+        movq    %rsp, %rbp
+        .cfi_def_cfa_register 6
+        movl    $<FONT color="red">5</FONT>, x(%rip)
+        leave
+        .cfi_def_cfa 7, 8
+        ret
+        .cfi_endproc
+.LFE0:
+        .size   main, .-main
+        .ident  "GCC: (GNU) 4.4.7 20120313 (Red Hat 4.4.7-11)"
+        .section        .note.GNU-stack,"",@progbits
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Here is the <FONT color="red"><B>proof</B></FONT> that
+     the <FONT color="blue"><B>assembler program</B></FONT> is
+      <B>encoded</B> using <FONT color="red"><B>ASCII code</B></FONT>:
+      (<FONT color="blue"><B><TT>od -b main.s</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+0000000 011 056 <FONT color="red">146</FONT> 151 154 145 011 042 155 141 151 156 056 143 042 012
+0000020 011 056 143 157 155 155 011 170 054 064 054 064 012 011 056 164
+0000040 145 170 164 012 056 147 154 157 142 154 040 155 141 151 156 012
+.... (many lines deleted)
+0000260 146 151 137 144 145 146 137 143 146 141 137 162 145 147 151 163
+0000300 164 145 162 040 066 012 011 155 157 166 154 011 044 <FONT color="red">065</FONT> 054 040
+0000320 170 050 045 162 151 160 051 012 011 154 145 141 166 145 012 011
+.... (many lines deleted)
+0000540 011 056 156 157 164 145 056 107 116 125 055 163 164 141 143 153
+0000560 054 042 042 054 100 160 162 157 147 142 151 164 163 012
+
+<FONT color="red">146<sub>(8)</sub> = 01100110<sub>(2)</sub></FONT> is the <FONT color="red">ASCII code</FONT> for the symbol <FONT color="red">f</FONT>
+<FONT color="red">065<sub>(8)</sub> = 00110101<sub>(2)</sub></FONT> is the <FONT color="red">ASCII code</FONT> for the symbol <FONT color="red">5</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>Assembler program</B></FONT>
+     (encoded in <FONT color="red"><B>ASCII code</B></FONT>) is then
+    <FONT color="blue"><B>translated</B></FONT> by
+    the <FONT color="red"><B><I>Assembler</I></B></FONT> into
+    <FONT color="blue"><B><I>machine</I> instruction</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Machine instructions</B></FONT> are
+      <FONT color="red"><B>binary codes</B></FONT> used to
+      <FONT color="blue"><B>tell</B></FONT> the
+      <B>computer</B> what to <FONT color="red"><B>do</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B><I>Operations</I></B></FONT> are
+       <B>encoded</B> using 
+       <FONT color="red"><B>machine instruction code</B></FONT>
+       (which is <FONT color="blue"><B><I>machine</I> specific</B></FONT>)
+       --- see:
+       <A HREF="../5-repr/m8k-instr.html"> 
+       <FONT color="red"><B>click here</B></FONT></A>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">0000</FONT>00 = <FONT color="red">add</FONT> byte operands  (<FONT color="red">0000</FONT> means: <FONT color="red">add</FONT>)    
+     <FONT color="red">0000</FONT>01 = <FONT color="red">add</FONT> short operands
+     <FONT color="red">0000</FONT>10 = <FONT color="red">add</FONT> int operands
+
+     <FONT color="red">0001</FONT>00 = <FONT color="red">subtract</FONT> byte operands (<FONT color="red">0001</FONT> means: <FONT color="red">subtract</FONT>)
+     <FONT color="red">0001</FONT>01 = <FONT color="red">subtract</FONT> short operands    
+     <FONT color="red">0001</FONT>10 = <FONT color="red">subtract</FONT> int operands
+
+     And so on...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Signed numeric values</B></FONT> used in
+      <FONT color="blue"><B>machine instructions</B></FONT> are
+      <B>encoded</B> using <FONT color="red"><B>2's complement code</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  signed value <FONT color="red">-2</FONT>   is encoded as:   <FONT color="red">11111111 11111110</FONT> (2's complement)  
+
+  (The number of bits used to encode a signed value can be: 8, 16, 32, 64)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Compile</B></FONT> using
+    this command:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc -c main.s             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>assembler</B></FONT> will <B>output</B>
+ the file <FONT color="blue"><B><TT>main.o</TT></B></FONT> containing
+  <FONT color="red"><B><I>binary</I> unprintable (non-ASCII) codes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">cat  main.o</FONT>   (and see the jibberish)             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>machine instruction <I>code</I></B></FONT> for
+      <FONT color="red"><B><TT>movl $5, x(%rip)</TT></B></FONT> 
+      is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  objdump --disassemble main.o
+
+   ...
+   4:   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">c7 05 00 00 00 00 05</FONT></SPAN>    movl   $0x5,0x0(%rip) 
+   ... 
+
+  So the <FONT color="red">machine code</FONT> for  <FONT color="red">movl  $5,x(%rip)</FONT> in <FONT color="red">bits</FONT> is:
+
+     011000111 00000101 <FONT color="red">00000000 00000000 00000000 00000101</FONT>     
+     ^^^^^^^^^^^^^^^^^^ <FONT color="red">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</FONT>
+     encodes "movl"       <FONT color="red">encodes 5 in 2's complement</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can find the <FONT color="red"><B>proof</B></FONT> of 
+ that the <FONT color="blue"><B>machine instructions</B></FONT> are
+ <B>stored</B> in
+ <FONT color="red"><B>binary format</B></FONT> using this command:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">od -b main.o</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Look for the <B>line</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+0000100 125 110 211 345 <FONT color="red">307 005 000 000 000 000 005</FONT> 000 000 000 311 303
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>highlighted section</B></FONT> is the
+ above <FONT color="blue"><B>machine instruction</B></FONT>
+ (written in <FONT color="red"><B>Octal</B></FONT>)
+<P>
+<B>Notice that:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>number 5</B></FONT> is <B>now</B>
+       <FONT color="red"><B>encoded</B></FONT> as a
+       <FONT color="blue"><B>2's complement</B></FONT> code !!!
+<P>
+ So the <FONT color="red"><B>assembler</B></FONT> translates
+  <FONT color="blue"><B>number symbols (e.g. '12')</B></FONT> <B>coded</B>
+  in <FONT color="red"><B>ASCII</B></FONT> into
+  <FONT color="blue"><B>2's complement</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="blue"><B>program files</B></FONT> used to
+     <FONT color="red"><B>illstrate</B></FONT> the
+     <FONT color="blue"><B>examples</B></FONT> are found in:
+  </UL>
+<P>
+
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>/home/cs255000/demo/c-asm/main.c</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ <LI> To obtain the <FONT color="blue"><B>assembler program</B></FONT>: 
+  &nbsp; <FONT color="red"><B><TT>gcc -S main.c</TT></B></FONT>
+ <LI> To obtain the <FONT color="blue"><B>machine code program</B></FONT>: 
+  &nbsp; <FONT color="red"><B><TT>gcc -c main.s</TT></B></FONT>
+	<BR>
+   Then use: 
+	<FONT color="blue"><B><TT>
+    objdump --disassemble main.o
+	</TT></B></FONT>
+	to see the <B>binary machine codes</B> 
+	with the <B>assembler instructions</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

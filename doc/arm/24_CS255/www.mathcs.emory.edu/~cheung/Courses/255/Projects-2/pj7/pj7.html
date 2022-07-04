@@ -1,0 +1,753 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization/Architecture I <br>
+Project 7
+</H2>
+</center>
+<P>
+Due date: See Class Webpage
+
+<p>
+
+<P>
+<H3>
+0. Preparations
+</H3>
+<UL>
+<P>
+<LI> To do this project, you must obtain a copy of the prepared
+   files using <B>EGTAPI</B> (use project code <B>pj7</B>)
+    - you have done this enough times that I don't need to give more
+   detailed instructions.
+<P>
+  The alternative method to get the prepared files is to
+  enter these commands in the <B>EGTAPI</B>  terminal:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mkdir  ~/cs255/pj7
+
+   For CS255-1 students:
+       cp /home/cs255001/Handouts/pj7/*  ~/cs255/pj7       
+
+   For CS255-2 students:
+       cp /home/cs255002/Handouts/pj7/*  ~/cs255/pj7
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+1. Project Description
+</H3>
+<UL>
+Write a Bubble sort <FONT color="red"><B>subroutine</B></FONT>
+    in ARM assembler language.
+Some of you may have forgotten what the Bubble sort algorithm is,
+so let me describe that in Section 2.
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+2. The BubbleSort Algorithm
+</H3>
+<UL>
+For those who does not know what bubble sort is,
+ the following is the C++/Java program that you need to implement:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   // How the variables are used:
+   //
+   //     input A: array of integers that needs to be sorted
+   //           N: size of array A
+   //
+   //     Done: integer (functioning as a boolean: 0 = false, 1 = true)
+   //     Help: integer (help variable for swapping)
+
+   void BubbleSort(int[] A, int N)
+   {
+       int i, Done, k;
+
+       Done = 0;             // 0 represents false
+       k = 1;
+
+       while (Done == 0) 
+       {  
+          Done = 1;          // 1 represents true.
+
+          for (i = 0; i < N-k; i++)
+          { 
+             if (A[i] > A[i+1])
+             { 
+	 	 Swap A[i] and A[i+1];
+                 Done = 0;          // Not sorted...
+	     }
+	  }
+          k = k + 1;
+       }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</tt>
+</pre>
+
+Basically, the bubble sort algorithm swaps two adjacent elements
+ <tt> A[i]</tt> and  <tt> A[i+1]</tt> when the latter is smaller.
+When two adjacent element are exchanged, the <tt> Done</tt> variable
+ is set to <tt> FALSE </tt>, indicating that another iteration is
+ necessary.
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+3. The <TT>main</TT> Program
+</H3>
+<UL>
+I have provided a <B>main</B> program that 
+ <FONT color="red"><B>calls</B></FONT>  your
+ <FONT color="blue"><B>bubble sort</B></FONT> 
+ subroutine.
+<P>
+The <B>main</B> program is stored in the file
+ <FONT color="blue"><B>pj7.s</B></FONT>
+
+<P>
+<HR>
+<P>
+ The <FONT color="red"><B><TT>main</TT></B></FONT> program will
+  <FONT color="blue"><B>call</B></FONT> 
+	(i.e., executes a <B>bsr BubbleSort</B> instruction) the
+  <FONT color="red"><B><TT>BubbleSort</TT></B></FONT> subroutine
+  <B><I>twice</I></B>,
+  each time 
+  with a <FONT color="blue"><B>different array</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+The <FONT color="blue"><B><TT>main</TT></B></FONT> program calls
+  the <FONT color="red"><B><TT>BubbleSort</TT></B></FONT> 
+  with
+ <FONT color="blue"><B>2 parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>address</B></FONT> of the
+     <B>array</B> that needs to be
+     <FONT color="red"><B>sorted</B></FONT>
+ <P>
+ <LI> The <FONT color="blue"><B>number</B></FONT> of <B>elements</B>
+      in the array
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>type</B></FONT> of the <B>elements</B>
+  of the array is <FONT color="red"><B><TT>int</TT></B></FONT>.
+<P>
+The <FONT color="blue"><B><TT>main</TT></B></FONT> program
+ <B>passes</B> the <FONT color="red"><B>parameters</B></FONT>
+ as <B>follows:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <FONT color="red"><B>address</B></FONT>
+        of the <FONT color="blue"><B>array</B></FONT> is stored in 
+       <B>register r0</B> and
+ <LI> the <FONT color="red"><B>number of elements</B></FONT>
+          of the <FONT color="blue"><B>array</B></FONT> stored in
+           <B>register r1</B>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ Here are the code segments that shows you how the
+ <FONT color="blue"><B><TT>main</TT></B></FONT> program
+ calls the <FONT color="red"><B><TT>BubbleSort</TT></B></FONT> subroutine:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        movw    r0, #:lower16:A         // Pass address of the array A in r0
+        movt    r0, #:upper16:A
+        mov     r1, #5                  // Pass size of the array in r1
+
+       <FONT color="red"> bl      BubbleSort </FONT>             // Call BubbleSort to sort array A (5 elements)
+
+	....
+
+        movw    r0, #:lower16:B         // Pass address of the array B in r0
+        movt    r0, #:upper16:B
+        mov     r1, #10                 // Pass size of the array in r1
+
+        <FONT color="red">bl      BubbleSort </FONT>             // Sort array B (10 elements)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore</B>, your 
+  <FONT color="blue"><B><TT>BubbleSort</TT></B></FONT> subroutine
+ <FONT color="red"><B><I>must</I> use</B></FONT> as
+ parameters:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>r0</TT></B></FONT> = address of the 
+      array to be sorted
+ <LI> <FONT color="blue"><B><TT>r1</TT></B></FONT> = number of elements
+      in the array
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B><TT>BubbleSort</TT></B></FONT> 
+       subroutine returns, the
+       <FONT color="blue"><B>array</B></FONT> that was <B>passed</B>
+       to <FONT color="red"><B><TT>BubbleSort</TT></B></FONT> will
+       become <FONT color="blue"><B><I>sorted</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+4. The <TT>bubblesort.s</TT> program file
+</H3>
+<UL>
+<LI> Write your <FONT color="blue"><B>BubbleSort</B></FONT> subroutine
+     inside the file
+     <FONT color="red"><B><TT>bubblesort.s</TT></B></FONT>.
+<P>
+ Right now, the <FONT color="red"><B><TT>bubblesort.s</TT></B></FONT>
+ looks like this:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .global BubbleSort
+
+	.text
+<FONT color="red">BubbleSort:</FONT>
+//*****************************************************
+// Write your bubble sort assembler subroutine here
+//
+//    BubbleSort: input  r0 = address of int array
+//                       r1 = # elements in the array
+//*****************************************************
+
+
+
+        // Write your bubble sort function here.....
+        // Make sure you RETURN to the caller !!!
+
+
+
+
+
+
+
+
+// *************************************************************************
+// Do NOT define any variables with .skip or .4bytes in this file
+//
+// Use REGISTER to store your (local) variables
+// *************************************************************************
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You must write the <FONT color="blue"><B>BubbleSort</B></FONT> function
+ in <B>ARM</B> assembler code and put the code
+ after the
+ <FONT color="red"><B><TT>BubbleSort</TT></B></FONT>
+  (and <FONT color="blue"><B><I>before</I></B></FONT> the
+  <FONT color="red"><B><TT>.data</TT></B></FONT> directive)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make sure you <FONT color="blue"><B>use</B></FONT> the
+      <FONT color="red"><B>parameter passing <I>agreement</I></B></FONT>
+      defined <B>above</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+This is also the file that you must turn in.
+<P>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+5. Compile and run project 7
+</H3>
+<UL>
+
+<LI> You can compile pj7 with <B>EGTAPI's file browser</B>
+	as follows:
+<P><UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    1. First: press the CONTROL key  and  select  pj7.s
+
+    2. THEN:  
+
+         On a Window PC: press the CONTROL key  and  select  bubblesort.s     
+         On a Mac PC:    press the COMMAND key  and  select  bubblesort.s     
+
+       NOTE: the ORDER of clicking is VERY IMPORTANT
+             DO NOT click on  bubblesort.s  first !!!!
+	     (A wrong order will cause EGTAPI to generate the output "bubblesort.arm"    
+              and not  "pj7.arm")
+
+    3. Finally: click  "Compile"
+
+       NOTE: You MUST see the digit "1" next to the "pj7.s" file before
+             you click "compile" or else, EGTAPI will generate a
+	     WRONG assembler output filename !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+If you have a hard time using the CONTROL + click to compile the project,
+  you can <B>also</B> <FONT color="blue"><B>compile</B></FONT> the programs
+      in this project, by opening the <B>Terminal</B> in
+   EGTAPI and
+  type the follow commands:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    cd   ~/cs255/pj7                   // Execute this once 
+
+    /home/cs255001/bin/as255    pj7.s   bubblesort.s             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> To <FONT color="blue"><B>run</B></FONT> this project:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If compilation is successful, you will see
+         <FONT color="red"><B>pj7.arm</B></FONT> in the
+	file list in <B>EGTAPI</B>
+  <P>
+ <LI> Click on  <FONT color="red"><B>pj7.arm</B></FONT>
+	and click <B>Load</B> to run it.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+6. The Egtapi Debug file
+</H3>
+<UL>
+I have prepared a 
+ <FONT color="blue"><B>egt.pj7.arm</B></FONT>
+   file that displays the <FONT color="red"><B>arrays</B></FONT>
+   used in this project.
+You have copied this file in the
+  <FONT color="blue"><B>preparation step</B></FONT>.
+<P>
+<HR>
+<P>
+I am sure you will have bugs in your program with this assignment.
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> So check (read !!!) out 
+ <FONT color="red"><B>Section 4 + 5 of Project 6</B></FONT>
+(<A HREF="../pj6/pj6.html#breakpoint">
+  <FONT color="blue"><B>click here</B></FONT> </A>)
+   and
+ the <FONT color="red"><B>Section 9 and 10 </B></FONT>
+  in the <B>Egtapi manual</B>
+ (<A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/">
+  <FONT color="blue"><B>click here</B></FONT> </A>)
+ on how to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>set</B></FONT>
+           <FONT color="red"><B> break points</B></FONT> and
+ <LI>  use <FONT color="blue"><B>breakpoints</B></FONT> to debug
+  your assembler program.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+The <FONT color="blue"><B>breakpoints</B></FONT> are
+ <FONT color="red"><B>very helpful</B></FONT> in finding errors
+ in assembler programs.
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Correct behaviour:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the program starts, you should see <FONT color="blue"><B>2
+       <I>unsorted</I> array</B></FONT> (named
+       <FONT color="red"><B><TT>A</TT></B></FONT> and
+       <FONT color="red"><B><TT>B</TT></B></FONT>)
+       in the <B>Array window</B>
+	(you must click on the "Array" tab to see them).
+<P>
+<LI> When you click on <FONT color="blue"><B>Run</B></FONT>
+     (<B>double arrow</B>), the program will
+     <FONT color="red"><B>stop</B></FONT> at the
+     label <FONT color="blue"><B><TT>BubbleSort</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I made the program stop at the
+      <FONT color="red"><B>start (beginning)</B></FONT> of the
+      <FONT color="blue"><B><TT>BubbleSort</TT></B></FONT> function
+      to <FONT color="red"><B>help</B></FONT> you
+      <FONT color="blue"><B>debug</B></FONT> the program
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+    When you click on <FONT color="blue"><B>Run</B></FONT>
+     <B>again</B>, the program will
+     <FONT color="red"><B>stop</B></FONT> at the
+     label <FONT color="blue"><B><TT>sortB</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The array <FONT color="red"><B><TT>A</TT></B></FONT>
+       (in the <B>"Array" windown</B>) will now be
+       <FONT color="blue"><B><I>sorted</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> When you click on <FONT color="blue"><B>"Run"</B></FONT>
+     (<B>double arrow</B>)
+     <FONT color="red"><B><I>again</I></B></FONT>, the program will
+     <FONT color="blue"><B>stop</B></FONT> at the
+     label <FONT color="red"><B><TT>BubbleSort</TT></B></FONT>
+     again (because it is a breakpoint)
+ <P>
+  <FONT color="blue"><B>Click</B></FONT>
+   <FONT color="red"><B>"Run"</B></FONT> again, and the
+   <B>program</B> will stop at
+   the <FONT color="blue"><B>label</B></FONT>
+   <FONT color="red"><B><TT>Stop</TT></B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The array <FONT color="red"><B><TT>B</TT></B></FONT>
+       (in the <B>"Array" window</B>) will now be
+       <FONT color="blue"><B><I>sorted</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+7. Turn in
+</H3>
+<UL>
+
+Turn in your <B>bubblesort.s</B> program using project code
+   <FONT color="red"><B> pj7</B></FONT>
+   using <B>EGTAPI</B>
+<P>
+   (In EGTAPI, select: File Browser, Turnin, 
+   click on the file you want to turn in (bubblesort.s),
+   use the turn in code: <B>pj7</B>)
+<P>
+<HR>
+<P>
+You can also use 
+the 
+  <FONT color="blue"><B><TT>turnin</TT> </B></FONT>
+command (executed while you're in your cs255 directory)
+<P>
+ Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ these command:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cd  ~/cs255/pj7 
+
+
+    /home/cs255001/turnin  <FONT color="red">bubblesort.s </FONT>  pj7   // If you're in section 1     
+
+ or
+
+    /home/cs255002/turnin  <FONT color="red">bubblesort.s </FONT>  pj7   // If you're in section 2     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>do <I>not</I></B></FONT> need to turn in
+  the <FONT color="red"><B><TT>pj7.s</TT></B></FONT> file !!!
+<P>
+As usual, I want the source (so I can read it).
+<B>DO NOT</B> turn in the executable or the object code !
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+</UL>
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  8.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj7</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj7</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj7</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj7</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

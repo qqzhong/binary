@@ -1,0 +1,328 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Inference rules</I> used in makefiles
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Inference</I> rules
+     </B></FONT>
+<P>
+<UL>
+<LI> <B><I>Inference</I> rules</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Inference rule</B></FONT> =
+      a <FONT color="red"><B>generalized rule</B></FONT> that
+      can be applied to
+      a <FONT color="blue"><B>group of files</B></FONT> with
+      <FONT color="red"><B>similar file names</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Special</B> <FONT color="blue"><B>notations</B></FONT>
+     used to formulate <FONT color="red"><B>inference rules</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">%</FONT>    =  <FONT color="red">wildcard character</FONT> - match 0 or more characters
+
+    <FONT color="red">$<</FONT>   =  <FONT color="red">first item</FONT> in the list of dependent filenames     
+    <FONT color="darkgreen">$^</FONT>   =  <FONT color="red">all items</FONT>  in the list of dependent filenames
+
+    <FONT color="darkgreen">$@</FONT>   =  <FONT color="red">current target name</FONT> <FONT color="blue">including</FONT> the extension
+    <FONT color="darkred">$*</FONT>   =  <FONT color="red">current target name</FONT> <FONT color="darkmagenta">not including</FONT> the extension
+
+<HR>
+ <FONT color="red">Summary:</font>
+
+        main.o:  file1.o  file2.o  file3.o
+        ----     -------
+         <FONT color="darkred">$*</FONT>        <FONT color="red">$<</FONT>
+
+        ======   =========================
+          <FONT color="darkgreen">$@</FONT>               <FONT color="darkgreen">$^</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B> <FONT color="blue"><B>inference rule</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">%.o</FONT>: <FONT color="darkred">%.c</FONT>  func5b.h      
+         gcc -c  <FONT color="red">$<</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Meaning:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The character <FONT color="blue"><B>%</B></FONT> is
+    the <FONT color="red"><B>wildcard character</B></FONT>
+  <P>
+     <FONT color="blue"><B>%</B></FONT> matches
+ <FONT color="red"><B>0 or more</B></FONT>
+    characters in a <B>file name</B>
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>Any</I> file</B></FONT>
+    with name <FONT color="blue"><B>"*.o"</B></FONT> depends
+    on a file with <FONT color="red"><B>same prefix</B></FONT> but <B>ends</B>
+     in
+    <FONT color="blue"><B>".c"</B></FONT> (and <B><I>also</I></B> on
+    the header file
+    <B>func5b.h</B>)
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">%.o: %c  func5b.h</FONT>
+             gcc -c  <FONT color="red">$<</FONT> 
+
+  Will generate <FONT color="red">all</FONT> these dependencies:
+
+       file1.o: file1.c func5b.h
+             gcc -c  <FONT color="red">file1.c</FONT> 
+
+       file2.o: file2.c func5b.h
+             gcc -c  <FONT color="red">file2.c</FONT> 
+
+       file3.o: file3.c func5b.h
+             gcc -c  <FONT color="red">file3.c</FONT> 
+
+       ....
+
+       <FONT color="red">anyFilename.o: sameFileName.c  func5b.h </FONT>           
+             gcc -c  <FONT color="red">sameFileName.c</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example using inference rules
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Previously</B>, we used the following
+     <FONT color="blue"><B>Makefile</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   main: func5a.o func5b.o        
+   	   gcc -o main func5a.o func5b.o           
+<FONT color="darkred">   			  
+   func5a.o:  func5a.c  func5b.h  
+   	   gcc -c func5a.c        
+   			  
+   func5b.o:  func5b.c  func5b.h
+   	   gcc -c func5b.c</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We can <FONT color="red"><B>replace</B></FONT> the
+      <B>last 2 rules</B> with 
+      <FONT color="red"><B>one inference rule</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   main: func5a.o func5b.o
+        gcc -o main func5a.o func5b.o      
+<FONT color="blue">
+   %.o:  %.c  func5b.h
+        gcc -c <FONT color="red">$<</font></FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> <B>Note:</B> this Makefile is even <FONT color="red"><B>better</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   main: func5a.o func5b.o        
+        gcc -o  <FONT color="darkgreen">$@</font>  <FONT color="darkgreen">$^ </font>    
+
+   # $@ = current target name including the extension (= main)
+   # $^ = all items in the list of dependent filenames (= func5a.o func5b.o)
+
+<FONT color="blue">
+   %.o:  %.c  func5b.h
+        gcc -c <FONT color="red">$<</font></FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="red"><B><TT>func5a.c</TT></B></FONT> Prog file:
+       <A HREF="Progs/3/func5a.c"> click here </A>
+  <LI> The <FONT color="red"><B><TT>func5b.c</TT></B></FONT> Prog file:
+       <A HREF="Progs/3/func5b.c"> click here </A>
+  <LI> The <FONT color="red"><B><TT>func5b.h</TT></B></FONT> header file:
+       <A HREF="Progs/3/func5b.h"> click here </A>
+  <LI> The <FONT color="red"><B><TT>Makefile</TT></B></FONT>:
+       <A HREF="Progs/3/Makefile"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>make</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>main</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

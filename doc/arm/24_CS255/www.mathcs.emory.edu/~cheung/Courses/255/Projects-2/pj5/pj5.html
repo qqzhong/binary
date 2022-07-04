@@ -1,0 +1,609 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization and Assembler Programming<BR>
+Project 5 
+</H2>
+</CENTER>
+<P>
+
+Due date: See Class Webpage
+
+<P>
+Observe the <B> Emory Honor Code </B> when doing this (and all other) homework.
+
+
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+0. Preparations
+</H3>
+<UL>
+<P>
+<LI> To do this project, you must obtain a copy of the prepared
+   files using one of two methods:
+
+<P>
+<UL>
+<LI> <FONT color="red"><B>Method 1:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Click on 
+       <FONT color="red"><B>File Browser</B></FONT> 
+      (top menu bar in <B>EGTAPI</B>)
+ <LI> In the <FONT color="red"><B>File Browser</B></FONT> side bar,
+    <FONT color="blue"><B>click</B></FONT> on the
+     <FONT color="red"><B>Prepare</B></FONT> tab.
+ <LI> In the <FONT color="red"><B>Egtapi Prepare</B></FONT> pop up window,
+    select: <FONT color="red"><B>Section Number = 1</B></FONT> if you're in
+    <B>CS255-1</B>
+     and
+    <FONT color="red"><B>Section Number = 2</B></FONT> if you're in
+    <B>CS255-2</B>; and
+    enter <FONT color="blue"><B>pj5</B></FONT> in the 
+   <FONT color="red"><B>Project Code</B></FONT> field.
+<LI> Then clcik the <FONT color="red"><B>Prepare</B></FONT> button
+   (and close the <FONT color="blue"><B>Prepare</B></FONT> window when done)
+<P>
+<LI> The <FONT color="red"><B>verify</B></FONT> that it was successful,
+   click <FONT color="blue"><B>Refresh</B></FONT> in the
+   <FONT color="red"><B>EGTAPI File Browser window</B></FONT> -
+  you should see the
+  <FONT color="blue"><B>pj5</B></FONT> folder.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Method 2</B></FONT>:
+ <P>
+  Open the <B>Terminal</B> in <B>EGTAPI</B> and enter these commands
+  into the terminal (at the bottom of EGTAPI):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mkdir  ~/cs255/pj5
+
+   For CS255-1 students:
+       cp /home/cs255001/Handouts/pj5/*  ~/cs255/pj5
+
+   For CS255-2 students:
+       cp /home/cs255002/Handouts/pj5/*  ~/cs255/pj5
+
+   ls  ~/cs255/pj5   // You should see: pj5.s listed        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+1. Purpose
+</H3>
+<UL>
+This homework continues with the ARM programming
+and re-inforces:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Accessing data structures</B></FONT>: 
+      retrieve values from <FONT color="red"><B>arrays</B></FONT> and
+      <FONT color="red"><B>linked lists</B></FONT>
+ <LI> <FONT color="blue"><B>Arithmetic operations</B></FONT>
+      (+, - and * operations)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+In depth understanding about (1) how a computer accesses variables
+ (especially <B>structured varaibles</B>)
+in memory and (2) using registers in computations
+ forms the basis of assembler programming.
+
+<P>
+To get you going with programming in ARM, I have provided the skeletal
+program <FONT color="red"><B>pj5.s</B></FONT> and
+ its <B>Egtapi</B> debug information file
+  <FONT color="blue"><B>egt.pj5.arm</B></FONT>.
+In the <FONT color="blue"><B>preparation step</B></FONT>, you have
+ made a copy of these files into your CS255 project directory.
+
+<P>
+The skeletal program <FONT color="red"><B>pj5.s</B></FONT>
+ has 10 sections, labeled as 
+ <FONT color="blue"><B>Q1, Q2, ..., Q10</B></FONT>
+corresponding to 
+ <FONT color="red"><B>questions 1 through 10</B></FONT> (see below).
+<P>
+Write the assembler instructions the each answer 
+  <FONT color="blue"><B>in the corresponding
+ section</B></FONT> of the <FONT color="red"><B><TT>pj5.s</TT></B></FONT> file.
+
+<P>
+The <FONT color="blue"><B>variables definition</B></FONT>
+   section of the  skeletal program  <FONT color="red"><B>pj5.s</B></FONT>
+  contains the following:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   **************************************
+   * Variables used to display output
+   **************************************
+   ans_b: .skip 1         * In Java: byte ans_b;
+   ans_w: .skip 2         * In Java: short ans_b;
+   ans_l: .skip 4         * In Java: int ans_b;
+
+   ****************************************
+   * Indices used to select array elements
+   ****************************************
+   i:   .byte  2          * In Java: byte i = 2;
+   j:   .2byte 3          * In Java: short w = 3;
+   k:   .4byte 4          * In Java: int k = 4;
+
+   ****************************************
+   * 3 arrays of 10 elements
+   ****************************************
+   A:  .byte    11, -22, 33, -44, 55, -66, 77, -88, 99, -123
+   B:  .2byte   111, -222, 333, -444, 555, -666, 777, -888, 999, -5432
+   C:  .4byte   1111, -2222, 3333, -4444, 5555, -6666, 7777, -8888, 9999, -9876
+<FONT color="red">
+   Comment: <TT>A</TT> is an array of 10 bytes, 
+   Comment: <TT>B</TT> is an array of 10 shorts and
+   Comment: <TT>C</TT> is an array of 10 integers.</FONT>
+
+   ********************************************************
+   * One linked list starting at head
+   *
+   * head ->[1234,89,-11]->[2345,78,66]->[-3456,67,44]
+   *          ->[4567,56,77]->[5678,45,44]
+   ********************************************************
+   head  .4byte  list1
+<FONT color="red">
+   Comment:
+
+      head points to the first element of a linked list.
+      The linked list has been set up already.
+
+      Each linked list element has the following structure:
+
+       class list
+       {
+          int   value1;    // 4 bytes
+	  short value2     // 2 bytes
+	  short value3     // 2 bytes
+	  list  next;      // points to the next list element
+       }</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+The homework assignment questions will ask you to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Retrieve</B> the value from elements in
+        one of the <FONT color="red"><B>  arrays</B></FONT> or
+	in the <FONT color="blue"><B>linked list</B></FONT>
+ <LI> Then <B>store</B> the retrieved value into
+      <FONT color="blue"><B>one</B></FONT> of the <B>variables</B>
+      <FONT color="red"><B><TT>ans_b</TT>, <TT>ans_w</TT>
+     </B></FONT> or
+     <FONT color="red"><B> <TT>ans_l</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+Be very careful and use the 
+ <FONT color="red"><B>correct operand size</B></FONT>. 
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+2. Questions
+</H3>
+<P>
+<UL>
+Write ARM assembler instructions to do the following:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<FONT COLOR="blue"><B><PRE>
+   Q1:   ans_s = B[5];                     (ans_s: -666)
+   Q2:   ans_b = A[3];                     (ans_b: -44)
+   Q3:   ans_i = C[j];                     (ans_i: -4444)
+   Q4:   ans_i = B[k - j];                 (ans_i: -222)
+   Q5:   ans_s = C[i + j];                 (ans_s: -6666)
+   Q6:   ans_i = A[k] - B[k];              (ans_i: 55 - 555 = -500)
+   Q7:   ans_s = B[A[i] - 30];             (ans_s: B[33 - 30] = B[3] = -444)
+   Q8:   ans_s = B[18];                    (ans_s: 5555, can you explain why ?)   
+   Q9:   ans_b = head.value2;              (ans_b: 89)
+   Q10:  ans_s = head.next.next.value3;    (ans_s: 44)
+</PRE></B></FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<P>
+<HR>
+<P>
+<H3>
+3. Hint on Debugging
+</H3>
+
+<P>
+<UL>
+The <FONT color="blue"><B>EGTAPI</B></FONT> tool is designed to
+   help you debug an <FONT color="red"><B>assembler program</B></FONT>
+   with ease.... 
+<P>
+The following is a <FONT color="blue"><B>general guideline</B></FONT>
+   for debugging assembler programs:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<OL>
+<LI> First you must <B>run EGTAPI</B> and 
+	<B>get to the part of the program containing a bug</B>
+    <P>
+    To accomplish  this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  Use the <B>Run</B> button to get to the
+    <FONT color="red"><B>breakpoint</B></FONT>
+     right <FONT color="blue"><B><I>before</I></B></FONT> the
+     problem spot in the program.
+ <P>
+  (Do <FONT color="red"><B>not</B></FONT> run the program upto the
+  <FONT color="blue"><B>problem spot</B></FONT>,
+  it will be <FONT color="red"><B>too late</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <HR>
+  <P>
+<LI> When you have reached the place
+     <FONT color="red"><B><I>just</I> before</B></FONT> before
+     the program spot with a <FONT color="blue"><B>bug</B></FONT>,
+	you must use the
+      <FONT color="red"> <B>Single Step</B></FONT>
+      button to execute <FONT color="blue"><B>one instruction</B></FONT>
+      at a time !!!
+ <P>
+    <FONT color="darkmagenta"><B>Check the outcome</B></FONT>
+     of the <B>execution</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Check the <FONT color="red"><B>value</B></FONT> in the <B>registers</B> 
+      or <B>variables</B> and
+      <FONT color="blue"><B>verify</B></FONT>
+      whether the <FONT color="red"><B> result</B></FONT>
+       is the one that <FONT color="blue"><B>want</B></FONT> to
+       achieve.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(This of course <FONT color="red"><B>assumes</B></FONT> that 
+  <B><I>you</I> know</B>
+  what the <FONT color="blue"><B>correct asnwer</B></FONT> should be....)
+</OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+(More information on debug: read the
+  <FONT color="blue"><B>Egtapi</B></FONT> documentation)
+<P>
+<HR>
+<P>
+<B>A <I>concrete</I> Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+
+<UL>
+<LI> Suppose see 
+     (in the <FONT color="blue"><B>variable display window</B></FONT>
+     of <B>Egtapi</B>) that
+     your answer for question <FONT color="red"><B>Q6</B></FONT>
+      is <FONT color="blue"><B>wrong</B></FONT>....
+ <P>
+<LI> Start <B>EGTAPI</B> and <FONT color="blue"><B>(re)-load</B></FONT>
+      your program if you have not already done so...
+ <P>
+<LI> Press <FONT color="red"><B><TT>Run</TT></B></FONT>
+	on <B>EGTAPI</B>
+        until you have reach the <FONT color="blue"><B>start</B></FONT> of
+	your <B>solution</B> for 
+          <FONT color="red"><B>Q6</B></FONT>.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> That means you should
+      <FONT color="red"><B>stop</B></FONT> pressing
+      <FONT color="blue"><B>"Run"</B></FONT>
+       when <B>EGTAPI</B> has
+       <FONT color="red"><B>reached</B></FONT> the label
+       <FONT color="blue"><B>Q6</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> When you have reached the 
+     <FONT color="blue"><B>first instruction</B></FONT>
+      for your <B>assembler code</B> for
+      <FONT color="red"><B>Q6</B></FONT>,  you must
+	use
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the
+    <FONT color="red"><B><TT>Step</TT> button</B></FONT>
+    to execute your <B>code</B>
+    <FONT color="blue"><B>one instruction</B></FONT> at a time
+    (the program will stop after executing one instruction).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<P>
+ <LI>   <B>Egtapi</B> will
+     display the outcome of the execution of
+	<B>each instruction</B>
+ <P>
+     You can now find the bug
+    (= the <FONT color="blue"><B>instruction(s)</B></FONT>
+     that did <FONT color="red"><B>something wrong</B></FONT>) by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>verifying</B> the 
+       <FONT color="blue"><B><I>result</I> of the instruction</B></FONT>
+            against the <B>expected result</B> that
+        <FONT color="red"><B>you want the instruction(s) to do</B></FONT>
+ <P>
+  If the result is NOT what you expected, you must have used the
+  <B>wrong instruction</B>.
+  Try to figure out what went wrong and use the correct
+	instruction or instructions to achieve the correct result.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+	(Like I said before, you would need to know what you
+	want the instruction to achieve first before you can find 
+	your bugs....
+	So, an essential part of "debugging" requires that you know what you
+	want to achieve...).
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+4. Turn in
+</H3>
+<UL>
+
+Turn in your program using project code
+   <FONT color="red"><B> pj5</B></FONT>
+   using <B>EGTAPI</B>
+<P>
+   (In EGTAPI, select: File Browser, Turnin, 
+   click on the file you want to turn in (<B>pj5.s</B>),
+   use the turn in code: <B>pj5</B>)
+<P>
+<HR>
+<P>
+You can also use 
+the 
+  <FONT color="blue"><B><TT>turnin</TT> </B></FONT>
+command (executed while you're in your cs255 directory)
+<P>
+ Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ these command:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     /home/cs255001/turnin  pj5.s  pj5    // If you're in section 1          
+
+ or
+     /home/cs255002/turnin  pj5.s  pj5   // If you're in section 2           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+I want the source (so I can read it).
+<B>DO NOT</B> turn in the executable or the object code !
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+</UL>
+<P>
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  5.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj5</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj5</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj5</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj5</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

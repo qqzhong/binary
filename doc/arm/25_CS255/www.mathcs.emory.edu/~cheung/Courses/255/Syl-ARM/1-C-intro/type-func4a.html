@@ -1,0 +1,626 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Function <I>declarations</I> and their <I>scope</I>
+<HR>
+</H3>
+<UL>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Function <I>declaration</I>: providing the C compiler with the 
+     <FONT color="red">function prototype</FONT>
+     information
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>Syntax</B></FONT> to <FONT color="blue"><B>declare</B></FONT>
+     a <FONT color="red"><B>function</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     [extern]  <FONT color="red">return-type</FONT>  FuncName ( <FONT color="red">param1_type <FONT color="blue">[var1]</FONT>, param2_type <FONT color="blue">[var2]</FONT>, ....</FONT> ) ;      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>keyword</B></FONT>
+     <FONT color="red"><B><TT>extern</TT></B></FONT> is
+     <FONT color="blue"><B>optional</B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>parameter variable <I>names</I></B></FONT> 
+     are
+    <B><I>also</I></B> <FONT color="red"><B>optional</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<B>Example</B> of
+   <FONT color="red"><B>function <I>declarations</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">extern</FONT>  <FONT color="red">float</FONT>  f( <FONT color="red">float</FONT> x ) ;            
+
+     <FONT color="red">float</FONT>  f( <FONT color="red">float x</FONT> ) ;       // <FONT color="red">extern</FONT> can be omitted      
+
+     <FONT color="red">float</FONT>  f( <FONT color="red">float</FONT> ) ;         // the parameter <FONT color="red">name</FONT> can be omitted   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(Personally, <FONT color="blue"><B>I prefer</B></FONT> to write
+  <FONT color="red"><B><TT>float f(float x)</TT></B></FONT>,
+ it looks like the
+ <FONT color="blue"><B>function definition</B></FONT>
+ (so I can <B>cut and paste</B> to
+  create the <FONT color="red"><B>function declaration</B></FONT> easily)
+      
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>function body</B></FONT> is (must be)
+     <FONT color="blue"><B><I>omitted</I> </B></FONT> in the
+       <FONT color="red"><B>function <I>declaration</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How is the function declaration used by the C compiler ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>function declaration</B></FONT> provides
+     the <FONT color="blue"><B><I>data type</I> information</B></FONT> to
+ the <FONT color="red"><B>C compiler</B></FONT>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> is the
+ <FONT color="blue"><B>function declaration (information) </B></FONT> used:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the C compiler processes this function call:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       z  =  f( x , y) ;                          
+       ^        ^   ^
+       |        |   |
+   receiving    function
+   variable     input
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> will
+     <FONT color="blue"><B>convert</B></FONT> the
+    <FONT color="red"><B>input parameters</B></FONT> to the
+    <FONT color="blue"><B>correct data type</B></FONT> of
+    <B>each</B> <FONT color="red"><B>parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> knows
+       the <FONT color="blue"><B>data type</B></FONT> of
+       <B>each</B>  <FONT color="red"><B>parameter </B></FONT> of the
+       <FONT color="blue"><B>function</B></FONT> from the
+        <FONT color="red"><B>function <I>declaration</I></B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> knows
+       the <FONT color="blue"><B>data type</B></FONT> of
+       <B>each</B>  <FONT color="red"><B>function input </B></FONT> of the
+       <FONT color="blue"><B>function</B></FONT> from the
+        <FONT color="red"><B>function <I>call</I></B></FONT>
+<P>
+ <LI> <FONT color="red"><B>If</B></FONT> the 
+ <FONT color="blue"><B>data types</B></FONT> are
+   <FONT color="red"><B><I>different</I></B></FONT>, the
+ <FONT color="blue"><B>C compiler</B></FONT> will
+   perform
+    <FONT color="red"><B><I>type conversion</I></B></FONT> before
+    the <FONT color="blue"><B>input value</B></FONT> is
+ <FONT color="red"><B>passed</B></FONT> to the function !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> will
+     <FONT color="blue"><B>convert</B></FONT> the
+    <FONT color="red"><B>return value</B></FONT> to the
+    <FONT color="blue"><B>correct data type</B></FONT> of
+    the <FONT color="red"><B>receiving variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> knows
+       the <FONT color="blue"><B>data type</B></FONT> of
+       the  <FONT color="red"><B>return value </B></FONT> of the
+       <FONT color="blue"><B>function</B></FONT> from the
+        <FONT color="red"><B>function <I>declaration</I></B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> knows
+       the <FONT color="blue"><B>data type</B></FONT> of
+       the <FONT color="red"><B>receiving variable </B></FONT> 
+<P>
+ <LI> <FONT color="red"><B>If</B></FONT> the 
+ <FONT color="blue"><B>data types</B></FONT> are
+   <FONT color="red"><B><I>different</I></B></FONT>, the
+ <FONT color="blue"><B>C compiler</B></FONT> will
+   perform
+    <FONT color="red"><B><I>type conversion</I></B></FONT> before
+    the <FONT color="blue"><B>return value</B></FONT> is
+ <FONT color="red"><B>stored</B></FONT> in the
+    <FONT color="blue"><B>receiving variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Scope</FONT> of
+      a function <FONT color="red">declaration</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Scope</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Scope</B></FONT> =
+      the <FONT color="red"><B>range (= area in a program)</B></FONT>
+      where a <B>given object (e.g., variable)</B> is
+      <FONT color="blue"><B><I>accessible (or valid)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The
+   <FONT color="blue"><B>scope</B></FONT>
+    of  a <FONT color="red"><B>function declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>function declaration</B></FONT> can be 
+      <B>placed</B> <FONT color="blue"><B><I>anywhere</I></B></FONT> in
+      a <FONT color="red"><B>C program</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> When a <FONT color="blue"><B>function declaration</B></FONT> is
+    <B>placed</B>
+    <FONT color="red"><B><I>outside</I></B></FONT> a
+    <FONT color="blue"><B>function</B></FONT>, then the
+    <FONT color="red"><B>scope</B></FONT> of this
+    <FONT color="blue"><B>function declaration</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>scope</B></FONT> <B><I> starts</I></B>
+    at the <FONT color="red"><B>location</B></FONT> of the
+    <FONT color="blue"><B>function declaration</B></FONT> in the
+    <FONT color="red"><B>program file</B></FONT>
+ <P>
+ <LI> And <B>remains</B> <FONT color="red"><B><I>valid</I></B></FONT> till 
+    the <FONT color="blue"><B>end</B></FONT> of the
+     <FONT color="red"><B>program file</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/func-decl-scope1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> When a <FONT color="blue"><B>function declaration</B></FONT> is
+    <B>placed</B>
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B><I>inside</I></B></FONT> a
+    <FONT color="blue"><B>function</B></FONT></SPAN>, then the
+    <FONT color="red"><B>scope</B></FONT> of this
+    <FONT color="blue"><B>function declaration</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>scope</B></FONT> <B><I> starts</I></B>
+    at the <FONT color="red"><B>location</B></FONT> of the
+    <FONT color="blue"><B>function declaration</B></FONT> in the
+    <FONT color="red"><B>program file</B></FONT>
+ <P>
+ <LI> And <B>remains</B> <FONT color="red"><B><I>valid</I></B></FONT> till 
+    the 
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue"><B>end</B></FONT> of the
+     <FONT color="red"><B>function</B></FONT><?SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/func-decl-scope2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Common practice
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Common practice</B> of
+  <FONT color="red"><B>C programmers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B><I>always</I></B></FONT> place 
+    <FONT color="red"><B>all</B></FONT>
+    <FONT color="blue"><B>function declarations</B></FONT> at the
+    <FONT color="red"><B><I>top</I></B></FONT> of <B>all</B> our
+    <FONT color="blue"><B>C program files</B></FONT>
+<P>
+ This will <FONT color="red"><B>maximize</B></FONT> the
+   <FONT color="blue"><B>scope (area)</B></FONT> of
+   <FONT color="red"><B>all </B></FONT> of the
+   <FONT color="blue"><B>function declarations</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Grpahically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/func-decl-scope3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example of using function declaration
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> in the
+ <FONT color="blue"><B>last example</B></FONT> the 
+   <FONT color="red"><B>C program </B></FONT> did 
+ <FONT color="blue"><B>not compiled</B></FONT> due to
+ <FONT color="red"><B><I>conflicting</I> information</B></FONT> in
+ the <FONT color="blue"><B>default parameters assumption</B></FONT> and
+ the <FONT color="red"><B><I>actual</I> function definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // *** short !!! </FONT>
+   int y = 0;
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">y = f(x);            // Assumes: int f(int x)</FONT> </SPAN>
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int f(<FONT color="red">short</FONT> x) </SPAN>
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can <FONT color="red"><B>declare</B></FONT> the
+ <FONT color="blue"><B>function <TT>f( )</TT></B></FONT> at the
+ <FONT color="red"><B><I>start</I></B></FONT> of the
+  <FONT color="blue"><B>program</B></FONT> to 
+ <FONT color="red"><B>solve this problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int f(<FONT color="red">short</FONT> x);</FONT>          // function declaration !!!</SPAN>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // *** short !!! </FONT>
+   int y = 0;
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">y = f(x);            // Assumes: int f(int x)</FONT> </SPAN>
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int f(<FONT color="red">short</FONT> x) </SPAN>
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/impl-declare4.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc impl-declare4.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B>declare</B></FONT> a
+  <FONT color="blue"><B>function</B></FONT> 
+ <FONT color="red"><B>multiple times</B></FONT> 
+  (as long as the <FONT color="blue"><B>declarations</B></FONT> are
+  <FONT color="red"><B><I>non-conflicting</I></B></FONT> !!!)
+ <P>
+ (You can <FONT color="blue"><B>define</B></FONT> a
+ <FONT color="red"><B>function</B></FONT>
+ <FONT color="blue"><B><I>only</I> once</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

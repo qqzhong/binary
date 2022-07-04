@@ -1,0 +1,343 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>conditional</I> operator ? : 
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The conditional operator
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B>conditional</B></FONT>
+     (and the only <FONT color="red"><B><I>ternary</I> operator </B></FONT>)
+      in
+     <B>C</B> (and <B>Java</B>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    expr1 <FONT color="red">?</font> expr2 <FONT color="red">:</font> expr3           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>meaning:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <B>First</B>,
+   evaluate the expression <FONT color="blue"><B><TT>expr1</TT></B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> If the <FONT color="red"><B>result</B></FONT> of
+        <FONT color="blue"><B><TT>expr1</TT></B></FONT> is
+        <FONT color="red"><B>true </B></FONT> (i.e., non-zero),
+	then
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    expr1 <FONT color="red">?</font> expr2 <FONT color="red">:</font> expr3           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <B>return</B> the value 
+ <FONT color="red"><B><TT>expr2</TT></B></FONT>
+<P>
+<HR>
+<P>
+ <LI> If the <FONT color="red"><B>result</B></FONT> of
+        <FONT color="blue"><B><TT>expr1</TT></B></FONT> is
+        <FONT color="red"><B>false </B></FONT> (i.e., equal to zero),
+	then
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    expr1 <FONT color="red">?</font> expr2 <FONT color="red">:</font> expr3           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <B>return</B> the value 
+ <FONT color="red"><B><TT>expr3</TT></B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double x, y, z;
+<FONT color="red">
+   z = (x > y) ? x : y</font>;      // z will be assign with the larger value of x and y     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Final note
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>conditional operator</B></FONT> is
+      <B><I>also</I></B> available in 
+      <FONT color="red"><B>Java</B></FONT>.
+<P>
+<LI> It is <B>often</B> <FONT color="blue"><B>omitted</B></FONT>
+       in <FONT color="red"><B>introduction courses</B></FONT>
+       to avoid causing <B>confusion</B>
+       at the introduction level. 
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>confusion</B></FONT> can be
+    caused by using <FONT color="red"><B>different <I>types</I></B></FONT>
+    of expressions in
+    <FONT color="blue"><B><TT>expr2</TT></B></FONT> and
+    <FONT color="blue"><B><TT>expr3</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Example:</B> <FONT color="blue"><B>Java program</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class cond1
+{
+
+   public static void main( String[] args )              
+   {
+      int a = 4; 
+      int c;
+      <FONT color="red">double x</FONT> = 7.0;        // Try: 5e30
+
+      System.out.printf("a = %d\n", a);
+      System.out.printf("x = %lf\n", x);
+
+      c = ( a > x ) ? a : <FONT color="red">x</FONT>;
+
+      System.out.printf("c = %d\n", c);
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>Java program</B></FONT>
+  will <FONT color="blue"><B>not compile</B></FONT> because:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4290)> javac cond1.java
+cond1.java:17: error: <FONT color="red">incompatible types</FONT>: possible lossy <FONT color="red">conversion from double to int</FONT>
+      c = ( a > x ) ? a : x;
+                    ^
+<FONT color="red">1 error</FONT><B>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>( a > x ) ? a : x</TT></B></FONT> can
+       return an <FONT color="blue"><B><TT>int a</TT></B></FONT> 
+       <B><I>or</I></B> a
+       <FONT color="red"><B><TT>double x</TT></B></FONT>.
+ <P>
+ <LI> The result is <B>assigned</B> to an
+      <FONT color="red"><B><TT>int</TT></B></FONT> type variable
+ <P>
+ <LI> To cover all its bases, the <B>Java compiler</B> will
+        report a <FONT color="red"><B>"incompatible type" error</B></FONT>
+	(possibly assigning a
+	<FONT color="blue"><B><TT>double</TT></B></FONT> value to
+	an <FONT color="red"><B><TT>int</TT></B></FONT> typed variable)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Fix:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      c = ( a > x ) ? a : <FONT color="red">(int)x</FONT>;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Postscript:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>expression</B></FONT>
+   <FONT color="blue"><B><TT>c = ( a > x ) ? a : x</TT></B></FONT>
+   will <FONT color="red"><B>compile successfully</B></FONT> in
+   <FONT color="blue"><B>C</B></FONT> because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> has more
+   <FONT color="blue"><B>flexible</B></FONT>
+    <FONT color="red"><B><I>automatic</I> conversion rule</B></FONT>
+  that allow
+  <FONT color="blue"><B>C programmers</B></FONT> to
+  assign a
+  <FONT color="red"><B><TT>double</TT> type</B></FONT> to
+  an <FONT color="blue"><B><TT>int</TT> type</B></FONT>
+ <P>
+  See:
+  <A HREF="data-type3.html"> click here </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

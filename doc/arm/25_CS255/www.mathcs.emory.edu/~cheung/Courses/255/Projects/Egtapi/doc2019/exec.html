@@ -1,0 +1,567 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Controlling the execution of your assembler programs 
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     EGTAPI and flow of control
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="blue"><B>Flow of control</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Flow of control</B></FONT> =
+       the <FONT color="red"><B>flow (path)</B></FONT> of the
+       <FONT color="blue"><B>execution</B></FONT> of a
+       <B>computer program</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Normally</B></FONT>,
+  the <FONT color="blue"><B>computer</B></FONT> will
+  <FONT color="red"><B>execute</B></FONT> the
+  <FONT color="blue"><B><I>next</I> instruction</B></FONT> after
+  it <FONT color="red"><B>finishes</B></FONT> executing
+  the <FONT color="blue"><B><I>current</I> instruction</B></FONT>
+<P>
+<FONT color="red"><B>EGTAPI</B></FONT> can
+  <FONT color="blue"><B>stop</B></FONT> the
+ <FONT color="red"><B>execution</B></FONT>
+  temporarily to let you
+  <FONT color="blue"><B>examine</B></FONT> the
+  <FONT color="red"><B>content</B></FONT> of the
+  <FONT color="blue"><B>registers</B></FONT> and
+  <FONT color="red"><B>variables</B></FONT>
+<P>
+ (This will help you <FONT color="blue"><B>understand</B></FONT>
+ the <FONT color="red"><B>inner workings</B></FONT> of a
+ <FONT color="blue"><B>computer</B></FONT>)
+ </UL>
+
+<P>
+<A NAME="bp"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Breakpoint
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Terminology</B></FONT>:
+     <B>breakpoint</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Breakpoint</B></FONT> =
+      a <FONT color="red"><B>location</B></FONT> in the
+      <FONT color="blue"><B>program</B></FONT> where 
+       <FONT color="red"><B>execution</B></FONT> will be
+       <FONT color="blue"><B> temporarily halted</B></FONT> when the
+       <FONT color="red"><B>program execution</B></FONT> arrives at
+       that <FONT color="blue"><B>location</B></FONT>
+<P>
+   A <FONT color="red"><B>breakpoint</B></FONT> must <B>always</B> be
+      marked by an <FONT color="blue"><B><TT>.global</TT> label</B></FONT> in
+      the <FONT color="red"><B>program</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Setting breakpoints in EGTAPI
+     </B></FONT>
+<P>
+<UL>
+<LI> You can <FONT color="blue"><B>set</B></FONT> a
+     <FONT color="red"><B>breakpoint</B></FONT> at the
+     <FONT color="blue"><B>location</B></FONT> in your
+     <B>program</B> at an
+     <FONT color="red"><B><TT>.global</TT> label</B></FONT> as
+     follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Sample assembler program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       .global Start, Stop, CodeEnd, DataStart, DataEnd
+       .global A, B, C
+       <FONT color="red">.global X</FONT>
+   	  
+   Start: 
+   	  
+       move.l A,d0         
+       move.l B,d1        
+<FONT color="red">   X:    
+       add.l  d1,d0       ** We set a breakpoint at this program location</FONT>     
+       move.l d0,C         
+   	  
+       nop
+       nop
+   Stop:  
+       nop
+   	  
+   A:  dc.l 4
+   B:  dc.l 15
+   C:  ds.l 1
+   	  
+   End:   
+       end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>How to</B></FONT> set a
+ <FONT color="blue"><B>breakpoint</B></FONT> at the
+ <FONT color="red"><B><TT>.global</TT> label <TT>X</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Type the <FONT color="red"><B>name</B></FONT> of the
+   <FONT color="blue"><B>label</B></FONT>
+  (<B>X</B>) into the
+    <FONT color="red"><B>"Breakpoint Name"</B></FONT> field:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bp01.jpg"  width="200" height="250"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Click</B></FONT> on the
+   <FONT color="red"><B>Add</B></FONT> button:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bp02.jpg"  width="200" height="250"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+You will see <FONT color="red"><B>X</B></FONT> appear
+ in the <FONT color="blue"><B>Breakpoint</B></FONT> window.
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Saving the breakpoints for later
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL> 
+ <LI> When you <FONT color="red"><B>reload</B></FONT> the
+    <FONT color="blue"><B>running program</B></FONT>, the
+    <FONT color="red"><B>breakpoints</B></FONT> will
+    be <FONT color="blue"><B>reset</B></FONT> to the
+    <FONT color="red"><B>breakpoints</B></FONT> specified in the
+    <FONT color="blue"><B>EGTAPI startup file</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> You can <FONT color="red"><B>save</B></FONT> the
+       <FONT color="blue"><B>breakpoints</B></FONT> that you have
+       <FONT color="red"><B>added</B></FONT> as
+       <B>follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Click</B></FONT> on the
+      <FONT color="red"><B>"Save Debug"</B></FONT> button
+      below the 
+      <FONT color="blue"><B>Breakpoint window</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Controlling the flow of execution of your program
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>EGTAPI</B></FONT> provide
+   <FONT color="red"><B>2 ways</B></FONT> to
+    <B>control</B> the
+    <FONT color="blue"><B>flow of execution</B></FONT> of
+    the <FONT color="red"><B>program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Step</B></FONT> (located at the
+     <FONT color="blue"><B>top-right corner</B></FONT> in the
+    <FONT color="red"><B>EGTAPI window</B></FONT>)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bp03.jpg"  width="150" height="60"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Effect</B> of the <FONT color="red"><B>Step</B></FONT> button:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>EGTAPI</B></FONT> will
+    <FONT color="red"><B>execute</B></FONT> the
+    <FONT color="blue"><B><I>current</I> instruction</B></FONT> and
+    <FONT color="red"><B>stop</B></FONT>
+ <P>
+  The <FONT color="red"><B><I>next</I> instruction</B></FONT> will become
+   the <B>new</B> <FONT color="blue"><B><I>current</I> instruction</B></FONT>
+ <P>
+  (When <FONT color="blue"><B>EGTAPI</B></FONT> stops,
+   it will <FONT color="red"><B>display</B></FONT> the
+   <FONT color="blue"><B>current values</B></FONT> of the
+   <FONT color="red"><B>registers</B></FONT> and
+   <FONT color="blue"><B>memory variable values</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So you can use the
+  <FONT color="red"><B>Step</B></FONT> button to
+  <FONT color="blue"><B>examine the effect</B></FONT> of
+  the <FONT color="red"><B>execution</B></FONT> of the
+  <FONT color="blue"><B>current instruction</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Run</B></FONT> (located 
+    <FONT color="blue"><B>next to</B></FONT> the
+    <FONT color="red"><B>Step</B></FONT> button)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bp03.jpg"  width="150" height="60"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Effect</B> of the <FONT color="red"><B>Run</B></FONT> button:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>EGTAPI</B></FONT> will
+    <FONT color="red"><B>execute</B></FONT> <B>instructions</B>
+  in the <FONT color="blue"><B>program</B></FONT>
+   <FONT color="red"><B>until</B></FONT> the execution
+   reaches (= arrives) at a 
+    <FONT color="blue"><B><I>breakpoint</I> </B></FONT>
+   
+ <P>
+  The (new) <FONT color="red"><B><I>current</I> instruction</B></FONT> will
+    be
+   the <B>instruction</B> at
+  the <FONT color="blue"><B><I>breakpoint</I> </B></FONT>
+ <P>
+  (When <FONT color="blue"><B>EGTAPI</B></FONT> stops,
+   it will <FONT color="red"><B>display</B></FONT> the
+   <FONT color="blue"><B>current values</B></FONT> of the
+   <FONT color="red"><B>registers</B></FONT> and
+   <FONT color="blue"><B>memory variable values</B></FONT> that were
+   <FONT color="red"><B>updated</B></FONT> by
+   <FONT color="blue"><B><I>many</I> instructions</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You use the
+  <FONT color="red"><B>Run</B></FONT> button to
+  <FONT color="blue"><B>complete</B></FONT> of
+  the <FONT color="red"><B>execution</B></FONT> of a
+  <FONT color="blue"><B>segment of code</B></FONT>
+  <B>quickly</B>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Executing a <I>correct</I> assembler program
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>If</B></FONT> the 
+    <FONT color="red"><B>assembler program</B></FONT> is
+    <FONT color="blue"><B>correct</B></FONT>, you can
+    <FONT color="red"><B>run</B></FONT> the
+    <B>program</B> by:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Load</B></FONT> the
+   <FONT color="blue"><B>program</B></FONT> into
+     <FONT color="red"><B>EGTAPI</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Click</B></FONT> on the
+      <FONT color="red"><B>"Run"</B></FONT> button
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary and advice on using <TT>Step</TT> and <TT>Run</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Run</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Before</B></FONT> you can use the
+      <FONT color="red"><B>Run</B></FONT> button, you need to
+     <FONT color="blue"><B>set</B></FONT> a
+    <FONT color="red"><B>breakpoint</B></FONT> at a location
+    (= <FONT color="blue"><B>label</B></FONT>) in your program
+    that your <B>program</B> will
+    <FONT color="red"><B>"pass"</B></FONT> during its
+    <B>execution</B>
+<P>
+<HR>
+<P>
+<LI> Use the <FONT color="red"><B>Run</B></FONT> button to
+    <FONT color="blue"><B>reach</B></FONT> the
+      <FONT color="red"><B>breakpoint</B></FONT> location in
+      your program.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Step</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use the <FONT color="red"><B>Step</B></FONT> button to
+      <FONT color="blue"><B>check</B></FONT> whether the
+      <FONT color="red"><B>program instructions</B></FONT> that you
+      <B>wrote</B> are 
+      <FONT color="blue"><B>correct</B></FONT> (or not):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Execute</B></FONT> each
+   <FONT color="red"><B>instruction</B></FONT> one at a time
+ <LI> <FONT color="red"><B><I>Check</I></B></FONT> if
+       the <FONT color="blue"><B>result</B></FONT> of the
+       <FONT color="red"><B>execution</B></FONT> is
+       <FONT color="blue"><B>what</B></FONT> you
+       had <FONT color="red"><B>intended</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<A HREF="index.html#TOC">
+Back to tabel of contents
+</A>
+<P>
+
+
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

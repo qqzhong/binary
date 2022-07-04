@@ -1,0 +1,1140 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Program organization: how the  computer memory is organized
+<HR>
+</H3>
+<P>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Content of a computer program and program organization
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Computer Program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>computer program</B></FONT> consists of:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Program <I>instructions</I></B></FONT>
+         (<B>statements</B> in
+    the <FONT color="blue"><B>computer program</B></FONT>)
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Program <I>variables</I></B></FONT> 
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When a program is <FONT color="red"><B>run (executed)</B></FONT>,
+ the <FONT color="blue"><B>instructions and variables</B></FONT>
+ must be <FONT color="red"><B>stored</B></FONT> in the
+<FONT color="blue"><B>computer memory</B></FONT>
+(so the <FONT color="red"><B>CPU</B></FONT> can 
+  <FONT color="blue"><B>access (= used)</B></FONT> them !!!)
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Prelude</B></FONT> to
+     <FONT color="red"><B>program organization:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="red"><B>do not</B></FONT> store
+         the <FONT color="blue"><B>content</B></FONT> of a
+       <FONT color="red"><B>computer program</B></FONT>
+       <FONT color="blue"><B>haphardly</B></FONT> into the
+       <FONT color="red"><B>computer memory</B></FONT>
+<P>
+ <LI> Over the many years of
+       <FONT color="red"><B>computer usage</B></FONT>,
+       we have <FONT color="blue"><B>settle</B></FONT> on
+       a <FONT color="red"><B>specific organization</B></FONT>
+ <P>
+ <LI> But before I can explain the 
+      <FONT color="blue"><B>program organization</B></FONT> to you,
+      we need to discuss about the
+      <FONT color="red"><B>life time</B></FONT> of
+      <FONT color="blue"><B>variables</B></FONT>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Life time
+     </B></FONT>
+<P>
+<UL>
+<LI> In <FONT color="red"><B>CS170/CS171</B></FONT>, you have learned
+    about the <FONT color="blue"><B>life time</B></FONT> of
+     <FONT color="red"><B>program variables</B></FONT>
+ <P>
+<LI> As a <FONT color="red"><B>refresher</B></FONT>, I want to
+    remind you what <FONT color="blue"><B>"life time"</B></FONT> means:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Life time</B></FONT> =
+       the <FONT color="blue"><B>duration</B></FONT> in which
+      a <B>thing</B> <FONT color="red"><B>exists</B></FONT>
+   in the <FONT color="blue"><B>computer memory</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> As indicated in te <FONT color="red"><B>beginning</B></FONT> of
+   this <FONT color="blue"><B>webpage</B></FONT>, there are
+   <FONT color="red"><B>2 kinds</B></FONT> of 
+   <B>things</B> inside a
+   <FONT color="blue"><B>computer program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Program <I>instructions</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="blue"><B>Variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+As <FONT color="red"><B>prequisite</B></FONT> to the
+ discussion of
+ <FONT color="blue"><B>program organization</B></FONT>,
+ I will now review
+ the <FONT color="red"><B>"life time"</B></FONT> of these
+ <B>things</B>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     "Life time" of program instructions
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>statements</B></FONT> inside a
+   <FONT color="blue"><B>computer program</B></FONT> must
+   <FONT color="red"><B>always</B></FONT> be
+   <FONT color="blue"><B>available</B></FONT> to the
+   computer for <FONT color="red"><B>execution</B></FONT>
+<P>
+ <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The  <FONT color="red"><B>life time</B></FONT> of
+        a <FONT color="blue"><B>program instruction</B></FONT> is
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> From when the <FONT color="red"><B>program</B></FONT>
+       <FONT color="blue"><B>starts running</B></FONT>
+ <LI> Until the <FONT color="red"><B>program</B></FONT>
+         <FONT color="blue"><B>exits</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Kinds</FONT> of variables
+     in <FONT color="red">Java</FONT> (and other programming langauges)
+     </B></FONT>
+<P>
+<UL>
+ <LI> <FONT color="blue"><B>Recall</B></FONT>
+    that <FONT color="red"><B>Java</B></FONT> has
+      <FONT color="blue"><B>4 different</B></FONT>
+      <FONT color="red"><B><I>kinds</I></B></FONT> (<B>not</B>
+      <FONT color="blue"><B><I>type</I></B></FONT>) of
+      <FONT color="red"><B>variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Class variables</B></FONT>
+ <LI> <FONT color="red"><B>Instance variables</B></FONT>
+ <P>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT>
+ <LI> <FONT color="blue"><B>Parameter variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Recall</B></FONT> on
+   <FONT color="blue"><B>how</B></FONT> to
+    <FONT color="red"><B>recognize</B></FONT> the
+    different <FONT color="blue"><B>kinds</B></FONT> of
+    <B>variables</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  public class ExampleClass
+  {
+      static int  <FONT color="red">x</FONT>;          // Keyword static defines a <FONT color="red">Class variable</FONT>
+
+      int <FONT color="red">y</FONT>;                  // Absent of static defines an <FONT color="red">Instance var</FONT>
+
+      public int Method1( int <FONT color="red">a</FONT> )  // a is a <FONT color="red">parameter variable</FONT>
+      {
+         int <FONT color="red">b</FONT>;                    // <FONT color="red">Local variables</FONT> are defined inside a method    
+
+	 ....
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Review:</I> 
+     The <FONT color="red">life time</FONT>
+     of the different <FONT color="red">kinds</FONT> 
+     of variables
+   (from CS170/CS171)
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>life time</B> of
+     <FONT color="red"><B>Class variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Begins:</B></FONT> from the
+        <FONT color="red"><B>start of <I>execution</I></B></FONT> of the
+	<FONT color="blue"><B>Java program</B></FONT>
+ <LI> <FONT color="blue"><B>Ends:</B></FONT> &nbsp;&nbsp;
+       at the
+        <FONT color="red"><B><I>termination</I></B></FONT> of the
+	<FONT color="blue"><B>Java program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>life time</B> of
+     <FONT color="red"><B>Instance variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Begins:</B></FONT> when the
+        <B>instance variable</B> is
+        <FONT color="red"><B><I>created</I></B></FONT> by a
+	<FONT color="blue"><B><TT>new</TT> operation</B></FONT>
+ <LI> <FONT color="blue"><B>Ends:</B></FONT> &nbsp;&nbsp;
+       when the <B>instance variable</B> becomes
+        <FONT color="red"><B><I>garbage</I></B></FONT> 
+	(i.e., 
+	<FONT color="blue"><B>inaccessible</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>life time</B> of
+     <FONT color="red"><B>parameter variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Begins:</B></FONT> at the
+        <FONT color="red"><B><I>start</I></B></FONT> of the
+	<FONT color="blue"><B>method execution</B></FONT>
+ <LI> <FONT color="blue"><B>Ends:</B></FONT> &nbsp;&nbsp;
+       at the
+        <FONT color="red"><B><I>termination</I> (= return)</B></FONT> of the
+	<FONT color="blue"><B>method execution</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>life time</B> of
+     <FONT color="red"><B>local variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Begins:</B></FONT>
+         at the
+        <FONT color="red"><B><I>start</I></B></FONT> of the
+	<FONT color="blue"><B>method execution</B></FONT>
+ <LI> <FONT color="blue"><B>Ends:</B></FONT> &nbsp;&nbsp;
+        at the
+        <FONT color="red"><B><I>termination</I> (= return)</B></FONT> of the
+	<FONT color="blue"><B>method execution</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary finding on the <FONT color="red">life time</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> In summary, we can <FONT color="red"><B>categorize</B></FONT> 
+   the <FONT color="blue"><B>instructions and variables</B></FONT> into
+   
+    <FONT color="red"><B> 3 different categories</B></FONT> according to
+    their 
+     <FONT color="blue"><B>life time</B></FONT> <B>property</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>"Permanent" things</B></FONT> 
+        (the <FONT color="blue"><B>instructions</B></FONT> and
+      the <FONT color="red"><B>class variables</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> These have a <FONT color="blue"><B>life time</B></FONT> that
+       starts when the
+    <FONT color="red"><B>program begins</B></FONT> and
+     ends when the <FONT color="blue"><B>program exits</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+ the <FONT color="blue"><B>size</B></FONT> of the
+ <FONT color="red"><B>"permanent" things</B></FONT> in
+ a <B>program</B> is
+   <FONT color="blue"><B><I>fixed</I></B></FONT> 
+ during the <FONT color="red"><B>entire execution</B></FONT> of the
+ <B>program</B> !!
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>"Local" things</B></FONT> that
+	belongs <B>only</B>
+	to a <FONT color="blue"><B>function</B></FONT>
+          (i.e.: the <FONT color="red"><B>parameter variables</B></FONT> and
+        <FONT color="blue"><B>local variables</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> These have a <FONT color="blue"><B>life time</B></FONT> that
+       starts when the
+    <FONT color="red"><B>function/method begins</B></FONT> and
+     ends when the <FONT color="blue"><B>function/method returns</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+ the <FONT color="blue"><B>size</B></FONT> of the
+ <FONT color="red"><B>"local" things</B></FONT> in
+ a <B>program</B> is
+   <FONT color="blue"><B><I>variable</I></B></FONT> 
+ during the <FONT color="red"><B> execution</B></FONT> of the
+ <B>program</B>.
+<P>
+<FONT color="red"><B>New</B></FONT>
+  <FONT color="blue"><B>parameter and local variables</B></FONT> are
+  <FONT color="red"><B>created</B></FONT> when
+  a <FONT color="blue"><B>function begins</B></FONT>
+ <P>
+ These  <FONT color="blue"><B>parameter and local variables</B></FONT> 
+ will <FONT color="red"><B>remain</B></FONT> until
+ the <FONT color="blue"><B>function <I>returns</I></B></FONT>
+<P>
+ There is a <FONT color="red"><B>First In Last Out</B></FONT> 
+  <B>relationship</B>
+ in <FONT color="blue"><B>function invocations</B></FONT>
+ (i.e.: the  function that is called first will be the
+  last function that returns.
+ E.g.: if A( ) calls B( ), and then B( ) calls C( ). Then
+   order of function return is: C( ), B( ) and A( ))
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>"No-specific-timing" things</B></FONT>
+          (the <FONT color="blue"><B>instance variables</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> These have an <FONT color="blue"><B>unpredictable</B></FONT>
+    <FONT color="red"><B>life time</B></FONT>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+
+ The <FONT color="blue"><B>size</B></FONT> of these
+ <FONT color="red"><B>things</B></FONT> in
+ a <B>program</B> is <B>also</B>
+   <FONT color="blue"><B><I>variable</I></B></FONT> 
+ during the <FONT color="red"><B> execution</B></FONT> of the
+ <B>program</B>.
+<P>
+There is no <FONT color="red"><B>specific ordering</B></FONT>
+ in which the <FONT color="blue"><B>instance variables</B></FONT>
+    are
+  <FONT color="red"><B>created</B></FONT> and
+   <FONT color="blue"><B>destroyed</B></FONT>....
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+
+  <P>
+<LI> <FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> The <FONT color="red"><B>3  <I>categories</I></B></FONT> of
+       <B>"things"</B> in a
+         <FONT color="blue"><B>computer program</B></FONT>
+	 are
+       <FONT color="red"><B>stored <I>differently</I></B></FONT> in the
+       <FONT color="blue"><B>computer memory</B></FONT>
+      
+     to <FONT color="blue"><B>maximize</B></FONT>
+  <FONT color="red"><B>efficiency</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Program organization in main memory
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Every computer system</B></FONT> today 
+     uses the following
+    <FONT color="blue"><B>program organization</B></FONT> to
+    achieve
+    <FONT color="red"><B>maximum memory efficiency</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/run-time0.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The following <FONT color="blue"><B>diagram</B></FONT> shows
+     the <FONT color="red"><B>storage organization</B></FONT> of the
+     <FONT color="blue"><B>program instructions</B></FONT> and
+     the <B>various</B>
+     <FONT color="red"><B>kinds of variables</B></FONT>
+     in the <FONT color="blue"><B>computer memory</B></FONT> when
+     a <FONT color="red"><B>program </B></FONT> is
+     run:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/run-time.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+
+  <UL>
+ <LI> The <FONT color="red"><B>top of the memory</B></FONT> contains
+   the <FONT color="blue"><B>permanent things</B></FONT>
+   in a <FONT color="red"><B>computer program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+  <LI> The <FONT color="blue"><B>program instructions</B></FONT>
+      are <B>stored</B>  
+    at the <FONT color="red"><B>beginning</B></FONT> of the
+    <FONT color="blue"><B>main memory</B></FONT>
+ <P>
+  <LI> The <FONT color="red"><B>Class variable</B></FONT>
+      (which exists for the 
+   <FONT color="blue"><B>entire program execution</B></FONT>)
+   are <B>stored</B>
+   <FONT color="red"><B><I> after</I></B></FONT>
+    the <FONT color="blue"><B>program
+	instructions</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ The <FONT color="blue"><B>program instructions</B></FONT>
+       and <FONT color="red"><B>class variables</B></FONT>
+        will 
+	<FONT color="blue"><B>occupy the top of the memory</B></FONT> for 
+	<B>as long as</B> the 
+	<FONT color="red"><B>program is running</B></FONT> !
+ 
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>program "heap"</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>program "heap"</B></FONT> is the
+      <FONT color="red"><B>area of memory</B></FONT> located
+      right <FONT color="blue"><B>after</B></FONT> the
+      <FONT color="red"><B>fixed variables area</B></FONT>
+ <P>
+ <LI> When a <FONT color="blue"><B>Java program</B></FONT> invokes
+     the <FONT color="red"><B><TT>new</TT> operator</B></FONT> to
+     <FONT color="blue"><B>create</B></FONT> an
+     <FONT color="red"><B><I>instance</I> variable</B></FONT>,
+     some <FONT color="blue"><B>memory cells</B></FONT> in the
+     <FONT color="red"><B>program "heap"</B></FONT> area
+     will be <FONT color="blue"><B>reserved</B></FONT> for
+     the new <FONT color="red"><B>instance variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>growth direction</B></FONT> is towards
+       the <FONT color="blue"><B>end of the memory</B></FONT>
+        (downwards in the above diagram).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <LI> When some <FONT color="blue"><B>instance variables</B></FONT> are
+      <FONT color="red"><B>garbage collected (= destroyed)</B></FONT>,
+      the <FONT color="blue"><B>reserved memory cells</B></FONT> will
+      be <FONT color="red"><B>reclaimed</B></FONT> (= "recycled").
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>program heap</B></FONT> is
+   therefore a
+      <FONT color="red"><B><I>dynamically</I> changing</B></FONT>
+      memory area used to
+      <B>store</B>
+      <FONT color="blue"><B><I>instance</I> variables</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>program stack</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>program stack</B></FONT> is the
+      <FONT color="red"><B>area of memory</B></FONT> located
+      at the <FONT color="blue"><B>end</B></FONT> of the
+      <FONT color="red"><B>memory</B></FONT>
+ <P>
+ <LI> When a <FONT color="blue"><B>Java program</B></FONT> invokes
+     a  <FONT color="red"><B>function/method</B></FONT>, the
+     <FONT color="blue"><B>parameters of the function/method</B></FONT>
+   and its <FONT color="red"><B>local variables</B></FONT> will
+   be <FONT color="blue"><B>created</B></FONT>.
+ <P>
+   Some  <FONT color="blue"><B>memory cells</B></FONT> in the
+     <FONT color="red"><B>program stack</B></FONT> area
+     will be <FONT color="blue"><B>reserved</B></FONT> for
+     the new
+     <FONT color="red"><B>parameters and local variables</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>growth direction</B></FONT> is towards
+       the <FONT color="blue"><B>top of the memory</B></FONT>
+        (upwards in the above diagram).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <LI> When the <FONT color="red"><B>function returns</B></FONT>,
+      its  <FONT color="blue"><B>parameters and local variables</B></FONT> are
+      <FONT color="red"><B>destroyed</B></FONT> and
+      the <FONT color="blue"><B>reserved memory cells</B></FONT> will
+      be <FONT color="red"><B>reclaimed</B></FONT> (= "recycled").
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>program stack</B></FONT> is
+   therefore a
+      <FONT color="red"><B><I>dynamically</I> changing</B></FONT>
+      memory area used to
+      <B>store</B>
+      <FONT color="blue"><B>parameters and local variables</B></FONT>
+      in <FONT color="red"><B>function invocations</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+      
+</UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Managing the program heap
+     </B></FONT>
+<P>
+<UL>
+<LI> When a <FONT color="blue"><B>program</B></FONT> 
+     <FONT color="red"><B>starts</B></FONT> its
+     <B>execution</B>, the
+     <FONT color="blue"><B>memory usage</B></FONT> will be
+     as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/run-time1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>memory</B></FONT> contains 
+  <FONT color="red"><B>only</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Program instructions</B></FONT>
+ <LI <FONT color="red"><B>Class variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>system heap</B></FONT> and
+ <FONT color="blue"><B>system stack</B></FONT> are
+ both <FONT color="red"><B>empty</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> When a <FONT color="blue"><B>Java program</B></FONT> executes
+       a <FONT color="red"><B><TT>new</TT> operation</B></FONT>,
+       <B>e.g.</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    x = <FONT color="red">new</FONT> BankAccount( .... );            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B><TT>new</TT> operation</B></FONT> will
+  <FONT color="blue"><B>allocate (= reserve) memory</B></FONT> in the
+ <FONT color="red"><B>program <I>heap</I></B></FONT> for 
+ <B>all</B> the
+ <FONT color="blue"><B>instance variables</B></FONT> in the
+  <FONT color="red"><B>(<TT>BankAccount</TT>) object</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/run-time2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>Java run time system</B></FONT> will
+      <FONT color="red"><B>maintain information</B></FONT> on
+       <FONT color="blue"><B><I>which</I> memory locations</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Available</I> for use</B></FONT> (i.e., 
+       <FONT color="blue"><B><I>free</I></B></FONT>)
+ <LI> <FONT color="red"><B><I>Occupied</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+so that a <FONT color="red"><B>memory cell</B></FONT> is
+ <FONT color="blue"><B>not used</B></FONT> for/by
+ <FONT color="red"><B><I>different</I> variables</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<A NAME="stack"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Managing the program stack
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Restarting</B></FONT> the
+     <B>discussion</B> from the <FONT color="blue"><B>beginning</B></FONT>.....
+    When a <FONT color="blue"><B>program</B></FONT> 
+     <FONT color="red"><B>starts</B></FONT> its
+     <B>execution</B>, the
+     <FONT color="blue"><B>memory usage</B></FONT> will be
+     as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/run-time1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> When we <FONT color="blue"><B>invoke</B></FONT> a
+      <FONT color="red"><B>method</B></FONT>,
+   <B>e.g.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     x = Math.sin( 3.14 );        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>method invocation</B></FONT> will
+ <FONT color="red"><B>allocate (= reserve memory)</B></FONT>
+ the <FONT color="blue"><B>parameter variables</B></FONT> and
+ the <FONT color="blue"><B>local variables</B></FONT> of the
+ <FONT color="red"><B>method</B></FONT> on the
+ <FONT color="blue"><B>program stack</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/run-time3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Computer jargon: "create" a variable and "destroy" a variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>"Creating" </B></FONT> a
+      <B>variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Create a variable</B></FONT> =
+     <FONT color="blue"><B>allocate (= reserve)</B></FONT> the
+     <B>memory space (= cells)</B> for
+     a <FONT color="red"><B>variable</B></FONT>
+<P>
+ (<B>Memory cells</B> that are
+  <FONT color="blue"><B>allocated (= reserved)</B></FONT> can
+  <FONT color="red"><B><I>not</I> be used</B></FONT> for
+  another <FONT color="blue"><B>variable</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is 
+      <FONT color="red"><B>no <I>real</I>  creation</B></FONT>
+        taking place 
+	in <FONT color="blue"><B>variable "creation"</B></FONT>
+<P>
+	 (Nothing like the creation in Genesis 1:1 of the Bible)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>"Destroying"</B></FONT> a
+       <B>variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Destroy a variable</B></FONT> =
+       <FONT color="blue"><B>de-allocate (= unreserve)</B></FONT> the
+      <B>memory space</B> used by the 
+      <FONT color="red"><B>variable</B></FONT>
+ <P>
+ (The <FONT color="blue"><B>memory cells</B></FONT> used by the
+ <B>variable</B> can now be
+ <FONT color="red"><B><I>re-used</I></B></FONT> by
+ <FONT color="blue"><B><I>another</I> variable</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript
+     </B></FONT>
+<P>
+<UL>
+
+
+ <LI> I will <FONT color="blue"><B>explain</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> to
+      <FONT color="blue"><B>allocate/de-allocate</B></FONT> memory
+      in more details
+      <FONT color="red"><B>later</B></FONT> in the course
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+
+<P>
+<LI> <FONT color="red"><B>Later</B></FONT>,
+  I will <B>also</B> <FONT color="blue"><B>explain</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Why</B></FONT> we use  a 
+    <FONT color="blue"><B>stack</B></FONT> to
+    <B>store</B>
+    <FONT color="red"><B><I>parameter</I> and 
+    <I>local</I> variables</B></FONT>
+	(<A HREF="../7-M68000/impl-stack.html"> click here </A>)....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+

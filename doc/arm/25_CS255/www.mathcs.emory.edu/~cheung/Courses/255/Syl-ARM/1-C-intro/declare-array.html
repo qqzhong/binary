@@ -1,0 +1,905 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Declaring (global) <I>array</I> variables
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Previously discussed: defining an array
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Defining</B> an <FONT color="blue"><B>array</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">DataType   var[ size ];</FONT>            // One dimensional array        
+
+    <FONT color="red">DataType   var[ size1 ][ size2 ];</FONT>  // Two dimensional array
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">double  a[10];</FONT>    // array of 10 double variables       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array10.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Notice that:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>a[0]</TT></B></FONT> is
+      located at the <FONT color="blue"><B>base address</B></FONT>
+      (in the example, we assume that the
+      <B>base address</B> is <FONT color="red"><B>5000</B></FONT>)
+ <LI> <FONT color="red"><B><TT>a[1]</TT></B></FONT> is
+      located at address <FONT color="blue"><B>base-address
+      + 8</B></FONT>
+      (a <FONT color="red"><B><TT>double</TT></B></FONT> variable
+      occupies <FONT color="blue"><B>8 bytes</B></FONT> of memory)
+ <P>
+ <LI> <B>In general</B>,
+      <FONT color="red"><B><TT>a[i]</TT></B></FONT> is
+      located at address <FONT color="blue"><B>base-address
+      + i&times;8</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Declaring</I> (describing) a variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>Declaring</I></B></FONT> a variable =
+ Provide <FONT color="blue"><B>sufficient <I>information</I></B></FONT>
+      to the <B>C compiler</B> to
+      <FONT color="red"><B>access the variable</B></FONT> in 
+      memory.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Declaring</I> a one-dimensional array variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax</B> to <FONT color="red"><B>declare</B></FONT> a
+     <B>one-dimensional</B> array variable:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    extern  DataTyp   <FONT color="blue">arrayVarName</FONT> [ ] ;                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File where the array is defined
+</TH> 
+<TH>
+ <I>Declaring</I> the (global) array variable
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">double a[10];   // Array definition</FONT>    
+  <FONT color="darkred">
+  void func( );   // Declare func( )
+  </FONT>
+  int main( int argc, char* argv[] )
+  {
+     int i;
+   
+     for ( i = 0; i < 10; i++ )
+  	a[i] = i*i;
+   
+     func( );
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="magenta">extern double a[ ];   
+  	     // Array declaration</FONT>    
+   
+  void func( )
+  {
+     int i;
+   
+     for ( i = 0; i < 10; i++ )
+  	printf("a[%d] = %lf\n", i, a[i]);
+  }
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <B>main</B> Prog file:
+       <A HREF="Progs/declare-array1a.c"> click here </A>
+  <LI> The <B>array declaration</B> Prog file:
+       <A HREF="Progs/declare-array1b.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc declare-array1a.c declare-array1b.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How the C compiler uses the
+     array declaration to access <TT>a[i]</TT>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Suppose the <B>C compiler</B> processed the following
+      <FONT color="blue"><B>array declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     extern  <FONT color="red">double a[ ]</font> ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>C compiler</B> will handle
+  <FONT color="red"><B>accessing the array element <TT>a[i]</TT></B></FONT>
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It generate a <FONT color="blue"><B>dummy <I>base address</I>
+    <TT>X</TT></B></FONT>
+      (that the <FONT color="red"><B>linker</B></FONT> must update)
+ <P>
+ <LI> The <B>C compiler</B> will use the <FONT color="red"><B>type</B></FONT>
+      information 
+      (<B><TT>double</TT></B> is
+     <FONT color="magenta"><B>8 bytes</B></FONT>)
+     to generate the
+      <FONT color="blue"><B>address</B></FONT> of 
+      <FONT color="red"><B><TT><FONT color="blue">X</font> + 
+      i&times;8</TT></B></FONT>
+      for the array element
+   <FONT color="blue"><B><TT>a[<FONT color="red">i</font>]</TT></B></FONT>.
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array10b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>linker</B></FONT> is
+    <B>responsible</B> to
+     <FONT color="red"><B>replace</B></FONT> the <B>dummy offset</B>
+     with the <FONT color="blue"><B>actual offset</B></FONT> of
+     the array variable.
+ </UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Alternative</I> syntax to <I>declare</I> a
+     one-dimensional array
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C compiler</B> will
+      <FONT color="blue"><B>ignore</B></FONT> any text between
+     the <B>brackets</B> 
+    <FONT color="red"><B><TT>[...]</TT></B></FONT> in an
+    <FONT color="blue"><B>array declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   extern  DataType  arrayVarName [ <FONT color="red"> /* ignored ! */</font> ] ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="blue"><B>common practice</B></FONT> in <B>C</B>
+    is to <FONT color="red"><B>write the actual array size</B></FONT>
+    between the <B>brackets</B> in an
+    <FONT color="blue"><B>array declaration</B></FONT>
+    (as a <B>reminder</B> to 
+    <FONT color="red"><B><I>not</I> exceed</B></FONT> the
+    array size)
+
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File where the array is defined
+</TH> 
+<TH>
+ <I>Declaring</I> the (global) array variable
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">double a[10];   // Array definition</FONT>    
+  <FONT color="darkred">
+  void func( );   // Declare func( )
+  </FONT>
+  int main( int argc, char* argv[] )
+  {
+     int i;
+   
+     for ( i = 0; i < 10; i++ )
+  	a[i] = i*i;
+   
+     func( );
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="magenta">extern double a[<FONT color="blue">10</font>];   
+  	     // Array declaration</FONT>    
+   
+  void func( )
+  {
+     int i;
+   
+     for ( i = 0; i < 10; i++ )
+  	printf("a[%d] = %lf\n", i, a[i]);
+  }
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Declaring a <I>two</I>-dimensional array
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> the <FONT color="blue"><B>syntax</B></FONT> to
+     <FONT color="red"><B>define</B></FONT> a
+     <FONT color="blue"><B><I>two</I>-dimensional array</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   DataType  arrayVarName [ <FONT color="red">size1</font> ] [ <FONT color="red">size2</font> ] ;            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> (array <FONT color="red"><B>definition</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double a[<FONT color="red">3</font>][<FONT color="red">5</font>];                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Syntax</B> to <FONT color="red"><B><I>declare</I></B></FONT> a
+     <FONT color="blue"><B><I>two</I>-dimensional array</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   extern  DataType  arrayVarName [ ] [ <FONT color="red">size2</font> ] ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Example:</B> (array <FONT color="red"><B><I>declaration</I></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File where the array is defined
+</TH> 
+<TH>
+ <FONT color="red"><I>Declaring</I></FONT> the 2-dim. array variable
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">double a[3][5];   // Array definition</FONT>    
+  <FONT color="darkred">
+  void func( );   // Declare func( )
+  </FONT>
+  int main( int argc, char* argv[] )
+  {
+     int i, j;
+   
+     for ( i = 0; i < 3; i++ )
+        for ( j = 0; j < 5; j++ )
+  	   a[i][j] = i + j;
+   
+     func( );
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="magenta">extern double <SPAN style="BACKGROUND-COLOR: yellow">a[ ][<FONT color="blue">5</FONT>]</span>;   
+  	     // <SPAN style="BACKGROUND-COLOR: yellow">Array declaration</span></FONT>    
+   
+  void func( )
+  {
+     int i;
+
+     for ( i = 0; i < 3; i++ )
+     {
+        for ( j = 0; j < 5; j++ )
+  	   printf("a[%d][%d] = %lf  ",
+                           i, j, a[i][j]);   
+        putchar('\n");
+     }
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <B>main</B> Prog file:
+       <A HREF="Progs/declare-array2a.c"> click here </A>
+  <LI> The <B>array declaration</B> Prog file:
+       <A HREF="Progs/declare-array2b.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on links and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc declare-array2a.c declare-array2b.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>reason</I> for such a convoluted <I>declaration</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C compiler</B> stores a 
+   <FONT color="blue"><B>2-dimensional array</B></FONT>
+   in a <FONT color="red"><B><I>row</I>-wise fashion</B></FONT> inside
+   the <B>computer memory</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+    <FONT color="red"><B><TT>double a[3][5]</TT></B></FONT>
+    is stored in memory as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array11a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In order to <FONT color="blue"><B>enable</B></FONT> the
+    <B>C compiler</B> to
+    <FONT color="red"><B>compute the <I>address</I></B></FONT> of
+    the variable <FONT color="blue"><B><TT>a[i][j]</TT></B></FONT>,
+    we <FONT color="red"><B>must</B></FONT> tell the
+    <B>C compiler</B> the <FONT color="blue"><B>length of the
+    <I>second</I> dimension</B></FONT> of the array:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array11.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+As you can see from the above figure:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address of a[i][j] = base-address + ( i*<FONT color="red">SIZE-of-the-2nd-dimension</FONT> + j ) * 8    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Alternative</I> syntax to <I>declare</I> a
+     two-dimensional array
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C compiler</B> will
+      <FONT color="blue"><B>ignore</B></FONT> any text between
+     the <B>brackets</B> 
+    <FONT color="red"><B><TT>[...]</TT></B></FONT> in the
+    <FONT color="magenta"><B>leading (first) dimenison</B></FONT>
+    of an
+    <FONT color="blue"><B>array declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   extern  DataType  arrayVarName [ <FONT color="red"> /* ignored ! */</font> ] [ SIZE ] ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="blue"><B>common practice</B></FONT> in <B>C</B>
+    is to <FONT color="red"><B>write the actual array size</B></FONT>
+    of the 
+    <FONT color="magenta"><B>leading (first) dimenison</B></FONT>
+    in  an
+    <FONT color="blue"><B>array declaration</B></FONT>
+    (as a <B>reminder</B> to 
+    <FONT color="red"><B><I>not</I> exceed</B></FONT> the
+    array size)
+<P>
+<LI> <B>Example:</B> (array <FONT color="red"><B><I>declaration</I></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File where the array is defined
+</TH> 
+<TH>
+ <FONT color="red"><I>Declaring</I></FONT> the 2-dim. array variable
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">double a[3][5];   // Array definition</FONT>    
+  <FONT color="darkred">
+  void func( );   // Declare func( )
+  </FONT>
+  int main( int argc, char* argv[] )
+  {
+     int i, j;
+   
+     for ( i = 0; i < 3; i++ )
+        for ( j = 0; j < 5; j++ )
+  	   a[i][j] = i + j;
+   
+     func( );
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="magenta">extern double <SPAN style="BACKGROUND-COLOR: yellow">a[<FONT color="blue">3</FONT>][<FONT color="blue">5</FONT>]</span>;   
+  	     // <SPAN style="BACKGROUND-COLOR: yellow">Array declaration</span></FONT>    
+   
+  void func( )
+  {
+     int i;
+
+     for ( i = 0; i < 3; i++ )
+     {
+        for ( j = 0; j < 5; j++ )
+  	   printf("a[%d][%d] = %lf  ",
+                           i, j, a[i][j]);   
+        putchar('\n");
+     }
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

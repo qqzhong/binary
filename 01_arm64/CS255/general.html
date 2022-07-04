@@ -1,0 +1,705 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+General discussion on passing parameters to functions, passing return values
+ to caller and storing local variables
+<HR>
+</H3>
+<UL>
+
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     High level programming view of
+     a subroutine/function call and return
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following
+    <FONT color="blue"><B>example program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    void main( )          // I omitted the 'public static' for simplicity
+    {
+       int x = 4, y = 7, z;
+
+       <FONT color="red">z = F(x, y);     // Pass parameters x, y and receive return value</FONT>
+    }
+
+
+    int <FONT color="red">F</FONT>(int a, int b) // I omitted the 'public static' for simplicity
+    {
+        <FONT color="red">int s, t;     // Local variables</FONT>
+
+        ....
+
+        return(77);
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>subroutine call statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    z = F(x, y);  // Subroutine call statement              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+packs a lot of <FONT color="red"><B>meaning</B></FONT> in
+ a <FONT color="blue"><B>high level programming language</B></FONT>
+<P>
+We are here to spell out what <FONT color="red"><B>exactly</B></FONT> 
+ happens in a
+  <FONT color="blue"><B>subroutine invocation (call) statement</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> You were <FONT color="blue"><B>told</B></FONT> in
+ <FONT color="red"><B>CS170</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>subroutine invocation</B></FONT>
+      <FONT color="red"><B><TT>F(x, y)</TT></B></FONT> will
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B><I>passes</I></B></FONT> the
+       <FONT color="blue"><B>variables <TT>x</TT> and 
+      <TT>y</TT></B></FONT>
+     (to the function <FONT color="red"><B><TT>F( )</TT></B></FONT>)
+ <LI> Then the <FONT color="red"><B>statements (= instructions)</B></FONT> in
+    the <FONT color="blue"><B>subroutine <TT>F( )</TT></B></FONT> 
+    are <FONT color="red"><B>executed</B></FONT>
+    using
+   <FONT color="blue"><B><TT>a = x (= 4 in example)</TT></B></FONT> and
+   <FONT color="blue"><B><TT>b = y (= 7 in example)</TT></B></FONT>
+    
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param01a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The common element in
+    (1) passing parameters (2) passing return values and
+    (3) storing (creating) local variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B>one thing</B></FONT> that
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Passing parameters</B></FONT>
+     to a <FONT color="blue"><B>function</B></FONT>
+ <LI> <FONT color="red"><B>Passing the return value</B></FONT>
+      to a <FONT color="blue"><B>caller function</B></FONT>
+ <LI> <FONT color="red"><B>Creating local variables</B></FONT>
+      for a <FONT color="darkmagenta"><B>function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> They <B>all</B>
+    require the
+    <FONT color="blue"><B>use</B></FONT> of
+    <FONT color="red"><B>memory cells</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You need <FONT color="red"><B>memory cells</B></FONT> to
+     <FONT color="blue"><B>store</B></FONT> the
+     <FONT color="red"><B>parameter (variables)</B></FONT>
+ <LI> You need <FONT color="red"><B>memory cells</B></FONT> to
+     <FONT color="blue"><B>store</B></FONT> the
+     <FONT color="red"><B>return value</B></FONT>
+ <LI> You need <FONT color="red"><B>memory cells</B></FONT> to
+     <FONT color="blue"><B>store</B></FONT> the
+     <FONT color="red"><B>local variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Memory elements in the computer system
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Memory elements</B></FONT>
+    (= <FONT color="blue"><B>devices</B></FONT> that
+    can be used
+    to <FONT color="red"><B>store values</B></FONT>) can be found in:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>computer memory</B></FONT>
+        (of course... it has the word
+	<FONT color="blue"><B>memory</B></FONT> in it !!!)
+ <LI> The <FONT color="red"><B>registers</B></FONT> in the
+ <FONT color="blue"><B>CPU</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So <FONT color="red"><B>passing parameters</B></FONT>,
+ <FONT color="red"><B>passing return values</B></FONT> and
+ <FONT color="red"><B>allocating memory for local variables</B></FONT> can
+ be done using:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Registers</B></FONT> in
+   the <FONT color="blue"><B>ALU</B></FONT>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B>Computer memory</B></FONT> - specifically:
+     <B>memory space</B> on the
+     <FONT color="blue"><B>system stack</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens <FONT color="red">exactly</FONT> during
+     a subroutine/function call and return
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following
+    <FONT color="blue"><B>example program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    void main( )          // I omitted the 'public static' for simplicity
+    {
+       int x = 4, y = 7, z;
+
+       <FONT color="red">z = F(x, y);     // Pass parameters x, y and receive return value</FONT>
+    }
+
+
+    int <FONT color="red">F</FONT>(int a, int b) // I omitted the 'public static' for simplicity
+    {
+        <FONT color="red">int s, t;     // Local variables</FONT>
+
+        ....
+
+        return s;
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>subroutine call statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    z = F(x, y);  // Subroutine call statement              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+packs a lot of <FONT color="red"><B>meaning</B></FONT> in
+ a <FONT color="blue"><B>high level programming language</B></FONT>
+<P>
+We are here to spell out what <FONT color="red"><B>exactly</B></FONT> 
+ happens in a
+  <FONT color="blue"><B>subroutine invocation (call) statement</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> You were <FONT color="blue"><B>told</B></FONT> in
+ <FONT color="red"><B>CS170</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>subroutine invocation</B></FONT>
+      <FONT color="red"><B><TT>F(x, y)</TT></B></FONT> will
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B><I>passes</I></B></FONT> the
+       <FONT color="blue"><B>variables <TT>x</TT> and 
+      <TT>y</TT></B></FONT>
+     (to the function <FONT color="blue"><B><TT>F( )</TT></B></FONT>)
+ <LI> Then the <FONT color="red"><B>statements (= instructions)</B></FONT> in
+    the <FONT color="blue"><B>subroutine <TT>F( )</TT></B></FONT> 
+    are <B>executed</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param01a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using registers
+     </B></FONT>
+<P>
+<UL>
+
+
+
+<LI> When <FONT color="blue"><B><TT>main( )</TT></B></FONT>
+      calls <FONT color="red"><B><TT>F(x, y)</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    z = F( x, y );           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><TT>main( )</TT></B></FONT> passes
+ its <FONT color="blue"><B>variable <TT>x</TT> and <TT>y</TT></B></FONT> to
+ <FONT color="red"><B>F( )</TT></B></FONT>
+<P>
+We can 
+  <FONT color="blue"><B>pass these parameters</B></FONT>
+  by <FONT color="red"><B>copying the values</B></FONT> in these
+  <FONT color="blue"><B>variables</B></FONT>
+  in some <FONT color="red"><B>registers</B></FONT>
+<P>
+<B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Copy</B></FONT> the
+  <FONT color="blue"><B>variable <TT>x</TT></B></FONT> in
+  <FONT color="red"><B>register R0</B></FONT>
+ <LI> <FONT color="red"><B>Copy</B></FONT> the
+  <FONT color="blue"><B>variable <TT>y</TT></B></FONT> in
+  <FONT color="red"><B>register R1</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>In this case:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>function <TT>F( )</TT></B></FONT>
+     <FONT color="blue"><B>must</B></FONT> use
+      <FONT color="red"><B>register R0</B></FONT> as
+       its
+      <FONT color="blue"><B>parameter variable <TT>a</TT></B></FONT> !!!
+ <LI> The <FONT color="red"><B>function <TT>F( )</TT></B></FONT>
+     <FONT color="blue"><B>must</B></FONT> use
+      <FONT color="red"><B>register R1</B></FONT> as
+       its
+      <FONT color="blue"><B>parameter variable <TT>b</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Schematically explained:</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<B>Consequently:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can use
+      <FONT color="red"><B>registers</B></FONT> to
+      <FONT color="blue"><B>pass parameters</B></FONT> to a
+      <B>function</B>
+ <LI> You can use
+      <FONT color="red"><B>registers</B></FONT> to
+      <FONT color="blue"><B>return a value</B></FONT> to the
+      <B>caller</B>
+ <LI> You can use
+      <FONT color="red"><B>registers</B></FONT> as
+      <FONT color="blue"><B>local variables</B></FONT>
+<P>
+<FONT color="red"><B>However:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Using
+  <FONT color="red"><B>registers</B></FONT> to
+        <FONT color="blue"><B>pass parameters </B></FONT> and
+	<FONT color="blue"><B>storing local variable</B></FONT> 
+	can
+	<FONT color="red"><B><I>only</I> be done</B></FONT>
+	in a
+	<FONT color="blue"><B>leaf subroutine</B></FONT> because
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>non-leaf subroutine</B></FONT> calls
+    <FONT color="blue"><B><I>another</I> subroutine</B></FONT>,
+    the <FONT color="red"><B>values in the registers</B></FONT> will
+    be <FONT color="blue"><B>lost</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Never</B></FONT> use
+     <FONT color="blue"><B>registers</B></FONT> to
+     <FONT color="red"><B>pass parameters</B></FONT> <B>nor</B>
+     as <FONT color="red"><B>local variable</B></FONT> in
+     a <FONT color="blue"><B><I>non</I>-leaf subroutine</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+      Teaching example 2 on function calls
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the <FONT color="blue"><B>2nd example</B></FONT> 
+        program to illustrate
+	<FONT color="red"><B>passing paremeters</B></FONT>,
+	<FONT color="red"><B>passing return values</B></FONT> and
+	<FONT color="red"><B>creating local variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    void main( )          // I omitted the 'public static' for simplicity
+    {
+       int x, y, z;
+
+       <FONT color="red">z = squaresum(x, y);     // Pass parameters x, y and receive return value</FONT>
+    }
+
+    /* --------------------------------------
+       Returns:  a^2 + (a+1)^2 + ... + b^2
+       -------------------------------------- */
+    int <FONT color="red">squaresum</FONT>(int a, int b) // I omitted the 'public static' for simplicity
+    {
+        <FONT color="red">int i, s;     // Local variables</FONT>
+
+        s = 0;
+
+        for ( i = a; i <= b; i++ )
+           s = s + square(i);
+
+        return s;
+    }
+
+    int <FONT color="red">square</FONT>(int x)
+    {
+       return(x*x);
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

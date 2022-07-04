@@ -1,0 +1,246 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction: leaf and non-leaf subroutines
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Leaf subroutine
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Leaf subroutine (leaf function)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Leaf subroutine/function</B></FONT> =
+        a <FONT color="blue"><B>subroutine/function</B></FONT> that
+       does <FONT color="red"><B>not</B></FONT> contain
+      a <FONT color="blue"><B>subroutine/function call</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public class myClass
+    {
+       public int square(int x)       // square( ) is a <FONT color="red">leaf function</FONT>    
+       {
+          return x * x;
+       }
+
+       ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Non-leaf subroutine
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Non-leaf subroutine (leaf function)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Non-leaf subroutine/function</B></FONT> =
+        a <FONT color="blue"><B>subroutine/function</B></FONT> that
+        <FONT color="red"><B>contains</B></FONT> one or more
+       <FONT color="blue"><B>subroutine/function calls</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public class myClass
+    {
+       public int square(int x)       // square( ) is a <FONT color="red">leaf function</FONT>    
+       {
+          return x * x;
+       }
+
+       public int sumOfSquare(int x, int y) // sumOfSquare( ) is a <FONT color="red">non-leaf function</FONT>    
+       {
+          return square(x) +  square(y);
+       }
+
+       ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Why we make this distinction ?
+     </B></FONT>
+<P>
+<UL>
+<LI> It's common to have
+      <FONT color="red"><B>many more</B></FONT>
+          <FONT color="blue"><B>leaf subroutines</B></FONT>
+	  in a <FONT color="red"><B>high level language program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Programmers that practice
+      <FONT color="red"><B>modular programming</B></FONT>
+      tends to write
+      <FONT color="blue"><B>small subroutines</B></FONT>
+      to do a (small but) <FONT color="red"><B><I>specific</I> task</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <FONT color="red"><B>Some <I>modern</I> processors</B></FONT> 
+     (like the <FONT color="blue"><B>ARM processor</B></FONT>) provide
+     a
+      <FONT color="red"><B>very efficient</B></FONT>
+    <FONT color="blue"><B>subroutine call <I>instruction</I></B></FONT>
+  in <FONT color="red"><B>assembler</B></FONT> that
+   <FONT color="blue"><B><I>only</I></B></FONT> a
+  <FONT color="red"><B>leaf subroutine</B></FONT> can use...
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>programmer</B></FONT> must 
+       <FONT color="blue"><B>manage</B></FONT> the
+     <FONT color="red"><B>return address</B></FONT> in order to
+     <FONT color="blue"><B>implement</B></FONT>
+     <FONT color="red"><B>non-leaf subroutines</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+  <FONT color="red"><B>Older processors</B></FONT>
+ (like the <FONT color="blue"><B>INTEL x86 and Core Dual</B></FONT>)
+  has a
+  <FONT color="red"><B>subroutine call <I>instruction</I></B></FONT>
+  for <FONT color="blue"><B>non-leaf subroutines</B></FONT> that
+   a <FONT color="red"><B>leaf subroutine</B></FONT> can 
+     <FONT color="blue"><B>also use</B></FONT>.
+  
+<P>
+So:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>assembler programmer</B></FONT> is
+    more <FONT color="blue"><B>inconveniencedd</B></FONT> by
+   the <FONT color="red"><B>ARM processer</B></FONT>.
+ <P>
+ That's OK. 
+ <P>
+ It's a <FONT color="red"><B>small inconvenience</B></FONT>
+  (to gain (a little) <FONT color="blue"><B>performance</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

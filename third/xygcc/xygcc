@@ -1,0 +1,471 @@
+# see github.com/dev-west/xygcc
+# GNU General Public License v3.0
+
+this=$(basename $BASH_SOURCE)
+
+a=""
+c=""
+cmd=""
+st=""
+dy=""
+fn=""
+tar=""
+btar=""
+ltar=""
+etar=""
+ip=""
+ex=""
+q=""
+
+env="qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg build-essential gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf binutils-arm-linux-gnueabihf-dbg libc6-dev:i386 lib32gcc-10-dev"
+
+err() { printf "%s\n" "$*" >&2; exit 1; }
+out() {
+	if [ -z "$q" ]; then
+		printf "\t%s\n" "$*"
+	fi
+}
+
+if [ $1 == "--setup" ]; then
+	out ""
+	out "Running setup. Will update, upgrade, then install dependencies."
+	if [ -z "$q" ]; then
+		read -n 1 -s -r -p $'\tPress <enter> to continue; ctrl+c to exit.'
+	fi
+	out ""
+	sudo apt update -y && sudo apt upgrade -y && sudo apt install $env
+
+	if [ $? -ne 0 ]; then
+		err "Something went wrong?! Please try again."
+	fi
+
+	out "Setup complete."
+	exit 0
+fi
+
+for pk in $env; do
+	dlist=$(dpkg -l $pk)
+	if [ $? -ne 0 ]; then
+		err "Missing $pk. Run $this --setup"
+	fi
+done
+
+usage () {
+	echo "Usage: $this [options] <input file[s]>"
+	echo -e "\tcross compiles on ubuntu x86_64 (tested on 20.04).\n"
+
+	echo -e "\t--help|-h|--usage"
+	echo -e "\t   output this message\n"
+
+	echo -e "\t--setup"
+	echo -e "\t   install dependencies for qemu aarch32/aarch64\n"
+
+	echo -e "\t--quiet|-q"
+	echo -e "\t   suppress output except for errors\n"
+
+	echo -e "\t--compiler|-c (default)"
+	echo -e "\t   compile with gcc and link into executable\n"
+
+	echo -e "\t--assembler|-a"
+	echo -e "\t   assemble with as and link into executable\n"
+
+	echo -e "\t--aarch64|-a64"
+	echo -e "\t   target aarch64"
+	echo -e "\t   cannot be used with other target request args\n"
+
+	echo -e "\t--aarch32|-a32"
+	echo -e "\t   target aarch32"
+	echo -e "\t   cannot be used with other target request args\n"
+
+	echo -e "\t--x86_64|-x64"
+	echo -e "\t   target x86_64"
+	echo -e "\t   cannot be used with other target request args\n"
+
+	echo -e "\t--x86_32|-x32"
+	echo -e "\t   target x86_32"
+	echo -e "\t   cannot be used with other target request args\n"
+
+	echo -e "\t--dynamic|-d (default)"
+	echo -e "\t   dynamically-linked libraries"
+	echo -e "\t   cannot be used with --static|-s\n"
+
+	echo -e "\t--static|-s"
+	echo -e "\t   statically-linked libraries"
+	echo -e "\t   cannot be used with --dynamic|-d\n"
+
+	echo -e "\t--output|-o <filename>"
+	echo -e "\t   specific output filename (a.out default)\n"
+
+	echo -e "\t--exec|-e"
+	echo -e "\t   execute once built\n"
+
+	exit 1
+}
+
+x86_64="x86_64"
+x86_32="x86_32"
+aarch64="aarch64"
+aarch32="aarch32"
+
+c_x86_64="gcc -m64"
+c_x86_32="gcc -m32"
+c_aarch64="aarch64-linux-gnu-gcc"
+c_aarch32="arm-linux-gnueabihf-gcc"
+
+# as_x86_64="as --64"
+# as_x86_32="as --32"
+as_x86_64="gcc -m64 -static -nostdlib"
+as_x86_32="gcc -m32 -static -nostdlib"
+as_aarch64="aarch64-linux-gnu-as"
+as_aarch32="arm-linux-gnueabihf-as"
+ld_aarch64_static="aarch64-linux-gnu-ld -static"
+ld_aarch32_static="arm-linux-gnueabihf-ld -static"
+ld_aarch64_dynamic="aarch64-linux-gnu-ld"
+ld_aarch32_dynamic="arm-linux-gnueabihf-ld"
+# ld_x86_64_static="ld -static /lib64/ld-linux-x86-64.so.2 -lc"
+# ld_x86_64_dynamic="ld /lib64/ld-linux-x64-64.so.2 -lc"
+# ld_x86_32_static="ld -m elf_i386 -static /lib/ld-linux.so.2 -lc"
+# ld_x86_32_dynamic="ld -m elf_i386 /lib/ld-linux.so.2 -lc"
+
+exec_x86_64_static="./"
+exec_x86_64_dynamic="./"
+exec_x86_32_static="qemu-i386 "
+exec_x86_32_dynamic="qemu-i386 "
+exec_aarch64_static="qemu-aarch64 "
+exec_aarch64_dynamic="qemu-aarch64 -L /usr/aarch64-linux-gnu "
+exec_aarch32_static="qemu-arm "
+exec_aarch32_dynamic="qemu-arm -L /usr/arm-linux-gnueabihf "
+
+while [ ! -z "$1" ]; do
+	case "$1" in
+		# usage
+		--help|-h|--usage)
+			usage
+		;;
+
+		# setup
+		--setup)
+			err "Cannot run setup with other arguments"
+		;;
+
+		# quiet
+		--quiet|-q)
+			if [ -n "$q" ]; then
+				err "Cannot --quiet; already --quiet!"
+			fi
+
+			q="true"
+		;;
+
+		# assembler
+		--assembler|-a)
+			if [ -n "$c" ]; then
+				err "Cannot --assembler; already --compiler"
+			fi
+			if [ -n "$a" ]; then
+				err "Cannot --assembler; already set"
+			fi
+			a="true"
+			out "--assembler"
+		;;
+
+		# compiler
+		--compiler|c)
+			if [ -n "$a" ]; then
+				err "Cannot --compiler; already --asembler"
+			fi
+			if [ -n "$c" ]; then
+				err "Cannot --compiler; already set"
+			fi
+			c="true"
+			out "--compiler"
+		;;
+
+		# aarch64
+		--aarch64|-a64)
+			if [ -n "$tar" ]; then
+				err "Cannot --aarch64; already $tar"
+			fi
+
+			out "--aarch64."
+			tar=$aarch64
+		;;
+
+		# aarch32
+		--aarch32|-a32)
+			if [ -n "$tar" ]; then
+				err "Cannot --aarch32; already $tar"
+			fi
+
+			out "--aarch32."
+			tar=$aarch32
+		;;
+
+		# x86_64
+		--x86_64|-x64)
+			if [ -n "$tar" ]; then
+				err "Cannot --x86_64; already $tar"
+			fi
+
+			out "--x86_64."
+			tar=$x86_64
+		;;
+
+		# x86_32
+		--x86_32|-x32)
+			if [ -n "$tar" ]; then
+				err "Cannot --x86_32; already $tar"
+			fi
+
+			out "--x86_32."
+			tar=$x86_32
+		;;
+
+		# dynamic request
+		--dynamic|-d)
+			if [ "$st" == "true" ]; then
+				err "Cannot --dynamic; already --static"
+			fi
+			if [ "$dy" == "true" ]; then
+				err "Cannot --dynamic; already --dynamic"
+			fi
+
+			dy="true"
+			out "--dynamic."
+		;;
+
+		# static request
+		--static|-s)
+			if [ "$dy" == "true" ]; then
+				err "Cannot --static; already --dynamic"
+			fi
+			if [ "$st" == "true" ]; then
+				err "Cannot --static; already --static"
+			fi
+
+			st="true"
+			out "--static."
+		;;
+
+		# execute build
+		--exec|-e)
+			ex="true"
+			out "--execute."
+		;;
+
+		# output file name
+		--output|-o)
+			if [ -z "$1" ]; then
+				err "Cannot --output empty string"
+			fi
+			if [ -n "$fn" ]; then
+				err "Cannot --output; filename already $fn"
+			fi
+
+			fn="$2"
+			out "--output $fn"
+			cmd="$cmd -o $fn"
+
+			shift
+		;;
+
+		# any other unrecognized args, pass to input file
+		*)
+			if [ -z "$ip" ]; then
+				ip="$1"
+				out "--input: $ip"
+			else
+				ip="$ip" "$1"
+				out "--inputs: $ip"
+			fi
+		;;
+	esac
+
+	# shift args to 1 lower reference $#
+	shift
+done
+
+if [ -z "$a" ]; then
+	if [ -z "$c" ]; then
+		c="true"
+		out "--default: compiler"
+	fi
+fi
+
+if [ -z "$ip" ]; then
+	err "Input not defined\n"
+fi
+
+if [ -z "$tar" ]; then
+	err "Target not defined"
+fi
+
+if [ -z "$fn" ]; then
+	fn="a.out"
+	out "--output default: $fn"
+fi
+
+if [ "$dy" != "true" ]; then
+	if [ "$st" != "true" ]; then
+		out "--linking default: dynamic"
+	fi
+fi
+
+if [ "$a" == "true" ]; then
+	case "$tar" in
+		"$aarch64")
+			locFN=$(basename -- "$fn")
+			locFN="${locFN%%.*}.aarch64"
+			btar="$as_aarch64 $ip -o $locFN"
+
+			if [ "$st" == "true" ]; then
+				ltar="$ld_aarch64_static $locFN -o $fn"
+			else
+				if [ "$dy" == "true" ]; then
+					ltar="$ld_aarch64_dynamic $locFN -o $fn"
+				else
+					err "Unexpected aarch64 assembler linker method"
+				fi
+			fi
+		;;
+		"$aarch32")
+			locFN=$(basename -- "$fn")
+			locFN="${locFN%%.*}.aarch32"
+			btar="$as_aarch32 $ip -o $locFN"
+
+			if [ "$st" == "true" ]; then
+				ltar="$ld_aarch32_static $locFN -o $fn"
+			else
+				if [ "$dy" == "true" ]; then
+					ltar="$ld_aarch32_dynamic $locFN -o $fn"
+				else
+					err "Unexpected aarch32 assembler linker method"
+				fi
+			fi
+		;;
+		"$x86_64")
+#			locFN=$(basename -- "$fn")
+#			locFN="${locFN%%.*}.x86_64"
+#			btar="$as_x86_64 $ip -o $locFN"
+			btar="$as_x86_64 $ip -o $fn"
+
+#			if [ "$st" == "true" ]; then
+#				ltar="$ld_x86_64_static $locFN -o $fn"
+#			else
+#				if [ "$dy" == "true" ]; then
+#					ltar="$ld_x86_64_dynamic $locFN -o $fn"
+#				else
+#					err "Unexpected x86_64 assembler linker method"
+#				fi
+#			fi
+		;;
+		"$x86_32")
+#			locFN=$(basename -- "$fn")
+#			locFN="${locFN%%.*}.x86_32"
+#			btar="$as_x86_32 $ip -o $locFN"
+			btar="$as_x86_32 $ip -o $fn"
+
+#			if [ "$st" == "true" ]; then
+#				ltar="$ld_x86_32_static $locFN -o $fn"
+#			else
+#				if [ "$dy" == "true" ]; then
+#					ltar="$ld_x86_32_dynamic $locFN -o $fn"
+#				else
+#					err "Unexpected x86_32 assembler linker method"
+#				fi
+#			fi
+		;;
+		*)
+			err "Unexpected assembler target"
+		;;
+	esac
+
+	if [ -n "$btar" ]; then
+		out "Executing: $btar"
+		$btar
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+	fi
+
+	if [ -n "$ltar" ]; then
+		out "Executing: $ltar"
+		$ltar
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+	fi
+
+else
+	if [ "$c" == "true" ]; then
+		if [ "$st" == "true" ]; then
+			cmd="$cmd -static"
+		fi
+		case "$tar" in
+			"$aarch64")
+				btar="$c_aarch64 $cmd $ip"
+			;;
+			"$aarch32")
+				btar="$c_aarch32 $cmd $ip"
+			;;
+			"$x86_64")
+				btar="$c_x86_64 $cmd $ip"
+			;;
+			"$x86_32")
+				btar="$c_x86_32 $cmd $ip"
+			;;
+			*)
+				err "Unexpected compiler target"
+			;;
+		esac
+	
+		out "Executing: $btar"
+		$btar
+
+		if [ $? -ne 0 ]; then
+			exit 1
+		fi
+
+	else
+		err "Neither assembler nor compiler defined"
+	fi
+fi
+
+if [ $? -eq 0 ]; then
+	if [ "$ex" == "true" ]; then
+		if [ "$st" == "true" ]; then
+			if [ "$tar" == "$aarch64" ]; then
+				etar=$exec_aarch64_static
+			fi
+			if [ "$tar" == "$aarch32" ]; then
+				etar=$exec_aarch32_static
+			fi
+			if [ "$tar" == "$x86_64" ]; then
+				etar=$exec_x86_64_static
+			fi
+			if [ "$tar" == "$x86_32" ]; then
+				etar=$exec_x86_32_static
+			fi
+		else
+			if [ "$tar" == "$aarch64" ]; then
+				etar=$exec_aarch64_dynamic
+			fi
+			if [ "$tar" == "$aarch32" ]; then
+				etar=$exec_aarch32_dynamic
+			fi
+			if [ "$tar" == "$x86_64" ]; then
+				etar=$exec_x86_64_dynamic
+			fi
+			if [ "$tar" == "$x86_32" ]; then
+				etar=$exec_x86_32_dynamic
+			fi
+		fi
+
+		if [ -n "$etar" ]; then
+			out "Executing: $etar$fn"
+			$etar$fn
+		else
+			err "Attempted to execute, but did not find target"
+		fi
+	fi
+fi

@@ -1,0 +1,613 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Specifying dependency between files: <I>makefiles</I>
+<HR>
+</H3>
+<UL>
+<P>
+
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Prelude to programming project management:
+	time stamps of files
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Each file</B></FONT> has a
+      <FONT color="red"><B><I>modification</I> timestamp</B></FONT>
+ <P>
+ <LI> <B>Use:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">ls -l</FONT>   
+      
+    -rwxr-xr-x   1 cheung   staff       6492 <FONT color="red">Nov 14 19:39</FONT> hello*
+    -rw-r--r--   1 cheung   staff         92 <FONT color="red">Nov 14 19:39</FONT> hello.c      
+    -rw-r--r--   1 cheung   staff        708 <FONT color="red">Nov 14 19:39</FONT> hello.o
+    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to see the <FONT color="red"><B>modification time</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Make: a UNIX utility to help you manage "building" your project files
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>UNIX</B> <FONT color="red"><B>make</B></FONT> utility:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>make</B></FONT> application in <B>UNIX</B>
+      can use the <FONT color="red"><B>time stamps</B></FONT>
+      in <FONT color="blue"><B>files</B></FONT> to
+      determine the
+      <FONT color="red"><B><I>last</I> modification time</B></FONT>
+      on a <FONT color="blue"><B>file</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>time stamp </B></FONT> information
+     can tell the <FONT color="blue"><B>make</B></FONT> application
+     <FONT color="red"><B>which file(s)</B></FONT> is/are
+      <FONT color="blue"><B>recently updated</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>special file</B></FONT> called
+     a
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue"><B>"Make file"</B></FONT>
+   </SPAN> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>file dependencies rules</B></FONT>
+     and
+ <LI> <FONT color="blue"><B><I>maintenance</I> commands</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="blue"><B>make</B></FONT> utility
+    will <B>use</B>
+    the <FONT color="red"><B>file dependencies</B></FONT>
+    and the
+  <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="blue"><B>file time stamps</B></FONT> </SPAN>
+    to <FONT color="red"><B>determine</B></FONT> which
+    <FONT color="blue"><B>files</B></FONT> are
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B><I>out-of-date</I></B></FONT></SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>file</B></FONT> is
+   <FONT color="blue"><B>out-of-date</B></FONT>, the
+   <FONT color="red"><B>make</B></FONT> application will
+   <FONT color="blue"><B>execute</B></FONT> the
+   <FONT color="red"><B><I>maintenance</I> commands</B></FONT>
+   to <FONT color="blue"><B>refresh</B></FONT> the
+   <FONT color="red"><B>out-of-date file</B></FONT>
+   <B>automatically</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "Make file"
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>"Make file"</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> The <FONT color="blue"><B>name</B></FONT> of a
+      <FONT color="red"><B><I>Make</I> file</B></FONT> 
+  <FONT color="blue"><B>must be</B></FONT> equal to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+         <FONT color="red">makefile</FONT>
+
+  or:
+
+         <FONT color="red">Makefile</FONT>                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>Make file</B></FONT> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <FONT color="red"><B>dependency relationship</B></FONT> between
+      <FONT color="blue"><B>files</B></FONT>,
+   &nbsp;&nbsp;&nbsp;&nbsp;<B>and</B>
+ <P>
+ <LI> the <FONT color="red"><B>command(s)</B></FONT> used to
+      <FONT color="blue"><B><I>update</I></B></FONT> a
+     <FONT color="red"><B><I>target</I> file</B></FONT>
+      when it's <FONT color="blue"><B><I>depend-on</I> file(s)</B></FONT>
+      is/are <FONT color="red"><B><I>updated</I></B></FONT>
+ <P>
+ (I call these command: <FONT color="red"><B>maintenance commands</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Dependency</I> between files
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Dependency</B></FONT>
+       <B>between</B>
+       <FONT color="blue"><B>files</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>File <TT>f2</TT></B></FONT> 
+    <FONT color="blue"><B>depends</B></FONT> on
+    <FONT color="red"><B>file <TT>f1</TT></B></FONT> when:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B>file <TT>f1</TT></B></FONT> is
+     <FONT color="blue"><B><I>used</I></B></FONT> to
+     <FONT color="red"><B><I>produce</I></B></FONT>
+     the <FONT color="blue"><B>file <TT>f2</TT></B></FONT> in
+     the
+     <FONT color="red"><B>C program compilation process</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Let's look at a <FONT color="red"><B>simple example</B></FONT>
+    where we
+ <FONT color="blue"><B>compile</B></FONT> a
+ <FONT color="red"><B><I>single</I>-file C program</B></FONT>
+ using the
+  <FONT color="blue"><B><I>multi</I>-files C program</B></FONT>
+  compilation method
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>C project</B></FONT> will
+   normally consists of
+  <FONT color="blue"><B><I>multiple</I> C program files</B></FONT>, so
+  we should use the
+  <FONT color="red"><B><I>multi</I>-files C program</B></FONT>
+  compilation method to build the project.
+ <P>
+ <LI> To <FONT color="red"><B>illustrate</B></FONT> the
+  <FONT color="blue"><B>Make utility</B></FONT> in <B>UNIX</B>,
+ I will use a <FONT color="red"><B><I>single</I>-file C program</B></FONT>,
+  but <FONT color="blue"><B>compile it</B></FONT> with the
+   <FONT color="red"><B><I>multi</I>-files C program</B></FONT>
+  compilation method
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Suppose</B></FONT>
+     we have a <FONT color="blue"><B>C program</B></FONT> that
+     consists of <FONT color="red"><B>one single program file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">File: "hello.c"</FONT>
+
+   #include &lt;stdio.h>
+    
+   int main( int argc, char* argv[] )            
+   {
+      printf( "Hello World !\n" );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> We <FONT color="red"><B>compile</B></FONT> the
+    <FONT color="blue"><B>input file <TT>hello.c</TT></B></FONT>
+    using the <FONT color="red"><B>following commands</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Command: gcc -c hello.c</FONT>          
+
+      Result:   hello.c  ---->   hello.o
+
+  <FONT color="red">Command: gcc -o hello hello.o </FONT>         
+
+      Result:   hello.o  ---->  hello  (executable command in UNIX)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">hello.o</FONT>   depends on (= is produced using) <FONT color="red">hello.c</FONT>
+
+   <FONT color="red">hello</FONT>     depends on (= is produced using) <FONT color="red">hello.o</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+<FONT color="blue"><B>Summary</B></FONT> of the
+  <FONT color="red"><B>file dependency</B></FONT> and
+ the <FONT color="blue"><B>commands used</B></FONT> to
+  <FONT color="red"><B>update </B></FONT> the
+  <FONT color="blue"><B><I>target</I> files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Targets:
+ ---------
+  <FONT color="red">hello</FONT>    depends on   <FONT color="red">hello.o</FONT>
+
+           <FONT color="red">Command</FONT> to update <FONT color="red">hello</FONT>   when <FONT color="red">hello.o</FONT> is changed:   <FONT color="red">gcc -o hello hello.o</FONT>    
+
+  <FONT color="red">hello.o</FONT>  depends on   <FONT color="red">hello.c</FONT>
+
+           <FONT color="red">Command</FONT> to update <FONT color="red">hello.o</FONT> when <FONT color="red">hello.c</FONT> is changed:   <FONT color="red">gcc -c hello.c</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to use <FONT color="red">dependency relationships</FONT> between
+	files to maintain a C project
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Important facts</B></FONT> concluded from the
+    <FONT color="blue"><B>file dependency relationships</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI><B> When</B> a <FONT color="red"><B>file <TT>hello.o</TT></B></FONT> 
+    <FONT color="blue"><B>depends on (= is prodcued using)</B></FONT>
+      another <FONT color="red"><B>file <TT>hello.c</TT></B></FONT>,
+ <B>then</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The
+    <FONT color="red"><B>file <TT>hello.o</TT></B></FONT>
+     can <FONT color="blue"><B><I>only</I> be produced</B></FONT> 
+     when the <FONT color="red"><B>file <TT>hello.c</TT></B></FONT>
+      <FONT color="blue"><B><I>exists</I></B></FONT> !!!
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We must produce
+      <FONT color="red"><B>file <TT>hello.c</TT></B></FONT>
+      <B>before</B>
+      producing 
+      <FONT color="blue"><B>file <TT>hello.o</TT></B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>If</B></FONT> the
+    <FONT color="red"><B>file <TT>hello.c</TT></B></FONT> is
+      <FONT color="blue"><B><I>updated</I></B></FONT>,
+      we <FONT color="red"><B>must</B></FONT>
+      <FONT color="blue"><B><I>re-produce</I></B></FONT> the
+      <FONT color="red"><B>file <TT>hello.o</TT></B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When we <FONT color="red"><B>update (= <I>edit</I>)</B></FONT> the
+      <FONT color="blue"><B>(source file) <TT>hello.c</TT></B></FONT>, then
+      we <FONT color="red"><B>must update (= re-compile !)</B></FONT> the
+      <FONT color="blue"><B>object file <TT>hello.o</TT></B></FONT>
+ <P>
+    We do this by <FONT color="red"><B>running</B></FONT> the
+   <FONT color="blue"><B>compile command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     gcc  -c   hello.c          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+which will <FONT color="red"><B>create (= generate)</B></FONT> the
+ <FONT color="blue"><B>object file <TT>hello.o</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

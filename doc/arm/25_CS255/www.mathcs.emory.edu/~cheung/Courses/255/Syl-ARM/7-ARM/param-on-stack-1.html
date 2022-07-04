@@ -1,0 +1,645 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Modern programming languages
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Moderm programming languages
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>All</I> modern programming languages</B></FONT>
+      supports
+      <FONT color="blue"><B><I>recursion</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Detecting <I>recursion</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It is <FONT color="red"><B><I>very</I> hard</B></FONT> to
+      <FONT color="blue"><B>detect</B></FONT> if a
+      <B>function</B> is <FONT color="red"><B><I>recursive</I></B></FONT>
+      due to the 
+      <FONT color="blue"><B><I>indirect</I> recursion</B></FONT> phenomenon
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B><I>Indirect</I> recusion</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  void A(...)                                 
+  {
+     ....
+     B(...);
+     ....
+  }
+
+  void C(...)
+  {
+     ....
+     D(...);
+     ....
+  }
+
+  void D(...)
+  {
+     ....
+     <FONT color="red">A(...)</font>;
+     ....
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>call <I>chain</I></B></FONT> can be
+ <FONT color="red"><B><I>arbitrary</I> deep </B></FONT> !!!
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Compilers of modern languages
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>compiler</B> of <FONT color="blue"><B>modern programming
+        language</B></FONT> will <FONT color="red"><B><I>not</I></B></FONT>
+	try to <FONT color="blue"><B>detect</B></FONT> if
+	some <B>function/method</B> is
+	<FONT color="red"><B>recursive</B></FONT> of <B>not</B>
+<P>
+<HR>
+<P>
+<LI> The <B>compiler</B> of <FONT color="blue"><B>modern programming
+        language</B></FONT> will
+	<FONT color="red"><B><I>assume</I></B></FONT> the
+	<FONT color="blue"><B><I>worst</I> case scenario</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It will <FONT color="blue"><B>provide support</B></FONT>
+      for <FONT color="red"><B>recursion</B></FONT> for
+      <FONT color="blue"><B><I>every</I> function</B></FONT> that
+      it <B>compiles</B>.....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recursion and storing <I>local</I> variable in memory variables
+     </B></FONT>
+<P>
+<UL>
+ <LI> The technique to use 
+      <FONT color="red"><B>memory variables</B></FONT>
+      created with 
+      <FONT color="blue"><B><TT>ds</TT></B></FONT>
+       to store 
+       <FONT color="red"><B>local
+	variables</B></FONT> will 
+	<FONT color="blue"><B><I>only</I> work</B></FONT> for
+	<FONT color="red"><B> <I>non</I>-recursive  </B></FONT>
+	of <B>subroutine call</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+   main()
+   {
+      int a, b, c;
+
+      c = sum(a, b);   
+   }
+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+   int sum(int x, int y)
+   {
+      x = x + 1;
+      y = y + 1;
+
+      return (x*x + y*y);   
+   }
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+</TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> Storing  <FONT color="blue"><B>local variables</B></FONT>
+    in <FONT color="red"><B><I>memory</I> variable</B></FONT>
+    using <FONT color="blue"><B><TT>ds</TT></B></FONT> will not
+	easily with 
+	<FONT color="red"><B><I>recursive</I> calls</B></FONT>:
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ main()
+ {
+    c = func_1(a, b);  
+ }
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ int func(int x, int y) 
+ {
+    int k, l, m;
+    ....
+<font color="red">
+    m = func(k, l);</font>
+ }
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+
+</TR>
+</TABLE>
+ <P>
+ <LI> <B>Reason:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the function
+   <FONT color="red"><B><TT>func</TT> is
+   <B>called</B> a
+   <FONT color="blue"><B>second time</B></FONT>,
+   <FONT color="red"><B><I>another</I> copy</B></FONT> of the
+   <FONT color="blue"><B>local variable</B></FONT> must be
+   <FONT color="red"><B><I>created</I></B></FONT> that will be
+   <B>used</B> by the
+   <FONT color="blue"><B><I>second</I> function call</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>ds</TT></B></FONT> assembler
+ directive can <FONT color="blue"><B><I>only</I></B></FONT> 
+ <B>create (= reserve space)</B> for
+ <FONT color="red"><B><I>one</I> copy</B></FONT> of 
+ <B>local variable</B> !!!
+
+</UL>
+<P>
+	
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+</UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using the system stack to pass parameters
+     </B></FONT>
+<P>
+<UL>
+ <LI> It is 
+	<FONT color="red"><B> natural  </B></FONT>
+	to pass parameters using the stack because the way
+	that the functions are activated and de-activated:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  main --------->  func1 -----------> func2 ----------> func3  
+
+<FONT color="red">Stack: </FONT>
+				   		     +------------+
+				   		     | ret. func2 |    
+				  +------------+     +------------+
+				  | ret. func1 |     | ret. func1 |    
+		+------------+	  +------------+     +------------+
+		| ret. main  |	  | ret. main  |     | ret. main  |    
+		+------------+	  +------------+     +------------+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> The following figure shows how each function
+	passes <B>ONE</B> parameter its own callee function
+  <P>
+   <UL>
+   <LI> <B>main</B> pass one paremeter 
+	(<FONT color="red"><B><TT>func1 param</TT></B></FONT>)
+	to <B>func1</B>
+   <LI> <B>func1</B> pass one paremeter 
+	(<FONT color="red"><B><TT>func2 param</TT></B></FONT>)
+	to <B>func2</B>
+   <LI> <B>func2</B> pass one paremeter 
+	(<FONT color="red"><B><TT>func3 param</TT></B></FONT>)
+	to <B>func3</B>
+   </UL>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  main ------------>  func1 --------------> func2 -------------> func3  
+
+   push func1 param    push func2 param      push fucn3 param
+   bsr  func1	       bsr  func2            bsr  func3
+
+<FONT color="red">Stack: </FONT>
+				   		     +------------+
+				   		     | ret. func2 |    
+				   		     +------------+
+				   		     | <FONT color="red">func3 param</font>|    
+				  +------------+     +------------+
+				  | ret. func1 |     | ret. func1 |    
+		                  +------------+     +------------+
+		              	  | <FONT color="red">func2 param</font>|     | <FONT color="red">func2 param</font>|
+		+------------+	  +------------+     +------------+
+		| ret. main  |	  | ret. main  |     | ret. main  |    
+		+------------+	  +------------+     +------------+
+		| <FONT color="red">func1 param</font>|	  | <FONT color="red">func1 param</font>|     | <FONT color="red">func1 param</font>|
+		+------------+	  +------------+     +------------+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to pass a value on the stack
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall that the M68000 system stack is implemented using the
+	address register <B>a7</B>
+ <P>
+ <LI> Suppose the system  stack is initially as follows
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+         +-------------+
+   4004  |	       |
+         +-------------+
+   4008  |	       |<font color="red">
+         +-------------+ <---- a7 = 4012   
+   4012  |  aaaaaaaa   |
+         +-------------+
+   4016  |  bbbbbbbb   |
+         +-------------+
+         |  ........   |</font>   (each rectangle represents 4 bytes)   
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> After you push an <B>integer</B> value (say 6789) on the stack,
+	the stack will look like this:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+         +-------------+
+   4004  |	       |<font color="red">
+         +-------------+ <---- a7 = 4008
+   4008  |   6789      |
+         +-------------+
+   4012  |  aaaaaaaa   |
+         +-------------+
+   4016  |  bbbbbbbb   |
+         +-------------+
+         |  ........   |</font>   (each rectangle represents 4 bytes)   
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> You can achieve this result using the following 2 instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+    suba.l  #4, a7
+    move.l  #6789, (a7)      
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> Because pushing values on the system stack is a frequently
+	used operation, M68000 has provided a special
+	<FONT color="red"><B> addressing mode </B></FONT>
+	to perform the <B>push</B> operation:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+  
+    <FONT color="red">move.l  &lt;ea>, -(a7)</font>      is same as:     suba.l  <FONT color="red">#4</font>, a7
+    					     move.l  &lt;ea>, (a7)      
+
+    <FONT color="red">move.w  &lt;ea>, -(a7)</font>      is same as:     suba.l  <FONT color="red">#2</font>, a7
+    					     move.w  &lt;ea>, (a7)      
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+ <P>
+ <LI> So when you push a <B>long (4 bytes)</B>, the stack pointer <B>a7</B> is
+	decremented by 4.
+ <P>
+ <LI> But when you push a <B>word (2 bytes)</B>, the stack pointer <B>a7</B> is
+	decremented by 2 !!!
+ <P>
+ <LI> This address mode is called "indirect with <B>pre-increment</B>"
+</UL>
+<P>
+
+
+<P>
+
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Order of discussion
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>topic</B> of
+     <FONT color="red"><B>passing parameter</B></FONT> and
+     <FONT color="blue"><B>storing local variables</B></FONT>
+     using the <B>system stack</B> is
+     <FONT color="red"><B>pretty complex</B></FONT>
+<P>
+<HR>
+<P>
+<LI> Therefore, I will <FONT color="blue"><B>discuss</B></FONT>
+     the <B>topic</B> in a 
+     <FONT color="red"><B>piece meal fashion</B></FONT>:
+<P>
+(I.e., I try to break down this complex topic into a number of simpler 
+ topics --- hope this will help you understand the complex topic)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+<P>
+<LI> I will <FONT color="blue"><B>first</B></FONT> show
+     you <B>how to</B>
+	<FONT color="red"><B>pass parameters</B></FONT>
+     and
+     <FONT color="magenta"><B>store local variables</B></FONT>
+      using
+	the <B>system stack</B>
+   <P>
+     <B>And</B> <FONT color="blue"><B>access</B></FONT> the
+     variable using the
+     <FONT color="red"><B><I>stack</I> pointer</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B><I>Finally</I></B></FONT> I will show
+     you <B>how to</B>
+	<FONT color="red"><B>pass parameters</B></FONT>
+     and
+     <FONT color="magenta"><B>store local variables</B></FONT>
+      using
+	the <B>system stack</B>
+   <P>
+     <B>And</B> <FONT color="blue"><B>access</B></FONT> the
+     variable using the
+     <FONT color="magenta"><B><I>frame</I> pointer</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B><I>2nd</I> method</B></FONT> is the
+  <FONT color="red"><B><I>goal</I></B></FONT> of this
+ <FONT color="blue"><B>piece meal treatment</B></FONT> of
+ this <B>complex topic</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Do <I>not</I></B></FONT> use
+      the <FONT color="blue"><B>technique</B></FONT> explained in
+      <FONT color="red"><B>step 1</B></FONT> !!!
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>goal</B></FONT> of the
+    <FONT color="blue"><B>course</B></FONT> is to
+    <FONT color="red"><B>teach</B></FONT> you
+    the <FONT color="blue"><B>technqiue</B></FONT> in
+    <FONT color="red"><B>step 2</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

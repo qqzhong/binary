@@ -1,0 +1,407 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<FONT color="red">Review:</FONT> Lifetime and Scope of variables 
+<HR>
+</H3>
+<UL>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Information <FONT color="red">storage</FONT> in programming language
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>computer program</B></FONT>
+     <FONT color="blue"><B>processes</B></FONT>
+     <FONT color="red"><B><I>information</I></B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B>Information</B></FONT> must be
+     <FONT color="blue"><B><I>stored</I></B></FONT> inside
+     a <FONT color="red"><B>computer program</B></FONT>
+      <FONT color="blue"><B>using</B></FONT>
+      <FONT color="red"><B><I>variables</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> There are <FONT color="red"><B>different <I>kinds</I></B></FONT> of
+  <FONT color="blue"><B>information</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> <FONT color="red"><B>Some information</B></FONT> is used
+      <FONT color="blue"><B><I>only</I></B></FONT> within
+      <FONT color="red"><B><I>one</I> function</B></FONT>
+<P>
+
+
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>running (loop) index</B></FONT> in
+        a <FONT color="blue"><B><TT>for-loop</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>I</B> call these <B>variables</B>
+       <FONT color="red"><B><I>short term</I> storage</B></FONT> variables.
+
+<P>
+
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Some information</B></FONT> is used
+     by
+      <FONT color="red"><B><I>multiple</I> functions</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>StackTop</TT></B></FONT> for
+       a <FONT color="blue"><B>stack data structure</B></FONT> will be
+       used by <FONT color="red"><B><TT>push( )</TT></B></FONT> and
+       <FONT color="red"><B><TT>pop( )</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <B>I</B> call these <B>variables</B>
+       <FONT color="red"><B><I>long term</I> storage</B></FONT> variables.
+
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To <FONT color="red"><B>accommodate</B></FONT>
+       <B>both</B> 
+  <FONT color="blue"><B>short term/<FONT color="red">long term</FONT> storage 
+    requirements</B></FONT>,
+    <FONT color="red"><B>high level programming language</B></FONT> provide
+    <FONT color="blue"><B><I>different kinds</I></B></FONT>
+    of <FONT color="red"><B>variables</B></FONT> !!!
+<P>
+ <B>Example:</B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+ <FONT color="red"><B>Java</B></FONT> provides:
+ </SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Class variables</B></FONT>
+    to <FONT color="blue"><B>store</B></FONT>
+      <FONT color="red"><B><I>permanent</I> (very long term) information
+      </B></FONT>
+ <LI> <FONT color="red"><B>Instance variables</B></FONT>
+        (in <B>objects</B>) to
+	<FONT color="blue"><B>store</B></FONT>
+	<FONT color="red"><B>long term information</B></FONT>
+	(e.g.: you can create an object and use the object
+	in <B>different</B> instance methods)
+<P>
+ <LI> <FONT color="red"><B>Parameter variables</B></FONT>
+     to  <FONT color="blue"><B>store</B></FONT>
+       <FONT color="red"><B>short term information</B></FONT>
+       (used to <FONT color="blue"><B>pass information</B></FONT>
+       to  <FONT color="red"><B><I>one</I> function</B></FONT>)
+ <LI> <FONT color="red"><B>Local variables</B></FONT>
+     to  <FONT color="blue"><B>store</B></FONT>
+       <FONT color="red"><B>short term information</B></FONT>
+       (used to <FONT color="blue"><B>store information</B></FONT>
+       used by  <FONT color="red"><B><I>one</I> function</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: <FONT color="red">life time</FONT> and
+     <FONT color="red">scope</FONT> of variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Variables</B></FONT> in
+      a <FONT color="blue"><B>high level programming language</B></FONT> 
+      <B>always</B> have
+      <FONT color="red"><B>2 properties</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Life time</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>When</B></FONT> is a
+     <FONT color="blue"><B>variable</B></FONT>
+     <FONT color="red"><B>created</B></FONT>
+     (= begins to exist)
+ <LI> <FONT color="red"><B>When</B></FONT> is a
+        <FONT color="blue"><B>variable</B></FONT>
+	<FONT color="red"><B>destroyed</B></FONT>
+	(= ends to exist)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Scope</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Scope</B></FONT> =
+     the <FONT color="blue"><B>portion</B></FONT> of the
+    <FONT color="red"><B>computer program</B></FONT> where
+    a <FONT color="blue"><B>variable</B></FONT> can
+    be <FONT color="red"><B>accessed (= used in expressions)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> <B>Life time</B> of <FONT color="blue"><B>variables</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Variables</B> are
+       <FONT color="blue"><B>created</B></FONT> at certain time during
+       the <FONT color="red"><B>execution</B></FONT> of a program
+ <P>
+ <LI> <B>Variables</B> are
+       <FONT color="blue"><B><I>destroyed</I></B></FONT>
+       when the program reaches a certain
+       <B>location<B> during
+       the <FONT color="red"><B>execution</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> </B>Life time</B> of a <FONT color="blue"><B>variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Life time</B></FONT> of a 
+    <B>variable</B> <FONT color="red"><B><I>x</I></B></FONT> =
+      <B>time</B> between the 
+      <FONT color="blue"><B>creation</B></FONT> of the variable 
+      <FONT color="red"><B><I>x</I></B></FONT> and the
+      <FONT color="blue"><B><I>destruction</I></B></FONT> of the variable 
+      <FONT color="red"><B><I>x</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B>Scope</B> of <FONT color="blue"><B>variables</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>scope</B></FONT> of a <B>variable</B>
+     <FONT color="red"><B><I>x</I></B></FONT>
+      is the <B>part</B> of the program in which the
+      <FONT color="blue"><B>execution</B></FONT> of that <B>part</B>
+      of the program
+      can <FONT color="magenta"><B>accessed</B></FONT> the <B>variable</B>
+     <FONT color="red"><B><I>x</I></B></FONT>.
+     
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="blue"><B>scope</B></FONT> of a 
+    <B>variable</B> is always a
+    <FONT color="red"><B>sub-range</B></FONT> of the    <FONT color="blue"><B><I>life time</I></B></FONT> of the
+    <B>variable</B> !
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Warning:</FONT> <I>scope</I> of variables
+     in <I>C</I>
+     </B></FONT>
+<P>
+ <UL>
+
+<P>
+
+ <P>
+ <LI> The <FONT color="blue"><B><I>Scoping </I> rules</B></FONT> 
+       for  <B>variables</B> in <FONT color="red"><B>C</B></FONT> 
+    <FONT color="magenta"><B>more complex</B></FONT> than
+      those in <FONT color="blue"><B>Java</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is because:
+    <B>Gosling</B> had <FONT color="blue"><B>simplified</B></FONT>
+      the <FONT color="red"><B>scoping rules</B></FONT> of
+      <B>C</B> by
+      <FONT color="magenta"><B>forbidding</B></FONT>
+      you to define
+      <FONT color="blue"><B>multiple <I>local</I> and <I>parameter</I>
+      variables</B></FONT>
+      with the
+      <FONT color="red"><B><I>same</I> name</B></FONT> inside a
+      <B>method</B> in <B><I>Java</I></B>.
+<P>
+  <B>Gosling</B> thinks that 
+  <FONT color="red"><B>variables with the <I>same</I> name</B></FONT>
+  inside a <FONT color="blue"><B>method</B></FONT> will
+  <FONT color="red"><B>confuse</B></FONT>
+  the <FONT color="blue"><B>programmer</B></FONT>...
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> We will first discuss the
+    <FONT color="blue"><B>life time</B></FONT> of the <B>variables</B>
+ <P>
+   Then we will discuss the
+   <FONT color="red"><B>scope</B></FONT> of the
+   <B>variables</B> in
+   <B><I>C</I></B>.
+ </UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

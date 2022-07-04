@@ -1,0 +1,750 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+A <I>common practice</I> in C programming:
+  declaring functions using <font color="red"> header files</font>
+<HR>
+</H3>
+<UL>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problem description
+     </B></FONT>
+<P>
+<UL>
+<LI> We <FONT color="red"><B>must</B></FONT> 
+      <FONT color="blue"><B>declare</B></FONT>
+      <FONT color="red"><B><I>all</I> functions</B></FONT>
+      <B>before</B> they are
+      <FONT color="blue"><B>used</B></FONT>.
+<P>
+    When a <FONT color="red"><B>large number</B></FONT> of
+    <FONT color="blue"><B>functions</B></FONT> are
+    <FONT color="red"><B>used</B></FONT>, we will
+    have a
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue"><B>very long list</B></FONT>
+    of <FONT color="red"><B>function declarations</B></FONT></SPAN>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+
+<TR bgcolor="lightcyan"> 
+<TH>
+ Program file that make use of library functions
+</TH> 
+<TH>
+ Library program with useful functions (e.g.: push, pop, etc (stack))
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int   f(float x);     // Declare f !!!</FONT>
+<FONT color="red">float g(int x);       // Declare g !!!</FONT>
+<FONT color="red">float h(float x);     // Declare h !!!</FONT>
+....                                  </SPAN>
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+   b = f( a ); <FONT color="red">// Works correctly now</FONT>     
+
+   printf("a = %d, b = %d\n", a, b);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+// File: <FONT color="red">/home/cs255001/demo/C/Multi-file-prog/r2.c</FONT> 
+
+#include &lt;stdio.h>                 
+
+<FONT color="red">int f( float x )</FONT>
+{
+   return(x*x);
+}
+
+<FONT color="red">float g( int x )</FONT>
+{
+   return(x*x*x);
+}
+
+<FONT color="red">float h( float x )</FONT>
+{
+   return(x*x*x*x);
+}
+
+<FONT color="red">... (possibly more functions)...</FONT>
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We can use the
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B>file inclusion</B></FONT></SPAN>
+  <B>feature</B> of the
+  <FONT color="blue"><B>C-preprocessor</B></FONT>
+  (see:
+  <A HERF="cprep1c.html">
+  <FONT color="red"><B>click here</B></FONT></A>)
+  to help us
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue"><B>organize</B></FONT> the
+  <FONT color="red"><B>function declarations</B></FONT></SPAN> !!!
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Common practice in C programming
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B>Common practice</B></FONT> in
+    <FONT color="blue"><B>C programming</B></FONT>:</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="blue"><B>Write</B></FONT>
+      a <FONT color="red"><B>header file
+        <TT>prog.h</TT></B></FONT> for
+      <FONT color="blue"><B><I>each</I> (library) 
+       C source program file <TT>prog.c</TT>
+      </B></FONT>
+<P>
+ The <FONT color="blue"><B>header file
+    <TT>prog.h</TT></B></FONT> will <B>contain</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Declaration</I></B></FONT> of
+        <B>all</B> <FONT color="blue"><B>functions</B></FONT> that are
+	<B>defined</B> in the <FONT color="red"><B>C program file</B></FONT>
+ <P>
+ <LI> Some <FONT color="red"><B>other stuff</B></FONT> that
+    will be discussed <FONT color="blue"><B>later</B></FONT>
+    (specifically:
+    <A HREF="../2-C-adv-data/struct1.html">
+     <FONT color="red"><B>user-defined types</B></FONT></A> and
+ <A HREF="cprep2a.html">
+     <FONT color="red"><B>global variables</B></FONT></A>
+     )
+   
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT color="red"><B>Include</B></FONT> the
+      <FONT color="blue"><B>header file
+      <TT>prog.h</TT></B></FONT> in
+      <FONT color="red"><B><I>every</I> C program file</B></FONT> 
+     
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is done to
+    <FONT color="red"><B><I>declare</I></B></FONT> the
+    <FONT color="blue"><B>functions</B></FONT> so the
+    <B>C compiler</B> will
+    <FONT color="red"><B>not</B></FONT> use
+    <FONT color="blue"><B><I>implicit</I> function prototyping</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+Because there is 
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>no harm</B></FONT>
+ </SPAN> to
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue"><B>declare a function</B></FONT>,</SPAN>
+  <B>every</B>  <FONT color="red"><B>header  (<TT>.h</TT>) file</B></FONT>
+ that <FONT color="blue"><B>you write</B></FONT>
+ is usually 
+  <FONT color="red"><B>included</B></FONT> in
+   <FONT color="blue"><B><I>every</I> program (<TT>.c</TT>) file</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    The practice illustrated....
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Suppose</B> we <B>wrote</B> the following
+<B>C (libary) program file</B>
+    <FONT color="blue"><B>
+    <TT>r2.c</TT></B></FONT> with the following
+    <FONT color="red"><B>3 functions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File: <FONT color="red">/home/cs255001/demo/C/Multi-file-prog/r2.c</FONT>    
+
+#include &lt;stdio.h>                       
+
+<FONT color="red">int f( float x )</FONT>
+{
+   return(x*x);
+}
+
+<FONT color="red">float g( int x )</FONT>
+{
+   return(x*x*x);
+}
+
+<FONT color="red">float h( float x )</FONT>
+{
+   return(x*x*x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We <FONT color="red"><B>write/compose</B></FONT>  a
+        <FONT color="blue"><B>header file</B></FONT>
+     <FONT color="red"><B><TT>r2.h</TT></B></FONT>
+	with the 
+    <FONT color="blue"><B>function declarations</B></FONT> for
+    <B>all</B> the functions
+    in <FONT color="red"><B><TT>r2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File: <FONT color="red">/home/cs255001/demo/C/Multi-file-prog/r2.h</FONT> 
+
+// This #ifndef trick is used to prevent recursive include.....
+#ifndef  h_prog2_h
+#define  h_prog2_h
+<FONT color="red">       	     
+int   f( float x );
+float g( int x );
+float h( float x ); 	     
+</FONT>
+       	     
+#endif
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(You can create this file <FONT color="red"><B>easily</B></FONT> using
+  <FONT color="blue"><B>cut and paste</B></FONT> from
+  the <FONT color="red"><B>function definitions</B></FONT> in
+ <FONT color="blue"><B>file <TT>r2.c</TT></B></FONT> !!!)
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> We can now <FONT color="red"><B>declare</B></FONT>
+    <B>all</B> the
+  <FONT color="blue"><B>functions defined in <TT>r2.c</TT></B></FONT>
+   by 
+   <FONT color="red"><B>including the header file <TT>r2.h</TT></B></FONT>
+  by using 
+ <FONT color="blue"><B>#include "r2.h"</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>program file</B></FONT> containing
+   the <FONT color="red"><B><TT>main( )</TT></B></FONT> program that
+   <FONT color="blue"><B>call</B></FONT> 
+  <B>all</B> the
+ <FONT color="red"><B>functions</B></FONT> in
+ <FONT color="blue"><B><TT>r2.c</TT></B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">#include "r2.h"  // Declares all functions in r2.c</FONT>
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+   b = f( a );
+   printf("a = %d, b = %d\n", a, b);
+
+   b = g( a );
+   printf("a = %d, b = %d\n", a, b);
+
+   b = h( a );
+   printf("a = %d, b = %d\n", a, b);
+}
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>#include "r2.h"</TT></B></FONT>
+ <B>clause</B>  will <FONT color="blue"><B>declare</B></FONT>
+ <B>all</B> functions
+ defined in <FONT color="red"><B><TT>r2.c</TT></B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       home/cs255000/demo/C/Multi-file-prog/r1.c + r2.c + r2.h
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+
+
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cd  <FONT color="red">/home/cs255000/demo/C/Multi-file-prog</FONT>       
+
+    gcc  -c  r1.c
+    gcc  -c  r2.c
+    gcc  r1.o   r2.o
+    a.out
+
+<FONT color="red">Output:</FONT>
+cs255-1@aruba (4995)> a.out
+a = 2, b = 4
+a = 2, b = 8
+a = 2, b = 16
+
+<FONT color="red">No errors !!!</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    Note: we
+   include the <FONT color="red">header file</FONT> in
+   the <FONT color="red">function definition source program</FONT> also !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is 
+    <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B>no harm</B></FONT></SPAN> for
+       a <FONT color="blue"><B>C program file</B></FONT> to contain
+     <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B>BOTH</B></FONT>:</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A <FONT color="red"><B>function <I>declaration</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>and</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="red"><B>function <I>definition</I></B></FONT> for
+    that <B>same</B>
+    <FONT color="blue"><B>function</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+   (taken from this
+    <FONT color="red"><B>lecture webpage</B></FONT>
+    <A HREF="type-func4a.html">
+    <FONT color="blue"><B>click here</B></FONT></A>)
+   this <FONT color="red"><B>C program</B></FONT> contains
+   <FONT color="blue"><B>both</B></FONT> a
+  <FONT color="red"><B><I>declration</I></B></FONT> and
+   a <FONT color="blue"><B><I>definition</I></B></FONT> of
+  the <FONT color="red"><B>function <TT>int f(short x)</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int f(<FONT color="red">short</FONT> x);</FONT>          // function declaration !!!</SPAN>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // *** short !!! </FONT>
+   int y = 0;
+
+   <FONT color="red">y = f(x);            // Assumes: int f(int x)</FONT> 
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int f(<FONT color="red">short</FONT> x)          // Function definition !!! </SPAN>
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>So</B></FONT>,
+   it's  a <FONT color="red"><B>very common practice</B></FONT>
+    in <FONT color="blue"><B>C programming</B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Include</B></FONT> the
+   <FONT color="red"><B>header file</B></FONT> inside
+   the <FONT color="blue"><B>program source file</B></FONT> where the
+   <FONT color="red"><B>functions</B></FONT> are
+   <FONT color="blue"><B><I>defined</I></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<B>Example:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File: <FONT color="red">/home/cs255001/demo/C/Multi-file-prog/r2.c</FONT>    
+
+#include &lt;stdio.h>   
+
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">#include "r2.h"      // Include header files for functions in r2.c !! </FONT>   </SPAN>                  
+
+<FONT color="red">int f( float x )</FONT>
+{
+   return(x*x);
+}
+
+<FONT color="red">float g( int x )</FONT>
+{
+   return(x*x*x);
+}
+
+<FONT color="red">float h( float x )</FONT>
+{
+   return(x*x*x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>program <TT>c2.c</TT></B></FONT> will
+  <FONT color="blue"><B>compile correctly</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Furhermore</B></FONT>,
+     we <FONT color="blue"><B>gain</B></FONT>
+      the <FONT color="red"><B>advantage</B></FONT> that
+      the <FONT color="blue"><B>C compiler</B></FONT> can
+      <FONT color="red"><B><I>detect</I></B></FONT>
+      any <FONT color="blue"><B>error</B></FONT> in
+      the <FONT color="red"><B>function <I>declaration</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you <FONT color="blue"><B>compile</B></FONT> the 
+   <B>C program source file</B>
+  <FONT color="red"><B><TT>r2.c</TT></B></FONT>,
+ the <FONT color="blue"><B>C compiler</B></FONT> will
+  <FONT color="red"><B>check (= verify !!!)</B></FONT> if the
+  <FONT color="blue"><B>function <I>declarations</I></B></FONT>
+  in <FONT color="red"><B><TT>r2.h</TT></B></FONT>
+  <FONT color="blue"><B>match</B></FONT>  the
+  <FONT color="red"><B><I>actual</I>
+ function <I>definitions</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you <FONT color="red"><B>change</B></FONT> the
+     <FONT color="blue"><B>function definition</B></FONT> for
+     <FONT color="red"><B><TT>f( )</TT></B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int f ( <FONT color="red">double</FONT> x )      // Suppose we want more accuracy         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and you <FONT color="red"><B>compile</B></FONT> the
+ <FONT color="blue"><B>modified <TT>r2.c</TT></B></FONT> program,
+ the <FONT color="red"><B>C compiler</B></FONT> will
+ <FONT color="blue"><B>detect </B></FONT> that the
+  <FONT color="red"><B>function <I>declaration</I></B></FONT>
+  in <FONT color="blue"><B><TT>r2.h</TT></B></FONT> is
+  <FONT color="red"><B>inconsistent</B></FONT> with
+  your <FONT color="blue"><B>updated function <tt>f( )</TT></B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5004)> gcc -c r2.c
+r2.c:6:5: error: conflicting types for 'f\u'
+ int f( <FONT color="red">double</FONT>  x )
+     ^
+In file included from r2.c:4:0:
+<FONT color="red">r2.h</FONT>:7:7: note: previous declaration of 'f' was here
+ int   f( <FONT color="red">float</FONT> x );
+       ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>demo</B></FONT> this
+  <FONT color="blue"><B>in class</B></FONT>....
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

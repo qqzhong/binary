@@ -1,0 +1,822 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   When and where to use the
+   <FONT color="blue">load/store</FONT> instructions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>assignment statement</B></FONT> and
+   <FONT color="blue"><B>load and store instructions</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   The <FONT color="red">assignment statement</FONT>:
+
+     LHS = RHS  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Load and store</B></FONT> instructions:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Variables</B></FONT> in the
+       <FONT color="blue"><B><TT>RHS</TT></B></FONT> are
+     <FONT color="red"><B>loaded</B></FONT> into
+     the <FONT color="blue"><B>registers</B></FONT> 
+     (so we can perform the computation)
+ <P>
+  <LI> When the <FONT color="red"><B>computations</B></FONT>
+       specified in the <FONT color="blue"><B><TT>RHS</TT></B></FONT>
+       are <FONT color="red"><B>completed</B></FONT>, the
+       <FONT color="blue"><B>result</B></FONT> is
+       <FONT color="red"><B>stored</B></FONT> into the
+       (variable in the)
+       <FONT color="blue"><B><TT>LHS</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Important warning: use the
+   <FONT color="blue">corect</FONT> load and store instructions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+  <FONT color="red"><B>Very important:</B></FONT>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> When you <FONT color="red"><B>load data</B></FONT> from
+        a <FONT color="blue"><B><TT>byte</TT> variable</B></FONT>,
+	you <FONT color="red"><B>must </B></FONT> use the
+	<FONT color="blue"><B><TT>ldrsb</TT></B></FONT> instruction
+   <LI> When you <FONT color="red"><B>load data</B></FONT> from
+        a <FONT color="blue"><B><TT>short</TT> variable</B></FONT>,
+	you <FONT color="red"><B>must </B></FONT> use the
+	<FONT color="blue"><B><TT>ldrsh</TT></B></FONT> instruction
+   <LI> When you <FONT color="red"><B>load data</B></FONT> from
+        a <FONT color="blue"><B><TT>int</TT> variable</B></FONT>,
+	you <FONT color="red"><B>must </B></FONT> use the
+	<FONT color="blue"><B><TT>ldr</TT></B></FONT> instruction
+<P>
+   <LI> When you <FONT color="red"><B>store data</B></FONT> into
+        a <FONT color="blue"><B><TT>byte</TT> variable</B></FONT>,
+	you <FONT color="red"><B>must </B></FONT> use the
+	<FONT color="blue"><B><TT>strb</TT></B></FONT> instruction
+    <LI> When you <FONT color="red"><B>store data</B></FONT> into
+        a <FONT color="blue"><B><TT>short</TT> variable</B></FONT>,
+	you <FONT color="red"><B>must </B></FONT> use the
+	<FONT color="blue"><B><TT>strh</TT></B></FONT> instruction
+   <LI> When you <FONT color="red"><B>store data</B></FONT> into
+        a <FONT color="blue"><B><TT>int</TT> variable</B></FONT>,
+	you <FONT color="red"><B>must </B></FONT> use the
+	<FONT color="blue"><B><TT>str</TT></B></FONT> instruction
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+<! ---------- incorrect load --------------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   What can go wrong if you use an 
+  <FONT color="blue">incorrect load</FONT> instruction ?
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Consider</B></FONT> a program with
+   <FONT color="blue"><B>2 <TT>short</TT> typed variables</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+      .data
+  x:  .2byte     254   // short typed variable
+  y:  .2byte     1     // short typed variable  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   How these 2 short variables are stored in memory:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/wrong-ldr01.gif" style="width:60%">
+   </center>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   movw  r0, #:lower16:x   // Moves the address of memory
+   movt  r0, #:upper16:x   // variable x into register r0
+
+   <FONT color="red">ldrsb</FONT> r1,[r0]  ??
+   <FONT color="red">ldr</FONT>   r1,[r0]  ??    </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  Use: tmp/orig.s
+   </SPAN>
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+    /home/cs255001/demo/asm/2-mov/wrong-ldr.s 
+    </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue">correct result</FONT> when
+  fetching <FONT color="blue"><B><TT>x</TT></B></FONT> into
+  <FONT color="blue"><B>register <TT>R1</TT></B></FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Effect</B></FONT> when you use
+  the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>correct</B></FONT></SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>ldrsh  r1, [r0]</TT></B></FONT> </SPAN>
+  <FONT color="blue"><B>instruction</B></FONT> to
+  <FONT color="red"><B>fetch</B></FONT>
+  <FONT color="blue"><B><TT>short x</TT></B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="FIGS/bad-ldr01c.png" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B><TT>short x</TT> = 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">254</SPAN></B></FONT>
+ <BR>
+ The <FONT color="red"><B><TT>ldrsh</TT></B></FONT>
+ <FONT color="blue"><B>instruction</B></FONT>
+  <FONT color="red"><B>loads</B></FONT>
+  <FONT color="blue"><B><TT><SPAN style="BACKGROUND-COLOR: #aaffaa">254</SPAN></TT></B></FONT> into
+ the <FONT color="red"><B>register <TT>r1</TT></B></FONT> 
+
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  What can go wrong if you use an 
+  <FONT color="blue">incorrect load</FONT> instruction ? 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Effect</B></FONT> when you use
+  the <FONT color="blue"><B>incorrect</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>ldrsb  r1, [r0]</TT></B></FONT> </SPAN>
+  <FONT color="blue"><B>instruction</B></FONT> to
+  <FONT color="red"><B>fetch</B></FONT>
+  <FONT color="blue"><B><TT>short x</TT></B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="FIGS/bad-ldr01.png" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B><TT>short x</TT> = 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">254</SPAN></B></FONT>
+ <BR>
+ The <FONT color="red"><B><TT>ldrsb</TT></B></FONT>
+ <FONT color="blue"><B>instruction</B></FONT>
+  <FONT color="red"><B>loads</B></FONT>
+  <FONT color="blue"><B><TT><SPAN style="BACKGROUND-COLOR: #ffdd00">-2</SPAN></TT> (error !)</B></FONT> into
+ the <FONT color="red"><B>register <TT>r1</TT></B></FONT> 
+ (because it <FONT color="blue"><B>did not</B></FONT>
+  <FONT color="red"><B>fetch</B></FONT> the
+  <FONT color="blue"><B>first byte</B></FONT>)!
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  What can go wrong if you use an 
+  <FONT color="blue">incorrect load</FONT> instruction ? 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Effect</B></FONT> when you use
+  the <FONT color="blue"><B>incorrect</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>ldr  r1, [r0]</TT></B></FONT> </SPAN>
+  <FONT color="blue"><B>instruction</B></FONT>  to
+  <FONT color="red"><B>fetch</B></FONT>
+  <FONT color="blue"><B><TT>short x</TT></B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="FIGS/bad-ldr01b.png" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B><TT>short x</TT> = 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">254</SPAN></B></FONT>
+ <BR>
+ The <FONT color="red"><B><TT>ldr</TT></B></FONT>
+ <FONT color="blue"><B>instruction</B></FONT>
+  <FONT color="red"><B>loads</B></FONT>
+  <FONT color="blue"><B><TT><SPAN style="BACKGROUND-COLOR: #ffdd00">65790</SPAN></TT>(error!)</B></FONT> into
+ the <FONT color="red"><B>register <TT>r1</TT></B></FONT> 
+ (because it
+  <FONT color="blue"><B>fetched</B></FONT> some
+  <FONT color="red"><B>extraneous data</B></FONT>)!
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+<! ---------- incorrect store --------------------->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   What can go wrong if you use an 
+  <FONT color="blue">incorrect store</FONT> instruction ?
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Consider</B></FONT> a program with
+   <FONT color="blue"><B>2 <TT>short</TT> typed variables</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+      .data
+  x:  .2byte     4   // short typed variable
+  y:  .2byte     7   // short typed variable  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   How these 2 short variables are stored in memory:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/wrong-str01.gif" style="width:60%">
+   </center>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   movw  r0, #:lower16:x   // Moves the address of memory
+   movt  r0, #:upper16:x   // variable x into register r0
+
+   mov   r1, #-2
+   <FONT color="red">strb</FONT>  r1,[r0]  ??
+   <FONT color="red">str</FONT>   r1,[r0]  ??  <FONT color="red">(Watch y !!)</FONT>  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  Use: tmp/orig.s
+   </SPAN>
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+    /home/cs255001/demo/asm/2-mov/wrong-str.s 
+    </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">correct result</FONT>
+   when storing <FONT color="blue"><B>register <TT>R1</TT></B></FONT>
+   into the variable <FONT color="blue"><B><TT> x</TT></B></FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Effect</B></FONT> when you use
+  the 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>correct</B></FONT></SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>strh  r1, [r0]</TT></B></FONT> </SPAN>
+  <FONT color="blue"><B>instruction</B></FONT> to
+  <FONT color="red"><B>write</B></FONT> the
+  <FONT color="blue"><B><TT>short x</TT></B></FONT> 
+   <FONT color="red"><B>variable</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="FIGS/bad-str01c.png" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B>register <TT>R1</TT> = 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">-2</SPAN></B></FONT>
+ <BR>
+ The <FONT color="red"><B><TT>strh</TT></B></FONT>
+  <FONT color="blue"><B>instruction</B></FONT>
+  <FONT color="red"><B>changes</B></FONT>
+ the <FONT color="blue"><B>value</B></FONT> in
+  <FONT color="red"><B><TT>x</TT></B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>-2</B></FONT></SPAN>
+ 
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  What can go wrong if you use an 
+  <FONT color="blue">incorrect store</FONT> instruction ? 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Effect</B></FONT> when you use
+  the <FONT color="blue"><B>incorrect</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>strb  r1, [r0]</TT></B></FONT> </SPAN>
+  <FONT color="blue"><B>instruction</B></FONT> to
+  <FONT color="red"><B>write</B></FONT> the
+  <FONT color="blue"><B><TT>short x</TT></B></FONT> 
+   <FONT color="red"><B>variable</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="FIGS/bad-str01.png" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B>register <TT>R1</TT> = 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">-2</SPAN></B></FONT>
+ <BR>
+ The <FONT color="red"><B><TT>strb</TT></B></FONT>
+  <FONT color="blue"><B>instruction</B></FONT>
+  <FONT color="red"><B>changes</B></FONT>
+ the <FONT color="blue"><B>value</B></FONT> in
+  <FONT color="red"><B><TT>x</TT></B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B>254</B></FONT></SPAN>
+  (because it 
+  <FONT color="red"><B>did not</B></FONT>
+  <FONT color="blue"><B>update</B></FONT>
+  <FONT color="red"><B>2nd byte</B></FONT>!)
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  What can go wrong if you use an 
+  <FONT color="blue">incorrect store</FONT> instruction ? 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Effect</B></FONT> when you use
+  the <FONT color="blue"><B>incorrect</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>str  r1, [r0]</TT></B></FONT> </SPAN>
+  instruction:
+  </font>
+  </p>
+
+  <center>
+  <img src="FIGS/bad-str01b.png" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B><TT>str</TT></B></FONT>
+   <FONT color="blue"><B>instruction</B></FONT> will
+   <FONT color="red"><B>write</B></FONT>
+  <FONT color="blue"><B>4 bytes</B></FONT> to
+  <FONT color="red"><B>memory</B></FONT> !!
+  <BR>
+  The <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>variable <TT>y</TT></B></FONT> is
+  <FONT color="blue"><B>also</B></FONT>
+  <FONT color="red"><B>updated</B></FONT></SPAN> !!
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

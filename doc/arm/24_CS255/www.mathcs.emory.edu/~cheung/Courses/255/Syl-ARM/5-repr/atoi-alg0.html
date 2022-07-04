@@ -1,0 +1,207 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+A "trivial" (easy to understand but not practical) conversion function
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A <font color="red">trivial</font> conversion method
+     to convert string numbers to its 2's complement code
+     </B></FONT>
+<P>
+<UL>
+<LI> Before discussing the
+    <FONT color="red"><B><TT>parseInt( )</TT></B></FONT> method,
+    I want to show you
+    <FONT color="blue"><B>what</B></FONT> this method
+    need to do by using a
+    <FONT color="red"><B><I>trivial</I> solution</B></FONT>.
+<P>
+  There is a <FONT color="red"><B>1-to-1 correspondence</B></FONT>
+  between <FONT color="blue"><B>String representation</B></FONT> and
+  <FONT color="red"><B>2's complement representation</B></FONT> of
+  numbers:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    String representation         2's complement representation (32 bits)    
+   -----------------------       ----------------------------------
+      "0"                         00000000000000000000000000000000
+      "1"                         00000000000000000000000000000001
+      "2"                         00000000000000000000000000000010
+      "3"                         00000000000000000000000000000011
+      ...                         ...
+      "-1"                        11111111111111111111111111111111
+      "-2"                        11111111111111111111111111111110
+      "-3"                        11111111111111111111111111111101
+      ...                         ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> You can convert a <FONT color="red"><B>number string</B></FONT> 
+   into its <FONT color="blue"><B>2's complement binary number</B></FONT>
+   by <FONT color="red"><B>testing every possible string input</B></FONT>
+   and return the
+  corresponding
+   <FONT color="blue"><B>integer representation</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  /* ---------------------------------------------------------------
+     Trivial conversion: match the input string to every possible
+                         number string and return the corresponding
+			 2's complement binary number
+     --------------------------------------------------------------- */
+  public static <FONT color="red">int parseInt( String s )</font>            
+  {
+     if ( s.equals(<FONT color="red">"0"</FONT>) )
+        return <FONT color="red">0</FONT>;                // The return statement will return the binary number  
+                                 //   00000000000000000000000000000000 !!
+     else if ( s.equals("1") )
+        return 1;                // returns: 00000000000000000000000000000001
+     else if ( s.equals("2") )
+        return 2;                // returns: 00000000000000000000000000000010
+     ...
+     else if ( s.equals("10") )
+        return 10;               // returns: 00000000000000000000000000001010
+     else if ( s.equals("11") )
+        return 11;               // returns: 00000000000000000000000000001011
+     ...
+     else if ( s.equals("-1") )
+        return -1;               // returns: 11111111111111111111111111111111
+     else if ( s.equals("-2") )
+        1eturn -2;               // returns: 11111111111111111111111111111110    
+     ...
+
+  }
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> 
+     This method is <FONT color="red"><B>not practical</B></FONT> because
+     you  will <FONT color="blue"><B>need to write</B></FONT>
+     <FONT color="red"><B>2<sup>32</sup>
+     (= 4294967296) different cases</B></FONT>
+     with the <FONT color="blue"><B>if-statements</B></FONT> !!!
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Dictatical comment
+     </B></FONT>
+<P>
+<UL>
+
+<LI> I want to pause a bit and
+      make <FONT color="red"><B>sure</B></FONT> that
+ you <FONT color="blue"><B>know</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you write <FONT color="red"><B>this statement</B></FONT>
+   in <FONT color="blue"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    return <FONT color="red">5</font>;    // Or some other decimal number 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(it's used in the above program),
+ the <FONT color="blue"><B>Java compiler</B></FONT> will
+  <B>generate</B> <FONT color="red"><B>computer instructions</B></FONT>
+  that will:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  return <FONT color="red"><B>5</B></FONT> as a
+  <FONT color="blue"><B>2's complement binary number</B></FONT>, i.e.:
+  <FONT color="red"><B><TT>00000000000000000000000000000101</TT></B></FONT> 
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

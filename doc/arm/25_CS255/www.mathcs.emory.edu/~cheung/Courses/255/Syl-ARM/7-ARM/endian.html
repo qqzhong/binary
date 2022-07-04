@@ -1,0 +1,242 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Store-ordering in memory: big endian and littel endian
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Store ordering
+     </B></FONT>
+<P>
+ <UL>
+ <LI> When <FONT color="red"><B>more than 1 bytes</B></FONT> in
+      a <FONT color="blue"><B>register</B></FONT> is
+      <FONT color="red"><B>stored in memory</B></FONT>, there are
+      <FONT color="blue"><B>2 store orderings</B></FONT> possible:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Big endian ordering</B></FONT> where
+       the <FONT color="blue"><B>most-significant byte</B></FONT> is
+       stored <FONT color="red"><B><I>first</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/endian01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> <FONT color="red"><B>Little endian ordering</B></FONT> where
+       the <FONT color="blue"><B>least-significant byte</B></FONT> is
+       stored <FONT color="red"><B><I>first</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/endian01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+   The <FONT color="red"><B>endianness</B></FONT> in use is 
+   determined by the <FONT color="blue"><B>CPU type</B></FONT>.
+ <P>
+ <B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>INTEL processors (x86)</B></FONT>
+       are <FONT color="blue"><B>little endian</B></FONT>
+ <LI> The <FONT color="red"><B>ARM processor</B></FONT>
+      is <FONT color="blue"><B>little endian</B></FONT> by default; and can
+      be <FONT color="red"><B>programmed</B></FONT> to
+      operate as <FONT color="blue"><B>big endian</B></FONT>
+ <LI> Many older processors were
+     <FONT color="red"><B>big endian</B></FONT>, such as:
+     <FONT color="blue"><B>Motorola M68000</B></FONT> and
+     <FONT color="blue"><B>SPARC</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Endianness is initially an arbitrary decision by the semiconductor vendor 
+ that can have a long-term impact on a line of products. 
+<P>
+When vendors update their technology, they keep the existing endianness 
+to help maintain backward compatibility.
+<P>
+ For example, the designers of the Motorola 68000 and the Intel 8086
+ (predecessor of the x86 family) chose their endianness in the 1970s 
+and continue to use their respective endianness today.  
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Which ordering is better ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>ordering</B></FONT> has
+   <FONT color="blue"><B>absolutely</B></FONT> no
+   effect of 
+   <FONT color="red"><B>processor performance</B></FONT> and any
+   other performance factor.
+<P>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  As long as the <FONT color="red"><B>processor</B></FONT> retrieve
+       the <FONT color="blue"><B>bytes stored in the memory</B></FONT>
+       in the <FONT color="red"><B><I>same</I> ordering</B></FONT>
+       as the processor <FONT color="blue"><B>stores the bytes</B></FONT>,
+       the <FONT color="red"><B><TT>load</TT></B></FONT> and
+       <FONT color="red"><B><TT>store</TT></B></FONT> instructions
+       will operate 
+       <FONT color="blue"><B>correctly</B></FONT>
+       and with the <FONT color="red"><B><I>same</I> efficiency</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In fact, the term
+ <FONT color="red"><B>Big endian</B></FONT> and
+ <FONT color="blue"><B>Little endian</B></FONT> is
+ taken from the book
+ <FONT color="red"><B>Gulliver's travels</B></FONT> and
+ describes a
+ <FONT color="blue"><B>meaningless squabble</B></FONT> between 2
+ faction in the nation
+  <FONT color="red"><B>Lilliput</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The Big-Endians, who broke their boiled eggs at the big end,
+     rebelled against the king, who demanded that his subjects break 
+   their eggs at the little end. 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The people in Lilliput were very tiny (compared) to Gulliver and
+ their eggs is even <B>smaller</B>.
+<P>
+Gulliver can't tell which end was the big end and which was the little end.
+So to Gulliver, this squabble was meaningless...
+<P>
+So it does not matter which store-ordering a processor uses...
+<P>
+See:
+<A HREF="https://www.ling.upenn.edu/courses/Spring_2003/ling538/Lecnotes/ADfn1.htm"> click here</A>
+   
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM's processor store ordering
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>ARM processor</B></FONT> uses
+   <FONT color="blue"><B>little endian </B></FONT>
+   (by default)
+ <P>
+  (We did not change the default.)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/endian01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+ That's why you had to
+  <FONT color="red"><B>reverse</B></FONT> the
+ <FONT color="blue"><B>byte ordering</B></FONT>
+ in this webpage:
+ <A HREF="data-section.html"> click here </A>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,687 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Load and store instruction formats used to access array data
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> We have seen the 
+    <FONT color="red"><B>basic form</B></FONT> of
+    the <FONT color="blue"><B>load/store instruction</B></FONT> of
+    the <FONT color="red"><B>ARM processor</B></FONT> in these
+    webpages
+   (<A HREF="ldr.html">
+    <FONT color="blue"><B><TT>load</TT></B></FONT></A>
+    and
+    <A HREF="str.html">
+    <FONT color="blue"><B><TT>store</TT></B></FONT></A>)
+<P>
+ I repeat the <FONT color="red"><B>(summary of the) material</B></FONT> here
+ for <FONT color="blue"><B>review</B></FONT> (and reminder).
+<P>
+<HR>
+<P>
+
+<P>
+<LI>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B>basic form</B></FONT> of
+ the  <FONT color="red"><B><TT>load register</TT> instruction</B></FONT>
+is:
+</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldr  r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Load 4 bytes from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+
+        The 4 bytes are stored in the register as follows:
+
+               <IMG SRC="FIGS/reg03a.gif"></A>
+
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldrsh r<sub>N</sub>, [r<sub>M</sub>] </FONT> </SPAN>     Load 2 bytes from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+			AND fill the left half of register with the sign bit
+
+        The 2 bytes are stored at the right and then 
+        <FONT color="red">sign extended</FONT> to 32 bits:
+
+               <IMG SRC="FIGS/reg03b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> ldrsb r<sub>N</sub>, [r<sub>M</sub>]</FONT></SPAN>       Load 1 byte  from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+			AND fill the left 3/4 of register with the sign bit
+
+        The byte is stored at the right and then
+	<FONT color="red">sign extended</FONT> to 32 bits:
+
+
+               <IMG SRC="FIGS/reg03c.gif"></A>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B>basic form</B></FONT> of
+ the  <FONT color="red"><B><TT>store register</TT> instruction</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">str  r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Store 4 bytes from register r<sub>N</sub> to memory (consecutively) at 
+                        the address given in register r<sub>M</sub>
+
+        The 4 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04a.gif"></A>
+
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">strh r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Store 2 bytes from register r<sub>N</sub> to memory (consecutively) at
+                        the address given in register r<sub>M</sub>
+
+        The 2 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> strb r<sub>N</sub>, [r<sub>M</sub>]</FONT></SPAN>        Store 1 byte  from register r<sub>N</sub> to memory (consecutively) at
+                        the address given in register r<sub>M</sub>
+
+        The byte is taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04c.gif"></A>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+Although the <FONT color="red"><B>basic form</B></FONT> is
+ <FONT color="blue"><B>sufficient</B></FONT> to
+ <FONT color="red"><B>access <I>simple</I> variable</B></FONT>,
+ it is <FONT color="blue"><B>not adequate</B></FONT> when we
+ need to
+ <FONT color="red"><B>compute</B></FONT> the
+ <FONT color="blue"><B>address</B></FONT> of
+ an <FONT color="red"><B>array element</B></FONT> using:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  address of array element A[i] = base address (A) + i&times;size(one array element)        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>base + offset</I> mode of the load  instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>load instruction</B></FONT> has
+    a more advanced form:
+
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B><I>base+offset</I> form</B></FONT> of
+ the  <FONT color="red"><B><TT>load register</TT> instruction</B></FONT>
+is:
+</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldr  r<sub>N</sub>, [r<sub>M</sub>,off] </FONT></SPAN>    Load 4 bytes from memory at the address given
+                        by <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">r<sub>M</sub>+off</FONT></SPAN> into the (destination) register r<sub>N</sub>
+
+        The 4 bytes are stored in the register as follows:
+
+               <IMG SRC="FIGS/reg03a.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldrsh r<sub>N</sub>, [r<sub>M</sub>,off] </FONT> </SPAN>  Load 2 bytes from memory at the address given
+                        by <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">r<sub>M</sub>+off</FONT></SPAN> into the (destination) register r<sub>N</sub>
+			AND fill the left half of register with the sign bit
+
+        The 2 bytes are stored at the right and then 
+        <FONT color="red">sign extended</FONT> to 32 bits:
+
+               <IMG SRC="FIGS/reg03b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldrsb r<sub>N</sub>, [r<sub>M</sub>,off]</FONT></SPAN>    Load 1 byte  from memory at the address given
+                        by <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">r<sub>M</sub>+off</FONT></SPAN> into the (destination) register r<sub>N</sub>
+			AND fill the left 3/4 of register with the sign bit
+
+        The byte is stored at the right and then
+	<FONT color="red">sign extended</FONT> to 32 bits:
+
+
+               <IMG SRC="FIGS/reg03c.gif"></A>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+For <FONT color="red"><B>offset</B></FONT>, you can use:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>constant value <TT>#n</TT></B></FONT>
+ <P>
+   The
+      <FONT color="blue"><B>base+offset </B></FONT> 
+    load instruction <FONT color="red"><B>syntax</B></FONT> is then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ldr    r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">#n</FONT>]     // Effective address = r<sub>M</sub> <FONT color="red">+ n</FONT>        
+    ldrsh  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">#n</FONT>]
+    ldrsb  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">#n</FONT>]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+&nbsp;&nbsp;&nbsp;&nbsp; <B>or</B>
+
+ <LI> A <FONT color="red"><B>value</B></FONT> stored in
+       a <FONT color="blue"><B>register</B></FONT>
+<P>
+   The
+      <FONT color="blue"><B>base+offset </B></FONT> 
+    load instruction <FONT color="red"><B>syntax</B></FONT> is then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ldr    r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">r<sub>X</sub></FONT>]     // Effective address = r<sub>M</sub> <FONT color="red">+ r<sub>X</sub></FONT>        
+    ldrsh  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">r<sub>X</sub></FONT>]
+    ldrsb  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">r<sub>X</sub></FONT>]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<FONT color="red"><B>How to </B></FONT> use the
+ <FONT color="blue"><B>base + offset</B></FONT> form of
+ the <FONT color="red"><B>load instruction</B></FONT> to access
+ <FONT color="blue"><B>array elements</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Move the
+   <FONT color="red"><B>base address</B></FONT> of the
+   <FONT color="blue"><B>array</B></FONT> into
+   some <FONT color="red"><B>register</B></FONT>
+   (e.g.: <FONT color="blue"><B><TT>r<sub>x</sub></TT></B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>If</B></FONT> the
+     <FONT color="blue"><B>array index</B></FONT> is
+     a <FONT color="red"><B>constant</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Pre-compute</B></FONT> the
+     <FONT color="blue"><B>offset</B></FONT>
+     (because the <FONT color="red"><B>index</B></FONT> is a
+   <FONT color="blue"><B>constant</B></FONT>, the
+   <FONT color="red"><B>offset</B></FONT> will also be
+   <FONT color="blue"><B>constant</B></FONT>)
+ <P>
+   Let the <FONT color="blue"><B>pre-computed offset</B></FONT> be
+    equal to <FONT color="red"><B><TT>n</TT></B></FONT>
+<P>
+ <LI> use
+    <FONT color="red"><B><TT>ldr ...,
+      [r<sub>x</sub>,#n]</TT></B></FONT>, &nbsp;
+      <FONT color="red"><B><TT>ldrsh ...,
+      [r<sub>x</sub>,#n]</TT></B></FONT> &nbsp; or &nbsp;
+      <FONT color="red"><B><TT>ldrsb ...,
+      [r<sub>x</sub>,#n]</TT></B></FONT>
+      to <FONT color="blue"><B>access</B></FONT>
+      the <FONT color="red"><B>array element</B></FONT>
+   <FONT color="blue"><B>depending on</B></FONT> the
+      <FONT color="red"><B><I>data type</I></B></FONT> of the
+      <FONT color="blue"><B>array</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>If</B></FONT> the
+     <FONT color="blue"><B>array index</B></FONT> is
+     <B>not</B> a <FONT color="red"><B>constant</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compute the offset</B></FONT> and
+  store the <FONT color="blue"><B>result</B></FONT> in
+  <B>another</B>
+  <FONT color="red"><B>register</B></FONT>
+   (e.g.: <FONT color="blue"><B><TT>r<sub>y</sub></TT></B></FONT>)
+<P>
+ <LI> Then use
+    <FONT color="red"><B><TT>ldr ...,
+      [r<sub>x</sub>,r<sub>y</sub>]</TT></B></FONT>, &nbsp;
+      <FONT color="red"><B><TT>ldrsh ...,
+      [r<sub>x</sub>,r<sub>y</sub>]</TT></B></FONT> &nbsp; or &nbsp;
+      <FONT color="red"><B><TT>ldrsb ...,
+      [r<sub>x</sub>,r<sub>y</sub>]</TT></B></FONT>
+      to <FONT color="blue"><B>access</B></FONT>
+      the <FONT color="red"><B>array element</B></FONT>
+      <FONT color="blue"><B>depending on</B></FONT> the
+      <FONT color="red"><B><I>data type</I></B></FONT> of the
+      <FONT color="blue"><B>array</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>base + offset</I> mode of the store instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>store instruction</B></FONT> 
+	<b>also</B> has a more advanced form:
+
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B><I>base+offset</I> form</B></FONT> of
+ the  <FONT color="red"><B><TT>store register</TT> instruction</B></FONT>
+is:
+</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">str  r<sub>N</sub>, [r<sub>M</sub>,off] </FONT></SPAN>    Store 4 bytes from register r<sub>N</sub> to memory (consecutively) at 
+                        the address given by the sum <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">r<sub>M</sub>+off</FONT></SPAN>
+
+        The 4 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04a.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">strh r<sub>N</sub>, [r<sub>M</sub>,off] </FONT></SPAN>    Store 2 bytes from register r<sub>N</sub> to memory (consecutively) at
+                        the address given by the sum <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">r<sub>M</sub>+off</FONT></SPAN>
+
+        The 2 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04b.gif"></A>
+
+
+ <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> strb r<sub>N</sub>, [r<sub>M</sub>,off]</FONT></SPAN>     Store 1 byte  from register r<sub>N</sub> to memory (consecutively) at
+                        the address given by the sum <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">r<sub>M</sub>+off</FONT></SPAN>
+
+        The byte is taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04c.gif"></A>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+For <FONT color="red"><B>offset</B></FONT>, you can use:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>constant value <TT>#n</TT></B></FONT>
+ <P>
+   The
+      <FONT color="blue"><B>base+offset </B></FONT> 
+    store instruction <FONT color="red"><B>syntax</B></FONT> is then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    str    r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">#n</FONT>]     // Effective address = r<sub>M</sub> <FONT color="red">+ n</FONT>        
+    strsh  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">#n</FONT>]
+    strsb  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">#n</FONT>]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+&nbsp;&nbsp;&nbsp;&nbsp; <B>or</B>
+
+ <LI> A <FONT color="red"><B>value</B></FONT> stored in
+       a <FONT color="blue"><B>register</B></FONT>
+<P>
+   The
+      <FONT color="blue"><B>base+offset </B></FONT> 
+    store instruction <FONT color="red"><B>syntax</B></FONT> is then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    str    r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">r<sub>X</sub></FONT>]     // Effective address = r<sub>M</sub> <FONT color="red">+ r<sub>X</sub></FONT>        
+    strsh  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">r<sub>X</sub></FONT>]
+    strsb  r<sub>N</sub>, [r<sub>M</sub>, <FONT color="red">r<sub>X</sub></FONT>]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<FONT color="red"><B>How to </B></FONT> use the
+ <FONT color="blue"><B>base + offset</B></FONT> form of
+ the <FONT color="red"><B>store instruction</B></FONT> to 
+	<B>update</B> an
+ <FONT color="blue"><B>array element</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Move the
+   <FONT color="red"><B>base address</B></FONT> of the
+   <FONT color="blue"><B>array</B></FONT> into
+   some <FONT color="red"><B>register</B></FONT>
+   (e.g.: <FONT color="blue"><B><TT>r<sub>x</sub></TT></B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>If</B></FONT> the
+     <FONT color="blue"><B>array index</B></FONT> is
+     a <FONT color="red"><B>constant</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Pre-compute</B></FONT> the
+     <FONT color="blue"><B>offset</B></FONT>
+     (because the <FONT color="red"><B>index</B></FONT> is a
+   <FONT color="blue"><B>constant</B></FONT>, the
+   <FONT color="red"><B>offset</B></FONT> will also be
+   <FONT color="blue"><B>constant</B></FONT>)
+ <P>
+   Let the <FONT color="blue"><B>pre-computed offset</B></FONT> be
+    equal to <FONT color="red"><B><TT>n</TT></B></FONT>
+<P>
+ <LI> use
+    <FONT color="red"><B><TT>str ...,
+      [r<sub>x</sub>,#n]</TT></B></FONT>, &nbsp;
+      <FONT color="red"><B><TT>strh ...,
+      [r<sub>x</sub>,#n]</TT></B></FONT> &nbsp; or &nbsp;
+      <FONT color="red"><B><TT>strb ...,
+      [r<sub>x</sub>,#n]</TT></B></FONT>
+      to <FONT color="blue"><B>update</B></FONT>
+      the <FONT color="red"><B>array element</B></FONT>
+   <FONT color="blue"><B>depending on</B></FONT> the
+      <FONT color="red"><B><I>data type</I></B></FONT> of the
+      <FONT color="blue"><B>array</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>If</B></FONT> the
+     <FONT color="blue"><B>array index</B></FONT> is
+     <B>not</B> a <FONT color="red"><B>constant</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compute the offset</B></FONT> and
+  store the <FONT color="blue"><B>result</B></FONT> in
+  <B>another</B>
+  <FONT color="red"><B>register</B></FONT>
+   (e.g.: <FONT color="blue"><B><TT>r<sub>y</sub></TT></B></FONT>)
+<P>
+ <LI> Then use
+    <FONT color="red"><B><TT>str ...,
+      [r<sub>x</sub>,r<sub>y</sub>]</TT></B></FONT>, &nbsp;
+      <FONT color="red"><B><TT>strh ...,
+      [r<sub>x</sub>,r<sub>y</sub>]</TT></B></FONT> &nbsp; or &nbsp;
+      <FONT color="red"><B><TT>strb ...,
+      [r<sub>x</sub>,r<sub>y</sub>]</TT></B></FONT>
+      to <FONT color="blue"><B>update</B></FONT>
+      the <FONT color="red"><B>array element</B></FONT>
+      <FONT color="blue"><B>depending on</B></FONT> the
+      <FONT color="red"><B><I>data type</I></B></FONT> of the
+      <FONT color="blue"><B>array</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

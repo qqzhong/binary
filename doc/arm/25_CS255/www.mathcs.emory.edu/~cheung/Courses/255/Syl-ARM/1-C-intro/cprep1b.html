@@ -1,0 +1,507 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Macros
+<HR>
+</H3>
+
+<UL>
+<P>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+	Macros
+        </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Macro:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Macro</B></FONT> =
+        a <B>rule or pattern</B> that specifies how a certain
+      <FONT color="red"><B>input sequence</B></FONT>
+      (= a sequence of characters) should be
+     <B>mapped</B> to a 
+    <FONT color="blue"><B>replacement sequence</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> to define a <FONT color="blue"><B>macro</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define <FONT color="red">&lt;identifier></FONT>                     &lt;replacement token list>   
+   #define <FONT color="red">&lt;identifier>(&lt;parameter list>)</FONT>   &lt;replacement token list>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Meaning:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Every occurence of
+     the  <FONT color="red"><B><TT>&lt;identifier></TT></B></FONT> 
+     string in the <B>source code</B> will be
+     <FONT color="blue"><B>replaced</B></FONT> by the
+     <FONT color="red"><B><TT>&lt;replacement token list></TT></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Use</B> of <FONT color="blue"><B>macros</B></FONT> in
+     <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Defining <FONT color="red"><B>constant</B></FONT>
+ <LI> Defining  <FONT color="red"><B>simple functions</B></FONT>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+        Defining <I>symbolic constants</I> in C
+        </B></FONT>
+ <P>
+ <UL>
+
+ <LI> <B>C</B> uses the
+    <FONT color="blue"><B>C pre-processor's</B></FONT>
+	<B><TT>#define</TT></B> 
+      <FONT color="red"><B>macro construct</B></FONT>
+       to define
+	<FONT color="blue"><B>symbolic constants</B></FONT>
+ <P>
+<HR>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE BGCOLOR="lightyellow" BORDER=5>
+<TR><TD>
+<B><PRE>
+<FONT color="blue"><FONT color="red">
+   #define PI   3.141592653589793238462643383279502884197      
+   #define MAX  99999</FONT>
+
+   int main( int argc, char* argv[] )
+   {
+      int x;
+      double y;
+
+      x = <FONT color="red">MAX</FONT>;
+      y = <FONT color="red">PI</FONT>;
+
+      for ( i = 0; i < <FONT color="red">MAX</FONT>; i++ )
+         z = k * sin( i * <FONT color="red">PI</FONT> );
+   }
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+ <P>
+After processing with
+ <FONT color="red"><B><TT>gcc -E constant.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      int x;
+      double y;
+
+      x =<FONT color="red"> 99999</FONT>;
+      y = <FONT color="red">3.141592653589793238462643383279502884197</FONT>;     
+
+      for ( i = 0; i < <FONT color="red">99999</FONT>; i++ )
+         z = k * sin( i * <FONT color="red">3.141592653589793238462643383279502884197</FONT> );    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/define1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -E define1.c</TT></B></FONT>
+ <LI> Look at the output on the terminal....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+        Defining <I>simple functions</I> in C
+        </B></FONT>
+ <P>
+ <UL>
+
+ <LI> You can use 
+    the
+	<B><TT>#define</TT></B> 
+      <FONT color="red"><B>macro construct</B></FONT>
+       to define
+	<FONT color="blue"><B>simple (one line) functions</B></FONT>
+ <P>
+<HR>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE BGCOLOR="lightyellow" BORDER=5>
+<TR><TD>
+<B><PRE>
+<FONT color="blue"><FONT color="red">
+   #define square(x)   (x*x)       // Be careful, this definition had a problem !! </FONT>
+
+   int main( int argc, char* argv[] )
+   {
+      double a, b;
+
+      b = square(a);
+   }
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+ <P>
+After processing with
+ <FONT color="red"><B><TT>gcc -E define2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      double a, b;
+<FONT color="red">
+      b = (a*a);            ( square(a) ---> (a*a) )</FONT>        
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/define2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -E define2.c</TT></B></FONT>
+ <LI> Look at the output on the terminal....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Caveat:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make <FONT color="red"><B>very sure</B></FONT> that you use
+      <FONT color="blue"><B>brackets</B></FONT> around
+   the <FONT color="red"><B>parameter <TT>x</TT></B></FONT>
+       to prevent
+      <FONT color="blue"><B>arithmetic errors</B></FONT>
+      caused by <FONT color="red"><B>operator precedence</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BGCOLOR="lightyellow" BORDER=5>
+<TR><TD>
+<B><PRE>
+<FONT color="blue"><FONT color="red">
+#define square(x)   (x*x)       // Becareful !!!</FONT>
+
+int main( int argc, char* argv[] )
+{  
+   double a, b, z;
+   
+   z = square( a+b );   <FONT color="red"> //   a+b*a+b  =  a + (a*b) + b  !=  (a+b)^2 !!</FONT>      
+}  
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+ <P>
+After processing with
+ <FONT color="red"><B><TT>gcc -E define2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( int argc, char* argv[] )
+{  
+   double a, b, z;
+   
+   z = <FONT color="red">a+b*a+b</FONT>;   <FONT color="red"> //   a+b*a+b  =  a + (a*b) + b  !=  (a+b)^2 !!</FONT>      
+}  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define   square(x)     <FONT color="red">((x)*(x))</FONT>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/define2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -E define2.c</TT></B></FONT>
+ <LI> Look at the output on the terminal....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Undefining a macro
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Undefine</B> a macro:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">#undef</FONT>   macro-name        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">#undef</FONT>  PI
+    <FONT color="red">#undef</FONT>  MAX
+    <FONT color="red">#undef</FONT>  square         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

@@ -1,0 +1,578 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Array of <I>bits</I>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Bit arrays
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C programming language</B> does
+     <FONT color="red"><B><I>not</I></B></FONT> provide support
+     for <FONT color="blue"><B>array of <I>bits</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>However:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C programming language</B> provides
+      <FONT color="red"><B><I>all</I> the necessary operations</B></FONT>
+      to allow the <B>programmer (= <I>you</I>)</B>
+      to <FONT color="blue"><B>implement</B></FONT> 
+      an 
+    <FONT color="red"><B>"array of bits" data structure</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implementing an array of <I>bits</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>What</B> is an <FONT color="blue"><B>array of bits</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <B>array of <I>bits</I></B> <FONT color="red"><B>A</B></FONT>
+      is an <B>array</B> where:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>A[i]</TT></B></FONT> = 
+      <FONT color="blue"><B>0</B></FONT> or
+      <FONT color="blue"><B>1</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Trivial</I></B></FONT>
+      <B> implementation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use an <FONT color="blue"><B>array of <TT>int</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int A[100];      // A[i] = 0 means false, A[i] = 1 means true       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>Disadvantage:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Each <FONT color="red"><B><TT>int</TT></B></FONT> variable
+     is <FONT color="blue"><B>32 bits</B></FONT>
+ <P>
+ <LI> We <FONT color="blue"><B>only</B></FONT> need
+     <FONT color="red"><B>1 bit</B></FONT> to represent
+     <FONT color="blue"><B>true/false</B></FONT>
+<P>
+
+ <LI> We are  <B> wasting</B>
+     <FONT color="red"><B>31/32 (96.875%)</B></FONT> of the
+    <FONT color="blue"><B>memory space</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> An <FONT color="red"><B><I>Efficient</I></B></FONT>
+      <B> implementation</B> of
+      <FONT color="blue"><B>bit arrays</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use an <FONT color="red"><B>array of <TT>int</TT></B></FONT>
+      (<B>because</B> the <B><I>most cost efficient</I></B> access to
+      <FONT color="blue"><B>memory</B></FONT> is accessing
+      <FONT color="red"><B><TT>int</TT> sized data</B></FONT>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bit-array1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Map</B></FONT> the
+      <FONT color="red"><B>bit array</B></FONT> onto
+      the <B>array of integer</B> as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bit-array1a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Mapping function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Element</B> with index <FONT color="red"><B><TT>k</TT></B></FONT> in
+       the <FONT color="blue"><B>bit array</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>bit <I>position</I></B>
+      <FONT color="blue"><B>k % 32 </B></FONT>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in the
+ <LI> <B>array element</B> with index
+    <FONT color="red"><B>k/32</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Setting the <I>k</I><sup>th</sup> bit in array A
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>SetBit(A, k)</B>:
+     <FONT color="red"><B>set</B></FONT> the
+     <FONT color="blue"><B><I>k<sup>th</sup></I></B></FONT> bit
+     in the <FONT color="red"><B>bit array <TT>A</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Step-by-step:</FONT>
+
+      int i = <FONT color="red">k/32</FONT>;            // i = array index (use: A[i])
+      int pos = <FONT color="red">k%32</FONT>;          // pos = bit position in A[i]
+
+      unsigned int flag = 1;   // flag = 0000.....00001
+
+      flag = <FONT color="red">flag << pos</FONT>;      // flag = 0000...010...000   (shifted k positions)
+
+      A[i] = <FONT color="red">A[i] | flag</FONT>;      // Set the bit at the k-th position in A[i]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>"Professional" version:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   SetBit( A[ ],  k ):
+   
+      <FONT color="red">A[k/32] |= 1 << (k%32)</FONT>;  // Set the bit at the k-th position in A[i]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In C macro definition:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define SetBit(A,k)     ( A[(k/32)] |= (1 << (k%32)) )         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+      Clearing the <I>k</I><sup>th</sup> bit in array A
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>ClearBit(A, k)</B>:
+     <FONT color="red"><B>clear</B></FONT> the
+     <FONT color="blue"><B><I>k<sup>th</sup></I></B></FONT> bit
+     in the <FONT color="red"><B>bit array <TT>A</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Step-by-step:</FONT>
+
+      int i = <FONT color="red">k/32</FONT>;
+      int pos = <FONT color="red">k%32</FONT>;
+
+      unsigned int flag = 1;  // flag = 0000.....00001
+
+      flag = <FONT color="red">flag << pos</FONT>;     // flag = 0000...010...000   (shifted k positions)
+      <FONT color="magenta"><B>flag = ~flag;</FONT>           // flag = 1111...101..111
+
+      A[i] = <FONT color="red">A[i] & flag</FONT>;     // RESET the bit at the k-th position in A[i]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Pro version:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   ClearBit(A, k): 
+<FONT color="red">
+      A[k/32] &= ~(1 << (k%32))</FONT>;                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In C macro definition:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #define ClearBit(A,k)   ( A[(k/32)] &= ~(1 << (k%32)) )         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Testing the <I>k</I><sup>th</sup> bit in array A
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>TestBit(A, k)</B>:
+     <FONT color="red"><B>test</B></FONT> the
+     <FONT color="blue"><B><I>k<sup>th</sup></I></B></FONT> bit
+     in the <FONT color="red"><B>bit array <TT>A</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Step-by-step:</FONT>
+
+      int i = <FONT color="red">k/32</FONT>;
+      int pos = <FONT color="red">k%32</FONT>;
+
+      unsigned int flag = 1;  // flag = 0000.....00001
+
+      flag = <FONT color="red">flag << pos</FONT>;     // flag = 0000...010...000   (shifted k positions)
+
+      if ( <FONT color="red">A[i] & flag</FONT> )      // Test the bit at the k-th position in A[i]
+         // k-th bit is 1
+      else
+         // k-th bit is 0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Pro version:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   TestBit( A,  k ):
+  
+      if ( <FONT color="red">(A[k/32] & (1 << (k%32) )) != 0</FONT> )       
+         // k-th bit is 1
+      else
+         // k-th bit is 0   
+
+  Or:
+      if ( <FONT color="red">(A[k/32] & (1 << (k%32) )) </FONT> )    // value != 0 is "true" in C !    
+         // k-th bit is 1
+      else
+         // k-th bit is 0  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In C macro definition:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #define TestBit(A,k)    ( A[(k/32)] & (1 << (k%32)) )               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="red"><B>bit manipulation macros header</B></FONT>
+        file:
+       <A HREF="Progs/bit-ops.h"> click here </A>
+  <LI> <B>Test</B> Prog file:
+       <A HREF="Progs/bit-array2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bit-array2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

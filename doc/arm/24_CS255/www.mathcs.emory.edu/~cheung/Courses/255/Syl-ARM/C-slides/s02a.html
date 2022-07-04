@@ -1,0 +1,1432 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   When a <FONT color="red"><B>variable</B></FONT> is
+   <FONT color="blue"><B>defined</B></FONT>
+   <FONT color="red"><B><I>inside</I> some function</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   #include &lt;stdio.h>
+
+   int main( int argc, char* argv[] )            
+   {
+      <FONT color="red">int x;</FONT>       // Local variable
+      <FONT color="red">int y = 4;</FONT>   // Local variable
+
+      x = y + 3;
+      printf( "%d  %d\n", x, y );
+   } 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  the <FONT color="red"><B>variable</B></FONT> is a
+   <FONT color="blue"><B>local variable</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Review</FONT>: scope
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+   <LI> A <FONT color="red"><B><I>new</I> scope</B></FONT> is
+   <FONT color="blue"><B>started</B></FONT> by
+   <FONT color="red"><B><TT>{</TT></B></FONT> and
+     <FONT color="blue"><B>ended</B></FONT> by
+     <FONT color="red"><B><TT>}</TT></B></FONT>
+<P>
+  <B>Example:</B>
+ <P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+  int f(int a, int b)           
+  <SPAN style="BACKGROUND-COLOR: #ffff00">{ // Scope 1 (outer scope)    </SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">                              </SPAN>
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">{ // Scope 2 (inner scope) </SPAN>
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">                           </SPAN>
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">}                          </SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">                              </SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">}                             </SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="red"><B>lexical scope</B></FONT> of a
+     <FONT color="blue"><B>variable name "x"</B></FONT> = the
+      <FONT color="red"><B>region of the program</B></FONT> where
+      that <FONT color="blue"><B>name "x"</B></FONT> refers to
+      the given <FONT color="red"><B>variable</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Important scoping restriction
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>Every variable name</B></FONT></SPAN>
+    must be 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>unique</B></FONT></SPAN> inside
+    a  <FONT color="red"><B>scope</B></FONT>
+<P>
+   <FONT color="red"><B>2 variables</B></FONT> with the
+  <FONT color="blue"><B><I>same</I> name</B></FONT> inside
+  the <FONT color="red"><B><I>same</I> scope</B></FONT>
+   is <FONT color="blue"><B>not allowed</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ int main( int argc, char* argv[] )            
+ { <FONT color="magenta">// Scope 1</FONT>
+                                     
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">int <FONT color="blue">x</FONT>;</SPAN>     
+                      
+    {  <FONT color="magenta">// Scope 2</FONT>
+       int x; // OK. Only 1 variable of name x in scope 2  
+             
+    }           
+                                       
+    <SPAN style="BACKGROUND-COLOR: orange">float <FONT color="blue">x</FONT>;</SPAN>  <FONT color="red">// Error: x is not unique in scope 1</FONT> 
+ }      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/tmp/demo.c
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--------------------- scope rule for local var -------------->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Lexical scoping rule for local variables in the C language
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+<LI>  The 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>lexical scope (or scope)</B></FONT></SPAN> of
+  a <FONT color="blue"><B>local variable</B></FONT> 
+  in a <FONT color="red"><B>C function</B></FONT> is:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE> { // Scope 1
+                                     
+    <SPAN style="BACKGROUND-COLOR: #ffff00">int <FONT color="red">x</FONT>; // Scope of <FONT color="red">x</FONT> starts here </SPAN>  
+    <SPAN style="BACKGROUND-COLOR: #ffff00">                                 </SPAN>       
+    <SPAN style="BACKGROUND-COLOR: #ffff00">{  // Scope 2                    </SPAN>
+    <SPAN style="BACKGROUND-COLOR: #ffff00">                                 </SPAN>
+       <SPAN style="BACKGROUND-COLOR: #aaffaa">int x; // <FONT color="red">x</FONT> is <FONT color="red">overshadowed</FONT> by x here   </SPAN>
+       <SPAN style="BACKGROUND-COLOR: #aaffaa">                                        </SPAN>
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">} //  <FONT color="red">x</FONT> stops being <FONT color="red">overshadowed</FONT> by x here </SPAN> 
+    <SPAN style="BACKGROUND-COLOR: #ffff00">                                 </SPAN>   
+ <SPAN style="BACKGROUND-COLOR: #ffff00">} // Scope of <FONT color="red">x</FONT> starts here         </SPAN> </PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ <LI>   <FONT color="blue"><B>starts</B></FONT> from
+   the <FONT color="red"><B>place of definition</B></FONT></SPAN> of
+   the <FONT color="blue"><B>local variable</B></FONT>
+ <LI> <FONT color="red"><B>continues</B></FONT> into
+    any <FONT color="blue"><B><I>inner</I> scopes</B></FONT>
+ <LI>    <FONT color="red"><B>stops</B></FONT> at
+  the 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>end of the <I>scope</I></B></FONT></SPAN> that
+  <FONT color="red"><B>contains</B></FONT> the
+  <FONT color="blue"><B>local variable definition</B></FONT>
+  <LI> <FONT color="red"><B>unless</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   
+  it has be <FONT color="blue"><B>overshadowed</B></FONT></SPAN> by
+  a <FONT color="red"><B>variable in an <I>inner</I> scope</B></FONT>
+
+
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+  I will <FONT color="red"><B>"unpack"</B></FONT> this
+  <FONT color="blue"><B>statement</B></FONT> with some
+  <FONT color="red"><B>examples</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<!--------------------------- Examples ------------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the
+   <FONT color="blue"><B>following program</B></FONT> with
+   <FONT color="red"><B>2 variables</B></FONT> with
+  <FONT color="blue"><B>name</B></FONT>
+   <FONT color="red"><B><TT>x</TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )  
+ { 
+
+    int <FONT color="red">x</FONT> = 4; // Scope of <FONT color="red">x</FONT> starts here 
+
+
+    {                
+                                     
+       int x = 7; // <FONT color="red">x</FONT> is overshadowed by x here   
+                                               
+    }  
+                                  
+ }                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  One <FONT color="red"><B>variable <TT>x=4</TT></B></FONT> is
+  in the <FONT color="blue"><B>outer scope</B></FONT> and
+  another <FONT color="red"><B>variable <TT>x=7</TT></B></FONT> is
+  in the <FONT color="blue"><B>inner scope</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Example</B></FONT> of
+  <FONT color="blue"><B>scoping</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )  
+ { 
+
+    int <FONT color="red">x</FONT> = 4; // Scope of <FONT color="red">x</FONT> starts here 
+
+    <SPAN style="BACKGROUND-COLOR: #ffff00">printf("%d\n", <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);  // prints 4</SPAN>
+    {                
+                                     
+       int x = 7; // <FONT color="red">x</FONT> is overshadowed by x here   
+                                               
+    }  
+                                  
+ }                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The variable <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">
+   <B><TT>x</TT></B></FONT></SPAN> 
+  in 
+   <FONT color="blue"><B><TT>
+   &nbsp; printf("%d\n",
+ <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);
+  &nbsp;</TT></B></FONT>
+   refers to &nbsp;
+   <FONT color="blue"><B><TT>int <FONT color="red">x</FONT> = 4;
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Example</B></FONT> of
+  <FONT color="blue"><B>scoping</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )  
+ { 
+
+    int <FONT color="red">x</FONT> = 4; // Scope of <FONT color="red">x</FONT> starts here 
+
+
+    {         
+       <SPAN style="BACKGROUND-COLOR: #ffff00">printf("%d\n", <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);  // prints 4</SPAN>  
+       int x = 7; // <FONT color="red">x</FONT> is overshadowed by x here   
+                                               
+    } 
+                                   
+ }                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The variable <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">
+   <B><TT>x</TT></B></FONT></SPAN> 
+  in 
+   <FONT color="blue"><B><TT>
+   &nbsp; printf("%d\n",
+ <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);
+  &nbsp;</TT></B></FONT>
+   refers to &nbsp;
+   <FONT color="blue"><B><TT>int <FONT color="red">x</FONT> = 4;
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Example</B></FONT> of
+  <FONT color="blue"><B>scoping</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )  
+ { 
+
+    int <FONT color="red">x</FONT> = 4; // Scope of <FONT color="red">x</FONT> starts here 
+
+
+    {    
+         
+       int x = 7; // <FONT color="red">x</FONT> is <SPAN style="BACKGROUND-COLOR: #ffff00">overshadowed by x</SPAN> here
+       <SPAN style="BACKGROUND-COLOR: #aaffaa">printf("%d\n", <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);  // prints 7 !!!</SPAN>
+    } 
+                                   
+ }                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The variable <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">
+   <B><TT>x</TT></B></FONT></SPAN> 
+  in 
+   <FONT color="blue"><B><TT>
+   &nbsp; printf("%d\n",
+ <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);
+  &nbsp;</TT></B></FONT>
+   refers to &nbsp;
+   <FONT color="blue"><B><TT>int <FONT color="blue">x</FONT> = 7;
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Example</B></FONT> of
+  <FONT color="blue"><B>scoping</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )  
+ { 
+
+    int <FONT color="red">x</FONT> = 4; // Scope of <FONT color="red">x</FONT> starts here 
+
+
+    {    
+         
+       int x = 7; // <FONT color="red">x</FONT> is overshadowed by x here    
+                   
+    }  <FONT color="red">// End of overshadowing !</FONT>          
+    <SPAN style="BACKGROUND-COLOR: #ffff00">printf("%d\n", <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);  // prints 4 </SPAN> 
+ }                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The variable <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">
+   <B><TT>x</TT></B></FONT></SPAN> 
+  in 
+   <FONT color="blue"><B><TT>
+   &nbsp; printf("%d\n",
+ <SPAN style="BACKGROUND-COLOR: orange"><FONT color="black">x</FONT></SPAN>);
+  &nbsp;</TT></B></FONT>
+   refers to &nbsp;
+   <FONT color="blue"><B><TT>int <FONT color="red">x</FONT> = 4;
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Example</B></FONT> of
+  <FONT color="blue"><B>scoping error</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )  
+ { 
+    printf("%d\n", <SPAN style="BACKGROUND-COLOR: orange">x</SPAN>); // <FONT color="red">Error:</FONT> <SPAN style="BACKGROUND-COLOR: #ffff00">x undefined</SPAN>
+    int <FONT color="red">x</FONT> = 4; // Scope of <FONT color="red">x</FONT> starts here 
+
+
+    {                
+                                     
+       int x = 7; // <FONT color="red">x</FONT> is overshadowed by x here   
+                                               
+    }      
+                              
+ }                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The variable <SPAN style="BACKGROUND-COLOR: orange"><FONT color="blue">
+   <B><TT>&nbsp;x</TT></B> </FONT></SPAN>  was
+   used
+   <FONT color="red"><B>before</B></FONT> 
+   the <FONT color="blue"><B>start of the scope</B></FONT> of
+   the 
+   <FONT color="red"><B>variable <TT>x</TT></B></FONT> !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Example</B></FONT> of
+  <FONT color="blue"><B>scoping error</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )            
+ { <FONT color="red">// Outer scope</FONT>
+
+    int x;     
+
+
+    {  <FONT color="red">// Inner scope</FONT>
+       <SPAN style="BACKGROUND-COLOR: #ffff00">int <FONT color="red">y</FONT> = 4;               </SPAN>
+
+       x = y + 3;
+    <SPAN style="BACKGROUND-COLOR: #ffff00">}                           </SPAN>
+    printf( "%d  %d\n", x,<SPAN style="BACKGROUND-COLOR: orange"> <FONT color="blue">y</FONT> </SPAN>);  <FONT color="red">// Error</FONT>
+ }   
+ </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The variable <SPAN style="BACKGROUND-COLOR: orange"><FONT color="blue">
+   <B><TT>&nbsp;y</TT></B> </FONT></SPAN>  was
+   used
+   <FONT color="red"><B>after</B></FONT> 
+   the <FONT color="blue"><B>end of the scope</B></FONT> of
+   the 
+   <FONT color="red"><B>variable <TT>y</TT></B></FONT> !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-------------- Same identifier name in a nested scope ------------------>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Difference</FONT> between
+  <FONT color="blue">C</FONT> and 
+  <FONT color="blue">Java</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> In <FONT color="blue"><B>C</B></FONT>,
+   the <FONT color="red"><B><I>same</I> variable name</B></FONT>
+       defined in an <FONT color="blue"><B><I>inner</I> scope</B></FONT>
+       will <FONT color="red"><B><I>overshadow</I></B></FONT>
+       the <FONT color="blue"><B>variable</B></FONT> in the
+       <FONT color="red"><B><I>outer</I> scope</B></FONT>:
+<P>
+
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE> { <FONT color="red">// Outer scope</FONT>
+
+    <SPAN style="BACKGROUND-COLOR: #ffeeee">int x = 4;     </SPAN>
+
+    {  <FONT color="red">// Inner scope</FONT>
+       printf( "%d\n", x); <FONT color="red">// prints 4</FONT>
+
+       <SPAN style="BACKGROUND-COLOR: #ffff00">int x = 7;  // <FONT color="red">Overshadows</FONT> outer x</SPAN>            
+
+       printf( "%d\n", x); <FONT color="red">// prints 7</FONT>
+    <SPAN style="BACKGROUND-COLOR: #ffff00">} // End of inner x's scope </SPAN>
+
+    printf( "%d\n", x); <FONT color="red">// prints 4</FONT>
+ <SPAN style="BACKGROUND-COLOR: #ffeeee">}        </SPAN>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Java</B></FONT> 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>forbids</B></FONT>
+    using the <FONT color="red"><B><I>same</I> variable name</B></FONT>
+   </SPAN> in
+    an <FONT color="blue"><B><I>inner</I> scope</B></FONT> !!!
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local variables - <FONT color="blue">(lexical) scope</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Where</B></FONT> can you
+  <FONT color="blue"><B>use (= access)</B></FONT>
+   a <FONT color="red"><B>local variable</B></FONT> in
+   <FONT color="blue"><B>C</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+  <LI> A <FONT color="red"><B>local variable</B></FONT> can be
+        <FONT color="blue"><B>accessed</B></FONT> 
+	<SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>after</B></FONT> its
+	<FONT color="blue"><B>definition</B></FONT></SPAN>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">until the
+	<FONT color="red"><B>end of its scope</B></FONT></SPAN>
+    <P>
+   <LI>  A <FONT color="red"><B>local variable</B></FONT>
+    can be <FONT color="blue"><B>accessed</B></FONT> 
+       in the 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><I>inner</I> scopes</B></FONT></SPAN>
+       <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>unless</B></FONT> it is
+       <FONT color="red"><B><I>overshadowed</I></B></FONT></SPAN>
+    (by <FONT color="blue"><B>another variable</B></FONT>
+    of the <FONT color="red"><B>same name</B></FONT>)
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Purpose</B></FONT> of
+   <FONT color="blue"><B>local variables</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>  <FONT color="red"><B>Local variables</B></FONT> are
+      <FONT color="blue"><B>used</B></FONT> to
+      <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>store</B></FONT>
+      <FONT color="blue"><B><I>short term</I> information</B></FONT> </SPAN>
+      to help the
+      <FONT color="red"><B>programmer</B></FONT> 
+      <FONT color="blue"><B>write</B></FONT> the
+      <FONT color="red"><B>algorithm</B></FONT>
+ <P>
+  <LI> The 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>limited locality</B></FONT>
+  of <FONT color="blue"><B>local variables</B></FONT></SPAN> is
+  <FONT color="red"><B>designed</B></FONT> to
+  <FONT color="blue"><B>help</B></FONT> the
+  <FONT color="red"><B>programmer</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ccffcc">
+  <FONT color="blue"><B><I>limit</I></B></FONT> the
+  <FONT color="red"><B><I>search area</I></B></FONT>
+  to <FONT color="blue"><B>find bugs</B></FONT></SPAN>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<!---------------- local var life time ------------->
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Local  variables
+    - <FONT color="blue">life time</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>life time</B></FONT></SPAN> of
+  a <FONT color="blue"><B>local variable</B></FONT> is:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   #include &lt;stdio.h>
+
+   int main( int argc, char* argv[] )            
+   <SPAN style="BACKGROUND-COLOR: #ffff00">{                             </SPAN>
+      <FONT color="red">int x;</FONT>       // Local variable
+      <FONT color="red">int y = 4;</FONT>   // Local variable
+
+      x = y + 3;
+      printf( "%d  %d", x, y );
+   <SPAN style="BACKGROUND-COLOR: #ffff00">}                             </SPAN>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  From <FONT color="red"><B>the time when</B></FONT>
+   the <FONT color="blue"><B>function starts running</B></FONT></SPAN>
+    till
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>the time when</B></FONT>
+   the <FONT color="blue"><B>function returns</B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Remember</B></FONT> from
+ <FONT color="blue"><B>assembler programming</B></FONT>:
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>local variables</B></FONT> are
+ <FONT color="blue"><B>created</B></FONT> on the
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>runtime stack</B></FONT></SPAN> </SPAN> !!!
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Scope and life time of 
+  <FONT color="blue">parameter variables</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  <FONT color="red"><B>Parameter variables</B></FONT> are
+  <FONT color="blue"><B>defined </B></FONT> in the
+  <FONT color="red"><B>function header</B></FONT>:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+  void funcName(<SPAN style="BACKGROUND-COLOR: #aaffaa"> int <FONT color="red">param1</FONT>, float <FONT color="red">param2</FONT> </SPAN>)
+  {
+
+
+     int localVar1;
+     float localVar2;
+
+     ...
+
+
+
+
+  }
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  <FONT color="red"><B>What</B></FONT> is the
+  <FONT color="blue"><B>scope</B></FONT> and
+  <FONT color="red"><B>life time</B></FONT> of
+  <FONT color="blue"><B>parameter variables</B></FONT> ?
+  </font>
+  </p>
+
+  <p style="padding: 0.1in">
+  </p>
+</div>
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Scope and life time of 
+  <FONT color="blue">parameter variables</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  The <FONT color="red"><B>scope</B></FONT> and
+   <FONT color="blue"><B>life time</B></FONT> of
+  <FONT color="red"><B>parameter variables</B></FONT> are
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>same</B></FONT></SPAN> as
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+ <FONT color="red"><B>local variables</B></FONT>
+  that are <FONT color="blue"><B>defined</B></FONT> at the
+    <FONT color="red"><B>start</B></FONT></SPAN> of the
+  <FONT color="blue"><B>function</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+  void funcName( <strike>int <FONT color="red">param1</FONT>, float <FONT color="red">param2</FONT> </strike>)
+  {
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">int <FONT color="red">param1</FONT>;   </SPAN>
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">float <FONT color="red">param2</FONT>  </SPAN>
+     int localVar1;
+     float localVar2;
+
+     ...
+
+
+
+
+  }
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  And we have <FONT color="red"><B>just</B></FONT> discussed
+  the <FONT color="blue"><B>scope</B></FONT> and
+  <FONT color="red"><B>life time</B></FONT> of
+  <FONT color="blue"><B>local variables</B></FONT>...
+  </font>
+  </p>
+
+  <p style="padding: 0.1in">
+  </p>
+</div>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

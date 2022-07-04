@@ -1,0 +1,1270 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization and Assembler Programming<BR>
+Project 3
+</H2>
+</CENTER>
+<P>
+
+Due date: See Class Webpage
+
+<P>
+<HR>
+Observe the <B> Emory Honor Code </B> when doing homeworks.
+<HR>
+
+
+
+<P>
+
+ <FONT COLOR="darkmagenta"><B>
+     1. Preparation
+     </B></FONT>
+<P>
+<UL>
+<LI> To do this project, you must obtain a copy of the 
+   <FONT color="blue"><B>prepared files</B></FONT>
+    with the usual procedure.
+ <P>
+  Use the <B>project code <TT>pj3</TT></B> to get the files
+   for Project 3.
+<P>
+
+
+<P>
+<LI> The files that you have copied into your 
+    <FONT color="red"><B>~/cs255/pj3</B></FONT> directory should be these:
+<P>
+<UL>
+<TABLE bgcolor="lighTCYAN" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">ParseDuoDecTest.java</FONT>:    This program is used to test the <TT>parseDuoDec( )</TT> method   
+		            <FONT color="red">Do NOT change this file</FONT>
+
+   <FONT color="red">ToStringTest.java</FONT>:    This program is used to test the <TT>toString( )</TT> method   
+		         <FONT color="red">Do NOT change this file</FONT>
+
+   <FONT color="red">pj3.java</FONT>:    This program lets you experiment further with Base 12 numbers
+		<FONT color="red">Do NOT change this file</FONT>
+
+   <FONT color="red">DuoDec.java</FONT>:	The Java class file that implements 2 conversion methods    
+                (called: <TT>parseDuoDec( )</TT> and <TT>toString( )</TT>) specified in this assignment   
+		<FONT color="red">You must edit this file for pj3</FONT>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<P>
+<LI> Project 3 is a <B>Java</B> programming project.
+ <P>
+ You can work on project 3 in the following ways:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>easiest way</B></FONT> to work
+    on <FONT color="blue"><B>project 3</B></FONT> is to
+    use <FONT color="red"><B>EGTAPI</B></FONT>.
+ <P>
+    You can work on project 3  
+    <FONT color="red"><B>remotely</B></FONT> from your laptop
+	with <FONT color="blue"><B>EGTAPi</B></FONT>
+ <P>
+  Watch this <FONT color="red"><B>video</B></FONT> on
+   <FONT color="blue"><B>how to</B></FONT> use
+   <FONT color="red"><B>EGTAPI</B></FONT> to do so:
+   <A HREF="../../Egtapi/Docs/pj3-with-EGTAPI.mp4">  click here </A>
+ <P>
+ <LI> If you know <B>(1)</B> how to use
+       an <FONT color="red"><B>editor</B></FONT>
+	in the <FONT color="blue"><B>UNIX (Ubuntu Linux)</B></FONT>
+	platform and
+      <B>(2)</B> how to use  
+   <FONT color="red"><B><TT>javac</TT></B></FONT>  
+  <FONT color="blue"><B>compile Java programs</B></FONT>; then
+   you can use this <FONT color="red"><B>2nd method</B></FONT>.
+  <P>
+   The <FONT color="red"><B>2nd way</B></FONT>
+    is to use a <FONT color="blue"><B>ssh client</B></FONT>  application
+     to login to
+     a <FONT color="red"><B>lab machine</B></FONT>.
+  <P>
+  On a <B>Windows PC</B>, you need to
+  the <FONT color="red"><B>MobaXTerm application</B></FONT> - which
+   contains a <FONT color="blue"><B>ssh client</B></FONT> application.
+  On a <B>Mac PC</B>, you need to open a terminal and execute
+  the <FONT color="red"><B>ssh</B></FONT> command 
+  (Mac 
+   provides a <FONT color="blue"><B>ssh client</B></FONT> application).
+  <P>
+   Instructions on how to install the necessary software and
+   how to login to an Emory lab workstation
+   are given on <B>Canvas</B>.
+<P>
+  <LI> If you know 
+       <B>how to transfer files between Emory and you PC</B>,
+	you can use the 3rd method to work on project 3.
+  <P>
+       <FONT color="red"><B>NOTE:</B></FONT>
+      Instructions to install and use the software 
+     to perform file transfer between your PC and Emory is given
+      on <B>Canvas</B>
+ <P>
+     You must also have installed 
+      a <B>Java compiler</B> on your laptop.
+ <P>
+   To work on project 3 on your <B>laptop</B>,
+  you must do the following:
+
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Transfer all the files from your 
+   <FONT color="blue"><B>Emory's ~/cs255/pj3</B></FONT>
+   folder (directory) onto your PC
+   -
+   (you should create
+   a <FONT color="red"><B>cs255</B></FONT>
+    directory in your PC to store the files)
+<P>
+  <UL>
+  </UL>
+  
+<P>
+<LI> Work on the copy of the file <B>DuoDec.java</B> on your PC
+ <P>
+ <LI>  <FONT color="red"><B>After</B></FONT>
+   you have completed the project, you must 
+   <FONT color="blue"><B><I>transfer</I></B></FONT> the
+      <B>DuoDec.java</B> program file on your PC
+     back to
+    your
+   <FONT color="blue"><B>Emory's ~/cs255/pj3</B></FONT>
+   folder
+ <P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</OL>
+
+</TD>
+</TR>
+</table>
+</UL>
+<P>
+
+<P>
+ <SPAN style="BACKGROUND-COLOR: #000000">
+ <FONT color="yellow"><B>Important note:</B></FONT></SPAN>
+ No matter how to decide to work on project 3, you
+  <B>must</B>
+     <FONT color="red"><B>turn in</B></FONT> 
+     the <B>DuoDec.java</B> program file 
+     for <B>project 3</B>
+     using the <FONT color="blue"><B>TURNIN procedure</B></FONT>
+     given at the <B>end</B> of this handout
+    - <A HREF="#turnin">click here to see the <B>turnin</B> instructions</A>.
+<P>
+I <FONT color="red"><B>do <I>not</I> accept</B></FONT>
+    <FONT color="blue"><B> email turnins</B></FONT> 
+  (there are too many students in CS255, I can't handle that many emails !)
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+<P>
+ <FONT COLOR="darkmagenta"><B>
+     2. Introduction: Duodecimal Numbers
+    (See: 
+   <A HREF="https://en.wikipedia.org/wiki/Duodecimal">Wikipedia page</A>)
+     </B></FONT>
+<P>
+
+<UL>
+The people on planet <B>Mars</B> (let's suppose there are people on Mars)
+ use the Duodecimal number system that is  based on the number 12 -
+I will call these numbers "Duodec" numbers for short.
+The Martians do not use the human-way to denote digits
+ (as you know, human use: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9)
+ - the Martians use the following 
+ <FONT color="blue"><B>symbols</B></FONT> for
+ <B>digits</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Digit                  @  !  ?  &  %  $  =  ^  (  )  [   ]           
+
+    Value of the digit =   0  1  2  3  4  5  6  7  8  9  10  11
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Their number system is <FONT color="red"><B>positional</B></FONT>,
+  meaning that
+  when a number contains <FONT color="blue"><B>multiple digits</B></FONT>,
+   then the value 
+  of a digit is equal to <FONT color="red"><B>12  times</B></FONT>
+  the successor digit.
+<P>
+It happens that <FONT color="blue"><B>Marsians</B></FONT> use
+ the  <FONT color="red"><B>minus sign '&minus;'</B></FONT> to
+ denote <FONT color="blue"><B>negative values</B></FONT>
+<P>
+Here are some <B>examples</B> of how the Marsians
+ write their Duodeciaml numbers and the corresponding value:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    DuoDec number         Value represent (in human decimal system)
+   --------------      -------------------------------------------      
+         @                    0
+         !                    1
+         ?                    2
+	 )		      9
+	 ]		     11
+	!@		     12
+	!!		     13
+        !=                   18
+	?!		     25
+        [[		    130
+      <FONT color="red"> -[[                 -130</FONT>
+       [[[		   1570
+      <FONT color="red">-[[[                -1570</FONT>
+     And so on....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In this project, you will write 2 <B>conversion methods</B> 
+ for DuoDec numbers in Java.
+The <B>parseDuoDec( )</B> method will convert
+ a string input in DuoDec numbers into 2s complement (binary)
+ representation (for calculation purpose) and
+ the <B>toString( )</B> method will convert
+ a 2s complement (binary)
+ representation into a string of DuoDec digits 
+ (for output purpose)
+<P>
+These 2 methods will enable a
+ Java program to read in Duodec  numbers
+ from the keyboard, then perform computations
+ (in 2s complement) and then print results of computations in
+ the Duodec number system representation.
+ 
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+<FONT COLOR="darkmagenta"><B>
+     3. Assignment
+     </B></FONT>
+<P>
+<UL>
+
+Write a Java class <FONT color="blue"><B><TT>DuoDec</TT></B></FONT>
+  that contains the <TT>static</TT>
+ methods:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>   <FONT color="red"><B><TT>int parseDuoDec(String s)</TT></B></FONT>
+ <P>
+  This method receives a DuoDec number string and returns
+   the value represented by this string.
+ <P>
+  E.g.: <FONT color="blue"><B><TT>parseDuoDec("!")</TT></B></font>
+    will return the value 1.
+ <P>
+    <FONT color="red"><B>Requirement:</B></FONT> you 
+          <FONT color="blue"><B>cannot</B></font> use the
+        <FONT color="red"><B><TT>Integer.parseInt(String s, int radix)
+        </TT></B></FONT>
+        Java library method.
+       <P>
+  (Because the <B>parseDuoDec( )</B> method in this project is
+   basically the Java's library's
+     <B><TT>Integer.parseInt(String s, int radix)</TT></B>
+        method using the special symbols
+    <TT>@  !  ?  &  %  $  =  ^  (  )  [   ]</TT>
+        for the digits 0, 1, 2, ..., 11)
+
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>String toString(int value)</TT></B></FONT>
+
+<P>
+  This method receives an <B>integer</B> value and returns
+   the string representation in DuoDec number system.
+ <P>
+  E.g.: <FONT color="blue"><B><TT>toString(1)</TT></B></font>
+    will return the string "!".
+ <P>
+    <FONT color="red"><B>Requirement:</B></FONT> you 
+	<FONT color="blue"><B>cannot</B></font> use the
+        <FONT color="red"><B><TT>Integer.toString(int i, 
+	int radix)</TT></B></FONT>
+	Java library method.
+       <P>
+  (Because the <B>toString( )</B> method in this project is
+   basically the Java's library's
+     <B><TT>Integer.toString(int i, int radix)</TT></B>
+        method using the special symbols
+    <TT>@  !  ?  &  %  $  =  ^  (  )  [   ]</TT>
+        for the digits 0, 1, 2, ..., 11)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+<P>
+I have provided the skeleton function code of these methods
+ in the handout file <FONT color="red"><B>DuoDec.java</B></FONT>
+ (you would have made a copy of this file using the above instructions).
+Take a look in the file
+ <FONT color="red"><B>DuoDec.java</B></FONT>
+ and you will see that the 
+ <FONT color="red"><B>DuoDec class</B></FONT>
+   definition looks like this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class DuoDec
+   {
+      /* ==========================================================
+   	 Return the 2's complement binary representation for the
+   	 DuoDec number given in String s
+   	 ========================================================== */
+      <FONT color="red">public static int parseDuoDec(String s)</FONT>
+      {
+   	 ...
+      }
+    
+      /* ==========================================================
+   	 Return the String of DuoDec digit that represent the value
+   	 of the 2's complement binary number given in
+   	 the input parameter 'value'
+   	 ========================================================== */
+      <FONT color="red">public static String toString(int value)</FONT>
+      {
+   	 ...
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>int parseDuoDec(String s)</TT></B></FONT>
+      method is used to convert a "DuoDec" number 
+     represented as <B>String s</B> into a
+     <FONT color="blue"><B>integer <TT>int</TT></B></FONT> 
+      value (i.e.: a 2s complement code !).
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   parseDuoDec("@")  returns the 2s compl representation for value 0
+   parseDuoDec("!")  returns the 2s compl representation for value 1
+   parseDuoDec("-!") returns the 2s compl representation for value -1
+   parseDuoDec("?")  returns the 2s compl representation for value 2
+   parseDuoDec("-?") returns the 2s compl representation for value -2
+   parseDuoDec("!@") returns the 2s compl representation for value 12
+   parseDuoDec("!!") returns the 2s compl representation for value 13             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(You should know that <FONT color="red"><B><TT>int</TT></B></FONT>
+ data type
+ uses the <B>2's complement</B> number code to represent
+ the value !)
+
+<P>
+<HR>
+<LI> The <FONT color="red"><B><TT>String toString(int value)</TT></B></FONT>
+      method converts  a
+     <FONT color="blue"><B>2's complementary <TT>int</TT></B></FONT> 
+      number (in the input parameter
+        <B><TT>value</TT></B>) to
+      a <FONT color="red"><B>"DuoDec" number string</B></FONT>
+     (= a <B>String</B> of
+     <FONT color="blue"><B>DuoDec digits</B></FONT>)
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   toString(0)   returns the <FONT color="red">String</FONT>: "@" 
+   toString(1)   returns the <FONT color="red">String</FONT>: "!" 
+   toString(2)   returns the <FONT color="red">String</FONT>: "?" 
+   toString(12)  returns the <FONT color="red">String</FONT>: "!@" 
+   toString(13)  returns the <FONT color="red">String</FONT>: "!!"        
+   toString(-13) returns the <FONT color="red">String</FONT>: "-!!"        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<B>Note to students:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ 
+
+ <LI> <B>Some students</B> in
+     <FONT color="blue"><B>previous classes</B></FONT>
+      thought that
+      because we write:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  DuoDec.toString(4)    
+  DuoDec.toString(16)
+  DuoDec.toString( x )
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ that
+  the 
+   <font color="red"><B><TT>DuoDec.toString()</TT></B></font>
+	method receives a
+         <font color="blue"><B><I>decimal</I></B></font> number
+   as <B>input</b> parameter.
+  (So they are confused: why do I ask them to write a
+   <B><TT>toString( )</TT></B> method that converts
+   <B>2s complement representations</B> for input values).
+ <P>
+ This is <B>wrong</B> !!!
+ The
+   <font color="red"><B><TT>DuoDec.toString()</TT></B></font>
+        method <B>does NOT</B> has a
+         <font color="blue"><B><I>decimal</I></B></font> number
+   as <B>input</b> parameter.
+<P>
+ Remember that the <B>compiler</B> translates
+ <B>every (decimal) number</B> that we write in the
+  source program into
+  <B>2s complement representation</B>:
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  When you write:
+
+         x = 4;
+
+  The Java compiler will store the binary number 00000000 00000000 00000000 00000100    
+  in the variable x
+
+          
+  Therefore, when you write:
+
+    DuoDec.toString(4);
+
+  The Java compiler will convert "4" into the binary number 00000000 00000000 00000000 00000100
+  and then pass it to the function !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+ <FONT COLOR="darkmagenta"><B>
+     4. Test programs
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>handout</B></FONT> contains
+    <FONT color="red"><B>3 test programs</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>ParseDuoDecTest.java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This program <FONT color="red"><B><I>only</I></B></FONT> tests the
+      <FONT color="blue"><B><TT>parseDuoDec( ) </TT></B></FONT> method
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use this test program when you are writing the
+    <FONT color="red"><B><TT>parseDuoDec( )</TT></B></FONT> method
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> Compile with:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   javac ParseDuoDecTest.java             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Run test program with:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    java ParseDuoDecTest          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You program passed the test if you see this message:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Single digit duodecimal number tests....
+Single digit duodecimal number tests....  PASSED !
+Two digits duodecimal number tests....
+Two digits duodecimal number tests.... PASSED !!
+Three digits duodecimal number tests....
+Three digits duodecimal number tests.... PASSED !!      
+Large duodecimal number tests....
+Large duodecimal number tests.... PASSED !!
+
+ ---- All parseDuoDec tests passed !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>ToStringTest.java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This program <FONT color="red"><B><I>only</I></B></FONT> tests the
+      <FONT color="blue"><B><TT>toString( ) </TT></B></FONT> method
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use this test program when you are writing the
+    <FONT color="red"><B><TT>toString( )</TT></B></FONT> method
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> Compile with:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   javac ToStringTest.java             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Run test program with:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    java ToStringTest          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+You program passed the test if you see this message:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Single digit duodecimal number tests....
+Single digit duodecimal number tests....  PASSED !
+Two digits duodecimal number tests....
+Two digits duodecimal number tests.... PASSED !!
+Three digits duodecimal number tests....
+Three digits duodecimal number tests.... PASSED !!     
+Large duodecimal number tests....
+Large duodecimal number tests.... PASSED !!
+
+ ---- All toString tests passed !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>pj3.java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This program allow you to enter two
+   <FONT color="red"><B>arbitrary</B></FONT>
+    DuoDec numbers; add them and print the result out as
+    a DuoDec number.
+ <P>
+ Use <FONT color="blue"><B>pj3.java</B></FONT> 
+  <FONT color="red"><B><I>only</I></B></FONT> when you pass
+  the <FONT color="blue"><B>above test programs</B></FONT> !!!
+ <P>
+ See Section 5 on how to use 
+   <FONT color="red"><B>pj3.java</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+ <FONT COLOR="darkmagenta"><B>
+    5. Explore the strange world of base-12 numbers using pj3.java
+     </B></FONT>
+<P>
+<UL>
+<LI> I provided this test program to let you play around with
+	the duodecimal numbers using the strange digit notations.
+  <P>
+    This program allow you to enter two arbitrary DuoDec numbers and
+     it will add them and print the result out as a DuoDec number. 
+   You can see for yourself that the addition works in this strange
+	number system.
+
+<P>
+<LI> To compile the <FONT color="red"><B>pj3.java</B></FONT>
+   test program (<FONT color="blue"><B>after you have passed</B></FONT>
+    the
+   <FONT color="red"><B>ParseDuoDec.java</B></FONT> and
+   <FONT color="blue"><B>ToStringTest.java</B></FONT> tests), use: 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   javac pj3.java       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> After the compilation is successful, you can run the program using: 
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   java  pj3         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The program will ask you to enter
+ <FONT color="red"><B>2 DuoDec numbers</B></FONT>
+ and then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Print out the 
+       <FONT color="blue"><B>value</B></FONT> of the
+         <FONT color="red"><B>DuoDec numbers</B></FONT> that you have entered
+	in
+	 <FONT color="blue"><B>binary</B></FONT>
+	<B>and</B>
+	 <FONT color="blue"><B>decimal</B></FONT>
+ <P> And then 
+     print the <FONT color="blue"><B>sum</B></FONT>
+  in <FONT color="red"><B>DuoDec number representation</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example 1:</B> (my <B>inputs</B> are in <FONT color="red"><B>red</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Here are the DuoDec digits:
+
+DuoDec digit:     @  !  ?  &  %  $  =  ^  (  )  [   ]  
+Value of digit:   0  1  2  3  4  5  6  7  8  9  10  11  
+
+Enter first DuoDec number x = <FONT color="red">&</font>
+
+  Debug: x = 00000000000000000000000000000011     
+  Debug: the decimal value = 3
+
+Enter second DuoDec number y = <FONT color="red">^</font>
+
+  Debug: y = 00000000000000000000000000000111
+  Debug: the decimal value = 7
+
+  Debug: x + y = 00000000000000000000000000001010
+  Debug: x + y = 10   (in decimal)
+
+x + y = [   (in DuoDec)
+
+(Check the DuoDec string for correctness !)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<B>Example 2:</B> (my <B>inputs</B> are in <FONT color="red"><B>red</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Here are the DuoDec digits:
+
+DuoDec digit:     @  !  ?  &  %  $  =  ^  (  )  [   ]  
+Value of digit:   0  1  2  3  4  5  6  7  8  9  10  11  
+
+Enter first DuoDec number x = <FONT color="red">()</font>
+
+  Debug: x = 00000000000000000000000001101001
+  Debug: the decimal value = 105
+
+Enter second DuoDec number y = <FONT color="red">-] </font>
+
+  Debug: y = 11111111111111111111111111110101      
+  Debug: the decimal value = -11
+
+  Debug: x + y = 00000000000000000000000001011110
+  Debug: x + y = 94   (in decimal)
+
+x + y = ^[   (in DuoDec)
+
+(Check the DuoDec string for correctness !)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  6.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj3</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj3</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj3</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj3</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<A NAME="turnin"></A>
+<P>
+
+<P>
+7. <FONT COLOR="darkmagenta"><B>
+     How to turnin your project
+     </B></FONT>
+<P>
+<UL>
+<B>Important note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must</B></FONT> 
+      <B>turn in</B> your 
+   <FONT color="red"><B>DuoDec.java</B></font> 
+	file to complete the assignment !!!
+ <P>
+  You can turn in your work 
+      using <FONT color="blue"><B>EGTAPI</B></FONT>
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In <B>CS255</B>,
+   you must turn in your assignments 
+   (in this case the file <FONT color="blue"><B>pj3.s</B></FONT>)
+   electronically by using the
+ the following turnin procedure
+  <FONT color="red"><B>before the due date</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Click on <FONT color="red">File Browser</FONT> in <FONT color="red">EGTAPI</FONT>        
+
+  2. Select the <FONT color="red">file</FONT> that you want to turn in
+
+     In this case, select the file  <FONT color="red">"DuoDec.java"</font>  inside your pj3 folder
+
+  3. After selecting the file (in this case: "DuoDec.java"), click <FONT color="red">Turnin</FONT>  in the File Browser menu
+
+     The "Egtapi Turn-in" window will pop up
+
+
+  4. In the "Section Number" drop down tab:
+
+          Select "1" if you are in Section 1
+
+          Select "2" if you are in Section 2
+
+  5. Enter "Project Code":  pj3
+
+  6. Click the "Turn in" button
+
+  7. You will see the turn in result in the right most panel.
+
+     Make sure that your see the message: "Program ... has been successfully turned in..."
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Alternately, you can turn in your file using the <B>EGTAPI</B> Terminal:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter these command in the lower input area of the Terminal panel:
+
+       (a)  cd  ~/cs255/pj3                  (go to your pj3 folder) 
+
+       (b) /home/cs255001/turnin  <FONT color="red">DuoDec.java</font>  pj3  // If you're in section 1            
+  or
+       (b) /home/cs255002/turnin  <FONT color="red">DuoDec.java</font>  pj3  // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+If you want to see what you have turned in, then
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter this command in the lower input area of the Terminal panel:
+
+       /home/cs255001/turnin    // If you're in section 1            
+  or
+       /home/cs255002/turnin    // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<CENTER> <B>Statement of Policy on Project/Homework Assignments </B></CENTER>
+<P>
+ Students will be graded partially on the basis of their homework assignments. These homework assignments are to be treated as examinations, and are expected to be your individual work. While discussions with other students in the course may be permitted or encouraged by your instructor, you should write your program yourself. Your instructor (and any teaching assistants assigned to the course) will be glad to help you to the extent that he or she feels reasonable.
+
+Submissions based on other students solutions in prior offerings of the course specifically violate these guidelines, as do submissions prepared with the help of an outside "tutor".
+
+You should take precautions to protect the confidentiality of your work, do not collaborate on questions that you turn in for a grade, do not show your solution to a fellow student, not even after the due date for some students may have receive extension.
+
+All submissions should include a comment statement near the top of the program of the form:
+
+<P>
+<UL>
+<TABLE bgcolor="FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  THIS CODE IS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING A TUTOR   
+  OR CODE WRITTEN BY OTHER STUDENTS - your name
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+Cases of apparent plagiarism or collusion will be referred to the
+ Honor Council. 
+<HR>
+<HR>
+<HR>
+<HR>

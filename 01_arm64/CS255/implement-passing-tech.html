@@ -1,0 +1,471 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Implementing the "Pass-by-value" and
+ "Pass-by-reference" techniques in assembler
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implementing the "Pass-by-value" mechanism
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall the
+   <FONT color="red"><B>pass-by-value</B></FONT> 
+    construct written in
+    a <FONT color="blue"><B>high level programming language</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int <FONT color="red">a</FONT>)				// Var a is passed by value
+    {
+       <FONT color="red">a = a + 1</FONT>;
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+ 
+       <FONT color="red">f(k);</FONT> 
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>
+For simplicity, I will use
+  a <FONT color="red"><B>permanent variable <TT>k</TT></B></FONT> to
+ show you how the
+ <FONT color="blue"><B>pass-by-value</B></FONT> mechinism
+ is <FONT color="red"><B>implemented </B></FONT> in
+ <FONT color="blue"><B>assembler</B></FONT>.
+<P>
+The <FONT color="red"><B><TT>main( )</TT></B></FONT> function
+ will <FONT color="blue"><B>pass</B></FONT> the
+ <FONT color="red"><B>value (= content)</B></FONT> of the
+ <FONT color="blue"><B>variable <TT>k</TT></B></FONT> to the
+ function <FONT color="red"><B><TT>f( )</TT></B></FONT>.
+<P>
+This is <FONT color="blue"><B>how it is done</B></FONT>
+ in  <FONT color="red"><B>ARM assembler code</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+<FONT color="red">
+        /* =========================================
+           Pass k to f( ) by value
+           ========================================= */
+        movw    r0, #:lower16:k
+        movt    r0, #:upper16:k         // r0 = address of k
+        ldr     r0, [r0]                // r0 = value of k
+        push    {r0}                    // Pass k by value (pass k's value)</FONT>
+
+        bl      f                       // Call function f
+        add   sp, sp, #4                // Clean up parameters on the stack
+
+/* ----------------------------------------------------------- */
+        .data
+
+k:      .4byte  7                       // This is the variable k
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>passed-by-value parameter</B></FONT> is
+   <FONT color="blue"><B>access and updated</B></FONT> as
+   follows:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* ================================================
+   Function f that gets a parameter by value
+
+   Stack frame of f( ):
+
+          FP--> +-----------+
+                |  old FP   |   FP + 0
+                +-----------+
+                |  ret addr |   FP + 4
+                +-----------+
+                |  param a  |   FP + 8
+                +-----------+
+   ================================================ */
+f:
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #0      // I create 0 local variable in stack
+<FONT color="red">
+        /* =======================================
+           a = a + 1
+           ======================================= */
+        ldr     r0, [fp, #8]    // r0 = a
+        add     r0, r0, #1      // r0 = a + 1
+        str     r0, [fp, #8]    // a  = a + 1</FONT>
+
+
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp          // De-allocate the local variables
+        pop     {fp}            // Restore old FP
+
+        pop     {pc}            // Return
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>pass-by-value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>value</B></FONT> of the 
+      <FONT color="blue"><B>variable</B></FONT> is
+      <FONT color="red"><B>passed (= copied)</B></FONT>
+      to the <FONT color="blue"><B>function</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>function</B></FONT> will
+      <FONT color="blue"><B>access/update</B></FONT> the
+      <FONT color="red"><B>copy</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implementing the "Pass-by-reference" mechanism
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall the
+   <FONT color="red"><B>pass-by-reference</B></FONT> 
+    construct written in
+    a <FONT color="blue"><B>high level programming language</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int <FONT color="red">& a</FONT>)				// Var a is passed by reference    
+    {
+       <FONT color="red">a = a + 1</FONT>;
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+ 
+       <FONT color="red">f(k);</FONT> 
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>
+For simplicity, I will <B>again</B> use
+  a <FONT color="red"><B>permanent variable <TT>k</TT></B></FONT> to
+ show you how the
+ <FONT color="blue"><B>pass-by-value</B></FONT> mechinism
+ is <FONT color="red"><B>implemented </B></FONT> in
+ <FONT color="blue"><B>assembler</B></FONT>.
+<P>
+The <FONT color="red"><B><TT>main( )</TT></B></FONT> function
+ will <FONT color="blue"><B>pass</B></FONT> the
+ <FONT color="red"><B><I>address</I></B></FONT> of the
+ <FONT color="blue"><B>variable <TT>k</TT></B></FONT> to the
+ function <FONT color="red"><B><TT>f( )</TT></B></FONT>.
+<P>
+This is <FONT color="blue"><B>how it is done</B></FONT>
+ in  <FONT color="red"><B>ARM assembler code</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+<FONT color="red">
+        /* =========================================
+           Pass k to f( ) by value
+           ========================================= */
+        movw    r0, #:lower16:k
+        movt    r0, #:upper16:k         // r0 = address of k
+
+        push    {r0}                    // Pass k by reference (pass k's address)</FONT>
+
+        bl      f                       // Call function f
+        add   sp, sp, #4                // Clean up parameters on the stack
+
+/* ----------------------------------------------------------- */
+        .data
+
+k:      .4byte  7                       // This is the variable k
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>passed-by-value parameter</B></FONT> is
+   <FONT color="blue"><B>access and updated</B></FONT> as
+   follows:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* ================================================
+   Function f that gets a parameter by value
+
+   Stack frame of f( ):
+
+          FP--> +-----------+
+                |  old FP   |   FP + 0
+                +-----------+
+                |  ret addr |   FP + 4
+                +-----------+
+                |  param a  |   FP + 8
+                +-----------+
+   ================================================ */
+f:
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #0      // I create 0 local variable in stack
+<FONT color="red">
+        /* =======================================
+           a = a + 1
+           ======================================= */
+        ldr     r0, [fp, #8]    // r0 = address of (original variable) a    
+	ldr	r1, [r0]        // r1 = value in variable a
+        add     r1, r1, #1      // r0 = a + 1
+        str     r1, [r0]        // orignal a  = a + 1  !!!</FONT>
+
+
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp          // De-allocate the local variables
+        pop     {fp}            // Restore old FP
+
+        pop     {pc}            // Return
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because the <FONT color="red"><B>function <TT>f( )</TT></B></FONT>
+  is <FONT color="blue"><B>given (= passed)</B></FONT> the
+  <FONT color="red"><B>address of the variable
+  <TT>a</TT> in <TT>main( )</TT></B></FONT>,
+  it can <FONT color="blue"><B>update</B></FONT> the
+  <FONT color="red"><B>original value</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ You can see in the <FONT color="red"><B>assembler code</B></FONT>
+ <FONT color="blue"><B>how</B></FONT> this is
+ <FONT color="red"><B>achieved</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>pass-by-reference</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>address</B></FONT> of the 
+      <FONT color="blue"><B>(original) variable</B></FONT> is
+      <FONT color="red"><B>passed (= copied)</B></FONT>
+      to the <FONT color="blue"><B>function</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>function</B></FONT> will
+    <FONT color="blue"><B>use the address</B></FONT> to
+      <FONT color="red"><B>access/update</B></FONT> the
+      <FONT color="blue"><B>value</B></FONT> in the
+      <FONT color="red"><B>original variable</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

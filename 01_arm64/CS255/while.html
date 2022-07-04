@@ -1,0 +1,369 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>while</TT> statement
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>while</TT> statement in a high level programming language
+     </B></FONT>
+<P>
+
+
+<UL>
+<LI> The <FONT color="red"><B><TT>while</TT> statement</B></FONT>
+      has the following 
+    <FONT color="blue"><B>syntax</B></FONT> and
+    <FONT color="red"><B>program flow</B></FONT>
+   (as you have learned in <FONT color="blue"><B>CS170</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   while ( condition )     +---------->|
+      statement            |           |
+			   |	+--------------+ <FONT color="red">FALSE</FONT>
+			   |	|  condition   |--------+              
+			   |	+--------------+	|
+			   |	       |		|
+			   |	       | <FONT color="red">TRUE</FONT>		|
+			   |	       |		|
+			   |	       V		|
+			   |	   statement		|
+			   |	       |		|
+       	     (repeat loop) +-----------+		| (exit loop)
+				        		|
+				       +<---------------+
+				       |
+				       V
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>while</TT> statement construct in assembler code
+     </B></FONT>
+<P>
+ <UL>
+
+<P>
+<LI> <FONT color="red"><B>Assembler construct</B></FONT> that 
+    <FONT color="blue"><B>realizes</B></FONT> the control
+    <FONT color="red"><B>program flow</B></FONT>
+     of the 
+     <FONT color="blue"><B><TT><B>while</B></TT> statement</B></FONT>
+     is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  LOOP:
+     +--> Evaluate "condition" (use <FONT color="red">cmp</FONT>)
+     |		    |
+     |		    V
+     |    Branch on the <FONT color="red">FALSE</FONT> outcome of "condition" to label A: -----+      
+     |		    |						      |
+     |		    | TRUE					      |
+     |		    |						      |
+     |		    V						      |
+     |    Translate "statement" into assembler code		      |
+     |		    |						      |
+     |		    V						      |
+     +---------  <FONT color="red"> b LOOP</FONT>					      |
+		 						      |
+            A:	    +<------------------------------------------------+
+		    |
+		    V
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><TT>while</TT>-statement construc</B></FONT>
+       <FONT color="red"><B>always</B></FONT> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A <FONT color="red"><B>label</B></FONT>
+      (I used <B><TT>LOOP:</TT></B> in the construct, you need to use
+    a <FONT color="blue"><B>unique</B></FONT>
+       <FONT color="red"><B>label name</B></FONT> for each loop !)
+       that
+        marks the
+      <FONT color="blue"><B>start of the <TT>while</TT>-loop</B></FONT>
+ <P>
+ <LI> A <FONT color="red"><B><TT>b &lt;STARTLABEL></TT></B></FONT>
+	 <FONT color="blue"><B>assembler instruction</B></FONT> that
+	 <FONT color="red"><B>jumps</B></FONT> to the
+	 <FONT color="blue"><B>start of the <TT>while</TT> loop</B></FONT>
+	 (so the while-loop code can be <B>repeated</B> !)
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example <TT>while</TT> loop in assembler programming
+     </B></FONT>
+<P>
+<UL>
+<LI> The following is a
+       <FONT color="red"><B>pretty well-known while-loop</B></FONT> used
+       to compute
+       the <FONT color="blue"><B>quotient</B></FONT> and the
+       <FONT color="blue"><B>remainder</B></FONT> of 
+       the <FONT color="red"><B>integer division
+	   A &divide; B</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int A, B;
+   int Q, R;
+
+   // Computes: Q = A/B   and  R = A%B                
+
+   Q = 0;                       
+   R = A;                    
+
+   while ( R >= B )      
+   {                           
+      Q = Q + 1;             
+      R = R - B;
+   }      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+The <FONT color="blue"><B>flow chart</B></FONT> of the 
+ <FONT color="red"><B>program segment</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/repeated-sub.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Assembler program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        <FONT color="red">// Q = 0;</FONT>
+        movw    r0, #:lower16:Q
+        movt    r0, #:upper16:Q         // r0 = addr(Q)
+        mov     r1, #0
+
+        str     r1, [r0]                // Q = 0;
+
+        <FONT color="red">// R = A;</FONT>
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = addr(A)
+        ldr     r1, [r0]                // r1 = A;
+
+        movw    r0, #:lower16:R
+        movt    r0, #:upper16:R         // r0 = addr(R)
+        str     r1, [r0]                // R = A;
+
+<FONT color="red">while:</FONT>
+        <FONT color="red">// test  R >= B</FONT>
+        movw    r0, #:lower16:R
+        movt    r0, #:upper16:R         // r0 = addr(R)
+        ldr     r1, [r0]                // r1 = R;
+
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B         // r0 = addr(B)
+        ldr     r2, [r0]                // r2 = B;
+
+        cmp     r1, r2                  // Check:  R >= B
+        <FONT color="red">blt     whileEnd                // If R < B: exit while loop</font>
+<FONT color="darkgreen">
+        /* ***********************************
+           While body
+           *********************************** */</FONT>
+        <FONT color="red">// Q = Q + 1</FONT>
+        movw    r0, #:lower16:Q
+        movt    r0, #:upper16:Q         // r0 = addr(Q)
+        ldr     r1, [r0]                // r1 = Q;
+        add     r1, r1, #1              // r1 = Q+1
+        str     r1, [r0]                // Q = Q+1;
+
+        <FONT color="red">// R = R - B</FONT>
+        movw    r0, #:lower16:R
+        movt    r0, #:upper16:R         // r0 = addr(R)
+        ldr     r1, [r0]                // r1 = R;
+
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B         // r0 = addr(B)
+        ldr     r2, [r0]                // r2 = B;
+
+        sub     r1, r1, r2              // r1 = R - B
+
+        movw    r0, #:lower16:R
+        movt    r0, #:upper16:R         // r0 = addr(R)
+        str     r1, [r0]                // R = R - B;
+<FONT color="darkgreen">
+        // End of while body --- branch back to test !!</FONT>
+       <FONT color="red"> b       while</FONT>
+
+<FONT color="red">whileEnd:</FONT>
+
+Stop:
+        nop
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+A:    .4byte  37
+B:    .4byte  7
+Q:    .skip   4         // Quotient
+R:    .skip   4         // Remainder
+
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+     <FONT color="red"><B><TT>
+     /home/cs255001/demo/asm/7-while/while1.s
+     </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255  while1</TT></B></FONT>
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

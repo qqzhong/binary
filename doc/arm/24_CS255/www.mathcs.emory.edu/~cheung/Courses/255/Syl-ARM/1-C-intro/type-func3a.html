@@ -1,0 +1,392 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Searching information in <I>one</I> file or in <I>multiple</I> files
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     One file at a time vs. searching files for information
+     </B></FONT>
+<UL>
+<P>
+<LI> There are <FONT color="red"><B>2 approaches</B></FONT> to
+     <FONT color="blue"><B>program compilation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compile</B></FONT> 
+     <FONT color="blue"><B><I>only</I></B></FONT>
+     what you are <FONT color="red"><B><I>told</I></B></FONT> to
+     <B>compile (= translate)</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When some <FONT color="blue"><B>information</B></FONT> is
+      <FONT color="red"><B><I>missing</I></B></FONT>, the 
+      <FONT color="blue"><B>compiler<FONT color="red"> will
+      report an <FONT color="red"><B>error</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Compile</B></FONT> as
+      <FONT color="blue"><B>much</B></FONT> as
+      <FONT color="red"><B>possible</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When some <FONT color="blue"><B>information </B></FONT> is
+     <FONT color="red"><B>missing</B></FONT>, the
+     <FONT color="blue"><B>compiler</B></FONT> will
+    <FONT color="red"><B>search</B></FONT> for
+     <FONT color="blue"><B>missing information</B></FONT> in
+     <FONT color="red"><B><I>other</I> files</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The java compiler:&nbsp;  compiles as <FONT color="red">much </FONT> as
+    it can...
+     </B></FONT>
+<P>
+
+<UL>
+<LI> The <FONT color="red"><B>Java compiler:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you compile a
+    <FONT color="red"><B>Java program <TT>prog.java</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    javac <FONT color="red">prog.java</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>Java compiler</B></FONT> will
+      <FONT color="red"><B>search</B></FONT> in
+     <FONT color="blue"><B><I>other</I> program files</B></FONT> for
+     <FONT color="red"><B><I>missing</I> information</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class prog
+   {
+      public static void main(String[] args)
+      {
+   	 <FONT color="red">int</FONT> a, b;
+    
+   	 a = 2;
+    
+   	 b = <FONT color="red">prog2.f( a )</FONT>;  // <FONT color="red">f( )</FONT> is defined in <FONT color="red">ANOTHER Java program file</FONT> !!!
+      }
+   }
+
+<HR>
+   public class <FONT color="red">prog2</FONT>
+   {
+      public static <FONT color="red">float</FONT> f ( <FONT color="red">float</FONT> x )
+      {
+   	 return x*x;
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>When</B> you <FONT color="red"><B>compile</B></FONT>
+ the <FONT color="blue"><B>program <TT>prog.java</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   javac  <FONT color="red">prog.java</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>Java compiler</B></FONT> will
+ <FONT color="red"><B><I>automatically</I> search</B></FONT> 
+ for <FONT color="blue"><B>missing information</B></FONT> in
+ the <B>file</B> <FONT color="red"><B><TT>prog2.java</TT></B></FONT>
+<P>
+<B>Demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cd <FONT color="red">/home/cs255000/demo/c/Compiler</FONT>         
+
+    javac   prog.java 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The C compiler:&nbsp;  compiles <FONT color="red">only</FONT> what
+    user wants (total control)...
+     </B></FONT>
+<P>
+
+<UL>
+<LI> The <FONT color="red"><B>C compiler:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you compile a
+    <FONT color="red"><B>C program <TT>prog.c</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc <FONT color="red">prog.c</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>C compiler</B></FONT> will
+      <FONT color="red"><B><I>only</I></B></FONT> look inside
+     the (one)
+    <FONT color="blue"><B><I>specified</I> program file</B></FONT> for
+     <FONT color="red"><B>program information</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">prog.c:</FONT>
+ 
+      int main(int argc, char *argv[])
+      {
+   	 <FONT color="red">int</FONT> a, b;
+    
+   	 a = 2;
+    
+   	 b = <FONT color="red">f( a )</FONT>;  // <FONT color="red">f( )</FONT> is defined in <FONT color="red">ANOTHER C program file</FONT> !!!
+      }
+   }
+
+<HR>
+  <FONT color="red">prog2.c:</FONT>
+
+      <FONT color="red">float</FONT> f ( <FONT color="red">float</FONT> x )
+      {
+   	 return x*x;
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>When</B> you <FONT color="red"><B>compile</B></FONT>
+ the <FONT color="blue"><B>program <TT>prog.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc  <FONT color="red">prog.c</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>Java compiler</B></FONT> will report
+ an <FONT color="red"><B>error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cs255 (1732)> gcc prog.c		       
+   /tmp/ccSbeAWZ.o: In function `main':	       
+   prog.c:(.text+0x21): <FONT color="red">undefined reference</FONT> to <FONT color="red">`f'</FONT>     
+
+   (Because the C compiler <FONT color="red">cannot find f( )</FONT> in the file !!!)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<P>
+<B>Demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cd <FONT color="red">/home/cs255000/demo/c/Compiler</FONT>         
+
+    gcc   prog.c
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

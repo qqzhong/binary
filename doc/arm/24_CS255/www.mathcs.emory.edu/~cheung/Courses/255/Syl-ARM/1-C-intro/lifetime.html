@@ -1,0 +1,622 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Lifetime</I> of variables in <I>C</I>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Life time</I> of Global Static global, static local,
+     Local and Parameter variables in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>life time</B> of the variables in
+    <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#FFEEEE"> 
+<TH width=350>
+ Kind  of variable
+
+</TH> 
+<TH>
+ Life time in <I>C</I>
+</TH> 
+
+</TR>
+
+<TR> 
+<TD align="left">
+ <FONT color="red"><B>Global variable</B></FONT>
+</TD> 
+<TD align="left">
+ During the <FONT color="red"><B>entire execution</B></FONT> of the program.
+</TD> 
+</TR>
+
+<TR> 
+<TD align="left">
+ <FONT color="red"><B><TT>static</TT> global variable</B></FONT>
+</TD> 
+<TD align="left">
+ During the <FONT color="red"><B>entire execution</B></FONT> of the program.
+</TD> 
+</TR>
+
+<TR> 
+<TD align="left">
+ <FONT color="red"><B><TT>static</TT> <FONT color="blue">local</FONT>
+   variable</B></FONT>
+</TD> 
+<TD align="left">
+ During the <FONT color="red"><B>entire execution</B></FONT> of the program.
+</TD> 
+</TR>
+
+<TR bgcolor="lightcyan"> 
+<TD align="left">
+ <FONT color="red"><B>Parameter variable</B></FONT>
+</TD> 
+<TD align="left">
+ From the <FONT color="red"><B>start of execution</B></FONT>
+   of the <B>function</B>
+ to the <FONT color="blue"><B>end of the execution</B></FONT>
+  of the <B>function</B>
+</TD> 
+
+</TD> 
+</TR>
+
+<TR bgcolor="lightcyan"> 
+<TD align="left">
+ <FONT color="red"><B>Local variable</B></FONT>
+</TD> 
+<TD align="left">
+ From the <FONT color="red"><B>definition of the variable</B></FONT>
+   in the <B>function</B>
+ to the <FONT color="blue"><B>end of the execution</B></FONT>
+  of the <B>function</B>
+</TD> 
+
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     (1) Global, (2) static global and (3) static local variables:
+    created using 
+   the <FONT color="red"><TT>.skip</TT></FONT> assembler directive
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B> 
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>memory space</B></FONT> for
+       <FONT color="red"><B>global</B></FONT>,
+       <FONT color="red"><B><TT>static</TT> global</B></FONT> and
+       <FONT color="red"><B><TT>static</TT> local </B></FONT>
+       <B>variables</B> are
+       <FONT color="blue"><B><I>reserved</I></B></FONT> using:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler directives</B></FONT> that
+    are <B><I>similar</I></B> to
+    the <FONT color="red"><B><TT>.skip</TT></B></FONT> <B>directive</B> 
+    of <FONT color="blue"><B>ARM</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>That's why</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>life time</B></FONT> of
+ <FONT color="red"><B>global</B></FONT>,
+       <FONT color="red"><B><TT>static</TT> global</B></FONT> and
+       <FONT color="red"><B><TT>static</TT> local </B></FONT>
+       <B>variables</B>
+       is the <FONT color="blue"><B>entire execution</B></FONT>
+       of the <B>program</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     (1) Parameter variables and (2) local variables:
+   created on the <FONT color="red">system stack</FONT>
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="blue"><B>Recall</B></FONT>
+    from <FONT color="red"><B><I>assembler</I> programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>parameter variables</B></FONT>
+    are <FONT color="red"><B><I>created</I> (= pushed)
+    on the <I>statck</I></B></FONT>
+    when a <B>function</B> is
+    <FONT color="blue"><B>called</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>local variables</B></FONT> are
+     <FONT color="red"><B><I>created</I> on the <I>stack</I></B></FONT>
+     by <FONT color="blue"><B>decrementing</B></FONT> the
+     <FONT color="red"><B>stack pointer</B></FONT> in the
+     <FONT color="blue"><B>prelude</B></FONT> of the
+     a <B>function</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>parameter </B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT>
+    are <FONT color="red"><B>popped (= destroyed !)</B></FONT>
+    when the <B>function</B>
+    <FONT color="blue"><B><I>returns</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>That's why</B> the
+  <FONT color="blue"><B>life time</B></FONT> of
+  <FONT color="red"><B>parameter</B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT> is
+  the <FONT color="blue"><B>duration</B></FONT> of
+  the <FONT color="red"><B>function call</B></FONT> !!!
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     
+     <FONT color="red">When</FONT> is a  variable 
+    <FONT color="red"><I>initialized</I></FONT> ??
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Initialized variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>high level programming language</B></FONT>, we 
+    can <FONT color="blue"><B>define</B></FONT>
+    <FONT color="red"><B><I>initialized</I> variables</B></FONT>
+ <P>
+ <B>Exmaple:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  x <FONT color="red">= 4444</FONT>;     // initialized variable     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>When</B></FONT> will
+     a <FONT color="blue"><B>initialized variable</B></FONT> be
+     given an <FONT color="red"><B><I>initial</I> value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>initialization</B></FONT> of
+         a <FONT color="blue"><B><I>initialized</I> variable</B></FONT> occurs
+	 <SPAN style="BACKGROUND-COLOR: yellow">
+	 <FONT color="red"><B>each time</B></FONT> that
+          the <FONT color="blue"><B>variable</B></FONT> is
+	 <FONT color="red"><B><I>created</I></B></FONT></SPAN> !!!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Consequence:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT> and
+      <FONT color="blue"><B>parameter variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> are <FONT color="red"><B><I>initialized</I></B></FONT> 
+       <B>each time</B> a
+       <FONT color="blue"><B>function</B></FONT> is
+       <FONT color="red"><B><I>called</I></B></FONT>
+ <P>
+  (Because <FONT color="blue"><B>Local variables</B></FONT> and
+      <FONT color="blue"><B>parameter variables</B></FONT>
+      are <FONT color="red"><B>created</B></FONT>
+      <B>each time</B> a
+       <FONT color="blue"><B>function</B></FONT> is
+       <FONT color="red"><B><I>called</I></B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Global variables</B></FONT>,
+      <FONT color="blue"><B><TT>static</TT> global variables</B></FONT>
+       and
+      <FONT color="blue"><B><TT>static</TT> local variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> are <FONT color="red"><B><I>initialized</I></B></FONT> 
+       <B>only</B>
+       <FONT color="red"><B><I>once</I></B></FONT>
+ <P>
+  (Because <FONT color="blue"><B>global variables</B></FONT>,
+      <FONT color="blue"><B><TT>static</TT> global variables</B></FONT>
+       and
+      <FONT color="blue"><B><TT>static</TT> local variables</B></FONT>
+      are <FONT color="red"><B>created</B></FONT>
+      <B>once <I>only</I></B> at
+      the
+       <FONT color="blue"><B><I>start</I></B></FONT> of
+       the
+       <FONT color="red"><B>program execution</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Warning: the <I>kind</I> of variable has <I>significant</I> impact of
+    program behavior
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Illustrative example</B></FONT> of
+   the <FONT color="blue"><B>initialization behavior</B></FONT> of
+      <FONT color="red"><B>local</B></FONT> and
+      <FONT color="red"><B><TT>static</TT> local</B></FONT> 
+      variables in <FONT color="blue"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+
+   void f( )
+   {
+      <FONT color="red">int i = 1234;</font>              // Normal local (created when f() is called)
+      <FONT color="red">static int j = 1234;</font>       // Static local (created using ds, ONCE !)
+
+      i++;
+      j++;
+
+      printf( "i = %d, j = %d\n", i, j );
+
+   }
+
+   int main( int argc, char* argv[] )                  
+   {
+      f();
+      f();
+      f();
+      f();
+      f();
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   i = 1235, <FONT color="red">j = 1235</font>          // i "forgets" 
+   i = 1235, <FONT color="red">j = 1236          // j remembers !!!</font>
+   i = 1235, j = 1237
+   i = 1235, j = 1238
+   i = 1235, j = 1239
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>variable <TT>i</TT></B></FONT> is
+      a  <FONT color="blue"><B><I>local</I> variable</B></FONT> and
+     it is
+   <FONT color="red"><B>created</B></FONT> each time
+   the <FONT color="blue"><B>function <TT>f( )</TT></B></FONT> is
+   <FONT color="red"><B>invoked</B></FONT>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>variable <TT>i</TT></B></FONT> is
+      <FONT color="blue"><B><I>initialized</I> to 1234</B></FONT>
+      <B>each time</B> the
+      <FONT color="red"><B>function <TT>f( )</TT></B></FONT> is
+      <FONT color="blue"><B>called</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <P>
+  So when we <FONT color="red"><B>add 1 to <TT>i</TT></B></FONT> with
+   <FONT color="blue"><B><TT>i++</TT></B></FONT>, the
+   <FONT color="red"><B>variable <TT>i</TT></B></FONT> will contain
+   <FONT color="blue"><B>1235</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+
+ <LI> The <FONT color="red"><B>variable <TT>j</TT></B></FONT> is
+      a  <FONT color="blue"><B><TT>static</TT>
+    <I>local</I> variable</B></FONT> and
+     it is
+   <FONT color="red"><B>created</B></FONT> 
+    <FONT color="blue"><B><I>once</I></B></FONT> 
+    (when the program begins execution)
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>variable <TT>j</TT></B></FONT> is
+      <FONT color="blue"><B><I>not</I> initialized to 1234</B></FONT>
+      <B>when</B> the
+      <FONT color="red"><B>function <TT>f( )</TT></B></FONT> is
+      <FONT color="blue"><B>called</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <P>
+  So when we <FONT color="red"><B>add 1 to <TT>i</TT></B></FONT> with
+   <FONT color="blue"><B><TT>j++</TT></B></FONT>, the
+   <FONT color="red"><B>variable <TT>j</TT></B></FONT> will 
+   <FONT color="blue"><B>keep increasing</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/kinds-vars2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc kinds-vars2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

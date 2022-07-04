@@ -1,0 +1,596 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+What happens when a called function calls another function
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Hansel and Gretel Analogy
+     </B></FONT>
+<P>
+ <UL>
+ <LI> In the story of
+   <FONT color="red"><B>Hansel and Gretel</B></FONT>,
+   the kids <FONT color="blue"><B>can't find their way home</B></FONT>
+   because
+   <FONT color="red"><B>birds ate the bread crumbs</B></FONT> they
+   used to marked their <FONT color="blue"><B>return direction</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/hansel+gretel2.jpg" width=400 height=230></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>analogy</B></FONT> is
+ <FONT color="blue"><B>also applicable</B></FONT> in
+  <FONT color="red"><B>function calls</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B>lose</B></FONT> your
+      <FONT color="blue"><B>return address</B></FONT> 
+  if you're <FONT color="red"><B>not careful</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recall: Leaf methods/non-leaf method
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Leaf method/function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>leaf method/function</B></FONT> = 
+       a <FONT color="blue"><B>method/function</B></FONT> that
+       does <FONT color="red"><B>not call</B></FONT>
+       any other <FONT color="blue"><B>method/function</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Non</I>-leaf method/function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><I>non</I>-leaf method/function</B></FONT> = 
+       a <FONT color="blue"><B>method/function</B></FONT> that
+      <FONT color="red"><B> calls</B></FONT>
+       some <FONT color="blue"><B>method/function</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public static void main(String[] args)
+   {
+      A( );
+   }
+
+   public static void <FONT color="red">A( )</FONT>
+   {
+      ...
+      <FONT color="red">B( )</FONT>;   // Calls B( )
+      ...
+   }
+
+   public static void <FONT color="red">B( )</FONT>
+   {
+      ...     // Does not call any method/function     
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Methods <FONT color="red"><B><TT>main( )</TT></B></FONT> and
+<FONT color="red"><B><TT>A( )</TT></B></FONT> are
+ <FONT color="blue"><B><I>non</I>-leaf methods/functions</B></FONT>
+<P>
+Method <FONT color="red"><B><TT>B( )</TT></B></FONT> is a
+ <FONT color="blue"><B>leaf method/function</B></FONT>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens when a called function calls another function 
+     </B></FONT>
+<P>
+<UL>
+<LI> Suppose we <FONT color="red"><B>implements</B></FONT> this
+     <FONT color="blue"><B>program</B></FONT>
+     <FONT color="red"><B>naively</B></FONT> using
+     <FONT color="blue"><B><TT>bl</TT></B></FONT> instructions:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public static void main(String[] args)
+   {
+      A( );
+   }
+
+   public static void <FONT color="red">A( )</FONT>
+   {
+      ...
+      <FONT color="red">B( )</FONT>;   // Calls B( )
+      ...
+   }
+
+   public static void <FONT color="red">B( )</FONT>
+   {
+      ...     // Does not call any method/function     
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If we <FONT color="red"><B>naively</B></FONT> use
+ what we have learned, we will get the following
+ <B>program</B> (I used some dummy instructions between the
+ <FONT color="red"><B><TT>bl</TT></B></FONT> and
+ <FONT color="blue"><B><TT>mov pc, lr</TT></B></FONT> instructions
+ to show where the program is executing):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #1111
+        mov     r1, #1111
+        bl      A
+        mov     r2, #1111
+        mov     r3, #1111
+
+Stop:
+
+A:
+        mov     r0, #2222
+        mov     r1, #2222
+        <FONT color="red">bl      B               // Overwrites lr (A's return address to main !)</FONT>
+        mov     r2, #2222
+        mov     r3, #2222
+
+        mov     pc, lr          // A fails to return to main !!!
+
+
+B:
+        mov     r0, #9999
+        mov     r1, #9999
+
+        mov     pc, lr          // B succeeds to return to A
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you run this program in <FONT color="red"><B>EGTAPI</B></FONT>, you 
+ will see these instruction executed:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        mov     r0, #1111
+        mov     r1, #1111
+        bl      A
+
+A:
+        mov     r0, #2222
+        mov     r1, #2222
+        bl      B               
+
+B:
+        mov     r0, #9999
+        mov     r1, #9999
+
+        mov     pc, lr         //  Returns to A
+
+        mov     r2, #2222      //  Second half of A
+        mov     r3, #2222
+
+        <FONT color="red">mov     pc, lr         //  Jumps to instruction AFTER "bl B" !!!</FONT>
+
+        mov     r2, #2222      //  Second half of A
+        mov     r3, #2222
+
+        <FONT color="red">mov     pc, lr         //  Jumps to instruction AFTER "bl B" !!</FONT>
+
+        mov     r2, #2222      //  Second half of A
+        mov     r3, #2222
+
+        <FONT color="red">mov     pc, lr         //  Jumps to instruction AFTER "bl B" !!</FONT>
+
+        ....<FONT color="red"> (infinite loop !!)</FONT>
+        (Because the LR registers contains the return address used by B !!!    
+         and A is using it to return to main - failure !!!)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>reason</B></FONT> that the 
+ program behaves this way is <FONT color="blue"><B>because</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When <FONT color="red"><B><TT>A( )</TT></B></FONT> calls
+        <FONT color="blue"><B><TT>B( )</TT></B></FONT> with:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     bl    B           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+this <FONT color="red"><B>assembler instruction</B></FONT> will
+  <FONT color="blue"><B>update</B></FONT> the
+  <FONT color="red"><B><TT>LR</TT> register</B></FONT>
+   <FONT color="blue"><B><I>while</I></B></FONT> the
+    <FONT color="red"><B><TT>LR</TT> register</B></FONT>
+    contains the
+    <FONT color="blue"><B>return address</B></FONT> of 
+    <FONT color="red"><B><TT>A( )</TT></B></FONT>.
+<P>
+ That means that
+ <FONT color="red"><B><TT>A( )</TT></B></FONT> can 
+ <FONT color="blue"><B>no longer return</B></FONT> to
+ <FONT color="red"><B><TT>main( )</TT></B></FONT> !!!
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/bl+rts2.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 bl+rts2</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Lesson learned
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Lesson</B></FONT> that you learned
+     from this <FONT color="blue"><B>example</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B>non-leaf functions</B></FONT>,
+     we <FONT color="red"><B>cannot</B></FONT> leave the
+     <FONT color="blue"><B>return addresses</B></FONT> in the
+     <FONT color="red"><B><TT>LR</TT> register</B></FONT>
+<P>
+ <B>I.e.:</B>
+   we <FONT color="red"><B>must</B></FONT>
+  <FONT color="blue"><B><I>save</I></B></FONT> the
+    <FONT color="red"><B>return addresses</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>$64,000 question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>How</I></B></FONT> should
+       we <FONT color="blue"><B>save</B></FONT> the
+       <FONT color="red"><B>return addresses</B></FONT> of
+       the (<FONT color="blue"><B>non-leaf</B></FONT>)
+       <FONT color="blue"><B>function calls</B></FONT> ?????
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Saving return addresses
+     </B></FONT>
+<P>
+<UL>
+<LI>  <FONT color="red"><B>Computer programs</B></FONT> maintain
+      a lot of <FONT color="blue"><B>information</B></FONT>
+<P>
+    <FONT color="red"><B>Each type </B></FONT> of
+   <FONT color="blue"><B>information</B></FONT> must
+   be <FONT color="red"><B>stored</B></FONT>
+    as <FONT color="blue"><B><I>efficiently</I></B></FONT> as
+    <FONT color="red"><B>possible</B></FONT> !!
+<P>
+<HR>
+<P>
+<LI> In <FONT color="red"><B>CS171</B></FONT>, you have 
+      <FONT color="blue"><B>started</B></FONT> to learn
+     some <FONT color="red"><B>data structures</B></FONT> that
+     help you
+     <FONT color="blue"><B>store and organize</B></FONT>
+     information.
+<P>
+ These <FONT color="red"><B>data structures</B></FONT> should have 
+  included:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Queues</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Items inserted into a <FONT color="red"><B>queue</B></FONT> are
+     removed in the
+    <FONT color="blue"><B>First In First Out</B></FONT> order
+  <P>
+  (The next item removed from a <FONT color="red"><B>queue</B></FONT>
+  is the <FONT color="blue"><B>earliest item inserted</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Stack</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Items inserted into a <FONT color="red"><B>stack</B></FONT> are
+     removed in the
+    <FONT color="blue"><B>First In <I>Last</I> Out</B></FONT> order
+  <P>
+  (The next item removed from a <FONT color="red"><B>queue</B></FONT>
+  is the <FONT color="blue"><B><I>last</I> item inserted</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+We will use the
+ <FONT color="red"><B>stack </B></FONT>
+ <FONT color="blue"><B>data structure</B></FONT> to
+ store
+ <FONT color="red"><B>return addresses</B></FONT> because
+of the <FONT color="blue"><B><I>ordering</I></B></FONT> in which
+ the <FONT color="red"><B>method calls</B></FONT>
+  <FONT color="blue"><B>returns</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>first</I> method/function</B></FONT>
+    that is called is the
+  <FONT color="blue"><B><I>last</I> method/function</B></FONT> that 
+  <B>returns</B> !!!!
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/call-ret-order01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>stack </B></FONT> is 
+ the <FONT color="blue"><B><I>most</I> efficient way</B></FONT> to
+ store <FONT color="red"><B>return addresses</B></FONT> because
+ it <FONT color="blue"><B><I>matches</I></B></FONT> the
+ <FONT color="red"><B>call/return ordering</B></FONT>
+ of <FONT color="blue"><B>methods/function</B></FONT>
+ 
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

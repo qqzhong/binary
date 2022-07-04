@@ -1,0 +1,1121 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Passing <FONT color="red">parameters</FONT> and allocating
+ <FONT color="red"> local variables</FONT> using the program stack
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Reminder:</FONT> memory organization of a running program
+     (see: <A HREF="../4-intro/memory2.html#stack">
+     <FONT color="red">click here</FONT></A>
+     </B></FONT>)
+<P>
+<UL>
+<LI>     When a <FONT color="blue"><B>program</B></FONT> 
+     <FONT color="red"><B>starts</B></FONT> its
+     <B>execution</B>, the
+     <FONT color="blue"><B>memory usage</B></FONT> will be
+     as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time1.gif" width=300 height=340></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> When we <FONT color="blue"><B>invoke</B></FONT> a
+      <FONT color="red"><B>method</B></FONT>,
+   <B>e.g.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     x = Math.sin( 3.14 );        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>method invocation</B></FONT> will
+ <FONT color="red"><B>allocate (= reserve memory)</B></FONT>
+ the
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue"><B>parameter variables</B></FONT> and
+ the <FONT color="blue"><B>local variables</B></FONT></SPAN> of the
+ <FONT color="red"><B>method</B></FONT> 
+ <SPAN style="BACKGROUND-COLOR: yellow">on the
+ <FONT color="blue"><B>program stack</B></FONT>:</SPAN>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time3.gif" width=400 height=340></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>In fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B><I>All</I> modern high level programming
+     languages</B></FONT>
+     will
+ <FONT color="blue"><B>allocate (reserve) memory</B></FONT> on
+ the <FONT color="red"><B>program stack</B></FONT>
+ for <FONT color="blue"><B>parameter passing</B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review</FONT>: program stack in
+     the ARM processor-based computer system
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>program stack</B></FONT> is
+     implemented using the
+     <FONT color="blue"><B>special purpose register SP</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> For a detailed review, see these webpages:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The program stack of a running program: 
+         <A HREF="impl-stack.html"> click here</A>
+ <LI> The ARM assembler 
+      <FONT color="blue"><B><TT>push</TT></B></FONT>
+    and <FONT color="blue"><B><TT>pop</TT></B></FONT>
+    instructions: 
+   <A HREF="push-pop-stack.html"> click here</A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens when we use the program stack to
+    <FONT color="red">store</FONT> parameters and local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>stack pointer</B></FONT> is used
+      indicates
+       the <FONT color="blue"><B>part</B></FONT> of
+       <FONT color="red"><B>memory</B></FONT> that
+       is <FONT color="blue"><B>currently in use</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Memory cells</B></FONT>
+    that are <FONT color="red"><B>below</B></FONT> the
+    <FONT color="blue"><B>stack pointer <TT>SP</TT></B></FONT> are
+    <FONT color="red"><B>currently <I>in use</I></B></FONT>
+ <LI> <FONT color="blue"><B>Memory cells</B></FONT>
+    that are <FONT color="red"><B>above</B></FONT> the
+    <FONT color="blue"><B>stack pointer <TT>SP</TT></B></FONT> are
+    <FONT color="red"><B>currently <I>not</I> in use</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When a <FONT color="blue"><B>function</B></FONT>
+       <FONT color="red"><B>use</B></FONT> the
+   <FONT color="blue"><B>program stack</B></FONT> to
+   <FONT color="red"><B>store</B></FONT> its
+   <FONT color="blue"><B>parameters and local variables</B></FONT>,
+   it must
+   <FONT color="red"><B>reserve space</B></FONT> in the
+   <FONT color="blue"><B>unused area</B></FONT> to 
+  <FONT color="red"><B>store</B></FONT> the
+   <FONT color="blue"><B>parameters and local variables</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+This is <FONT color="red"><B>what</B></FONT> we will be
+ <FONT color="blue"><B>doing</B></FONT>...
+<P>
+<FONT color="red"><B>However</B></FONT>.... things is a little bit more 
+ complicated that just
+ <FONT color="red"><B>storing parameters and local variables</B></FONT>....
+<P>
+Because we must also store 
+ <FONT color="red"><B>other things</B></FONT> !!!!
+<P>
+(That's why the
+ <FONT color="red"><B>key </B></FONT> to
+ <FONT color="blue"><B>understanding</B></FONT> how to
+ <FONT color="red"><B>store parameters and local variables</B></FONT>
+  using the <FONT color="blue"><B>program stack</B></FONT> is:
+  <FONT color="red"><B><I>organization</I></B></FONT>)
+<P>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Recall:</FONT>
+      structure of a <FONT color="red">non-leaf</FONT> function
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> that
+     a <FONT color="blue"><B><I>non-leaf</I> function</B></FONT>
+     <FONT color="red"><B>must</B></FONT> save its
+     <FONT color="blue"><B>return address</B></FONT> on the
+     <FONT color="red"><B>program stack</B></FONT>.
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>structure</B></FONT> of a
+    <FONT color="blue"><B>non-leaf function</B></FONT> was
+    as <FONT color="red"><B>follows</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    f:   <FONT color="red"> push  {lr} </FONT>         // Save return address on STACK !!!   
+
+          ....
+
+         <FONT color="red"> pop   {pc}</FONT>          // Use return address on stack to return.     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So when a <FONT color="red"><B>non-leaf function </B></FONT> begins
+ execution, it must
+ <FONT color="blue"><B><I>first</I></B></FONT> push its
+ <FONT color="red"><B>return address</B></FONT> on the
+ <FONT color="blue"><B>program stack</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> That means, the <FONT color="red"><B>program stack</B></FONT> will
+  <FONT color="blue"><B>contain</B></FONT> (at least) the following:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Parameters</B></FONT>
+ <LI> <FONT color="red"><B>Local variables</B></FONT>
+ <LI> <FONT color="blue"><B>Return address</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The stack will contain a
+ <FONT color="red"><B>complex object</B></FONT> with 
+ <FONT color="blue"><B><I>different</I> parts</B></FONT>
+<P>
+We call this <FONT color="blue"><B>object</B></FONT>:
+  a <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>stack frame</B></FONT></SPAN> or
+  a <FONT color="blue"><B>"procedure activation record"</B></FONT>
+<P>
+ (More detail on this object later)
+<P>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Furthermore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We need a <FONT color="red"><B>way</B></FONT> to
+     <FONT color="blue"><B>access</B></FONT> the
+     <FONT color="red"><B>parameters</B></FONT> and
+     <FONT color="red"><B>local variables</B></FONT> that
+     are <FONT color="blue"><B>stored</B></FONT> on
+     the <FONT color="red"><B>program stack</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will use a <FONT color="red"><B>register</B></FONT>
+ to point to the
+ <FONT color="blue"><B>stack frame</B></FONT> to allow us to
+ <FONT color="red"><B>access</B></FONT> the
+ <FONT color="blue"><B>parameters</B></FONT> and
+ <FONT color="blue"><B>local variables</B></FONT>.
+<P>
+This <B>register</B> is
+ typically called
+ the <FONT color="red"><B>frame pointer register (or FP)</B></FONT>
+  because it points to a
+  <FONT color="blue"><B>stack <I>frame</I></B></FONT> object.
+<P>
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Attention</FONT>:
+  pay attention to the <FONT color="red">ordering</FONT> of
+  events and the
+  <FONT color="red">data structure (= stack frame)</FONT> constructed by these
+  sequence of events
+     </B></FONT>
+<P>
+<UL>
+<LI> In what follows, I will
+   <FONT color="blue"><B>illustrate</B></FONT> the 
+   <B>steps</B> where
+      a  <FONT color="red"><B>caller program</B></FONT> will
+      <FONT color="blue"><B>call</B></FONT> a
+      <FONT color="red"><B>subroutine</B></FONT> with
+   <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+<LI>  The <FONT color="red"><B>caller program</B></FONT> will
+     <FONT color="blue"><B>pass</B></FONT> its
+     <FONT color="red"><B>parameters</B></FONT> on the
+     <FONT color="blue"><B>program stack</B></FONT> and then
+     use <FONT color="red"><B><TT>bl</TT></B></FONT> to
+     <FONT color="blue"><B>call</B></FONT> the
+     <FONT color="red"><B>subroutine</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>(called) subroutine</B></FONT> will
+    <FONT color="blue"><B>create (= allocate)</B></FONT>
+    <FONT color="red"><B>local variables</B></FONT> on
+    the <FONT color="blue"><B>program stack</B></FONT>
+ <P>
+ <LI>  <FONT color="red"><B>In addition</B></FONT>
+  (because it's a <FONT color="blue"><B>non-leaf function</B></FONT>),
+  the <FONT color="red"><B>subroutine</B></FONT> will
+  <FONT color="blue"><B><I>first</I> save</B></FONT> its
+  <FONT color="red"><B>return address</B></FONT>
+  on the <FONT color="blue"><B>program stack</B></FONT>
+<P>
+ <LI> <FONT color="red"><B>Furthermore</B></FONT>,
+  to <FONT color="blue"><B>access</B></FONT>
+   <FONT color="red"><B>parameters</B></FONT> and
+    the <FONT color="blue"><B>local variables</B></FONT> in the <B>stack</B>,
+     the
+   <FONT color="red"><B>subroutine</B></FONT> will
+   <FONT color="blue"><B>point</B></FONT> to the
+   <FONT color="red"><B>stack frame</B></FONT>
+   with
+   the <FONT color="red"><B>FP (Frame Pointer) register</B></FONT>
+ <P>
+  The <FONT color="red"><B>FP (Frame Pointer) register</B></FONT>
+  is <FONT color="blue"><B><I>shared</I></B></FONT> (just like
+  the <FONT color="red"><B>LR register </B></FONT> that stores
+  the <FONT color="blue"><B>return address</B></FONT> and
+  must <B>also</B> be
+  <FONT color="red"><B>saved</B></FONT> on the
+  <FONT color="blue"><B>stack</B></FONT> !!!
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+<P>
+<LI> The 
+    <FONT color="blue"><B>steps (= events)</B></FONT>
+    will  <FONT color="red"><B>always</B></FONT> happen
+     in the <FONT color="blue"><B><I>same</I>
+   specific sequence</B></FONT> !!!
+<P>
+  And these <FONT color="blue"><B>events</B></FONT>
+ (with a <FONT color="blue"><B>fixed ordering</B></FONT>) will 
+   <FONT color="blue"><B>therefore</B></FONT>
+  
+  <FONT color="red"><B>construct</B></FONT> a
+  <FONT color="blue"><B>structure</B></FONT> on the
+  <FONT color="red"><B>program stack</B></FONT> that
+  <FONT color="blue"><B><I>always</I></B></FONT> has
+  the <B>same</B> <FONT color="red"><B><I>specific</I> structure</B></FONT>
+<P>
+<FONT color="darkmagenta"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Pay attention to the 
+         <FONT color="red"><B>ordering of the events</B></FONT>
+   and the <B>resulting</B>
+   <FONT color="blue"><B>data structure</B></FONT>
+ that will be  constructed 
+  <B>by</B> this
+   <FONT color="red"><B> sequence of events</B></FONT>
+   (to help you understand and remember the structure) 
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Structure of the stack when methods pass parameters and allocate
+    local variables 
+     </B></FONT>
+<P>
+ <UL>
+<LI> What will happens with 
+     the <FONT color="red"><B>program stack</B></FONT> when
+     methods use it to
+     <FONT color="blue"><B>pass parameters</B></FONT> and
+     <FONT color="red"><B>reserve space</B></FONT> for
+     <FONT color="blue"><B>local variables</B></FONT>
+
+  <FONT color="blue"><B>pass</B></FONT> a
+   <FONT color="red"><B>parameter</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+<LI> We know that 
+      <FONT color="red"><B><TT>main</TT></B></FONT> will need to 
+   use the <FONT color="blue"><B><TT>"bl&nbsp;sumRange"</TT></B></FONT>
+   instruction to call
+   the <FONT color="red"><B>method/subroutine <TT>sumRange</TT></B></FONT>:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>After</B></FONT> executing
+   the <FONT color="blue"><B><TT>"bl&nbsp;sumRange"</TT></B></FONT>
+   instruction, the
+ program execution will continue in the
+   <FONT color="red"><B><TT>sumRange</TT> method</B></FONT>.
+<P>
+<B>Therefore</B>,
+ we <FONT color="red"><B>must pass</B></FONT> the
+ <FONT color="blue"><B>parameters</B></FONT>
+ <FONT color="red"><B><I>before</I></B></FONT> the
+  <FONT color="blue"><B><TT>"bl&nbsp;sumRange"</TT></B></FONT>
+   instruction
+<P>
+In other word:
+  we must <FONT color="red"><B><I>push</I></B></FONT> the
+ <FONT color="blue"><B>parameters</B></FONT> on the
+  <FONT color="red"><B>stack</B></FONT>   <B>before</B> we
+  <FONT color="blue"><B>call</B></FONT> the
+  method:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>After</B></FONT> passing
+      the <FONT color="blue"><B>parameters</B></FONT> on the
+      <FONT color="red"><B>program stack</B></FONT>,
+      the <FONT color="blue"><B>caller method (= <TT>main</TT>)</B></FONT>
+      executes
+      the <FONT color="red"><B><TT>bl&nbsp;sumRange</TT></B></FONT> 
+      instruction to call
+      the <FONT color="blue"><B><TT>sumRange( )</TT></B></FONT> method
+<P>
+     The <FONT color="red"><B><TT>bl&nbsp;sumRange</TT></B></FONT> 
+      instruction will
+      <FONT color="blue"><B>save</B></FONT> the
+      <FONT color="red"><B>return address</B></FONT> in
+      the <FONT color="blue"><B>LR register</B></FONT>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+The <FONT color="red"><B>called method</B></FONT>
+ 
+ will <FONT color="blue"><B>now start</B></FONT> its
+ <FONT color="red"><B>execution</B></FONT>
+</SPAN>
+ <P>
+      <FONT color="red"><B>Recall</B></FONT> that
+      the <FONT color="blue"><B>first thing</B></FONT> that a
+       <FONT color="red"><B>non-leaf subroutine</B></FONT> must do is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Save (= psuh)</B></FONT> its
+       <FONT color="blue"><B>return address</B></FONT> on the
+       <FONT color="red"><B>program stack</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(I know <FONT color="red"><B><TT>sumRange</TT></B></FONT> is
+ not a <FONT color="blue"><B><I>non-leaf</I> subroutine</B></FONT>,
+ but the <FONT color="red"><B>discussion</B></FONT> on
+ using the <FONT color="blue"><B>stack</B></FONT> to
+ store <FONT color="red"><B>parameters and local variables</B></FONT>
+ was <B>caused</B> by
+  a <FONT color="blue"><B>non-leaf subroutine</B></FONT> and
+ I am using  <FONT color="red"><B><TT>sumRange</TT></B></FONT>
+ only as <FONT color="blue"><B>illustration</B></FONT> -
+ just pretend that it is a
+ <FONT color="red"><B>non-leaf subroutine</B></FONT> in this discussion)
+ <P>
+  So the <FONT color="red"><B>stack</B></FONT> will have the following
+ <FONT color="blue"><B>information</B></FONT> <B>after</B>
+  the <FONT color="red"><B>called subroutine</B></FONT> has
+  <FONT color="blue"><B>saved its return address</B></FONT>:
+ 
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+<HR>
+<HR>
+<HR>
+<P>
+
+<P>
+<LI> The <FONT color="red"><B>called method</B></FONT> will
+ <FONT color="blue"><B>first  establish</B></FONT>
+ a 
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>base pointer</B></FONT></SPAN>
+   into  the 
+  <FONT color="blue"><B>program stack</B></FONT>
+  so
+  it can
+  <FONT color="red"><B>access</B></FONT> <B>its own</B>
+  <FONT color="blue"><B>parameters (and its own local variables)</B></FONT>
+<P>
+  The <FONT color="red"><B>special purpose
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  FP (Frame Pointer)</SPAN>
+  </B></FONT>
+  is <FONT color="blue"><B>reserved</B></FONT> for
+   <FONT color="red"><B><I>this</I> purpose</B></FONT>.
+<P>
+ In other words,
+  the <FONT color="red"><B>called function</B></FONT> <B>wants</B> to
+  <FONT color="blue"><B>initialize</B></FONT> the
+ <FONT color="red"><B><TT>FP</TT> register</B></FONT>
+ with the 
+  <FONT color="blue"><B>following address</B></FONT>:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>However</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>FP</TT> register</B></FONT>
+      is a <FONT color="blue"><B>shared resource</B></FONT>
+      (and is <FONT color="red"><B>used</B></FONT> by
+      <FONT color="blue"><B><I>other</I> function</B></FONT> to
+      <FONT color="red"><B>access</B></FONT>
+      <FONT color="blue"><B><I>their own</I></B></FONT>
+      <FONT color="red"><B>parameters and local variables</B></FONT>
+ <P>
+  This is the <FONT color="red"><B>same situation</B></FONT> as
+  the <FONT color="blue"><B>return address </B></FONT> stored
+ in the <FONT color="red"><B><TT>LR</TT> register </B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Therefore</B></FONT>:
+  we must <FONT color="blue"><B>save</B></FONT> the
+ <FONT color="red"><B><TT>FP</TT> register</B></FONT> first,
+  before we use it for ourselves.
+<P>
+So we must
+  <FONT color="blue"><B>push</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>FP (Frame Pointer) register</B></FONT> on
+ the stack</SPAN>
+ (just like the return address in <FONT color="blue"><B>LR</B></FONT>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04f.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+And now we can
+ make <FONT color="red"><B><TT>FP</TT></B></FONT>
+ point to the
+  <FONT color="blue"><B>stack top</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04f2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><TT>FP</TT></B></FONT> will be the
+  <FONT color="blue"><B>base address</B></FONT> that the
+ <FONT color="red"><B>function</B></FONT> will use
+ to <FONT color="blue"><B>access</B></FONT> its
+  <FONT color="red"><B>parameters</B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT> stored
+ <FONT color="red"><B>in the stack</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Finally</B></FONT>,
+      the <FONT color="blue"><B>function</B></FONT> will
+      <FONT color="red"><B>allocate more memory</B></FONT> in the
+      <FONT color="blue"><B>stack</B></FONT> for
+      its <FONT color="red"><B><I>local</I> variables</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04g.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+So the
+ <FONT color="red"><B>structure</B></FONT> of
+ the <FONT color="blue"><B>data stored in the stack</B></FONT>
+ when we use it to
+ <FONT color="red"><B>pass parameters</B></FONT> and
+  <FONT color="red"><B>store local variables</B></FONT> is
+  <FONT color="blue"><B>always</B></FONT> as
+ follows:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param04h.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+To <FONT color="red"><B>access</B></FONT> the
+  <FONT color="blue"><B>parameters</B></FONT> of the
+  <B>subroutine/method</B>, we use
+   <FONT color="red"><B><I>positive</I> offsets</B></FONT> from
+   the <FONT color="blue"><B>FP (Frame Pointer) register</B></FONT>
+<P>
+To <FONT color="red"><B>access</B></FONT> the
+  <FONT color="blue"><B>local variables</B></FONT> of the
+  <B>subroutine/method</B>, we use
+   <FONT color="red"><B><I>negative</I> offsets</B></FONT> from
+   the <FONT color="blue"><B>FP (Frame Pointer) register</B></FONT>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary: building the stack frame
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Summary:</B></FONT> (building the stack frame)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B>stack</B></FONT> is
+    used to pass parameters and store local variables,
+    the <FONT color="red"><B>method/function</B></FONT> will
+    <FONT color="blue"><B>always</B></FONT>
+    <B>construct 
+   (= organize)</B> the 
+   <FONT color="red"><B>(1) parameters, (2) local variable, (3) FP and
+    (4) return address</B></FONT> in the following
+    <FONT color="blue"><B>data structure</B></FONT>
+   as <B>follows</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+This <FONT color="blue"><B>data structure</B></FONT> is
+ called a
+ <FONT color="red"><B>(subroutine) activation record</B></FONT> or
+  <FONT color="red"><B>stack frame</B></FONT>
+<P>
+Wikipedia page:
+ <A HREF="https://en.wikipedia.org/wiki/Call_stack#Structure">
+  click here </A>
+<P>
+<HR>
+<P>
+ <LI> These are the
+     <FONT color="red"><B>prescribed action
+     (= recipe)</B></FONT> that
+     a <FONT color="blue"><B>method (program)</B></FONT> must do
+     in order for a <FONT color="red"><B>method/function</B></FONT>
+      to use the <FONT color="blue"><B>stack</B></FONT>
+      to
+      pass parameters and store local variables:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>calling</I> method</B></FONT> will
+      <FONT color="blue"><B>push</B></FONT> the
+      <FONT color="red"><B>parameters</B></FONT> on the 
+      <FONT color="blue"><B>stack</B></FONT>
+      and the
+      <FONT color="red"><B>call</B></FONT> the
+      <FONT color="blue"><B>method</B></FONT>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     load  parameter 3 into r0            
+     push  {r0}
+     load  parameter 2 into r0            
+     push  {r0}
+     load  parameter 1 into r0
+     push  {r0}
+
+     <FONT color="red">bl    Method/Function</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This will result in the following stack:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When the <FONT color="red"><B>called function </B></FONT>
+    <FONT color="blue"><B>returns</B></FONT>, the
+    <FONT color="red"><B>pushed parameters</B></FONT> will
+   <B>still</B> be on the <FONT color="blue"><B>stack</B></FONT> !!!
+   <P>
+   The
+    <FONT color="red"><B><I>calling</I> function</B></FONT> 
+    <B>must</B> <FONT color="blue"><B>de-allocate</B></FONT> the
+    <FONT color="red"><B>pushed parameters</B></FONT> from the
+    <FONT color="blue"><B>stack</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        add   sp, sp,  #12       // De-allocate 12 bytes from the stack      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> When the <FONT color="red"><B>called method/function</B></FONT>
+     <FONT color="blue"><B>starts running</B></FONT>, the
+     <FONT color="red"><B>stack</B></FONT> will <B>only</B>
+     contain the
+     <FONT color="blue"><B>parameters</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><I>called</I> method/function</B></FONT> must 
+      <FONT color="blue"><B>first</B></FONT>
+     use this <FONT color="red"><B>specific sequence of
+      assembler instruction</B></FONT> to
+      <FONT color="blue"><B>build/complete </B></FONT>
+      the <FONT color="red"><B>stack frame (activation record) structure
+      </B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     push    {lr}         // Save the shared LR reg (contains return addr)
+     push    {fp}	  // Save the shared FP reg (contains the base addr of stack frame)
+     mov     fp, sp	  // Establish the base address in the FP register
+     sub     sp, sp, #N   // Allocate N bytes for local variables
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>sequence of instruction</B></FONT> is
+ called the 
+ <SPAN style="BACKGROUND-COLOR: yellow">
+ <FONT color="blue"><B><I>prelude</I></B></FONT> of
+ a <FONT color="red"><B>method</B></FONT></SPAN> and will
+ <FONT color="blue"><B>build</B></FONT> this
+ <FONT color="red"><B>data structure</B></FONT>
+ (it's called an <FONT color="blue"><B>activation record</B></FONT> or
+ <FONT color="blue"><B>stack frame</B></FONT>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> After the <FONT color="red"><B>prelude</B></FONT>, you can
+     write the <FONT color="blue"><B>instructions</B></FONT> of the
+     <FONT color="red"><B>method</B></FONT> (in assembler code)
+ <P>
+   The <FONT color="blue"><B>instructions</B></FONT> can access
+   the <FONT color="red"><B>parameters </B></FONT> and
+   <FONT color="red"><B>local variable</B></FONT> using
+   some <FONT color="blue"><B>offset</B></FONT> from
+   the <FONT color="red"><B>base address in the FP register</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>offset </B></FONT> of the
+ <FONT color="blue"><B>1st parameter</B></FONT> is
+  <FONT color="red"><B>8</B></FONT>
+  (from the base address in <FONT color="blue"><B>FP</B></FONT>)
+<BR>
+The <FONT color="red"><B>offset </B></FONT> of the
+ <FONT color="blue"><B>2st parameter</B></FONT> is
+  <FONT color="red"><B>12</B></FONT>
+  (from the base address in <FONT color="blue"><B>FP</B></FONT>)
+<BR>
+Etc.
+<P>
+The <FONT color="red"><B>offset </B></FONT> of the
+ <FONT color="blue"><B>1st local variable</B></FONT> is
+  <FONT color="red"><B>-8</B></FONT>
+  (from the base address in <FONT color="blue"><B>FP</B></FONT>)
+<BR>
+The <FONT color="red"><B>offset </B></FONT> of the
+ <FONT color="blue"><B>2st local variable</B></FONT> is
+  <FONT color="red"><B>-4</B></FONT>
+  (from the base address in <FONT color="blue"><B>FP</B></FONT>)
+<BR>
+Etc.
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+</UL>
+
+<P>
+<UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

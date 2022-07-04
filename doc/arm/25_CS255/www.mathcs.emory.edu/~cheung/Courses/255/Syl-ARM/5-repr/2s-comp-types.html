@@ -1,0 +1,533 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>int</TT>,  <TT>short</TT>, and <TT>byte</TT> data types in Java
+<HR>
+</H3>
+<UL>
+<P>
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+    How do computer program get a binary number if we
+    write program in decimal numbers ???
+     </B></FONT>
+<P>
+<UL>
+<LI> In this <FONT color="red"><B>demo</B></FONT>,
+    I will show you that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compiler</B></FONT> of a
+    <FONT color="blue"><B>high level programming language</B></FONT>
+    will <FONT color="red"><B><I>always</I></B></FONT>
+    translate <FONT color="blue"><B><I>every</I> value</B></FONT> you
+    write in your
+    <FONT color="red"><B>program</B></FONT> into
+    a <FONT color="blue"><B>2s complement code</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>2s complement code</B></FONT> is
+   <FONT color="blue"><B>stored</B></FONT> inside the
+   <FONT color="red"><B>instruction (binary code !)</B></FONT> of
+   the <FONT color="blue"><B>assembler program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Consider</B></FONT> this
+    <FONT color="blue"><B>statement</B></FONT> in a
+    <FONT color="red"><B>high level  programming language</B></FONT>
+    (I use <FONT color="blue"><B>C</B></FONT> which is
+   <FONT color="red"><B>similar</B></FONT> to
+   <FONT color="blue"><B>Java</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   int main()
+   {
+      x = 35;   // 35 = 100011 (bin) = 23 (hex)     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you <FONT color="red"><B>compile</B></FONT> this
+  <FONT color="blue"><B>C program</B></FONT> with this
+  <FONT color="red"><B>command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc -c  prog,c           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and then 
+ <FONT color="red"><B>dump</B></FONT> the
+  <FONT color="blue"><B>instruction</B></FONT> in
+  <FONT color="red"><B>hex format</B></FONT> with:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    objdump  -d   prog.o           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will see this:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+0000000000000000 &lt;main>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	c7 05 00 00 00 00 <SPAN style="BACKGROUND-COLOR: #ffff00">23</SPAN> 	movl   $0x<SPAN style="BACKGROUND-COLOR: #ffff00">23</SPAN>,0x0(%rip)       
+   b:	<SPAN style="BACKGROUND-COLOR: #ffff00">00 00 00</SPAN> 
+   e:	b8 00 00 00 00       	mov    $0x0,%eax
+  13:	5d                   	pop    %rbp
+  14:	c3                   	retq   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have <FONT color="red"><B>highlighted</B></FONT> the
+ <FONT color="blue"><B>machine instruction</B></FONT> that
+ contains the <FONT color="red"><B>2s complement code</B></FONT> for
+ <FONT color="blue"><B>35</B></FONT>
+ (remember that it is a
+  <FONT color="red"><B>hex dump !</B></FONT>)
+<P>
+You have to read the <FONT color="red"><B>bytes</B></FONT> in
+ <FONT color="blue"><B>reverse order</B></FONT> (explain later).
+The <FONT color="red"><B>C compiler</B></FONT> stored this
+ <FONT color="blue"><B>2s complement code</B></FONT> in the
+ program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Hex:  00 00 00 23  = 00000000 00000000 00000000 00100011  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Experiment:</B></FONT>
+   change the <FONT color="red"><B>statement </B></FONT> into:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   x = -35;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will see the 
+ <FONT color="red"><B>2s complement code</B></FONT> for
+  <FONT color="blue"><B>-35</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+0000000000000000 &lt;main>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	c7 05 00 00 00 00 <SPAN style="BACKGROUND-COLOR: #ffff00">dd</SPAN> 	movl   $0x<SPAN style="BACKGROUND-COLOR: #ffff00">ffffffdd</SPAN>,0x0(%rip)     
+   b:	<SPAN style="BACKGROUND-COLOR: #ffff00">ff ff ff</SPAN> 
+   e:	b8 00 00 00 00       	mov    $0x0,%eax
+  13:	5d                   	pop    %rbp
+  14:	c3                   	retq   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>2s compl code</B></FONT> generated by
+ the <FONT color="blue"><B>C compiler</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Hex: ff ff ff dd = 11111111 11111111 11111111 11011101     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+As you know (from "how to nagate 2s complement codes"), this
+ 2s complement code represents <FONT color="red"><B>&minus;35</B></FONT>
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>int</TT>,  <TT>short</TT>, and <TT>byte</TT>
+     data types use the <FONT color="red">2s complement code</FONT>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> As I mentioned at the start of this course:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> CS255 is <FONT color="red"><B>not primarily</B></FONT> about
+   <FONT color="blue"><B>assembler programming</B></FONT>
+ <P>
+ <LI> CS255 is <FONT color="red"><B>revealing</B></FONT> the
+     <FONT color="blue"><B>inner workings</B></FONT> of 
+     <FONT color="red"><B>high level programming language constructs</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> One of these <FONT color="blue"><B>inner workings</B></FONT> is
+     <FONT color="red"><B>how</B></FONT> information is
+     <FONT color="blue"><B>represented </B></FONT> inside a
+     computer
+<P>
+ We have just learned about the
+ <FONT color="red"><B>2s complement code</B></FONT> that
+ can be used to
+ <FONT color="blue"><B>represent <I>signed</I> integer
+     (= whole, not fractional) value</B></FONT> in such a way that
+     <FONT color="red"><B>operations</B></FONT> can be perform on them
+     without considering the
+     <FONT color="blue"><B>sign </B></FONT> of the values.
+ <P>
+ (Remember the <FONT color="red"><B>sign-magnitude representation</B></FONT>
+ had the problem when you
+  <FONT color="blue"><B>add a negative value</B></FONT>, you must perform
+ a <FONT color="red"><B><I>different</I> operation</B></FONT>
+  (you had to <B>subtract</B> instead of <B>add</B>)).
+<P>
+<HR>
+<P>
+So in this webpage, I like to show you that
+ the <FONT color="red"><B>
+<TT>int</TT>,  <TT>short</TT>, and <TT>byte</TT> data types in Java</B></FONT>
+ uses the
+ <FONT color="blue"><B>2s complement code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">byte</FONT>  data type:   uses an <FONT color="red"> 8 bits</FONT>   2s complement code 
+  <FONT color="red">short</FONT> data type:   uses an<FONT color="red"> 16 bits </FONT>  2s complement code 
+  <FONT color="red">int</FONT>   data type:   uses an <FONT color="red">32 bits </FONT>  2s complement code      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have written <FONT color="red"><B>3 Java programs</B></FONT>
+ that <FONT color="blue"><B>prints</B></FONT> out the
+ <FONT color="red"><B>binary representation</B></FONT> of
+ the values stored inside a <FONT color="blue"><B>variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Demo directory:   <FONT color="red">/home/cs255001/demo/java/        
+
+   Program files:    <FONT color="red">ShowByteAdd.java</FONT>
+                     <FONT color="red">ShowShortAdd.java</FONT>       
+		     <FONT color="red">ShowIntAdd.java</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These demo files can be copied; I will show them in class.
+
+<P>
+<B>Sample run:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@aruba> java Show<FONT color="red">Byte</FONT>Add
+
+Enter a: 2
+a = <FONT color="red">2</FONT> ===> 2's complement repr =<FONT color="red"> 00000010</FONT>
+
+Enter b: -1
+b =<FONT color="red"> -1</FONT> ===> 2's complement repr =<FONT color="red"> 11111111</FONT>  (In 2s complement, 11111111 represents -1 !!!)     
+
+<FONT color="red">a + b = 1</FONT>
+      ===> 2's complement repr = <FONT color="red">00000001</FONT>   (Computer can perform binary addition !!!)
+
+=============================================
+<FONT color="red">Overflow:</FONT>
+
+Enter a: 127
+a = <FONT color="red">127</FONT> ===> 2's complement repr = <FONT color="red">01111111</FONT>  (This is the largest postive number in 8 bits 2s compl)  
+
+Enter b: 1
+b = 1 ===> 2's complement repr = 00000001
+
+a + b = <FONT color="red">-128</FONT>
+      ===> 2's complement repr = 10000000   (0111111 + 00000001 = 10000000
+                                             The addition is correct !
+					     BUT: the interpretation fails
+					     We call this phenomenon: <FONT color="red">overflow</FONT>)
+ 
+=============================================
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+Here is some of the things you should notice when you run the demo:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>byte</TT></B></FONT> data type uses
+     an <FONT color="blue"><B>8 bits</B></FONT>
+     <FONT color="red"><B>2s complement code</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>8 bits</B></FONT>
+     <FONT color="blue"><B>2s complement code</B></FONT> can represents
+     the values
+     between <FONT color="red"><B>&minus;128 .. 127</B></FONT>
+     (= <FONT color="blue"><B>&minus;2<sup>7</sup>
+      .. (2<sup>7</sup>&minus;1)</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When an <FONT color="blue"><B>operation</B></FONT> results in a
+  <FONT color="red"><B>values</B></FONT> outside the
+  <FONT color="blue"><B>8 bits range</B></FONT>,
+  the <FONT color="red"><B>interpretation of the representation</B></FONT>
+  will result in a <FONT color="blue"><B><I>wrong </I> value</B></FONT>
+ <P>
+ This is an <FONT color="red"><B>inherent limitation</B></FONT> of
+  any <FONT color="blue"><B>finite representation</B></FONT>:
+  it can never represent <B>all possible values</B>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>short</TT></B></FONT> data type uses
+     an <FONT color="blue"><B>16 bits</B></FONT>
+     <FONT color="red"><B>2s complement code</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>16 bits</B></FONT>
+     <FONT color="blue"><B>2s complement code</B></FONT> can represents
+     the values
+     between <FONT color="red"><B>&minus;32768 .. 32767</B></FONT>
+      (= <FONT color="blue"><B>&minus;2<sup>15</sup>
+      .. (2<sup>15</sup>&minus;1)</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>int</TT></B></FONT> data type uses
+     an <FONT color="blue"><B>32 bits</B></FONT>
+     <FONT color="red"><B>2s complement code</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>32 bits</B></FONT>
+     <FONT color="blue"><B>2s complement code</B></FONT> can represents
+     the values
+     between <FONT color="red"><B>&minus;2147483648 .. 
+           2147483647</B></FONT>
+      (= <FONT color="blue"><B>&minus;2<sup>31</sup>
+      .. (2<sup>31</sup>&minus;1)</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

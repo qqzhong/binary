@@ -1,0 +1,445 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus & Progress </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting between number strings and 2's complement binary numbers
+<HR>
+</H3>
+
+<UL>
+<LI> Recall that <B>all inputs</B> entered by users from the keyboard 
+	is actually an ASCII code
+   <P>
+     This also applies when the entry is a <B>number</B>.
+   <P>
+   For example, if the program prompts the user to enter an 
+	<B>integer value</B> and the user wants to enter the number 12,
+	then he/she would type the keys '1' and '2', which will cause
+	keyboard to transmit the ASCII codes 00110001 for '1'
+        and 00110010 for '2'
+   <P>
+   On the other hand,  the <B>integer value</B> 12 is represented
+	inside the computer by the <B>2's complement code</B> 00001100.
+   <P>
+   Therefore, the ASCII codes in the input must first be <B>transformed</B>
+	into a 2's complement representation (by a pretty complicated process)
+<P>
+<LI> NOTE: The Java API library has provided the programmers with
+	such conversion program.
+    <P>
+    After you read in a line (consisting of ASCII codes) from the
+	keyboard using:
+    <PRE>
+     BufferedReader stdin = new BufferedReader
+                               (new InputStreamReader(System.in));
+
+     String s = stdin.readLine();
+     </PRE>
+     You can convert this string of ASCII codes into a 2's complement
+	representation with the <B>parseInt()</B> library function:
+     <PRE>
+      int i = Integer.parseInt(s);
+     </PRE>
+    <P>
+     The following material will basically show you what is going on
+	inside this <B>parseInt()</B> library function....
+ <P>
+</UL>
+<HR>
+<B>Converting ASCII input number into 2's complement code</B>
+<HR>
+<P>
+<UL>
+<LI> I will use a concrete example to explain the process to make things
+	easier to follow.
+   <P>
+     I will use the input string "12" - which actually consists of the 
+	two character ASCII codes 00110001 and 00110010
+   <P>
+     The output 2's complement representation for the value 12 is ofcourse
+	00001100
+<P>
+<LI> First, you have to understand the difference between the 
+     <B>character</B> '1' and the <B>integer</B> 1
+  <P>
+     The representation for the character '1' is 00110001 (binary)
+  <P>
+     The (8 bit) representation for the integer 1 is 00000001 (binary)
+  <P>
+     So to obtain the value that is represented by the character '1',
+     we subtract 00110000 from the ASCII code for '1' (00110001):
+   <PRE>
+        '1'   ----->  00110001
+		    - 00110000
+		 ---------------
+		      00000001
+   </PRE>
+<P>
+<LI> Since the character represented by the code 00110000 is '0',
+     we can also write:
+   <PRE>
+        '1'   ----->  00110001
+		    - (int) '0'
+		 ---------------
+		      00000001
+   </PRE>
+
+
+<LI> Here is a start of the program that is used to convert ASCII number
+	representation to 2's complement representation:
+  <P>
+   The input "12" is processed from left to right.
+   When the program processes the first digit '1', it
+	performs the following calculation:
+  <PRE>
+     value = 0;
+
+     value =  (int) '1' - (int) '0';
+  </PRE>
+  This will assign the <B>integer</B> 1 to value
+  (i.e., value = 00000000000000000000000000000001<sub>(2)</sub>);
+ <P>
+<LI> When the  program processes the second digit '2', it
+ 	would process the string "12" and must obtain the binary
+	value 00000000000000000000000000001100
+  <P>
+  This can achieved by the following statement:
+  <PRE>
+     value =  10*value + ( (int) '2' - (int) '0' );
+                 ^               ^
+                 |               |
+                 |        This difference produces the integer value 2
+                 |
+             Since value was 1, this multiplication results in 10
+  </PRE>
+  The above statement will assign the <B>integer</B> 12 to variable value
+  (i.e., value = 00000000000000000000000000001100<sub>(2)</sub>);
+  <P>
+  If you really must know, the computer performs all the operations in
+	binary:
+  <PRE>
+              10 =                                00001010
+	   value =        00000000000000000000000000000001 *
+         ----------------------------------------------------
+        10*value =        00000000000000000000000000001010
+       '2' - '0' =                                00000010 +
+         ----------------------------------------------------
+			  00000000000000000000000000001100  ---> represents 12
+  </PRE>
+
+<P>
+<LI> The program must process <B>every digit</B> in the input ASCII number
+	to obtain the final value.
+
+<P>
+<LI> <B>Program code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+   // parseInt(s): returns 10's complement integer representation for string s 
+
+   public static int myParseInt(String s)
+   {
+      char digit[];                // Used to store individual char in String s
+      int  value, sign;
+      int  pos;
+      int  len;
+<FONT color="red">
+      digit = s.toCharArray();</FONT>     // Convert s to a character array
+                                   // so we can access the <FONT color="red">individual characters</FONT>
+
+      <FONT color="red">/* -------
+         Check for sign
+         ------- */</FONT>
+      if (<FONT color="red">digit[0] == '-'</FONT>)
+      { sign = -1;
+
+        for ( int i = 0; i < digit.length-1; i++)   <FONT color="red">// Move digits over...</FONT>
+           digit[i] = digit[i+1];
+
+        len = digit.length - 1;    // 1 less digit in input
+      }
+      else
+      {
+         sign = 1;
+
+         len = digit.length;         // len = # digit in input
+      }
+<FONT color="red">
+      /* ------------------------------------------
+         Compute the absolute value of the number
+         ------------------------------------------ */</FONT>
+      value = 0;
+      for (int k = len-1; k >=0; k--)
+      {
+         pos = (len - 1) - k;
+
+         value = value
+                  + ((int)digit[k] - 48) * Power( pos );  // Or use '0' for 48
+      }
+<FONT color="red">
+      /* ==================================================================
+         Check if we need to negate the binary 2's compl code for neg value
+	 ================================================================== */</FONT>
+      if (sign == -1)
+         value = -value;  // This statement in Java will
+                          // compute the negative 2's compl value
+                          // (I.e.: flip the bits and add 1 !!)
+
+      <FONT color="red">return(value);      // Return a BINARY 2's compl code</FONT>
+   }
+
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="../demo//Atoi.java"> click here </A>
+   </UL>
+
+ <P>
+    The  <B>parseInt</B> method has one additional step not discussed,
+	namely: checking for a "minus" symbol.
+	This step is relatively easy....
+   <P>
+   The following program is a "demo" version of the  <B>parseInt</B> method
+	that will spit out a lot of intermdiate data to show
+	you what's going on in the process:
+   <A HREF="../demo/AtoiDemo.java"> AtoiDemo.java</A>
+</UL>
+<HR>
+<B>Converting 2's complement code to ASCII code for printing....</B>
+<HR>
+<P>
+<UL>
+<LI> Note that the terminal is an "ASCII oriented" device,
+	meaning that a terminal "speaks the ASCII language"
+	and you must "talk to it in ASCII"....
+ <P>
+   So it you have an <B>integer variable</B> and this variable
+	contains the 2's complement code for the value 72
+	(so it has 00000000000000000000000001001000),
+    and you send the binary representation to the terminal,
+	the terminal will promptly print..... <B>the character H</B> !!!
+   (because that's 72 is the ASCII code for H)...
+ <P>
+   In order to see "72" printed to the terminal, you would have to send
+   these following ASCII codes to the terminal:
+  <PRE>
+	00110111 (for '7')  and 00110010 (for '2')
+  </PRE>
+
+<P>
+<LI> Here is a program that prints the <B>integer</B> 72:
+    <A HREF="../../demo/Print72.java"> click here </A>
+   <P>
+   <UL>
+   <LI> Compile it and run it using the command:
+	<PRE>
+	java Print72 > out
+	</PRE>
+   <LI> Use the following command to look what was printed:
+	<PRE>
+	cat out
+	</PRE>
+
+   <LI> Then use the following command to look inside the output file:
+	<PRE>
+	od -x out
+	</PRE>
+	It will show an "hex dump" of the content of the file.
+	Can you see the ASCII codes ?
+   </UL> 
+<P>
+<LI> When you write programs in Java and use:
+  <PRE>
+    System.out.println(....)
+  </PRE>
+  to print out integers, the function will <B>first</B> convert
+	the 2's complement representation into a String of ASCII codes
+	and then send the ASCII codes to the output.
+<P>
+<LI> Converting a 2's compl. encoding to ASCII digit string (for output):
+ <P>
+ The process of converting a 2's compl. encoding to ASCII digit string
+  is as follows (I will also use <B>decimal notation</B> because you
+  are most comfortable with this notation. All calculations are
+	done in <B>binary</B> within the computer).
+ <P>
+ I will use a simple example to illustrate:
+ <PRE>
+     00000000000000000000000000001100               |         12
+                                                    |
+       divide by 00000000000000000000000000001010   |       divide by 10
+                                                    |
+                                                    |
+     Quotient =  00000000000000000000000000000001   |    Quotient  = 1
+     Remainder = 00000000000000000000000000000010   |    Remainder = 2
+                                                    |
+   ---------------------------------------------------------------------------
+   Save the remainder and repeat the steps using the quotient (if Q > 0)
+   ---------------------------------------------------------------------------
+                                                    |
+     00000000000000000000000000000001               |         1
+                                                    |
+       divide by 00000000000000000000000000001010   |       divide by 10
+                                                    |
+                                                    |
+     Quotient =  00000000000000000000000000000000   |    Quotient  = 0
+     Remainder = 00000000000000000000000000000001   |    Remainder = 1
+                                                    |
+   ---------------------------------------------------------------------------
+   Save the remainder and stop (Q = 0)
+   ---------------------------------------------------------------------------
+ </PRE>
+ <UL>
+ <LI> The string of remainders forms the number in the "reverse" order.
+ </UL>
+
+<P>
+<LI> <B>Note:</B>
+  <P>
+  <UL>
+  <LI> The remainder obtained by the divisions are in
+	the 2's complement representation
+  <P>
+  <LI> It is easy to obtain the corresponding <B>character ASCII code</B>:
+	simple add the ASCII code for '0' to the value
+  </UL>
+<P>
+<LI> <B>Program code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+   /* ---
+      myToString(): Integer to Ascii conversion function
+      --- */
+   public static String myToString(int value)
+    {
+      int sign;
+      int remainder[] = new int[100];
+      char digit[] = new char[100];  // Max 100 digits in number
+      String result;
+      int   k;
+
+
+      k = 0;
+<FONT color="red">
+      /* ---------------------------------------
+         Check sign
+         --------------------------------------- */</FONT>
+      if (value < 0)
+      {  sign = -1;
+         <FONT color="red">value = -value;</FONT>    // Absolute value >= 0   
+      }
+      else
+      {  sign = 1;
+      }
+<FONT color="red">
+      /* ---------------------------------------
+         Get remainders of divisions by 10
+         --------------------------------------- */</FONT>
+      k = 0;
+      while ( <FONT color="red">value > 0 </FONT>)
+      {
+         remainder[k] = value % 10;
+         k++;
+
+         value = value / 10;
+      }
+<FONT color="red">
+      /* ---------------------------------------------------------
+         Convert remainder to "ASCII digits" (ASCII code)
+         --------------------------------------------------------- */</FONT>
+      for (int i = 0; i < k; i++)
+      {
+         digit[i] = <FONT color="red">(char) (remainder[i] + 48)</FONT>;   // Or use '0' for 48
+      }
+<FONT color="red">
+      /* ---------------------------------------------------------
+         Make a string from the ASCII digits (*** backwards *** !!!)
+         --------------------------------------------------------- */</FONT>
+      result = "";
+      for (int <FONT color="red">i = k-1; i >= 0; i--</FONT>)
+         result = result + digit[i];     <FONT color="red">// Concatenate the digits backwards</FONT>
+<FONT color="red">
+      /* ========================================================
+         Add the '-' character to the string if value was negative
+         ======================================================== */</FONT>
+      if (sign == -1)
+      {
+         result = "-" + result;   // Try: "******" + result for banks
+      }
+      else
+      {
+         result = result;    // Does nothing...
+      }
+
+
+      <FONT color="red">return(result);</FONT>        // <FONT color="red">Returns a String of ASCII codes</FONT>
+                             // for the numeric string that represents
+                             // the integer value encoded in the BINARY
+                             // number in parameter variable value
+    }
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="../demo/Itoa.java"> click here </A>
+   </UL>
+
+   <P>
+    I also have a "Demo version" of the same program that shows how the
+	process works:
+   <A HREF="../demo/ItoaDemo.java"> click here</A>
+</UL>
+

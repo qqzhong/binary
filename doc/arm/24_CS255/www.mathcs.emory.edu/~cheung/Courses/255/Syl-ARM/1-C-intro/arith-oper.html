@@ -1,0 +1,355 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>Arithmetical Operators:</B></FONT>
+<HR>
+
+
+<UL>
+
+
+
+<P>
+<LI> <FONT color="darkmagenta"><B>
+	Arithmetical operators of C:
+        </B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> +  &nbsp &nbsp add
+  <LI> -  &nbsp &nbsp subtract
+  <LI> <TT><B>*</B></TT>  &nbsp &nbsp multiply
+  <LI> <TT><B>/</B></TT>  &nbsp &nbsp divide
+  <LI> %  &nbsp &nbsp take remainder of 
+	an <Font color="red">integer</font> division
+  </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Remember that:</B>
+<P>
+<UL>
+<TABLE BGCOLOR="lightyellow" BORDER=5>
+<TR><TD>
+<UL>
+<LI>
+   Arithmetic operators in computer programs must
+<Font color="red"><B><I>always</I></B></font>
+operate on two values
+of the <Font color="blue"><B><I>same</I> data type</B></font> !!!
+<P>
+<HR>
+<P>
+<LI> The result of the arithmetic operation will
+<Font color="red"><B><I>always</I></B></font>
+have the
+<Font color="blue"><B><I>same</I> data type</B></font> as the
+<Font color="red"><B>operands</B></font>.
+</UL>
+</TD></TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     I am skipping the remainder of this webpage !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Because</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Arithmetic operators</B></FONT> in
+      <B>C</B> behave the <FONT color="red"><B><I>same</I> way</B></FONT>
+      as <FONT color="blue"><B>arithmetic operators</B></FONT> in
+      <B>Java</B>
+ <P>
+ <HR>
+ <P>
+ <LI> You can <FONT color="blue"><B>refresh</B></FONT> the
+       properties of
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Automatic onversion</B></FONT>
+ <LI> <FONT color="red"><B>Priority</B></FONT> of operators
+ <LI> <FONT color="red"><B>Associativity</B></FONT> of operators
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+by reading the <B>remainder</B> of this
+ <FONT color="blue"><B>webpage</B></FONT> if
+ necessary.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+        Arithmetical operators with values of different type
+        </B></FONT>
+<P>
+ <UL>
+ <LI> When values of <Font color="red"><B>different types</B></font>
+     are used in an arithmetic operation,
+     the value of the <Font color="blue"><B>narrow type</B></font>
+     is 
+	<FONT color="red"><B> AUTOMATICALLY converted </B></FONT>
+	to the <Font color="blue"><B>wider type</B></font>
+	
+  <P>
+  <LI> Then the operation is performed on
+	the two value of
+	<FONT color="red"><B> same  type</B></FONT>
+
+ <P>
+<P>
+ <LI> <B>Examples:</B>
+<P>
+ <UL>
+<TABLE BGCOLOR="lightcyan" BORDER=5>
+<TR><TD>
+<B><PRE>
+
+  2.0 + 3   -->  2.0 + 3.0 = 5.0    <FONT color="red"><B> (result is double) </B></FONT>
+
+<HR>
+
+  (int) 2 + (short) 3   -->  (int) 2 + (int) 3 = (int) 5  
+</B></PRE>
+</TD></TR>
+</TABLE>
+</UL>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+        WARNING: Integer Division in C/C++:
+        </B></FONT>
+<P>
+ <UL>
+ <LI> Pay special attention on the 
+	<FONT color="red"><B>division <TT><B>/</B></TT> operator</B></FONT>:
+<P>
+  <UL>
+  <LI> <FONT color="blue"><B>floating point  division</B></FONT>
+	 computes quotient and the remainder 
+	in decimal places
+  <P>
+  <LI> <FONT color="blue"><B>integer division</B></FONT>
+	 computes the <Font color="red"><B>integral quotient</B></FONT>.
+  </UL>
+<P>
+<B>Examples:</B>
+<P>
+<TABLE BGCOLOR="yellow" BORDER=5>
+<TR><TD>
+<B><PRE>
+
+    7.0 / 4.0 = 1.75     (divide 2 double values, natural)
+
+    7 / 4.0 = 1.75	 (7 / 4.0 --> 7.0 / 4.0 = 1.75)
+
+    7.0 / 4 = 1.75	 (7.0 / 4 --> 7.0 / 4.0 = 1.75)
+
+    7 / 4   = 1          <Font color="red"><- integer division !</FONT>
+</B></PRE>
+</TD></TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<P>
+<HR>
+<CENTER>
+<FONT color="magenta"><B>Operator Priority & Associativity </B></FONT>
+</CENTER>
+<HR>
+<P>
+<LI>  <FONT color="darkmagenta"><B>
+        How is an expression in programs evaluated ?
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> Arithmetic expression in programming languages are evaluated
+	according to strict rules of priority.
+ <P>
+ <LI> Each operator in a programming language is assigned:
+  <P>
+  <UL>
+  <LI> a <Font color="red"><B> priority level</B></FONT>
+  <P>
+  <LI> an <Font color="red"><B> associativity direction</B></FONT>
+  </UL>
+  <P>
+  <LI> The following 2 rules are used in evaluating expressions:
+  <P>
+  <UL>
+  <LI> Operations involving operators of 
+	<Font color="blue"><B>higher priority</B></FONT> are evaluated 
+	before lower priority operators.
+  <P>
+  <LI> When operators have the <Font color="red">same priority</font>,
+	then the expression is evaluated in the 
+   <Font color="red">direction given by their associativity direction</FONT>
+  </UL>
+  </UL>
+<P>
+<HR>
+<P>
+<LI>  <FONT color="darkmagenta"><B>
+        Priority and Associativity of Arithmetic operators in C/C++ 
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> Warning: different programming languages may have different
+	priority and associativity rules !
+  <P>
+ <LI> Priority & Associativity of Arithmetic Operators in C/C++:
+
+<P>
+<UL>
+<TABLE BGCOLOR="lightblue" BORDER=5 WIDTH=500>
+<TR>
+  <TH> Priority </TH> <TH> Operator(s) </TH> <TH> Associativity </TH>
+</TR>
+<TR>
+  <TD> 1 </TD> <TD> &nbsp  * &nbsp / &nbsp % </TD> <TD> left -> right </TD>
+</TR>
+<TR>
+  <TD> 2 </TD> <TD> &nbsp  + &nbsp - </TD> <TD> left -> right </TD>
+</TR>
+</TABLE>
+</CENTER>
+</UL>
+
+<P>
+<LI> <B>Some examples:</B>
+<P>
+<FONT color="blue">
+<B>
+<TT>
+<TABLE BGCOLOR="yellow" BORDER=5 WIDTH=500>
+<TR>
+<TD> 
+<B><PRE>
+ 6 - 2 * 5
+</B></PRE>
+</TD>
+<TD>
+<B><PRE>
+
+ ->  6 - (2 * 5)
+ ->  (6 - 10)
+ ->  -4 
+</PRE></B>
+</TD>
+</TR>
+
+<TR>
+<TD> 
+<B><PRE>
+ 6 - 2 * 5 - 8 / 3 
+</PRE></B>
+</TD>
+<TD>
+<B><PRE>
+
+ ->  6 - (2 * 5) - (8 / 3)
+ ->  6 - 10 - 2  <FONT COLOR="red">[Same priority: use assoc rule !]</FONT>
+ ->  (6 - 10) - 2
+ ->  -4 - 2
+ ->  -6
+</PRE></B>
+</TD>
+</TR>
+
+<TR>
+<TD> 
+<B><PRE>
+ 6.0 - 8 / 5
+</PRE></B>
+</TD>
+<TD>
+<B><PRE>
+
+ ->  6.0 - 8 / 5
+ ->  6.0 * 1  <FONT COLOR="red">[double + int: convert !]</FONT>
+ ->  6.0 * 1.0
+ ->  6.0
+</PRE></B>
+</TD>
+</TR>
+
+<TR>
+<TD> 
+<B><PRE>
+ 6.0 * 8 / 5
+</PRE></B>
+</TD>
+<TD>
+<B><PRE>
+
+ ->  6.0 * 8.0 / 5
+ ->  48.0 / 5   <FONT COLOR="red">[double / int: convert!]</FONT>
+ ->  48.0 / 5.0
+ ->  9.6
+</PRE></B>
+</TD>
+</TR>
+
+</TABLE>
+<P>
+</UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

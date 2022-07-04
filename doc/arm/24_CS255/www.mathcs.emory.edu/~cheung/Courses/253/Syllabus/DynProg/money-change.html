@@ -1,0 +1,1421 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Minimum # coins required to make change
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making change...
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="blue"><B>C different denominations</B></FONT> of
+      <FONT color="red"><B>coins/bills</B></FONT> in use with values:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>
+     v<sub>1</sub> &lt;
+         v<sub>2</sub> &lt; ...
+	 &lt; v<sub>C</sub>
+	 </B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We <FONT color="blue"><B>assume</B></FONT> that
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>v<sub>1</sub> = 1</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(So that we can <FONT color="blue"><B>always</B></FONT> make change
+  for <FONT color="red"><B>any amount</B></FONT>)
+<P>
+<HR>
+ <P>
+ <LI> You need to <FONT color="red"><B>pay</B></FONT>
+     someone a certain anount of 
+      <FONT color="magenta"><B>money $N</B></FONT>
+ <P>
+ <LI> Find the <FONT color="blue"><B>minimum # of coins/bills</B></FONT>
+      that you need to use to 
+      <FONT color="red"><B>make the change</B></FONT> for 
+      <FONT color="magenta"><B>$N</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Denominations:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>1, 5, 10, 25</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B><I>Minimum</I> # coins/bills</B> to make change for:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make change for <FONT color="red"><B>35</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>   Min: <FONT color="blue"><B>2</B></FONT> coins
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   (<B>10 + 25</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ <LI> Make change for <FONT color="red"><B>37</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Min: <FONT color="blue"><B>4</B></FONT> coins
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   (<B>25 + 10 + 1 + 1</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B><I>Tough</I> example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Denominations:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>1, 3, 9, 19, 26</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B><I>Minimum</I> # coins/bills</B> to make change for:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make change for 
+    <FONT color="red"><B>65</B></FONT>: min <FONT color="blue"><B>?</B></FONT>
+    coins
+
+<P>
+
+ <LI> Make change for  
+      <FONT color="red"><B>66</B></FONT>:
+       min <FONT color="blue"><B>?</B></FONT> coins
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Developing a <I>recursive</I> solution 
+     (we will  translate into
+     <I>dynamic programming</I> later)
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>Define:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>M(j)</B></FONT> =
+      the <FONT color="red"><B>minimum # coins/bills</B></FONT> to 
+      <FONT color="darkred"><B>make change</B></FONT>
+      for 
+   &nbsp; <FONT color="magenta"><B><I>j</I></B></FONT>
+    &nbsp; (money units)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+How can we:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="Magenta"><B>Divide</B></FONT> the problem
+  <FONT color="blue"><B>M(j)</B></FONT>
+  into
+  <FONT color="red"><B>smaller subproblems</B></FONT> 
+ <P>
+ <LI> And then 
+    <FONT color="magenta"><B>use</B></FONT> the
+   <B><I>solution(s)</I></B> of the
+   <FONT color="red"><B>smaller problem(s)</B></FONT>
+   to
+   <B><I>solve</I></B> the
+   <FONT color="blue"><B>original problem M(j)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Consider the 
+     <FONT color="red"><B>last coint</B></FONT> in
+     <FONT color="blue"><B>M(j) coins</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/Coins/Coins-01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <B><I>last</I> coin</B> used must be
+     <FONT color="red"><B>one</B></FONT>   
+     of the <FONT color="darkmagenta"><B>C possible demoninations</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Now, let us <B>reason</B> together:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B>do <I>not</I></B></FONT> know
+      <FONT color="red"><B><I>which</I></B></FONT> coin will be used
+      a the <FONT color="blue"><B><I>last</I> coin</B></FONT>....
+ <P>
+    <B>but</B> we <FONT color="red"><B><I>do</I> know</B></FONT>
+    the following <FONT color="blue"><B>facts</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B><I>If</I></B></FONT> the 
+     <FONT color="red"><B><I>last</I> coin</B></FONT>  had a
+     value <FONT color="blue"><B><I>v<sub>1</sub></I></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>remaining</I> coins</B></FONT>
+      will be the 
+      <FONT color="red"><B><I>smallest</I> number of coins</B></FONT>
+      that is used to make change for
+      the <B>amount</B> of
+      &nbsp;
+      <FONT color="magenta"><B><I>j &minus; v<sub>1</sub></I></B></FONT>
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B><I>If</I></B></FONT> the 
+     <FONT color="red"><B><I>last</I> coin</B></FONT>  had a
+     value <FONT color="blue"><B><I>v<sub>2</sub></I></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>remaining</I> coins</B></FONT>
+      will be the 
+      <FONT color="red"><B><I>smallest</I> number of coins</B></FONT>
+      that is used to make change for
+      the <B>amount</B> of
+      &nbsp;
+      <FONT color="magenta"><B><I>j &minus; v<sub>2</sub></I></B></FONT>
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>And so on</I></B></FONT> !!
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<LI> <B>Therefore</B>, 
+    <FONT color="blue"><B><I>one</I></B></FONT> of these
+    <FONT color="red"><B>possible scenarios</B></FONT>
+    must be the
+    <FONT color="darkmagenta"><B>optimal solution</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/Coins/Coins-02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We have <B>many</B>
+     (the number of problems is <FONT color="red"><B><I>C</I></B></FONT>)
+     <FONT color="blue"><B><I>smaller</I> problems</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Smaller problem 1:</B>
+      Find <FONT color="blue"><B><I>minimum</I> number of coin</B></FONT>
+      to make change for the
+      <B>amount</B> of
+      <FONT color="red"><B><I>$(j &minus; v<sub>1</sub>)</I></B></FONT>
+ <LI> <B>Smaller problem 2:</B>
+      Find <FONT color="blue"><B><I>minimum</I> number of coin</B></FONT>
+      to make change for the
+      <B>amount</B> of
+      <FONT color="red"><B><I>$(j &minus; v<sub>2</sub>)</I></B></FONT>
+ <LI> ...
+ <LI> <B>Smaller problem <I>C</I>:</B>
+      Find <FONT color="blue"><B><I>minimum</I> number of coin</B></FONT>
+      to make change for the
+      <B>amount</B> of
+      <FONT color="red"><B><I>$(j &minus; v<sub>C</sub>)</I></B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+
+
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B><I>solutions</I></B></FONT> of these
+     <FONT color="red"><B><I>smaller</I> problems</B></FONT> can
+     <B>enable </B> us to
+     <FONT color="blue"><B>solve</B></FONT> the
+     <FONT color="red"><B><I>original</I> problem</B></FONT> !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Caveat</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B><I>only</I></B></FONT> use
+      a coin of value
+      <FONT color="blue"><B><I>$v<sub>1</sub></I></B></FONT> 
+      to <B>make change</B> for
+      <FONT color="red"><B><I>$j</I></B></FONT> if:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">j &ge; v<sub>1</sub> </FONT>   (If the amount j < v<sub>1</sub>, you can't use this coin !)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B><I>Similarly</I></B>,
+     you can <FONT color="red"><B><I>only</I></B></FONT> use
+      a coin of value
+      <FONT color="blue"><B><I>$v<sub>2</sub></I></B></FONT> 
+      to <B>make change</B> for
+      <FONT color="red"><B><I>$j</I></B></FONT> if:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">j &ge; v<sub>2</sub> </FONT>   (If the amount j < v<sub>2</sub>, you can't use this coin !)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><I>And so on</I></B></FONT> !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Psuedo code</B> of the
+    <FONT color="red"><B><I>divide and conquer</I></B></FONT> 
+    procedure:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    findM( <FONT color="red">j, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>)</FONT> )
+    {<FONT color="darkmagenta">
+       // Let us not worry about the base cases for now....</FONT>
+<FONT color="darkred">
+       /* ========================================
+          Divide and conquer procedure to find
+	  min. # coins to change for $j
+	  ======================================== */</FONT>
+<FONT color="darkgreen">
+       /* ---------------------------------------------
+          Suppose last coin used has value v<sub>1</sub>
+	  --------------------------------------------- */</FONT>
+       if ( <FONT color="red">j >= v<sub>1</sub></FONT> )
+       {
+          sol<sub>1</sub> = findM( <FONT color="red">j-v<sub>1</sub></FONT>, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>) );
+          <FONT color="darkred">mySol<sub>1</sub> = sol<sub>1</sub> <FONT color="red">+ 1</FONT></FONT>;    // I will <FONT color="red">one more coin</FONT> to make change for $j    
+       }
+<FONT color="darkgreen">
+       /* ---------------------------------------------
+          Suppose last coin used has value v<sub>2</sub>
+	  --------------------------------------------- */</FONT>
+       if (<FONT color="red"> j >= v<sub>2</sub></FONT> )
+       {
+         sol<sub>2</sub> = findM( <FONT color="red">j-v<sub>2</sub></FONT>, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>) );
+         <FONT color="darkred">mySol<sub>2</sub> = sol<sub>2</sub> <FONT color="red">+ 1</FONT></FONT>;    // I will need <FONT color="red">one more coin</FONT> to make change for $j
+       }
+
+       .... (and so on)
+<FONT color="darkgreen">
+       /* ---------------------------------------------
+          Suppose last coin used has value v<sub>C</sub>
+	  --------------------------------------------- */</FONT>
+       if ( <FONT color="red">j >= v<sub>C</sub></FONT> )
+       {
+          sol<sub>C</sub> = findM( <FONT color="red">j-v<sub>C</sub></FONT>, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>) );
+          <FONT color="darkred">mySol<sub>C</sub> = sol<sub>C</sub> <FONT color="red">+ 1</FONT></FONT>;    // I will need <FONT color="red">one more coin</FONT> to make change for $j
+       }
+<FONT color="red">
+       /* ========================================================
+          The smallest # coins needed to make change for $j
+	  ======================================================== */</FONT>
+       myFinalSol = <FONT color="red">min</FONT> ( mySol<sub>1</sub>, MySol<sub>2</sub>, ...., mySol<sub>C</sub> );
+	                // Note: use only the valid value mySol<sub>i</sub> !!!
+
+       return ( myFinalSol );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> As <FONT color="blue"><B>part</B></FONT> of the
+    <FONT color="red"><B>algorithm development</B></FONT>, we must
+    <FONT color="blue"><B><I>choose</I></B></FONT> a
+    <FONT color="red"><B><I>suitable</I> storage (data) structure</B></FONT>
+    for the <B>information</B> used by the
+    <FONT color="blue"><B>algorithm</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>Clearly</B>, we should store
+     the values
+     <FONT color="blue"><B><I>(v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>)
+    </I></B></FONT> in an
+    <FONT color="red"><B><I>array</I></B></FONT>
+    (so we can
+    use a <FONT color="blue"><B>(for) <I>loop</I></B></FONT> to
+    write the about <B>algorithm</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Base case....
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Base case:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>don't need any coins</B></FONT>
+       to make change for
+    <FONT color="red"><B><I>$0</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+     M(0) = 0              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>recursive</I> solution for the coin change problem
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <B>Psuedo code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    findM( <FONT color="red">j, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>)</FONT> )
+    {<FONT color="magenta">
+       /* ---------------------------
+          Base case
+          --------------------------- */</FONT>
+       if ( <FONT color="red">j == 0</FONT> )
+       {
+           return(0);
+       }
+<FONT color="darkred">
+       /* ========================================
+          Divide and conquer procedure to find
+	  min. # coins to change for $j
+	  ======================================== */</FONT>
+<FONT color="darkgreen">
+       /* ---------------------------------------------
+          Suppose last coin used has value v<sub>1</sub>
+	  --------------------------------------------- */</FONT>
+       if ( <FONT color="red">j >= v<sub>1</sub></FONT> )
+       {
+          sol<sub>1</sub> = findM( <FONT color="red">j-v<sub>1</sub></FONT>, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>) );
+          <FONT color="darkred">mySol<sub>1</sub> = sol<sub>1</sub> <FONT color="red">+ 1</FONT></FONT>;    // I will <FONT color="red">one more coin</FONT> to make change for $j    
+       }
+<FONT color="darkgreen">
+       /* ---------------------------------------------
+          Suppose last coin used has value v<sub>2</sub>
+	  --------------------------------------------- */</FONT>
+       if (<FONT color="red"> j >= v<sub>2</sub></FONT> )
+       {
+         sol<sub>2</sub> = findM( <FONT color="red">j-v<sub>2</sub></FONT>, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>) );
+         <FONT color="darkred">mySol<sub>2</sub> = sol<sub>2</sub> <FONT color="red">+ 1</FONT></FONT>;    // I will need <FONT color="red">one more coin</FONT> to make change for $j
+       }
+
+       .... (and so on)
+<FONT color="darkgreen">
+       /* ---------------------------------------------
+          Suppose last coin used has value v<sub>C</sub>
+	  --------------------------------------------- */</FONT>
+       if ( <FONT color="red">j >= v<sub>C</sub></FONT> )
+       {
+          sol<sub>C</sub> = findM( <FONT color="red">j-v<sub>C</sub></FONT>, (v<sub>1</sub>,v<sub>2</sub>, ..., v<sub>C</sub>) );
+          <FONT color="darkred">mySol<sub>C</sub> = sol<sub>C</sub> <FONT color="red">+ 1</FONT></FONT>;    // I will need <FONT color="red">one more coin</FONT> to make change for $j
+       }
+<FONT color="red">
+       /* ========================================================
+          The smallest # coins needed to make change for $j
+	  ======================================================== */</FONT>
+       myFinalSol = <FONT color="red">min</FONT> ( mySol<sub>1</sub>, MySol<sub>2</sub>, ...., mySol<sub>C</sub> );
+	                // Note: use only the valid value mySol<sub>i</sub> !!!
+<FONT color="red">
+       return ( myFinalSol );   // Return answer</FONT>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Java code:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    static int M(int j, int[] v)
+    {
+       int[] sol, mySol;
+       int   myFinalSol;
+       int k;
+
+       sol = new int[v.length];
+       mySol = new int[v.length];
+<FONT color="red">
+       /* ---------------------------
+          Base cases
+          --------------------------- */</FONT>
+       if ( <FONT color="red">j == 0</FONT> )
+       {<FONT color="red">
+           return(0);</FONT>
+       }
+   <FONT color="darkmagenta">       
+       /* ==================================================
+          Initialize mySol[]
+	  ================================================== */</FONT>
+       for ( k = 0; k < v.length; k++ )
+          <FONT color="red">mySol[k] = -1</FONT>;                   // <FONT color="red">-1 means: no solution</FONT>
+<FONT color="darkred">
+       /* --------------------------------------------------------
+          Try every denomination k = 1,2,..,C for the last coin
+          -------------------------------------------------------- */</FONT>   
+       for (<FONT color="red"> k = 0; k < v.length; k++</FONT> )
+       {
+          /* --------------------------------------------
+             Check if we can use the k-th denomination
+             -------------------------------------------- */
+          if ( <FONT color="red">v[k] <= j</FONT> )
+          {<FONT color="darkred">
+             /* ------------------------
+                Divide step
+                ------------------------ */</FONT>
+             sol[k] = M(<FONT color="red">j - v[k]</FONT>, v);  // <FONT color="red">Use coin v[k]</FONT> as last coin
+
+             mySol[k] = sol[k] <FONT color="red">+ 1</FONT>;    // Solution to make change for $j   
+          }
+       }
+<FONT color="magenta">
+       /* --------------------------------------------------------
+          Find the minimum for ALL mySol[...] values
+
+	  <FONT color="red">Note: -1 means do NOT use !</FONT>
+          -------------------------------------------------------- */</FONT>
+       myFinalSol = -1;
+
+       for ( k = 0; k < v.length; k++ )
+       {
+          if ( <FONT color="red">mySol[k] >= 0</FONT> <FONT color="magenta">/* Don't use -1 values */</FONT> )
+          {
+             if ( myFinalSol == -1 ||<FONT color="red"> mySol[k] < myFinalSol</FONT> )
+                <FONT color="red">myFinalSol = mySol[k]</FONT>;
+          }
+       }
+
+       return(myFinalSol);   // Return best solution
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Coins/Coins1.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Coins1.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Coins1</TT></B></FONT>
+<P>
+ <FONT color="red"><B>Warning</B></FONT>:
+   will run <FONT color="blue"><B>very slow</B></FONT> for
+   large values !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A note on the running time of the
+      <I>pure</I> recursive solution
+     </B></FONT>
+<P>
+<UL>
+<LI> If you run the 
+    <FONT color="blue"><B>pure recursive solution</B></FONT>
+    for <FONT color="red"><B>$N &ge; $60</B></FONT>,
+    it will take
+    a <FONT color="magenta"><B>LONG time</B></FONT>
+ <P>
+  The <FONT color="blue"><B>reason</B></FONT>
+   for this <FONT color="red"><B>slowness</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>pure</I> recursive solution</B></FONT>
+   will <FONT color="red"><B>re-compute</B></FONT> the
+   <FONT color="darkmagenta"><B>same solution</B></FONT>
+   <FONT color="red"><B>multiple times</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Bottom-up Dynamic programming version
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Data structure:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="blue"><B><I>one</I> parameter</B></FONT> used in the
+     <FONT color="red"><B>recursive function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static int M(<FONT color="red">int j</FONT>, int[] v)        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(The <B>parameter</B>
+  <FONT color="blue"><B><TT>int[] v</TT></B></FONT> is used to
+  pass <FONT color="red"><B>information</B></FONT> on the
+  <B><I>values</I> of the coins</B>.
+<P>
+This <B>parameter</B> is <FONT color="red"><B><I>not</I> used</B></FONT> to
+  indicate the <FONT color="blue"><B>size</B></FONT> of the problem
+  being solve)
+<P>
+<HR>
+<P>
+<LI> <B>Therefore</B>, we must defined a
+     <FONT color="red"><B><I>one</I> dimensional array</B></FONT>
+     to store the <B>solutions</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int[] M; </FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>size</B></FONT> of this <B>array</B> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int[] M = new int[<FONT color="red">C+1</FONT>];            // C = amount to make change for      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(because <FONT color="blue"><B>M(j)</B></FONT> =
+ minimum number of coins to make change for
+  <FONT color="red"><B><I>$j</I></B></FONT>, we must create
+  an array that has indices
+  <FONT color="blue"><B>0, 1, 2, ...., <I>C</I></B></FONT>).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Constructing the <B><I>bottom-up</I> Dyn. Prog. algorithm</B>
+     for the <FONT color="blue"><B>coin change</B></FONT> problem:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>base case</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       if ( <FONT color="red">j == 0</FONT> )        
+       {<FONT color="red">
+           return(0)</FONT>;
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will result in:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">M[0] = 0;</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> The <B> solution</B>
+     returned by <FONT color="blue"><B>M(j,v)</B></FONT>
+      (= <FONT color="red"><B>myFinalSol</B></FONT>) is
+    computed as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       /* --------------------------------------------------------
+          Find the minimum
+          -------------------------------------------------------- */      
+       <FONT color="red">myFinalSol</FONT> = -1;
+
+       for ( k = 0; k < v.length; k++ )
+       {
+          if ( mySol[k] > 0 )
+          {
+             if ( <FONT color="red">myFinalSol</FONT> == -1 || mySol[k] < <FONT color="red">myFinalSol</FONT> )
+                <FONT color="red">myFinalSol</FONT> = mySol[k];
+          }
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You must <FONT color="red"><B>replace</B></FONT>
+  <FONT color="blue"><B><TT>myFinalSol</TT></B></FONT> by
+ <FONT color="red"><B>M[j]</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          /* --------------------------------------------------------
+             Find the minimum
+             -------------------------------------------------------- */
+          <FONT color="red">M[j]</FONT> = -1;
+
+          for ( k = 0; k < v.length; k++ )
+          {
+             if ( mySol[k] > 0 )
+             {
+                if ( <FONT color="red">M[j]</FONT> == -1 || mySol[k] < <FONT color="red">M[j]</FONT> )
+                   <FONT color="red">M[j]</FONT> = mySol[k];
+             }
+          }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Remember</B></FONT> that we 
+       <B><I>must</I></B> compute
+       <FONT color="blue"><B><TT>M[ ]</TT></B></FONT>
+       in the <FONT color="red"><B>direction</B></FONT> of
+       <FONT color="blue"><B>data flow</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     for ( <FONT color="red">j = 0; j <= AmountToMakeChange; j++</FONT> )               
+     {
+         <FONT color="red">compute M[j] ....</FONT>
+     }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+
+<LI> <B>Java code</B>
+   for the <FONT color="blue"><B>bottom up dynamic programming</B></FONT>
+    solution for <FONT color="red"><B>coin change</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    static int findM(<FONT color="red">int Am</FONT>, int v[])
+    {
+       int[] M;
+       int[] sol, mySol;
+       int j, k, min;
+<FONT color="red">
+       M = new int[Am+1];              // Store results</FONT>
+
+       sol = new int[v.length];
+       mySol = new int[v.length];
+<FONT color="darkred">
+       /* ---------------------------
+          Base case
+          --------------------------- */</FONT>
+      <FONT color="red"> M[0] = 0;</FONT>        // 0 coins needed to make change for $0
+
+       /* ---------------------------------------------------
+          The other cases (starting from 1 to M.length - 1)
+
+	  <FONT color="red">Follow direction of data flow !</FONT>
+          --------------------------------------------------- */
+       for ( <FONT color="red">j = 1; j <= Am; j++</FONT> )
+       {<FONT color="magenta">
+          /* ============================================
+	     Find min # coin to make change for $j
+	     ============================================ */</FONT>
+
+          for ( <FONT color="red">k = 0; k < v.length; k++</FONT> )
+             mySol[k] = -1;                   <FONT color="red">// Initialize mySol[]</FONT>
+<FONT color="darkgreen">
+          /* --------------------------------------------------------
+             Try every denomination k = 1,2,..,C for the last coin
+             -------------------------------------------------------- */</FONT>
+          for (<FONT color="red"> k = 0; k < v.length; k++</FONT> )
+          {<FONT color="magenta">
+             /* --------------------------------------------
+                Check if we can use the k-th denomination
+                -------------------------------------------- */</FONT>
+             if ( <FONT color="red">v[k] <= j</FONT> )
+             {
+                /* ------------------------
+                   Divide step
+                   ------------------------ */
+                <FONT color="darkred">sol[k]</FONT> = <FONT color="red">M[j - v[k]]</FONT>;     // Use coin v[k] as last coin
+                <FONT color="magenta">mySol[k]</FONT> = <FONT color="darkred">sol[k]</FONT><FONT color="red"> + 1</FONT>;    // Solution to make change for $j      
+             }
+          }
+
+          /* --------------------------------------------------------
+             Find the <FONT color="red">minimum of all mySol[...]</FONT>
+             -------------------------------------------------------- */
+          M[j] = -1;
+
+          for ( <FONT color="red">k = 0; k < v.length; k++</FONT> )
+          {
+             if ( mySol[k] > 0 )
+             {
+                if ( M[j] == -1 || <FONT color="red">mySol[k] < M[j]</FONT> )
+                   <FONT color="red">M[j] = mySol[k]</FONT>;
+             }
+          }
+       }
+
+       return(<FONT color="red"> M[Am]</FONT> );    // Min # coins to change $Am
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Coins/Coins1_dp.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Coins1_dp.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Coins1_dp</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You will experience a <FONT color="blue"><B>great</B></FONT>
+     improvement in speed over the
+     <FONT color="red"><B>recursive solution</B></FONT> !!!
+ <P>
+ <LI> It can solve <FONT color="blue"><B>Am = 65</B></FONT>
+     in no time at all !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Running time of the algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Running time:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Look at the
+    <FONT color="darkmagenta"><B>bottom up dynamic programming</B></FONT>
+    solution, you will see this 
+    <FONT color="blue"><B>nested loop</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   for ( j = 1; <FONT color="red">j <= Am</FONT>; j++ )
+   {
+      ...
+      for ( k = 1; <FONT color="red">k < v.length</FONT>; k++ )            
+      {
+          ...
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Running time:</B> <FONT color="red"><B>O(CN)</B></FONT>
+  <P>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ (<FONT color="red"><B>C</B></FONT> = # denominations)
+  <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(<FONT color="red"><B>N</B></FONT> = amount to make change for)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

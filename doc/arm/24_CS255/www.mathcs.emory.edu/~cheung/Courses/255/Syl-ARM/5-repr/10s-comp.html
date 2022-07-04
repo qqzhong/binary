@@ -1,0 +1,1582 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The 10s complement encoding
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+ <UL>
+ 
+<LI> <B>Encoding</B> is a 
+    <FONT color="red"><B>mapping</B></FONT> of
+    one <FONT color="blue"><B>set of symbols/values</B></FONT> into another 
+    set of symbols/values
+  <P>
+  <I>Comment:</I> encoding is like a kind of "secret word" game that kids 
+	like to play where they replace one letter by another.
+	For example, one common code used by kids is "+1 psoition",
+	so that B means A, C means B, and so on (A means Z).
+	So a secret massage "Ifmmp" means "Hello".
+<P>
+<LI> Example encoding: Morse code
+  <P>
+  encode letters in English alphabet using short and long pulses
+<PRE>
+Example: 
+
+   . . .      is S
+   - - -      is O
+</PRE>
+Try this Morse code applet:
+ <A HREF="http://www.teklasoft.com/java/applets/morse/sfiles.htm">
+	click here</A>
+<P>
+<LI> Remember that numeric value is something <B><I>intrinsic</I></B>
+     and does not depends on the system of representation:
+	<A HREF="values.html"> click here</A>.
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Mathematical codes
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="red"><B>2 types </B></FONT> of
+     <FONT color="blue"><B>codes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>"Agreement"</B></FONT> code
+ <P>
+  <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Morse code</B></FONT> and
+     <FONT color="blue"><B>ASCII code</B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ The <FONT color="red"><B>meaning</B></FONT> of each
+     <FONT color="blue"><B>code word</B></FONT> in such code
+      is <FONT color="red"><B>agreed upon</B></FONT> by 
+     a group of people 
+     
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Mathematical/arithmetic code</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>binary number system</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ The <FONT color="blue"><B>meaning</B></FONT> of
+      a <FONT color="red"><B>code word</B></FONT> in
+       a <FONT color="blue"><B>Mathematical code</B></FONT> 
+       <FONT color="red"><B>"computed"</B></FONT> using some
+       <FONT color="blue"><B>formula</B></FONT>
+ <P> 
+  <B>Example:</B> the
+    <FONT color="blue"><B>meaing</B></FONT> of
+  <FONT color="red"><B><TT>00000101<sub>(2)</sub></TT></B></FONT> is
+   <FONT color="blue"><B>computed</B></FONT> using the formula
+  <FONT color="red"><B><TT>
+   0<FONT color="blue">&times;2<sup>7</sup></FONT> +
+0<FONT color="blue">&times;2<sup>6</sup></FONT> +
+0<FONT color="blue">&times;2<sup>5</sup></FONT> +
+0<FONT color="blue">&times;2<sup>4</sup></FONT> +
+0<FONT color="blue">&times;2<sup>3</sup></FONT> +
+1<FONT color="blue">&times;2<sup>2</sup></FONT> +
+0<FONT color="blue">&times;2<sup>1</sup></FONT> +
+1<FONT color="blue">&times;2<sup>0</sup></FONT>
+  </TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>10s complement code</B></FONT> is
+ an <FONT color="blue"><B>Mathematical code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>10s complement code</B></FONT> uses
+      the <FONT color="blue"><B>properities </B></FONT> of
+     the 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>modulo arithmetic operations</B></FONT></SPAN>
+     to <FONT color="blue"><B>represent negative <I>values</I></B></FONT>
+ <P>
+  (<FONT color="red"><B>Don't worry</B></FONT>
+  if you did not have this before, I will
+   <FONT color="blue"><B> not use </B></FONT>
+  <FONT color="red"><B>modulo arithmetic</B></FONT> to
+  explain the
+  <FONT color="blue"><B>10s complement code</B></FONT>.
+ <P>
+ Instead, I will use a <FONT color="red"><B>car's odometer</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The car's odometer 
+     </B></FONT>
+<P>
+<UL>
+
+The <FONT color="red"><B>odometer</B></FONT> of a 
+ <FONT color="blue"><B>car</B></FONT> counts the 
+ <FONT color="red"><B>number of miles</B></FONT> driven:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/odometer.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>odometer</B></FONT> in this figure
+  has <FONT color="blue"><B>6 digits</B></FONT>.
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the <FONT color="red"><B>odometer reading</B></FONT> was
+       <FONT color="blue"><B>999999</B></FONT>
+ <P>
+ <LI> And you <FONT color="red"><B>drive 1 more mile</B></FONT>....
+ <P>
+ <LI> Then the <FONT color="red"><B>odometer reading</B></FONT> will
+       become <FONT color="blue"><B>000000</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Based on the <FONT color="red"><B>odometer reading</B></FONT> of
+   <FONT color="blue"><B>000000</B></FONT>, you have driven the
+   car <FONT color="red"><B>0 miles</B></FONT> !!!
+  (i.e.: a new car !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+OK, you may wonder why I talked about an
+ <FONT color="red"><B>odometer</B></FONT> when we were
+  discussing
+  <FONT color="blue"><B>modulo arithmetic</B></FONT>....
+  Just keep the odometer in mind for a while, let's explain
+  <FONT color="red"><B>modulo arithmetic</B></FONT> first....
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Modulo arithmetic
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Modulo arithmetic</B></FONT> is an
+     <FONT color="blue"><B>arithmetic technique</B></FONT> where:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You first perform the <FONT color="red"><B>arithmetic operation</B></FONT>
+ <LI> Then <FONT color="red"><B>reduce</B></FONT> the
+    <FONT color="blue"><B>result</B></FONT> by
+    <FONT color="red"><B>subtracting</B></FONT>
+    a <FONT color="blue"><B>fixed value</B></FONT> until the
+    result is between <FONT color="red"><B>0</B></FONT> and that 
+    <FONT color="blue"><B>fixed value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> <FONT color="red"><B>module 9 </B></FONT> arithmetic
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    3 * 4 (modulo 9) = 12 (modulo 9) = 3       // 12 - 9 = 3
+    7 * 4 (modulo 9) = 21 (modulo 9) = 3       // 21 - 9 - 9 = 3           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In <FONT color="red"><B>modulo 9</B></FONT> arithmetic, the
+ <FONT color="blue"><B>fixed value</B></FONT> used is
+  <FONT color="red"><B>9</B></FONT>.
+<P>
+After computing the result of some computation, we
+ must <FONT color="red"><B>reduce</B></FONT> the
+  result to a value
+ <FONT color="blue"><B>between</B></FONT>
+  <FONT color="red"><B>0 .. 8</B></FONT>
+  by <FONT color="blue"><B>subtracting 9</B></FONT> repeatedly
+  until we get a value between <FONT color="red"><B>0 .. 8</B></FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Modulo arithmetic and the odometer 
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>odometer</B></FONT> is using
+      (a very simple)
+     <FONT color="blue"><B>modulo arithmetic</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/odometer.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>odometer</B></FONT> in the
+  <FONT color="blue"><B>above figure</B></FONT> is
+  using the <FONT color="red"><B>modulo 1000000</B></FONT> arithmetic:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>result</B></FONT> is
+      <FONT color="blue"><B>greater</B></FONT> than 
+      <FONT color="red"><B>1000000</B></FONT>, the
+      <FONT color="blue"><B>odometer</B></FONT> displays
+      <FONT color="red"><B><I>only</I></B></FONT> the
+      <FONT color="blue"><B>last 6 digits</B></FONT>
+ <P>
+  This has the <FONT color="red"><B>same effect</B></FONT> as
+   <FONT color="blue"><B>subtracting 1000000 repeated</B></FONT>
+      from the <FONT color="red"><B>result</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Due </B></FONT> to the
+  <FONT color="blue"><B>modulo 1000000</B></FONT> arithmetic,
+ the <FONT color="red"><B>value 1000000</B></FONT> is
+ equal to <FONT color="blue"><B>000000</B></FONT> !!!
+ 
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The odometer code
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>10s complement code</B></FONT> is 
+ usually <FONT color="blue"><B>introduced</B></FONT> by using 
+   <FONT color="red"><B>odometer numbers</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>10s complement code</B></FONT> is
+       the <FONT color="blue"><B>odometer code</B></FONT> that I will
+       explain next.
+ <P>
+  Sometimes, I call this code 
+   <FONT color="red"><B>"odometer code"</B></FONT> because it's
+   related to how the <FONT color="blue"><B>odometer</B></FONT> works.
+ <P>
+  The <FONT color="red"><B>official name</B></FONT> of this code
+  is the <FONT color="blue"><B>10s complement code</B></FONT>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+I will use an <FONT color="red"><B>odometer</B></FONT> with
+  <FONT color="blue"><B>3 (decimal) digits</B></FONT> to
+  keep the <FONT color="red"><B>values small</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/odo01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="red"><B>many <I>different</I></B></FONT>
+     <FONT color="blue"><B>10s complement (or odometer) codes</B></FONT>
+     <FONT color="red"><B>depending</B></FONT> on
+     the <FONT color="blue"><B>number of digits</B></FONT> in the
+     <FONT color="red"><B>odometer number</B></FONT> !!!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ Each one of these
+  code operate the same way.
+ <P>
+ That's why I am using a <FONT color="red"><B>3 digit</B></FONT>
+  code to teach this material
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Suppose</B></FONT> we have a
+   <FONT color="blue"><B>very <I>special</I> odometer</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the car goes <FONT color="red"><B>forward</B></FONT>, its
+     <FONT color="blue"><B>odometer</B></FONT> will
+     <FONT color="red"><B>increase by 1</B></FONT> after driving
+     <FONT color="blue"><B>1 mile</B></FONT>
+ <LI> When the car goes <FONT color="red"><B>backwards</B></FONT>
+  (i.e.: drive in <B>reverse</B>), its
+     <FONT color="blue"><B>odometer</B></FONT> will
+     <FONT color="red"><B><I>decrease</I> by 1</B></FONT> after driving
+     <FONT color="blue"><B>1 mile</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<FONT color="red"><B>Question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Starting with <FONT color="red"><B>odometer reading 001</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/odo01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+      we drive <FONT color="blue"><B>in reverse</B></FONT>
+      <FONT color="red"><B>1 mile</B></FONT>.
+  <P>
+ What's the <FONT color="red"><B>new</B></FONT> 
+  <FONT color="blue"><B>odometer reading</B></FONT> ?
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/odo01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<FONT color="red"><B>Another question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Starting with <FONT color="red"><B>odometer reading 000</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/odo01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+      we drive <FONT color="blue"><B>in reverse</B></FONT>
+      <FONT color="red"><B>1 mile</B></FONT>.
+  <P>
+ What's the <FONT color="red"><B>new</B></FONT> 
+  <FONT color="blue"><B>odometer reading</B></FONT> ?
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/odo01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+<LI> We define the following <FONT color="red"><B>3 digit 10s complement code
+  </B></FONT>
+  (= a <FONT color="blue"><B>mapping</B></FONT>)
+ between a <FONT color="red"><B>3 digit  number</B></FONT>
+ and the
+  <FONT color="blue"><B><I>signed</I> values [&minus;500:499]</B></FONT>:
+ 
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">3 digit code</FONT>:       500  ... 996 997 998 999 000 001 002 003 ...   499
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  <FONT color="red"><B>Value</B> represented</FONT>:    ...  <FONT color="red"> **** ***  **  *</FONT>       *   ** ***   ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+Although the <FONT color="red"><B>above table</B></FONT> is
+ the <FONT color="blue"><B>accurate representation</B></FONT> of
+ what the <FONT color="red"><B>3 digit code</B></FONT> 
+  <FONT color="blue"><B>really means</B></FONT>,
+it is <FONT color="red"><B>easier</B></FONT> to
+ <FONT color="blue"><B>used</B></FONT>
+ <FONT color="red"><B>western style notation</B></FONT> to
+  <FONT color="blue"><B>represent</B></FONT> the
+  <FONT color="red"><B>values</B></FONT>.
+<P>
+So we will write the
+ <FONT color="red"><B>mapping</B></FONT> of the
+ <FONT color="blue"><B>3 digit 10s complement code</B></FONT> as follows:
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">3 digit 10s compl code</FONT>
+  <FONT color="red">(= Odometer reading)</FONT>:   500  ... 996 997 998 999 000 001 002 003 ...   499
+  -----------------        +--------+---+---+---+---+---+---+---+---------+
+      <FONT color="red"><B>Value</B> represented</FONT>: -500  ... -4  -3  -2  -1   0   1   2   3  ...   499          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Comments:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Negative</I> values</B></FONT>
+       are <FONT color="blue"><B>represented </B></FONT> in the
+    <FONT color="red"><B>3 digit code</B></FONT> 
+
+<P>
+  <P>
+  <LI> <FONT color="red"><B>Values greater than 499</B></FONT>
+       and <FONT color="blue"><B>less than &minus;500</B></FONT>
+        are <FONT color="red"><B>not represented </B></FONT>
+	(they are "out of range")
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to read (code and decode) the
+     (3 digit) 10s complement (odometer) code
+     </B></FONT>
+<P>
+<UL>
+
+<LI> In order to effectively use the
+   <FONT color="red"><B>odometer code</B></FONT>, you need to be able to: 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Encode</B></FONT> any <B>valid</B>
+    <FONT color="blue"><B>value</B></FONT> using the
+    <FONT color="red"><B>odometer code</B></FONT>
+ <LI> <FONT color="red"><B>Decode</B></FONT> an
+      <FONT color="blue"><B>odometer code</B></FONT>
+      (= translate the
+      <FONT color="red"><B>odometer code</B></FONT> to
+      its corresponding <FONT color="blue"><B>decimal value</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Let's  learn to do these 2 things first....
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Encoding a (valid) value using the odometer code
+     </B></FONT>
+<P>
+<UL>
+<LI> If you look at the
+      <FONT color="red"><B>positive values</B></FONT>
+     in this <FONT color="blue"><B>table</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Odometer reading</FONT>:   500  ... 996 997 998 999<SPAN style="BACKGROUND-COLOR: yellow"> 000 001 002 003 ...   499</SPAN>
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  <FONT color="red"><B>Value</B> represented</FONT>: -500  ... -4  -3  -2  -1  <SPAN style="BACKGROUND-COLOR: yellow"> 0   1   2   3  ...   499 </SPAN>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+you can see that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>odometer code</B></FONT> for
+      a <FONT color="blue"><B>positive value</B></FONT> is
+      obtained by <FONT color="red"><B>adding preceeding 0's</B></FONT> to
+      the <FONT color="blue"><B>value</B></FONT>
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+
+
+<LI> If you look at the
+      <FONT color="red"><B>negative values</B></FONT>
+     in this <FONT color="blue"><B>table</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Odometer reading</FONT>:  <SPAN style="BACKGROUND-COLOR: yellow"> 500  ... 996 997 998 999</SPAN> 000 001 002 003 ...   499
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  <FONT color="red"><B>Value</B> represented</FONT>: <SPAN style="BACKGROUND-COLOR: yellow">-500  ... -4  -3  -2  -1</SPAN>   0   1   2   3  ...   499          
+
+    Odometer reading              value represented by odometer reading
+                 500 = 1000 - abs(-500)
+	         996 = 1000 - abs(-4)
+		 997 = 1000 - abs(-3)
+		 998 = 1000 - abs(-2)
+		 999 = 1000 - abs(-1)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+you can see that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Odometer code</B></FONT> =
+      <B>1000 &minus;</B>
+       <FONT color="blue"><B>abs(negative value)</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+
+
+
+
+
+
+<P>
+<LI> <FONT color="red"><B>Algorithm</B></FONT>
+     to <FONT color="blue"><B>convert</B></FONT>
+     a <FONT color="red"><B>value <I>v</I></B></FONT>
+      to its <FONT color="blue"><B>3 digit odometer 
+    (= 10s complement) code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> If <FONT color="red"><B>value <I>v</I> &ge; 0</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>   just write the number out in 3 digits with 
+    <FONT color="red"><B>leading 0</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  
+ <P>
+
+  <LI>  If <FONT color="red"><B>value <I>v</I> &lt; 0</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Compute
+        <FONT color="red"><B>1000 &minus;</B></FONT>
+         <FONT color="blue"><B>abs(<I>v</I>)</B></FONT>
+ <LI> Write the result out in 3 digits
+     <FONT color="red"><B> with leading 0 digits</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ v = 3     3 digit 10's complement representation: 003
+ v = 103   3 digit 10's complement representation: 103
+
+ v = -3    3 digit 10's complement representation: 1000 - 3   = 997
+ v = -103  3 digit 10's complement representation: 1000 - 103 = 897    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Decoding an odometer code (= 10s complement code)
+     </B></FONT>
+<P>
+<UL>
+<LI> We first note that in the
+ <FONT color="red"><B>3 digit 10s complement code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Odometer reading</FONT>:  <SPAN style="BACKGROUND-COLOR: orange"> 500  ... 996 997 998 999</SPAN> <SPAN style="BACKGROUND-COLOR: yellow">000 001 002 003 ...   499</SPAN>
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  <FONT color="red"><B>Value</B> represented</FONT>: <SPAN style="BACKGROUND-COLOR: orange">-500  ... -4  -3  -2  -1</SPAN>  <SPAN style="BACKGROUND-COLOR: yellow"> 0   1   2   3  ...   499 </SPAN>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Code words</B></FONT> that 
+    <FONT color="blue"><B>begins</B></FONT> with the 
+    <FONT color="red"><B>digits 0, 1, 2, 3, 4</B></FONT> represent
+    <FONT color="blue"><B>positive values</B></FONT>
+ <LI> <FONT color="red"><B>Code words</B></FONT> that 
+    <FONT color="blue"><B>begins</B></FONT> with the 
+    <FONT color="red"><B>digits 5, 6, 7, 8, 9</B></FONT> represent
+    <FONT color="blue"><B>negative values</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>decoding algorithm</B></FONT> is the
+    <FONT color="blue"><B>reverse</B></FONT> of the
+   <FONT color="red"><B>previous algorithm</B></FONT>
+<P>
+ To <FONT color="red"><B>convert</B></FONT>
+     a <FONT color="blue"><B>3 digit 10's complement code <TT>c</TT></B></FONT>
+        to its corresponding <FONT color="red"><B>value</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+  <LI> If the <FONT color="blue"><B>10s complement code</B></FONT>
+        <FONT color="red"><B><TT>c</TT></B></FONT> begins with 
+     <FONT color="blue"><B>0, 1, 2, 3 or 4</B></FONT>
+     (i.e.: <FONT color="red"><B><TT>c</TT></B></FONT> represents
+       a positive value):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>value</B></FONT>
+       represented by <FONT color="red"><B><TT>c</TT></B></FONT>
+        is the
+        <FONT color="blue"><B>"face value"</B></FONT>
+	 (without the leading 0's)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <LI> If the <FONT color="blue"><B>10s complement code</B></FONT>
+        <FONT color="red"><B><TT>c</TT></B></FONT> begins with
+       <FONT color="blue"><B> 5, 6, 7, 8 or 9</B></FONT>
+        (i.e., <FONT color="red"><B><TT>c</TT></B></FONT>
+       represents a negative 
+        value):
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="blue"><B>value</B></FONT>
+      represented by <FONT color="red"><B><TT>c</TT></B></FONT>
+        is equal:
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <FONT color="blue"><B>&minus;
+          (1000 - <FONT color="red">c</FONT>)</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ code c = 413  -> it is a positive number
+		  the value = 413
+
+ code c = 613  -> it is a negative number...              
+		  the value =  <FONT color="red">-</FONT> (1000 - 613) = -387   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Why do we create the 10s complement code ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> that
+      the
+     <FONT color="blue"><B> mapping</B></FONT> between
+      a <FONT color="red"><B>3 digit 10s complement code </B></FONT>
+   and the <FONT color="blue"><B> signed values [&minus;500:499]</B></FONT>
+  is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">3 digit code:</FONT>       500  ... 996 997 998 999 000 001 002 003 ...   499   
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  <FONT color="red">Value represented:</FONT>    ...   <FONT color="red">**** ***  **  *</FONT>       *   ** ***   ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We use the
+ <FONT color="red"><B>western representation</B></FONT> for
+  the <FONT color="blue"><B>signed values</B></FONT> for
+  <FONT color="red"><B><I>simplicity</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  3 digit 10s compl code
+  (= Odometer reading):   500  ... 996 997 998 999 000 001 002 003 ...   499
+  -----------------        +--------+---+---+---+---+---+---+---+---------+
+      Value represented: -500  ... -4  -3  -2  -1   0   1   2   3  ...   499     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+To <FONT color="blue"><B>fully understand</B></FONT>
+  the <FONT color="red"><B>discussion below</B></FONT>, try do the
+ <FONT color="blue"><B>following</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Imagine</B></FONT> that
+   you have <FONT color="blue"><B>never learned</B></FONT> the
+    <FONT color="red"><B>western notation</B></FONT> for
+    <FONT color="blue"><B>signed values</B></FONT> !!!
+ <P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>Replace</B></FONT> every
+   <FONT color="blue"><B>western notation</B></FONT> of
+   a <FONT color="red"><B>signed value</B></FONT> by
+   its <FONT color="blue"><B>cultural independent
+   representation</B></FONT>
+    (= <FONT color="red"><B>colored dots</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Properties of the 10s complement (= odometer) code
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Properties</B></FONT> of 
+        <FONT color="blue"><B>10s complement code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+  <LI> The is
+    <B>only</B>
+    <FONT color="red"><B>one representation (<TT>000</TT>)</B></FONT>
+       for <FONT color="blue"><B>value ZERO</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  3 digit code:       500  ... 996 997 998 999 <FONT color="red">000</FONT> 001 002 003 ...   499   
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  Value represented:    ...   **** ***  **  *       *   ** ***   ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+  <LI> The <FONT color="red"><B>meaining</B></FONT> of
+     <FONT color="blue"><B>arithmetic operations</B></FONT> do
+     <FONT color="red"><B>not depend</B></FONT> on
+     the
+    <FONT color="blue"><B>values</B></FONT> of
+     their <FONT color="red"><B>operands</B></FONT> - see examples below
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <FONT color="red"><B>Examples</B></FONT> that
+   <FONT color="blue"><B>show </B></FONT> that
+    the  <FONT color="red"><B>meaining</B></FONT> of
+     <FONT color="blue"><B>arithmetic operations</B></FONT> do
+     <FONT color="red"><B>not depend</B></FONT> on
+     the
+    <FONT color="blue"><B>values</B></FONT> of
+     their <FONT color="red"><B>operands</B></FONT>
+<P>
+ <UL>
+<LI> <B>Adding</B> 10's complement numbers:
+<P>
+<PRE>
+               Values        3 digit 10's compl repr
+Adding 2 
+positive           5                 005
+values          +  9               + 009
+                -----              ------
+                  14                 014  -> represents 14
+
+Adding  
+positive +         5                 005
+negative        + -9               + 991
+                -----              ------
+                  -4                 996  -> represents -4
+
+
+Adding  
+negative +        -5                 995
+positive        +  9               + 009
+                -----              ------
+                   4                 004  -> represents 4
+
+Adding 2 
+negative          -5                 995
+values          + -9               + 991
+                -----              ------
+		 -14                 986  -> represents -14
+</PRE>
+
+<P>
+<LI> <B>Subtracting</B> 10's complement numbers:
+<P>
+<PRE>
+               Values        3 digit 10's compl repr
+Subtract 2 
+positive           5                 005
+values          -  9               - 009
+                -----              ------
+                  -4                 996  -> represents -4
+
+Subtract  
+positive -         5                 005
+negative        - -9               - 991
+                -----              ------
+                  14                 014  -> represents 14
+
+
+Subtract  
+negative -        -5                 995
+positive        -  9               - 009
+                -----              ------
+                 -14                 986  -> represents -14
+
+Subtract 2 
+negative          -5                 995
+values          - -9               - 991
+                -----              ------
+		   4                 004  -> represents 4
+</PRE>
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How is this "magic" achieve ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Modulo arithmetic</B></FONT> can be
+   <FONT color="blue"><B>represented</B></FONT> using a
+   <FONT color="red"><B>circle</B></FONT>.
+ <P>
+   The <FONT color="red"><B>3 (decimal) digit</B></FONT>
+    <FONT color="blue"><B>10s complement code</B></FONT>
+    uses the
+    <FONT color="red"><B>modulo 1000</B></FONT> arithmetic.
+ <P>
+  We can <FONT color="red"><B>represent</B></FONT> the
+   <FONT color="blue"><B>modulo 1000</B></FONT> arithmetic
+   on a circle as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/10s-comp.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Additing</B></FONT> is the same
+     an <FONT color="blue"><B>moving</B></FONT> a number of
+     <FONT color="red"><B>steps</B></FONT> in the
+     <FONT color="blue"><B>clock wise direction</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/10s-comp-3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Subtraction</B></FONT> is the same
+     an <FONT color="blue"><B>moving</B></FONT> a number of
+     <FONT color="red"><B>steps</B></FONT> in the
+     <FONT color="blue"><B>anti-clock wise direction</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/10s-comp-4.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that the 
+  <FONT color="blue"><B>value &minus;1</B></FONT> is
+  <FONT color="red"><B>represented</B></FONT> by the
+  <FONT color="blue"><B>code 999</B></FONT>.
+<P>
+The <FONT color="red"><B>reason</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When we <FONT color="red"><B>add</B></FONT>
+      the <FONT color="blue"><B>value &minus;1</B></FONT>, we
+      must walk <FONT color="red"><B>1 position</B></FONT> in the
+      <FONT color="blue"><B>anti-clock wise direction</B></FONT>
+ <P>
+ <B>Example:</B>
+  <FONT color="red"><B><TT>2 + (&minus;1) = 2 &minus; 1 = 1</TT></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/10s-comp-1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Using the <FONT color="red"><B>10s complement code </B></FONT>
+  <FONT color="blue"><B><I>representation</I></B></FONT>,
+ we can <FONT color="red"><B>obtain</B></FONT> the
+  <FONT color="blue"><B><I>correct</I> representation</B></FONT>
+  for the <FONT color="red"><B>result</B></FONT> by
+  walking
+   <FONT color="blue"><B>999 positions</B></FONT>
+   in the 
+   <FONT color="red"><B>clock wise direction</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/10s-comp-2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>If</B></FONT> we
+     <FONT color="blue"><B>represent</B></FONT> the
+     <FONT color="red"><B><I>value </I>  &minus;1</B></FONT>
+     using the <FONT color="blue"><B>code 999</B></FONT>, we
+     can <FONT color="red"><B>add</B></FONT>
+    <FONT color="blue"><B>without</B></FONT>
+    needing to use any
+    <FONT color="red"><B>gimmicks</B></FONT>
+ !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So the <FONT color="red"><B>10s complements code</B></FONT>
+ uses the <FONT color="blue"><B>modulo arithmetic</B></FONT> to
+ <FONT color="red"><B>obtain</B></FONT> the
+  <FONT color="blue"><B><I>correct </I> representation</B></FONT> 
+ for <FONT color="red"><B>arithmetic operations</B></FONT> !!!
+<P>
+(Since <FONT color="blue"><B>multiply</B></FONT>
+   is <FONT color="red"><B>repeated addition</B></FONT>,
+ it also works !!!)
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Overflow
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Every </B></FONT>
+     <FONT color="red"><B>Mathematical code</B></FONT> has
+     the <FONT color="blue"><B>overflow problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>overflow</B></FONT> has
+      occured is the
+      <FONT color="blue"><B>result</B></FONT> of a
+      computation 
+      <FONT color="red"><B>exceeds</B></FONT> the
+      <FONT color="blue"><B>range</B></FONT> of the
+      <FONT color="red"><B>represented values</B></FONT> in a code
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+   the <FONT color="red"><B>3 (decimal) digit 10s complement code</B></FONT>
+     can represent the 
+     <FONT color="blue"><B>value</B></FONT>
+     <FONT color="red"><B>&minus;500..499</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Odometer reading</FONT>:   500  ... 996 997 998 999 000 001 002 003 ...   499
+  -----------------    +--------+---+---+---+---+---+---+---+---------+
+  <FONT color="red"><B>Value</B> represented</FONT>: -500  ... -4  -3  -2  -1   0   1   2   3  ...   499          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Suppose</B></FONT> we
+  <FONT color="blue"><B>compute</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Add the values:   <FONT color="red"> 499 + 2  </FONT>       
+
+   In 10s complement code:       
+                             499     // repr the value 499
+                           + 002     // repr the value 2
+                           -----
+			     501   --->  represents the <FONT color="red">value -499</FONT> !     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> What to do when there is <FONT color="red"><B>overflow</B></FONT> ?
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You will need to use a 
+    <FONT color="red"><B>longer (= more digit) code</B></FONT>
+    when overflow occurs.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Longer codes</B></FONT> means
+ <FONT color="blue"><B>more data to store</B></FONT> and you need
+ <FONT color="red"><B>more time</B></FONT> to
+ perform the <FONT color="blue"><B>computation</B></FONT>
+<P>
+That's why the <FONT color="red"><B>computer</B></FONT>
+ provide
+  <FONT color="blue"><B>different length codes</B></FONT> to
+  represent 
+  <FONT color="red"><B>integers</B></FONT>
+<P>
+But instead of using
+ <FONT color="red"><B>10s complement codes</B></FONT>,
+ the <FONT color="blue"><B>computer</B></FONT> 
+ (because it uses <FONT color="red"><B>binary numbers</B></FONT>)
+ uses <FONT color="blue"><B>2s complement codes</B></FONT>
+<P>
+We will study the
+  <FONT color="blue"><B>2s complement codes</B></FONT>
+next.
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

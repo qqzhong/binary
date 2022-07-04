@@ -1,0 +1,237 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Removing comments by the C pre-processor
+<HR>
+</H3>
+
+<UL>
+
+<P>
+<LI> <FONT color="darkmagenta"><B>
+        Comments in <I>C</I>
+        </B></FONT>
+ <P>
+ <UL>
+ <P>
+ <LI> It <B><I>used to be</I></B> that
+      <B>C</B> <FONT color="red"><B><I>only</I></B></FONT>
+     have <FONT color="blue"><B><I>multi-line</I> comments</B></FONT>
+       enclosed between the pairs of
+	"brackets" <FONT color="red"><B><TT>/* ... */</TT></B></FONT>: 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+
+  /*  .....   
+      .....
+      .....   */                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+<P>
+<HR>
+ <P>
+ <LI> <B>Examples:</B>
+   <P>
+<P>
+<UL>
+<TABLE BGCOLOR="lightcyan" BORDER=5>
+<TR><TD>
+<B><PRE>
+<FONT color="red">
+  /* This is a comment in a C program */      
+
+<HR>
+
+  /* 
+   * This is an another comment 
+   * in a C program 
+   */
+</font>
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="blue"><B>later revision C99</B></FONT> in 1999
+     of the <B>C programming language</B> has 
+     added the <FONT color="red"><B>C++ style</B></FONT>
+     comment:
+<P>
+<UL>
+<TABLE BGCOLOR="#FFEEEE" BORDER=5>
+<TR><TD>
+<B><PRE>
+<FONT color="red">
+   // This is now allowed as comment     
+</font>
+</PRE>
+</B>
+</TD></TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> The <B>C pre-processor</B> will
+     <FONT color="red"><B>remove</B></FONT> all comments.
+<P>
+<B>Demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Compile</B></FONT> this program
+   <FONT color="red"><B><TT>comment.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">/* ---------------------
+   Comment line 1
+   Comment line 2
+   --------------------- */</FONT>
+
+int main(int argc, char * argv[] )                   
+{
+   <FONT color="red">// Comment line 3</FONT>
+
+} 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+using this command:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc <FONT color="red">-E</FONT> comment.c          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main(int argc, char * argv[] )                        
+{
+
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/comment.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -E comment.c</TT></B></FONT>
+ <LI> Look at the output on the terminal....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

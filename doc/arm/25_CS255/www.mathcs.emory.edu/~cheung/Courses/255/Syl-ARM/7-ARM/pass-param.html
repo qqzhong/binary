@@ -1,0 +1,337 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Passing parameters to & getting return value from a function 
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Section
+     </B></FONT>
+<P>
+ <UL>
+ <LI>
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+
+<HR>
+Passing parameters to & getting return value from a function
+<HR>
+<UL>
+<P>
+<LI> Charateristics of Functions:
+ <P>
+ <UL>
+ <LI> often have one or more input parameters
+ <LI> often return a value
+ </UL>
+<P>
+<LI> Note that:
+ <P>
+ <UL>
+ <LI> If a function returns a value, then that is also the <B>very last</B>
+	action that the function will do.
+ </UL>
+
+<P>
+<LI> Consider the <B>opportunity</B> to pass parameters to a function...
+ <P>
+ <PRE>
+ Example:
+
+    main()                 int func(int x, int y)
+    {			   {
+       int a, b;	      ....
+			      ....
+       func(a, b);	      ....
+    }			   }
+
+ Assembler code:
+
+   main:  xxxxx          ->  func:  xxxxx
+	  xxxxx         /
+	  xxxxx        /
+	  <B><FONT COLOR="RED">xxxxx</FONT></B>       /
+	  <B><FONT COLOR="RED">xxxxx</FONT></B>      /
+	  BSR func -
+	  xxxxx
+ </PRE>
+ <P>
+ Because the <B>"BSR func"</B> will make the CPU jump to
+ the first instruction in the function <B>"func"</B>,
+ you <B>must</B> pass the parameters (if any) to the function <B>"func"</B>
+ <B>BEFORE</B> the <B>"BSR func"</B> instruction
+
+<P>
+<LI> What happens when a "parameter is passed":
+ <P>
+ <PRE>
+ Example:
+
+    main()                 int func(int x, int y)
+    {			   {
+       int a, b;	      ....
+			      ....
+       func(a, b);	      ....
+    }			   }
+ </PRE>
+ <UL>
+ <LI> The <B>caller function <TT>main</TT></B> passes
+	two parameters (a and b) to the <B>callee function <TT>func</TT></B>
+ <LI> In high level programming laguage terminology:
+  <P>
+  <UL>
+  <LI> The <B>value</B> of the <B>actual parameters</B> (a & b)
+	are <B>copied</B> to the <B>formal parameters</B> (x & y)
+  </UL>
+ <LI> In assembler level, things are done quite differently....
+ <LI> The <B>ultimate goal</B> is to instruct the <B>callee function</B>
+	to work with a specific set of input values.
+ <LI> This is achieved by:
+  <UL>
+  <LI> Having the <B>caller function <TT>main</TT></B> and
+	the <B>callee function <TT>func</TT></B>
+	<FONT COLOR="red"><B>agree</B></FONT>
+	on a <B>common</B> location where to find
+	the parameters
+  </UL>
+ </UL>
+<P>
+
+<LI> How do you pass parameters in an assembler program:
+ <P>
+ <UL>
+ <LI> Prior to writing the <B>caller function <TT>main</TT></B> and the
+	<B>callee function <TT>func</TT></B>, you must first <B>fix</B>
+	(= <FONT color="red"><B>agree</B></FONT>)
+	on the <B>location</B> to
+    <FONT color="blue"><B> pass</B></FONT> <B>each parameter</B>
+ <LI> When you write the <B>caller function <TT>main</TT></B> in assembler,
+	before the <B>BSR func</B> instruction, you must <B>copy</B>
+	(= <FONT color="red"><B><I>pass</I></B></FONT>)
+	the values of the 
+	<FONT color="blue"><B>actual parameters</B></FONT> to the 
+	<FONT color="red"><B>locations</B></FONT> that 
+	you have fixed previously.
+ <LI> When you write the <B>callee function <TT>func</TT></B> in assembler,
+	each time the code needs the value of some parameter variable,
+	you must go get it from the previously fixed location.
+ </UL>
+
+<P>
+<LI> Passing <B>return value</B> from <B>callee function</B> back to
+	<B>caller function</B>
+ <P>
+ <UL>
+ <LI> Same principle as passing parameter
+ <LI> Caller and callee must agree on a fixed location for
+	the callee to return the value
+ <LI> Note that the caller can (and should) immediately
+	save the returned value in one of its (caller's) local variables,
+	or else the return value may be overwritten and lost !
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI><B> Example:</B>
+<P>
+ <PRE>
+
+    main()                 int func(int x, int y)
+    {			   {
+       int a, b, c;	      return (x*x + y*y);
+       int i, j, k;        }  
+
+       c = func(a, b);	      
+       k = func(i, j);
+    }			   
+
+  func() has 2 parameters and 1 return value
+
+  Agreement:  parameter 1 in register D0
+	      parameter 2 in register D1
+
+	      return value in register D7
+
+  The asembler program will look like this:
+<font color="blue">
+   main:
+	 MOVE.L a, D0  (pass a through D0)
+	 MOVE.L b, D1  (pass b through D1)
+	 BSR    func   ----------------------------+
+                                                   |
+	 MOVE.L D7, c                              |
+						   |
+						   |
+         MOVE.L i, D0  (pass i through D0)         |
+         MOVE.L j, D1  (pass j through D1)         |
+	 BSR    func   -------------------------+  |
+					        |  |
+	 MOVE.L D7, k                           V  V</font><font color="red">
+				    func: (func(x,y))
+				           MULS  D0, D0  (Use the input parameters
+					   MULS  D1, D1   put in the agreed locations)
+					   ADD.L D1, D0   ** D0 = x^2 + y^2
+
+					   MOVE.L D0, D7 (put return value
+							  in previously
+							  agreed location)
+					   RTS</font>
+ </PRE>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="../demo/subroutine1.s"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>as255 subroutine1</TT></B></FONT>
+ <LI> To run: use
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>m68000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT color="red"><B>Warning:</B></FONT> this 
+    <FONT color="blue"><B>solution</B></FONT> is
+       <FONT color="red"><B><I>flawed</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>technique</B></FONT>
+       (using <FONT color="red"><B>registers</B></FONT> to pass
+       <FONT color="blue"><B>parameters</B></FONT>
+       <B><I>only</I></B> work
+       for <FONT color="red"><B>one-level</B></FONT> of
+       <FONT color="blue"><B>subroutine call</B></FONT>
+<P>
+<HR>
+<P>
+<LI> It <FONT color="red"><B>fails</B></FONT> will
+    <FONT color="blue"><B>more</B></FONT> than
+    <FONT color="red"><B>1 level</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B>A( )</B></FONT> calls 
+       <FONT color="blue"><B>B( )</B></FONT>
+       (and <B>B( )</B> uses 
+       <FONT color="red"><B>registers</B></FONT> to <B>pass</B>
+       its <FONT color="blue"><B>parameters</B></FONT>)
+ <P>
+       <B>and then</B>
+       <FONT color="red"><B>B( )</B></FONT> calls
+       <B>another function</B>
+       <FONT color="blue"><B>C( )</B></FONT>
+       (and <B>C( )</B> uses
+       <FONT color="red"><B><I>also</I></B></FONT> uses
+       <FONT color="blue"><B>registers</B></FONT> to pass
+       its <FONT color="red"><B>parameters</B></FONT>) then:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Subroutine <FONT color="red"><B>C( )</B></FONT> will
+       <FONT color="blue"><B><I>erase</I></B></FONT> the
+       <FONT color="red"><B>values</B></FONT> stored in
+       <B>registers</B> by subroutine
+       <FONT color="blue"><B>B( ) </B></FONT> !!!!!
+       
+     <P>
+   (because if you call <FONT color="blue"><B>enough functions</B></FONT>
+    deep enough, you will
+    use up <FONT color="red"><B><I>all</I> registers</B></FONT> sooner or
+    later....)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

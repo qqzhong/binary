@@ -1,0 +1,126 @@
+Registers (ARM-64 architecture)
+------------------------------------------------------------------------
+63                                31                                0
+x0                                w0
+x1                                w1
+                                ...
+x29 (FP)                          w29
+x30 (LR)                          w30
+xzr (all zeros)                   wzr
+sp (stack pointer)
+------------------------------------------------------------------------
+
+pc (program counter)
+------------------------------------------------------------------------
+
+
+Instruction Format
+Many instructions have this format:
+name{,s} dest, src1, src2
+name{,s} dest, src1, immed
+• name: name of the instruction (add, sub, mul, and, etc.)
+• s: if present, specifies that condition flags should be set
+• dest and src1,src2 are x registers: 64-bit operation
+• dest and src1,src2 are w registers: 32-bit operation
+• src2 may be a constant (“immediate” value) instead of a register
+
+
+
+
+Loads and Stores
+Most basic way to load (from RAM) and store (to RAM):
+ldr dest, [src]
+str src, [dest]
+
+• dest and src are registers!
+• Registers in [brackets] contain memory addresses
+• Every memory access is through a “pointer”!
+• How to get correct memory address into register?
+• Depends on whether data is on stack (local variables),
+heap (dynamically-allocated memory), or global / static
+• For today, we’ll look only at the global / static case
+
+
+Signed vs Unsigned, 8- and 16-bit
+ldrb dest, [src]
+ldrh dest, [src]
+strb src, [dest]
+strh src, [dest]
+ldrsb dest, [src]
+ldrsh dest, [src]
+ldrsw dest, [src]
+
+Special instructions for reading/writing bytes (8 bit),
+shorts (“half-words”: 16 bit)
+• See appendix of these slides for information on ordering:
+little-endian vs. big-endian
+Special instructions for signed reads
+• “Sign-extend” byte, half-word, or word to 32 or 64 bits
+
+
+
+Byte Order
+AARCH64 is a little endian architecture
+• Least significant byte of multi-byte entity
+is stored at lowest memory address
+•
+“Little end goes first”
+The int 5 at address 1000:
+1000:  00000101
+1001:  00000000
+1002:  00000000
+1003:  00000000
+
+
+Some other systems use big endian
+• Most significant byte of multi-byte entity
+is stored at lowest memory address
+•
+“Big end goes first”
+The int 5 at address 1000:
+1000:  00000000
+1001:  00000000
+1002:  00000000
+1003:  00000101
+
+
+https://stackoverflow.com/questions/50568399/what-is-the-difference-between-global-and-globl
+
+8.41. .global symbol, .globl symbol
+.global makes the symbol visible to ld. If you define symbol in your partial program, its value is made available to other partial programs that are linked with it. Otherwise, symbol takes its attributes from a symbol of the same name from another file linked into the same program.
+Both spellings (.globl and .global) are accepted, for compatibility with other assemblers.
+On the HPPA, .global is not always enough to make it accessible to other partial programs. You may need the HPPA-only .EXPORT directive as well. Section 19.5 HPPA Assembler Directives.
+
+
+
+
+
+Q: Why learn assembly language?
+A: Knowing assembly language helps you:
+• Write faster code
+• In assembly language
+• In a high-level language!
+• Write safer code
+• Understanding mechanism of potential security problems
+helps you avoid them – even in high-level languages
+• Understand what’s happening “under the hood”
+• Someone needs to develop future computer systems
+• Maybe that will be you!
+• Become more comfortable with levels of abstraction
+• Become a better programmer!
+
+
+Registers and RAM
+Typical pattern:
+• Load data from RAM to registers
+• Manipulate data in registers
+• Store data from registers to RAM
+On AARCH64, this pattern is enforced
+• “Manipulation” instructions can only access registers
+• This is known as a Load/store architecture
+• Characteristic of “RISC” (Reduced Instruction Set Computer) vs.
+“CISC” (Complex Instruction Set Computer) architectures, e.g. x86
+
+
+
+

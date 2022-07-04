@@ -1,0 +1,763 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The correct way to compile a multiple files C program:
+  <FONT color="red">separate compilation</FONT>
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">correct (professional)</FONT> way
+     to compile a <FONT color="red">multi-file</FONT> C program
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Compile procedure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Compile</B></FONT>
+       <FONT color="blue"><B>each C program</B></FONT>
+       <FONT color="red"><B><I>separately</I></B></FONT> using the 
+       <B>following command:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc  <FONT color="red">-c</FONT>  progName.c       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="blue"><B>command</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Check</B></FONT> the
+      <FONT color="blue"><B>C program source file
+      <TT>progName.c</TT></B></FONT> for
+      <FONT color="red"><B>syntax errors</B></FONT> and
+      if <FONT color="blue"><B>no errors</B></FONT>, 
+      <FONT color="red"><B>translates</B></FONT> the
+      <FONT color="blue"><B>program</B></FONT> into
+      <FONT color="red"><B>machine (= object) code</B></FONT>
+<P>
+ <LI>  The <FONT color="blue"><B>output</B></FONT> is
+   an <FONT color="red"><B><I>object code</I> file</B></FONT> named
+   <FONT color="blue"><B><TT>progName.o</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-compiler2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>After</B></FONT> compiling
+   <FONT color="blue"><B><I>all</I> the source C programs</B></FONT>,
+    you <FONT color="red"><B>"link" (= combine)</B></FONT> <B>all</B> the
+    <FONT color="blue"><B><I>object code</I> files</B></FONT> using the
+    <B>following command</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc   -o execProgName  <FONT color="red">progName1.o  progName2.o  ....</FONT>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>command</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Collect</B></FONT> all the
+     <FONT color="blue"><B>variable names</B></FONT> and
+     <FONT color="blue"><B>function names</B></FONT> 
+     <FONT color="red"><B><I>used</I></B></FONT> in
+     the <FONT color="blue"><B>entire program</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B>Replace</B></FONT> the
+      <FONT color="blue"><B>variable names</B></FONT> and
+      <FONT color="blue"><B>function names</B></FONT> with
+      the <FONT color="red"><B><I>memory locations</I></B></FONT>
+      where these
+      <FONT color="blue"><B>variables</B></FONT> and
+      <FONT color="blue"><B>functions</B></FONT> are
+      <FONT color="red"><B><I>stored</I></B></FONT>
+      in <FONT color="blue"><B>memory</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B> linkage step</B></FONT> will
+      result in an <FONT color="blue"><B>error</B></FONT> when
+      some <FONT color="red"><B>variable </B></FONT> or
+      <FONT color="red"><B>function</B></FONT> is
+      <FONT color="blue"><B><I>not</I> defined</B></FONT>
+<P>
+ <LI> The <FONT color="red"><B>linkage step</B></FONT> does
+   <FONT color="blue"><B>not check</B></FONT> for
+    <FONT color="red"><B>type errors</B></FONT>
+    (that's done in the <FONT color="blue"><B>compile step</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-compiler1b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+      Example of <FONT color="red">compiling</FONT>
+     a C program that consists of <I>multiple</I> program files
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Previously</B></FONT>, we
+     <FONT color="blue"><B>fixed</B></FONT> the <B>following</B>
+   <FONT color="red"><B>C program</B></FONT> using
+   a <FONT color="blue"><B>function declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">int f( short x );       // Declare f !!</FONT>
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+   <FONT color="red">b = f( a );  // *** Use f( ) </FONT>
+
+   printf("a = %d, b = %d\n", a, b);              
+}
+
+int f( short x ) 
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Suppose we <FONT color="red"><B>split</B></FONT> this
+     <FONT color="blue"><B>C program</B></FONT> into
+     <FONT color="red"><B>2 files</B></FONT> by
+   <FONT color="blue"><B>moving <TT>f( )</TT></B></FONT> to
+   another file:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File 1 (p1.c)
+</TH> 
+<TH>
+ File 2 (p2.c)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">int f( short x );       // Declare f !! </FONT> 
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+  <FONT color="red"> b = f( a );    // **** Use f( )</FONT>
+
+   printf("a = %d, b = %d\n", a, b);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int f( short x )                    
+{
+   return(x*x);
+}
+
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>declaration</B></FONT> of
+     <FONT color="blue"><B>function <TT>f( )</TT></B></FONT> provides
+     the <FONT color="red"><B>necessary information</B></FONT> to
+     the <FONT color="blue"><B>C compiler</B></FONT> to 
+     <B>enable</B> it to
+     <FONT color="red"><B>perform the necessary <I>conversions</I></B></FONT> !
+ <P>
+ <LI> <FONT color="red"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>definition</B></FONT> of the
+   <FONT color="blue"><B>function <TT>f( )</TT></B></FONT> need 
+    <FONT color="red"><B>not be placed</B></FONT> inside the
+    <FONT color="blue"><B><I>same</I> program file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+We can <FONT color="blue"><B>compile</B></FONT> this <B>C-program</B>
+ using the following commands:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc <FONT color="red">-c</FONT> p1.c   // Produces: <FONT color="red">p1.o</FONT>                
+
+    gcc <FONT color="red">-c</FONT> p2.c   // Produces: <FONT color="red">p2.o</FONT>
+
+    gcc  <FONT color="red">p1.o   p2.o</FONT>   // Produces: <FONT color="red">a.out</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Multi-file-prog/p1.c + p2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -c p1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <FONT color="red"><B><TT>gcc -c p2.c</TT></B></FONT>
+  <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <FONT color="red"><B><TT>gcc p1.o p2.o</TT></B></FONT>
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to <FONT color="red">re-compile</FONT> a
+        multi-files C program
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B><I>only</I></B></FONT> need to
+     <FONT color="blue"><B>re-compile</B></FONT> a
+     <FONT color="red"><B>C program <I>source</I> file</B></FONT>
+     <B>when</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You have made <FONT color="red"><B>changes (= edits)</B></FONT>
+    to the <FONT color="blue"><B>content </B></FONT> in the
+    <FONT color="red"><B>C program source file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+      <FONT color="red"><B>suppose</B></FONT>
+      we make <FONT color="blue"><B>changes</B></FONT>
+    the <FONT color="red"><B>p2.c</B></FONT> file
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File 1 (p1.c)
+</TH> 
+<TH>
+ File 2 (p2.c)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="blue">int f( short x );       // Declare f !! </FONT> 
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+  <FONT color="blue"> b = f( a );    // **** Use f( )</FONT>
+
+   printf("a = %d, b = %d\n", a, b);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int f( short x )                    
+{ 
+   return(<FONT color="red">x*x*x</FONT>);   <FONT color="red"> // Change in p2.c</FONT>  
+}
+
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+We can <FONT color="red"><B>re-compile</B></FONT> the
+ <FONT color="blue"><B>multi-file</B></FONT>
+ <B>C program</B> using the following
+ <FONT color="red"><B>commands</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. Re-compile the <FONT color="red">updated</FONT> C program source files:
+
+          gcc   -c   <FONT color="red">p2.c</FONT>    // Produces a <FONT color="red">new</FONT> p2.o       
+
+   2. <FONT color="red">Link again</FONT>:
+
+          gcc   p1.o  p2.o     // Produce a <FONT color="red">new</FONT> a.out  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+Use
+  <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Multi-file-prog/p1.c + p2.c
+       </TT></B></FONT>
+to do the <FONT color="blue"><B>demo</B></FONT>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Demo of <FONT color="red">linkage error</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>linking step</B></FONT> detects
+     <FONT color="blue"><B><I>undefined</I> (missing) variables and
+     functions</B></FONT>
+<P>
+To <FONT color="red"><B>illustrate</B></FONT> the
+     <FONT color="blue"><B>linkage step</B></FONT>,
+     <B>consider</B> this
+     <FONT color="red"><B><I>multi</I>-files C program</B></FONT>
+     where
+     the <FONT color="blue"><B>function <TT>f( )</TT>
+      in <TT>p2.c</TT> </B></FONT> 
+      is 
+      <FONT color="red"><B>changed</B></FONT> to
+      <FONT color="blue"><B><TT>g( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ File 1 (p1.c)
+</TH> 
+<TH>
+ File 2 (p2.c)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="blue">int f( short x );       // Declare f !! </FONT> 
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+  <FONT color="blue"> b = f( a );    // **** Use f( )</FONT>
+
+   printf("a = %d, b = %d\n", a, b);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int <FONT color="red">g</FONT>( short x )   <FONT color="red"> // Change in p2.c</FONT>       
+{ 
+   return(<FONT color="blue">x*x</FONT>);   
+}
+
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+<LI> <FONT color="red"><B>Compile again</B></FONT>... you will see that
+   <FONT color="red"><B><TT>f( )</TT></B></FONT> is 
+  <FONT color="blue"><B>not found</B></FONT> error:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5244)> gcc -c p1.c       // No syntax errors in p1.c
+cs255-1@aruba (5245)> gcc -c p2.c	// No syntax errors in p2.c    
+cs255-1@aruba (5246)> gcc p1.o p2.o     // Linkage error !!
+p1.o: In function `main':
+p1.c:(.text+0x1c): <FONT color="red">undefined reference to `f'</FONT>
+collect2: error: ld returned 1 exit status
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Reason:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main( )</TT></B></FONT> called
+       the <FONT color="blue"><B>function <TT>f( )</TT></B></FONT>
+ <LI> But <FONT color="blue"><B>function <TT>f( )</TT></B></FONT> is
+     <FONT color="red"><B><I>not</I> defined</B></FONT> in 
+     the <FONT color="blue"><B>program files <TT>p1.c</TT>
+     and <TT>p2.c</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+Use
+  <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Multi-file-prog/p1.c + p2.c
+       </TT></B></FONT>
+to do the <FONT color="blue"><B>demo</B></FONT>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+

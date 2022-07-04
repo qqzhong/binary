@@ -1,0 +1,414 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Kinds</I> of variables in <I>C</I>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The different <I>kinds</I> of variables in <FONT color="red">C</FONT>
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>C</B> has <FONT color="red"><B><I>five</I> (5)
+     kinds of variables</B></FONT> - divided into
+     <FONT color="blue"><B><I>2 categories</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>"<I>Long term</I>" variables</B></FONT>:
+      (a.k.a.:
+      <FONT color="blue"><B><I>compile-time</I> (allocated)
+       variables</B></FONT>)
+
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Global variables</B></FONT>
+        --- accessible <FONT color="blue"><B>everywhere</B></FONT>
+ <LI> <FONT color="red"><B><I>Static</I> global variables</B></FONT>
+        --- accessible  within 
+          <FONT color="blue"><B><I>all</I> functions</B></FONT>
+     defined inside the
+	<FONT color="red"><B><I>same</I> C program file</B></FONT>
+ <LI> <FONT color="red"><B><I>Static</I> local variables</B></FONT> ---
+   accessible  within the
+	<FONT color="blue"><B><I>one</I> C function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Common property:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>life time</B></FONT> of these <B>kinds</B> of
+     <FONT color="blue"><B>variables</B></FONT> is the
+     <FONT color="red"><B>whole execution period</B></FONT> of
+     the <FONT color="blue"><B>C program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>      
+ <P> 
+<LI> <FONT color="red"><B><I>Short term</I> variables</B></FONT>:
+    (a.k.a.: <FONT color="blue"><B><I>run-time</I> variables</I></B></FONT>)
+<P>
+
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Local variables</B></FONT>
+ 
+ <LI> <FONT color="red"><B>Parameter variables</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Common property:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>memory space</B></FONT> used for
+      these <B>kinds</B> of <FONT color="blue"><B>variables</B></FONT>
+      are <FONT color="red"><B>allocated (reserved)</B></FONT>
+      <B><I>during</I></B> the
+      <FONT color="blue"><B>execution (running)</B></FONT> of the program
+ <P>
+ <LI> They are <FONT color="blue"><B>created</B></FONT> on the
+        <FONT color="red"><B>system stack</B></FONT>
+   (just like what you <B>learned</B> in
+   <FONT color="blue"><B>assembler programming</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red"><I>How</I> to define (recognize)</FONT>
+      the different <I>kinds</I> of variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Just like <B>Java</B>, the
+     <FONT color="red"><B>location (place)</B></FONT> where the
+      <FONT color="blue"><B>variable is defined</B></FONT>
+     in the (C) program <B>determines</B>
+      the <FONT color="red"><B><I>kind</I> of variable</B></FONT>
+      that will be defined:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Parameter variables</B></FONT>
+      are defined inside the
+      <FONT color="red"><B>braces ( ... )</B></FONT>
+      of the <B>function header</B>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  main( <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int argc,  char *argv[]</FONT></SPAN> )       
+    {        <FONT color="darkred">  ^^^^^^^^^^^^^^^^^^^^^^^^
+                parameter variables</FONT>
+        ...
+        ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    <P>
+    (Just like <B>Java</B>)
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT>
+      are defined <B><I>inside</I></B> the
+      <FONT color="red"><B><I>body</I> of a function</B></FONT>
+      (i.e., <FONT color="blue"><B>between</B></FONT> the
+      <FONT color="red"><B>braces { ... }</B></FONT>
+      of the <B>function body</B>)
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  main( int argc,  char *argv[] )       
+    {    <FONT color="red">
+<SPAN style="BACKGROUND-COLOR: yellow">        int    a;          </SPAN>
+<SPAN style="BACKGROUND-COLOR: yellow">        double b;          </SPAN></FONT>
+        <FONT color="darkred">^^^^^^^^^^^^
+         local variables</FONT>
+
+        ...
+
+        if ( .... )
+	{<FONT color="red">
+<SPAN style="BACKGROUND-COLOR: yellow">	   int x;                  </SAPN></FONT><FONT color="darkred">
+	   ^^^^^^^^^^
+	   local variable</FONT>
+        }
+        ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+    <P>
+    (Just like <B>Java</B>)
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Global variables</B></FONT>
+      are defined <B><I>outside</I></B> a
+      <FONT color="red"><B>function</B></FONT>
+      <B>without</B> using
+      the <FONT color="blue"><B>keyword</B></FONT>
+      <FONT color="red"><B><TT>static</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="red">int a; </FONT><FONT color="darkred">       // Global variable</FONT>           </SPAN>
+<SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="red">int b; </FONT><FONT color="darkred">       // Global variable</FONT>           </SPAN>
+
+   int  main ( int argc,  char *argv[] )       
+   {
+      ...
+      ...
+   }
+
+   <FONT color="red">double c; </FONT><FONT color="darkred">    // Global variable</FONT>
+
+   void f( .... )
+   {
+       ...
+       ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(The <B>2 <I>different</I> kinds</B> of
+  <FONT color="blue"><B>global variables</B></FONT>
+  are <FONT color="red"><B><I>distinguished</I></B></FONT>
+  by the
+  <FONT color="blue"><B><TT>static</TT></B></FONT> keyword.)
+<P>
+<HR>
+<P>
+<LI>  <FONT color="blue"><B>Static global variables</B></FONT>
+      are defined <B><I>outside</I></B> a
+      <FONT color="red"><B>function</B></FONT>
+     <B><I>using</I></B>
+      the <FONT color="blue"><B>keyword</B></FONT>
+      <FONT color="red"><B><TT>static</TT></B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="red">static int a; </FONT><FONT color="darkred">     // Static global variable</FONT>    </SPAN>
+<SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="red">static int b; </FONT>     <FONT color="darkred">// Static global variable</FONT>    </SPAN>
+
+   int  main ( int argc,  char *argv[] )       
+   {
+      ...
+      ...
+   }
+
+   <FONT color="red">double c; </FONT><FONT color="darkred">    // Global variable</FONT>
+
+   void f( .... )
+   {
+       ...
+       ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(The <B>2 <I>different</I> kinds</B> of
+  <FONT color="blue"><B>global variables</B></FONT>
+  are <FONT color="red"><B><I>distinguished</I></B></FONT>
+  by the
+  <FONT color="blue"><B><TT>static</TT></B></FONT> keyword.)
+<P>
+<HR>
+
+
+<P>
+ <LI> <FONT color="blue"><B><I>Static</I> (local) variables</B></FONT>
+      are defined <B><I>inside</I></B> a
+      <FONT color="red"><B>function</B></FONT> using the
+      <FONT color="blue"><B>keyword <TT>static</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int  main ( int argc,  char *argv[] )       
+   {
+<SPAN style="BACKGROUND-COLOR: yellow">      <FONT color="red">static double d; </FONT><FONT color="darkred">    // Static variable</FONT></SPAN>
+      double f;            // Normal local variable !             
+      ...
+      ...
+   }
+
+   <FONT color="red">double c; </FONT><FONT color="darkred">    // Global variable</FONT>
+
+   void f( .... )
+   {
+       ...
+       ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/kinds-of-vars.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,57 @@
+======================================================
+Unconditional Jumps
+======================================================
+
+The JMP instruction transfers control unconditionally 
+to another instruction. 
+
+JMP's single operand contains the address of 
+the target instruction.
+
+
+	label1: .
+		.
+		.
+		jmp continue
+		.
+		.
+		.
+	continue:
+
+======================================================
+Conditional jumps:
+======================================================
+
+
+JE/JZ 			Zero flag is set  (==)
+JNE/JNZ 		Zero flag is clear (!=)
+JL/JNGE 		Sign flag overflow flag (<)
+JLE/JNG 		Zero flag is set or sign overflow (<=)
+JGE/JNL 		Sign flag = overflow flag (>=)
+JG/JNLE 		Zero flag is clear and sign = overflow  (>)
+
+============================================================
+Comparison of Two Values
+============================================================
+
+The CMP instruction is the most common way to test 
+for conditional jumps. 
+It compares two values without changing either, 
+then sets or clears the processor flags according to 
+the results of the comparison.
+
+Internally, the CMP instruction is the same as 
+the SUB instruction, except that CMP does not change 
+the destination operand. 
+
+Both set flags according to the result of the subtraction.
+
+----------
+Examples:
+----------
+
+	cmp ax, bx 	; Compare AX and BX
+	jg next1 	; Equivalent to: If ( AX > BX ) goto next1
+
+
+

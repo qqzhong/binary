@@ -1,0 +1,883 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Example 1: show how the codes we learn builds and tear down
+  a stack frame
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ public class Sample 
+ {
+    public static void main( )
+    {
+       A(1111,2222);
+    }
+
+    public static int A( int a, int b )
+    {
+       int  x, y, z;    // Define 3 local vars 
+<FONT color="red">
+       // I want to show you where to
+       // find the parameters and 
+       // local variables on the stack</FONT>
+
+       return(9999);    // A( ) simply returns 9999
+    }
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  This <FONT color="red"><B>examples</B></FONT>
+  shows you the <FONT color="blue"><B>steps</B></FONT> to
+   <FONT color="red"><B>build + tear down</B></FONT>
+  <FONT color="blue"><B>stack frame</B></FONT> for
+  <FONT color="red"><B>1 (non-leaf) subroutine</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assembler code for the skeletal example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:<FONT color="red">
+        mov   r0, #2222    // Pass 2222 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #1111    // Pass 1111 as parameter 1 on stack
+        push  {r0}
+
+        bl    A            // Call function A
+        add   sp, sp, #8   // Clean up parameters on the stack</FONT>
+
+        // When A returns, you will see the return value in r0 = 9999
+
+        nop
+        nop
+Stop:
+        nop
+
+
+/* ==============================================
+   Function A: param and locals in stack
+   ============================================== */
+A:
+        // When run in EGTAPI - you will see {1111, 2222} on stack
+<FONT color="red">
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #12     // I create 3 local variable in stack</FONT>
+<FONT color="magenta">
+        // How to to access parameters and local variables
+        // stored in the program stack
+
+        ldr     r0, [fp, #8]    // Get parameter 1 = 1111
+        str     r0, [fp, #-12]  // Store in local variable 1
+        ldr     r1, [fp, #12]   // Get parameter 2 = 2222
+        str     r1, [fp, #-8]   // Store in local variable 2
+        add     r0, r0, r1
+        str     r0, [fp, #-4]   // Store sum in local variable 3
+</FONT>
+
+       /* ====================================================
+           We can use a register to return the return value
+           ==================================================== */
+        mov   r0, #9999         // Pass return value in register r0
+<FONT color="red">
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp          // De-allocate the local variables
+        pop     {fp}            // Restore old FP
+
+        pop     {pc}            // Return</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/8-sub/skel-access.s 
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Important facts to notice in the example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="red"><B>Before</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> calls
+   <FONT color="red"><B><TT>A( )</TT></B></FONT>, the
+  <FONT color="blue"><B>program stack</B></FONT> is
+  <FONT color="red"><B>empty</B></FONT>
+<P>
+
+ <LI> <FONT color="red"><B>After</B></FONT> 
+    <FONT color="blue"><B><TT>A( )</TT></B></FONT> finishes
+   building the <FONT color="red"><B>stack frame</B></FONT>,
+   the <FONT color="blue"><B>stack frame</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/stack-frame02.gif" width="600"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ <LI> <FONT color="red"><B>After</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT>
+   <FONT color="red"><B>cleans up</B></FONT> the
+   <FONT color="blue"><B>parameters</B></FONT>, the
+  <FONT color="red"><B>program stack</B></FONT> is
+  <FONT color="blue"><B>also</B></FONT>
+  <FONT color="red"><B>empty</B></FONT>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--------------- main cals A, A calls B ----------->
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Example 2: show how the codes we learn builds and tear down
+  <FONT color="blue">2 stack frames</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ public class Sample 
+ {
+    public static void main( ) {
+       A(1111,2222);
+    }
+
+    public static int A( int a, int b ) {
+       int  x, y, z;    // Define 3 local vars 
+
+       B(3333,4444,5555);
+
+       return(9999);    // A( ) simply returns 9999
+    }
+
+    public static int B( int a, int b, int c ) {
+       int  x, y;       // Define 2 local vars  
+
+       return(8888);
+    }
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  This <FONT color="red"><B>examples</B></FONT>
+  shows you the <FONT color="blue"><B>steps</B></FONT> to
+   <FONT color="red"><B>build + tear down</B></FONT>
+  <FONT color="blue"><B>stack frame</B></FONT> for
+  <FONT color="red"><B>2 (non-leaf) subroutines</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assembler code for the skeletal example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:<FONT color="red">
+        mov   r0, #2222    // Pass 2222 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #1111    // Pass 1111 as parameter 1 on stack
+        push  {r0}
+
+        bl    A            // Call function A
+        add   sp, sp, #8   // Clean up parameters on the stack</FONT>
+
+        // When A returns, you will see the return value in r0 = 9999
+
+        nop
+        nop
+Stop:
+        nop
+
+
+/* ==============================================
+   Function A: param and locals in stack
+   ============================================== */
+A:
+        // When run in EGTAPI - you will see {1111, 2222} on stack
+<FONT color="red">
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #12     // I create 3 local variable in stack</FONT>
+
+        nop                     // These instructions in A( ) can use stack
+        nop                     // to access parameters and local variables
+
+<FONT color="darkgreen">
+        /* =========================================
+           Call B( ) with 3 parameters
+           ========================================= */
+        mov   r0, #5555    // Pass 5555 as parameter 3 on stack
+        push  {r0}
+
+        mov   r0, #4444    // Pass 4444 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #3333    // Pass 3333 as parameter 1 on stack
+        push  {r0}
+
+        bl    B            // Call function B
+        add   sp, sp, #12  // Clean up parameters on the stack</FONT>
+
+        nop                // We are back in A( )
+        nop                // We will now return to main( )
+
+
+
+
+       /* ====================================================
+           We can use a register to return the return value
+           ==================================================== */
+        mov   r0, #9999         // Pass return value in register r0
+<FONT color="red">
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp          // De-allocate the local variables
+        pop     {fp}            // Restore old FP
+
+        pop     {pc}            // Return</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/8-sub/skel-stack2.s 
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Important facts to notice in the example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="red"><B>Before</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> calls
+   <FONT color="red"><B><TT>A( )</TT></B></FONT>, the
+  <FONT color="blue"><B>program stack</B></FONT> is
+  <FONT color="red"><B>empty</B></FONT>
+<P>
+
+ <LI> <FONT color="red"><B>After</B></FONT> 
+    <FONT color="blue"><B><TT>A( )</TT></B></FONT> finishes
+   building the <FONT color="red"><B>stack frame</B></FONT>,
+   the <FONT color="blue"><B>stack frame</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/stack-frame02.gif" width="600"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Continue</B></FONT>...
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Important facts to notice in the example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="red"><B>After</B></FONT> 
+    <FONT color="blue"><B><TT>B( )</TT></B></FONT> finishes
+   building the <FONT color="red"><B>stack frame</B></FONT>,
+   the <FONT color="blue"><B>stack frame</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/stack-frame02b.gif" width="500"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+  <FONT color="blue"><B><TT>A( )'s</TT></B></FONT>
+  <FONT color="red"><B>parameters</B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT> are
+  <FONT color="red"><B>still saved</B></FONT> on the stack !
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Continue</B></FONT>...
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Important facts to notice in the example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+<LI> <FONT color="red"><B>After</B></FONT> 
+   <FONT color="blue"><B><TT>B( )</TT></B></FONT> has
+   <FONT color="red"><B>returned</B></FONT> and
+  <FONT color="blue"><B><TT>A( )</TT></B></FONT> has
+   <FONT color="red"><B>cleaned up the parameters</B></FONT> in the
+  <FONT color="blue"><B>program stack</B></FONT>,
+  the <B>program stack</B> is
+  <FONT color="red"><B>restored</B></FONT>
+  <FONT color="blue"><B><I>back</I></B></FONT> to:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/stack-frame02.gif" width=600></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+  the <FONT color="blue"><B>FP register</B></FONT>
+  is <FONT color="red"><B>restored</B></FONT>
+  so <FONT color="blue"><B><TT>A( )</TT></B></FONT> can
+  use the <FONT color="red"><B>base address</B></FONT> in
+  <FONT color="blue"><B><TT>FP</TT></B></FONT> to
+  <FONT color="red"><B>access</B></FONT> its
+  <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT> !
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Continue</B></FONT>...
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Important facts to notice in the example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+<LI> <FONT color="red"><B>Before</B></FONT>  
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> 
+  make a <FONT color="red"><B>function call</B></FONT>,
+  the <FONT color="blue"><B>program stack</B></FONT> was
+  <FONT color="red"><B>empty</B></FONT>
+<P>
+
+<LI> <FONT color="red"><B>After</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> has
+   <FONT color="red"><B>clean up the parameters</B></FONT> in the
+  <FONT color="blue"><B>program stack</B></FONT>,
+  the <B>program stack</B> is
+  <FONT color="red"><B>empty</B></FONT>
+  <FONT color="blue"><B><I>again</I></B></FONT> !!!
+<P>
+ (That's what we want !!! We do not want to leave any
+ <FONT color="red"><B>garbage</B></FONT> on the
+ <FONT color="blue"><B>program stack</B></FONT> !!!)
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  &nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   End of the comments...
+   </font>
+   </p>
+
+   <p style="padding: 1.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

@@ -1,0 +1,240 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>bit-wise</I> operators in <I>C</I>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Bit</I> level operators
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Bit level</B> operation:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> A bit with value <B>1</B> represents 
+      the logical value <FONT color="blue"><B>true</B></FONT>
+ <LI> A bit with value <B>0</B> represents 
+      the logical value <FONT color="red"><B>false</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> Operation is performed on
+      a <B>series</B> of bit by
+      performing the operation
+      on <FONT color="red"><B><I>one</I> bit</B></FONT>
+      <FONT color="blue"><B>at a time</B></FONT>
+ <P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Bitwise AND:           000<FONT color="red">1</FONT>0<FONT color="red">1</FONT>00      (0 AND 0 = 0      0 AND 1 = 0)
+                           000<FONT color="red">0</FONT>1<FONT color="red">1</FONT>11      (1 AND 0 = 0      1 AND 1 = 1)
+                           --------
+                           000<FONT color="red">0</FONT>0<FONT color="red">1</FONT>00
+
+<HR>
+    Bitwise OR:            00010100      (0 OR 0 = 0      0 OR 1 = 1)
+                           00001111      (1 OR 0 = 1      1 OR 1 = 1)
+                           --------
+                           00011111
+
+<HR>
+    Bitwise XOR:           00010100      (0 XOR 0 = 0      0 XOR 1 = 1)
+    (exclusive OR)         00001111      (1 XOR 0 = 1      1 XOR 1 = 0)
+                           --------
+                           00011011
+
+<HR>
+    Bitwise NOT:           00010100      (NOT 0 = 1      NOT 1 = 0)
+                           --------
+                           11101011
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Bitwise operators of <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Bitwise operators:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5" width=600>
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ Operator symbol
+</TH> 
+<TH>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Meaning
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+ <FONT color="red"><B><TT>&</TT></B></FONT>
+</TD> 
+<TD align="left">
+ &nbsp; Bitwise <FONT color="red"><B>AND</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+ <FONT color="red"><B><TT>|</TT></B></FONT>
+</TD> 
+<TD align="left">
+ &nbsp; Bitwise <FONT color="red"><B>OR</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+ <FONT color="red"><B><TT>^</TT></B></FONT>
+</TD> 
+<TD align="left">
+ &nbsp; Bitwise <FONT color="red"><B>XOR</B></FONT>
+
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+ <FONT color="red"><B><TT>~</TT></B></FONT>
+</TD> 
+<TD align="left">
+ &nbsp; Bitwise <FONT color="red"><B>NOT</B></FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  int main( int argc, char* argv[] )
+  {
+     char a = 20;         /* 00010100 = 16 + 4 = 20        */       
+     char b = 15;         /* 00001111 = 8 + 4 + 2 + 1 = 15 */
+    
+     printf( "a & b =  %d\n", <FONT color="red">(a & b)</FONT> );
+     printf( "a | b =  %d\n", <FONT color="red">(a | b)</FONT> );
+     printf( "a ^ b =  %d\n", <FONT color="red">(a ^ b)</FONT> );
+     printf( "~ a   =  %d\n", <FONT color="red">(~ a)</FONT> );
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B> 
+ (<FONT color="red"><B>Note</B></FONT>: the 
+   <FONT color="blue"><B>"%d"</B></FONT> conversion character will
+   output the 
+  <FONT color="darkmagenta"><B>bit expressions</B></FONT>  as a
+  <FONT color="blue"><B>decimal number representation</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a & b =    4    (   4 = 00000100 )
+   a | b =   31    (  31 = 00011111 )
+   a ^ b =   27    (  27 = 00011011 )
+   ~ a   =  -21    ( -21 = 11101011 --- <FONT color="red">this is 2'c complement code for signed numbers !</FONT> )    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+(I have added the <FONT color="blue"><B>convertion</B></FONT> of the
+  <B>decimal number</B> into
+  <FONT color="red"><B>bits</B></FONT> between
+  brackets for your viewing convenience)
+</UL>
+
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

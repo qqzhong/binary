@@ -1,0 +1,872 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<!-------------- by value --------------------->
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-value</FONT> mechanism
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+ <LI> When a <FONT color="red"><B>parameter</B></FONT> is
+   <FONT color="blue"><B>specified</B></FONT> as
+   <FONT color="red"><B>passed-by-value</B></FONT>,
+   the <FONT color="blue"><B>compiler</B></FONT> will
+   <FONT color="red"><B>pass (= copy)</B></FONT> the
+   <FONT color="blue"><B><I>value</I></B></FONT> of the
+   <FONT color="red"><B>variable</B></FONT> to
+   the <FONT color="blue"><B>parameter store location</B></FONT>
+ <P>
+<LI>   <FONT color="red"><B>Furthermore:</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> when the
+   <FONT color="blue"><B>compiler</B></FONT>
+   <FONT color="red"><B>translates</B></FONT> the
+   <FONT color="blue"><B>body (= statements)</B></FONT> of
+   the <FONT color="red"><B>function</B></FONT>,
+   the <FONT color="blue"><B>occurence of the parameter</B></FONT>
+   will <FONT color="red"><B>access</B></FONT> the
+    <FONT color="blue"><B><I>value</I></B></FONT> in the
+    <FONT color="red"><B>parameter store location</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT> this
+   with a <FONT color="blue"><B>example</B></FONT> next.
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-value</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>code</B></FONT> this
+   <FONT color="blue"><B>example</B></FONT>
+   in <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int a)	// Var a is passed by value
+    {
+       a = a + 1;
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+ 
+       f(k); 
+    }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-value</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>What</B></FONT> the
+   <FONT color="blue"><B>compiler</B></FONT> will do
+   when a 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>variable</B></FONT> is
+   <FONT color="blue"><B>passed-by-value</B></FONT>:</SPAN>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int a)	// Var a is passed by value
+    {
+       <SPAN style="BACKGROUND-COLOR: #ffff00">a</SPAN> = <SPAN style="BACKGROUND-COLOR: #ffff00">a</SPAN> + 1;  <SPAN style="BACKGROUND-COLOR: #ffff00">// Use the parameter location on stack</SPAN>
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+ 
+       f(<SPAN style="BACKGROUND-COLOR: #ffff00">k</SPAN>);  <SPAN style="BACKGROUND-COLOR: #ffff00">// Pass the value of k (=7) on stack</SPAN>
+    }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+        How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-value</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translating</B></FONT> the
+  <FONT color="blue"><B><TT>main( )</TT></B></FONT> function:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:
+    /* =========================================
+       <FONT color="red">Pass k to f( ) by value</FONT>
+       ========================================= */
+<FONT color="red">    movw    r0, #:lower16:k
+    movt    r0, #:upper16:k   // r0 = address of k
+    ldr     r0, [r0]          // r0 = value of k
+    push    {r0}              // Pass k by value (pass k's value)</FONT>
+
+    bl      f                 // Call function f
+    add   sp, sp, #4          // Clean up parameters on the stack
+
+/* ----------------------------------------------------- */
+    .data
+
+k:  .4byte  7                 // This is the variable k
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+        How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-value</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translating</B></FONT> the
+  <FONT color="blue"><B><TT>f( )</TT></B></FONT> function:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+f:
+   /* ****************************************
+      Prelude: build stack frame
+      **************************************** */
+   push    {lr}            // Save return address in LR
+   push    {fp}            // Save Frame Pointer in FP
+   mov     fp, sp          // Initialize my own FP
+   sub     sp, sp, #0      // I create 0 local variable in stack
+
+   /* =======================================
+      Translating a = a + 1
+      ======================================= */
+   ldr     r0, <FONT color="red">[fp, #8]</FONT>    // a uses the <FONT color="red">parameter store location</FONT>
+   add     r0, r0, #1      // r0 = a + 1
+   str     r0, <FONT color="red">[fp, #8]</FONT>    // Assign result to <FONT color="red">parameter store location</FONT> 
+
+   /* ************************************************
+      Postlude: break down stack frame
+      ************************************************ */
+   mov     sp, fp          // De-allocate the local variables
+   pop     {fp}            // Restore old FP
+   pop     {pc}            // Return
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/A-pass-by-ref/pass-by-value.s
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<!-------------- by reference ---------- xxx ----------->
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-reference</FONT> mechanism
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+ <LI> When a <FONT color="red"><B>parameter</B></FONT> is
+   <FONT color="blue"><B>specified</B></FONT> as
+   <FONT color="red"><B>passed-by-reference</B></FONT>,
+   the <FONT color="blue"><B>compiler</B></FONT> will
+   <FONT color="red"><B>pass (= copy)</B></FONT> the
+   <FONT color="blue"><B><I>reference</I> (= address)</B></FONT> of the
+   <FONT color="red"><B>variable</B></FONT> to
+   the <FONT color="blue"><B>parameter store location</B></FONT>
+ <P>
+<LI>   <FONT color="red"><B>Furthermore:</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> when the
+   <FONT color="blue"><B>compiler</B></FONT>
+   <FONT color="red"><B>translates</B></FONT> the
+   <FONT color="blue"><B>body (= statements)</B></FONT> of
+   the <FONT color="red"><B>function</B></FONT>,
+   the <FONT color="blue"><B>occurence of the parameter</B></FONT>
+   will <FONT color="red"><B>access</B></FONT> the
+    <FONT color="blue"><B>variable</B></FONT> 
+    <FONT color="red"><B><I>through</I> the address</B></FONT> in the
+    <FONT color="blue"><B>parameter store location</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT> this
+   with a <FONT color="blue"><B>example</B></FONT> next.
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-reference</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>code</B></FONT> this
+   <FONT color="blue"><B>example</B></FONT>
+   in <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int <FONT color="red">&</font> a)	// Var a is passed by <FONT color="red">reference</font>
+    {
+       a = a + 1;
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+ 
+       f(k); 
+    }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-reference</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>What</B></FONT> the
+   <FONT color="blue"><B>compiler</B></FONT> will do
+   when a 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>variable</B></FONT> is
+   <FONT color="blue"><B>passed-by-reference</B></FONT>:</SPAN>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int <FONT color="red">&</font> a)	// Var a is passed by <FONT color="red">reference</font>
+    {
+       <SPAN style="BACKGROUND-COLOR: #ffff00">a</SPAN> = <SPAN style="BACKGROUND-COLOR: #ffff00">a</SPAN> + 1;  <SPAN style="BACKGROUND-COLOR: #ffff00">// Use variable at address given in a</SPAN>
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+ 
+       f(<SPAN style="BACKGROUND-COLOR: #ffff00">k</SPAN>);  <SPAN style="BACKGROUND-COLOR: #ffff00">// Pass the <font color="red">address</font> of k on stack</SPAN>
+    }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+        How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-reference</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translating</B></FONT> the
+  <FONT color="blue"><B><TT>main( )</TT></B></FONT> function:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:
+    /* =========================================
+       <FONT color="red">Pass k to f( ) by reference</FONT>
+       ========================================= */
+<FONT color="red">    movw    r0, #:lower16:k
+    movt    r0, #:upper16:k   // r0 = address of k
+    push    {r0}              // Pass k by reference (pass k's address)</FONT>
+
+    bl      f                 // Call function f
+    add   sp, sp, #4          // Clean up parameters on the stack
+
+/* ----------------------------------------------------- */
+    .data
+
+k:  .4byte  7                 // This is the variable k
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+        How the compiler 
+   <FONT color="blue">implements</FONT> the
+   <FONT color="blue">pass-by-reference</FONT> mechanism
+   - <FONT color="blue">Example</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.4in">
+   <font size="+2">
+  <FONT color="red"><B>Translating</B></FONT> the
+  <FONT color="blue"><B><TT>f( )</TT></B></FONT> function:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+f:
+   /* ****************************************
+      Prelude: build stack frame
+      **************************************** */
+   push    {lr}         // Save return address in LR
+   push    {fp}         // Save Frame Pointer in FP
+   mov     fp, sp       // Initialize my own FP
+   sub     sp, sp, #0   // I create 0 local variable in stack
+
+   /* =======================================
+      Translating a = a + 1
+      ======================================= */
+   ldr     r0, <FONT color="red">[fp, #8]</FONT> // r0 = address of parameter
+   ldr     r1, <FONT color="red">[r0]</FONT>     // Get the value through the address
+   add     r1, r1, #1   // r0 = a + 1
+   ldr     r0, <FONT color="red">[fp, #8]</FONT> // r0 = address of parameter
+   str     r1, <FONT color="red">[r0]</FONT>     // Assign result to the variable through its <FONT color="red">address</FONT> 
+
+   /* ************************************************
+      Postlude: break down stack frame
+      ************************************************ */
+   mov     sp, fp       // De-allocate the local variables
+   pop     {fp}         // Restore old FP
+   pop     {pc}         // Return </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/A-pass-by-ref/pass-by-ref.s
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

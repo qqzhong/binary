@@ -1,0 +1,620 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Reference variables as <I>parameters</I>: pass-by-reference
+<HR>
+</H3>
+
+
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Passing parameters by <I>reference</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> that
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B>C</B></FONT> passes
+    a <FONT color="red"><B>variable</B></FONT> by
+    <FONT color="blue"><B><I>value</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ This was discussed here:
+  <A HREF="../1-C-intro/param-passing.html">
+   <FONT color="red"><B>click here</B></FONT></A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Fact</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>reference operator <TT>&</TT></B></FONT> in
+  <FONT color="blue"><B>C</B></FONT>, <FONT color="red"><B>enable</B></FONT>
+ the <B>C programmer</B> to
+   <FONT color="blue"><B>pass a parameter</B></FONT>
+   by <FONT color="red"><B>reference</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int x1 = 4, x2 = 88;
+ 
+       func( <FONT color="red">&x1</FONT> );  // Pass <FONT color="red">address of x1</FONT> to function   
+    
+       func( <FONT color="red">&x2</FONT> );  // Pass <FONT color="red">address of x2</FONT> to function
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> From <FONT color="red"><B>this webpage</B></FONT> on
+   <FONT color="blue"><B>assembler programming</B></FONT>
+     (<A HREF="../7-ARM/implement-passing-tech.html">
+      <FONT color="red"><B>click here</B></FONT></A>), we saw that
+    in <FONT color="blue"><B>pass-by-reference</B></FONT>, the
+    <FONT color="red"><B>compiler</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Pass the <FONT color="red"><B>address (= reference)</B></FONT> of
+      a <FONT color="blue"><B>variable</B></FONT> to
+      the <FONT color="red"><B>function</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Because</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">&x</FONT>    = the <FONT color="red">address</FONT> of variable <FONT color="red">x</FONT>
+
+     <FONT color="red">&y</FONT>    = the <FONT color="red">address</FONT> of variable <FONT color="red">y</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we have <FONT color="red"><B>passed</B></FONT> the
+ <FONT color="blue"><B>variables <TT>x</TT> and <TT>y</TT></B></FONT>
+ by <FONT color="red"><B>reference</B></FONT> in the
+ above example code !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reference variables as <I>parameters</I> of a function
+     </B></FONT>
+<P>
+<UL>
+<LI> In this <FONT color="red"><B>example</B></FONT>, we
+    passed the <FONT color="blue"><B><I>address</I></B></FONT> of
+   the <FONT color="red"><B>variable <TT>int a</TT></B></FONT>
+    to the function <FONT color="blue"><B><TT>func( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     func( <FONT color="red">&x</FONT> );           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> do we 
+   <FONT color="blue"><B>define</B></FONT> this
+    <FONT color="red"><B>function</B></FONT> ?
+ <P>
+ <B>Specifically:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>What is the <I>data type</I></B></FONT>
+ of the <FONT color="blue"><B>parameter </B></FONT> ???
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>answer</B></FONT> can be
+    found from the
+  <FONT color="blue"><B>previous discussion</B></FONT>
+   where we saw that you can
+   <FONT color="red"><B>assign</B></FONT> the
+   <FONT color="blue"><B><I>address</I> of a variable</B></FONT>
+   to a <FONT color="red"><B><I>reference</I> variable</B></FONT>
+   of the <FONT color="blue"><B>same data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int a = 7;  // an <FONT color="red">int typed</FONT> variable
+               //<FONT color="red"> &a</FONT>  = the <FONT color="red">address</FONT> of a int typed variable
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">int *</FONT>p;</SPAN>     // p can hold an <FONT color="red">address</FONT> of an <FONT color="red">int typed</FONT> variable
+               // Therefore: p can store &a !!!
+
+
+   <FONT color="red">p = &a;</FONT>     // Store the address of the int type variable a in p    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we must use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int *</FONT>varName                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+as <FONT color="red"><B>parameter type</B></FONT> !!!
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> this
+   <FONT color="red"><B>function <TT>func( )</TT></B></FONT> will
+   <FONT color="blue"><B>print</B></FONT> the
+    value of the <FONT color="red"><B>parameter</B></FONT> and
+    the <FONT color="blue"><B>value in <I>referenced</I> variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+void func( <FONT color="red">int *p</FONT> )
+{
+   printf( " p = %u\n",  <FONT color="red">p</FONT> );    // Print the parameter p
+                                 // We SHOULD use %p (hex), but I like %u (dec)
+                                 // I will get a warning and I can live with it
+
+   printf( "*p = %d\n\n", <FONT color="red">*p</FONT> );  // Print the variable pointed to by p  
+}
+
+int main(int argc, char *argv[])
+{
+    int x1 = 4, x2 = 88;
+
+    func(<FONT color="red"> &x1</FONT> );                // Pass address of x1 to function  
+
+    func(<FONT color="red"> &x2</FONT> );                // Pass address of x2 to function
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>output</B></FONT> of this 
+<FONT color="blue"><B>program</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5572)> a.out 
+ p = 3731491632                            
+<FONT color="red">*p = 4</FONT>
+
+ p = 3731491636
+<FONT color="red">*p = 88</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see that the
+  <FONT color="red"><B>function <TT>func( )</TT></B></FONT>
+  <B>can</B>
+  <FONT color="blue"><B>access</B></FONT> the
+  <FONT color="red"><B><I>original</I> variables</B></FONT>
+  through the
+  <FONT color="blue"><B>reference (= address)</B></FONT>
+  passed by
+   <FONT color="red"><B><TT>&x</TT></B></FONT> and
+  <FONT color="red"><B><TT>&y</TT></B></FONT> !!!
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A working example of <FONT color="red">pass-by-reference</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> In the <FONT color="red"><B>next example program</B></FONT>,
+    I will write a
+     <FONT color="blue"><B>function</B></FONT> tha
+   <FONT color="red"><B>increments the input parameter by 1</B></FONT>
+<P>
+ I do so by:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Pass</B></FONT> the 
+       <FONT color="blue"><B>parameter variable</B></FONT>
+        by <FONT color="red"><B>reference</B></FONT>
+	to the <FONT color="blue"><B>function <TT>func( )</TT></B></FONT>
+<P>
+<LI> Inside the <FONT color="red"><B>function <TT>func( )</TT></B></FONT>,
+   I use the
+       <FONT color="blue"><B>de-reference operator <TT>*</TT></B></FONT>
+   to <FONT color="red"><B>access</B></FONT> the
+   <FONT color="blue"><B>original variable</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Here is the
+   <FONT color="blue"><B>code</B></FONT> for
+   <FONT color="red"><B>function <TT>func( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &ltstdio.h>
+
+void func( <FONT color="red">int *</FONT>p )
+{
+   // The expression  <FONT color="red">*p</FONT>   will access the <FONT color="red">ORIGINAL  variable</FONT> !!
+
+   <FONT color="red">*p</FONT> = <FONT color="red">*p</FONT> + 1;   // Add 1 to the (original) variable
+}
+
+int main(int argc, char *argv[])
+{
+    int x1 = 4, x2 = 88;
+
+    printf("x1 before = %d\n", x1);
+    func( <FONT color="red">&x1</FONT> );                // Pass address of x1 to function
+    printf("x1 after  = %d\n", x1);
+
+    printf("x2 before = %d\n", x2);
+    func( <FONT color="red">&x2</FONT> );                // Pass address of x2 to function
+    printf("x2 after  = %d\n", x2);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Output</B></FONT> of this 
+ <FONT color="blue"><B>program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5577)> a.out                           
+x1 before = 4
+x1 after  = 5
+x2 before = 88
+x2 after  = 89
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So you can see that the
+ <FONT color="red"><B>parameter</B></FONT> was
+  <FONT color="blue"><B>passed by <I>reference</I></B></FONT> !!!
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/ref-param3.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-param3.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary conclussion
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Summary:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We saw that
+  <FONT color="red"><B>C</B></FONT> 
+    <B>only</B> provide
+   <FONT color="blue"><B>pass-by-value</B></FONT>....
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>However</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> <B>also</B> has
+      <FONT color="blue"><B>2 special (low level)
+       <I>operators</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">&</FONT>    that <FONT color="red">returns</FONT> the <FONT color="red">address</FONT> of a variable    
+
+   <FONT color="red">*</FONT>    that <FONT color="red">accesses</FONT> a variable using a <FONT color="red">reference (= address)</FONT>  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Through</B></FONT> these
+ <FONT color="blue"><B>low level <I>operators</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C </B></FONT> can
+    <FONT color="blue"><B>enable</B></FONT> the
+    <FONT color="red"><B>C programmer</B></FONT> to
+    <FONT color="blue"><B>pass <I>any</I> variable</B></FONT>
+    by <FONT color="red"><B><I>reference</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+</UL>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

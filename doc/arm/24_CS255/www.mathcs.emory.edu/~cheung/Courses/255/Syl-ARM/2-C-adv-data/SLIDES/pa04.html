@@ -1,0 +1,684 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>pointer arithmetic</B></FONT>
+    (i.e.: <FONT color="blue"><B><TT>*(p+i) &equiv; p[i]</TT></B></FONT>)
+     <FONT color="blue"><B>enables</B></FONT>
+	<FONT color="red"><B>C programmers</B></FONT> 
+       to <FONT color="blue"><B>traverse</B></FONT>
+	an <FONT color="red"><B>array</B></FONT> using
+	the <FONT color="blue"><B>post-increment <TT>++</TT></B></FONT>
+	operator
+<P>
+  <LI> I will <FONT color="red"><B>show</B></FONT> you
+   <FONT color="blue"><B>step-by-step</B></FONT> have
+   you can <FONT color="red"><B>do this</B></FONT>
+	in the
+	following <FONT color="blue"><B>slides</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 1.2in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+<FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>for-loop</B></FONT> that
+  <FONT color="red"><B>sum</B></FONT> all the
+  <FONT color="blue"><B>array elements</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+
+
+
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + B[i];
+
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We <FONT color="red"><B>define</B></FONT> a
+   <FONT color="blue"><B>reference variable</B></FONT> of
+   the <FONT color="red"><B><I>suitable</I> data type</B></FONT>
+   to <FONT color="blue"><B>point</B></FONT> to
+   the <FONT color="red"><B>array <TT>B[ ]</TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+     <FONT color="red">int *p;</FONT>
+
+
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + B[i];
+
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  When <FONT color="red"><B><TT>p</TT></B></FONT>
+  <FONT color="blue"><B><I>points</I></B></FONT> to
+  <FONT color="red"><B>array <TT>B[ ]</TT></B></FONT>,
+  the <FONT color="blue"><B><TT>p[i]</TT></B></FONT> is
+   an <FONT color="red"><B><I>alias</I></B></FONT> for
+   <FONT color="blue"><B><TT>B[i]</TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+     <FONT color="blue">int *p;</FONT>
+
+     <FONT color="red">p = B;</FONT>
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + <FONT color="red">p[i];</FONT> // p[i] &equiv; B[i]
+
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We <FONT color="red"><B>re-write</B></FONT>
+  <FONT color="blue"><B><TT>p[i]</TT></B></FONT> back to
+  <FONT color="red"><B><TT>*(p+i)</TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+     <FONT color="blue">int *p;</FONT>
+
+     <FONT color="red">p = B;</FONT>
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + <FONT color="red">*(p+i);</FONT> // *(p+i) &equiv; p[i] &equiv; B[i]
+
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ Instead of
+  <FONT color="red"><B>adding <TT>i</TT></B></FONT>
+  to <FONT color="blue"><B><TT>p</TT></B></FONT>,
+  we can <FONT color="red"><B><I>increment</I> <TT>p</TT></B></FONT>
+  in a <FONT color="blue"><B>piecemeal manner</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+     <FONT color="blue">int *p;</FONT>
+
+     <FONT color="blue">p = B;</FONT>
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + <FONT color="red">*p;</FONT> 
+        <FONT color="red">p = p + 1;</FONT> // <FONT color="red">Make p point to the next array element</FONT>
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ Use the <FONT color="red"><B>post-increment <TT>++</TT>
+ operator</B></FONT> to
+ <FONT color="blue"><B>simplify</B></FONT> the
+ <FONT color="red"><B>2 statements</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+     <FONT color="blue">int *p;</FONT>
+
+     <FONT color="blue">p = B;</FONT>
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + <FONT color="red">*(p++);</FONT> 
+
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Using the <FONT color="blue"><B><TT>++</TT> operator</B></FONT> 
+   to traverse an array  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ Because <FONT color="red"><B>post-increment <TT>++</TT></B></FONT> has
+ <FONT color="blue"><B><I>higher</I> priority</B></FONT>
+ (see
+  <A HREF="https://en.cppreference.com/w/c/language/operator_precedence">
+  click here</A>)
+  we can <FONT color="red"><B>drop</B></FONT> the
+  <FONT color="blue"><B>bracket ( )</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main(int argc, char *argv[])
+  {
+     int B[10] = {1, 3, 5, 7, 9, 1, 1, 2, 1, 2};
+     int s;
+     <FONT color="blue">int *p;</FONT>
+
+     <FONT color="blue">p = B;</FONT>
+     s = 0;
+     for (int i = 0; i < 10; i++)
+     {
+        s = s + <FONT color="red">*p++;</FONT> 
+
+     }
+
+     printf("sum = %d\n", s);
+  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

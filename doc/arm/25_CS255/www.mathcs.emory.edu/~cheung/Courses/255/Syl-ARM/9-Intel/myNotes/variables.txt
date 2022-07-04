@@ -1,0 +1,108 @@
+==================================
+Reserving space for variables:
+==================================
+
+When you declare an integer variable by assigning a label 
+to a data allocation directive, the assembler allocates 
+memory space for the integer. The variable's name becomes 
+a label for the memory space. The syntax is:
+
+     [[name]] directive initializer
+
+The following directives indicate the integer's size 
+and value range:
+
+   ==========================================================
+   Directive                   Description of Initializers 
+   ==========================================================
+
+
+   BYTE, DB (byte)              Allocates unsigned numbers 
+				from 0 to 255. 
+
+   SBYTE (signed byte) 		Allocates signed numbers 
+				from -128 to +127. 
+
+   WORD, DW (word = 2 bytes) 	Allocates unsigned numbers 
+				from 0 to 65,535 (64K). 
+
+   SWORD (signed word) 		Allocates signed numbers 
+				from -32,768 to +32,767. 
+
+   DWORD, DD 
+   (doubleword = 4 bytes), 	Allocates unsigned numbers 
+				from 0 to 4,294,967,295 
+				(4 megabytes). 
+
+   SDWORD (signed doubleword) 	Allocates signed numbers 
+				from -2,147,483,648 
+				to +2,147,483,647. 
+
+   FWORD, DF 
+   (farword = 6 bytes) 		Allocates 6-byte (48-bit) integers. 
+				These values are normally used 
+				only as pointer variables 
+				on the 80386/486 processors. 
+
+   QWORD, DQ 
+   (quadword = 8 bytes) 	Allocates 8-byte integers used 
+				with 8087-family coprocessor 
+				instructions. 
+
+   TBYTE, DT (10 bytes), 	Allocates 10-byte (80-bit) integers 
+				if the initializer has a radix 
+				specifying the base of the number. 
+
+=================================================================
+Data Initialization
+=================================================================
+
+You can initialize variables when you declare them with 
+constants or expressions that evaluate to constants. 
+
+The assembler generates an error if you specify 
+an initial value too large for the variable type.
+
+A "?" in place of an initializer indicates 
+you do not require the assembler to initialize the variable. 
+The assembler allocates the space but does not write in it. 
+
+Use ? for buffer areas or variables your program will 
+initialize at run time.
+
+You can declare and initialize variables in one step 
+with the data directives, as these examples show.
+
+(The label is omitted in the following examples):
+
+    Type          Syntax           Meaning
+    =========================================================
+
+    byte          BYTE   16 	; Initialize byte to 16
+
+    neg byte      SBYTE -16 	; Initialize signed byte to -16
+
+    short         WORD  4*3 	; Initialize word to 12
+
+    signed short  SWORD 4*3 	; Initialize signed word to 12
+
+    uninit long   QWORD   ? 	; Allocate uninitialized long int
+
+    array         BYTE 1,2,3,4,5,6     ; Initialize six unnamed bytes
+
+    int           DWORD 4294967295 	; Initialize unsigned int to
+					; 4,294,967,295
+
+    signed int    SDWORD -2147433648 	; Initialize signed int
+					; to -2,147,433,648
+
+    uninit array  DWORD  10 DUP (?)     ; 10 ints, uninitialized
+
+    init array    DWORD  10 DUP (0)     ; 10 ints, all initialized to 0
+
+    init array    DWORD  5 DUP (5 DUP 0)  ; 25 ints, all initialized to 0
+
+    init array    DWORD  10 DUP (1, 2, 3) ; 30 ints, initialized to 1, 2, 3, 1..
+
+
+

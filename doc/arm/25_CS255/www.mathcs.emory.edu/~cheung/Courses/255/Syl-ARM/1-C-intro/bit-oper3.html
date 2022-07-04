@@ -1,0 +1,566 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Denoting bit pattern using values in base 2, 8 and 16 in C (and in Java)
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Denoting numbers in the <I>Binary</I> number system
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Bit patterns</B></FONT> is a
+    <B>royal pain</B> to write using
+    <FONT color="red"><B>decimal representation</B></FONT>
+ <P>
+ It is a <B>lot easier</B> to
+  write <FONT color="blue"><B>bit patterns</B></FONT> using
+  the <FONT color="red"><B>Binary Number System</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B><I>C</I></B> provides you with
+     <FONT color="blue"><B>different number systems</B></FONT> to
+     write
+     <FONT color="red"><B>bit patterns</B></FONT> with more ease !
+<P>
+<HR>
+<HR>
+<P>
+<LI> Denoting <FONT color="blue"><B>binary numbers</B></FONT> in
+    <B>C</B> (with the 
+    <B>prefix</B> <FONT color="red"><B><TT>0b</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>number</B> that 
+     <FONT color="blue"><B>starts</B></FONT> with the
+     <FONT color="red"><B>prefix <TT>0b</TT>
+     (ZERO b)</B></FONT>
+     is considered to use
+     the <FONT color="blue"><B>Binary Number System</B></FONT>
+     as representation
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">0b</FONT>xxxxxxxx         = the binary number xxxxxxxx         
+
+  Example:
+
+       <FONT color="red">0b</FONT>00001111         = 15 decimal
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = 0;          /* 0 = 00000000 */
+
+                           /* Bit pos:   76543210 */
+      a = a | <FONT color="red">0b00000100</FONT>;  /* Now:   a = 00000100 */              
+      printf( "a =  %d\n", a  );
+
+      a = a | <FONT color="red">0b00010000</FONT>;  /* Now:   a = 00010100 */
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bit-op2a.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bit-op2a.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Denoting numbers in the <I>Octal</I> number system
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> <FONT color="red"><B>Disadvantage</B></FONT> of
+       the <FONT color="blue"><B>Binary Number System</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>number of digits</B></FONT> needed
+       will grown <FONT color="red"><B><I>very</I><I> fast</B></FONT> !!!
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can use other <FONT color="red"><B><I>related</I> number system</B></FONT>
+   to express <FONT color="blue"><B>bit patterns</B></FONT>
+  in more <FONT color="red"><B>compact form</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Octal numbers</B></FONT> uses 
+     <B>base 8</B> is the <FONT color="red"><B>representation</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Representation             Value represented
+ ---------------------------------------------------             
+         0                            0
+         1			      1
+	 2			      2
+	 3			      3
+	 4			      4
+	 5			      5
+	 6			      6
+	 7			      7
+	10			      8
+	11			      9
+	12			     10
+	...                          ...
+	23		           2*8 + 3 = 19
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="blue"><B>Octal number system (8)</B></FONT>
+  is <FONT color="red"><B>related</B></FONT> 
+  to the <FONT color="blue"><B>Binary number system (2)</B></FONT>
+ because:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    8 = 2<sup>3</sup>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because the FONT color="blue"><B>Octal number system (8)</B></FONT>
+  is <FONT color="red"><B>related</B></FONT> 
+  to the <FONT color="blue"><B>Binary number system (2)</B></FONT>,
+ <B>converting</B> values 
+  <FONT color="red"><B>between</B></FONT> these systems
+   is <FONT color="blue"><B><I>easy</I></B></FONT>
+  (we have discussed this at the
+  <FONT color="red"><B><I>start</I></B></FONT> of this course !!!)
+<P>
+<HR>
+<HR>
+<P>
+<LI> Denoting <FONT color="blue"><B><I>Octal</I> numbers</B></FONT> in
+    <B>C</B> (with the 
+    <B>prefix</B> <FONT color="red"><B><TT>0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>number</B> that 
+     <FONT color="blue"><B>starts</B></FONT> with the
+     <FONT color="red"><B>prefix <TT>0</TT>
+     (ZERO)</B></FONT>
+     is considered to use
+     the <FONT color="blue"><B><I>Octal</I> Number System</B></FONT>
+     as representation
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">0</FONT>xxxxxxxx         = the Octal number xxxxxxxx         
+
+  Example:
+
+       <FONT color="red">0</FONT>11               = 9 decimal (8 + 1)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = <FONT color="red">011</FONT>;        /* 11 Octal = 8 + 1 = <FONT color="red">9 decimal</FONT> */
+
+      printf( "a =  %d\n", a  );
+
+      a = <FONT color="red">0101</FONT>;            /* 101 Octal = 64 + 1 = <FONT color="red">65 decimal </FONT>*/
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/octal1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc octal1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Denoting numbers in the <I>Hexadecimal</I> number system
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> <FONT color="blue"><B>Hexadecimal numbers</B></FONT> uses 
+     <B>base 16</B> is the <FONT color="red"><B>representation</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Representation             Value represented
+ ---------------------------------------------------             
+         0                            0
+         1			      1
+	 2			      2
+	 3			      3
+	 4			      4
+	 5			      5
+	 6			      6
+	 7			      7
+	 8			      8
+	 9			      9
+	 A			     10
+	 B			     11
+	 C			     12
+	 D			     13
+	 E			     14
+	 F			     15
+	10			     16
+	11			     17
+	12			     18
+	...                          ...
+	23		           2*16 + 3 = 35
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> Denoting <FONT color="blue"><B><I>Hexadecimal</I> numbers</B></FONT> in
+    <B>C</B> (with the 
+    <B>prefix</B> <FONT color="red"><B><TT>0x</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>number</B> that 
+     <FONT color="blue"><B>starts</B></FONT> with the
+     <FONT color="red"><B>prefix <TT>0x</TT>
+     (ZERO x)</B></FONT>
+     is considered to use
+     the <FONT color="blue"><B><I>Hexadecimal</I> Number System</B></FONT>
+     as representation
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">0x</FONT>aaaaa         = the Hexadecimal number aaaaa         
+
+  Example:
+
+       <FONT color="red">0x</FONT>1A            = 26 decimal (16 + 10)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      int a = <FONT color="red">0x1A</FONT>;         /* 1A Hexadecimal = 16 + 10 = <FONT color="red">26 decimal</FONT> */
+
+      printf( "a =  %d\n", a  );
+
+      a = <FONT color="red">0x10A</FONT>;            /* 101 Hexadecimal = 256 + 10 = <FONT color="red">266 decimal </FONT>*/
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/hexadec1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc hexadec1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,492 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Review</I>: static and dynamic arrays (from CS170 or CS171)
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+      <I>Static</I> and <I>dynamic</I> arrays
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Arrays in programming languages:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="blue"><B>2 kinds</B></FONT> of
+      <B>arrays</B> that programming languages can provide:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Static</I> arrays</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>size (number of elements)</B></FONT>
+      <B>associated with</B> the 
+      <FONT color="magenta"><B>name of the array variable</B></FONT>
+      <FONT color="red"><B>cannot be changed</B></FONT>
+      in
+      <FONT color="darkred"><B><I>static</I> arrays</B></FONT>
+ <P>
+ (After an array is <B>created</B>, the
+   <FONT color="blue"><B>size</B></FONT> of the array
+   <FONT color="red"><B><I>cannot</I></B></FONT> be
+   <B>changed</B>)      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>Dynamic</I> arrays</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>size (number of elements)</B></FONT>
+      <B>associated with</B> the 
+      <FONT color="magenta"><B>name of the array variable</B></FONT>
+      <FONT color="red"><B><I>can</I> be changed</B></FONT>
+      in
+      <FONT color="darkred"><B><I>dynamic</I> arrays</B></FONT>
+ <P>
+ (After an array is <B>created</B>, the
+   <FONT color="blue"><B>size</B></FONT> of the array
+   <FONT color="red"><B><I>can</I></B></FONT> be
+   <B>changed</B> -
+   the array <B>size</B> can <FONT color="blue"><B>grow</B></FONT> or
+   <FONT color="red"><B>shrink</B></FONT>)      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Static arrays
+     </B></FONT>
+<P>
+<UL>
+<LI> <B><I>Static</I> array</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Static arrays</B></FONT> are implemented
+     using 
+      an (array)
+   <FONT color="red"><B><I>identifier</I></B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>name</B></FONT> of the <B>array</B>
+      <FONT color="red"><B>marks</B></FONT> the
+      <FONT color="blue"><B>staring location</B></FONT> of the
+      <B>array</B> in memory.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>array identifier (= name)</B></FONT> is
+      <B><I>directly</I> associated</B> with the
+      <FONT color="red"><B>starting location</B></FONT> of the array
+      as depicted in the following figure:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array02a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you define an <B>array</B> with
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      double a[10] ;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <B>compiler</B> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  first <FONT color="red"><B>allocate</B></FONT>
+ memory cells for the array element (say starting at
+ memory address <FONT color="blue"><B>5000</B></FONT>)
+ <B><I>and</I></B> 
+ <P>
+ <LI> make the
+ <FONT color="red"><B><I>symbolic name</I> <TT>a</TT></B></FONT>
+ <B>equal</B> to
+ the value <FONT color="blue"><B>5000</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> When <FONT color="blue"><B>more variables</B></FONT> are
+    <B>created</B>, the <FONT color="red"><B>static array</B></FONT>
+    will be <FONT color="blue"><B><I>boxed in</I></B></FONT>
+    by <FONT color="magenta"><B>reserved memory cells</B></FONT>
+    and have <FONT color="red"><B>no way to expand</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Dynamic arrays
+     </B></FONT>
+<P>
+<UL>
+<LI> <B><I>Dynamic</I> array</B>: (<FONT color="red"><B>Java</B></FONT> !)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Dynamic arrays</B></FONT> are implemented
+     using 
+     an <B>array object</B>
+   <FONT color="red"><B><I>reference</I> variable</B></FONT> 
+ <P>
+<HR>
+<P>
+<LI> You <B>first</B> define the
+     <FONT color="red"><B>array object <I>reference</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array03a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> The <FONT color="blue"><B> identifier</B></FONT> is
+      <B>associated</B> with the
+      <FONT color="red"><B>array object <I>reference</I> variable</B></FONT> !!
+<P>
+<HR>
+<P>
+<LI> Then in the <FONT color="blue"><B>second step</B></FONT>,
+    you <B>create (allocate space)</B> the
+    <FONT color="red"><B>actual array</B></FONT> and
+    store its <FONT color="blue"><B>location</B></FONT>
+    in the 
+    <FONT color="red"><B>array object <I>reference</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You can <FONT color="red"><B>expand</B></FONT> a
+    <FONT color="blue"><B><I>dynamic</I> array</B></FONT> by
+    <FONT color="red"><B>allocating space <I>else where</I></B></FONT>
+    in the memory and 
+    make the <B>object reference variable</B>
+    <FONT color="blue"><B>point</B></FONT> to
+    the <FONT color="red"><B><I>new</I> array</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+(<B>Remember</B>, you <FONT color="blue"><B>may <I>not</I></B></FONT>
+  be able to <FONT color="red"><B>expand</B></FONT> the
+  <B>old array</B> because it could be
+  <FONT color="blue"><B><I>boxed in</I></B></FONT> by
+  <FONT color="red"><B>reserved memory cells</B></FONT>.
+ <P>
+ But you can <B>always</B> try to find
+  a <FONT color="blue"><B>bigger chuck</B></FONT> of
+  <FONT color="red"><B>unreserve memory</B></FONT>
+  <B><I>elsewhere</I></I> !)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Advantages and disadvantages of Static and Dynamic arrays
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Dynamic arrays:</B> (<FONT color="red"><B>Java</B></FONT> !)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Advantage:</B>
+        <FONT color="red"><B>flexibility</B></FONT>
+ <P>
+ <HR>
+ <P>
+  <LI> <B>Disadvantage:</B>
+        <FONT color="red"><B><I>slow</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <B>access</B> an array element
+      <FONT color="blue"><B><TT>a[i]</TT></B></FONT>
+      (assuming you already know
+     the index <FONT color="blue"><B><TT>i</TT></B></FONT>),
+     you need
+      at least <FONT color="red"><B>2 memory accesses</B></FONT>:
+ <P>
+ <OL>
+ <LI> <FONT color="red"><B>One memory access</B></FONT> to read the 
+       <FONT color="blue"><B>array object reference variable</B></FONT>
+ <P>
+ <LI> A <FONT color="red"><B>second memory access</B></FONT> to
+       access the <FONT color="blue"><B>array element itself</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Static arrays:</B> (Most programming languages)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Advantage:</B>
+        <FONT color="red"><B><I>speed</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <B>access</B> an array element
+      <FONT color="blue"><B><TT>a[i]</TT></B></FONT>
+    (assuming you already know
+     the index <FONT color="blue"><B><TT>i</TT></B></FONT>), you 
+   <B><I>only</I></B> need
+      <FONT color="red"><B>1 memory access</B></FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+  <LI> <B>Disadvantage:</B>
+        <FONT color="red"><B><I>inflexible</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You cannot <FONT color="blue"><B>change</B></FONT> the 
+   <FONT color="red"><B>size</B></FONT> of the
+   (<B>static</B>) <B>array</B>
+   after you have <FONT color="blue"><B>created the array</B></FONT>.
+   
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

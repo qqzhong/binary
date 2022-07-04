@@ -1,0 +1,93 @@
+# @date: Fri 11 Mar 2022 09:43:55 AM HKT
+
+
+TOOL_DIR=/usr
+BIN=$(TOOL_DIR)/bin
+INCLUDE=$(TOOL_DIR)/include
+GCC=$(BIN)/gcc
+AS=$(BIN)/as
+LD=$(BIN)/ld
+OBJDUMP=$(BIN)/objdump
+PWD=$(shell pwd)
+
+ASFLAGS = --32 -g -Wall -I $(INCLUDE)
+CFLAGS += -m32 -g -O0 -Wall -Werror -fPIC -I $(INCLUDE)
+LDFLAGS += -Wl,--no-fatal-warnings,-Map,output.map
+LDFLAGS += -L $(TOOL_DIR)/lib
+LIBS = -lc
+
+Q = @
+LINK = $(LD) -m elf_i386
+#VERBOSE = --verbose
+
+UTILITIES =
+
+TARGETS = badprog \
+externtest \
+floattest \
+goodprog \
+inttest \
+mainprog \
+mathtest \
+multtest \
+stringtest
+
+
+all: hook $(TARGETS) run
+
+hook:
+	$(Q)echo "GCC = $(GCC)"
+	$(Q)echo "AS = $(AS)"
+	$(Q)echo "LD = $(LD)"
+	$(Q)echo "OBJDUMP = $(OBJDUMP)"
+	$(Q)echo "INCLUDE = $(INCLUDE)"
+	$(Q)echo "LIBS = $(LIBS)"
+	$(Q)echo "OBJS = $(OBJS)"
+	$(Q)echo "LDFLAGS = $(LDFLAGS)"
+
+%.o : %.cpp
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) -c $< -o $@
+
+%.o : %.c
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) -c $< -o $@
+
+%.o : %.s
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) -c $< -o $@
+
+.PRONY:clean
+clean:
+	$(Q)echo "clean all"
+	$(Q)rm -rf $(TARGETS) *.o *.d *.a *.exe *.map *.objdump
+
+badprog: $(UTILITIES) badprog.o testfunc.o
+#	$(Q)$(LINK) $(VERBOSE) $^ -o $@ -static $(LIBS)
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+externtest: $(UTILITIES) externtest.o areafunc.o  cpuidfunc.o square.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+floattest: $(UTILITIES) floattest.o areafunc.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+goodprog: $(UTILITIES) goodprog.o testfunc.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+inttest: $(UTILITIES) inttest.o square.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+mainprog: $(UTILITIES) mainprog.o asmfunc.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+mathtest: $(UTILITIES) mathtest.o fpmathfunc.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+multtest: $(UTILITIES) multtest.o greater.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+stringtest: $(UTILITIES) stringtest.o cpuidfunc.o
+	$(Q)$(GCC) $(VERBOSE) $(CFLAGS) $^ $(LDFLAGS) -o $@ -static $(LIBS)
+
+run: $(TARGETS)
+	$(Q)echo "[enter]run examples"
+	$(Q)-$(PWD)/badprog
+	$(Q)-$(PWD)/externtest
+	$(Q)-$(PWD)/floattest
+	$(Q)-$(PWD)/goodprog
+	$(Q)-$(PWD)/inttest
+	$(Q)-$(PWD)/mainprog
+	$(Q)-$(PWD)/mathtest
+	$(Q)-$(PWD)/multtest
+	$(Q)-$(PWD)/stringtest
+	$(Q)echo "[leave]run examples"

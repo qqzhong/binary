@@ -1,0 +1,485 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Iterative Algorithm to Insert at Tail of a Linked List...
+<HR>
+</H3>
+<UL>
+<P>
+<LI> Suppose you have a linked list at "head":
+<P>
+ <PRE>
+   head
+    +--------+     +--------+    -->+--------+    -->+--------+
+    |        |---->| info1  |   /   | info2  |   /   | info3  |
+    +--------+     |        |  /    |        |  /    |        |
+                   +--------+ /     +--------+ /     +--------+
+                   | ref1   |-      | ref2   |-      | null   |
+                   +--------+       +--------+       +--------+
+ </PRE>
+ <P>
+ And you have a linked list <B>element</B> at "elem":
+<P>
+ <PRE>
+   elem
+    +--------+     +--------+
+    |        |---->| infoX  | (information has been filled in)
+    +--------+     |        |
+                   +--------+
+                   | ????   | (don't care, because we know there
+                   +--------+  is no "next" element)
+ </PRE>
+
+<P>
+<LI> Here is an example of how the linked list is stored in memory:
+ <PRE>
+ Memory:
+        +---------------+
+  <B>head:</B> |  8000         |-------------------------------+
+        +---------------+                               |
+        |               |                               |
+	  .......                                       |
+	  .......                                       |
+        +---------------+                               |
+  8000  |  info1        |  Linked list element 1  <-----+
+        +---------------+
+        | ref1=10000    |-------------------------------------+
+        +---------------+                                     |
+        |               |                                     |
+        +---------------+                                     |
+	  .......                                             |
+	  .......                                             |
+        +---------------+                                     |
+  9000  |  info3        |  Linked list element 3 <----+       |
+        +---------------+                             |       |
+        | ref3=<FONT COLOR="blue"><B>0 (null)</B></FONT> |                             |       |
+        +---------------+                             |       |
+	  .......                                     |       |
+	  .......                                     |       |
+        +---------------+                             |       |
+ 10000  |  info2        |  Linked list element 2      | <-----+
+        +---------------+                             |
+        | ref2=9000     |-----------------------------+
+        +---------------+
+	  .......
+	  .......
+        +---------------+
+  <B>elem:</B> |  20000        |-----------------------------+
+        +---------------+                             |
+	  .......                                     |
+	  .......                                     |
+        +---------------+                             |
+ 20000  |  infoX        | New linked list element <---+
+        +---------------+
+        | refX=????     |
+        +---------------+
+ </PRE>
+ <P>
+ <UL>
+ <LI> Notice that the "links" are memory addresses and
+	the linked list can be found by tracing/following the 
+	addresses in the "linkage" field
+ </UL>
+
+
+<P>
+<LI> Inserting the element <B>pointed</B> by "elem" at the <B>tail</B>
+     of the linked is realised by making the last element in the linked list
+	point to the element <B>pointed</B> by "elem".
+  <P>
+    This process is illustrated by the following diagram:
+ <P>
+ Before insertion:
+ <PRE>
+   head
+    +--------+     +--------+    -->+--------+    -->+--------+
+    |        |---->| info1  |   /   | info2  |   /   | info3  |
+    +--------+     |        |  /    |        |  /    |        |
+                   +--------+ /     +--------+ /     +--------+
+                   | ref1   |-      | ref2   |-      | null   |
+                   +--------+       +--------+       +--------+
+   elem
+    +--------+     +--------+
+    |        |---->| infoX  | 
+    +--------+     |        |
+                   +--------+
+                   | ????   | 
+                   +--------+ 
+ </PRE>
+ After insertion:
+ <PRE>
+   head
+    +--------+     +--------+    -->+--------+    -->+--------+
+    |        |---->| info1  |   /   | info2  |   /   | info3  |
+    +--------+     |        |  /    |        |  /    |        |
+                   +--------+ /     +--------+ /     +--------+
+                   | ref1   |-      | ref2   |-      | ref3   |--+
+                   +--------+       +--------+       +--------+  |
+   elem                                                          |
+    +--------+     +--------+                                    |
+    |        |---->| infoX  |<-----------------------------------+
+    +--------+     |        |
+                   +--------+
+                   | null   | 
+                   +--------+ 
+ </PRE>
+
+
+
+<P>
+<LI> Here is an example of actually happens within the computer memory
+     when you "link" a new element to the list:
+
+ <PRE>
+ Memory:
+        +---------------+
+  <B>head:</B> |  8000         |-------------------------------+
+        +---------------+                               |
+        |               |                               |
+	  .......                                       |
+	  .......                                       |
+        +---------------+                               |
+  8000  |  info1        |  Linked list element 1  <-----+
+        +---------------+
+        | ref1=10000    |-------------------------------------+
+        +---------------+                                     |
+        |               |                                     |
+        +---------------+                                     |
+	  .......                                             |
+	  .......                                             |
+        +---------------+                                     |
+  9000  |  info3        |  Linked list element 3 <----+       |
+        +---------------+                             |       |
+        | ref3=<FONT COLOR="red"><B>20000</B></FONT>    |-----------------------------|---+   |
+        +---------------+                             |   |   |
+	  .......                                     |   |   |
+	  .......                                     |   |   |
+        +---------------+                             |   |   |
+ 10000  |  info2        |  Linked list element 2      | <-----+
+        +---------------+                             |   |
+        | ref2=9000     |-----------------------------+   |
+        +---------------+                                 |
+	  .......                                         |
+	  .......                                         |
+        +---------------+                                 |
+  <B>elem:</B> |  20000        |-----------------------------+   |
+        +---------------+                             |   |
+	  .......                                     |   |
+	  .......                                     |   |
+        +---------------+                             |   |
+ 20000  |  infoX        | New linked list element <---+---+
+        +---------------+
+        | refX=<FONT COLOR="red"><B>null</B></FONT>     |
+        +---------------+
+ </PRE>
+ <P>
+ <UL>
+  <LI> Notice the change of the address value in the last element of the
+	linked list.
+   <P>
+	This address (20000) is also the address of the list element
+	pointed to by "elem"
+  <P>
+  <LI> The other change is the linkage value of the new last element.
+	It must contain ZERO (null) to indicate the end of the list.
+  </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Iterative</I> algorithm to insert list element at <I>tail</I>
+     </B></FONT>
+<P>
+<UL>
+
+
+<LI> Linking a new list element to the end of a list
+     can be achieve by an <B>iterative algorithm </B> as follows:
+ <P>
+   We must make a distinction between inserting into an <B>empty</B>
+	list and a <B>non-empty</B> list....
+  <P>
+ <UL>
+ <LI> If the list at head is <B>empty</B>:
+ <P>
+ <PRE>
+   elem.next = null;
+   head = elem; (new head)
+ </PRE>
+ <LI> If the list at head is <B>not empty</B>:
+ <PRE>
+   ptr = "Find the last element in the list at head";
+   ptr.next = elem;
+   elem.next = null; (head remains unchanged)
+ </PRE>
+ </UL>
+
+<P>
+<LI> The following is a Java program containing an
+	<B>Insert</B> function that inserts the
+	"newelem" list element at the tail of a linked list
+	that begins at "head":
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static ListElement <FONT color="red">Insert</font>(ListElement head, ListElement newelem)             
+   { 
+      ListElement ptr;   // local variable to run down the list
+ 
+      if (head == null)
+      {  // Empty list, make "newelem" the first element
+         newelem.next = null;       // Mark last element
+         return(newelem);
+      }
+      else
+      {  // find the last element
+         ptr = head;
+         while (ptr.next != null)
+            ptr = ptr.next;
+         ptr.next = newelem;        // Link new to the last element
+         newelem.next = null;       // Mark last element
+         return(head);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This function will return the <B>head</B> of the new list (with
+	the "newelem" inserted.
+ <P>
+<HR>
+<P>
+ <LI> Since we are <FONT color="blue"><B>discussing</B></FONT>
+       <FONT color="red"><B><I>recursion</I></B></FONT>, I will
+       <FONT color="blue"><B>not</B></FONT> spend time
+       discussing the
+       <FONT color="red"><B><I>iterative</I> algorithm</B></FONT>
+<P>
+ But I will <FONT color="blue"><B>show you</B></FONT>
+ the <FONT color="red"><B>code</B></FONT> -- you can study it
+ on your own.
+<P>
+ The following program fragment shows how to use this function:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   ptr = new ListElement();       // Create a new list element
+
+   .... (initialize the list element)
+
+   head = <FONT color="red">Insert(head, ptr)</font>;      // Insert new element into list
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> Program in Java with <B>iterative algorithm</B> to link at tail of list:
+     <A HREF="../demo/Linklist2.java"> click here </A>
+<P>
+<LI> Program in M68000 assembler with <B>iterative algorithm</B> to link 
+	at tail of list:
+     <A HREF="../demo/list2.s"> click here </A>
+  <P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A note on allocating memory space for a new list element
+     </B></FONT>
+<P>
+<UL>
+<LI> In <B>Java:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   ListELement ptr;
+
+   ptr = <FONT color="red">new</font> ListElement();       // Create a new list element         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Recall</B> that the
+  <FONT color="red"><B><TT>new</TT></B></FONT> operator will:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Reserve</I> (= allocate)</B></FONT>
+      some (enough) <FONT color="blue"><B>memory space</B></FONT>
+      to store a <FONT color="red"><B><TT>ListElement</TT> </B></FONT> typed
+      <B>object</B>
+<P>
+<HR>
+<P>
+ <LI> And <FONT color="blue"><B>return</B></FONT> the
+     <FONT color="red"><B><I>location</I> (= address)</B></FONT>  of the
+     <FONT color="blue"><B>reserved memory space</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To <FONT color="blue"><B>similate</B></FONT> the
+     <B>effect</B> of the
+      <FONT color="red"><B><TT>new</TT></B></FONT> operator, I have
+      <B>written</B> the
+      <FONT color="blue"><B><TT>malloc() </TT> function</B></FONT>
+      that does the <FONT color="red"><B>following</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+   <LI> The function <B>malloc</B> takes one 
+     <FONT color="blue"><B>input parameter</B></FONT> in 
+     <FONT color="red"><B>D0</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>D0</B></FONT> =
+      the <B>number of bytes</B> of
+      <FONT color="red"><B>memory</B></FONT> you want to
+      <FONT color="blue"><B>reserve</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+  <LI> The  <B>malloc</B> (memory allocate) function
+      will
+	 <FONT color="red"><B>reserve</B></font> the amount of
+	<FONT color="blue"><B>bytes</B></FONT> of memory given
+	in <FONT color="red"><B>D0</B></FONT>.
+
+<P>
+<LI> The function <B>malloc</B> then
+     returns the <FONT color="red"><B>location</B> (address)</font>
+	of the start of reserved memory in register
+<FONT color="blue"><B> A0</B></FONT>.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Java:</font>
+
+   ListELement ptr;
+
+   ptr = new ListElement(); 
+   ptr.value = 1234;
+
+<HR>
+  <FONT color="red">M68000 equivalent:</font>
+
+   <FONT color="magenta">// ptr = new ListElement(); </font>
+        move.l #8, d0                  reserve 8 byte for a List object
+        jsr    malloc
+        move.l a0, ptr                 put address in ptr
+
+   <FONT color="magenta">// ptr.value = 1234;</font>
+        movea.l  ptr, a0
+	move.l  #1234, (a0)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+</UL>
+</UL>
+
+
+
+</UL>
+<HR>
+<HR>

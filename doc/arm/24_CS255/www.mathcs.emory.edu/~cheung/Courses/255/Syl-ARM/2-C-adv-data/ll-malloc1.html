@@ -1,0 +1,311 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+introduction to linked lists in C
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining a simple linked list structure
+     </B></FONT>
+<P>
+ <UL>
+ <LI>
+  In <FONT color="red"><B>Java</B></FONT>, you
+ have <FONT color="blue"><B>learned </B></FONT> the following to
+   <FONT color="red"><B>define</B></FONT> a
+   <FONT color="blue"><B>Linked list <I>type</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public class<FONT color="red"> List</FONT>
+    {
+       int  value;   // Payload in the List element
+       List next;    // <FONT color="red">Reference variable</FONT> to a <FONT color="red">List object</FONT> !!!     
+
+       // Other non-relevant stuff omitted
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You can <FONT color="red"><B>define</B></FONT>
+      a <B>equivalent</B>
+    <FONT color="blue"><B>Linked list <I>data type</I></B></FONT>
+     in <FONT color="red"><B>C</B></FONT> as <B>follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct List
+   {
+       int          value;   // Payload in the List element
+       <FONT color="red">struct List *</FONT>next;    // <FONT color="red">Reference variable</FONT> to a<FONT color="red"> List object</FONT> !!!     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Moral</B></FONT> of
+ this <FONT color="blue"><B>example</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can do <FONT color="red"><B>same things</B></FONT> if
+    <FONT color="blue"><B><I>different</I> programming languages</B></FONT>
+<P>
+ <LI> 
+     If you
+     <FONT color="red"><B>understand</B></FONT> the
+     <FONT color="blue"><B>concepts</B></FONT>,
+     you can <FONT color="red"><B>come up</B></FONT> with
+     the <FONT color="blue"><B>construct</B></FONT> yourself !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+I will <FONT color="red"><B>illustrate</B></FONT> how to
+ <FONT color="blue"><B>program linked list in C</B></FONT> using
+ what <FONT color="red"><B>you know</B></FONT> in
+ <FONT color="blue"><B>Java</B></FONT> !!
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Creating linked list elements
+     </B></FONT>
+<P>
+<UL>
+ <LI>
+  In <FONT color="red"><B>Java</B></FONT>, you
+ have <FONT color="blue"><B>learned </B></FONT> the following to
+   <FONT color="red"><B>create and initialize</B></FONT> a
+   <FONT color="blue"><B>Linked list <I>object</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">List</FONT>  p;          // Define a <FONT color="red">reference variable</FONT> to List objects
+
+   p = <FONT color="red">new List( )</FONT>;  // <FONT color="red">new List( )</FONT> creates a List object and <FONT color="red">return its location</FONT>   
+                     //<FONT color="red"> p = new List( )</FONT>  makes <FONT color="red">p point to this List object</FONT>
+
+   <FONT color="red">p.</FONT>value = 4444;   // Initialize value (access the value field)
+   <FONT color="red">p.</FONT>next  = null;   // Initialize next
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Comment:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>new</TT> operator</B></FONT>
+     in <FONT color="blue"><B>Java</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Reserve</B></FONT> 
+     (sufficient)  <FONT color="blue"><B>memory</B></FONT> to
+     <FONT color="red"><B>store</B></FONT> an
+     <FONT color="blue"><B>object</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>return</B></FONT> the
+       <FONT color="blue"><B><I>address</I></B></FONT> of
+      the <FONT color="red"><B>reserved memory location</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>address</B></FONT> returned
+  by the <FONT color="blue"><B><TT>new</TT> operator</B></FONT>
+  must be <B>stored</B> in
+ a <FONT color="red"><B>reference variable</B></FONT>
+ so we can <FONT color="blue"><B>access</B></FONT> the
+ <FONT color="red"><B>object </B></FONT> later !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> You can <FONT color="red"><B>create and initialize</B></FONT>
+      a
+    <FONT color="blue"><B>Linked list <I>object</I></B></FONT>
+     in <FONT color="red"><B>C</B></FONT> as <B>follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">struct List  *</FONT>p;  // Define a <FONT color="red">reference variable</FONT> to List objects
+
+   p = <FONT color="red">malloc(sizeof(struct List))</FONT>; 
+
+           // <FONT color="red">malloc(sizeof(struct List))</FONT> creates a List object and <FONT color="red">return its location</FONT>   
+           // <FONT color="red">p = malloc(...)</FONT>  makes <FONT color="red">p point to this List object</FONT>
+
+   <FONT color="red">p-></FONT>value = 4444;   // Initialize value (access the value field)
+   <FONT color="red">p-></FONT>next  = null;   // Initialize next
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Comment:</B>
+  the <FONT color="red"><B>C library function <TT>malloc( )</TT></B></FONT>
+  performs the
+  <FONT color="blue"><B><I>same</I> task</B></FONT> as
+  <B>Java's</B>
+  <FONT color="red"><B><TT>new</TT> operator</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The call <FONT color="red"><B><TT>malloc(sizeof(struct List))</TT> 
+   </B></FONT>
+     in <FONT color="blue"><B>C</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Reserve</B></FONT> 
+     (sufficient)  <FONT color="blue"><B>memory</B></FONT> to
+     <FONT color="red"><B>store</B></FONT> an
+     <FONT color="blue"><B><TT>struct List</TT> object</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>return</B></FONT> the
+       <FONT color="blue"><B><I>address</I></B></FONT> of
+      the <FONT color="red"><B>reserved memory location</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>address</B></FONT> returned
+  by the <FONT color="blue"><B><TT>malloc( )</TT> function</B></FONT>
+  must be <B>stored</B> in
+ a <FONT color="red"><B>reference variable</B></FONT>
+ so we can <FONT color="blue"><B>access</B></FONT> the
+ <FONT color="red"><B>object </B></FONT> later !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+
+
+We will use these
+ <FONT color="red"><B>C constructs</B></FONT> in
+  a <FONT color="blue"><B>complete program </B></FONT>
+ <FONT color="red"><B>later</B></FONT>
+<P>
+But <FONT color="red"><B>first</B></FONT>,
+ I want to
+ <FONT color="blue"><B>stress</B></FONT> an
+ <FONT color="red"><B>important difference</B></FONT>
+  in 
+ <FONT color="blue"><B>memory management</B></FONT>
+ between
+ <FONT color="red"><B>Java</B></FONT>
+ (that babies you to death) and
+ <FONT color="blue"><B>C</B></FONT>....
+<P>
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

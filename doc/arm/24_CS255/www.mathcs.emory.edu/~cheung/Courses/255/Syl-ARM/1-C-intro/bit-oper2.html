@@ -1,0 +1,309 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using the <I>bit-wise</I> operators in <I>C</I>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Using</I> the bitwise operators
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>bit-wise operations</B></FONT>
+	are <B>typically</B> used do the following:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Set</B></FONT> a <B><I>certain</I> bit</B>
+      in a byte, short, int, or long variable
+ <LI> <FONT color="red"><B>Clear</B></FONT> a <B><I>certain</I> bit</B>
+      in a byte, short, int, or long variable
+ <LI> <FONT color="red"><B><I>Flip</I></B></FONT> a <B><I>certain</I> bit</B>
+	(0 &rArr; 1 or 1 &rArr; 0)
+      in a byte, short, int, or long variable
+ <LI> <FONT color="red"><B>Test</B></FONT> a <B><I>certain</I> bit</B>
+      in a byte, short, int, or long variable
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>bit-wise operations</B></FONT>
+      <B><I>often</I></B> use a certain
+      <FONT color="red"><B>bit pattern</B></FONT>
+      (or <B><I>bit mask</I></B>)
+ <P>
+ <LI> The <FONT color="blue"><B>bit pattern</B></FONT> can <B>often</B> 
+    be expression <FONT color="red"><B>more <I>easily</I></B></FONT>
+    using <B>different <I>number systems</I></B>
+  <P>
+    We will also look at how to <FONT color="blue"><B>express</B></FONT>
+    a <B>value</B> in
+    <FONT color="red"><B>different number system</B></FONT>
+    in <B>C</B> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Setting a certain bit in a <I>bit pattern</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Set</B></FONT> a certain bit in a 
+     <B>bit pattern</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the variable <FONT color="blue"><B><TT>a</TT></B></FONT>
+      contains a <B>bit pattern</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Problem:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Set</B></FONT> the bit
+    <FONT color="red"><B><TT>x</TT></B></FONT> to the value
+    <FONT color="blue"><B><TT>1</TT></B></FONT>
+    <FONT color="red"><B><I>without</I> changing</B></FONT>
+    <B>all other bits</B> in the pattern.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> We can <FONT color="blue"><B>set</B></FONT> the bit
+      <FONT color="red"><B><TT>x</TT></B></FONT> inside the
+      <B>bit pattern</B> to <FONT color="blue"><B>1</B></FONT> using
+      the <FONT color="red"><B>OR operation</B></FONT> with
+      the following
+     <FONT color="blue"><B><I>specific</I> pattern</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101       
+        0000..010..0000
+  <FONT color="red">OR</FONT>    ---------------
+        1010...<FONT color="red">1</FONT>...1101
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> 
+     <FONT color="red"><B>set</B></FONT>
+    the <FONT color="blue"><B>2nd bit</B></FONT> 
+     and the <FONT color="blue"><B>4th bit</B></FONT> in
+     a bit pattern
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = 0;          /* 0 = 00000000 */
+    <FONT color="red">
+   			   /* Bit pos:  76543210                */       
+      a = a |  4;          /* 16      = 00000100  - set 2nd bit */
+      a = a | 16;          /* 16      = 00010000  - set 4th bit */ </FONT>
+    
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bit-op2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bit-op2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Observation: we need a better way to make <I>bit patterns</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>decimal</I> number system</B></FONT>
+      is <FONT color="blue"><B>terrible</B></FONT> for expression
+      a <FONT color="red"><B>bit pattern</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B><I>different</I> number systems</B></FONT> !!!
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

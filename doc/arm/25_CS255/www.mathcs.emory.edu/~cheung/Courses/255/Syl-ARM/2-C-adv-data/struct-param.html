@@ -1,0 +1,411 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Passing a user-defined (<TT>struct</TT>) typed variable "by-reference"
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: <TT>struct</TT> typed parameter variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>user-defined typed</B></FONT>
+      variable is <FONT color="red"><B>pass-by-<I>value</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example program</B> that illistrated this 
+   <FONT color="red"><B>fact</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5" width=600>
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct BankAccount
+   {
+      int    accNum;
+      double balance;
+   };
+<FONT color="red">    
+   void update( struct BankAccount x )</FONT>
+   {
+      printf("Before update: 
+   	      x.accNum = %d  x.balance = %f\n",
+   		 x.accNum, x.balance);
+    <FONT color="red">
+      x.accNum = 1001;    // Update parameter
+      x.balance = 999999; // variable</FONT>
+    
+      printf("AFTER  update: 
+   	      x.accNum = %d  x.balance = %f\n",
+   		 x.accNum, x.balance);
+    
+   }
+    
+   int main(int argc, char *argv[])
+   {
+      struct BankAccount a;
+
+      a.accNum  = 123;
+      a.balance = 1000.0;
+    
+      printf("Before calling update:
+   	      a.accNum = %d  a.balance = %f\n",
+   		 a.accNum, a.balance);
+    <FONT color="red">
+      update (a); 
+   	// Demonstrate that struct is
+   	// passed-by-value</FONT>
+    
+      printf("AFTER  calling update:
+   	      a.accNum = %d  a.balance = %f\n",
+   		 a.accNum, a.balance);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Before calling update: a.accNum = 123  a.balance = 1000.000000
+     Before update: x.accNum = 123  x.balance = 1000.000000
+     AFTER  update: x.accNum = 1001  x.balance = 999999.000000
+   AFTER  calling update: <FONT color="red">a.accNum = 123  a.balance = 1000.000000    
+                            (unchanged - passed-by-value)</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/struct-param1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc struct-param1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: <I>simulating</I> the pass-by-reference mechanism with
+     <I>reference</I> parameter variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> that we can
+     <FONT color="blue"><B>simulate</B></FONT> the
+     <FONT color="red"><B>pass-by-reference</B></FONT> parameter
+     passing mechanism using
+     <FONT color="blue"><B><I>reference</I> parameter variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void update( <FONT color="red">double *x</FONT> )
+   {
+      printf("Before update: x = %lf\n", *x);
+    
+      <FONT color="red">*x = 1001;</FONT>    // *x is an alias for the ACTUAL parameter
+    
+      printf("AFTER  update: x = %lf\n", *x);
+    
+   }
+    
+   int main(int argc, char *argv[])
+   {
+      double a;
+    
+      a = 4;
+    
+      printf("Before calling update: a = %lf\n", a);
+    
+      update ( <FONT color="red">&a</FONT> );   
+   	   // Pass the address of a, <FONT color="red">Simulate passed-by-reference </FONT>      
+    
+      printf("AFTER  calling update: a = %lf\n", a);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Passing a user-defined (<TT>struct</TT>) typed variable
+     "by-reference"
+     </B></FONT>
+<P>
+<UL>
+<LI> We can use the <FONT color="red"><B>same technique</B></FONT> to
+     <FONT color="blue"><B>simulate</B></FONT> the
+     <FONT color="red"><B>pass-by-reference</B></FONT> mechanism
+     for any <FONT color="blue"><B>user-defined typed variable</B></FONT>
+ <P>
+<HR>
+<P>
+<LI> <B>General steps:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>function definition</B> must
+      use a <FONT color="red"><B>"<TT>struct StructName *</TT>"</B></FONT>
+      typed <FONT color="blue"><B>parameter variable</B></FONT>
+ <P>
+   <B>Inside</B> the <FONT color="blue"><B>function body</B></FONT>,
+    use the <FONT color="red"><B><TT>-></TT></B></FONT> operator
+    to <B>access</B> the <FONT color="blue"><B>member fields</B></FONT>
+    of the <FONT color="red"><B><TT>struct StructName </TT></B></FONT>
+    structure.
+ <P>
+  (You can <B>also</B> use the <FONT color="blue"><B>long form</B></FONT>:
+    <FONT color="red"><B><TT>(*p).varName</TT></B></FONT>)
+<P>
+<HR>
+<P>
+<LI> In the <B>caller</B>, pass the
+     <FONT color="red"><B><I>address</I> of the <TT>struct</TT> 
+    variable</B></FONT> to the <B>function</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  I will illistrate this using the
+   <FONT color="red"><B><TT>struct BankAccount</TT></B></FONT>
+   type.
+<P>
+<HR>
+<P>
+<LI> <B>Example program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5" width=600>
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct BankAccount
+   {
+      int    accNum;
+      double balance;
+   };
+    
+   void update( <FONT color="red">struct BankAccount *x</FONT> )
+   {
+      printf("Before update: (*x).accNum = %d  x->balance = %f\n",
+   		    (*x).accNum, x->balance);
+    
+      <FONT color="red">(*x).accNum </FONT>= 1001;    // (*x).accNum is same as: x->accNum
+      <FONT color="red">x->balance</FONT> = 999999;   // x->balance is sname as: (*x).balance
+    
+      printf("AFTER  update: (*x).accNum = %d  x->balance = %f\n",
+   		    (*x).accNum, x->balance);
+    
+   }
+    
+   int main(int argc, char *argv[])
+   {
+      struct BankAccount a;
+    
+      a.accNum  = 123;
+      a.balance = 1000.0;
+    
+      printf("Before calling update: a.accNum = %d  a.balance = %f\n",
+   		    a.accNum, a.balance);
+    
+      update (<FONT color="red"> &a</FONT> );
+   	   // <FONT color="red">Pass the ADDRESS</FONT> of the struct variable !
+    
+      printf("AFTER  calling update: a.accNum = %d  a.balance = %f\n",
+   		    a.accNum, a.balance);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Before calling update: <FONT color="red">a.accNum = 123  a.balance = 1000.000000</FONT>
+   Before update: (*x).accNum = 123  x->balance = 1000.000000
+   AFTER  update: (*x).accNum = 1001  x->balance = 999999.000000
+   AFTER  calling update:<FONT color="red"> a.accNum = 1001  a.balance = 999999.000000   (CHANGED !)</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/struct-param3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc struct-param3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+     
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

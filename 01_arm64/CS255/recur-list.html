@@ -1,0 +1,143 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction: recursive algorithms and linked lists
+<HR>
+</H3>
+<UL>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The list structure <FONT color="red">revisited</FONT>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall that a
+    <FONT color="red"><B>linked list</B></FONT> is
+   a <FONT color="blue"><B>chained</B></FONT> of
+   <FONT color="red"><B>List object</B></FONT>.
+ <P>
+ <LI> We usually use
+       a  <FONT color="blue"><B>reference variable</B></FONT>
+       called <FONT color="red"><B><TT>head</TT></B></FONT>
+       to point to the
+       <FONT color="blue"><B><I>first</I> List object</B></FONT> in the
+       chain
+<P>
+<B>Example: linked list</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Notice </B></FONT> that
+    the <FONT color="blue"><B>linked list
+     <I>structure</I></B></FONT> is
+     a <FONT color="red"><B><I>recursive</I> structure</B></FONT>
+<P>
+ I.e.: 
+   a <FONT color="red"><B>linked list</B></FONT>
+    <FONT color="blue"><B>contains</B></FONT>
+    another <FONT color="red"><B>(smaller) linked list</B></FONT>
+<P>
+<B>Example:</B>
+  a <FONT color="red"><B>linked list of 5 elements</B></FONT>
+ <FONT color="blue"><B>contains</B></FONT> 
+  a <FONT color="red"><B>linked list of 4 elements</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important consequence</B></FONT> of
+   the <FONT color="blue"><B>recursive nature</B></FONT> of
+   <FONT color="red"><B>linked lists</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>In general:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recursive algorithms</B></FONT>
+    works <FONT color="blue"><B><I>best</I></B></FONT> on
+    <FONT color="red"><B>problems/structures</B></FONT> that
+    can be <FONT color="blue"><B>defined <I>recurisvely</I></B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Since a <FONT color="red"><B>linked list</B></FONT> is
+     (by its <B>nature</B>) a
+    <FONT color="blue"><B><I>recursive</I> data structure</B></FONT>,
+    you can expect that
+    <FONT color="red"><B>recursive algorithms</B></FONT> 
+    will very <FONT color="blue"><B>very well (and simple)</B></FONT>
+    on <FONT color="red"><B>linked list</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will illustrate this with
+ a <FONT color="red"><B>look up</B></FONT> and
+  an <FONT color="red"><B>insertion algorithm</B></FONT>
+ on linked list.
+<P>
+And you can practice recursion on linked list in
+ a project assignment (insert into an ordered list)
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

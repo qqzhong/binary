@@ -1,0 +1,181 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Clear bit at poistion n in an <TT>int</TT> variable
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Clearing a bit
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Recall:</B> clear bit
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Bit position:                                  6543210
+
+    Starting bit pattern:   ..............x...............
+    Bit mask:               111111111111110111111111111111
+                        ----------------------------------------- AND      
+                            ..............0...............
+
+    (Bit dnoted by . will remain unchaned)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making the bit mask 
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>bit mask</B></FONT>
+     <FONT color="red"><B>111111111111110111111111111111....</B></FONT> is
+     the <FONT color="blue"><B>complement (negation)</B></FONT>
+     of
+     <FONT color="red"><B>00000000000000100000000000000.....</B></FONT>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>bit mask</B></FONT>
+     <FONT color="red"><B>111111111111110111111111111111...</B></FONT>
+     canbe <B>made</B> with the following
+     <FONT color="blue"><B>operation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                            i positions
+                         <-------------->
+  <FONT color="red">1 << i</font>     =   000000..1000000000000000                   
+
+  <FONT color="red">~(1 << i)</font>  =   111111..0111111111111111
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     C statement to clear bit position i in an int variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   int i;
+
+   x = <FONT color="red">x & ~(1 << i )</font>;    // Clear bit position i in x                       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Macro definition for the <TT>clrbit</TT> operation
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C macro</B> to <FONT color="blue"><B>clear</B></FONT> the 
+     bit at <FONT color="red"><B>position i</B></FONT> in
+     a variable <FONT color="blue"><B><TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define   <FONT color="red">CLRBIT</FONT>( x, i )     <FONT color="red">( x &= ~(1 << i) )</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,412 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>Input in C</B></FONT>
+<HR>
+
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reading in value of the built-in data types
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B><TT>scanf()</TT></B></FONT> function
+     is used to read in <B>values</B> of
+     <FONT color="red"><B><I>all</I> built-in data types</B></FONT>
+     in <B>C</B>.
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> of the <FONT color="blue"><B><TT>printf()</TT></B></FONT>
+     function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    scanf ( <FONT color="red">" format string "</FONT> , <FONT color="red">&</FONT>var1, <FONT color="red">&</FONT>var2, ..... );            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Very important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>&</TT></B></FONT> character is
+      the <FONT color="blue"><B>"reference" operator</B></FONT>
+      of the <B>C</B> programming language
+ <P>
+ <LI> The expression
+      &nbsp; <FONT color="red"><B><TT>&x</TT></B></FONT> &nbsp; means:
+       the <B>address</B> of the variable <FONT color="blue"><B>x</B></FONT>
+ <P>
+ <LI> You <FONT color="blue"><B>must</B></FONT> pass the
+    <FONT color="red"><B>address</B></FONT> of a variable to the
+    <FONT color="blue"><B><TT>scanf()</TT></B></FONT> function for
+    reading operations.
+  <P>
+   We will discuss the <FONT color="red"><B><TT>&</TT></B></FONT>
+    operator in more details later....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Format string:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>format string</B></FONT> in the
+       <B><TT>scanf()</TT></B> function contains
+       <FONT color="red"><B>formatting characters</B></FONT> that
+       instruct the <B>C compiler</B> to <B><I>read in</I></B>
+       a <FONT color="blue"><B>value</B></FONT> and 
+       <B>store</B> it in the given
+       <FONT color="red"><B>representation (encoding)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Commonly used formatting characters:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Formatting character
+</TH> 
+<TH>
+Meaning
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%d</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><I>signed</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%u</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><I>unsigned</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%ld</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>long <I>signed</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%lu</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>long <I>unsigned</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%f</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>floating point value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%lf</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>double precision floating point value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center" bgcolor="#FFEEEE">
+<FONT color="red"><B><TT>%c</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>character (i.e., used the ASCII code)</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center" bgcolor="#FFEEEE">
+<FONT color="red"><B><TT>%s</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>string (will be explained much later)</B></FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {<FONT color="red">
+      int i;      
+      float x;</FONT>
+
+      printf( "Enter an integer value:");
+      <FONT color="red">scanf</FONT>( "%d", <FONT color="red">&i</FONT> );
+      printf( "i = %d\n", i);
+
+      printf( "Enter a floating point value:");
+      <FONT color="red">scanf</FONT>( "%f", <FONT color="red">&x</FONT> );
+      printf( "x = %f\n", x);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Enter an integer value:<FONT color="red">56</FONT>
+   i = 56
+
+   Enter a floating point value:<FONT color="red">3.14</FONT>
+   x = 3.140000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/scanf1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc scanf1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reading a serie of inputs
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>scanf()</TT></B></FONT> 
+       return the <FONT color="blue"><B>number of items</B></FONT>
+       read
+ <P>
+ <LI> <FONT color="red"><B><TT>scanf()</TT></B></FONT> 
+       return the value <FONT color="blue"><B>&minus;1</B></FONT>
+       when you type
+       <FONT color="red"><B>control-D</B></FONT>
+       at the keyboard
+  <P>
+  (The character <FONT color="blue"><B>control-D</B></FONT> represents
+    <FONT color="red"><B>end-of-file (EOF)</B></FONT> in UNIX)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>How to</B> read a serie of
+     <FONT color="blue"><B>integers</B></FONT> until
+  <FONT color="red"><B>EOF</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      int i;
+
+      printf( "Enter an integer value: ");
+
+      while ( <FONT color="red">scanf( "%d", &i ) != EOF</font> )
+      {
+         printf( "i = %d\n", i);
+         printf( "Enter another integer value <FONT color="red">(type ^D to end)</font>: ");      
+      }
+
+      printf( "\nDONE !\n" );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/scanf2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc scanf2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

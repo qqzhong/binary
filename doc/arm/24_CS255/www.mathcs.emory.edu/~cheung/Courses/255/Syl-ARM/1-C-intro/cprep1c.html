@@ -1,0 +1,549 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Including files
+<HR>
+</H3>
+
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Including files
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B><TT>#include</TT></B></FONT> directive:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">#include  &lt;filename></FONT>      - include file "filename" from 
+                                the C's standard include directory       
+                                (which is: <FONT color="red">/usr/include</font>)
+
+   <FONT color="red">#include "filename"</FONT>        - include file "filename" from
+                                a <FONT color="red">user specified diretory</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>default</B></FONT>
+   <B>user specified include directory</B> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>current directory</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Specifying <FONT color="blue"><B>user specified
+  include directories</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc  <FONT color="red">-Idir1  -Idir2 ....</FONT>  C-program             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>C compiler</B></FONT> will look for
+  <B>include files</B> included with 
+  <FONT color="red"><B><TT>#include "..."</TT></B></FONT>
+ in directories
+ <FONT color="darkred"><B><TT>dir1</TT></B></FONT>,
+ <FONT color="darkred"><B><TT>dir2</TT></B></FONT>, etc.
+
+<P>
+<HR>
+<P>
+<LI> <B>Common practice:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Included file</B></FONT> in
+       <B>C programs</B> 
+     <FONT color="magenta"><B><I>usually</I></B></FONT> ends with the
+       <FONT color="red"><B><TT>.h</TT></B></FONT> extention
+ <P>
+   <FONT color="red"><B><TT>.h</TT></B></FONT> = <B>header file<B>
+     extension.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>include files</B></FONT> are called
+    <FONT color="red"><B><I>header</I> files</B></FONT> because
+    the <B><TT>#include</TT></B> command
+    <FONT color="blue"><B><I>almost</I> always</B></FONT> is located
+    at the <FONT color="red"><B>top (head) </B></FONT> of a
+    <FONT color="blue"><B>C program file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+header1.h
+</TH> 
+<TH>
+include1.c
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+#define  square(x)	((x)*(x))     
+#define	 MAX		99999
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">#include "header1.h"</FONT>
+
+   int main( int argc, char* argv[] )    
+   {
+      int A[<FONT color="red">MAX</FONT>];
+      int a, b;
+
+      A[5] = <FONT color="red">square( a+b )</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+Output of <FONT color="red"><B><TT>gcc -E include1.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( )
+{
+   int A[<FONT color="red">99999</FONT>];
+   int a, b;
+
+   A[5] = <FONT color="red">((a+b)*(a+b))</FONT>;             
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B> <FONT color="red"><B><I>header</I> file</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><TT>#include</TT></B></FONT> command
+      is <B>often</B> at the <FONT color="red"><B>start (head)</B></FONT>
+      of a <B>C program</B>
+ <P>
+   Hence, the <FONT color="blue"><B>included files</B></FONT> are called
+   <FONT color="red"><B>header files</B></FONT> in <B>C</B>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Nested</I> includes
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>#include</TT></B></FONT> directives can
+      <FONT color="blue"><B>nest</B></FONT>
+<P>
+ <B>I.e.:</B>
+   an <FONT color="blue"><B>included file</B></FONT> can
+   contain <FONT color="red"><B><TT>#include</TT></B></FONT> directives
+   to <B>include</B>
+   <FONT color="blue"><B><I>other</I> files</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> 
+      <FONT color="red"><B>header1-1.h</B></FONT> includes
+      <B>another</B> header file
+      <FONT color="blue"><B>header1-2.h</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>header2.h</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">#include "header2-2.h"</FONT>              
+
+   #define	 MAX		99999          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>header2-2.h</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  #define  square(x)	((x)*(x))                           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <B>main</B> program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">#include "header2.h"	// Nested include</FONT>      
+
+int main( )
+{
+   int A[MAX];
+   int a, b;
+
+   A[5] = square( a+b );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/include2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -E include2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> See output on terminal....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Recursive</I> includes
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Warning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="blue"><B>create</B></FONT>
+       <FONT color="red"><B><I>recursive</I> file inclusion</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> <FONT color="red"><B>recurse.h</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include <FONT color="red">"recurse.h"</font>           // Include the header file itself...    
+
+   #define  MAX  99999
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   recurse.h:2:21: error: <FONT color="red">#include nested too deeply</font>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You must <FONT color="red"><B>scroll back</B></FONT> a lot to
+  <FONT color="blue"><B>see the error</B></FONT> !!!
+<P>
+<FONT color="red"><B>Or</B></FONT>, use
+ this <FONT color="blue"><B>command</B></FONT>
+ (that will send the normal output to the
+  <FONT color="red"><B><TT>null</TT></B></FONT> device so you can
+ see the <FONT color="blue"><B>error message</B></FONT>):
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>             
+    gcc -E include-r.c <FONT color="red">> /dev/null</font>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/include-r.c
+       </TT></B></FONT>
+       and
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/recurse.h
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -E include-r.c > /dev/null 
+   </TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Watch the output onthe terminal
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

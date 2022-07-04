@@ -1,0 +1,724 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Debugging a C program
+ using <TT>gdb</TT> (GNU debugger)
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>biggest</I> problem for beginning C programmers
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Biggest headache</B> for
+      <FONT color="blue"><B>beginning</B></FONT> 
+      <FONT color="red"><B>C programmers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Unlike</B> <FONT color="blue"><B>Java</B></FONT>, when
+      a <B>C program</B>
+      <FONT color="red"><B><I>crashes</I></B></FONT>, you will
+      see:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>segmentation fault</I></B></FONT> message
+ <P>
+<HR>
+ <P>
+ <LI> There is <FONT color="red"><B><I>no</I> indication</B></FONT>
+       on <FONT color="blue"><B>where</B></FONT> in the
+       <B>C program</B>
+       the <FONT color="red"><B>error</B></FONT>
+       occured !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to find out the <I>location</I> of the program crash
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Rule:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>should always</B></FONT>
+      compile your <B>C program</B> with the
+      <FONT color="red"><B>debug flag <TT>-g</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     gcc<SPAN style="BACKGROUND-COLOR: yellow"> <FONT color="red">-g</FONT>  </SPAN>-o yourProgName  C-program.c               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> If your <B>C program</B> consists of
+     <FONT color="blue"><B>multiple files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     gcc <FONT color="red">-g</FONT>  prog-file1.c           
+     gcc <FONT color="red">-g</FONT>  prog-file2.c 
+     ....
+
+     gcc <FONT color="red">-g</FONT> -o  yourProgName   prog-file1.o  prog-file2.o  ...    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> To <FONT color="red"><B>find</B></FONT>
+    the <FONT color="blue"><B>crash location</B></FONT>,
+     run the
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="red"><B>debugger</B></FONT> </SPAN>on your
+     <B>program</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">gdb</FONT>   yourProgName </SPAN>        
+
+<HR>
+  At the <FONT color="red">gdb</FONT> prompt, type the <FONT color="red">run</FONT> command:                
+
+      (gdb)<SPAN style="BACKGROUND-COLOR: yellow"> <FONT color="red">run</FONT> [optionally: arguments] </SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>program</B> will <FONT color="blue"><B>stop</B></FONT>
+  at the <FONT color="red"><B>crash location</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> You can use the <FONT color="red"><B><TT>list</TT></B></FONT>
+     command of <FONT color="blue"><B>gdb</B></FONT> to
+     <B>print</B> the
+     <FONT color="blue"><B>program fragment</B></FONT>
+     at the <FONT color="red"><B>crash location</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (gdb) <FONT color="red">list</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This may <FONT color="blue"><B>help</B></FONT> you <B><I>identify</I></B>
+   the <FONT color="red"><B>segment </B></FONT> of the <B>source file</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>gdb</B></FONT> is not well suited to
+       look at the <FONT color="red"><B>C program</B></FONT>
+ <P>
+ <LI> <B>Instead</B>, use your favorite <FONT color="red"><B>editor</B></FONT>
+     (gedit ?) to look at the <FONT color="blue"><B>program file</B></FONT>
+     to find the <B>error</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Finding out <I>what</I> caused the crash
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="red"><B>no</B></FONT> scientific way
+     to find out <FONT color="blue"><B>what</B></FONT> caused 
+     the <B>program</B> to <FONT color="blue"><B>crash</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> There <FONT color="blue"><B>are</B></FONT> commands in
+    <FONT color="red"><B>gdb</B></FONT> that will
+    <FONT color="blue"><B>help</B></FONT> you find out the
+    <B>reason</B> your program crashed.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Most common cause</B> of a
+      <FONT color="blue"><B>program crash</B></FONT>:
+   
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>variable</B></FONT> has
+       an <FONT color="red"><B><I>incorrect</I> value</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You can <FONT color="red"><B>print</B></FONT> out
+     the <B>value</B> in any
+     <FONT color="blue"><B>variable</B></FONT> at the
+     <FONT color="red"><B>crash location</B></FONT> using the
+     <FONT color="blue"><B><TT>p</TT></B></FONT> command in
+     <FONT color="red"><B>gdb</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     (gdb) <FONT color="red">p</FONT>  variableName                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <SPAN style="BACKGROUND-COLOR: yellow">Example using <I>gdb</I></SPAN>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Program:</B> (<FONT color="blue"><B>crash1.c</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">// Program file: /home/cs255001/demo/C/set1/crash1.c</FONT>     
+
+   int main(int argc, char *argv[])                 
+   {
+      int a[10];
+      int i = -872625577;
+
+      a[i] = 1234;
+      printf("i = %d\n", i);
+      printf("a[i] = %d\n", a[i]);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Compile with:</B> 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     gcc<SPAN style="BACKGROUND-COLOR: yellow"> <FONT color="red">-g</font>   </SPAN>crash1.c            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Run</B> with this <FONT color="blue"><B>command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">gdb</font>  a.out               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Output:</B>
+<P>
+<UL> 
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255 (7072)> <FONT color="red">gdb a.out</font>
+GNU gdb (GDB) Red Hat Enterprise Linux (7.2-64.el6_5.2)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/cs255000/demo/c/set2/a.out...done.
+(gdb) <FONT color="red">run</font>
+Starting program: /home/cs255000/demo/c/set2/a.out 
+
+Program received signal SIGSEGV, <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">Segmentation fault.</font></SPAN>
+0x00000000004004df in main (argc=1, argv=0x7fffffffe9d8) <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">at crash1.c:17</font></SPAN>
+<FONT color="red">17</font>	   a[i] = 1234;
+<FONT color="darkred">
+(GDB tells us the program<SPAN style="BACKGROUND-COLOR: yellow"> crashed at line <FONT color="red">17</font> in the file <FONT color="red">crash1.c</font>)</font></SPAN>
+
+(gdb) <FONT color="red">where</font>
+#0  0x00000000004004df in main (argc=1, argv=0x7fffffffe9d8) at <FONT color="red">crash1.c:17</font>
+<FONT color="darkred">
+(Ask GDB to tell where the program stopped.
+ GDB tells us: line <FONT color="red">17</font> in the file <FONT color="red">crash1.c</font>)</font>
+
+(gdb) <FONT color="red">list</font>
+12	int main(int argc, char *argv[])
+13	{
+14	   int a[10];
+15	   int i = -872625577;
+16	
+<SPAN style="BACKGROUND-COLOR: yellow">17	   a[i] = 1234;</SPAN>
+18	   printf("i = %d\n", i);
+19	   printf("a[i] = %d\n", a[i]);
+20	}
+<FONT color="darkred">
+(Ask GDB to list the program source around the place where the program stopped.
+ GDB gives us about 10 lines of text....</font>
+
+<FONT color="magenta">
+Conclusion: the execution of <FONT color="red">a[i] = 1234</font> caused the error....
+Find out the value of these variables !!!
+</font>
+(gdb) <FONT color="red">p i</font>
+$1 = -872625577
+<FONT color="darkred">
+(Ask GDB to show us the value of the variable i
+ GDB gives us <FONT color="red">-872625577</font></font>
+
+(gdb) <FONT color="red">print a[i]</font>
+Cannot access memory at address 0x7fff2ff3121c
+<FONT color="darkred">
+(Ask GDB to show us the value of the variable a[i]
+ GDB gives us <FONT color="red">-872625577</font></font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Breakpoints
+     </B></FONT>
+<P>
+<UL>
+<LI> You can put a <FONT color="red"><B>break point</B></FONT> at
+     any <FONT color="blue"><B>function</B></FONT> in your 
+     <B>program</B>
+<P>
+<LI> <B>Command</B> to put a
+    <FONT color="red"><B>break proint</B></FONT>
+    at a <FONT color="blue"><B>function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    (gdb) <FONT color="red">b</FONT> functionName             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (gdb) <FONT color="red">b</FONT> main                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> When your program has
+    <FONT color="blue"><B>stopped</B></FONT> at a
+    <FONT color="red"><B>break point</B></FONT>, you can
+    do these thing:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>print </B></FONT>
+   the <B>value</B> in
+      <FONT color="red"><B>variables</B></FONT> 
+      (to help you <FONT color="blue"><B>find error(s)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (gdb) <FONT color="red">p</FONT>  variableName                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+<HR>
+ <LI> <FONT color="blue"><B>Add</B></FONT> more
+    <FONT color="red"><B>break points</B></FONT> or
+    <FONT color="blue"><B>delete</B></FONT> an
+   <B>existing</B> breakpoint:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (gdb) <FONT color="red">b</FONT> functionName                 (add breakpoint)  
+
+   (gdb) <FONT color="red"><B>delete</FONT>  breakpointNumber
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Find</B></FONT> the
+  <FONT color="red"><B>breakpoint's number</B></FONT> by using the
+  <FONT color="blue"><B>info</B></FONT> command:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (gdb) <FONT color="red">info</FONT> breakpoints            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Continue</B></FONT> with
+     your <FONT color="blue"><B>program execution</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (gdb)<SPAN style="BACKGROUND-COLOR: yellow"> <FONT color="red">n</FONT>       (short for <FONT color="red">next</FONT>)  </SPAN>     
+
+ or:
+
+   (gdb) <FONT color="red">c</FONT>       (short for <FONT color="red">continue</FONT>) 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will discuss these command next....
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Executing the program <I>after</I> it stopped at a <I>breakpoint</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>After</B> your program has <FONT color="blue"><B>stopped</B></FONT> 
+    at an (any one) <FONT color="red"><B>break point</B></FONT>,
+    you can <B>choose</B> to
+    <FONT color="blue"><B>execute</B></FONT> the program
+    in <FONT color="red"><B>several ways</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI><SPAN style="BACKGROUND-COLOR: yellow"> Execute
+        <FONT color="blue"><B><I>one</I> statement</B></FONT>
+	and <FONT color="red"><B>stop</B></FONT>:</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    (gdb)<SPAN style="BACKGROUND-COLOR: yellow"> <FONT color="red">n</FONT>           (short for <FONT color="red">"next"</FONT>)  </SPAN>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This command is like the
+  <FONT color="red"><B>STEP command</B></FONT> in
+ <FONT color="blue"><B>EGTAPI</B></FONT>
+<P>
+<HR>
+<P>
+<LI> Execute the
+        <FONT color="blue"><B>program</FONT> <I>continuously</I></B>
+	until it
+	 <FONT color="red"><B>stops</B></FONT> at a
+	 <FONT color="blue"><B>breakpoint</B></FONT> or
+	 <FONT color="red"><B>crashes</B></FONT> or
+	 <FONT color="blue"><B>terminates</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    (gdb) <FONT color="red">c</FONT>           (short for <FONT color="red">"contiune"</FONT>)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This command is like the
+  <FONT color="red"><B>RUN command</B></FONT> in
+ <FONT color="blue"><B>EGTAPI</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

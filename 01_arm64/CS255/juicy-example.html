@@ -1,0 +1,337 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+<H3>
+<HR>
+A <B>comprehensive</B> example in Operand Manipulation
+<HR>
+</H3>
+<UL>
+<P>
+<LI> Suppose we have the following variables defined:
+<B>
+<PRE>
+     int   x[100];
+     short y[100];
+     byte  z[100];
+
+     int   i;
+     short j;
+     byte  k;
+
+     class List
+     {
+        int   value1;
+	short value2;
+	short value3;
+	List next
+     }
+
+     List head;   (head contains the start of a linked list,
+		   assume the linked list has been created and is
+		   not empty)
+</PRE>
+</B>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Write an <B>equivalent</B> 
+  <FONT color="red"><B>assembler program</B></FONT> for:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   y[i + j] = z[ x[ k ] ] + head.value1 + head.next.value3;      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> to
+    <FONT color="blue"><B>compute</B></FONT> the
+    <FONT color="red"><B>expression</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Get <FONT color="blue"><B><TT>z[ x [ k ] ]</TT></B></FONT>
+      in <FONT color="red"><B>register <TT>r10</TT></B></FONT>
+      (I use the <FONT color="blue"><B>register <TT>r10</TT></B></FONT>
+      to store the <FONT color="red"><B>running computation</B></FONT>)
+<P>
+    Steps:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get <FONT color="blue"><B><TT>k</TT></B></FONT>
+ <LI> Use <FONT color="blue"><B><TT>k</TT></B></FONT> to get
+      <FONT color="red"><B><TT>x[k]</TT></B></FONT>
+ <LI> Use <FONT color="red"><B><TT>x[k]</TT></B></FONT> to
+     get <FONT color="blue"><B><TT>z[ <FONT color="red">x[k]</FONT> ]
+   </TT></B></FONT> in <FONT color="red"><B><TT>r10</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Get <FONT color="blue"><B><TT>head.value1</TT></B></FONT> in
+     <FONT color="red"><B><TT>r9</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get <FONT color="red"><B><TT>head</TT></B></FONT>
+ <LI> Use <FONT color="red"><B><TT>head</TT></B></FONT> to
+     get <FONT color="blue"><B><TT>head.value1</TT></B></FONT> in
+     <FONT color="red"><B><TT>r9</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Add</B></FONT>
+  <FONT color="blue"><B><TT>r9</TT></B></FONT> to
+  <FONT color="red"><B><TT>r10</TT></B></FONT>
+ (running sum is in <FONT color="red"><B><TT>r10</TT></B></FONT>)
+
+
+<P>
+<HR>
+<P>
+<LI> Get <FONT color="blue"><B><TT>head.next.value3</TT></B></FONT> in
+     <FONT color="red"><B><TT>r9</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get <FONT color="red"><B><TT>head</TT></B></FONT>
+ <LI> Use <FONT color="red"><B><TT>head</TT></B></FONT> to
+     get <FONT color="blue"><B><TT>head.next</TT></B></FONT>
+ <LI> Use <FONT color="red"><B><TT>head.next</TT></B></FONT> to
+     get <FONT color="blue"><B><TT>head.next.value3</TT></B></FONT> in
+     <FONT color="red"><B><TT>r9</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Add</B></FONT>
+  <FONT color="blue"><B><TT>r9</TT></B></FONT> to
+  <FONT color="red"><B><TT>r10</TT></B></FONT>
+ (running sum is in <FONT color="red"><B><TT>r10</TT></B></FONT>)
+
+<P>
+<HR>
+<P>
+<LI> Store <FONT color="red"><B><TT>r10</TT></B></FONT> into
+    <FONT color="blue"><B><TT>y[i + j]</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get <FONT color="blue"><B><TT>i</TT></B></FONT>
+ <LI> Get <FONT color="blue"><B><TT>j</TT></B></FONT>
+ <LI> Add <FONT color="blue"><B><TT>i</TT></B></FONT> and
+       <FONT color="blue"><B><TT>j</TT></B></FONT> to
+       <FONT color="red"><B><TT>i+j</TT></B></FONT>
+ <LI> Use <FONT color="blue"><B><TT>i+j</TT></B></FONT> to
+    get the <FONT color="red"><B>memory <I>address</I></B></FONT> 
+    of <FONT color="blue"><B><TT>y[i + j]</TT></B></FONT>
+ <LI> Store <FONT color="red"><B><TT>r10</TT></B></FONT> in
+   this memory address
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>assembler code</B></FONT> for this
+    <FONT color="blue"><B>assignment statement </B></FONT> is:
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     /* ***********************************
+        Get z[ x[k] ] in register r10
+	*********************************** */
+     // Get <FONT color="red">byte</FONT> k
+     movw   r0, #:lower16:k
+     movt   r0, #:upper16:k       // r0 = addr(k)
+     <FONT color="red">ldrsb</FONT>  r0, [r0]              // r0 = k    
+
+     // Get <FONT color="red">int</FONT> x[k]
+     movw   r1, #:lower16:x
+     movt   r1, #:upper16:x       // r1 = <FONT color="red">base address</FONT> of (int) array x
+
+     add    r0, r0, r0            // r0 = 2k
+     add    r0, r0, r0            // r0 = 4k (= <FONT color="red">offset</FONT> to x[i])
+     <FONT color="red">ldr</FONT>    r0, [r1,r0]           // r0 = x[k]    
+
+     // Get <FONT color="red">byte</FONT> z[ x[k] ] = z[ r0 ]
+     movw   r1, #:lower16:z
+     movt   r1, #:upper16:z       // r1 = base address of (byte) array z
+
+     <FONT color="red">ldrsb</FONT>  r10, [r1,r0]          // r10 = z[ x[k] ]
+
+     /* ****************************************
+        Get <FONT color="red">int</FONT> head.value1 in register r9
+	**************************************** */
+     // Get pointer head
+     movw   r0, #:lower16:head
+     movt   r0, #:upper16:head   // r0 = addr(head)
+     ldr    r0, [r0]             // r0 = head
+
+     // Get int head.value1
+     <FONT color="red">ldr</FONT>    r9, [r0, #0]         // r9 = head.value1
+
+     add    r10, r10, r9         // r10 = z[ x[ k ] ] + head.value1 
+
+     /* ******************************************
+        Get <FONT color="red">short</FONT> head.next.value3 in register r9
+	****************************************** */
+     // Get pointer head
+     movw   r0, #:lower16:head
+     movt   r0, #:upper16:head   // r0 = addr(head)
+     ldr    r0, [r0]             // r0 = head
+
+     // Get pointer head.next
+     ldr    r0, [r0, #8]         // r0 = head.next
+
+     // Get short head.next.value3
+     <FONT color="red">ldrsh</FONT>  r9, [r0, #6]         // r9 = head.next.value3
+
+     add    r10, r10, r9         // r10 = z[ x[ k ] ] + head.value1 + head.next.value3     
+
+     /* *************************************
+        Store r10 in <FONT color="red">short</FONT> y[i + j]
+	************************************* */
+     // Get int i 
+     movw   r0, #:lower16:i
+     movt   r0, #:upper16:i      // r0 = addr(i)
+     ldr    r0, [r0]             // r0 = i
+
+     // Get short j 
+     movw   r1, #:lower16:j
+     movt   r1, #:upper16:j      // r1 = addr(j)
+     ldrsh  r1, [r1]             // r1 = j
+
+     // Compute i+j
+     add    r0, r0, r1           // r0 = r0 + r1
+
+     // Get address of short y[i + j]   (base = y, offset = 2*(i+j)
+     movw   r1, #:lower16:y
+     movt   r1, #:upper16:y      // r1 = base address of array y
+
+     add    r0, r0, r0           // r0 = 2*(i+j)  (offset)
+                                 // Address of short y[i+j] is ready !!!
+
+     // Store r10 in y[i+j]
+     <FONT color="red">strh</FONT>   r10, [r1, r0]        // Stores r10 in base address + offset
+                                 // If you use <FONT color="red">str</FONT>, you will <FONT color="red">also</FONT> write the next array element !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+	     /home/cs255001/demo/asm/5-all-struct/summary-example.s
+	     </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 summary-example </TT></B></FONT>
+ <LI> To run: 
+   use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

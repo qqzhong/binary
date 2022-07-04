@@ -1,0 +1,816 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<B>Intro to subroutine with local variables</B>
+<HR>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     What are local variables ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Local variables:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Local variable</B></FONT> =
+      <B>variables</B> that are
+      <FONT color="red"><B><I>used</I> (= accessed)</B></FONT>
+      <B>only</B> by the
+      <FONT color="blue"><B>instructions</B></FONT> in
+      a <FONT color="red"><B><I>specific</I> subroutine</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Instructions</B></FONT> in
+         <FONT color="red"><B><I>other</I> subroutines</B></FONT> do
+	 <FONT color="blue"><B>not</B></FONT> use
+	 the <FONT color="red"><B>local variable</B></FONT> of
+	 a <FONT color="blue"><B>subroutine</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Before</B></FONT> instructions in a
+        <B>subroutine</B> can
+	<FONT color="red"><B><I>use</I></B></FONT>
+	a <FONT color="blue"><B>local variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>local variable</B></FONT> 
+        <FONT color="red"><B><I>must</I></B></FONT> be
+	<FONT color="blue"><B>created</B></FONT> !!!
+ <P>
+  <B>I.e:</B> 
+   <FONT color="blue"><B>memory space</B></FONT> need to be
+   <FONT color="red"><B>reserved</B></FONT> for the
+   <FONT color="darkmagenta"><B>local variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review of some CS170 material
+     </B></FONT>
+<P>
+<UL>
+
+
+<LI> This <FONT color="blue"><B>should</B></FONT> have been 
+    <B>taught</B> in
+    <FONT color="red"><B>CS170/CS171</B></FONT>,
+    but I want to make <FONT color="red"><B>sure</B></FONT> that
+     you <B>know <I>exactly</I></B> what
+      happens when a function is 
+      <FONT color="blue"><B>invoked</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Each time</B></FONT>
+      a <B>function/method</B> is 
+      <FONT color="red"><B>invoked (called)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the 
+	<FONT color="blue"><B><I>parameter</I> variables</B></FONT>
+	 and the 
+	 <FONT color="blue"><B><I>local</I>
+	variables</B></FONT> of the 
+	(called) function are
+     <FONT color="red"><B> <I>created</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+	
+<P>
+<HR>
+<P>
+ <LI> These <FONT color="red"><B>variables</B></FONT>
+      (<FONT color="blue"><B>parameter</B></FONT> and 
+      <FONT color="blue"><B>local</B></FONT>) are
+      then <FONT color="red"><B> <I>destroyed</I></B></FONT>
+	when:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  the function 
+	<FONT color="blue"><B>exits/returns</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<P>
+<LI> <B>Furthermore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Active function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>function</B></FONT> is
+    <FONT color="red"><B>active</B></FONT> if:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>function</B></FONT> has been
+        <FONT color="red"><B>called/invoked</B></FONT>
+ <LI> The <FONT color="blue"><B>function</B></FONT> has
+         <FONT color="red"><B>not</B></FONT> yet
+	 <FONT color="blue"><B>returned/exited</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> A <FONT color="red"><B><I>non</I>-recursive</B></FONT> <B>function</B>
+      is <FONT color="blue"><B>active</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>at most</B></FONT>
+     <FONT color="blue"><B><I>once</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  a
+         <FONT color="red"><B><I>non</I> recursive function</B></FONT>, then
+	 only <B>one</B> 
+	 <FONT color="blue"><B>set (= copy)</B></FONT> of its
+	 <FONT color="red"><B>parameter and local variable</B></FONT>
+	will exists at any time.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Local variable of <I>non</I>-recursive function
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Because</B></FONT> a
+   <FONT color="red"><B><I>non</I>-recursive function</B></FONT>
+   will <FONT color="blue"><B><I>never</I></B></FONT> be
+   <FONT color="red"><B>called</B></FONT> while it is
+   <FONT color="blue"><B>active</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B><I>only</I></B></FONT> need
+       <FONT color="red"><B>1 copy</B></FONT> of the
+       <FONT color="blue"><B>local variables</B></FONT> of
+       the
+       <FONT color="red"><B><I>non</I>-recursive function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We can use the <FONT color="red"><B><TT>ds</TT></B></FONT>
+     <B>assembler directive</B> to
+     <FONT color="blue"><B>reserve memory space</B></FONT> for
+     the <FONT color="red"><B>local variables</B></FONT> of a
+     <FONT color="blue"><B><I>non</I>-recursive</I> function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B> sum all elements in an array
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ int SumArray(int a[], int n)
+ { <FONT color="red">
+    int i, s;     // <-- local variables</FONT>           
+
+    sum = 0;
+    for (i = 0; i < n; i++)
+       s = s + a[i];
+    return(s);
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+This function is <FONT color="blue"><B>called</B></FONT> by
+  <FONT color="red"><B>main( )</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ main()
+ {
+     int A[10], sum;
+<FONT color="red"><B>
+     sum = SumArray( A, 10 );</B></FONT>
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> I will keep thing <FONT color="blue"><B>simple</B></FONT> and
+    <FONT color="blue"><B>pass</B></FONT> the
+    <B>parameters</B> using <FONT color="red"><B>registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> First parameter is an array. You can't pass multiple integers.
+	The only choice is to pass the address of the array.
+	Let's pick D0. (It's a smarter choice to pick A0
+	because an address is pass).
+ <LI> Second parameter can be a constant. So you must pass by value.
+	Let's pick D1.
+<P>
+<HR>
+<P>
+ <LI> And don't forget the <FONT color="red"><B>return value</B></FONT>
+      location: let's pick D0.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <UL>
+
+ </UL>
+<P>
+<HR>
+<P>
+<LI> Now we write the code in assembler with these agreements
+	on parameters and return location.
+ <P>
+ First, this is the <FONT color="red"><B>main program</B></FONT>
+    that invokes <FONT color="blue"><B>SumArray</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ main:
+        move.l #A, d0	   // Pass address of array
+        move.l #10, d1     // Pass #elements
+        bsr    SumArray    // Invoke SumArray
+
+        move.l d0, sum     // When SumArray return, update               
+			   // total with return value
+
+    A:     ds.l   10       // The array
+    sum:   ds.l   1
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> Then we must decide <FONT color="red"><B>where</B></FONT> to
+    put the <FONT color="blue"><B>local variables</B></FONT>
+<P>
+ <B>Recall</B>: 
+  for a <FONT color="darkmagenta"><B>non-recursive function</B></FONT>,
+ we <FONT color="red"><B>can</B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Memory variables</B></FONT>
+    (defined using <FONT color="blue"><B><TT>ds</TT></B></FONT>
+    assembler primitive)
+<P>
+<HR>
+<P>
+ <LI> <B>However:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>memory variable</B></FONT>
+      (defined using <FONT color="blue"><B><TT>ds</TT></B></FONT>
+    assembler primitive) must 
+    <FONT color="red"><B><I>not</I></B></FONT> <B>interfere</B> with
+    the <FONT color="blue"><B>execution</B></FONT> of the
+    <FONT color="red"><B>program !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Define the <FONT color="blue"><B>local variable</B></FONT>
+      <FONT color="red"><B><I>after</I></B></FONT> the
+      <FONT color="blue"><B><TT>RTS </TT></B></FONT> 
+      (return from subroutine instruction) of the
+      <B>function</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+<P>
+<LI> <B>Solution:</B>
+     <FONT color="red"><B><I>Non</I>-recursive</B></FONT> function
+     using <FONT color="blue"><B><I>memory</I> local variables</B></FONT>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+   SumArray:
+   	       MOVE.L #0, <FONT color="red">i</FONT>                ; i
+   	       MOVE.L #0, <FONT color="red">s</FONT>                ; s
+   
+      WStart:
+   	       MOVE.L <FONT color="red">i</FONT>, d2                ;; Get i in D2
+   	       CMP.L d1, d2                ; compares n (d1) and i (d2)
+   	       BGE    WEnd                 ; if (i >= n) exit while loop
+   
+   	       MOVE.L d0, a0               ; get base addr of array in a0           
+   	       MOVE.L <FONT color="red">i</FONT>, d4                ; d4 = i
+   	       MULS   #4, d4               ; d4 = offset in array
+   
+   	       MOVE.L 0(a0, d4.w), d4      ; d4 = a[i]
+   	       MOVE.L <FONT color="red">s</FONT>,  d3
+   	       ADD.L  d4, d3               ;
+   	       MOVE.L d3, <FONT color="red">s</FONT>                ; s = s + a[i]
+   
+   	       MOVE.L <FONT color="red">i</FONT>, d2                ; d2 = i
+   	       ADD.L  #1, d2               ; d2 = i + 1
+   	       MOVE.L d2, <FONT color="red">i</FONT>                ; i = i + 1
+   
+   	       BRA WStart
+   
+   	WEnd:
+   	       MOVE.L d3, d0               ; return(s) [ in agreed place d0 ]
+   	       <FONT color="red">RTS</FONT>
+
+***** Function will not execute pass this point ****   
+<FONT color="red">   i:          ds.l 1                  ; reserve SPACE for local variable i
+   s:          ds.l 1                  ; reserve SPACE for local variable s </FONT>  
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>NOTE:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>common error</B></FONT> that students
+    make is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Not</I> updating the
+  <I>memory variable</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      MOVE.L i, d2                ; d2 = i
+      ADD.L  #1, d2               ; d2 = i + 1         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> They <FONT color="red"><B><I>think</I></B></FONT> that they
+ have <FONT color="blue"><B>updated</B></FONT> the
+ <FONT color="darkmagenta"><B>local variable <TT>i</TT></B></FONT>
+<P>
+<FONT color="red"><B>No</B></FONT>
+  they <FONT color="blue"><B>did NOT</B></FONT>
+<P>
+They need to <FONT color="red"><B>update the memory variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">MOVE.L  d2, i</FONT>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<LI> Here is a runnable Emacsim assembler program of
+	the program above:
+	<A HREF="../../demo/sum2.s"> click here</A>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problems with storing local variables using the 
+     <FONT color="red"><TT>ds</TT> directive</font>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <B>only</B>
+       <FONT color="red"><B><I>one</I> copy</B></FONT> of
+       the <FONT color="blue"><B>local variables</B></FONT> defined
+       using <FONT color="red"><B><TT>ds</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We will see <B>later</B> (soon) that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Recursion</B></FONT> <B>requires</B>
+      (need to use)
+      <FONT color="red"><B><I>one</I> copy</B></FONT> of
+      <FONT color="blue"><B>local variables</B></FONT> for
+      <FONT color="red"><B><I>each</I> invocation</B></FONT> of
+      the <B>recursive subroutine</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT> stored as
+      <FONT color="red"><B>memory variables</B></FONT> using
+      <FONT color="blue"><B><TT>ds</TT></B></FONT> 
+      can <FONT color="red"><B>not</B></FONT>
+      support
+      <FONT color="blue"><B><I>recursive</I> subroutines</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We need a more
+  <FONT color="red"><B><I>advance</I> way</B></FONT> to
+  <FONT color="blue"><B>store</B></FONT>
+  the <B>local variables</B> for a
+  <FONT color="red"><B>subroutine</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Before I can discuss this <B>technqiue</B>,
+    I want to <FONT color="red"><B>review</B></FONT> the
+    <FONT color="blue"><B><I>lifetime</I></B></FONT> of
+    <FONT color="red"><B>local variables</B></FONT>
+    (and <FONT color="red"><B>parameter variables</B></FONT>)
+ <P>
+  (I want to make sure you <FONT color="blue"><B>understand</B></FONT>
+  that <FONT color="red"><B>local variables</B></FONT> and
+  <FONT color="red"><B>parameter variables</B></FONT>
+  are
+  <FONT color="blue"><B><I>created</I></B></FONT> and
+  <FONT color="blue"><B><I>destroyed</I></B></FONT> while
+  a <B>program</B> is running....)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Historical note....
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>very</I> first</B></FONT> computer language
+     was <FONT color="red"><B>Fortran</B></FONT> 
+ <P>
+<HR>
+ <P>
+<LI> <FONT color="blue"><B>Fortran</B></FONT> did
+     <FONT color="red"><B>not</B></FONT>
+     support <FONT color="blue"><B><I>recursion</I></B></FONT> !!!!
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B><I>very</I> first</B></FONT> 
+     <FONT color="red"><B>Fortran compiler</B></FONT> allocate
+     <B>local variables</B> as
+     <FONT color="blue"><B>memory variables</B></FONT> ---
+     just like the 
+     <FONT color="red"><B>example above</B></FONT> !!!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

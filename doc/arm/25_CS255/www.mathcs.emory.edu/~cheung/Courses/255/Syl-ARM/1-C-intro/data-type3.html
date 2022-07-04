@@ -1,0 +1,625 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>Conversion rules of C</B></FONT>
+<HR>
+
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Safe</I> conversions in C
+     </B></FONT>
+<P>
+<UL>
+ <LI> <B>Safe conversion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B> safe</B></FONT> conversion from
+      one data  type to another data type is a
+	<B>conversion</B> that
+     does <FONT color="blue"><B><I>not</I></B></FONT> 
+	cause an
+     <FONT color="red"><B><I>overflow</I></B></FONT> 
+ <P>
+  (I.e., you will get a <B>representation</B>
+	for the <FONT color="red"><B><I>same</I> value</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> The following
+    <FONT color="blue"><B>conversions</B></FONT> are
+     <FONT color="red"><B> safe</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/safe-conv.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<FONT color="red"><B>Important Note</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <B>C</B>, <FONT color="blue"><B><I>safety</I></B></FONT> has
+     <FONT color="red"><B><I>nothing </I></B></FONT> to do
+     with <FONT color="blue"><B><I>permission</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This will be explained in the 
+ <FONT color="red"><B>automatic conversion rule</B></FONT> next....
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Automatic conversion rules in C
+     </B></FONT>
+<P>
+<UL>
+
+ <LI> <FONT color="red"><B><I>Automatic</I> conversion rules</B></FONT>
+     of <B> C</B>:
+<P>
+
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><I>binary</I> operation</B></font> using
+       values of <FONT color="blue"><B>2 different types</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> will <FONT color="blue"><B>automatically</B></FONT>
+      perform a <FONT color="red"><B><I>safe</I> conversion</B></FONT>
+      for 
+      the value of the 
+      <FONT color="blue"><B><I>less capable</I> data type</B></FONT>
+      to a value of the
+      <FONT color="red"><B><I>higher capable</I> data type</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  int a;    
+  float b;
+<FONT color="red">
+  a + b   
+                 1. first convert A to float
+		 2. then perform A + B as float + float   
+		 (Just like Java)</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P> 
+<LI> An <FONT color="red"><B><I>assignment</I> operation</B></font> using
+       values of <FONT color="blue"><B>2 different types</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> will <FONT color="blue"><B>automatically</B></FONT>
+      perform a <FONT color="red"><B>conversion</B></FONT>
+      for 
+      the value of the 
+      <FONT color="blue"><B><I>LHS</I> data type</B></FONT>
+      to a value of the
+      <FONT color="red"><B><I>RHS</I> data type</B></FONT>
+<P>
+  <FONT color="red"><B><I>Even</I></B></FONT> if the <B>conversion</B>
+   will cause <FONT color="magenta"><B>precision loss</B></FONT> 
+   (i.e., <FONT color="red"><B><I>unsafe</I></B></FONT>) !!!
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  int   a;
+  float b  
+
+<FONT color="red">
+  a = b;   
+                 1. first convert b to int !!!
+		 2. then store the value in variable a  
+		 (DIFFERENT from Java !!!)</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+ this is <FONT color="red"><B>forbidden</B></FONT> in
+  <B>Java</B> !!!
+ (Need a <FONT color="blue"><B>casting</B></FONT> operator)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+   <P>
+<LI> <FONT color="red"><B>Warning</B></FONT> to
+  <FONT color="blue"><B>Java programmers</B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>
+	In <B>C</B>, you can perform
+	<FONT color="red"><B><I>unsafe</I> assignment operations</B></FONT>
+	that Java will <FONT color="blue"><B>not allow</B></FONT>
+	without using a <FONT color="red"><B>casting operation</B></FONT>
+  </B></FONT>
+ <P>
+ <HR>
+<P>
+ <B>Rationale:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> is designed for
+   <FONT color="red"><B>system programming</B></FONT>; and
+   <B>system programmers</B> are
+   <FONT color="blue"><B><I>mature</I> programmers</B></FONT>
+   who <FONT color="red"><B><I>should</I> know the danger</B></FONT>
+   of all features of the programming language.
+ <P>
+ <LI> Furthermore, <FONT color="blue"><B>preventive features</B></FONT>
+    in <B>programming languages</B> can
+    <FONT color="red"><B>prevent programmers</B></FONT> from
+    performing certain tasks.
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>systems programming language</B> is 
+   <FONT color="blue"><B>intended</B></FONT> to give the programmer
+   to <FONT color="red"><B>complete control</B></FONT>
+   of the computer (no restrictions)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+   Compiler checks for type conflicts
+   often <FONT color="darkmagenta"><B>limit</B></FONT>
+   the programmers' ability to perform some tasks.
+ <P>
+  Hence, these checks are <FONT color="red"><B>omitted</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <B>Conclusion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> is
+  <FONT color="red"><B><I>less</I>
+   strongly typed</B></FONT> than <B>Java</B>
+  <P>
+  (In other words: <FONT color="blue"><B>grow up</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Some <FONT color="red"><B>help</B></FONT> for
+   <FONT color="blue"><B>Java programmers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B>make</B></FONT> the
+   <FONT color="blue"><B>C compiler</B></FONT> give you
+  <FONT color="red"><B><I>warnings</I></B></FONT> when
+  the <FONT color="blue"><B>compiler</B></FONT> detects
+  a <FONT color="red"><B>"<I>Java-illegal</I>" operation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Compile your C program using the <FONT color="red">-Wconversion</FONT> option
+
+       gcc<SPAN style="BACKGROUND-COLOR: yellow">  <FONT color="red">-Wconversion</FONT>  </SPAN> C-program.c         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI>  <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main(int argc, char* argv[] )
+{
+   int i;
+   short s;
+   double d;
+
+   i = 9827563;
+   s = i;	/* Unsafe conversion, allowed in C !!! */             
+
+   printf( "i = %d , s = %d \n", i, s );
+
+   d = 9827563.444;
+   i = d;	/* Unsafe conversion, allowed in C !!! */
+
+   printf( "d = %lf , i = %d \n", d, i );
+
+   d = 9827563.444;
+   s = d;	/* Unsafe conversion, allowed in C !!! */
+
+   printf( "d = %lf , s = %d \n", d, s );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Compiler output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (3822)> gcc <FONT color="red">-Wconversion</FONT> casting1.c
+casting1.c: In function 'main':
+casting1.c:10:8: warning: conversion to 'short int' from 'int' may alter its value [-Wconversion]
+    s = i; /* Unsafe conversion, allowed in C !!! */
+        ^
+casting1.c:15:8: warning: conversion to 'int' from 'double' may alter its value [-Wfloat-conversion]
+    i = d; /* Unsafe conversion, allowed in C !!! */
+        ^
+casting1.c:20:8: warning: conversion to 'short int' from 'double' may alter its value [-Wfloat-conversion]
+    s = d; /* Unsafe conversion, allowed in C !!! */
+        ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>program</B></FONT> will
+ <FONT color="blue"><B>still compile successfully</B></FONT>.
+But at least, you are <FONT color="red"><B>warned</B></FONT> that these
+ <FONT color="blue"><B>conversion</B></FONT> 
+  <FONT color="red"><B>may</B></FONT> result
+ in <FONT color="blue"><B>errors</B></FONT> !!!
+ <P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/casting1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -Wconversion casting1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+ 
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postlude
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>C</B></FONT> <B>will</B>
+       <FONT color="red"><B><I>warn</I></B></FONT> you about
+        <B><I>some</I></B> <FONT color="blue"><B>conversion</B></FONT>
+       between <FONT color="red"><B><I>different</I> data types</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B>data types</B></FONT> are
+     <FONT color="red"><B><I>too far</I> apart</B></FONT>
+     (i.e., <FONT color="blue"><B><I>completely</I> unrelated</B></FONT>,
+     <B>C</B> will
+     <B>give</B> a
+    <FONT color="red"><B>warning</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char* argv[] )
+{
+   unsigned long i = 4;  // Integer
+	       // i is a number that you can add, subtract, etc
+   int a[5];   // Array of integers
+	       // <FONT color="red">a is the LOCATION (address) of the first elem of the array</FONT>       
+
+   printf("a = %p\n", <FONT color="red">a</FONT>);
+   printf("i = %lx\n", i);
+
+   <FONT color="red">i = a;      // WARNING !! Types are "too different" !!!</FONT>
+	       // BUT: it will still compile and run 
+               // Note: a "warning" is NOT fatal !!!
+
+   printf("i = 0x%lx\n", i);
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Compiler message:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+casting2.c: In function 'main':
+casting2.c:13:6: warning: <FONT color="red">assignment makes integer from pointer without a cast</FONT> [-Wint-conversion]
+    i = a;    
+      ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/casting2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc casting2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+  (a <FONT color="blue"><B>warning</B></FONT>
+    is <FONT color="red"><B>not fatal</B></FONT>,
+  you can still run the program !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+</UL>
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

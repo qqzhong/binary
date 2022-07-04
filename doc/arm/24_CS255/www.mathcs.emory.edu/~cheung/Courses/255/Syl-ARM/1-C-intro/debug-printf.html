@@ -1,0 +1,129 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Debugging a C program with "printf( )"
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Another way to debug (my favorite):
+       use <FONT color="red">printf( )</FONT> between
+    <FONT color="red"><B><TT>#ifdef DEBUG .... #endif</TT></B></FONT> !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Hint:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Insert</B></FONT>
+          <FONT color="red"><B>printf( )</TT></B></FONT> statements
+	  in <FONT color="blue"><B>strategic location</B></FONT>
+	  in your <B>program</B> to print:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Variables</B></FONT> that
+      can help you <FONT color="red"><B>understand</B></FONT>
+      the <B>execution</B> of
+      your program.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>After</B> you have <FONT color="blue"><B>identified</B></FONT>
+    the <FONT color="red"><B>crash location</B></FONT>,
+    you can <FONT color="blue"><B>add</B></FONT>
+    some <FONT color="red"><B>printf()</B></FONT>
+    statements near
+    the <FONT color="blue"><B>crash site</B></FONT> and 
+    print the <FONT color="red"><B>relevant variables</B></FONT>
+ <P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #ifdef  DEBUG
+    printf("x = %d\n", x);                 
+    printf("y = %d\n", y);
+    #endif
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Compile</B></FONT> your 
+  <FONT color="blue"><B>C program</B></FONT> with:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc  <FONT color="red">-DDEBUG= </FONT>   ...            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to <FONT color="red"><B>enable/include</B></FONT> the
+  <FONT color="blue"><B>debug printf( ) statements</B></FONT>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

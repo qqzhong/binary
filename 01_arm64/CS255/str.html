@@ -1,0 +1,921 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Updating (the value stored in) a simple memory variable 
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problem description
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The ARM processor only has 
+      about 10 general purpose registers
+ <P>
+     Any reasonably size computer program will have
+	more than 10 variables.
+<P>
+ Clearly:
+	you cannot store all the variables used in your program
+	in the registers
+<P>
+ But you need to store the values in a register 
+	<B>when</B> you need to use that value in a
+	computation.
+<P>
+<HR>
+<P>
+<LI> Due to the limited amount of registers in the CPU,
+	we will often move the <B>copy</B> of variable that is
+	in a register <B>back</B> to the 
+       <B>memory variable</B> when that value
+	is <FONT color="red"><B>not used in any 
+      immediate computation</B></FONT>.
+
+<P>
+<FONT color="red"><B>Rule of thumb:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose we move the value of a
+     <FONT color="red"><B>variable <TT>x</TT></B></FONT> into
+     some register and used it in some
+     <FONT color="blue"><B>computation</B></FONT>.
+ <P>
+ <LI> If the value in the register was <FONT color="red"><B>changed</B></FONT>
+     during the  <FONT color="blue"><B>computation</B></FONT> and
+     that value will <FONT color="red"><B>not be used</B></FONT>
+     for a while, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must</B></FONT> save the
+       value in the register
+       <FONT color="blue"><B>back<FONT color="red"> into the
+       <FONT color="red"><B>memory variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because if you <FONT color="red"><B>do not</B></FONT>
+  save the <FONT color="blue"><B><I>changed</I> value</B></FONT> back
+  into the <FONT color="red"><B>memory variable</B></FONT>,
+  the <FONT color="blue"><B>change</B></FONT> will
+  be <FONT color="red"><B>lost</B></FONT>
+  (and your program will have a bug....)
+<P>
+<LI> If the value in the register was
+      <FONT color="blue"><B>not change</B></FONT>,
+      we can <FONT color="red"><B>discard</B></FONT> the
+      value
+      (because if we need the
+      value in the <FONT color="blue"><B>variable</B></FONT> again,
+      we can use the <FONT color="red"><B>orignal (unchanged) value</B></FONT>)  <P>
+  I.e.: we <FONT color="red"><B>do not need to
+    save the value</B></FONT> back to memory <B>when</B> the
+   <FONT color="blue"><B> value (in the register) is unchanged</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Reminder:</FONT>
+      converting an <FONT color="red"><TT>int</TT> representation</FONT>
+      to <FONT color="red"><B><TT>byte</TT></B></FONT> and
+      <FONT color="red"><B><TT>short</TT></B></FONT> representation
+     </B></FONT>
+<P>
+<UL>
+<LI> Recall how we <FONT color="red"><B>convert</B></FONT>
+     a <FONT color="blue"><B><TT>byte</TT> representation</B></FONT>
+   of a <B>value</B> to
+   its <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+   (through <FONT color="blue"><B>sign-extension</B></FONT>):
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value      byte (8 bits 2s compl code)    int (32 bits 2s compl code)
+  -------    ----------------------------   ----------------------------------     
+   127             <FONT color="red">0</FONT>1111111                  000000000000000000000000<FONT color="red">0</FONT>1111111
+   ...
+     3             <FONT color="red">0</FONT>0000011                  000000000000000000000000<FONT color="red">0</FONT>0000011
+     2             <FONT color="red">0</FONT>0000010		     000000000000000000000000<FONT color="red">0</FONT>0000010
+     1		   <FONT color="red">0</FONT>0000001		     000000000000000000000000<FONT color="red">0</FONT>0000001
+     0		   <FONT color="red">0</FONT>0000000		     000000000000000000000000<FONT color="red">0</FONT>0000000
+    -1		   <FONT color="red">1</FONT>1111111		     111111111111111111111111<FONT color="red">1</FONT>1111111
+    -2		   <FONT color="red">1</FONT>1111110		     111111111111111111111111<FONT color="red">1</FONT>1111110
+    -3		   <FONT color="red">1</FONT>1111101		     111111111111111111111111<FONT color="red">1</FONT>1111101
+   ...
+  -128             <FONT color="red">1</FONT>0000000                  111111111111111111111111<FONT color="red">1</FONT>0000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>reverse</B></FONT>
+ <FONT color="blue"><B>conversion</B></FONT>
+ (from <FONT color="red"><B><TT>int</TT> representation</B></FONT> to
+  <FONT color="blue"><B><TT>byte</TT> representation</B></FONT>) is
+ <B>simply</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Discard</B></FONT> the
+       <FONT color="blue"><B>left-most 24 bites</B></FONT> and
+ <LI> <FONT color="blue"><B>Use (= store)</B></FONT> the
+  <FONT color="red"><B><I>last</I> 8 bits</B></FONT>
+ in the <FONT color="blue"><B><TT>int</TT> representation</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value         int (32 bits 2s compl code)     byte (8 bits 2s compl code)
+  -------   ----------------------------------  ----------------------------   
+   127       000000000000000000000000<FONT color="red">01111111     01111111</FONT>
+   ...        ...                                  ...
+     3       000000000000000000000000<FONT color="red">00000011     00000011</FONT>
+     2       000000000000000000000000<FONT color="red">00000010	  00000010</FONT>
+     1	     000000000000000000000000<FONT color="red">00000001	  00000001</FONT>
+     0	     000000000000000000000000<FONT color="red">00000000	  00000000</FONT>
+    -1       111111111111111111111111<FONT color="red">11111111	  11111111</FONT>
+    -2       111111111111111111111111<FONT color="red">11111110	  11111110</FONT>
+    -3	     111111111111111111111111<FONT color="red">11111101	  11111101</FONT>
+   ...	      ...                                  ...
+  -128       111111111111111111111111<FONT color="red">10000000     10000000</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+<LI> Recall how we <FONT color="red"><B>convert</B></FONT>
+     a <FONT color="blue"><B><TT>short</TT> representation</B></FONT>
+   of a <B>value</B> to
+   its <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+   (through <FONT color="blue"><B>sign-extension</B></FONT>):
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value      short (16 bits 2s compl code)   int (32 bits 2s compl code)
+  -------    ----------------------------   ----------------------------------     
+   32767        <FONT color="red">0</FONT>111111111111111             0000000000000000<FONT color="red">0</FONT>111111111111111
+   ...
+     3          <FONT color="red">0</FONT>000000000000011             0000000000000000<FONT color="red">0</FONT>000000000000011
+     2          <FONT color="red">0</FONT>000000000000010	     0000000000000000<FONT color="red">0</FONT>000000000000010
+     1	        <FONT color="red">0</FONT>000000000000001	     0000000000000000<FONT color="red">0</FONT>000000000000001
+     0	        <FONT color="red">0</FONT>000000000000000	     0000000000000000<FONT color="red">0</FONT>000000000000000
+    -1	        <FONT color="red">1</FONT>111111111111111	     1111111111111111<FONT color="red">1</FONT>111111111111111
+    -2	        <FONT color="red">1</FONT>111111111111110	     1111111111111111<FONT color="red">1</FONT>111111111111110
+    -3	        <FONT color="red">1</FONT>111111111111101	     1111111111111111<FONT color="red">1</FONT>111111111111101
+   ...
+  -32768        <FONT color="red">1</FONT>000000000000000             1111111111111111<FONT color="red">1</FONT>000000000000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>reverse</B></FONT>
+ <FONT color="blue"><B>conversion</B></FONT>
+ (from <FONT color="red"><B><TT>int</TT> representation</B></FONT> to
+  <FONT color="blue"><B><TT>short</TT> representation</B></FONT>) is
+ <B>simply</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Discard</B></FONT> the
+       <FONT color="blue"><B>left-most 16 bites</B></FONT> and
+ <LI> <FONT color="blue"><B>Use (= store)</B></FONT> the
+  <FONT color="red"><B><I>last</I> 16 bits</B></FONT>
+ in the <FONT color="blue"><B><TT>int</TT> representation</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value         int (32 bits 2s compl code)     short (16 bits 2s compl code)
+  -------   ----------------------------------  ---------------------------- 
+   32767     0000000000000000<FONT color="red">0111111111111111    0111111111111111</FONT>  
+
+   ...        ...                                  ...
+     3       0000000000000000<FONT color="red">0000000000000011    0000000000000011</FONT>
+     2       0000000000000000<FONT color="red">0000000000000010	 0000000000000010</FONT>
+     1	     0000000000000000<FONT color="red">0000000000000001	 0000000000000001</FONT>
+     0	     0000000000000000<FONT color="red">0000000000000000	 0000000000000000</FONT>
+    -1       1111111111111111<FONT color="red">1111111111111111	 1111111111111111</FONT>
+    -2       1111111111111111<FONT color="red">1111111111111110	 1111111111111110</FONT>
+    -3	     1111111111111111<FONT color="red">1111111111111101	 1111111111111101</FONT>
+   ...	      ...                                  ...
+  -32768     1111111111111111<FONT color="red">1000000000000000    1000000000000000</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We will use this
+    <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B>reverse</B></FONT>
+   <FONT color="blue"><B> conversion</B></FONT></SPAN>
+    when we
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>save</B></FONT>
+    a <FONT color="blue"><B>value in a register</B></FONT>
+    (which is in <FONT color="red"><B><TT>int</TT> representation</B></FONT>)
+   </SPAN>
+    to a
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue"><B><TT>byte</TT> typed</B></FONT> and
+   <FONT color="blue"><B><TT>short</TT> typed </B></FONT>
+   variable
+   <FONT color="red"><B>in memory</B></FONT>
+   </SPAN>
+</UL>
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Moving (copying)
+     a value stored in a register into a variable in computer memory 
+     </B></FONT>
+<P>
+<UL>
+<LI> To <FONT color="red"><B>support</B></FONT> different
+  <FONT color="blue"><B>data types</B></FONT> in
+  a <FONT color="red"><B>high level programming language</B></FONT>,
+  a <FONT color="blue"><B>processor</B></FONT> will
+ provide
+ <FONT color="red"><B><I>different</I> instructions</B></FONT>
+ to move values between the
+ CPU and memory:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There will be an <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>byte</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>1 byte</B></FONT>
+ <LI> There will be an <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>short</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>2 bytes</B></FONT>
+ <LI> There will be an <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>int</TT> and 
+      <TT>float</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>4 bytes</B></FONT>
+<P>
+ <LI> <FONT color="blue"><B>Some processors</B></FONT>
+    <B>may</B> have an 
+ <FONT color="red"><B>instruction</B></FONT> to
+      move <FONT color="blue"><B><TT>long</TT> and 
+      <TT>double</TT> typed values</B></FONT>
+      consisting of <FONT color="red"><B>8 bytes</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice that <FONT color="blue"><B>moving (= copying)</B></FONT>
+ instruction <FONT color="red"><B>only</B></FONT> need to know
+ <FONT color="blue"><B>how many bytes</B></FONT> it needs to
+ move (= copy) to perform correctly.
+<P>
+So you can use the <FONT color="red"><B><I>same</I> move instruction</B></FONT>
+ on <FONT color="blue"><B>data types</B></FONT> that contains the
+ <FONT color="red"><B><I>same</I> number of bytes</B></FONT>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>ARM instruction</B></FONT> that
+     <FONT color="red"><B>move (= copy) data from  a register to the memory
+   </B></FONT>  is called:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The  <FONT color="red"><B>Store Register</B></FONT> instruction
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If the <FONT color="blue"><B>Store Instruction</B></FONT>
+ tranfers <B>multiple bytes</B> of data, 
+the data in the register will be stored in
+ <FONT color="red"><B>consecutive memory locations</B></FONT> 
+<P>
+The <FONT color="red"><B>Store Register</B></FONT> instruction
+ <B>also</B> has
+ <FONT color="blue"><B>(too) <I>many</I> different formats</B></FONT>,
+ and we will <FONT color="red"><B><I>only</I></B></FONT> learn
+ <FONT color="blue"><B>3 formats</B></FONT> to save time for other
+ <FONT color="red"><B>more important material</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> To support <FONT color="red"><B><I>different</I> data types</B></FONT> in
+    a <FONT color="blue"><B>high level programming language</B></FONT>,
+    <B>every processor</B> (and the ARM processor is no execption)
+    will provide
+    <FONT color="red"><B><I>different</I> load register instruction</B></FONT>
+<P>
+ The <FONT color="red"><B>ARM processor</B></FONT> has
+   <FONT color="blue"><B>3 different </B></FONT>
+      <FONT color="red"><B><TT>load register</TT>
+    instructions</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">str</FONT>  (store register (full)): moves <FONT color="red">4 bytes</FONT> from a register to memory (in consecutive locations)    
+
+  <FONT color="red">strh</FONT> (store register half):   moves <FONT color="red">2 bytes</FONT> from a register to memory (in consecutive locations)
+
+  <FONT color="red">strb</FONT> (store register byte):   moves <FONT color="red">1 byte</FONT>  from a register to memory    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+I will now present the <FONT color="red"><B>most basic format</B></FONT>
+ of the <FONT color="blue"><B>store register instruction</B></FONT> that
+ will be used (discussed soon) to move
+ <FONT color="red"><B>values in a register</B></FONT> to
+ <FONT color="blue"><B><I>simple</I> variables</B></FONT>
+ in the memory.
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B> basic form</B></FONT> of
+ the  <FONT color="red"><B><TT>store register</TT> instruction</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">str  r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Store 4 bytes from register r<sub>N</sub> to memory (consecutively) at 
+                        the address given in register r<sub>M</sub>
+
+        The 4 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04a.gif"></A>
+
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">strh r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Store 2 bytes from register r<sub>N</sub> to memory (consecutively) at
+                        the address given in register r<sub>M</sub>
+
+        The 2 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> strb r<sub>N</sub>, [r<sub>M</sub>]</FONT></SPAN>        Store 1 byte  from register r<sub>N</sub> to memory (consecutively) at
+                        the address given in register r<sub>M</sub>
+
+        The byte is taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04c.gif"></A>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose <FONT color="red"><B><TT>r0</TT></B></FONT>
+   contains the value <FONT color="blue"><B>4000 (decimal)</B></FONT>
+<P>
+   (Remember that register
+   <FONT color="red"><B><TT>r0</TT></B></FONT> contains
+   a <FONT color="blue"><B>binary number</B></FONT>, what I mean is:
+   the <FONT color="red"><B>binary number</B></FONT> in
+   <FONT color="blue"><B>register <TT>r0</TT></B></FONT> represents
+   the <FONT color="red"><B>decimal value 4000</B></FONT>)
+<P>
+ The <B>instruction</B> &nbsp;
+   <FONT color="red"><B><TT>str r1,[r0]</TT></B></FONT>
+   &nbsp; will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Transfer</B></FONT>
+      <FONT color="blue"><B>4 bytes</B></FONT> stored in
+      the <FONT color="red"><B> register <TT>r1</TT></B></FONT>
+      to the memory at the locations
+      <FONT color="blue"><B>4000,4001,4002,4003</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In picture:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ldr01f.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+So the <FONT color="red"><B><TT>str</TT></B></FONT> instruction basically
+ does the <FONT color="blue"><B><I>reverse</I> operation</B></FONT>
+ of the <FONT color="red"><B><TT>ldr</TT></B></FONT> instruction.
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to use the <TT>store register</TT> instructions
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Just like the <TT>ldr</TT> instruction</B></FONT>,
+      before we can use the
+     <FONT color="red"><B><TT>str</TT> instruction</B></FONT>
+     to <FONT color="blue"><B>move the value</B></FONT> stored
+     in 
+      a <FONT color="blue"><B>register</B></FONT>
+      into
+     a <FONT color="red"><B>program variable</B></FONT>,
+      we must
+     <FONT color="red"><B><I>first</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move the <FONT color="red"><B><I>address</I></B></FONT> of the
+      desired <FONT color="blue"><B>program variable</B></FONT>
+      into some <FONT color="red"><B>register</B></FONT>
+      (e.g., in <FONT color="blue"><B><TT>r0</TT></B></FONT> or
+    <FONT color="blue"><B><TT>r1</TT></B></FONT>, etc)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We have <FONT color="red"><B>previously  </B></FONT>
+      <FONT color="blue"><B>learned</B></FONT>
+      <FONT color="red"><B>how to move</B></FONT> the
+   <FONT color="blue"><B>address</B></FONT> of a
+   <FONT color="red"><B>memory variable</B></FONT> into
+   a <FONT color="blue"><B>register</B></FONT>:
+  <A HREF="mov-3.html">
+   <FONT color="red"><B>click here</B></FONT></A> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <B>Again</B>,
+ you must use a <FONT color="red"><B>register</B></FONT> that
+ is <FONT color="blue"><B>"free"</B></FONT>, i.e.:
+  the <FONT color="red"><B>register</B></FONT> does not
+  contain any value that is
+  <FONT color="blue"><B>needed in future operations</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT> move a
+  <FONT color="blue"><B>value</B></FONT> stored in a
+ <FONT color="red"><B>memory variable</B></FONT> into
+ a  <FONT color="blue"><B>register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. Move the <FONT color="red">address</FONT> of the memory variable into a (free) register <FONT color="red">rX</FONT>     
+
+   2. Then use:
+
+              <FONT color="red">str</FONT>  srcreg, [<FONT color="red">rX</FONT>]       for an <FONT color="red">int</FONT> typed memory variable     
+              <FONT color="red">strh</FONT> srcreg, [<FONT color="red">rX</FONT>]       for a <FONT color="red">short</FONT> typed memory variable
+              <FONT color="red">strb</FONT> srcreg, [<FONT color="red">rX</FONT>]       for a <FONT color="red">byte</FONT>  typed memory variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Programming examples
+     </B></FONT>
+<P>
+<UL>
+<LI> Let's define
+       <FONT color="red"><B>3 different typed</B></FONT> of
+       <FONT color="blue"><B>integer values</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .data
+
+i:      .4byte 444444           // int   typed variable      
+s:      .2byte 2222             // short typed variable
+b:      .byte  111              // byte  typed variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Suppose <FONT color="blue"><B>register <TT>r1</TT></B></FONT>
+ contains
+  <FONT color="red"><B><TT>
+ 10101010 10110111 11001100 11011101</TT></B></FONT>
+ (= <FONT color="blue"><B>Hexadecimal <TT>AABBCCDD</TT></B></FONT>):
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/reg05.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+We will <FONT color="red"><B>use</B></FONT> the
+  <FONT color="blue"><B>value</B></FONT> in
+ <FONT color="red"><B>register <TT>r1</TT></B></FONT> to
+ <FONT color="blue"><B>update</B></FONT> the
+ variables <FONT color="red"><B><TT>i</TT></B></FONT>,
+ <FONT color="red"><B><TT>s</TT></B></FONT> and
+ <FONT color="red"><B><TT>b</TT></B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+The following <FONT color="red"><B>instructions</B></FONT>
+ will move (copy) <FONT color="blue"><B>4 bytes</B></FONT>
+ in <FONT color="red"><B>register <TT>r1</TT></B></FONT> to
+ the <FONT color="blue"><B><TT>int</TT> typed (4 bytes)</B></FONT>
+  <FONT color="red"><B>variable <TT>i</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move i into r1
+        movw    r0, #:lower16:i         // Moves the address of memory
+        movt    r0, #:upper16:i         // variable i into register r0
+        <FONT color="red">str</FONT>     r1,[r0]                 // Move int value from reg r1 to var      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+After the execution, the <B>memory variable</B>
+ <FONT color="red"><B><TT>i</TT></B></FONT> will contain
+<FONT color="red"><B><TT>
+ 10101010 10110111 11001100 11011101</TT></B></FONT>
+ (= <FONT color="blue"><B>Hexadecimal <TT>AABBCCDD</TT></B></FONT>)
+
+<P>
+<HR>
+<P>
+
+The following <FONT color="red"><B>instructions</B></FONT>
+ will move (copy) the <FONT color="blue"><B>right-most 2 bytes</B></FONT>
+ in <FONT color="red"><B>register <TT>r1</TT></B></FONT> to
+ the <FONT color="blue"><B><TT>short</TT> typed (2 bytes)</B></FONT>
+  <FONT color="red"><B>variable <TT>s</TT></B></FONT>:
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move s into r1
+        movw    r0, #:lower16:s         // Moves the address of memory
+        movt    r0, #:upper16:s         // variable s into register r0
+        <FONT color="red">strh</FONT>    r1,[r0]                 // Move short value from reg r1 to var     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+After the execution, the <B>memory variable</B>
+ <FONT color="red"><B><TT>s</TT></B></FONT> will contain
+<FONT color="red"><B><TT>
+ 11001100 11011101</TT></B></FONT>
+ (= <FONT color="blue"><B>Hexadecimal <TT>CCDD</TT></B></FONT>)
+
+
+<P>
+<HR>
+<P>
+
+
+
+The following <FONT color="red"><B>instructions</B></FONT>
+ will move (copy) the <FONT color="blue"><B>right-most  byte</B></FONT>
+ in <FONT color="red"><B>register <TT>r1</TT></B></FONT> to
+ the <FONT color="blue"><B><TT>byte</TT> typed (1 byte)</B></FONT>
+  <FONT color="red"><B>variable <TT>b</TT></B></FONT>:
+
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Move b into r2
+        movw    r0, #:lower16:b         // Moves the address of memory
+        movt    r0, #:upper16:b         // variable b into register r0
+        <FONT color="red">strb</FONT>    r1,[r0]                 // Move byte value from reg r1 to var       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+After the execution, the <B>memory variable</B>
+ <FONT color="red"><B><TT>b</TT></B></FONT> will contain
+<FONT color="red"><B><TT>
+ 11011101</TT></B></FONT>
+ (= <FONT color="blue"><B>Hexadecimal <TT>DD</TT></B></FONT>)
+
+
+
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/str.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get a copy first
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 str</TT></B></FONT>
+ <LI> To run: use
+  <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

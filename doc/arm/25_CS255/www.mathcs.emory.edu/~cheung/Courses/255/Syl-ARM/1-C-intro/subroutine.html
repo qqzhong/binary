@@ -1,0 +1,341 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Functions (i.e., methods) in <I>C</I>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining functions
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax</B> of 
+   <FONT color="blue"><B>C function definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   return-Type   <FONT color="red">functionName</FONT> (<FONT color="red"> formal-parameters</FONT> )
+   {
+       function-body (local variables and statements)                
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>function definition</B></FONT> is
+     stored in a <FONT color="red"><B>file</B></FONT> and
+     it is
+     <FONT color="red"><B><I>not</I> contained</B></FONT>
+     inside <B>any structure</B>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   float <FONT color="red">square</FONT>( float x )                  
+   {
+      float r;         // Define a local variable         
+
+      r = x * x;       // Statement
+
+      return ( r );    // Return statement
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Warning: C is <I>not</I> object-oriented !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> is <FONT color="red"><B><I>not</I></B></FONT>
+     an <FONT color="blue"><B>object oriented programming language</B></FONT>
+ <P>
+ <LI> <FONT color="blue"><B><I>Only</I></B> </FONT>
+      <B>object oriented</B> programming languages have
+      <FONT color="red"><B><I>instance</I> methods</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Recall</B> that
+      <FONT color="blue"><B><I>instance</I> methods</B></FONT> have an
+      <FONT color="red"><B><I>implicit</I> parameter</B></FONT>
+      (called <FONT color="magenta"><B><TT>this</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <FONT color="blue"><B>All</B></FONT> programming languages
+     have <FONT color="red"><B><I>class</I> methods</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Recall</B> that
+      <FONT color="blue"><B><I>class</I> methods</B></FONT> <B><I>only</I></B>
+      have
+      <FONT color="red"><B><I>explicit</I> parameter</B></FONT>
+      (that appear between the <B>brackets</B> after
+      the <FONT color="blue"><B>name of the function</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>functions</B></FONT> in <B>C</B> 
+      are  <FONT color="red"><B>comparable</B></FONT> to
+      the <FONT color="blue"><B><I>class</I> methods</B></FONT> in
+      <B>Java</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Functions</B></FONT> in <B>C</B>
+       <FONT color="red"><B>do <I>not</I></B></FONT> have any
+       <FONT color="blue"><B><I>implicit</I> parameter
+        (<TT>this</TT>)</B></FONT>
+ <P>
+ <LI> <B>All parameters</B> of a function appear between
+ the <FONT color="blue"><B>brackets</B></FONT> after the
+ <FONT color="red"><B>name</B></FONT> of the function.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Calling (using) a (previously defined) function
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax</B> to <FONT color="blue"><B>invoke</B></FONT> a
+      (<B>previously defined</B>) 
+      <FONT color="red"><B>function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">functionName</FONT> ( actual-parameters )        // if function does not return any value      
+
+or:
+
+  var = <FONT color="red">functionName</FONT> ( actual-parameters )  // if function returns a value       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+
+   float <FONT color="red">square</FONT>( float x )                  
+   {
+      float r;         // Define a local variable         
+
+      r = x * x;       // Statement
+
+      return ( r );    // Return statement
+   }
+
+   int <FONT color="red">main</FONT>( int argc, char *argv[] )
+   {
+      float a, b;
+
+      a = 4.0;
+
+      b = <FONT color="red">square( a );  // Call function square</FONT>
+
+      printf("a = %f, b = %f\n", a, b);              
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  a = 4.000000, b = 16.000000        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/func1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc func1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

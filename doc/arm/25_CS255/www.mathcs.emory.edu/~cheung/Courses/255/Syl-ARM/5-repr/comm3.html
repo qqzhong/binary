@@ -1,0 +1,509 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Communicating Boolean values (true/false) between humans and computer
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Representing Boolean values in computer
+     </B></FONT>
+<P>
+ <UL>
+ <LI> There are
+   <FONT color="red"><B>2 Boolean <I>values</I></B></FONT> in
+    <FONT color="blue"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>true</TT></B></FONT>  (Internally
+   (= inside the computer program),
+   the <FONT color="blue"><B>value</B></FONT> 
+   <FONT color="red"><B><TT>true</TT></B></FONT> is
+   represented by the 
+   <FONT color="blue"><B>binary number 1</B></FONT>)
+ <LI> <FONT color="blue"><B><TT>false</TT></B></FONT>
+   (Internally
+   (= inside the computer program),
+   the <FONT color="blue"><B>value</B></FONT> 
+   <FONT color="red"><B><TT>false</TT></B></FONT> is
+   represented by the 
+   <FONT color="blue"><B>binary number 0</B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   boolean x;
+
+   x = <FONT color="red">true</FONT>;                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Representing Boolean values on key boards/terminal for <I>humans</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>How</B></FONT> the
+    <FONT color="blue"><B>Java programming language</B></FONT>
+     print <FONT color="red"><B>Boolean <I>values</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If a <FONT color="red"><B><TT>boolean</TT> variable</B></FONT>
+    contains the <FONT color="blue"><B>boolean value</B></FONT>
+    <FONT color="red"><B><TT>true</TT></B></FONT>,
+    <FONT color="blue"><B>Java</B></FONT> will
+    print the <FONT color="red"><B>string ``<TT>true</TT>''</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>string ``<TT>true</TT>''</B></FONT>
+    consists of the <FONT color="blue"><B>4 ASCII codes</B></FONT>
+    for the
+    <FONT color="red"><B>characters 't', 'r', 'u' and 'e'</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> If a <FONT color="red"><B><TT>boolean</TT> variable</B></FONT>
+    contains the <FONT color="blue"><B>boolean value</B></FONT>
+    <FONT color="red"><B><TT>false</TT></B></FONT>,
+    <FONT color="blue"><B>Java</B></FONT> will
+    print the <FONT color="red"><B>string ``<TT>false</TT>''</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>string ``<TT>true</TT>''</B></FONT>
+    consists of the <FONT color="blue"><B>5 ASCII codes</B></FONT>
+    for the
+    <FONT color="red"><B>characters 'f', 'a', 'l', 's' and 'e'</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> See it for yourself:
+
+<P>
+ <UL>
+ <LI> <B>Enter the text "true" or "false":</B>
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea pattern="[\x00-\xFF]*" autofocus cols=50>
+true</textarea>
+<BR>
+<LI> See the corresponding <B>binary ASCII codes<B> for the string:
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea cols=50 pattern="(\s*[01]{8}\s*)*">0100100001100101011100100110010100100000011000100110010100100000011100110110010101100011011100100110010101110100001000000110110101100101011100110111001101100001011001110110010101110011001000010010000100110001</textarea>
+<p id=footer>Made by <a href=http://mathiasbynens.be/>@mathias</a>  
+---- <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/binary-ascii>GitHub! source</a></p>
+<script>(function(i,o){var l=o.getElementsByTagName("textarea"),b=l[0],a=l[1],k=o.getElementById("permalink"),j=/\s*[01]{8}\s*/g,e=/[\s\S]/g,f=/^(\s*[01]{8}\s*)*$/,r=/^[\x00-\xff]*$/,p=(function(){var t=new Date,v,s;try{(v=i.localStorage).setItem(t,t);s=v.getItem(t)==t;v.removeItem(t);return s&&v}catch(u){}}()),n=String.fromCharCode;function d(s){return encodeURIComponent(s).replace(/['()_*]/g,function(t){return"%"+t.charCodeAt().toString(16)})}function m(s){return"00000000".slice(String(s).length)+s}function q(s){return s.replace(j,function(t){return n(parseInt(t,2))})}function c(s){return s.replace(e,function(t){return m(t.charCodeAt().toString(2))+' '})}function h(x,v,u,t){var w=x.value,s="";if(v.test(w)){t.value=s=u(w);x.className=t.className=""}else{t.value="ERROR: invalid input";x.className=t.className="invalid"}return x==b?w:s}function g(){var s=this==a?h(a,f,q,b):h(b,r,c,a);k.hash=d(s);p&&(p.ascii=s)}b.onkeyup=a.onkeyup=g;b.oninput=a.oninput=function(){b.onkeyup=a.onkeyup=null;g.call(this)};if(p){p.ascii&&(b.value=p.ascii);g()}i.onhashchange=function(){b.value=decodeURIComponent(location.hash.slice(1));g()};if(location.hash){i.onhashchange()}}(this,document));window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src="//www.google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"))</script>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Humans</B></FONT> will
+        <FONT color="red"><B>enter/see</B></FONT> the
+       <FONT color="blue"><B>strings <TT>"true"/"false"</TT></B></FONT>
+       (i.e.: <FONT color="red"><B>ASCII codes</B></FONT>
+       on the <FONT color="blue"><B>key board/monitor</B></FONT>
+       and
+       <FONT color="red"><B>associate</B></FONT> them
+       with 
+   the <FONT color="blue"><B>Boolean values <TT>true/false</TT></B></FONT> !!!
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Internally</B></FONT>
+   (= <FONT color="blue"><B>inside a Java program</B></FONT>, the
+   <FONT color="red"><B><TT>boolean</TT> values</B></FONT> are
+   <FONT color="blue"><B>represented</B></FONT> by
+   the <FONT color="red"><B>values <TT>true</TT> (= binary number 1) and
+   <TT>false</TT> (= binary number 0)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We need to convert between these 2 different representations....
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting between ASCII representation of boolean values and
+	the internal boolean representation
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Java</B></FONT> provides
+  <FONT color="red"><B>library methods</B></FONT> to
+ <FONT color="blue"><B>convert</B></FONT> between
+ the <FONT color="red"><B>"ASCII" representation</B></FONT> of
+ the <FONT color="blue"><B>boolean values</B></FONT> and
+ the <FONT color="red"><B>internal "program" representation</B></FONT> of
+ the <FONT color="blue"><B>boolean values</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">boolean  parseBoolean( String s )</font>:  return a boolean value translated from   
+                                       the input string s
+				       If s == "true", we return true
+				       If s == "false", we return false
+
+   <FONT color="red">String toString( boolean x )</font>: return a String that represents the boolean
+                                 value x
+				 If x == true, we return "true"
+				 If x == false, we return false
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+See:
+ <A HREF="https://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html">
+  <FONT color="red"><B>click here</B></FONT></A>
+<P>
+The method <FONT color="red"><B><TT>parseBoolean( )</TT></B></FONT>
+ performs the following
+ <FONT color="blue"><B>translation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Input           Output
+   --------       -------------           
+    "true"   --->   true (= 1)
+    "false"  --->   false (= 1)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+The method <FONT color="red"><B><TT>toString( )</TT></B></FONT>
+ performs the following
+ <FONT color="blue"><B>translation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Input                Output
+   -----------        -------------           
+    true (= 1)   --->   "true" 
+    false (= 0)  --->   "false" 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> These methods are <FONT color="red"><B>very simple</B></FONT> and
+ I like to use them to
+ <FONT color="blue"><B>show you</B></FONT> a
+  <FONT color="red"><B><I>simple</I> example</B></FONT> of
+  <FONT color="blue"><B>conversion</B></FONT> between
+  <FONT color="red"><B>2 different representations</B></FONT>
+<P>
+We write these <FONT color="red"><B>methods</B></FONT> to
+     <FONT color="blue"><B>convert</B></FONT>
+     between the
+     <B>representations</B> used by
+     <FONT color="red"><B>humans</B></FONT> and the
+     <FONT color="blue"><B>computer</B></FONT> below
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The conversion methods in Java
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>conversion methods</B></FONT> from
+   <FONT color="blue"><B>"program" Boolean values</B></FONT> to
+   <FONT color="red"><B>String Boolean representations</B></FONT> are
+   as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class BooleanIO  // I need to add IO to the name because the Boolean class   
+                        // is already defined inside the Java standard library
+{
+  public static <FONT color="red">boolean  parseBoolean( String s )</font>            
+  {
+     if ( s.equals("true") )
+        return true;
+     else
+        return false;
+  }
+
+  public static <FONT color="red">String toString( boolean x )</font>
+  {
+     if ( x == true )
+        return "true";
+     else
+        return "false";
+  }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Here's a program that show to use
+    <FONT color="red"><B>parseBoolean()</B></FONT> (to allow
+   a user to enter a <B>Boolean value</B> to the computer)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      Scanner in = new Scanner( System.in );
+
+      String input;
+
+      boolean x;
+
+
+      System.out.print("Enter a boolean value: ");
+      <FONT color="darkred">input = in.nextLine();</font>
+
+      x = <FONT color="red">BooleanIO.parseBoolean(input)</font>;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="red"><B>class</B></FONT> that contains the
+     <FONT color="blue"><B>conversion methods</B></FONT>:
+        <A HREF="../demo//BooleanIO.java"> click here </A>
+  <LI> The <FONT color="blue"><B>BooleanDemo</B></FONT> test Prog file:
+       <A HREF="../demo//BooleanDemo.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac BooleanDemo.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java BooleanDemo</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>Java library</B></FONT>
+   <B><I>already</I></B> has these <FONT color="blue"><B>methods</B></FONT> !!
+<P>
+<HR>
+<P>
+<LI> You can use this instead:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    boolean x;
+
+    x = <FONT color="red">Boolean.parseBoolean</font>( "true" );           
+
+  or
+
+    x = <FONT color="red">Boolean.parseBoolean</font>( "false" );
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+See:
+<A HREF="http://docs.oracle.com/javase/6/docs/api/java/lang/Boolean.html">
+ <FONT color="red"><B>click here</B></FONT> </A>
+</UL>
+
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

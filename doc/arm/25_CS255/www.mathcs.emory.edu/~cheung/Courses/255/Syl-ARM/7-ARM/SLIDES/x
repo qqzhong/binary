@@ -1,0 +1,97 @@
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Recursive insert algorithm in ARM assembler
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B><TT>Insert(head, p)</TT></B></FONT> function
+   in <FONT color="blue"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+
+  
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+Insert:
+        <FONT color="red">/* =============================
+           Prelude: build stack frame
+           ============================= */
+        push    {lr}
+        push    {fp}
+        mov     fp, sp
+        sub     sp, sp, #0      // No local variables</FONT>
+
+
+        // if ( h == null )
+        ldr     r0, [fp, #8]    // r0 = h
+        cmp     r0, #0
+        bne     else
+
+        // e.next = null
+        mov     r0, #0          // r0 = null
+        ldr     r1, [fp, #12]   // r1 = e
+        str     r0, [r1, #4]    // e.next = null
+
+        // return e
+        ldr     r0, [fp, #12]   // r0 = e (return value)
+
+	<FONT color="red">b       postLude</FONT>
+
+else:
+        // h.next = Insert( h.next, e );
+
+        //// pass e
+        ldr     r0, [fp, #12]   // r0 = e
+        push    {r0}            // Pass e with stack
+
+        //// pass h.next
+        ldr     r0, [fp, #8]    // r0 = h
+        ldr     r0, [r0, #4]    // r0 = h.next
+        push    {r0}            // Pass h.next with stack
+
+        bl      Insert
+        add     sp, sp, #8      // Clean up 2 parameters
+
+        ////  Assign <FONT color="red">return value</font> (in <FONT color="red">r0</font>) to h.next
+        ldr     r1, [fp, #8]    // r1 = h - can't use <FONT color="red">r0</font>!!
+        str     <FONT color="red">r0</font>, [r1, #4]    // h.next = Insert(h.next,e)
+
+        // return( h );
+        ldr     r0, [fp, #8]    // r0 = h (return value)  
+
+<FONT color="red">postLude:</FONT>
+        <FONT color="red">// Postlude - clean up and return to caller
+        mov     sp, fp
+        pop     {fp}
+        pop     {pc}</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/9-list-recursion/ARM-Insert.s
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+

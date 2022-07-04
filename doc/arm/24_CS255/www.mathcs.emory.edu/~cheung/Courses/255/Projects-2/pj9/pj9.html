@@ -1,0 +1,968 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H3>
+CS 255 - Computer Organization/Architecture I <BR>
+Project 9
+</H3>
+</CENTER>
+<P>
+Due date: See Class Webpage
+
+<P>
+<H3>
+0. Preparations
+</H3>
+<UL>
+<P>
+<LI> To do this project, you must obtain a copy of the prepared
+   files using <B>EGTAPI</B> (use project code <B>pj9</B>)
+    - you have done this enough times that I don't need to give more
+   detailed instructions.
+<P>
+  The alternative method to get the prepared files is to
+  enter these commands in the <B>EGTAPI</B>  terminal:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mkdir  ~/cs255/pj9
+
+   For CS255-1 students:
+       cp /home/cs255001/Handouts/pj9/*  ~/cs255/pj9
+
+   For CS255-2 students:
+       cp /home/cs255002/Handouts/pj9/*  ~/cs255/pj9       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+1. Assignment (overview)
+</H3>
+<UL>
+Write a 
+ <FONT color="red"><B><I>recursive</I></B> <B>InsertList</B></FONT>
+ function in the program file
+ <FONT color="blue"><B><TT>InsertList.s</TT></B></FONT>
+ that maintains a <FONT color="red"><B>sorted list</B></FONT>
+ in <FONT color="blue"><B><I>ascending</I> order</B></FONT>.
+<P>
+The <FONT color="red"><B><TT>List</TT></B></FONT> structure is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   class List
+   {
+       int Value;    <FONT color="red"><--- list elements ordered by this value</FONT>        
+       List Next;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+More details of the assignment are given below.
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+2. The InsertList function:
+</H3>
+<P>
+<UL>
+The <FONT color="red"><B><TT>InsertList()</TT> function</B></FONT>
+     has the following <FONT color="blue"><B>prototype</B></FONT> in
+	a high level programming language (such as <B>Java</B>):
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List InsertList(List head, List elem)              
+   {
+       ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>parameters</B></FONT> are as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The parameter <FONT color="blue"><B><TT>head</TT></B></FONT> contains
+       the <B>reference (= address)</B> 
+	of the <FONT color="red"><B>first</B></FONT>
+       element in the <B>linekd list</B>
+ <LI> The parameter <FONT color="blue"><B><TT>elem</TT></B></FONT> contains
+       the <B>reference (= address)</B> of the
+      <FONT color="red"><B>list element</B></FONT>
+     that must be <FONT color="blue"><B>inserted</B></FONT> into the
+     <B>list</B> that starts at
+     <FONT color="red"><B><TT>head</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>InsertList()</TT></B></FONT> function
+ must <B>return</B> the
+ <FONT color="blue"><B>address</B></FONT> of the
+ <FONT color="red"><B><I>first</I> element</B></FONT> of
+ the <FONT color="blue"><B><I>new</I> list</B></FONT>
+ (= the list <FONT color="red"><B><I>with</I></B></FONT> the
+  element <B>inserted</B>)
+<P>
+(I.e.: the <B>parameters</B> and
+  the <B>return value</B>
+  have the <FONT color="blue"><B>same meaning</B></FONT> as
+ the <FONT color="red"><B>Insert()</B></FONT> function
+ discussed in this
+ <FONT color="blue"><B>web page</B></FONT>:
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Syllabus/7-M68000/ll-insert-at-tail.html">
+ <FONT color="red"><B>click here</B></FONT> </A>
+<P>
+<HR>
+<P>
+ <FONT color="red"><B>Requirement:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><TT>InsertList</TT></B></FONT>
+      function <B><I>must</I></B> be
+      <FONT color="red"><B><I>recursive</I></B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B><TT>InsertList</TT></B></FONT> function
+      receives the <FONT color="red"><B>parameters</B></FONT> on the
+      <B>stack</B> passed in the following manner:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Call head = InsertList(head, elem)
+        movw    r0, #:lower16:elem
+        movt    r0, #:upper16:elem
+        ldr     r0, [r0]                // r0 = value in elem
+        push    {r0}                    // Pass elem as 2nd param         
+
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r0 = addr of head
+        ldr     r0, [r0]                // r0 = value in head
+        push    {r0}                    // Pass head as 1st param
+
+        bl      InsertList
+        add     sp, sp, #8              // Pop parameters
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B><TT>InsertList</TT></B></FONT> function must
+      <FONT color="red"><B>return</B></FONT> 
+       the <FONT color="blue"><B><I>new</I> list</B></FONT>
+      in:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>register r0</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> The function must maintain an <B> ordered </B> linked list.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In other words: when you insert a new element 
+    with some <B>value</B> <FONT color="red"><B><I>x</I></B></FONT>
+    into the list, 
+     make sure you maintain the 
+    <FONT color="blue"><B>correct ordering</B></FONT>
+     of list elements
+     by their <FONT color="red"><B>values</B></FONT> stored inside
+     the <B>list element</B>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>ordering</B></FONT> maintained is 
+<font color="red"><B>
+asscending order</B></FONT>
+   in <FONT color="blue"><B><TT>value</TT></B></FONT> variable
+   of the <B>list elements</B>
+ (i.e., the <FONT color="red"><B><TT>value</TT></B></FONT>
+  variables in the <B>list elements</B>
+  <FONT color="blue"><B><I>increases</I></B></FONT>
+    as you traverse the list).
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+</b></font>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<FONT COLOR="darkmagenta"><B>
+     Develop your algorithm first
+     </B></FONT>
+<P>
+<UL>
+<LI> Unlike the other projects, in this one you need to
+    <FONT color="red"><B>develop</B></FONT> your 
+    <FONT color="blue"><B>algorithm</B></FONT>.
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You should write a <FONT color="red"><B>recursive</B></FONT>
+      <FONT color="red"><B><TT>InsertList</TT></B></FONT>
+      function in <FONT color="blue"><B>Java</B></FONT> first.
+ <P>
+ <HR>
+ <P>
+ <LI> When you have <FONT color="blue"><B>tested</B></FONT> the
+      function in <B>Java</B>, you can then 
+      <FONT color="red"><B>implement</B></FONT> it in
+      <FONT color="blue"><B>ARM assembler</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+I have written a skeletal <FONT color="red"><B> Java program</B></FONT>
+  that you can
+ use to <B>develop</B> your 
+  <FONT color="blue"><B><I>recursive</I> list insert algorithm</B></FONT>.
+You should have <B>copied</B> this file
+ in the <FONT color="red"><B>preparation step</B></FONT> above.
+<P>
+Use the file
+ <FONT color="red"><B><TT>HelpList.java</TT></B></FONT> in your
+ <FONT color="blue"><B>project directory</B></FONT> and
+ write a
+ <B>recursive</B>
+ <FONT color="red"><B><TT>InsertList( )</TT></B></FONT>
+ method in <B>Java</B>.
+You can compile and run the 
+  <FONT color="red"><B><TT>HelpList.java</TT></B></FONT> program
+ and make sure that your
+ <FONT color="red"><B><TT>InsertList( )</TT></B></FONT>
+ method in <B>Java</B> is
+ correct first before you write your program in 
+ ARM assmbler - because debugging assembler code is much harder than
+ Java code.
+<P>
+If the <FONT color="red"><B><TT>InsertList( )</TT></B></FONT>
+ <B>algorithm </B> is correct, the 
+ <FONT color="blue"><B>output</B></FONT> of the
+ <FONT color="red"><B><TT>HelpList.java</TT></B></FONT> program is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List = 30	     
+   List = 30 50	     
+   List = 10 30 50
+   List = 10 30 40 50
+   List = 10 20 30 40 50               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+3. The <TT>pj9.s</TT> test program
+</H3>
+<P>
+<UL>
+I have created a <FONT color="red"><B>test program</B></FONT>
+  that <FONT color="blue"><B>calls</B></FONT> the
+  <FONT color="red"><B><TT>InsertList</TT></B></FONT>
+  function.
+<P>
+You can use this program test your project.
+<P>
+After you can written your <FONT color="blue"><B>InsertList</B></FONT> 
+ function, you can
+ <FONT color="red"><B>compile</B></FONT> the project using this
+ <FONT color="blue"><B>command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red"> /home/cs255001/bin/as255    pj9.s  InsertList.s</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Use <FONT color="red"><B>Egtapi </B></FONT> to
+ run the <FONT color="blue"><B>pj9</B></FONT> program.
+<P>
+<HR>
+<P>
+<FONT color="blue"> <B>Correct behavior</B></FONT> of the
+   <B>InsertList</B> project:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When <FONT color="blue"><B>pj9</B></FONT> starts, you will 
+     <B>first</B> need to
+      <FONT color="red"><B>click</B></FONT> on the
+     <FONT color="blue"><B>list </B></FONT> window
+    in the <FONT color="red"><B>variable display area</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list01.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> This will show the
+     <FONT color="red"><B>list window</B></FONT> that
+      contain the <B>prepared list variables</B>
+     <FONT color="blue"><B>elem</B></FONT>
+      and <FONT color="red"><B>head</B></FONT> variables.
+ <P>
+ <LI> The <FONT color="blue"><B><I>ordered</I> list</B></FONT> is
+      found at the <FONT color="red"><B>head</B></FONT> variable.
+ <P>
+ <LI> The <FONT color="blue"><B>elem</B></FONT> variable is used
+      to <B>allocate</B> and
+       insert <FONT color="red"><B><I>new</I> list elements</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<LI> When you <B>click</B> on <FONT color="red"><B>Run</B></FONT>
+       (in <FONT color="blue"><B>Egtapi</B></FONT>), the program will
+       stop at the <B>break point</B>
+    <FONT color="red"><B><TT>Check1</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> At this moment, you should see the
+     <FONT color="blue"><B>listing window</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list02.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The program is ready to insert the 
+ <FONT color="red"><B>first list element</B></FONT>
+<P>
+The <FONT color="red"><B>list display area</B></FONT> will still show an
+ <FONT color="blue"><B>empty list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list01.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<LI> When you <B>click</B> on <FONT color="red"><B>Run</B></FONT>
+       a  <FONT color="blue"><B>2nd time</B></FONT>, the program will
+       stop at the <B>break point</B>
+    <FONT color="red"><B><TT>Check2</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> At this moment, you should see the <FONT color="blue"><B>list</B></FONT>
+      with the element <FONT color="red"><B>(30)</B></FONT> at 
+      <FONT color="blue"><B><TT>head</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list03.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<LI> When you <B>click</B> on <FONT color="red"><B>Run</B></FONT>
+       a  <FONT color="blue"><B>3rd time</B></FONT>, the program will
+       stop at the <B>break point</B>
+    <FONT color="red"><B><TT>Check3</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> At this moment, you should see the <FONT color="blue"><B>list</B></FONT>
+      with the element <FONT color="red"><B>(30, 50)</B></FONT> at 
+      <FONT color="blue"><B><TT>head</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<LI> When you <B>click</B> on <FONT color="red"><B>Run</B></FONT>
+       a  <FONT color="blue"><B>4th time</B></FONT>, the program will
+       stop at the <B>break point</B>
+    <FONT color="red"><B><TT>Check4</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> At this moment, you should see the <FONT color="blue"><B>list</B></FONT>
+      with the element <FONT color="red"><B>(10, 30, 50)</B></FONT> at 
+      <FONT color="blue"><B><TT>head</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<LI> When you <B>click</B> on <FONT color="red"><B>Run</B></FONT>
+       a  <FONT color="blue"><B>5th time</B></FONT>, the program will
+       stop at the <B>break point</B>
+    <FONT color="red"><B><TT>Check5</TT></B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> At this moment, you should see the <FONT color="blue"><B>list</B></FONT>
+      with the element <FONT color="red"><B>(10, 30, 40, 50)</B></FONT> at 
+      <FONT color="blue"><B><TT>head</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list06.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<LI> When you <B>click</B> on <FONT color="red"><B>Run</B></FONT>
+       a  <FONT color="blue"><B>6th time</B></FONT>, the program will
+       stop at the <B>break point</B>
+    <FONT color="red"><B><TT>Stop</TT></B></FONT>
+  and you see the <FONT color="red"><B>final list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list07.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+You may have to
+ <FONT color="red"><B>scroll</B></FONT> the
+ <FONT color="blue"><B>list display window</B></FONT> a little down
+ to see the <FONT color="red"><B>list</B></FONT>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<H3>
+3. <FONT color="red">Compiling</FONT> and running this project
+</H3>
+<P>
+<UL>
+<P>
+Use the following
+ <FONT color="blue"><B>command</B></FONT> to
+<FONT color="red"><B>compile</B></FONT> project 9
+<P>
+Open the <B>Terminal</B> in <B>EGTAPI</B> and type these commands:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">cd  ~/cs255/pj9</font>
+
+
+    <FONT color="red">/home/cs255001/bin/as255    pj9.s  InsertList.s</FONT>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can also compile it with <B>EGTAPI's file browser</B>:
+<P><UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    1. First: press the CONTROL key  and  select  pj9.s
+
+    2. THEN:  
+
+	On a Windows PC: press the CONTROL key  and  select  InsertList.s
+	On a Mac PC:     press the COMMAND key  and  select  InsertList.s  
+
+       NOTE: the ORDER of clicking is VERY IMPORTANT
+             DO NOT click on  recursion.s  first !!!!
+             (If you do, EGTAPI will generate the output "recursion.arm"
+              and not  pj9.arm)
+
+    3. Finally: click  "Compile"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+
+<P>
+Use <FONT color="red"><B>Egtapi</B></FONT> to
+  run the program compiled program
+  <B>pj9.arm</B>.
+
+</UL>
+<P>
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+</UL>
+<H3>
+4. Break point
+</H3>
+<UL>
+<LI> I did <FONT color="red"><B>not</B></FONT>
+      put any break point at <B>InsertList</B>.
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because if I do, then the program will
+        <FONT color="red"><B>stop</B></FONT> each time it
+	<FONT color="blue"><B>recurses</B></FONT>
+ <P>
+  That will take too long to run a correct program....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> So if your function crash, you should:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Add</B></FONT> a <B>break point</B>
+       at <FONT color="red"><B>InsertList</B></FONT>
+       (so you will <B>stop</B>
+       when the function <FONT color="red"><B>recurses</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Add</B></FONT> labels to
+     <FONT color="red"><B>locations</B></FONT> in your <B>InsertList</B>
+       function where you suspect an <FONT color="blue"><B>error</B></FONT>
+       and:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>.global</TT></B></FONT>
+       the <FONT color="blue"><B>label</B></FONT>
+ <LI> <FONT color="red"><B>Recompile </B></FONT> the <B>project</B>
+ <LI> <FONT color="red"><B>Add</B></FONT> a <B>break point</B> at
+     that <FONT color="blue"><B>label</B></FONT>
+ <LI> <FONT color="blue"><B>Preferably</B></FONT>,
+    <FONT color="red"><B>save</B></FONT>
+    the <B>breakpoint location</B> for later use.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<H3>
+5. Turn in
+</H3>
+<UL>
+
+Turn in your <B>InsertList.s</B> program using project code
+   <FONT color="red"><B> pj9</B></FONT>
+   using <B>EGTAPI</B>
+<P>
+   (In EGTAPI, select: File Browser, Turnin, 
+   click on the file you want to turn in (InsertList.s),
+   use the turn in code: <B>pj9</B>)
+<P>
+<HR>
+<P>
+You can also use 
+the 
+  <FONT color="blue"><B><TT>turnin</TT> </B></FONT>
+command (executed while you're in your cs255 directory)
+<P>
+ Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ these command:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     cd  ~/cs255/pj9
+
+
+     /home/cs255001/turnin  InsertList.s  pj9   // If you're in section 1           
+
+ or
+
+     /home/cs255002/turnin  InsertList.s  pj9   // If you're in section 2           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+As usual, I want the source (so I can read it).
+<B>DO NOT</B> turn in the executable or the object code !
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+</UL>
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  6.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj9</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj9</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj9</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj9</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

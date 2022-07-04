@@ -1,0 +1,280 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Accessing arrays using pointer arithmetic
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Using</I> pointer arithmetic to <I>access</I>
+     array elements
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Using</B> <FONT color="blue"><B>pointer arithmetic</B></FONT>
+     to access <FONT color="red"><B>array elements</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because the <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     p + <FONT color="red">x</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+evaluates to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <FONT color="red"><B><I>address</I></B></FONT>
+ of the <FONT color="blue"><B><I>x</I><sup>th</TH></B></FONT>
+ <B><I>array element</I></B>
+ <FONT color="red"><B>following</B></FONT>
+ the <B>array element</B> that is
+ <FONT color="blue"><B>pointed to</B></FONT> by
+ <FONT color="red"><B><TT>p</TT></B></FONT> !!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B><I>Therefore</I></B>:
+     the <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+     *(<FONT color="blue"> p +</FONT> x )        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+evaluates to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <FONT color="red"><B><I>variable</I></B></FONT>
+ that is the <FONT color="blue"><B><I>x</I><sup>th</TH></B></FONT>
+ <B><I>array element</I></B>
+ <FONT color="red"><B>following</B></FONT>
+ the <B>array element</B> that is
+ <FONT color="blue"><B>pointed to</B></FONT> by
+ <FONT color="red"><B><TT>p</TT></B></FONT> !!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pointer-arithm3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B><TT>p = &a[0]</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">*p</FONT>       is an  <FONT color="red">alias</FONT>  for  <FONT color="red">a[0]</FONT>
+    <FONT color="red">*(p+0)</FONT>   is also an  <FONT color="red">alias</FONT>  for  <FONT color="red">a[0]</FONT>
+
+    <FONT color="red">*(p+1)</FONT>   is also an  <FONT color="red">alias</FONT>  for  <FONT color="red">a[1]</FONT>
+    <FONT color="red">*(p+2)</FONT>   is also an  <FONT color="red">alias</FONT>  for  <FONT color="red">a[2]</FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+    int* p;
+
+   <FONT color="red"> p = &a[0]</FONT>;                      // p points to variable a[0]
+
+    printf("*(p + 0) = %d, a[0] = %d\n", <FONT color="red">*(p+0)</FONT>, a[0] );
+    printf("*(p + 1) = %d, a[1] = %d\n", <FONT color="red">*(p+1)</FONT>, a[1] );
+    printf("*(p + 2) = %d, a[2] = %d\n", <FONT color="red">*(p+2)</FONT>, a[2] );
+    printf("*(p + 3) = %d, a[3] = %d\n", <FONT color="red">*(p+3)</FONT>, a[3] );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  *(p + 0) = 11, a[0] = 11
+  *(p + 1) = 22, a[1] = 22
+  *(p + 2) = 33, a[2] = 33
+  *(p + 3) = 44, a[3] = 44             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/pointer-arithm2.c
+       </TT></B></FONT>
+  </UL>
+
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pointer-arithm2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

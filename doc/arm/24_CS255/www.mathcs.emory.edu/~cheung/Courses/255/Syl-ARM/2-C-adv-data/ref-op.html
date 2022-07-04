@@ -1,0 +1,252 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>reference</I> (&) operator
+<HR>
+</H3>
+<UL>
+<LI> <FONT COLOR="darkmagenta"> <B>
+        Operators...
+        </B></FONT>
+ <UL>
+ <P>
+ <LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT COLOR="red"><B>Operators</B></FONT>
+	<B>operates</B> on 
+	<FONT color="blue"><B>one or more <I>operands</I> (values)</B></FONT>
+	and 
+	<FONT color="red"><B>return</B></FONT> another <B>value</B>
+	(kind of like a function)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> We will look at an very
+   <FONT color="red"><B><I>very</I> unusual operator</B></FONT>
+    in the <B>C/C++ programming
+	language</B> that is not usually found in 
+    <B>most other</B> high level
+	programming languages...
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"> <B>
+        The <I>reference</I> operator &
+        </B></FONT>
+<UL>
+<P>
+<LI> The <B>reference</B> operator <FONT color="red"><B>&</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT COLOR="red"> <B> <I>reference</I> Operator & </B></FONT>
+	operates on a 
+       <FONT COLOR="blue"> <B> variable </B></FONT>
+	and 
+	<FONT color="red"><B>returns</B></FONT> the
+       <FONT COLOR="blue"> <B> <I>address</I> of that variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the <FONT color="blue"><B>variable <TT>a</TT></B></FONT>
+      is stored (starting) at
+      <FONT color="red"><B>memory address 5000</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-op1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Then:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">&a</FONT>      will evaulates to <FONT color="red">5000</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>C program</B> that  <FONT color="blue"><B>illustrates</B></FONT> 
+     the <FONT color="red"><B><TT>&</TT></B></FONT> operator:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  /* -----------------------------------
+     Here are some (global) variables
+     ----------------------------------- */
+  int    i1, i2;
+  short  s1, s2;
+  char   c1, c2;
+  float  f1, f2;
+  double d1, d2;
+
+  int main(int argc, char *argv[])
+  {
+     printf("Address of i1 = %u\n", <FONT color="red">&i1</FONT> );  // %u = unsigned integer
+     printf("Address of i2 = %u\n", <FONT color="red">&i2</FONT> );
+     printf("Address of s1 = %u\n", <FONT color="red">&s1</FONT> );
+     printf("Address of s2 = %u\n", <FONT color="red">&s2</FONT> );
+     printf("Address of c1 = %u\n", <FONT color="red">&c1</FONT> );
+     printf("Address of c2 = %u\n", <FONT color="red">&c2</FONT> );
+     printf("Address of f1 = %u\n", <FONT color="red">&f1</FONT> );
+     printf("Address of f2 = %u\n", <FONT color="red">&f2</FONT> );
+     printf("Address of d1 = %u\n", <FONT color="red">&d1</FONT> );
+     printf("Address of d2 = %u\n", <FONT color="red">&d2</FONT> );
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Address of i1 = 13474<FONT color="red">4</FONT>
+   Address of i2 = 13474<FONT color="red">8</FONT>   (Notice: i2 located 4 bytes after i1)     
+   Address of s1 = 13475<FONT color="darkred">2</FONT>
+   Address of s2 = 13475<FONT color="darkred">4</FONT>   (Notice: s2 located 2 bytes after s1)
+   Address of c1 = 134712
+   Address of c2 = 134713   (Notice: c2 located 1 bytes after c1)
+   Address of f1 = 134736
+   Address of f2 = 134740   (Notice: f2 located 4 bytes after f1)
+   Address of d1 = 134720
+   Address of d2 = 134728   (Notice: d2 located 8 bytes after d1)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/ref-op1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-op1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+

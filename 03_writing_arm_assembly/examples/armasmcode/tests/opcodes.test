@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# test opcodes. Script returns 0 if there are no errors and 1 if there are errors.
+# Acknowledgements / script based on work from Espeak-NG
+
+# Test a command for presence and ability to output the sha1 hash of a file.
+check_hashcmd() {
+	which $1 &&
+	$1 </dev/null 2>/dev/null |
+	awk '{if ($1 != "da39a3ee5e6b4b0d3255bfef95601890afd80709") { exit 1; }}'
+}
+
+# Test some common commands to find the correct one for the system being tested on.
+echo -n "checking for disarm64 ... "
+which bin/disarm64 || exit 1
+
+echo -n "checking for SHA1 hashing command ... "
+if check_hashcmd sha1sum; then
+	sha1sum=sha1sum
+elif check_hashcmd sha1; then
+	sha1sum=sha1
+elif check_hashcmd shasum; then
+	sha1sum=shasum
+else
+	echo "no"
+	exit 1
+fi
+
+
+test_opcode() {
+	TEST_OPCODE=$1
+	EXPECTED=$2
+
+	echo "testing ${TEST_OPCODE}"
+	qemu-aarch64 bin/disarm64 tests/bin/${TEST_OPCODE} | $sha1sum | awk '{ print $1 }' > tests/actual.txt
+	echo "${EXPECTED}" > tests/expected.txt
+	diff tests/expected.txt tests/actual.txt || exit 1
+}
+
+test_opcode disarm_loadstore 0119b2f96bc6f195de22dab15bab60cf9bbd0943
+test_opcode disarm_branches 6f50c487b0f7b9930c21af18839bde276d984558
+test_opcode disarm_cmp ac73a6f0f7b4d901f625f2b5d63ae052b565f62b
+test_opcode disarm_data bd526473cd291cefed72256dc49c450245a2d620
+test_opcode disarm_arithmetic a486316cac16f8355c2baac2d8092c332ce56632

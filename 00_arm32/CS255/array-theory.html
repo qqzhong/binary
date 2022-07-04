@@ -1,0 +1,500 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How to access an element in an array
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Reminder:</FONT>
+     Principle of accessing data stored in the computer memory
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Principle</B></FONT> of
+      <FONT color="blue"><B>access data</B></FONT> that is stored in
+      the <FONT color="red"><B>computer memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can <FONT color="red"><B>access (= read or write)</B></FONT> data
+   </B></FONT> stored in
+   <FONT color="blue"><B>computer memory</B></FONT> if we know:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>starting</I> location</B></FONT> in
+  <B>memory</B>
+       where the <FONT color="blue"><B>data is stored</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>number of bytes</B></FONT> used
+      to <FONT color="blue"><B>store</B></FONT> the
+      <FONT color="red"><B>data</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Remember that I said in this webpage (
+ <A HREF="ldr.html#principle">
+ <FONT color="blue"><B>click here</B></FONT></A>) that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You often need to
+    <FONT color="red"><B>find (= compute)</B></FONT> the
+     <FONT color="blue"><B>(starting) address</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>comment</B></FONT> applies whenever you
+ access a
+ <FONT color="blue"><B><I>data structure</I></B></FONT>
+ such as an <FONT color="red"><B>array</B></FONT>
+ (and later: a <FONT color="blue"><B>linked list</B></FONT>)
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Information stored about the array
+     </B></FONT>
+<P>
+<UL>
+<LI> Before we start discussing how to access array elements, you need to
+    know <FONT color="red"><B>what <I>information</I></B></FONT>
+    we have <FONT color="blue"><B>available</B></FONT> about an
+    <FONT color="red"><B>array</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> We know the <FONT color="red"><B><I>data type</I></B></FONT> of
+      the <FONT color="blue"><B>array</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> From the <FONT color="red"><B>data type</B></FONT>,
+       we can find the
+     <FONT color="blue"><B>number of bytes</B></FONT> used to
+     store <FONT color="red"><B>elements</B></FONT> of the 
+     <FONT color="blue"><B>array</B></FONT>
+ <P>
+   We need this <FONT color="red"><B>information</B></FONT> to
+   decide 
+   <FONT color="blue"><B>which</B></FONT>
+   <FONT color="red"><B><TT>load register</TT></B></FONT> instruction
+   to use to
+   <FONT color="blue"><B>access</B></FONT> an
+  <FONT color="red"><B>array element</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ldr    for  int
+    ldrsh  for short
+    ldrsb  for byte               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We know the
+    <FONT color="red"><B><I>start</I> address</B></FONT>
+  (a.k.a.
+   <FONT color="blue"><B><I>base</I> address</B></FONT>)
+   of the <FONT color="red"><B>array</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When we <FONT color="blue"><B>define</B></FONT> an
+  <FONT color="red"><B>array variable</B></FONT> as:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   A:  ....    // array definition omitted        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>label <TT>A</TT></B></FONT> that we used will
+ be <FONT color="blue"><B>equated</B></FONT> to
+ the <FONT color="red"><B><I>base</I> address</B></FONT> of
+ the <FONT color="blue"><B>array</B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We must 
+     use these <FONT color="red"><B>2 pieces of information</B></FONT>
+     to <FONT color="blue"><B>access</B></FONT> 
+     an <FONT color="red"><B>array element</B></FONT> !!!
+<P>
+    
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>starting</I> (memory) location of an array element
+     </B></FONT>
+<P>
+<UL>
+<LI> In order to
+     <FONT color="blue"><B>access</B></FONT> an
+     <B>arbitrary</B>
+     <FONT color="red"><B>array element
+     <TT>A[i]</TT></B></FONT>, we must
+     find:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>start location</I></B></FONT> of the
+      <FONT color="blue"><B>array element <TT>A[i]</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> The <FONT color="red"><B>start location</B></FONT> of
+      <B>any</B> <FONT color="blue"><B>array element</B></FONT> can be
+      <FONT color="red"><B>computed</B></FONT> as the
+    <FONT color="blue"><B>sum</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        <SPAN style="BACKGROUND-COLOR: yellow"> base address of the array + offset to the array element </SPAN>
+
+ <FONT color="red">Graphically explained:</FONT> 
+
+         <IMG SRC="FIGS/array02b.gif"></IMG>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>offset</B></FONT> is equal to the
+ <FONT color="blue"><B>number of bytes</B></FONT> between:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>start location</I> (= address)</B></FONT> of
+      the <FONT color="blue"><B>array</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <B>and</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="red"><B><I>start location</I> (= address)</B></FONT>
+    of the (<B>arbitrary</B>)
+    <FONT color="blue"><B>array element</B></FONT> with
+    <FONT color="red"><B>index <TT>i</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+There are
+ <FONT color="red"><B><TT>i</TT>  array elements</B></FONT> between
+ the <FONT color="blue"><B>start of the array</B></FONT> and
+ the <FONT color="red"><B>start of array element <TT>A[i]</TT></B></FONT>:
+<P>
+
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array02c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+We <FONT color="red"><B>know</B></FONT> the
+ <FONT color="blue"><B>data type</B></FONT> of the
+ <FONT color="red"><B>array</B></FONT>, and
+ <B>therefore</B>, we 
+ <FONT color="blue"><B>also</B></FONT> 
+ <FONT color="red"><B>know</B></FONT> the
+ <FONT color="blue"><B><I>size</I> (= number of bytes)</B></FONT>
+ of each <FONT color="red"><B>array element</B></FONT>.
+<P>
+
+<P>
+<FONT color="red"><B>Because</B></FONT>
+ <FONT color="blue"><B><I>each</I> array element</B></FONT> has
+ the <FONT color="red"><B><I>same</I> data type</B></FONT>
+ (and therefore each array element occupies the 
+  <FONT color="blue"><B>same number of bytes</B></FONT>),
+  the
+ <FONT color="red"><B><I>offset</I></B></FONT> to
+ the <FONT color="blue"><B>array element <TT>A[i]</TT></B></FONT>
+  is equal to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">offset</FONT> to A[i] =  <FONT color="red">i &times; size(one array element)</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>In summary</B>, the
+  <FONT color="red"><B><I>starting location</I> (= address)</B></FONT>
+   of the <FONT color="blue"><B>array element <TT>A[i]</TT></B></FONT>
+  (with <FONT color="red"><B>index <TT>i</TT></B></FONT>) can be computed
+ as:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">start address</FONT> of array element <FONT color="red">A[i]</FONT> =  base address of array
+                                          + i &times; size(one array element)   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically explained:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array02d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+Once you have
+ <FONT color="red"><B>computed</B></FONT> the
+ <FONT color="blue"><B><I>start address</I></B></FONT> of the
+ <FONT color="red"><B>array element</B></FONT>, you can then:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use
+ the (<B>appropriate</B>)
+ <FONT color="blue"><B><TT>load</TT> instruction</B></FONT> to
+ <FONT color="red"><B>read</B></FONT> the value stored in the
+  <FONT color="blue"><B>array element</B></FONT>
+  (you must use the <FONT color="red"><B>correct load instruction</B></FONT>
+  according to the
+ <FONT color="blue"><B>data type</B></FONT> of the
+  <FONT color="red"><B>array element </B></FONT> !!!)
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <B>or</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Use 
+  the (<B>appropriate</B>)
+   <FONT color="blue"><B><TT>store</TT> instruction</B></FONT> to
+ <FONT color="red"><B>update</B></FONT> the value stored in the
+  <FONT color="blue"><B>array element</B></FONT>
+  (you must use the <FONT color="red"><B>correct load instruction</B></FONT>
+  according to the
+ <FONT color="blue"><B>data type</B></FONT> of the
+  <FONT color="red"><B>array element </B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A more <I>advanced</I> format of the
+   <TT>load</TT> and <TT>store</TT> instructions
+     </B></FONT>
+<P>
+<UL>
+<LI> Because <FONT color="red"><B>arrays</B></FONT> are
+     used <FONT color="blue"><B>frequently</B></FONT> in
+     <FONT color="red"><B>computer programs</B></FONT>,
+     <FONT color="blue"><B><I>all</I> processors</B></FONT>
+     (including the ARM processor) provides
+     a <FONT color="red"><B><I>more</I> advanced</B></FONT>
+     <FONT color="blue"><B>load and store instruction</B></FONT> to
+     access arrays (and linked lists)
+<P>
+ We will learn this <FONT color="red"><B>advance format</B></FONT> of
+ the <FONT color="blue"><B>load and store instruction</B></FONT> 
+ next before we write 
+   assembler code to access arrays.
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

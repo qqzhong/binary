@@ -1,0 +1,625 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text
+
+   If you want more space, change  top: -55px;  Cheung */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<H3>
+<HR>
+Usage of the general purpose registers
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Usages of the general purpose registers
+     </B></FONT>
+<P>
+<UL>
+When the CPU excutes an instruction, the CPU may need to
+ fetch the <FONT color="red"><B>input operands</B></FONT> for
+ that instruction.
+<P>
+For example: when the CPU performs an
+ <FONT color="red"><B>add operation</B></FONT>, the CPU
+  needs the <FONT color="blue"><B>input values</B></FONT> for
+  the addition operation.
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>input values</B></FONT> used by
+        the <FONT color="blue"><B>instructions</B></FONT> are
+	<B>always</B> stored in
+	a <FONT color="red"><B>(general purpose) register
+      (= very fast memory cells)</B></FONT>
+	that are located 
+	<FONT color="blue"><B>inside the CPU</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+After executing an operation, the CPU usually needs to
+  <FONT color="red"><B>store</B></FONT> the
+ <FONT color="blue"><B>result</B></FONT> away for safe-keeping:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the CPU needs to <FONT color="red"><B>store</B></FONT> the 
+    <FONT color="blue"><B>result</B></FONT>, the CPU will 
+    <B>always</B> store it in a
+    <FONT color="red"><B>(general purpose) register</B></FONT> that is
+    located <FONT color="blue"><B>inside the CPU</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Most common usage</B></FONT> of
+  <FONT color="blue"><B>general purpose registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="red"><B>store</B></FONT>
+      the <FONT color="blue"><B>input operands</B></FONT> for
+      <FONT color="red"><B>computer instructions</B></FONT> and
+ <LI> To <FONT color="red"><B>store</B></FONT> the
+    <FONT color="blue"><B>result</B></FONT> of 
+    <FONT color="red"><B>computer instructions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<HR>
+
+<FONT color="red"><B>Slideshow</B></FONT>:
+<P>
+&nbsp;
+<P>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides">
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img src="FIGS/cpu03.gif" style="width:80%">
+    <div class="text"><FONT color="blue"><B>
+        (Registers provide values (= operands) for computer instructions -
+	e.g.: addition)
+     </B></FONT></div>
+  </div>
+
+  <div class="mySlides">
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img src="FIGS/cpu03b.gif" style="width:80%">
+    <div class="text"><FONT color="blue"><B>
+     (Values (= operands) are transfered to the inputs of the ALU 
+	and ALU is instructed to ADD them up)
+	</B></FONT></div>
+  </div>
+
+  <div class="mySlides">
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img src="FIGS/cpu03c.gif" style="width:80%">
+    <div class="text"><FONT color="blue"><B>
+     (The result of the computation is stored in a register)
+	</B></FONT></div>
+  </div>
+
+  <div class="mySlides">
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <img src="FIGS/cpu03d.gif" style="width:80%">
+    <div class="text"><FONT color="magenta"><B>
+     (Important result are transfered to memory for LONG TERM storage
+	and safe keeping (limited number of registers !))
+	</B></FONT></div>
+  </div>
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)"><FONT color="red"><B>&#10095;</B></FONT></a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+</div> 
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+
+<P>
+<HR>
+<HR>
+
+
+
+
+
+
+<P>
+<B>Example:</B>
+  Suppose the <FONT color="red"><B>we</B></FONT> want
+      the <FONT color="blue"><B>computer</B></FONT> to
+      compute  <FONT color="red"><B>x + y</B></FONT>,
+      <B>then:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We (= the <FONT color="blue"><B>programmer</B></FONT>)
+     must <B>bring</B> the
+     <FONT color="red"><B>values in variables <TT>x</TT> and 
+        <TT>y</TT></B></FONT>
+     into
+     some <FONT color="blue"><B>general purpose registers</B></FONT>
+ <P>
+  For example: <FONT color="red"><B>R0 = x</B></FONT> and
+        <FONT color="red"><B>R1 = y</B></FONT> 
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We can <FONT color="red"><B>command</B></FONT> the
+  <FONT color="blue"><B>CPU</B></FONT> to
+  perform an <FONT color="red"><B>addition</B></FONT> using
+  the values in the <FONT color="blue"><B>registers R0 and R1</B></FONT>
+  as input
+  by <FONT color="red"><B>putting</B></FONT> the
+  <FONT color="blue"><B><TT>"ADD R2,R0,R1"</TT></B></FONT> instruction
+  in the <FONT color="blue"><B>Instruction Register</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The
+  <FONT color="blue"><B><TT>"ADD R2,R0,R1"</TT></B></FONT> instruction
+  <FONT color="red"><B>also</B></FONT> instruct the
+   <FONT color="blue"><B>register R2</B></FONT> to
+   <FONT color="red"><B>store</B></FONT> the
+   <FONT color="blue"><B>result</B></FONT> of the computation:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+  <FONT color="blue"><B>register R2</B></FONT> may contain an
+  <FONT color="red"><B><I>old</I> value</B></FONT>.
+ The <FONT color="blue"><B>value</B></FONT> stored will
+  <FONT color="red"><B>overwrite</B></FONT> the
+ <FONT color="blue"><B>old value</B></FONT> in
+  <FONT color="red"><B>R2</B></FONT>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important restriction by computer design
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>CPU</B></FONT> only have
+  a <FONT color="red"><B><I>limited</I> number</B></FONT>
+   (about 10 or so) of
+  <FONT color="blue"><B>general purpose registers</B></FONT>
+ 
+<P>
+You should
+  <FONT color="blue"><B>only use</B></FONT> the
+<FONT color="red"><B>general purpose registers</B></FONT> 
+    to <FONT color="blue"><B>store values</B></FONT>
+ that will be <FONT color="red"><B>used <I>shortly</I> (= soon)</B></FONT>
+ in some <FONT color="blue"><B>computation</B></FONT> !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Assembler programming law:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> After a <FONT color="red"><B>result</B></FONT> is 
+     <FONT color="blue"><B>stored</B></FONT> in a 
+     (general purpose) register</B></FONT> and you don't plan to
+   use it for a long time, you
+  must <FONT color="red"><B>store (save)</B></FONT> the result
+ in the <FONT color="blue"><B>(slower) memory</B></FONT>
+ for <FONT color="red"><B>long term safe-keeping</B></FONT>
+ if you need it later
+<P>
+<B>Example:</B>
+  if the value
+  in <FONT color="red"><B>register R2</B></FONT> will not be used
+   for some time <FONT color="blue"><B><I>and</I></B></FONT>
+   this value is <FONT color="red"><B>used later</B></FONT>,
+   you must <FONT color="blue"><B>store</B></FONT> the
+   value in <FONT color="red"><B>memory</B></FONT>
+   to <FONT color="blue"><B>free up</B></FONT> the
+   <FONT color="red"><B>register</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu03d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+You will learn  <FONT color="red"><B>later in the course</B></FONT> 
+ how to use the <FONT color="blue"><B><TT>STR</TT> (store register)</B></FONT>
+ instruction to <FONT color="red"><B>save</B></FONT> the value
+ from a register into memory
+<P>
+ I <FONT color="red"><B>depicted</B></FONT> in the above figure
+ what happens when
+ the computer executes
+  the <FONT color="blue"><B><TT>STR</TT></B></FONT> instruction
+ (the value in register R2 will be 
+  <FONT color="red"><B>copied</B></FONT> to some
+  memory cell(s) --
+  you must specify the memory address (where to store the value) in the
+  <FONT color="blue"><B><TT>STR</TT></B></FONT> instruction.
+ -- we will learn this later !
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example to illustrate
+     how  the <FONT color="red">general purpose registers </FONT>
+    are  used
+     </B></FONT>
+<P>
+<UL>
+
+
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the program computes
+     <FONT color="red"><B><TT>4 + 5 + 1 + 2</TT></B></FONT>, the computer will
+   compute this sum in a number of steps:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. Compute running sum = <FONT color="red"><B><TT>4 + 5 = 9</TT></FONT>
+   2. Then add <FONT color="red"><B><TT>1</TT></FONT> to the running sum to obtain <FONT color="red"><B><TT>10</TT></FONT>
+   3. Then add <FONT color="red"><B><TT>2</TT></FONT> to the running sum to obtain the final sum <FONT color="red"><B><TT>12</TT></FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In such a scenario, you should use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  One register (e.g. <FONT color="red">R0</FONT>) to store the <FONT color="red">next number</FONT> that you need to add
+
+  One register (e.g. <FONT color="red">R1</FONT>) to store the <FONT color="red">running sum</FONT> because its used repeatedly     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+After you <B>finish</B> computing
+  the <FONT color="red"><B>complex expression</B></FONT>
+ (<FONT color="red"><B><TT>4 + 5 + 1 + 2</TT></B></FONT>),
+ the <FONT color="blue"><B>registers R0 and R1</B></FONT> are
+ <FONT color="red"><B>"recycled"</B></FONT> to
+ compute the
+ <FONT color="blue"><B><I>next</I>  expression</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+</body>
+</html>
+
+

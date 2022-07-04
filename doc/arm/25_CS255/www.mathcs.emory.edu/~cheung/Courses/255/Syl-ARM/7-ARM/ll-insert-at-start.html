@@ -1,0 +1,792 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+
+<H3>
+<HR>
+Insert at Start of a Linked List
+<HR>
+</H3>
+
+<UL>
+<P>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The List class used in example
+     </B></FONT>
+<P>
+<UL>
+<LI> We will use the following <FONT color="red"><B>List</B></FONT>
+    class:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List           
+   {
+      int  value;       
+      List next;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Inserting at the <FONT color="red">start</FONT> (head)
+   of a linked list
+     </B></FONT>
+<P>
+<UL>
+
+<LI> Suppose you have a <FONT color="blue"><B>linked list</B></FONT> at 
+    the List variable 
+    <FONT color="red"><B><TT>head</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   head
+    +--------+     +--------+    -->+--------+    -->+--------+
+    |        |---->| value1 |   /   | value2 |   /   | value3 |
+    +--------+     |        |  /    |        |  /    |        |
+                   +--------+ /     +--------+ /     +--------+
+                   | next1  |-      | next2  |-      | null   |
+                   +--------+       +--------+       +--------+     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ And you have a linked list <B>element</B> at "elem":
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   elem
+    +--------+     +--------+
+    |        |---->| valueX | (information has been filled in)
+    +--------+     |        |
+                   +--------+
+                   | ????   | (don't care, because we know there
+                   +--------+  is no "next" element)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To make thing <FONT color="red"><B>more concrete</B></FONT>,
+     here is <FONT color="blue"><B>how</B></FONT> the
+      <FONT color="red"><B>linked list</B></FONT>
+    (at <FONT color="blue"><B>head</B></FONT>) and the
+    <FONT color="red"><B>list element</B></FONT> 
+    <B><I>may</I></B> be
+    <FONT color="blue"><B>stored</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+ <PRE>
+ Memory:
+
+        +---------------+
+  <FONT color="red"><B>head:</B></FONT> |  8000         |-------------------------------+
+        +---------------+                               |
+        |               |                               |
+	  .......                                       |
+	  .......                                       |
+        +---------------+                               |
+  8000  |  value1       |  Linked list element 1  <-----+
+        +---------------+
+        | next1=10000   |-------------------------------------+
+        +---------------+                                     |
+        |               |                                     |
+        +---------------+                                     |
+	  .......                                             |
+	  .......                                             |
+        +---------------+                                     |
+  9000  |  value3       |  Linked list element 3 <----+       |
+        +---------------+                             |       |
+        | next3=0 (null |                             |       |
+        +---------------+                             |       |
+	  .......                                     |       |
+	  .......                                     |       |
+        +---------------+                             |       |
+ 10000  |  value2       |  Linked list element 2      | <-----+
+        +---------------+                             |
+        | next2=9000    |-----------------------------+
+        +---------------+
+	  .......
+	  .......
+        +---------------+
+  <FONT color="red"><B>elem:</B></FONT> |  20000        |-----------------------------+
+        +---------------+                             |
+	  .......                                     |
+	  .......                                     |
+        +---------------+                             |
+ 20000  |  valueX       | New linked list element <---+
+        +---------------+
+        | nextX=????    |
+        +---------------+
+ </PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B><I>must</I></B></FONT> use
+     <FONT color="blue"><B><TT>head</TT></B></FONT> to
+     <FONT color="red"><B>access</B></FONT> the
+     <FONT color="blue"><B>list elements</B></FONT> !!!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Inserting</B></FONT> the element 
+    <B>pointed</B> by the
+   <B>List variable</B>
+    <FONT color="blue"><B><TT>elem</TT></B></FONT>
+       at the <FONT color="red"><B><I>start</I></B></FONT>
+     of the linked <FONT color="blue"><B>means</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To make the element <B>pointed</B> by  the
+   <B>List variable</B>
+    <FONT color="blue"><B><TT>elem</TT></B></FONT>
+     as the <FONT color="red"><B><I>first</I> element</B></FONT> in the
+     <FONT color="blue"><B>linked list</B></FONT>
+     at <FONT color="red"><B><TT>head</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>Before</B></FONT> the
+    <FONT color="blue"><B> insertion:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   head
+    +--------+     +--------+    -->+--------+    -->+--------+
+    |        |---->| value1 |   /   | value2 |   /   | value3 |
+    +--------+     |        |  /    |        |  /    |        |
+                   +--------+ /     +--------+ /     +--------+
+                   | next1  |-      | next2  |-      | null   |
+                   +--------+       +--------+       +--------+
+   elem
+    +--------+     +--------+
+    |        |---->| valueX | 
+    +--------+     |        |
+                   +--------+
+                   | ????   | 
+                   +--------+ 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>
+ <FONT color="red"><B>After</B></FONT> the
+   <FONT color="blue"><B> insertion:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   head
+    +--------+         +--------+    -->+--------+    -->+--------+
+    |        |-+    +->| value1 |   /   | value2 |   /   | value3 |
+    +--------+ |    |  |        |  /    |        |  /    |        |
+               |    |  +--------+ /     +--------+ /     +--------+
+               |    |  | next1  |-      | next2  |-      | null   |
+               |    |  +--------+       +--------+       +--------+
+               |    |
+   elem        |    +---------+
+    +--------+ |   +--------+ |
+    |        |-+-->| valueX | |
+    +--------+     |        | |
+                   +--------+ |
+                   | nextX  |-+
+                   +--------+ 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<LI> This is what will 
+   <FONT color="blue"><B>actually</B></FONT>
+   happen <FONT color="red"><B>inside</B></FONT> the
+    <FONT color="blue"><B>memory</B></FONT> using
+    the <FONT color="red"><B>concrete example</B></FONT> 
+    <B>above</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Memory:
+        +---------------+
+  <B>head:</B> |  <FONT COLOR="red"><B>20000</B></FONT>        |---------------------------------------+
+        +---------------+                                       |
+        |               |                                       |
+	  .......                                               |
+	  .......                                               |
+        +---------------+                                       |
+  8000  |  value1       |  Linked list element 1    <------+    |
+        +---------------+                                  |    |
+        | next1=10000   |-------------------------------------+ |
+        +---------------+                                  |  | |
+        |               |                                  |  | |
+        +---------------+                                  |  | |
+	  .......                                          |  | |
+	  .......                                          |  | |
+        +---------------+                                  |  | |
+  9000  |  value3       |  Linked list element 3 <----+    |  | |
+        +---------------+                             |    |  | |
+        | next3=0 (null)|                             |    |  | |
+        +---------------+                             |    |  | |
+	  .......                                     |    |  | |
+	  .......                                     |    |  | |
+        +---------------+                             |    |  | |
+ 10000  |  value2       |  Linked list element 2      | <-----+ |
+        +---------------+                             |    |    |
+        | next2=9000    |-----------------------------+    |    |
+        +---------------+                                  |    |
+	  .......                                          |    |
+	  .......                                          |    |
+        +---------------+                                  |    |
+  <B>elem:</B> |  20000        |-----------------------------+    |    |
+        +---------------+                             |    |    |
+	  .......                                     |    |    |
+	  .......                                     |    |    |
+        +---------------+                             |    |    |
+ <FONT color="red">20000</FONT>  |  valueX       | new linked list element <---+---------+
+        +---------------+                                  |
+        | nextX=<FONT COLOR="red"><B>8000</B></FONT>    |----------------------------------+
+        +---------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: insert at start of list in <FONT color="red">Java</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Main method:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List head;  // Assume head has a list already
+   List elem;
+
+   main(   )
+   {
+       ptr = new List( );                // Make a new list element  
+   					 // Effect: 	 
+   					 //   1. reserve 8 bytes of memory
+   					 //      to store a List object
+   					 //   2. return the address of the
+   					 //      location of the reserved memory        
+   							    
+       ptr.value = 1234;                 // Assignment some value
+   							    
+       head = Insert(head, ptr);         // Insert into list
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> The <FONT color="red"><B>insert</B></FONT> <B>method</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static List <FONT color="red">Insert</FONT>(List head, List newelem)       
+   { 
+      <FONT color="red">newelem.next = head;</FONT>
+
+      return(<FONT color="red">newelem</FONT>);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="../demo/Linklist1.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>javac Linklist1.java</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Linklist1</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Allocating memory for a <FONT color="red">List</FONT> element
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <FONT color="blue"><B>effect</B></FONT> of the
+      <FONT color="red"><B><TT>new</TT></B></FONT> operator:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>new List( )</TT></B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Reserve</B></FONT>
+   (8 bytes of)
+       <FONT color="blue"><B>memory space</B></FONT>
+       (in the <FONT color="red"><B><I>heap</I></B></FONT> to
+       store one <FONT color="blue"><B><TT>List</TT></B></FONT> object
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Return</B></FONT> the
+        <FONT color="blue"><B>address</B></FONT> of the
+	<FONT color="red"><B><I>first</I> reserved byte</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Simulating</B></FONT> the
+       <FONT color="blue"><B><TT>new</TT> operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I have <FONT color="blue"><B>provided</B></FONT> a
+       <FONT color="red"><B>function</B></FONT>
+       (called <B>malloc</B>) in the
+       <FONT color="blue"><B><TT>cs255</TT> assembler library</B></FONT> 
+       to <FONT color="red"><B>simulate</B></FONT> the
+       <FONT color="blue"><B><TT>new</TT> operator</B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>malloc( )</TT></B></FONT> function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Input parameter:  D0 = number of bytes that need to be allocated (i.e., reserved) 
+
+   Output parameter: A0 = location (address) of the start of reserved memory
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">main</FONT> function in
+     <FONT color="red">M68000 code</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Main( )</B> in <FONT color="red"><B>Java</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ptr = new List();          // Make a new list element  
+                                      // Effect: 
+				      //   1. reserve 8 bytes of memory
+				      //      to store a List oject
+				      //   2. return the address of the
+				      //      location of the reserved memory        
+
+    ptr.value = 1234;                 // Assignment some value
+
+    head = Insert(head, ptr);         // Insert into list
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Main( )</B> in <FONT color="red"><B>M68000 code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+ **** ptr = new List();</font>
+
+    move.l #8, d0                  ; 8 byte used to store a List object
+    jsr    malloc                  ; allocate (8 bytes) of memory
+    move.l a0, ptr                 ; ptr = address of the allocated memory  
+
+<FONT color="red">
+ **** ptr.value = 1234;</font>
+
+    move.l #1234, (a0)
+<FONT color="red">
+ **** head = Insert(head, ptr);</font>
+<FONT color="darkgreen">
+    move.l head, -(a7)             ; pass head on stack
+    move.l ptr, -(a7)              ; pass ptr on stack</font>
+    bsr    InsertList              ; call InsertList<FONT color="darkgreen">
+    adda.l #8, a7		   ; clean up parameters</font>
+    move.l d0, head                ; head = return value
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">insert</FONT> at <FONT color="red">head</FONT>
+      method in <FONT color="red">M68000</FONT>
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="blue"><B>Insert()</B></FONT> function in
+      <FONT color="red"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static List <FONT color="red">Insert</FONT>(List head, List newelem)       
+   { 
+      newelem.next = head;
+
+      return(newelem);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The  <FONT color="blue"><B>Insert()</B></FONT> function in
+      <FONT color="red"><B>M68000 code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Stack Frame: (for your reference)
+
+         +--------------+ <------ a6
+	 |  saved a6    | 0(a6)
+	 +--------------+
+	 | return addr  | 4(a6)
+         +--------------+
+	 |    newelem   | 8(a6)
+         +--------------+
+	 |    head      | 12(a6)
+         +--------------+
+
+<HR>
+ InsertList:
+<FONT color="darkred">
+* Prelude
+      move.l  a6, -(a7)        * Save a6
+      move.l  a7, a6           * Set up my own a6
+      suba.l  #0, a7           * No local variable needed....</font>
+
+<FONT color="red">*     nexelem.next = head;</FONT>
+      move.l  12(a6),d0        * d0 = head   
+      movea.l 8(a6), a0        * a0 = newelem
+
+      move.l  d0, <FONT color="red">4(a0)</FONT>        * newelem.<FONT color="red">next</FONT> = head
+
+<FONT color="red">*     return(newelem);</FONT>
+      move.l  8(a6), d0        * Put <FONT color="red">newelem</font> in <FONT color="red">return location</FONT>
+<FONT color="darkgreen">
+* Postlude
+      movea.l a6, a7           * De-allocate the local variables
+      movea.l (a7)+, a6	       * Restore a6 for caller</font>
+
+      rts   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file: <FONT color="red"><B>list1-stack.s</B></FONT>
+     in 
+<FONT color="blue"><B><TT>/home/cs255000/demo/asm/list1-stack.s</TT></B></FONT>
+    
+  </UL>
+<P>
+ 
+</UL>
+
+
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

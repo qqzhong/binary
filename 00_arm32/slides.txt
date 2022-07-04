@@ -1,0 +1,604 @@
+# s02.html
+          Commonly used register name
+    ARM register         in assembler programming
+   ---------------     -------------------------------
+         R0                r0  or R0
+         R1                r1  or R1
+         R2                r2  or R2
+         R3                r3  or R3
+         R4                r4  or R4
+         R5                r5  or R5
+         R6                r6  or R6
+         R7                r7  or R7
+         R8                r8  or R8
+         R9                r9  or R9
+         R10               r10 or R10
+         R11               fp  (frame pointer)
+         R12               ip  (intra procedure)
+         R13               sp  (stack pointer)
+         R14               lr  (link register)
+         R15               pc  (program counter)
+
+# s04.html
+Assembler directives: (e.g.: .global)
+Labels (e.g.: main)
+.global The .global directive instructs the assembler (= translating program) to make the label main accessible to the linker application
+.text directive illustrated; The .text directive causes the instruction codes to be placed in the instruction section
+.data:   instructs the assembler (= translating program) to assemble constants and variable definitions
+.end:   terminates the assembler session; Program text that follows the .end keyword is ignored
+
+# s06.html
+1) Assembler directives:
+Assembler directives are commands (or requests) given to the assembler (= program that translates the assembler program into machine code)
+2) Assembler instructions:
+Assembler instructions are instruction lines that are translated into machine instruction codes by the assembler
+One assembler instruction is translated to one machine code
+
+
+# s09.html
+ .align  n  // If necessary, skip forward to
+            // an address that is divisible by 2^n
+
+# s14.html
+  a:  .4byte 15
+If you want to move (= put) the memory address a (it's a binary number !) into the register r0, you can use:
+   movw  r0, #:lower16:a
+   movt  r0, #:upper16:a
+
+A memory address must always be treated as large number !!!
+Therefore:
+You must use
+   movw  rN, #:lower16:memAddress
+   movt  rN, #:upper16:memAddress
+to store the memory address memAddress into a register
+
+
+ int b;
+  b = 4;  // Store the value 4 into the variable b in memory
+Assembler instructions that perform b = 4:
+  mov  r1, #4
+  movw r0, #:lower16:b
+  movt r0, #:upper16:b
+  str  r1, [r0]         // Store value in reg r1 into mem at r0
+
+ short b;
+  b = 4;  // Store the value 4 into the variable b in memory
+Assembler instructions that perform b = 4:
+  mov  r1, #4
+  movw r0, #:lower16:b
+  movt r0, #:upper16:b
+  strh r1, [r0]         // Store value in reg r1 into mem at r0
+
+
+How does a compiler translates b = a; to ARM instructions:
+  byte a;
+  int b;
+  b = a;  // Store val in var a into the var b
+Assembler instructions that perform b = a:
+  movw  r0, #:lower16:a
+  movt  r0, #:upper16:a
+  ldrsb r1, [r0]
+  movw  r0, #:lower16:b
+  movt  r0, #:upper16:b
+  str   r1, [r0]         // Store value in reg r1 into mem at r0
+
+
+  short a;
+  int   b;
+  b = a;  // Store val in var a into the var b
+Assembler instructions that perform b = a:
+  movw  r0, #:lower16:a
+  movt  r0, #:upper16:a
+  ldrsh r1, [r0]
+  movw  r0, #:lower16:b
+  movt  r0, #:upper16:b
+  str   r1, [r0]         // Store value in reg r1 into mem at r0
+
+
+The choice of store ordering is manufacturer dependent:
+The INTEL processors (x86) are little endian
+The ARM processor is little endian by default
+It can be programmed to operate as big endian
+Most processors were big endian, such as: Motorola M68000 and SPARC
+
+
+
+# s19.html
+Very important:
+When you load data from a byte variable, you must use the ldrsb instruction
+When you load data from a short variable, you must use the ldrsh instruction
+When you load data from a int variable, you must use the ldr instruction
+When you store data into a byte variable, you must use the strb instruction
+When you store data into a short variable, you must use the strh instruction
+When you store data into a int variable, you must use the str instruction
+
+
+# s23.html
+ byte a[10];  The compiler will translate it into:   a:  .skip 10   // 10 × 1 = 10
+short b[15];  The compiler will translate it into:   b:  .skip 30   // 15 × 2 = 30
+int c[20];    The compiler will translate it into:   c:  .skip 80   // 20 × 4 = 80
+byte a[ ] = {11, 12, 13, 14, 15}; // init array   is translated to the following assembler construct:   a:  .byte 11, 12, 13, 14, 15  // init array
+short b[ ] = {111, 112, 113, 114, 115}; // init array is translated to the following assembler construct:  b: .2byte 111, 112, 113, 114, 115  // init array
+int c[ ] = {1111, 1112, 1113, 1114, 1115}; is translated to the following assembler construct:            c: .4byte 1111, 1112, 1113, 1114, 1115
+
+
+
+# s25.html
+
+ ldrsb rN, [rM, #n] // Load byte data from mem addr rM + n
+ ldrsb rN, [rM, rk] // Load byte data from mem addr rM + rk
+
+ ldrsh rN, [rM, #n] // Load short data from mem addr rM + n
+ ldrsh rN, [rM, rk] // Load short data from mem addr rM + rk
+
+ ldr   rN, [rM, #n] // Load int data from mem addr rM + n
+ ldr   rN, [rM, rk] // Load int data from mem addr rM + rk
+
+ strb  rN, [rM, #n] // Store byte data to mem addr rM + n
+ strb  rN, [rM, rk] // Store byte data to mem addr rM + rk
+
+ strh  rN, [rM, #n] // Store short data to mem addr rM + n
+ strh  rN, [rM, rk] // Store short data to mem addr rM + rk
+
+ str   rN, [rM, #n] // Store int data to mem addr rM + n
+ str   rN, [rM, rk] // Store int data to mem addr rM + rk
+
+
+# s26.html
+
+ARM instructions to fetch A[5] into register r0:
+    .text
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    /* ----------------------------------------
+       Address of A[5] = base addr + 5*1 bytes
+       ---------------------------------------- */
+    ldrsb   r0, [r1, #5]     // Load A[5] into r0
+   .data
+A: .byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  // array
+
+
+ARM instructions to update A[5] = 99:
+    .text
+    mov     r0, #99           // r0 = 99
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    /* ----------------------------------------
+       Address of A[5] = base addr + 5*1 bytes
+       ---------------------------------------- */
+    strb   r0, [r1, #5]     // Write r0 (= 99) into A[5]
+   .data
+A: .byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+
+
+
+ARM instructions to fetch A[i] into register r0:
+    .text
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    movw    r2, #:lower16:i
+    movt    r2, #:upper16:i   // r2 = address of i
+    ldr     r2, [r2]          // r2 = i  (offset)
+    /* ----------------------------------------
+       Address of A[i] = base addr + i*1 bytes
+       ---------------------------------------- */
+    ldrsb   r0, [r1, r2]     // Load A[i] into r0
+   .data
+A: .byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+   .align  2
+i: .4byte  4
+
+
+ARM instructions to update A[i] = 99:
+    .text
+    movw    r0, #99           // r0 = 99
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    movw    r2, #:lower16:i
+    movt    r2, #:upper16:i   // r2 = address of i
+    ldr     r2, [r2]          // r2 = i (offset)
+    /* ----------------------------------------
+       Address of A[i] = base addr + i*1 bytes
+       ---------------------------------------- */
+    strb   r0, [r1, r2]     // Write r0 (= 99) into A[i]
+   .data
+A: .byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+   .align  2
+i: .4byte  4
+
+
+# s27.html
+ARM instructions to fetch A[5] into register r0:
+    .text
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    /* ----------------------------------------
+       Address of A[5] = base addr + 5*2 bytes
+       ---------------------------------------- */
+    ldrsh   r0, [r1, #10]     // Load A[5] into r0
+   .data
+A: .2byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  // array
+
+ARM instructions to update A[5] = 99:
+    .text
+    mov     r0, #99           // r0 = 99
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    /* ----------------------------------------
+       Address of A[5] = base addr + 5*2 bytes
+       ---------------------------------------- */
+    strh   r0, [r1, #10]     // Write r0 (= 99) into A[5]
+   .data
+A: .2byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+
+
+ARM instructions to fetch A[i] into register r0:
+    .text
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    movw    r2, #:lower16:i
+    movt    r2, #:upper16:i   // r2 = address of i
+    ldr     r2, [r2]          // r2 = i  (offset needed = i*2)
+    mov     r3, #2
+    mul     r2, r3, r2        // r2 = i*2
+    // Address of A[i] = base addr + i*2 bytes
+    ldrsh   r0, [r1, r2]     // Load A[i] into r0
+   .data
+A: .2byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+   .align  2
+i: .4byte  4
+
+
+
+ARM instructions to update A[i] = 99:
+    .text
+    movw    r0, #99           // r0 = 99
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    movw    r2, #:lower16:i
+    movt    r2, #:upper16:i   // r2 = address of i
+    ldr     r2, [r2]          // r2 = i
+    add     r2, r2, r2        // r2 = i*2
+    /* ----------------------------------------
+       Address of A[i] = base addr + i*2 bytes
+       ---------------------------------------- */
+    strh   r0, [r1, r2]     // Write r0 (= 99) into A[i]
+   .data
+A: .2byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+   .align  2
+i: .4byte  4
+
+
+# s28.html
+ARM instructions to fetch A[5] into register r0:
+    .text
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    /* ----------------------------------------
+       Address of A[5] = base addr + 5*4 bytes
+       ---------------------------------------- */
+    ldr     r0, [r1, #20]     // Load A[5] into r0
+   .data
+A: .4byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  // array
+
+
+
+ARM instructions to update A[5] = 99:
+    .text
+    mov     r0, #99           // r0 = 99
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    /* ----------------------------------------
+       Address of A[5] = base addr + 5*4 bytes
+       ---------------------------------------- */
+    str    r0, [r1, #20]     // Write r0 (= 99) into A[5]
+   .data
+A: .4byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+
+
+
+ARM instructions to fetch A[i] into register r0:
+ .text
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    movw    r2, #:lower16:i
+    movt    r2, #:upper16:i   // r2 = address of i
+    ldr     r2, [r2]          // r2 = i  (offset needed = i*4)
+    mov     r3, #4
+    mul     r2, r3, r2        // r2 = i*4
+    // Address of A[i] = base addr + i*4 bytes
+    ldr     r0, [r1, r2]     // Load A[i] into r0
+   .data
+A: .4byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+   .align  2
+i: .4byte  4
+
+
+ARM instructions to update A[i] = 99:
+    .text
+    movw    r0, #99           // r0 = 99
+    movw    r1, #:lower16:A
+    movt    r1, #:upper16:A   // r1 = base address of array A
+    movw    r2, #:lower16:i
+    movt    r2, #:upper16:i   // r2 = address of i
+    ldr     r2, [r2]          // r2 = i
+    add     r2, r2, r2        // r2 = i*2
+    add     r2, r2, r2        // r2 = i*4
+    // Address of A[i] = base addr + i*4 bytes
+    str    r0, [r1, r2]     // Write r0 (= 99) into A[i]
+   .data
+A: .4byte   1, 2, 3, 4, 5, 6, 7, 8, 9, 10  //  array
+   .align  2
+i: .4byte  4
+
+
+# s33.html
+p0: .4byte  333         // Object [333,23,33,p2]
+    .2byte  23, 33
+    .4byte  p2
+    .skip 4             // gap
+p1: .4byte  111         // Object [111,21,31,p3]
+    .2byte  21, 31
+    .4byte  p3
+p2: .4byte  444         // Object [444,24,34,p4]
+    .2byte  24, 34
+    .4byte  p4
+    .skip 4             // gap
+p3: .4byte  222         // Object [222,22,32,p2]
+    .2byte  22, 32
+    .4byte  p0
+    .skip 4             // gap
+p4: .4byte  555         // Object [555,25,35,null]
+    .2byte  25, 35
+    .4byte  0           // 0 = null
+
+head: .4byte  p1
+
+
+
+ARM assembler instructions:
+   // Fetch: head.value1, 2 and 3
+   movw  r0, #:lower16:head
+   movt  r0, #:upper16:head
+   ldr   r0, [r0]    // R0 = head
+
+   ldr   r1, [r0, #0]//Offset(v1)=0
+   ldrsh r2, [r0, #4]//Offset(v2)=4
+   ldrsh r3, [r0, #6]//Offset(v3)=6
+
+ARM assembler instructions:
+ // Fetch: head.next.val1, 2 and 3
+ // Preparation:
+ //   r0 = head.next
+ movw  r0, #:lower16:head
+ movt  r0, #:upper16:head
+ ldr   r0, [r0]    // r0=head
+ ldr   r0, [r0,#8] // r0=head.next
+
+ ldr   r1, [r0, #0]//Offset(v1)=0
+ ldrsh r2, [r0, #4]//Offset(v2)=4
+ ldrsh r3, [r0, #6]//Offset(v3)=6
+
+
+
+Fetch the following variable into register R1:   head.next.next.value2
+Solution:
+  movw   r0, #:lower16:head
+  movt   r0, #:upper16:head
+  ldr    r0, [r0]              // r0 = head
+  ldr    r0, [r0, #8]          // r0 = head.next
+  ldr    r0, [r0, #8]          // r0 = head.next.next
+
+  ldrsh  r1, [r0, #4]          // r1 = head.next.next.value2
+
+
+
+
+Translate the following assignment statement into ARM assembler:   head.next.next.value2 = 99;
+Solution:
+   // Get the RHS first
+   mov    r0, #99                // r0 = 99
+   // Preparation: base address r1 = head.next.next - DONE !
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r1 = addr(head)
+   ldr    r1, [r1]                // r1 = head
+   ldr    r1, [r1, #8]            // r1 = head.next
+   ldr    r1, [r1, #8]            // r1 = head.next.next
+   strh   r0, [r1, #4]            // Offset(value2) = 4
+
+
+
+Translate the following assignment statement into ARM assembler:   head.value1 = head.next.next.value3;
+Solution:
+   // Get head.next.next.value3
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = head
+   ldr    r0, [r0, #8]            // r0 = head.next
+   ldr    r0, [r0, #8]            // r0 = head.next.next
+   ldrsh  r0, [r0, #6]            // r0 = head.next.next.value3
+
+   // Store r0 in head.value1
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r0 = addr(head)
+   ldr    r1, [r1]                // r0 = head
+
+   str    r0, [r1, #0]            // offset(value1) = 0  (int)
+
+
+
+# s34.html
+The if-statement
+The if-else-statement
+The switch-statement
+The while-statement
+The for-statement
+The do-while-statement
+
+#s36.html
+b       there        // Updates PC, set PC = address there
+
+movw  r0, #:lower16:there // Updates PC, set PC = address there
+movt  r0, #:upper16:there
+mov   pc, r0
+
+
+# s37.html
+The assembler program uses 2 instructions to make decisions:
+The cmp (= compare) instruction that compares (= subtracts) 2 operands and update the N, Z, V, C flags to reflect the result of the comparison
+The conditional branch instructions (plural !) that use the summary result in the N, Z, V, C flags of a compare instruction to decide if the branch should be "taken" or "not taken".
+Note:   "take a branch" means "jump"
+
+
+beq label   (branch to label when equal)
+bne label   (branch to label when not equal)
+blt label   (branch to label when less than)
+ble label   (branch to label when less than or equal)
+bgt label   (branch to label when greater than)
+bge label   (branch to label when greater than or equal)
+
+# s38.html
+ cmp  rN, #n  // compares rN with n
+              // sets the flags according to comparison
+ cmp  rN, rM  // compares rN with rM
+              // sets the flags according to comparison
+ beq  label   // if ( rN == {n or rM} ) branch to label
+ bne  label   // if ( rN != {n or rM} ) branch to label
+ blt  label   // if ( rN <  {n or rM} ) branch to label
+ ble  label   // if ( rN <= {n or rM} ) branch to label
+ bgt  label   // if ( rN >  {n or rM} ) branch to label
+ bge  label   // if ( rN >= {n or rM} ) branch to label
+
+
+
+
+# s46.html
+Subroutines (a.k.a.: functions, procedures, sub-programs, methods):
+Other names for subroutine are:   procedure, function and method
+Subroutine is a program unit that can be called (= invoked) from anywhere in the computer program
+Program flow of a subroutine call:
+When a subroutine is called (= invoked), the program execution is transfered to the first instruction of the subroutine
+Program execution will continue in the subroutine until the subroutine returns
+When the subroutine returns, the program execution will continue at the statement after the subroutine call
+
+
+# s47.html
+Leaf subroutine (leaf function):
+Leaf subroutine/function = a subroutine/function that does not contain a subroutine/function call
+
+
+Why I make this distinction between leaf and non-leaf subroutines ?
+Why I distinguish leaf and non-leaf functions:
+
+Some modern processors (like the ARM processor) provide a very efficient subroutine call instruction that saves the return address in a (special purpose) register
+This fact will require the assembler programmer (= you) to push the return address on the stack explicitly (= do it yourself)
+Comment:
+
+Older processors (like the INTEL x86 and Core Dual) has a subroutine call instruction that saves (= pushes) the return address on the stack
+In this kind of computers, we don't need to distinguish leaf subroutines and non-leaf subroutines.
+
+
+# s49.html
+How the bl instruction is executed
+The Program Counter is incremented:
+Notice that the Program Counter contains the return address
+
+
+
+# s53.html
+main:
+        mov     r0, #4
+        push    {r0}   // Push value in r0 on stack
+
+        mov     r0, #9
+        push    {r0}   // Push value in r0 on stack
+
+        pop     {r1}            // r1 = 9
+        pop     {r2}            // r2 = 4
+
+
+We can achieve the same effect of the pop {r1} and pop {r2} instructions using these 2 instructions:
+main:
+        // pop {r1}
+        ldr     r1, [sp]    // Pop top of stack into reg r1
+        add     sp, sp, #4  // Increment stack pointer by 4
+
+        // pop {r2}
+        ldr     r2, [sp]    // Pop top of stack into reg r2
+        add     sp, sp, #4  // Increment stack pointer by 4
+
+
+# s57.html
+A common source of error caused by sharing registers:
+all registers are suspect after a bl instruction !!!
+
+# s58.html
+Interactions between functions/methods
+A method must perform a well-defined operation on the input parameters and return the result.
+Important rule in assembler programming:   all registers are suspect after you call a function
+
+# s59.html 
+Sequencing of events in function call + return with parameters and return values
+Note (1): When function f( ) starts running, it "sees" its parameters in registers r0 and r1
+Note (2): When function f( ) returns, main( ) "sees" the return value in register r0
+
+
+# s63.html
+The activation record or stack frame
+Stack frame is the data structure that is created in the runtime stack that contains (in order of insertion/creation - remember the stack order is FILO):
+1)The parameters of the function              
+2)The return address of the function
+3)The FP (frame pointer) register of the caller        
+4)The local variables of the function
+
+Accessing the "things" (= parameters and local variables) stored in a stack frame
+A stack frame is a data structure (just like an object)
+Data structures are accessed using a base address + an offset ( click here)
+We use the frame pointer (FP) register to hold the base address of a stack frame
+Local variables are accessed using negative offset values
+Parameter variables are accessed using positive offset values
+
+
+# s68.html
+Before main( ) make a function call, the program stack was empty
+After main( ) has clean up the parameters in the program stack, the program stack is empty again !!!
+(That's what we want !!! We do not want to leave any garbage on the program stack !!!)
+
+
+# s80.html
+Compiler and parameter passing mechanism
+The compiler knows whether a parameter is passed-by-value or passed-by-reference by processing the function definition:
+ void f( int x )   // indicates to C++ compiler that 
+                   // x is passed-by-value   
+
+ void f( int & x ) // indicates to C++ compiler that 
+                   // x is passed-by-refrence  
+A parameter that is passed-by-value will read/write the value in the parameter storage location (e.g.: in the stack)
+A parameter that is passed-by-reference will read/write the value in the original storage location through the address (= reference) that was passed.
+These are the defined behavior of pass-by-value and passed-by-reference that is implemented by the compiler !!
+
+
+# s82.html
+Parameter passing mechanism and where to pass a parameter
+You can combine the 2 independent choice
+
+You can pass a variable by value using a register by:
+Putting the value of the variable into a register        
+You can pass a variable by reference using a register by:
+Putting the address of the variable into a register        
+You can pass a variable by value using the runtime stack by:
+Pushing the value of the variable onto the runtime stack        
+You can pass a variable by reference using a runtime stack by:
+Pushing the address of the variable onto the runtime stack   
+
+
+
+
+----------------------------------------------------------------
+
+push    {lr}        ; (str lr, [sp, #-4]!)
+push    {fp}        ; (str fp, [sp, #-4]!)
+pop    {fp}        ; (ldr fp, [sp], #4)
+pop    {pc}        ; (ldr pc, [sp], #4)
+   
+----------------------------------------------------------------

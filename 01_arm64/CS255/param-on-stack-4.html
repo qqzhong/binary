@@ -1,0 +1,868 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using the stack to pass parameters and store local variables ---
+ using a <I>frame pointer</I> to access variables !!!
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Solving the "offset problem" by using a
+     <I>frame pointer</I> (a6) to access local variables and parameters
+     </B></FONT>
+<P>
+<UL>
+ <P>
+ <LI> <B>Recall</B> the <FONT color="red"><B>problem</B></FONT>
+      when we use the <FONT color="blue"><B><I>stack</I> pointer</B></FONT>
+      as <B>offset</B> to access the
+      <FONT color="red"><B>variables</B></FONT> on the <B>stack</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When we <FONT color="red"><B><I>add</I></B></FONT> a <B>new</B>
+      <FONT color="blue"><B>variable</B></FONT> to the
+      <B>function</B>, the
+      <FONT color="red"><B><I>offsets</I></B></FONT> of
+      <FONT color="blue"><B><I>all</I> existing variables</B></FONT>
+      <B><I>changes</I></B>
+<P>
+<HR>
+<P>
+<LI> <B><I>all</I></B> <FONT color="blue"><B>offsets</B></FONT> used in the
+      <B>assembler program</B> will
+      <FONT color="red"><B>have to be</B></FONT>
+      <FONT color="blue"><B><I>updated</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+We use a
+ <FONT color="red"><B> fixed pointer </B></FONT>
+ that points to a relatively fixed location in the stack and
+ use this  <FONT color="red"><B> fixed pointer </B></FONT>
+ to access the parameters and local variables
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Where</B> must this  <FONT color="red"><B> fixed pointer </B></FONT>
+	be pointing at ?
+ <P>
+    Answer: at the <B>separation</B> point  between the parameters and
+	local variables
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+         +---------------+ <----- a7 (stack pointer)
+  -8(a6) |      s        |  Local variable
+         +---------------+
+  -4(a6) |      i        |  Local variable
+         +---------------+ <FONT color="red"><----- a6 (frame pointer)</font>
+   0(a6) | return address|
+         +---------------+
+   4(a6) |      n  (10)  |  Parameter
+         +---------------+
+   8(a6) |      A  (#A)  |  Parameter
+         +---------------+
+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TH>
+Offsets used to access variables 
+<FONT color="red"> BEFORE </FONT>
+adding extra local variable
+</TH>
+<TH>
+Offsets used to access variables 
+<FONT color="red"> AFTER </FONT>
+adding extra local variable
+</TH>
+</TR>
+
+<TR>
+
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+
+
+         +---------------+ <----- a7
+  -8(a6) |      s        |
+         +---------------+
+  -4(a6) |      i        |
+         +---------------+ <FONT color="red"><----- a6</font>  
+   0(a6) | return address|
+         +---------------+
+   4(a6) |      n  (10)  |
+         +---------------+
+   8(a6) |      A  (#A)  |
+         +---------------+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+<font color="red">
+         +---------------+ <----- a7
+ -12(a6) |      x        |
+         +---------------+</font>
+  -8(a6) |      s        |
+         +---------------+
+  -4(a6) |      i        |
+         +---------------+ <FONT color="red"><----- a6</font>  
+   0(a6) | return address|
+         +---------------+
+   4(a6) |      n  (10)  |
+         +---------------+
+   8(a6) |      A  (#A)  |
+         +---------------+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+
+</TR>
+</TABLE>
+ <P>
+ <LI> The offset of the <B>existing variables</B> from 
+	<FONT color="blue"><B>A6</B></font> are 
+	<FONT color="red"><B> UNCHANGED </B></FONT>
+ <P>
+ <LI> So the <B>existing program code</B> is accessing the existing variables
+	<FONT color="red"><B> CORRECTLY</B></FONT> !!!
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ main:
+
+   int A[10];
+   int sum;
+
+   sum = ArraySum(A, 10);   
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ int ArraySum(int A[], int n)   
+ {<FONT color="red">
+    int i, s;   // Local variables</font>   
+
+    s = 0;
+    for (i = 0; i < n; i++)
+       s = s + A[i];
+
+    return (s);
+ }
+</PRE>
+</B>
+</FONT>
+</TD>
+
+</TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> <B>"main" in assembler language:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ main:
+
+     move.l #A, -(a7)        * Pass address of array A
+     move.l #10, -(a7)       * Pass # elements in array
+
+     bsr     ArraySum
+
+     adda.l #8, a7           * remove (pop) #A and #10 from stack    
+
+     move.l d0, sum          * put return value in variable "sum"
+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> <B>Stack content when subroutine "sum" begins execution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+         +---------------+
+         | free space    |<font color="red">
+         +---------------+ <----- a7 (stack pointer)    
+  0(a7)  | return address|
+         +---------------+
+  4(a7)  |      n  (#10) |
+         +---------------+
+  8(a7)  |      A  (#A)  |
+         +---------------+
+         |    .....      |</font>
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <B>Subroutine "ArraySum" using a <I>frame pointer</I> to
+    access parameter variables and local variables:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  Pay special attention to
+	how 
+     <FONT color="red"><B>A6</B></font> is used to access 
+	the parameters on the stack !!!
+ <P>
+ <LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>This</I> version</B></FONT> of
+      the <B>implementation</B> is
+      <FONT color="red"><B><I>not</I> completely correct</B></FONT>
+ <P>
+
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It will <FONT color="blue"><B><I>only</I></B></FONT> work
+    if the <B>main</B> function
+    <FONT color="red"><B>does <I>not</I> store</B></FONT>
+    any <FONT color="blue"><B>important information</B></FONT>
+    in <B>register A6</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+
+
+
+<LI> I show this version <FONT color="darkmagenta"><B><I>only</I></B></FONT> to
+    <FONT color="blue"><B>illustrate</B></FONT> 
+    <B><I>how to</I></B> use 
+    <FONT color="red"><B>register a6 (called the frame pointer)</B></FONT>
+     to
+    <B>access</B> parameter variables and local variables
+   (without you having to worry how to save the value in A6).
+ <P>
+ <HR>
+ <P>
+
+ <LI> <B>BTW</B>,
+    it's <FONT color="red"><B>easy </B></FONT> to fix the problem:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>If</B></FONT> the <B>main</B>
+     function has some <FONT color="red"><B>important information</B></FONT>
+     stored in <B>A6</B>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>    the <B>ArraySum</B> function 
+     <FONT color="red"><B>must <I>save</I></B></FONT>
+     the register <B>A6</B> at the <FONT color="blue"><B>start</B></FONT>
+ <P>
+ <LI>    the <B>ArraySum</B> function 
+     <FONT color="red"><B>must <I>restore</I></B></FONT>
+     the register <B>A6</B> 
+     <FONT color="blue"><B>before</B></FONT>
+     the  <B>ArraySum</B> function <FONT color="red"><B>returns</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> I will <FONT color="blue"><B>fix</B></FONT> the
+    <FONT color="red"><B>problem</B></FONT> in another
+    <FONT color="darkmagenta"><B>implementation</B></FONT>
+    below....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    The subroutine returns the value in <b>register D0</B>.
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">*********************************************************
+* This version does NOT save A6 - we will fix it later  *
+*********************************************************</font>
+
+ArraySum:<FONT color="red">
+	movea.l a7, a6		* setup a6 !!!
+<FONT color="darkmagenta">
+* The stack is:
+*
+* Offsets
+*         +---------------+ <----- <FONT color="red">a6</font> and a7 (stack pointer)
+*   0(a6) | return address|
+*         +---------------+
+*   4(a6) |      n  (10)  |
+*         +---------------+
+*   8(a6) |      A  (#A)  |
+*         +---------------+</font>
+
+        suba.l #8, a7           * Create 2 local variables on stack !!!  </font>
+<FONT color="darkmagenta">
+* NOW the stack is:
+*
+* Offsets
+*         +---------------+ <----- a7 (stack pointer)
+*  -8(a6) |      s        |     (you decide which location is s and i)
+*         +---------------+     (This program uses s and i in the given manner)
+*  -4(a6) |      i        |     
+*         +---------------+ <FONT color="red"><----- a6 (frame pointer)</font>
+*   0(a6) | return address|
+*         +---------------+
+*   4(a6) |      n  (10)  |
+*         +---------------+
+*   8(a6) |      A  (#A)  |
+*         +---------------+</font>
+
+        move.l #0, <FONT color="red">-8(a6)</font>       * s = 0
+        move.l #0, <FONT color="red">-4(a6)</font>       * i = 0
+While:
+        move.l <FONT color="red">-4(a6)</font>, d0       * puts local variable i in d0
+        move.l <FONT color="red">4(a6)</font>, d1        * puts parameter n in d1
+        cmp.l  d1, d0
+
+        BGE     WhileEnd        * Exit while loop if i >= n
+
+* ---- body of while loop
+
+        movea.l <FONT color="red">8(a6)</font>, a0       * put base address of array in A0
+*                                 (prepare to access A[i])
+
+        move.l  <FONT color="red">-4(a6)</font>, d0      * now d0 = i
+        muls    #4, d0          * offset is now in d0
+        move.l  (a0, d0.w), d0  * put A[i] in d0
+
+        add.l   d0, <FONT color="red">-8(a6)</font>      * add A[i] to local variable s
+
+        move.l  <FONT color="red">-4(a6)</font>, d0
+        add.l   #1, d0
+        move.l  d0, <FONT color="red">-4(a6)</font>      * i = i + 1
+
+        BRA While
+
+WhileEnd:
+
+        move.l  <FONT color="red">-8(a6)</font>, d0      * Return s in the agreed location (d0)
+<font color="darkmagenta">
+* The stack is STILL:
+*
+* Offsets
+*         +---------------+ <----- a7 (stack pointer)
+*  -8(a6) |      s        | 
+*         +---------------+ 
+*  -4(a6) |      i        |     
+*         +---------------+ <FONT color="red"><----- a6 (frame pointer)</font>
+*   0(a6) | return address|
+*         +---------------+
+*   4(a6) |      n  (10)  |
+*         +---------------+
+*   8(a6) |      A  (#A)  |
+*         +---------------+
+*
+* If you return NOW, your program will NOT pop the return address
+* into the Program counter and it will <FONT color="red">CRASH</font> !!!</font>
+<FONT color="red">
+        movea.l a6, a7      * NEW (better) way to remove local variables !!!
+			    * Better you don't need to know how many local
+			    * variables to remove !!!</font>
+<font color="darkmagenta">
+* NOW the stack is:
+*
+*         +---------------+ <----- a7 (stack pointer)
+*         | return address|
+*         +---------------+
+*         |      n  (10)  |
+*         +---------------+
+*         |      A  (#A)  |
+*         +---------------+
+*
+* NOW you can rexecute the return instruction !!!</font>
+
+        rts
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="../demo/sub-stack-param3.s"> click here </A>
+   </UL>
+  <P>
+
+
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Fixing the intentional error:
+       saving the <I>frame pointer</I> (a6) of the <I>caller</I>
+	subroutine
+     </B></FONT>
+<P>
+<UL>
+ <LI> The subroutine <B>SumArray</B> will 
+     <FONT color="blue"><B>use
+     a6 (frame pointer)</B></FONT>
+    to <FONT color="red"><B>access <I>parameter variables</I> and
+    <I>local variables</I></B></FONT>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the <FONT color="red"><B>caller</B></font>
+        (in our example: main()) function
+        <FONT color="blue"><B><I>also</I></B></FONT> uses
+      <B>a6</B> as <FONT color="red"><B>frame pointer</B></FONT>, then
+      the <B>value</B> stored in <FONT color="blue"><B>ab</B></FONT>
+       belonging to the
+      <FONT color="red"><B>caller function</B></FONT> will be
+      <FONT color="magenta"><B><I>destroyed</I></B></FONT> by
+      the subroutine <B>SumArray</B> !!!!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<P>
+ <LI> <B>Fixing</B> the <FONT color="red"><B>problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR>
+<TD>
+ <OL>
+ <LI> <FONT color="red"><B> Save </B></FONT> the
+	frame pointer <B>a6</B>
+	<FONT color="darkmagenta"><B>on the stack</B></FONT>
+	<FONT color="blue"><B> before </B></FONT>
+	you change its value
+ <P>
+ <LI> <FONT color="red"><B> Restore</B></FONT> the
+	<FONT color="blue"><B> saved a6 value</B></FONT>
+	<FONT color="darkmagenta"><B>from the stack</B></FONT>
+	<B>before</B> the subroutine returns to the caller !
+ </OL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <HR>
+ <P>
+ <LI> <B>The FINAL form of Subroutine "ArraySum" in assembler language:</B>
+<P>
+ <UL>
+    Pay special attention to
+	how 
+     <FONT color="red"><B>A6</B></font> is SAVED
+	on the stack and RECOVERED  <B>before</B> subroutine exits
+ </UL>
+<P>
+    The subroutine returns the value in <b>register D0</B>.
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ArraySum:<FONT color="red">
+	movea.l a6, -(a7)	********** Save a6 from the caller subroutine !!!!!!!!!        
+
+<FONT color="darkmagenta">
+* The stack is now:
+*
+*         +---------------+ <----- a7 (stack pointer)
+*         | a6 from caller|
+*         +---------------+
+*         | return address|
+*         +---------------+
+*         |      n  (10)  |
+*         +---------------+
+*         |      A  (#A)  |
+*         +---------------+</font>
+
+	movea.l a7, a6		* (setup a6 to access local vars and parameters)
+<FONT color="darkmagenta">
+* The parameters can now be accessed through a6 as follows:
+*
+* Offsets
+*         +---------------+ <----- <FONT color="red">a6</font> and a7 (stack pointer)
+*   0(a6) | a6 from caller|
+*         +---------------+
+*   4(a6) | return address|
+*         +---------------+
+*   8(a7) |      n  (10)  |
+*         +---------------+
+*  12(a7) |      A  (#A)  |
+*         +---------------+</font>
+
+        suba.l #8, a7           * Create 2 local variables on stack !!!  </font>
+<FONT color="darkmagenta">
+* NOW the stack is (along with offsets on how to access local variables):
+*
+* Offsets
+*         +---------------+ <----- a7 (stack pointer)
+*  -8(a6) |      s        |     (you decide which location is s and i)
+*         +---------------+     (This program uses s and i in the given manner)
+*  -4(a6) |      i        |     
+*         +---------------+ <FONT color="red"><----- a6 (frame pointer)</font>
+*   0(a6) | a6 from caller|
+*         +---------------+
+*   4(a6) | return address|
+*         +---------------+
+*   8(a6) |      n  (10)  |
+*         +---------------+
+*  12(a6) |      A  (#A)  |
+*         +---------------+</font>
+
+        move.l #0, <FONT color="red">-8(a6)</font>       * s = 0
+        move.l #0, <FONT color="red">-4(a6)</font>       * i = 0
+While:
+        move.l <FONT color="red">-4(a6)</font>, d0       * puts local variable i in d0
+        move.l <FONT color="red">8(a6)</font>, d1        * puts parameter n in d1
+        cmp.l  d1, d0
+
+        BGE     WhileEnd        * Exit while loop if i >= n
+
+* ---- body of while loop
+
+        movea.l <FONT color="red">12(a6)</font>, a0      * put base address of array in A0
+*                                 (prepare to access A[i])
+
+        move.l  <FONT color="red">-4(a6)</font>, d0      * now d0 = i
+        muls    #4, d0          * offset is now in d0
+        move.l  (a0, d0.w), d0  * put A[i] in d0
+
+        add.l   d0, <FONT color="red">-8(a6)</font>      * add A[i] to local variable s
+
+        move.l  <FONT color="red">-4(a6)</font>, d0
+        add.l   #1, d0
+        move.l  d0, <FONT color="red">-4(a6)</font>      * i = i + 1
+
+        BRA While
+
+WhileEnd:
+
+        move.l  <FONT color="red">-8(a6)</font>, d0      * Return s in the agreed location (d0)
+<font color="darkmagenta">
+* The stack is STILL:
+*
+* Offsets
+*         +---------------+ <----- a7 (stack pointer)
+*  -8(a6) |      s        | 
+*         +---------------+ 
+*  -4(a6) |      i        |     
+*         +---------------+ <FONT color="red"><----- a6 (frame pointer)</font>
+*   0(a6) | a6 from caller|
+*         +---------------+
+*   4(a6) | return address|
+*         +---------------+
+*   8(a6) |      n  (10)  |
+*         +---------------+
+*  12(a6) |      A  (#A)  |
+*         +---------------+
+*
+* If you return NOW, your program will NOT pop the return address
+* into the Program counter and it will <FONT color="red">CRASH</font> !!!</font>
+<FONT color="red">
+        movea.l a6, a7      * Remove the local variables.
+
+<font color="darkmagenta">
+* NOW the stack is:
+*
+*         +---------------+ <----- a7 (stack pointer)
+*         | a6 from caller|
+*         +---------------+
+*         | return address|
+*         +---------------+
+*         |      n  (10)  |
+*         +---------------+
+*         |      A  (#A)  |
+*         +---------------+
+*
+* NOW is the time to recover the a6 value for the caller subroutine !!!</font>
+
+<FONT color="red">
+        movea.l (a7)+, a6   ***************** restore a6   !!!!!!!!!!!!
+			    * (The (a7)+ address mode is explained below)</font>
+<font color="darkmagenta">
+* NOW the stack is:
+*
+*         +---------------+ <----- a7 (stack pointer)
+*         | return address|
+*         +---------------+
+*         |      n  (10)  |
+*         +---------------+
+*         |      A  (#A)  |
+*         +---------------+
+*
+* NOW you can rexecute the return instruction !!!</font>
+
+        rts
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> Because <B>popping</B> values from the <B>top</B> of the system stack 
+	(to some register or memory variable) is a frequently
+	used operation, M68000 has provided a special
+	<FONT color="red"><B> addressing mode </B></FONT>
+	to perform the <B>pop</B> operation:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+  
+    <FONT color="red">move.l  (a7)+, &lt;ea></font>      is same as:     move.l  (a7), &lt;ea>      
+					     adda.l  <FONT color="red">#4</font>, a7
+
+    <FONT color="red">move.w  (a7)+, &lt;ea></font>      is same as:     move.w  (a7), &lt;ea>      
+					     adda.l  <FONT color="red">#2</font>, a7
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+ <P>
+ <LI> So when you pop a <B>long (4 bytes)</B>, the stack pointer <B>a7</B> is
+	incremented by 4.
+ <P>
+ <LI> But when you pop a <B>word (2 bytes)</B>, the stack pointer <B>a7</B> is
+	incremented by 2 !!!
+ <P>
+ <LI> This address mode is called "indirect with <B>post-increment</B>"
+ 
+</UL>
+<P>
+ <HR>
+ <HR>
+<P>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="../demo/sub-stack-param4.s"> click here </A>
+   </UL>
+  <P>
+
+
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

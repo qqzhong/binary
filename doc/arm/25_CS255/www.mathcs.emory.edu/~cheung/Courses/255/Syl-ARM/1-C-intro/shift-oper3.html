@@ -1,0 +1,170 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Setting the bit at poistion n in an <TT>int</TT> variable
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Setting a bit
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Recall:</B> how to <FONT color="red"><B>set</B></FONT> a bit
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Bit position:                                  6543210
+
+    Starting bit pattern:   ..............x...............
+    Bit mask:               000000000000001000000000000000
+                        ----------------------------------------- <FONT color="red">OR</font>      
+                            ..............1...............
+
+    (Bit dnoted by . will remain unchaned)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making the bit mask 
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>bit mask</B></FONT>
+     <FONT color="red"><B>00000000000010000000000000...</B></FONT>
+     canbe <B>made</B> with the following
+     <FONT color="blue"><B>operation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                           i positions
+                       <-------------->
+  <FONT color="red">1 << i</font>   =   000000..1000000000000000                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     C statement to set bit position i in an int variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   int i;
+
+   x = <FONT color="red">x | (1 << i )</font>;    // Set bit position i in x                       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Macro definition for <TT>setbit</TT> operation
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C macro</B> to <FONT color="blue"><B>set</B></FONT> 
+     bit at <FONT color="red"><B>position i</B></FONT> in
+     a variable <FONT color="blue"><B><TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define   <FONT color="red">SETBIT</FONT>( x, i )     <FONT color="red">( x |= (1 << i) )</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

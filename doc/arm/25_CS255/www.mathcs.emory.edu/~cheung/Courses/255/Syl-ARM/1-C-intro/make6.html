@@ -1,0 +1,176 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Miscellaneous stuff in makefiles (line continuation and comments)
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Line continuation
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Contination character</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>\</B></FONT> =
+       the <FONT color="blue"><B>continuation character</B></FONT>
+       in a <B>Make file</B>
+ <P>
+<HR>
+ <P>
+ <LI> <B>Meaning</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  If <FONT color="red"><B>\</B></FONT> is the 
+    <FONT color="blue"><B>last character</B></FONT> on a
+    <B>line</B> in a <FONT color="red"><B>Make file</B></FONT>,
+    then the <FONT color="blue"><B>current line</B></FONT>
+    will <FONT color="red"><B>continue</B></FONT> onto the
+    <FONT color="blue"><B>next line</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Usage:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To specify a <FONT color="blue"><B><I>long</I> list</B></FONT> of
+       <FONT color="red"><B>dependent files</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     main:   file1.o  file2.o  file3.o  file4.o  file5.o <FONT color="red">\</FONT>       
+     &lt;TAB>   file6.o  file7.o
+     ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> To specify a <FONT color="blue"><B><I>lengthy</I></B></FONT> 
+       <FONT color="red"><B>maintenance command</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     main:   file1.o  
+     &lt;TAB>   gcc -o main  -D=Define  -D=These -D=Options <FONT color="red">\</FONT>
+     &lt;TAB>   -I/home/cheung/myInclude/Dir  -L/home/cheung/MyLib -lm  <FONT color="red">\</FONT>     
+     &lt;TAB>   file.o   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Comments
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Comment</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Any text <FONT color="red"><B>after</B></FONT> the
+     character <FONT color="blue"><B>#</B></FONT> will be
+     <FONT color="red"><B>ignored</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

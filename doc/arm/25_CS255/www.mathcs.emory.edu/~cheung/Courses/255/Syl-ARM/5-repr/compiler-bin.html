@@ -1,0 +1,143 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The compiler translates every number in your program
+        into a 2s complement binary representation
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A very important programming pre-requisite before we start
+     discussing the conversion algorithm
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Very important</B></FONT> that
+      you <FONT color="blue"><B>understand this</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When <FONT color="blue"><B>you</B></FONT> write
+      a <FONT color="red"><B>Java statement</B></FONT> that
+      <FONT color="blue"><B>uses</B></FONT> an
+      <FONT color="red"><B>integer value <TT>v</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>Java compiler</B></FONT> will
+      <FONT color="red"><B>translate</B></FONT> the
+      <FONT color="blue"><B>integer value <TT>v</TT></B></FONT> to
+      its corresponding
+      <FONT color="red"><B>2's complement code</B></FONT>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  When you write this Java statement:
+
+      short x;     
+
+      x = <FONT color="red">3</FONT>;       
+
+  Java compiler will generate machine instruction to:
+
+      Store the 2's complement number <FONT color="red">0000000000000011</FONT> in variable x    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Furthermore</B></FONT>,
+  the <FONT color="blue"><B>Java statements/expressions</B></FONT> that
+  you write in
+  <FONT color="red"><B>human-readable (decimal) form</B></FONT>,
+  the <FONT color="blue"><B>computations</B></FONT> are
+  <FONT color="red"><B>performed in <I>binary</I></B></FONT>
+  (courtesy from your Java compiler !)
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  When you write this Java statement:
+
+      x = x + <FONT color="red">2</FONT>;     
+
+  The variable x contains a <FONT color="red">binary</FONT> number and the number <FONT color="red">2</FONT> is
+  translated into the binary number <FONT color="red">0000000000000010</FONT>.
+  And the Java compiler will generate machine instruction to:
+
+       Add <FONT color="red">0000000000000010</FONT> to the binary number in x // using <FONT color="red">binary addition</FONT> !!     
+
+  (And store the resulting <FONT color="red">binary number</FONT> back in the variable x)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

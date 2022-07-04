@@ -1,0 +1,356 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Fixed length (RISC) vs variable length (CISC) instructions
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Fixed length (RISC)  instructions
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Some <FONT color="red"><B>computer CPUs</B></FONT> use
+      a <FONT color="blue"><B>fixed length</B></FONT> instruction 
+      encoding format.
+<P>
+ That means:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Every computer instruction</B></FONT> is
+       <FONT color="blue"><B>represented</B></FONT> using the
+       <FONT color="red"><B><I>same</I> number of bytes</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+For example: <FONT color="red"><B>ARM instructions</B></FONT>
+      are always <FONT color="blue"><B>4 bytes</B></FONT> long
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/instr-format01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Consequences of fixed length (RISC) instructions
+     </B></FONT>
+<P>
+<UL>
+<LI> Because each instruction is the
+   <FONT color="red"><B>same length</B></FONT>, we know 
+     <FONT color="blue"><B>how many bytes</B></FONT> we will need to
+     <FONT color="red"><B>increase</B></FONT> to
+     get the <FONT color="blue"><B><I>next</I> instruction</B></FONT>
+<P>
+<LI> But <FONT color="red"><B>fixed sized instruction</B></FONT> 
+     is very <FONT color="blue"><B>inflexible</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The more  <FONT color="red"><B>complex </B></FONT> an
+     <FONT color="blue"><B>operation</B></FONT> is,
+     the <FONT color="red"><B>more information</B></FONT> we
+     need to <FONT color="blue"><B>encode</B></FONT> in a
+     computer instruction</B></FONT>
+<P>
+<HR>
+<P>
+<LI> Because the <FONT color="red"><B>instruction length</B></FONT> is
+    <FONT color="blue"><B>fixed</B></FONT>,
+    the <FONT color="red"><B>complexity</B></FONT> of a
+    (<B>single</B>) <FONT color="blue"><B>computer instruction</B></FONT>
+    will be <FONT color="red"><B>limited</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we <FONT color="blue"><B>often </B></FONT> find that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Computer that uses <FONT color="red"><B>fixed length</B></FONT>
+    computer instruction do not have
+    <FONT color="blue"><B>complex computer instruction</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> Such a computer is called
+     <FONT color="red"><B>Reduced Instruction Set Computer (RISC)</B></FONT>
+      because the
+      <FONT color="blue"><B>complexity</B></FONT> of its instruction set
+      is <FONT color="red"><B><I>reduced</I></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Example</B></FONT> of
+   <FONT color="blue"><B>RISC computers</B></FONT> that
+    has <FONT color="red"><B>fixed length</B></FONT> instructions are:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>ARM processor</B></FONT>
+         --- each instruction is <FONT color="blue"><B>4 bytes</B></FONT> long
+ <LI> <FONT color="red"><B>SPARC processor</B></FONT>
+         --- each instruction is <FONT color="blue"><B>4 bytes</B></FONT> long
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Variable length (CISC)  instructions
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Some <FONT color="red"><B>computer CPUs</B></FONT> use
+      a <FONT color="blue"><B>"variable" length</B></FONT> instruction 
+      encoding format.
+<P>
+ That means:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Different computer instructions</B></FONT> is
+       <FONT color="blue"><B>represented</B></FONT> using 
+       <FONT color="red"><B><I>different</I> number of bytes</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ There is basically <FONT color="red"><B>no constraint</B></FONT> on
+  how many bytes is used in
+ <FONT color="blue"><B>encoding</B></FONT> the computer instruction
+ (i.e.: use as many bytes you need)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+For example: <FONT color="red"><B>INTEL (the CPU in your laptop)
+    instructions</B></FONT>
+      are can have <FONT color="blue"><B>different number of bytes</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/instr-format02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Consequences of variable length (RISC) instructions
+     </B></FONT>
+<P>
+<UL>
+<LI> Because each instruction can have
+   <FONT color="red"><B>different length</B></FONT>, we can
+   encode <FONT color="blue"><B>simpler instruction</B></FONT> using
+   <FONT color="red"><B><I>fewer</I> number of bytes</B></FONT>
+<P>
+<LI> Furthermore:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because there is <FONT color="red"><B>no restriction</B></FONT> on
+     the <FONT color="blue"><B>number of bytes</B></FONT> that we
+    can use, we can encode
+    <FONT color="red"><B><I>very</I> complex instructions</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we <FONT color="blue"><B>often </B></FONT> find that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Computer that uses <FONT color="red"><B>variable length</B></FONT>
+    computer instruction <B>usually</B> have
+    <FONT color="blue"><B>complex computer instruction</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> Such a computer is called
+     <FONT color="red"><B>Complex Instruction Set Computer (CISC)</B></FONT>
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Example</B></FONT> of
+   <FONT color="blue"><B>CISC computer</B></FONT> that
+    has <FONT color="red"><B>variable length</B></FONT> instructions are:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The very successful <FONT color="red"><B>INTEL processor</B></FONT>
+  (the CPU used in your <FONT color="blue"><B>laptop</B></FONT>)
+ <LI> The very elegantly designed but unsuccesful
+	<FONT color="red"><B>M68000 processor</B></FONT>
+  (we used to teach <FONT color="blue"><B>CS255 </B></FONT>
+	in <FONT color="red"><B>M68000 assembler code</B></FONT>)
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Power (speed) of a processor and the complexity of its instruction set
+     </B></FONT>
+<P>
+<UL>
+
+<LI> You may think that <FONT color="red"><B>CISC computer</B></FONT>
+     has an <FONT color="blue"><B>advantage</B></FONT> over
+    <FONT color="red"><B>RISC</B></FONT> because they can execute
+    <FONT color="blue"><B>very complex instructions</B></FONT>
+<P>
+  The <FONT color="red"><B>power</B></FONT> of a 
+  <FONT color="blue"><B>computer</B></FONT> is
+  <FONT color="red"><B>not measured</B></FONT> by the
+  <FONT color="blue"><B>complexity</B></FONT> of
+  its instructions.
+ <P>
+  The <FONT color="red"><B>power (= how fast)</B></FONT>
+   a <FONT color="blue"><B>computer</B></FONT> rather
+   depends on
+   the <FONT color="red"><B>circuitry</B></FONT> used to
+   <FONT color="blue"><B>execute</B></FONT> the instructions.
+ <P>
+ Specifically: how
+   <FONT color="red"><B>many steps</B></FONT> of the
+  <FONT color="blue"><B>execution</B></FONT> of 
+   <FONT color="red"><B><I>different</I> instructions</B></FONT> can
+  you <FONT color="blue"><B>overlap </B></FONT> with each other.
+<P>
+ If you can <FONT color="blue"><B>overlap</B></FONT> the execution
+  of <FONT color="red"><B>multiple instructions</B></FONT>
+ (i.e.: <FONT color="blue"><B>multi-tasking</B></FONT>),
+  then you can do things <FONT color="red"><B>faster</B></FONT>
+ <P>
+ <FONT color="red"><B>Multi-asking (or <I>pipelining</I></B></FONT>)
+  is a <FONT color="blue"><B>topic</B></FONT> in
+  <FONT color="red"><B>CS355</B></FONT> - so if you want to learn more,
+  you will need to take that course....
+<P>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

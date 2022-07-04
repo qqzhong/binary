@@ -1,0 +1,528 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Structure of an  assembler program (directives and instructions)
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     High and low level programming languages
+     </B></FONT>
+<P>
+ <UL>
+ <LI> I like to use <FONT color="red"><B>Java</B></FONT>
+      (which was taught in CS170/CS171)
+      to <FONT color="blue"><B>contrast</B></FONT> the 
+      <FONT color="red"><B>differences</B></FONT> between:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>High level language programs</B></FONT>
+           (e.g.: <FONT color="blue"><B>Java</B></FONT>)
+ <LI> <FONT color="red"><B>Low level language programs</B></FONT>
+           (a.k.a: <FONT color="blue"><B>assembler programs</B></FONT>) 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Programs</B></FONT> written in a
+    <FONT color="red"><B>high level programming language</B></FONT>
+    (such as <FONT color="blue"><B>Java</B></FONT>) contains
+    <FONT color="red"><B>structures</B></FONT>, such as:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Statements</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     if ( x > y )
+        a = a + 1;           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Block structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   ....
+   <FONT color="red">{
+      ....       // Things inside { } makes up the block    
+
+   }</FONT>
+   ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>programs</B></FONT> written in
+      an <FONT color="red"><B>assembler language</B></FONT> does
+      <FONT color="blue"><B>not have </B></FONT> any
+      <FONT color="red"><B>structures</B></FONT> !!!
+<P>
+   In fact, I would recommend that you use
+   <FONT color="red"><B>comments</B></FONT> to
+   create some
+   <FONT color="blue"><B>structure</B></FONT> in your
+   <FONT color="red"><B>assembler programs</B></FONT>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What does an assembler program contain ???
+     </B></FONT>
+<P>
+<UL>
+<LI> An <FONT color="red"><B>assembler program</B></FONT>
+    <FONT color="blue"><B>does not</I></B></FONT> have the following
+    <FONT color="red"><B>high level programming constructs</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Does not</B></FONT>  have
+      <FONT color="blue"><B>statements</B></FONT>
+ <LI> <FONT color="red"><B>Does not</B></FONT> have
+      <FONT color="blue"><B>block structures</B></FONT>
+ <LI> <FONT color="red"><B>Does not</B></FONT> have
+      <FONT color="blue"><B>scopes</B></FONT>
+ <LI> <FONT color="red"><B>Does not</B></FONT> have
+      <FONT color="blue"><B>function definitions</B></FONT>
+ <LI> <FONT color="red"><B>Does not</B></FONT> have
+      <FONT color="blue"><B>function parameter list</B></FONT>
+ <LI> etc, etc
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> An <FONT color="red"><B>assembler program</B></FONT> contains
+     <B>only</B>
+    <FONT color="blue"><B>2 kinds of lines</B></FONT>
+    (maybe 3 if you count <FONT color="red"><B>comments</B></FONT>
+    as a type of line in an assembler program):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A <FONT color="blue"><B>line</B></FONT> 
+      in an <B>assembler program</B> can contain an
+    <FONT color="red"><B>assembler directive </B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Assembler <I>directives</I></B></FONT> are
+    <FONT color="blue"><B>commands (or requests)</B></FONT> given to
+    the <FONT color="red"><B>assembler</B></FONT>
+     (= program that translates the assembler program into machine code)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ A <FONT color="blue"><B>line</B></FONT> containing an
+   <FONT color="red"><B>assembler directive</B></FONT> can be
+  <FONT color="blue"><B>marked</B></FONT> by
+  a <FONT color="red"><B>label</B></FONT> to
+  identify its
+  <FONT color="blue"><B>address (in memory)</B></FONT>
+<P>
+ The <FONT color="red"><B>label</B></FONT> can be used
+  to <FONT color="blue"><B>access</B></FONT> the
+  <FONT color="red"><B>memory cells</B></FONT> reserved to
+  <FONT color="blue"><B>store the value</B></FONT> of
+  a <FONT color="red"><B>program variable</B></FONT> !!!
+<P>
+<HR>
+<P>
+ <LI>  A <FONT color="blue"><B>line</B></FONT> 
+      in an <B>assembler program</B> can contain an
+       <FONT color="red"><B>assembler instruction</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Assembler instructions</B></FONT> are
+      <FONT color="blue"><B>instruction lines</B></FONT> that are
+      translated into
+      <FONT color="red"><B>machine instruction codes</B></FONT> by the
+      <FONT color="blue"><B>assembler</B></FONT>
+ <P>
+  <LI> <FONT color="red"><B>One assembler instruction</B></FONT> is
+  written on <FONT color="blue"><B>one line</B></FONT> in the
+  <B>assembler program</B> (it's very short !)
+ <P>
+ <LI>  <FONT color="red"><B>One assembler instruction</B></FONT> is
+  translated to  <FONT color="blue"><B>one machine code</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ A <FONT color="blue"><B>line</B></FONT> containing an
+   <FONT color="red"><B>assembler instruction</B></FONT> can be
+  <FONT color="blue"><B>marked</B></FONT> by
+  a <FONT color="red"><B>label</B></FONT> to
+  identify its
+  <FONT color="blue"><B>address (in memory)</B></FONT>
+<P>
+ The <FONT color="red"><B>lable</B></FONT> can be used 
+ in a <FONT color="blue"><B>"branch" instruction</B></FONT> to
+ <FONT color="red"><B>jump</B></FONT> to that
+ instruction !
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Comment line</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Comments</B></FONT> are
+   <FONT color="red"><B>ignored</B></FONT> by the
+   <FONT color="blue"><B>assembler</B></FONT>
+ <P>
+ <LI> <FONT color="blue"><B>Comments </B></FONT> in
+    <FONT color="red"><B>ARM </B></FONT>  is written
+   <FONT color="blue"><B>exactly</B></FONT> like
+   comments in <FONT color="red"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    //  This is a comment line                        
+
+    /* 
+        These are
+        comment lines
+    */
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  Since comments are
+  <FONT color="red"><B>ignored</B></FONT> by the <B>assembler</B>,
+   I don't really count <FONT color="blue"><B>comments</B></FONT>
+   are part of an
+  assembler program....
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Each <FONT color="red"><B>assembler directive</B></FONT> and
+  <FONT color="blue"><B>assembler instruction</B></FONT> is <B>usually</B>
+  written on <FONT color="red"><B><I>one</I> line</B></FONT> in
+  the <FONT color="blue"><B>assembler program</B></FONT>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Labels
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact</B></FONT> in
+   <FONT color="blue"><B>assembler programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Each line</B></FONT>
+        (directive or instruction) in
+	the <FONT color="blue"><B>assembler program</B></FONT> can
+	<FONT color="red"><B><I>optionally</I></B></FONT>
+	<B>marked</B> by a
+	<FONT color="blue"><B><I>label</I></B></FONT>
+<P>
+  <HR>
+<P>
+ <LI> A <FONT color="red"><B><I>label</I></B></FONT> is
+      similar to an
+      <FONT color="blue"><B><I>identifier</I></B></FONT> in
+      a <FONT color="red"><B>high level programming language</B></FONT>
+<P>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "Hello World" assembler program 
+      <FONT color="red">revisited</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> Take another look at the
+     <FONT color="red"><B><TT>Hello World</TT></B></FONT> assembler
+     program in this 
+   <FONT color="blue"><B>web page</B></FONT>
+   (<A HREF="hello.html"> click here</A>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkgreen">//
+// hello.s: hello world in ARM assembler
+//
+// How to compile:
+//
+//     as    -o  hello.o   hello.s
+//     gcc   -o  hello     hello.o
+//</FONT>
+
+        <FONT color="red">.global main</FONT>
+
+<FONT color="darkgreen">// ************************ Starting computer instruction ****************</FONT>
+        <FONT color="red">.text</FONT>
+<FONT color="darkgreen">// ***********************************************************************</FONT>
+main:
+        push    {lr}                    <FONT color="darkgreen">// Save the return address on the stack</FONT>
+        push    {fp}                    <FONT color="darkgreen">// Save the frame pointer on the stack</FONT>
+                                        <FONT color="darkgreen">// Explained later in CS255</FONT>
+<FONT color="darkgreen">
+        /* ----------------------------------------
+           Pass the string to printf function
+           ---------------------------------------- */</FONT>
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+<FONT color="darkgreen">
+        /* ----------------------------------------
+           Call the printf function
+           ---------------------------------------- */</FONT>
+        bl      printf                  <FONT color="darkgreen">// Call printf function with input string     </FONT>
+
+        pop     {fp}                    <FONT color="darkgreen">// Pop the frame pointer</FONT>
+        pop     {lr}                    <FONT color="darkgreen">// Pop the return address</FONT>
+                                        <FONT color="darkgreen">// Explained later in CS255</FONT>
+<FONT color="darkgreen">
+// ************************ Starting variable definition *****************</FONT>
+        <FONT color="red">.data</FONT>
+<FONT color="darkgreen">// ***********************************************************************</FONT>
+
+HelloStr:                               <FONT color="darkgreen">// Label marking this location in memory</FONT>
+        <FONT color="red">.ascii "Hello World\n\0" </FONT>       <FONT color="darkgreen">// ASCII codes for the string</FONT>
+                                        <FONT color="darkgreen">// \0 is used to terminate a string</FONT>
+
+
+        <FONT color="red">.end</FONT>
+<FONT color="darkgreen">
+Any text that follws ".end" is ignored (treated as comment)</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have <FONT color="red"><B>color-coded</B></FONT> the 
+ <FONT color="blue"><B>3 types of lines</B></FONT> in the
+ <FONT color="red"><B><TT>Hello World</TT></B></FONT> assembler 
+ program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Assembler directives</B>
+    (they all begin with a <B>period (.)</B>)
+    are <FONT color="red"><B>highlighted in red</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <B>Assembler instructions</B>
+    are <FONT color="blue"><B>highlighted in blue</B></FONT>
+ <LI> The <B>comments</B> are in 
+      <FONT color="darkgreen"><B>green</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Some</B></FONT> of the
+ <FONT color="blue"><B>lines</B></FONT> are
+  <B>marked</B> by
+  a <FONT color="red"><B><I>label</I></B></FONT>.
+<P>
+There are <FONT color="red"><B>2 labels</B></FONT> used in the
+ <B>hello.s</B> program:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">HelloStr</FONT>                 
+
+    <FONT color="red">main</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+As you can see in this example:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> All you see are lines - 
+   absolutely <FONT color="red"><B>no structure</B></FONT> what so ever....
+ <LI> You can't tell (from the <FONT color="red"><B>structure</B></FONT>
+       of the program) where the
+       <FONT color="blue"><B><TT>main( )</TT></B></FONT> function
+       <FONT color="red"><B>ends</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

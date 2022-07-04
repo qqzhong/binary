@@ -1,0 +1,751 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Input/output operation in C
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The 
+   <A HREF="https://en.wikipedia.org/wiki/C_standard_library">
+   <FONT color="red"><B>C standard  library</B></FONT></A>
+      contains <FONT color="blue"><B>functions</B></FONT> to
+      <FONT color="red"><B>support</B></FONT>
+      writing <FONT color="blue"><B>C programs</B></FONT>
+ <P>
+ <LI> The 
+   <FONT color="red"><B><TT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">scanf( )</SPAN>
+  </TT> function</B></FONT>
+      in the <FONT color="blue"><B>C standard  library</B></FONT>
+      provide <FONT color="red"><B>input  support</B></FONT>
+      for <FONT color="blue"><B>data entry (conversion !)</B></FONT> using the
+      <FONT color="red"><B>keyboard</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B><TT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">printf( )</SPAN>
+  </TT> function</B></FONT>
+      in the <FONT color="blue"><B>C standard  library</B></FONT>
+      provide <FONT color="red"><B>output  support</B></FONT>
+    for <FONT color="blue"><B>data output (conversion !)</B></FONT> to the
+      <FONT color="red"><B>terminal</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Printing variables to the terminal output
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The 
+  <FONT color="red"><B><TT>printf( )</TT> function</B></FONT>
+   is used to <FONT color="blue"><B>print values</B></FONT>
+    of <FONT color="red"><B><I>all</I> primitive data types</B></FONT>
+    to the <FONT color="blue"><B>terminal</B></FONT>
+ <P>
+  <LI> The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>syntax</B></FONT>
+    of the <FONT color="blue"><B><TT>printf( )</TT> function</B></FONT></SPAN>
+    is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ printf(<FONT color="red">"formatString"</FONT>, value1, value2, ... );  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="red"><B><TT>"formatString"</TT></B></FONT> 
+ can contain
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="magenta"><B>format conversion fields</B></FONT></SPAN>
+   where <FONT color="blue"><B><TT>value1</TT></B></FONT>,
+  <FONT color="blue"><B><TT>value2</TT></B></FONT>, etc
+  will be <FONT color="red"><B>placed</B></FONT>
+
+  
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Commonly used format conversions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+<font size="+1">
+Formatting character
+</TH> 
+<TH>
+<font size="+1">
+Meaning
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+
+<font size="+1">
+<SPAN style="BACKGROUND-COLOR: #aaffaa">
+<FONT color="red"><B><TT>%d</TT></B></FONT></SPAN>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><I>signed</I> decimal integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<font size="+1">
+<FONT color="red"><B><TT>%u</TT></B></FONT>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><I>unsigned</I> decimal integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<font size="+1">
+<FONT color="red"><B><TT>%ld</TT></B></FONT>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><FONT color="red">long</FONT>
+   <I>signed</I> decimal integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<font size="+1">
+<FONT color="red"><B><TT>%lu</TT></B></FONT>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><FONT color="red">long</FONT>
+  <I>unsigned</I> decimal integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<font size="+1">
+<SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B><TT>%f</TT></B></FONT></SPAN>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>floating point value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<font size="+1">
+<FONT color="red"><B><TT>%lf</TT></B></FONT>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>double precision floating point value</B></FONT>
+</TD> 
+</TR>
+
+<TR>
+<TD align="center" bgcolor="#FFEEEE">
+<font size="+1">
+<FONT color="red"><B><TT>%o</TT></B></FONT>
+</TD>
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>octal based number</B></FONT>
+</TD>
+</TR>
+
+<TR>
+<TD align="center" bgcolor="#FFEEEE">
+<font size="+1">
+<FONT color="red"><B><TT>%x</TT></B></FONT>
+</TD>
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>hexadecimal based number</B></FONT>
+</TD>
+</TR>
+
+<TR>
+<TD align="center" bgcolor="#FFEEEE">
+<font size="+1">
+<FONT color="red"><B><TT>%p</TT></B></FONT>
+</TD>
+<TD align="left">
+<font size="+1">
+Print the <B><I>address</I> 
+ <FONT color="red">(pointer)</FONT></B> as a
+ <FONT color="blue"><B>hexadecimal based number</B></FONT>
+</TD>
+</TR>
+
+
+<TR> 
+<TD align="center" bgcolor="lightcyan">
+<font size="+1">
+<FONT color="red"><B><TT>%c</TT></B></FONT>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>character (i.e., used the ASCII code)</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center" bgcolor="lightcyan">
+<font size="+1">
+<SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B><TT>%s</TT></B></FONT></SPAN>
+</TD> 
+<TD align="left">
+<font size="+1">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>string (will be explained much later)</B></FONT>
+</TD> 
+</TR>
+
+<TR>
+<TD align="center" bgcolor="lightcyan">
+<font size="+1">
+<SPAN style="BACKGROUND-COLOR: #ffff00">
+ <FONT color="red"><B><TT>%%</TT></B></FONT></SPAN>
+</TD>
+<TD align="left">
+<font size="+1">
+Print a
+ <FONT color="blue"><B><FONT color="red">%</FONT> character </B></FONT>
+</TD>
+</TR>
+
+
+</TABLE>
+</center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Example of using the <FONT color="blue"><B><TT>printf( )</TT></B></FONT>
+   function
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>Example:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+#include &lt;stdio.h>
+
+int main( int argc, char* argv[] )
+{
+   int  x;
+
+   x = 65;     // ASCII code for 'A'
+   printf( "x = 65:  <FONT color="red">%d, %u, %c</FONT>\n", <SPAN style="BACKGROUND-COLOR: #aaffaa">x, x, x</SPAN>); <FONT color="red">// Same values !</FONT>
+
+   x = -1;
+   printf( "x = -1:  <FONT color="red">%d, %u, %c</FONT>\n", x, x, x);
+}
+
+<SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">Output:</FONT></SPAN> 
+   x = 65:   65,  65,           A
+   x = -1:   -1,  4294967295,   ??? </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+      <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/tmp/demo.c
+   </TT></B></FONT>
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<!------------- scanf ------------------>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Reading input into variables from the keyboard
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The 
+  <FONT color="red"><B><TT>scanf( )</TT> function</B></FONT>
+   is used to <FONT color="blue"><B>read  values</B></FONT>
+   from the <FONT color="red"><B>keyboard</B></FONT>
+    into <FONT color="blue"><B>program variables</B></FONT>
+    of <FONT color="red"><B><I>any</I> primitive data types</B></FONT>
+   
+ <P>
+  <LI> The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>syntax</B></FONT>
+    of the <FONT color="blue"><B><TT>scanf( )</TT> function</B></FONT></SPAN>
+    is as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ scanf(<FONT color="red">"formatString"</FONT>, <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">&</FONT></SPAN>var1, <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">&</FONT></SPAN>var2, ... );  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="red"><B><TT>"formatString"</TT></B></FONT> 
+ can contain
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="magenta"><B>format conversion fields</B></FONT></SPAN>
+   to convert 
+   <FONT color="blue"><B>ASCII keyboard input</B></FONT>
+   into
+  the <FONT color="red"><B>correct internal representation</B></FONT>
+  for  <FONT color="blue"><B><TT>var1</TT></B></FONT>,
+  <FONT color="blue"><B><TT>var2</TT></B></FONT>, etc
+
+
+  
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Note:</B></FONT>
+  I will <FONT color="blue"><B>explain</B></FONT> 
+  <FONT color="red"><B>why</B></FONT> you 
+   <FONT color="blue"><B>need to use</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><TT>&</TT> symbol</B></FONT></SPAN>
+  <FONT color="blue"><B><I>later</I></B></FONT> !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Example of using the 
+   <FONT color="blue"><B><TT>scanf( )</TT></B></FONT> function
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Example:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ int main( int argc, char* argv[] )
+ {
+    <FONT color="red">int</FONT> i;      
+    <FONT color="red">float</FONT> x;
+
+    printf( "Enter an integer value:");
+    scanf( "<FONT color="red">%d</FONT>", &i );  <FONT color="red">// Must use %d to read int value</FONT> 
+    printf( "i = %d\n", i);
+
+    printf( "Enter a floating point value:");
+    scanf( "<FONT color="red">%f</FONT>", &x ); <FONT color="red">// Must use %f to read float value</FONT>
+    printf( "x = %f\n", x);
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/tmp/demo.c
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

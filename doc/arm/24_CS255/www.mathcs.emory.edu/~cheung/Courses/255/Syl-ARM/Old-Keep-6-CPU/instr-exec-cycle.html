@@ -1,0 +1,603 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Instruction execution cycle
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     CPU operation
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>CPU operation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>CPU</B></FONT> go through the
+     <FONT color="red"><B><I>same</I> sequence</B></FONT> of
+     <FONT color="blue"><B>operation</B></FONT>
+     over and over again....
+<P>
+<HR>
+<P>
+<LI> From the very moment that you turn on a computer until
+     you turn it off, the 
+   <FONT color="blue"><B>CPU</B></FONT>
+     performs the <FONT color="red"><B>same sequence</B></FONT>
+      of <FONT color="blue"><B>steps</B></FONT>
+    
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>steps</B></FONT> are knows as
+   the <FONT color="red"><B>Instruction Execution Cycle</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>goal</B></FONT> of the
+    <FONT color="red"><B>Instruction Execution Cycle</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>CPU</B></FONT> will
+    <FONT color="red"><B>execute</B></FONT> exactly
+    <FONT color="blue"><B><I>one</I> machine instruction</B></FONT>
+    in one <FONT color="red"><B>Instruction Execution Cycle</B></FONT>
+
+
+<P>
+<HR>
+<P>
+ <LI> So the <FONT color="blue"><B>CPU</B></FONT> will
+      <FONT color="blue"><B>execute</B></FONT> the
+       <FONT color="red"><B><I>next</I> machine instruction</B></FONT> in
+       the <FONT color="blue"><B><I>second</I> </B></FONT>
+      <B>Instruction Execution Cycle</B>
+ <P>
+ And so on...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Steps of the Instruction Execution Cycle
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important Facts:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> contains
+     <FONT color="blue"><B><I>one</I> important piece</B></FONT>
+     of <B>information</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Program Counter (PC)</B></FONT> in the
+     <FONT color="blue"><B>CPU</B></FONT> contains
+     the <FONT color="red"><B><I>address</I> (location)</B></FONT> of
+     the <FONT color="blue"><B>next (machine) instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>computer memory (RAM)</B></FONT>
+      contains <B>all</B> of
+   the  <FONT color="red"><B>machine instructions</B></FONT> 
+   of the <FONT color="blue"><B>program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>steps</B></FONT> in the
+    <B>CPU</B>'s
+    <FONT color="blue"><B>Instruction Execution Cycle</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Fetch</B></FONT> the
+      <FONT color="blue"><B>next machine instruction</B></FONT>
+      into the
+      <FONT color="red"><B>Instruction Register</B></FONT> of the
+      <FONT color="blue"><B>CPU</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> After <FONT color="blue"><B>fetching</B></FONT> the
+        <FONT color="red"><B>(machine) instruction</B></FONT>,
+	the <FONT color="blue"><B>Program Counter</B></FONT> is
+	<FONT color="red"><B>increased</B></FONT> to the
+	<FONT color="blue"><B>address</B></FONT> of the
+	<FONT color="red"><B><I>next</I> (= following)
+      machine instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Decode</B></FONT> the
+      <FONT color="blue"><B>machine instruction</B></FONT> that is
+      in the <FONT color="red"><B>Instruction Register</B></FONT>
+      (that has <B>just</B> been <FONT color="blue"><B>fetched</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Fetch</B></FONT> the 
+    <FONT color="blue"><B>operands</B></FONT> used by the
+    <FONT color="red"><B>machine instruction</B></FONT> (that is
+      in the <FONT color="blue"><B>Instruction Register</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Perform</B></FONT> the
+  <FONT color="blue"><B>operation</B></FONT> specified
+  by the <FONT color="red"><B>machine instruction</B></FONT> (that is
+      in the <FONT color="blue"><B>Instruction Register</B></FONT>)
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Instruction Execution Cycle Illustrated
+     </B></FONT>
+<P>
+ <UL>
+ <LI>  <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="red"><B>Suppose</B></FONT>
+      </SPAN>
+       the <FONT color="blue"><B>CPU</B></FONT> and
+     <FONT color="blue"><B>memory</B></FONT> currently
+      contain the following <FONT color="red"><B>information</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Notice that:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Everything</B></FONT> is stored as
+        <FONT color="blue"><B>binary numbers</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I used <FONT color="red"><B>decimal numbers</B></FONT> to represent
+     the <B>values</B> for
+    <FONT color="blue"><B><I>human</I> (=you) consumption</B></FONT>
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>Program Counter (PC)</B></FONT> currently
+    contains the <FONT color="blue"><B>address 4768 </B></FONT>
+    (it's stored in <B>binary</B> -- bits !!!) which is
+    the <FONT color="red"><B>address</B></FONT> of the
+    <FONT color="blue"><B><I>next</I> machine instruction</B></FONT> in
+    <B>memory</B>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Registers</B></FONT> stores
+      <FONT color="red"><B>integer (= whole) values</B></FONT>
+ <P>
+    So: <FONT color="red"><B>registers</B></FONT>
+      use the <FONT color="blue"><B>2's complement code</B></FONT> to
+    represent <FONT color="red"><B>signed integer values</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Machine instructions</B></FONT>
+     (such as <B>add R0, R1</B>) are
+      <FONT color="red"><B>encoded</B></FONT> using
+      <FONT color="blue"><B>machine instruction codes</B></FONT> 
+      (that are <FONT color="red"><B>CPU dependent</B></FONT>
+      --- the <FONT color="blue"><B>manufacturer</B></FONT>
+      decides on the <FONT color="red"><B>machine code</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>???</B></FONT> means: don't care what the
+     values are...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Fetch the (next) instruction</B></FONT>
+        from main memory from
+      the memory location given by the program counter (PC) into
+      the instruction register IR.
+  <P>
+      <B>And</B>:
+   <FONT color="red"><B>Increment the PC</B></FONT>
+        to make it point to the next instruction.
+
+<P>
+<B>Details:</B>
+<P>
+   <UL>
+   <LI> the CPU <B>copies</B> the <FONT color="blue"><B>value </B></FONT>
+  in the <FONT color="red"><B>PC</B></FONT>
+     into the <FONT color="blue"><B>MAR</B></FONT> and 
+    <FONT color="red"><B>sends outs</B></FONT> a 
+    <FONT color="blue"><B>READ command</B></FONT>
+	on the <FONT color="red"><B>control bus</B></FONT>:
+   <P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01a"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+   <LI> in response to the read command
+    (with address equal to <FONT color="red"><B>4768</B></FONT>),
+	the memory returns the data stored at the memory location
+	indicated by PC (<B>4768</B>) on the databus:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+   <LI> the CPU copies the data from the databus into its MBR
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+   <LI> a nano-second later, the CPU copies the data from the MBR
+	to the Instruction Register (IR) and
+        <FONT color="red"><B>increment</B></FONT> the
+	<FONT color="blue"><B>Program Counter</B></FONT> to
+	the <FONT color="red"><B><I>next</I> instruction</B></FONT>:
+   <P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>Program Counter (PC)</B></FONT>
+     is <FONT color="red"><B>incremented</B></FONT> and contains
+    the <FONT color="blue"><B>address</B></FONT> of the
+    <FONT color="red"><B><I>next</I> machine instruction</B></FONT>
+    (in <B>memory</B>)
+<P>
+<HR>
+<P>
+<LI> This is <FONT color="blue"><B>done</B></FONT> to
+     <FONT color="red"><B> prepare</B></FONT>
+     the <FONT color="blue"><B>CPU</B></FONT> for the 
+     <FONT color="red"><B><I>next</I> instruction execution cycle</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+<P>
+   <LI> This completes the instruction fetch step...
+   </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Decode the instruction</B></FONT>
+      (that has just been fetched in the IR)
+   <UL>
+   <LI> This process can be very simple or complex, depending on
+	the instruction encoding scheme used.
+   <LI> Instruction encoding using fixed length instruction formats 
+	(like SPARC, MIPS) is usually very regular and decoding will
+	be easy.
+   <LI> Variable length instruction formats usually have more
+	complex decoding schemes.
+   <LI> The decoding process allows the CPU to determine what instruction
+	is to be performed, so that the CPU can tell how many
+	operands it needs to fetch in order to perform the instruction.
+   </UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Fetch operands</B></FONT>
+     needed to execute the instruction:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Operands</B></FONT> are stored
+      in:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  the <FONT color="red"><B>general purpose registers</B></FONT> 
+  of the <B>CPU</B>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>or</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> in <FONT color="red"><B>memory (RAM)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In the <FONT color="blue"><B>example</B></FONT>, the
+     <FONT color="red"><B>operands</B></FONT> are
+     fetched from  <FONT color="blue"><B>registers R0</B></FONT>
+     and <FONT color="blue"><B>R1</B></FONT> and transfered to
+     the <FONT color="red"><B>inputs</B></FONT> of the
+     <FONT color="blue"><B>ALU</B></FONT>
+     (to be <FONT color="red"><B>added</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Execute</B></FONT> the instruction
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01f.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Notes:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <UL>
+  <LI> The <FONT color="blue"><B>operation "add R0, R1"</B></FONT>
+      is <FONT color="red"><B>carried out</B></FONT> and the
+    <FONT color="blue"><B> result (= 78)</B></FONT>
+     is stored in <FONT color="red"><B>register R1</B></FONT>
+<P>
+<HR>
+<P>
+  <LI> The <FONT color="blue"><B>execution</B></FONT>
+       will <FONT color="red"><B>update</B></FONT>
+      the  <FONT color="blue"><B>N, Z, V, C flags</B></FONT>
+     in the <FONT color="red"><B>PSR</B></FONT>  according to
+	the result of the operation.
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>instruction "add R0,R1"</B></FONT> is
+    <FONT color="red"><B>complete</B></FONT> and
+    the <FONT color="blue"><B>content</B></FONT> in
+    <FONT color="red"><B>Instruction register (IR)</B></FONT>
+    becomes <FONT color="blue"><B>junk (= don't care data)</B></FONT>
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+  <LI> After this step, the <FONT color="blue"><B>CPU</B></FONT>
+      <FONT color="red"><B>repeat</B></FONT> the 
+      <FONT color="blue"><B>instruction execution cycle</B></FONT>
+      from the start.
+<P>
+	Notice  that the 
+       <FONT color="red"><B>program counter (PC)</B></FONT>
+        points to
+	the <FONT color="blue"><B><I>next</I> machine instruction</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cycle01g.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Consequently:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>next</I></B></FONT> 
+      <B>instruction execution cycle</B> will
+      <FONT color="red"><B>fetch and execute</B></FONT> the
+      <FONT color="blue"><B>machine instruction</B></FONT> that
+      <FONT color="red"><B><I>follows</I></B></FONT> the
+      <FONT color="blue"><B>previously executed one</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+And so on.... (until you shut down the computer)...
+<P>
+ 
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

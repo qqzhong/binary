@@ -1,0 +1,883 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+A <FONT color="red">skeletal</FONT> example on
+  storing parameters and local variables in the 
+ <FONT color="red">program stack</FONT>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Previously</B></FONT>,
+    I have <FONT color="blue"><B>shown</B></FONT> you that
+   <FONT color="red"><B>due to</B></FONT> the
+   <FONT color="blue"><B>event sequence</B></FONT> in
+   a <FONT color="red"><B>function call</B></FONT> with
+   <FONT color="blue"><B>parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>caller</B></FONT> will use
+    <FONT color="blue"><B>this sequence</B></FONT> of
+    <FONT color="red"><B>instructions</B></FONT> to
+    pass <FONT color="blue"><B>parameters</B></FONT> to
+    a <FONT color="red"><B>function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  How to pass parameters using the stack to a function:
+
+        (1) push  params (in reverse order)
+
+	(2) bl    function
+
+	(3) clean up parameters on stack
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>called function</B></FONT> will
+  use these
+   <FONT color="blue"><B>sequences</B></FONT> of
+   <FONT color="red"><B>instructions</B></FONT> 
+   to
+   <FONT color="blue"><B>build its stack frame</B></FONT> and
+   <FONT color="red"><B>break down its stack frame</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /* ---------------------------------
+      Prelude code: build stack frame
+      --------------------------------- */
+   push {lr}            // Save return address
+   push {fp}            // Save old FP
+   mov  fp, sp          // Initial function's own FP
+   sub  sp, sp, #N      // Allocate N bytes on stack for local vars    
+
+
+   /* -------------------------------------------
+      Postlude code: break down the stack frame
+                     and return to caller
+      ------------------------------------------- */
+   mov  sp, fp          // De-allocate stack space of local vars
+   pop  {fp}		// Restore old FP
+   pop  {pc}		// Return to caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In this webpage, I want to <FONT color="red"><B>show</B></FONT>
+ you the <FONT color="blue"><B>effect</B></FONT> of these
+ <FONT color="red"><B>sequence of instructions</B></FONT> and their
+ <FONT color="blue"><B>effect</B></FONT> on the
+ <FONT color="red"><B>program stack</B></FONT>
+ with <FONT color="blue"><B>3 examples</B></FONT>
+ </UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example 1: one function call
+     </B></FONT>
+<P>
+<UL>
+<LI> In <FONT color="red"><B>example 1</B></FONT>, I will show you
+     what happens inside the 
+  <FONT color="blue"><B>computer system</B></FONT> when:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    main( )
+    {
+       Calls a function A and passes 2 parameters to A.
+
+       In Java, this would be written as:   A(1111,2222)
+    }
+
+    A( int a, int b )
+    {
+       A( ) has 3 local variables.
+
+       In Java, you would write:
+
+          int  x, y, z;    // Define 3 local vars 
+
+       return(9999);       // A( ) always returns 9999
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>only show</B></FONT> you
+  <FONT color="blue"><B>how</B></FONT> the 
+ <FONT color="red"><B>parameters</B></FONT> and
+ <FONT color="blue"><B>local variables</B></FONT> are
+ <FONT color="red"><B>stored</B></FONT> in the
+ <FONT color="blue"><B>program stack</B></FONT>
+<P>
+The <FONT color="red"><B>assembler code</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:<FONT color="red">
+        mov   r0, #2222    // Pass 2222 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #1111    // Pass 1111 as parameter 1 on stack
+        push  {r0}
+
+        bl    A            // Call function A
+        add   sp, sp, #8   // Clean up parameters on the stack</FONT>
+
+        // When A returns, you will see the return value in r0 = 9999
+
+        nop
+        nop
+Stop:
+        nop
+
+
+/* ==============================================
+   Function A: param and locals in stack
+   ============================================== */
+A:
+        // When run in EGTAPI - you will see {1111, 2222} on stack
+<FONT color="red">
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #12     // I create 3 local variable in stack</FONT>
+
+        nop                     // These instructions in A( ) can use stack
+        nop                     // to access parameters and local variables
+
+
+       /* ====================================================
+           We can use a register to return the return value
+           ==================================================== */
+        mov   r0, #9999         // Pass return value in register r0
+<FONT color="red">
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp          // De-allocate the local variables
+        pop     {fp}            // Restore old FP
+
+        pop     {pc}            // Return</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will show this example in class
+ and also highlight the effect of the instructions
+<P>
+What you should notice is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Before</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> calls
+   <FONT color="red"><B><TT>A( )</TT></B></FONT>, the
+  <FONT color="blue"><B>program stack</B></FONT> is
+  <FONT color="red"><B>empty</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>After</B></FONT> 
+    <FONT color="blue"><B><TT>A( )</TT></B></FONT> finishes
+   building the <FONT color="red"><B>stack frame</B></FONT>,
+   the <FONT color="blue"><B>stack frame</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+During the <FONT color="red"><B>execution</B></FONT> of
+  <FONT color="blue"><B>method <TT>A( )</TT></B></FONT>, we
+  can <FONT color="red"><B>access</B></FONT> the
+ <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="blue"><B>local variable</B></FONT> in the
+ <FONT color="red"><B>program stack</B></FONT> using
+ an <FONT color="blue"><B><I>offset</I></B></FONT> from the
+  <FONT color="red"><B>base address</B></FONT> in
+  <FONT color="blue"><B>register FP</B></FONT> !!!
+<P>
+ (We will learn how to do this below)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Before</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> has
+   <FONT color="red"><B>clean up the parameters</B></FONT> in the
+  <FONT color="blue"><B>program stack</B></FONT>,
+  the <B>program stack</B> is
+  <FONT color="red"><B>empty</B></FONT>
+  <FONT color="blue"><B><I>again</I></B></FONT> !!!
+<P>
+ (That's what we want !!! We do not want to leave any
+ <FONT color="red"><B>garbage</B></FONT> on the
+ <FONT color="blue"><B>program stack</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/skel-stack.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 skel-stack</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example 2: back-to-back  function calls
+     </B></FONT>
+<P>
+<UL>
+<LI> In <FONT color="red"><B>example 2</B></FONT>, I will show you
+     what happens inside the 
+  <FONT color="blue"><B>computer system</B></FONT> when
+  <FONT color="red"><B><TT>main( )</TT></B></FONT> calls
+  <FONT color="blue"><B><TT>A( )</TT></B></FONT> and
+  then <FONT color="red"><B><TT>A( )</TT></B></FONT> calls
+  <FONT color="blue"><B><TT>B( )</TT></B></FONT> -- both calls
+ use the <FONT color="red"><B>program stack</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    main( )
+    {
+       A(1111,2222)
+    }
+
+    A( int a, int b )
+    {
+       int  x, y, z;    // Define 3 local vars  
+
+       B(3333,4444,5555);
+
+       return(9999);
+    }
+
+    B( int a, int b, int c )
+    {
+       int  x, y;       // Define 2 local vars  
+
+       return(8888);
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>only show</B></FONT> you
+  <FONT color="blue"><B>how</B></FONT> the 
+ <FONT color="red"><B>parameters</B></FONT> and
+ <FONT color="blue"><B>local variables</B></FONT> are
+ <FONT color="red"><B>stored</B></FONT> in the
+ <FONT color="blue"><B>program stack</B></FONT>
+<P>
+The <FONT color="red"><B>assembler code</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:<FONT color="red">
+        mov   r0, #2222    // Pass 2222 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #1111    // Pass 1111 as parameter 1 on stack
+        push  {r0}
+
+        bl    A            // Call function A
+        add   sp, sp, #8   // Clean up parameters on the stack</FONT>
+
+        // When A returns, you will see the return value in r0 = 9999
+
+        nop
+        nop
+Stop:
+        nop
+
+
+/* ==============================================
+   Function A: param and locals in stack
+   ============================================== */
+A:
+        // When run in EGTAPI - you will see {1111, 2222} on stack
+<FONT color="red">
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #12     // I create 3 local variable in stack</FONT>
+
+        nop                     // These instructions in A( ) can use stack
+        nop                     // to access parameters and local variables
+
+<FONT color="darkgreen">
+        /* =========================================
+           Call B( ) with 3 parameters
+           ========================================= */
+        mov   r0, #5555    // Pass 5555 as parameter 3 on stack
+        push  {r0}
+
+        mov   r0, #4444    // Pass 4444 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #3333    // Pass 3333 as parameter 1 on stack
+        push  {r0}
+
+        bl    B            // Call function B
+        add   sp, sp, #12  // Clean up parameters on the stack</FONT>
+
+        nop                // We are back in A( )
+        nop                // We will now return to main( )
+
+
+
+
+       /* ====================================================
+           We can use a register to return the return value
+           ==================================================== */
+        mov   r0, #9999         // Pass return value in register r0
+<FONT color="red">
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp          // De-allocate the local variables
+        pop     {fp}            // Restore old FP
+
+        pop     {pc}            // Return</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will show this example in class
+ and also highlight the effect of the instructions
+<P>
+What you should notice is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Before</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> calls
+   <FONT color="red"><B><TT>A( )</TT></B></FONT>, the
+  <FONT color="blue"><B>program stack</B></FONT> is
+  <FONT color="red"><B>empty</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>After</B></FONT> 
+    <FONT color="blue"><B><TT>A( )</TT></B></FONT> finishes
+   building the <FONT color="red"><B>stack frame</B></FONT>,
+   the <FONT color="blue"><B>stack frame</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+During the <FONT color="red"><B>execution</B></FONT> of
+  <FONT color="blue"><B>method <TT>A( )</TT></B></FONT>, we
+  can <FONT color="red"><B>access</B></FONT> the
+ <FONT color="blue"><B><TT>A( )</TT>'s parameters</B></FONT> and
+  <FONT color="blue"><B><TT>A( )</TT>'s local variable</B></FONT> in the
+ <FONT color="red"><B>program stack</B></FONT> using
+ an <FONT color="blue"><B><I>offset</I></B></FONT> from the
+  <FONT color="red"><B>base address</B></FONT> in
+  <FONT color="blue"><B>register FP</B></FONT> !!!
+<P>
+ (We will learn how to do this below)
+<P>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>After</B></FONT> 
+    <FONT color="blue"><B><TT>B( )</TT></B></FONT> finishes
+   building the <FONT color="red"><B>stack frame</B></FONT>,
+   the <FONT color="blue"><B>stack frame</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+During the <FONT color="red"><B>execution</B></FONT> of
+  <FONT color="blue"><B>method <TT>A( )</TT></B></FONT>, we
+  can <FONT color="red"><B>access</B></FONT> the
+ <FONT color="blue"><B><TT>B( )</TT>'s parameters</B></FONT> and
+  <FONT color="blue"><B><TT>B( )</TT>'s local variable</B></FONT> in the
+ <FONT color="red"><B>program stack</B></FONT> using
+ an <FONT color="blue"><B><I>offset</I></B></FONT> from the
+  <FONT color="red"><B>base address</B></FONT> in
+  <FONT color="blue"><B>register FP</B></FONT> !!!
+<P>
+ (We will learn how to do this below)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>After</B></FONT> 
+   <FONT color="blue"><B><TT>B( )</TT></B></FONT> has
+   <FONT color="red"><B>returned</B></FONT> and
+  <FONT color="blue"><B><TT>A( )</TT></B></FONT> has
+   <FONT color="red"><B>cleaned up the parameters</B></FONT> in the
+  <FONT color="blue"><B>program stack</B></FONT>,
+  the <B>program stack</B> is
+  <FONT color="red"><B>restored</B></FONT>
+  <FONT color="blue"><B><I>back</I></B></FONT> to:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+When 
+  <FONT color="blue"><B>method <TT>A( )</TT></B></FONT>
+  <FONT color="red"><B>continues</B></FONT>, we
+  can <FONT color="red"><B>access</B></FONT> the
+ <FONT color="blue"><B><TT>A( )</TT>'s parameters</B></FONT> and
+  <FONT color="blue"><B><TT>A( )</TT>'s local variable</B></FONT> in the
+ <FONT color="red"><B>program stack</B></FONT> using
+ an <FONT color="blue"><B><I>offset</I></B></FONT> from the
+  <FONT color="red"><B>base address</B></FONT> in
+  <FONT color="blue"><B>register FP</B></FONT> !!!
+<P>
+ (That's what we want !!! 
+We must be able to
+ <FONT color="red"><B>continue</B></FONT> with
+ the <FONT color="blue"><B>execution of <TT>A( )</TT></B></FONT> after
+ the <FONT color="red"><B>method call <TT>B( )</TT> completes</B></FONT> !!!
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>After</B></FONT> 
+   <FONT color="blue"><B><TT>main( )</TT></B></FONT> has
+   <FONT color="red"><B>clean up the parameters</B></FONT> in the
+  <FONT color="blue"><B>program stack</B></FONT>,
+  the <B>program stack</B> is
+  <FONT color="red"><B>empty</B></FONT>
+  <FONT color="blue"><B><I>again</I></B></FONT> !!!
+<P>
+ (That's what we want !!! We do not want to leave any
+ <FONT color="red"><B>garbage</B></FONT> on the
+ <FONT color="blue"><B>program stack</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/skel-stack2.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 skel-stack2</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example 3: shows you how to
+   <FONT color="red">access</FONT> the
+   parameters and local variables using an offset from
+   the </FONT>FP register</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> If you <FONT color="red"><B>realize</B></FONT> that
+    throughout</B></FONT> the
+   <FONT color="red"><B>execution</B></FONT> of
+   the <FONT color="blue"><B><TT>A( )</TT></B></FONT> method
+  (even when <FONT color="red"><B><TT>A( )</TT></B></FONT> calls
+  <B>another method</B> <FONT color="blue"><B><TT>B( )</TT></B></FONT>, the
+   <FONT color="red"><B>stack frame</B></FONT> 
+   <FONT color="blue"><B>always</B></FONT> has this
+   <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Then</B> you can
+ <FONT color="red"><B>easily understand</B></FONT> that you access
+ the <FONT color="blue"><B>parameters</B></FONT> and
+ <FONT color="blue"><B>local variables</B></FONT> with these
+ <FONT color="red"><B>offsets</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame02c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Here is a <FONT color="red"><B>demo program</B></FONT> that show you
+     how to set:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    localVar1 = param1;
+    localVar2 = param2;
+    localVar3 = param1 + param2;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov   r0, #2222    // Pass 2222 as parameter 2 on stack
+        push  {r0}
+
+        mov   r0, #1111    // Pass 1111 as parameter 1 on stack
+        push  {r0}
+
+        bl    A            // Call function A
+        add   sp, sp, #8   // Clean up parameters on the stack
+
+        // When A returns, you will see the return value in r0 = 9999
+        nop
+        nop
+Stop:
+        nop
+
+
+A:
+        // When run in EGTAPI - you will see {1111, 2222} on stack
+
+        /* ****************************************
+           Prelude: build stack frame
+           **************************************** */
+        push    {lr}            // Save return address in LR
+        push    {fp}            // Save Frame Pointer in FP
+        mov     fp, sp          // Initialize my own FP
+        sub     sp, sp, #12     // I create 3 local variable in stack      
+<FONT color="red">
+        // How to to access parameters and local variables
+        // stored in the program stack
+
+        ldr     r0, [fp, #8]    // Get parameter 1 = 1111
+        str     r0, [fp, #-12]  // Store in local variable 1
+        ldr     r1, [fp, #12]   // Get parameter 2 = 2222
+        str     r1, [fp, #-8]   // Store in local variable 2
+        add     r0, r0, r1
+        str     r0, [fp, #-4]   // Store sum in local variable 3</FONT>
+
+       /* =================================================
+           We can use a register to return the return value
+           ================================================= */
+        mov   r0, #9999         // Pass return value in register r0
+
+        /* ************************************************
+           Postlude: break down stack frame
+           ************************************************ */
+        mov     sp, fp
+        pop     {fp}
+
+        pop     {pc}            // Return
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/skel-stack-access.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 skel-stack-access</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

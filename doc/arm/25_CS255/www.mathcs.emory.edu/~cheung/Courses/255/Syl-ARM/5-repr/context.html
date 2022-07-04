@@ -1,0 +1,849 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+What are those bits in memory ???
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: <FONT color="red">information encoding</FONT>
+     </B></FONT>
+<P>
+<UL>
+
+<LI> We have seen that there are 
+    <FONT color="red"><B><I>many</I> different kinds</B></FONT>
+      of <FONT color="blue"><B>information</B></FONT>
+	stored in the <FONT color="red"><B>computer memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B><I>integer</I> (= whole number) values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   00000000000000000000000000000101      represents   5<sub>10</sub>      
+
+   <FONT color="red">01000000101000000000000000000000</FONT>      represents 1084227584<sub>10</sub> (= 2<sup>30</sup> + 2<sup>23</sup> + 2<sup>21</sup>)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Floating point</I> values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">01000000101000000000000000000000</FONT>      represents    5<sub>10</sub>      
+
+   See: <A HREF="float.html"><FONT color="red">click here</FONT></A>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Character</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     00110101            represents the <FONT color="red">character</FONT> 5     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">What</FONT> does these bits
+     <FONT color="red">represent</FONT> ???
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Suppose</B></FONT> you see the following
+     <FONT color="red"><B>bit pattern</B></FONT>
+     stored in <FONT color="blue"><B>memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">01000000101000000000000000000000</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="red"><B>value</B></FONT> does this
+      <FONT color="blue"><B>bit pattern</B></FONT>
+      <B><I>encode</I></B> ???
+<P>
+   Does
+   <FONT color="red"><B><TT>01000000101000000000000000000000</TT></B></FONT>
+   represent <FONT color="blue"><B>1084227584<sub>10</sub></B></FONT>
+  ???
+ <P>
+  Or does
+   <FONT color="red"><B><TT>01000000101000000000000000000000</TT></B></FONT>
+   represent <FONT color="blue"><B>5<sub>10</sub></B></FONT> ???
+ <P>
+  Or <FONT color="red"><B>something <I>else</I></B></FONT> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>cannot</B></FONT> tell
+       <FONT color="blue"><B><I>what value</I></B></FONT>
+       a <FONT color="red"><B>bit pattern</B></FONT>
+       will <FONT color="blue"><B>represent</B></FONT> by
+       looking <FONT color="red"><B><I>only</I></B></FONT> at the
+       <FONT color="blue"><B>bit pattern</B></FONT>
+<P>
+<HR>
+<P>
+<LI> To <FONT color="blue"><B>decode</B></FONT> the
+      <FONT color="red"><B>information</B></FONT>
+      that is <FONT color="blue"><B>represented</B></FONT> by
+      a <FONT color="red"><B>bit pattern</B></FONT>,
+      you <FONT color="blue"><B><I>need</I></B></FONT>
+      this <FONT color="red"><B>information</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>encoding method</I></B></FONT> used
+       by the
+      <FONT color="blue"><B>bit pattern</B></FONT>
+<P>
+  (The <FONT color="blue"><B><I>encoding method</I></B></FONT> is
+    <B>uniquely</B> tied to the
+    <FONT color="red"><B><I>data type</I></B></FONT> ---
+    so <B>knowing</B> the
+    <FONT color="blue"><B>data type</B></FONT> will
+    <B>tell</B> you the
+    <FONT color="red"><B><I>encoding method</I></B></FONT> used)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    01000000101000000000000000000000    as an <FONT color="red">integer value</FONT>
+                                        represents:  1084227584<sub>10</sub>
+
+    01000000101000000000000000000000    as a <FONT color="red">floating point value</FONT>
+                                        represents:  5<sub>10</sub>
+
+    01000000101000000000000000000000    as <FONT color="red">character (ASCII) code</FONT>
+                                        represents: 01000000 10100000 00000000 00000000
+                                                       '@'   unprint    NUL      NUL
+
+    <FONT color="red">And so on !!! (If there are more encoding methods)</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Illustration to help you overcome this <FONT color="red">weirdness</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Weirdness:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>same</I> bit pattern</B></FONT>
+      can <FONT color="blue"><B>represent</B></FONT> 
+      <FONT color="red"><B><I>different</I> value</B></FONT> !!!
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    01000000101000000000000000000000    as an <FONT color="red">integer value</FONT>
+                                        represents:  1084227584<sub>10</sub>
+
+    01000000101000000000000000000000    as a <FONT color="red">floating point value</FONT>
+                                        represents:  5<sub>10</sub>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Let me use the <FONT color="red"><B>English language</B></FONT> to
+ <FONT color="blue"><B>help</B></FONT> you
+ <FONT color="red"><B>overcome</B></FONT> this
+  <FONT color="blue"><B><I>weirdness</I></B></FONT>....
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make a <FONT color="red"><B>correct</B></FONT> 
+      <FONT color="blue"><B>English sentence</B></FONT>
+    that starts with:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    You <FONT color="red">is</font> ......            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You (as a human) is <FONT color="blue"><B>so conditioned</B></FONT> to
+ use <FONT color="red"><B>"you"</B></FONT> in the 
+  <FONT color="blue"><B>context</B></FONT> of a
+  <FONT color="red"><B><I>personal pronounce</I></B></FONT>
+  (the "me"-generation !), that you don't even 
+  <FONT color="blue"><B>think</B></FONT> about the fact that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The word <FONT color="blue"><B>"you"</B></FONT> can <B><I>also</I></B>
+   be used in <FONT color="red"><B>another <I>context</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   You <FONT color="red">is</font> an English word         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>So</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>same</I> word</B></FONT>
+       <FONT color="blue"><B>"you"</B></FONT> can have
+        <FONT color="red"><B><I>different</I> meaning</B></FONT>
+	in <FONT color="blue"><B><I>different</I> context</B></FONT> !!!
+<P>
+ (This <B>example</B> is
+  <FONT color="red"><B><I>completely different</I></B></FONT> from
+   <FONT color="blue"><B>homonyms</B></FONT> ---
+   like <FONT color="red"><B>"bow"</B></FONT> 
+   (bow down and bow of a ship) !!!
+  <FONT color="blue"><B>Homonyms</B></FONT> are
+  <FONT color="red"><B><I>different</I> words</B></FONT> with
+  the <FONT color="blue"><B><I>same</I> spelling</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Just like:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    01000000101000000000000000000000    as an <FONT color="red">integer value</FONT>
+                                        represents:  1084227584<sub>10</sub>
+
+    01000000101000000000000000000000    as a <FONT color="red">floating point value</FONT>
+                                        represents:  5<sub>10</sub>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+I'll tell you a joke about Millie and her teacher with the word "I" in class...
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What information is stored in <FONT color="red">memory</FONT> ???
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Each memory <I>cell</I></B></FONT> stores
+       <FONT color="red"><B><I>8 (eight)</I> bits</B></FONT> 
+ <P>
+  (There are <FONT color="red"><B>no</B></FONT>
+   <FONT color="blue"><B><I>boundary</I></B></FONT> or
+   <B>markers</B> in <FONT color="red"><B>memory</B></FONT> that
+   tells you <FONT color="blue"><B><I>when</I></B></FONT> to
+   <FONT color="red"><B>stop</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Suppose</B></FONT> you see the
+      <FONT color="blue"><B>following</B></FONT>
+      <FONT color="red"><B>memory content</B></FONT>
+      at <FONT color="blue"><B>address 2000</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-bits01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="red"><B><I>possible</I> values</B></FONT> are
+      <FONT color="blue"><B>stored</B></FONT> in
+      <FONT color="red"><B>memory location 2000</B></FONT> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>answer</B></FONT> will
+ <FONT color="blue"><B><I>surprise</I></B></FONT> you !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B> the <FONT color="red"><B><I>possible</I> values</B></FONT>
+ stored at <FONT color="blue"><B>memory address 2000</B></FONT> are
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B><TT>float</TT> value</B></FONT>
+       <FONT color="blue"><B>5<sub>10</sub></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-bits01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><TT>int</TT> value</B></FONT>
+       <FONT color="blue"><B>1084227584<sub>10</sub></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-bits01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B><TT>short</TT> value</B></FONT>
+       <FONT color="blue"><B>16576<sub>10</sub></B></FONT></SPAN>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-bits01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B><TT>byte</TT> value</B></FONT>
+       <FONT color="blue"><B>64<sub>10</sub></B></FONT></SPAN>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-bits01e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B><TT>character</TT> value</B></FONT>
+       <FONT color="blue"><B>'@'</B></FONT></SPAN>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-bits01f.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>And so on</I></B></FONT> !!!!
+    (if you have <FONT color="blue"><B>more codes</B></FONT> !!!)
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>If</I></B></FONT> the
+     <FONT color="blue"><B>type</B></FONT> of the
+     <FONT color="red"><B>value</B></FONT> stored
+     at <FONT color="blue"><B>memory address</B></FONT> is
+     <FONT color="red"><B><TT>float</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>must</B></FONT> take
+      <FONT color="red"><B>4 bytes</B></FONT>
+      (because a <FONT color="blue"><B>float representation</B></FONT> is
+      <FONT color="red"><B>32 bits</B></FONT>) and
+      <FONT color="blue"><B>use IEEE 754 code</B></FONT> to
+      <FONT color="red"><B>interpret </B></FONT> the
+      <FONT color="blue"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>If</I></B></FONT> the
+     <FONT color="blue"><B>type</B></FONT> of the
+     <FONT color="red"><B>value</B></FONT> stored
+     at <FONT color="blue"><B>memory address</B></FONT> is
+     <FONT color="red"><B><TT>int</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>must</B></FONT> take
+      <FONT color="red"><B>4 bytes</B></FONT>
+      (because a <FONT color="blue"><B><TT>int</TT>
+     representation</B></FONT> is
+      <FONT color="red"><B>32 bits</B></FONT>) and
+      <FONT color="blue"><B>use 2's complement code</B></FONT> to
+      <FONT color="red"><B>interpret </B></FONT> the
+      <FONT color="blue"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>If</I></B></FONT> the
+     <FONT color="blue"><B>type</B></FONT> of the
+     <FONT color="red"><B>value</B></FONT> stored
+     at <FONT color="blue"><B>memory address</B></FONT> is
+     <FONT color="red"><B><TT>short</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>must</B></FONT> take
+      <FONT color="red"><B>2 bytes</B></FONT>
+      (because a <FONT color="blue"><B><TT>short</TT>
+     representation</B></FONT> is
+      <FONT color="red"><B>16 bits</B></FONT>) and
+      <FONT color="blue"><B>use 2's complement code</B></FONT> to
+      <FONT color="red"><B>interpret </B></FONT> the
+      <FONT color="blue"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>If</I></B></FONT> the
+     <FONT color="blue"><B>type</B></FONT> of the
+     <FONT color="red"><B>value</B></FONT> stored
+     at <FONT color="blue"><B>memory address</B></FONT> is
+     <FONT color="red"><B><TT>byte</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>must</B></FONT> take
+      <FONT color="red"><B>1 byte</B></FONT>
+      (because a <FONT color="blue"><B><TT>byte</TT>
+     representation</B></FONT> is
+      <FONT color="red"><B>8 bits</B></FONT>) and
+      <FONT color="blue"><B>use 2's complement code</B></FONT> to
+      <FONT color="red"><B>interpret </B></FONT> the
+      <FONT color="blue"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>If</I></B></FONT> the
+     <FONT color="blue"><B>type</B></FONT> of the
+     <FONT color="red"><B>value</B></FONT> stored
+     at <FONT color="blue"><B>memory address</B></FONT> is
+     <FONT color="red"><B><TT>char</TT></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B>must</B></FONT> take
+      <FONT color="red"><B>1 byte</B></FONT>
+      (because a <FONT color="blue"><B><TT>char</TT>
+     representation</B></FONT> is
+      <FONT color="red"><B>8 bits</B></FONT>) and
+      <FONT color="blue"><B>use ASCII code</B></FONT> to
+      <FONT color="red"><B>interpret </B></FONT> the
+      <FONT color="blue"><B>value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>And so on</B></FONT> !!!
+       (for different <FONT color="blue"><B>data types</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+     <FONT color="red"><B><TT>
+	/home/cs255001/demo/java/ShowValueDepOnType2.c
+	</TT></B></font>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>gcc ShowValueDepOnType2.c</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Summary</B></FONT>:
+     to <FONT color="blue"><B>know</B></FONT>
+     what <FONT color="red"><B>value</B></FONT>
+     is <FONT color="blue"><B>stored</B></FONT> in some
+     <FONT color="red"><B>variable in memory</B></FONT>, you need:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>memory address</B></FONT> where
+    the <FONT color="blue"><B>variable</B></FONT> is
+    <B>stored (allocated)</B> in
+    <FONT color="red"><B>memory</B></FONT>
+<P>
+ <LI> <FONT color="blue"><B>Also:</B></FONT>
+          the <FONT color="red"><B><I>data type</I></B></FONT> of
+	  the <FONT color="blue"><B>variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

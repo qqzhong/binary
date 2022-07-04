@@ -1,0 +1,98 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Moving/copying an integer value from a register into another register
+<HR>
+</H3>
+<UL>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>mov</TT> instruction - again
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>
+      can <FONT color="blue"><B>also</B></FONT> be used to
+       move/copy an
+   <FONT color="red"><B>integer (= 32 bits) value</B></FONT> from
+    one <FONT color="blue"><B>register</B></FONT> to
+   <FONT color="red"><B>another register</B></FONT>
+<P>
+<LI> The 
+     <FONT color="red"><B>assembler syntax</B></FONT> to
+      move the <FONT color="blue"><B>value</B></FONT> stored
+    in a <FONT color="red"><B>register <TT>rM</TT></B></FONT> to
+ a register <FONT color="blue"><B><TT>rN</TT></B></FONT>
+ (any register in the ARM processor) is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov rN, <FONT color="red">rM</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+The <FONT color="red"><B>entire register <TT>rM</TT></B></FONT>
+   will
+  by <FONT color="blue"><B>copied</B></FONT> into the
+  <FONT color="red"><B>register <TT>rN</TT></B></FONT>
+</SPAN>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov  r0, <FONT color="red">r4</FONT>      // Copies r4 into r0
+
+    mov  r1, <FONT color="red">r9</FONT>      // Copies r9 into r1
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

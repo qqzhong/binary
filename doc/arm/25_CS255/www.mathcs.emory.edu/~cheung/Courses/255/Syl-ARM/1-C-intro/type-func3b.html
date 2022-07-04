@@ -1,0 +1,476 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+One-pass vs. two-pass compiler
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">One-pass</FONT> and
+     <FONT color="red">two-pass</FONT> compilers
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="red"><B>2 kinds</B></FONT> of
+       <FONT color="blue"><B>compilers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> <FONT color="red"><B><I>Two-pass</I></B></FONT> compilers:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>compiler</B>
+         <FONT color="blue"><B>reads</B></FONT> the 
+	 <B>source code</B>
+	 <FONT color="red"><B><I>once</I></B></FONT>
+	 to <FONT color="blue"><B>compile (= translate)</B></FONT>
+	 the <B>program</B>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> In the <FONT color="red"><B>1st pass</B></FONT>, the
+      <B>compiler</B> will:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Gather</B></FONT> the
+      <FONT color="red"><B>definition</B></FONT> of
+      <B>all</B>
+      <FONT color="blue"><B>variables</B></FONT> and
+      <FONT color="red"><B>functions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> In the <FONT color="red"><B>2nd pass</B></FONT>, the
+      <B>compiler</B> will:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Use</B> the 
+      <FONT color="red"><B>gathered information</B></FONT> on
+      the
+      <FONT color="blue"><B>variables</B></FONT> and
+      <FONT color="red"><B>functions</B></FONT> to
+      <FONT color="blue"><B><I>translate</I></B></FONT>
+      the <FONT color="red"><B>function calls</B></FONT>
+ <P>
+   (E.g., <FONT color="blue"><B>insert</B></FONT> the
+   <B>necessary</B>
+   <FONT color="red"><B><I>conversion</I> instructions</B></FONT> if
+   the <FONT color="blue"><B>data types</B></FONT>
+   are <FONT color="red"><B>mismatched</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>One-pass</I></B></FONT> compilers:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>compiler</B>
+         <FONT color="blue"><B>reads</B></FONT> the 
+	 <B>source code</B>
+	 <FONT color="red"><B><I>once</I></B></FONT>
+	 to <FONT color="blue"><B>compile (= translate)</B></FONT>
+	 the <B>program</B>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In an <FONT color="red"><B><I>one-pass</I> compiler</B></FONT>,
+   the <B>compiler</B> will:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Gather</B></FONT> the
+      <FONT color="red"><B>definition</B></FONT> of
+      <B>all</B>
+      <FONT color="blue"><B>variables</B></FONT> and
+      <FONT color="red"><B>functions</B></FONT> 
+      <B><I>while</I></B> it is
+      <FONT color="red"><B><I>translation</I></B></FONT> the
+      <B>program</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Advantages and disadvantages of one-pass and two-pass compilers
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Two-pass</B> compilers:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>compiler</B></FONT> will
+      <FONT color="red"><B>have <I>available</I></B></FONT>
+      <FONT color="blue"><B>information</B></FONT> on
+      <FONT color="red"><B><I>all</I> defined functions</B></FONT>
+      <B>before</B> the
+      <FONT color="blue"><B>compiler</B></FONT>
+      starts <FONT color="red"><B>translation</B></FONT> 
+      the <B>function calls</B>
+<P>
+<HR>
+<P>
+<LI> <B>However</B>:
+      the <FONT color="blue"><B>compilation time</B></FONT> is
+     <FONT color="red"><B><I>longer</I></B></FONT>
+     (because the <B>compiler</B> will read the
+     <FONT color="blue"><B>source program</B></FONT>
+     <FONT color="red"><B><I>twice</I></B></FONT>)
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>  <B>One-pass</B> compilers:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>compilation time</B></FONT> is
+     <FONT color="red"><B><I>shorter</I></B></FONT>
+     (because the <B>compiler</B> will read the
+     <FONT color="blue"><B>source program</B></FONT>
+     <FONT color="red"><B>only <I>once</I></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>designer</B></FONT> of
+    <FONT color="red"><B>C</B></FONT> was <B>aiming</B> for
+    <FONT color="blue"><B>speed</B></FONT> ---
+    even during <FONT color="red"><B>compilation</B></FONT>
+<P>
+<HR>
+<P>
+<LI> So <FONT color="red"><B>C compilers</B></FONT> are
+   <FONT color="blue"><B><I>one</I>-pass compilers</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<HR>
+<P>
+<LI> <B>However</B>: there is <FONT color="red"><B><I>one</I></B></FONT>
+     sticky <FONT color="blue"><B>problem</B></FONT> with
+     <FONT color="red"><B><I>one</I>-pass compilers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A  <FONT color="blue"><B><I>one</I>-pass compiler</B></FONT> will
+      <FONT color="red"><B> <I>not</I> have</B></FONT> the
+      <FONT color="blue"><B><I>any</I> information</B></FONT> on
+      <FONT color="red"><B>functions</B></FONT>
+      that are <B>defined</B>
+      <FONT color="blue"><B><I>after</I></B></FONT> its
+      <FONT color="red"><B>function call</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char *argv[] )
+   {
+      int a, b;
+
+      a = 2;
+
+      b = f( a ); <FONT color="red">// <---- ??????
+                  //   1. What is the data type of the input parameter ??
+                  //   2. What is the data type of the return value ???</FONT>
+ 
+   }
+<SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x ) <FONT color="red"> // ONLY NOW does a ONE-PASS compiler find out 
+                       // about the data types !!!!!!</FONT>                </SPAN>
+   {
+      float r;         // Define a local variable         
+ 
+      r = x * x;       // Statement
+
+      return ( r );    // Return statement
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Observe that:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B><I>one</I>-pass compiler</B></FONT>
+      <B>encounters</B> the <FONT color="red"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    b = <FONT color="red">f</FONT>( a );            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="blue"><B><I>one</I>-pass compiler</B></FONT> has
+  <FONT color="red"><B><I>not yet</I> processed</B></FONT> the
+  corrsponding <FONT color="blue"><B>function definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">   <FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x ) <FONT color="red"> // ONLY NOW does a ONE-PASS compiler find out 
+                       // about the data types !!!!!!</FONT>                </SPAN>
+   {
+      float r;         // Define a local variable         
+
+      r = x * x;       // Statement
+
+      return ( r );    // Return statement
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Consequently:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>one</I>-pass compiler</B></FONT> has
+    <FONT color="red"><B><I>no</I> information</B></FONT> on:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Data type</B></FONT> of the
+    <FONT color="blue"><B>input parameters</B></FONT>
+ <LI> <FONT color="red"><B>Data type</B></FONT> of the
+   <FONT color="blue"><B>return value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+This is a <FONT color="red"><B>grave problem</B></FONT>
+ that we have to
+ <FONT color="blue"><B>address next</B></FONT> !!!
+</SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Examples of one-pass and two-pass compilers
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Two-pass</B></FONT> compiler:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Java</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>One-pass</B></FONT> compiler:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

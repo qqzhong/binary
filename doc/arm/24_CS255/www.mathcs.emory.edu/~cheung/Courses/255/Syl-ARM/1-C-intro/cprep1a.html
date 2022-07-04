@@ -1,0 +1,370 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Intro to the C pre-processor
+<HR>
+</H3>
+
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The process to compile a C program
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>process</B></FONT> to
+     <FONT color="blue"><B>translate</B></FONT>
+     a <FONT color="red"><B>C program</B></FONT> into
+     an <FONT color="blue"><B>executable program</B></FONT>
+     is <FONT color="red"><B>structured</B></FONT> as
+     follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-compile-process01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+There are <FONT color="red"><B>3 stages</B></FONT> of
+  <FONT color="blue"><B>processing</B></FONT> when
+  a <FONT color="red"><B>C program </B></FONT> is
+  <FONT color="blue"><B>compiled</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Unique</B></FONT> to
+     the <FONT color="blue"><B>C/C++  language</B></FONT>,
+     the <FONT color="red"><B>first stage</B></FONT> of
+     <FONT color="blue"><B>processing</B></FONT> is
+     the <FONT color="red"><B>C-<I>preprocessor</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <FONT color="red"><B>C-preprocessor</B></FONT> provide
+      a 
+      <FONT color="blue"><B>sophisticated text <I>re-writing</I>
+      system</B></FONT>
+      that allow
+      the <FONT color="red"><B>C program</B></FONT> to
+       be <FONT color="blue"><B>adapted</B></FONT> to
+       <FONT color="red"><B><I>different</I> computer platforms</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>output</B></FONT> of
+  the <FONT color="blue"><B>C preprocessor</B></FONT> is
+  an <FONT color="red"><B>"enriched" C program source</B></FONT> that
+  is <FONT color="blue"><B>generated</B></FONT> from
+   the <FONT color="red"><B>original C program</B></FONT> according to
+  some <FONT color="blue"><B>specific parameters</B></FONT> specified
+  by the <FONT color="red"><B>programmer</B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>2nd stage</B></FONT> is
+   the <FONT color="blue"><B>C compiler</B></FONT> that
+   translate the 
+   <FONT color="red"><B>"enriched" C program source</B></FONT> into
+   <FONT color="blue"><B>assembler code</B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>3rd and final stage</B></FONT> is
+   the <FONT color="blue"><B>assembler</B></FONT> that
+   translate the 
+   <FONT color="red"><B>assembler source</B></FONT> into
+   <FONT color="blue"><B>executable machine code</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We can <FONT color="red"><B>control</B></FONT> the
+   <FONT color="blue"><B>C program compilation process</B></FONT> using
+   <FONT color="red"><B>options</B></FONT> given to the
+   <FONT color="blue"><B>C compile (<TT>gcc</TT>)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>gcc -E</TT></B></FONT>
+  <B>option</B> will
+    <FONT color="blue"><B>stop</B></FONT> the
+    <FONT color="red"><B>compilation process</B></FONT> after the
+    <FONT color="blue"><B>C-preprocessor</B></FONT> is
+    <FONT color="red"><B>finished</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>output</B></FONT> of the
+   <FONT color="blue"><B>C-preprocessor</B></FONT> is
+   <B>sent</B> to the
+   <FONT color="red"><B>terminal</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> <FONT color="red"><B><TT>gcc -S</TT></B></FONT>
+  <B>option</B> will
+    <FONT color="blue"><B>stop</B></FONT> the
+    <FONT color="red"><B>compilation process</B></FONT> after the
+    <FONT color="blue"><B>C-compiler</B></FONT> is
+    <FONT color="red"><B>finished</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>output</B></FONT> of the
+   <FONT color="blue"><B>C-compiler</B></FONT> is
+   <B>write</B> to the
+   <FONT color="red"><B><TT>programName.s</TT></B></FONT>
+  (<B>.s</B> for
+    <FONT color="blue"><B>aSsembler file</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+
+ <LI> <FONT color="red"><B><TT>gcc -c</TT></B></FONT>
+  <B>option</B> will
+    <FONT color="blue"><B>stop</B></FONT> the
+    <FONT color="red"><B>compilation process</B></FONT> after the
+    <FONT color="blue"><B>assembler</B></FONT> is
+    <FONT color="red"><B>finished</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>output</B></FONT> of the
+   <FONT color="blue"><B>assembler</B></FONT> is
+   <B>written</B> to the
+   <FONT color="red"><B><TT>programName.o</TT></B></FONT>
+   (<B>.o</B> for <FONT color="blue"><B>Object file</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT color="darkmagenta"><B>
+	C pre-processor
+        </B></FONT>
+<P>
+<UL>
+<LI> <B>Before</B> invoking the
+      <FONT color="blue"><B>C compiler</B></FONT>, the
+      <FONT color="red"><B>C programming language system</B></FONT>
+      will always invoke a
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C pre-processor</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to <B>process</B> the
+<FONT color="blue"><B>program source code</B></FONT>.
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Tasks</B></FONT> performed by
+  the <B>C pre-processor:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> <FONT color="blue"><B>Removes</B></FONT>
+    <FONT color="red"><B>comments</B></FONT> from the source code
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+            <FONT color="red">/*</font> .......... <FONT color="red">*/</font>              
+
+   or:      <FONT color="red">//</font> ........
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+ <P>
+ <LI> <FONT color="blue"><B>Process</B></FONT>
+     <FONT color="red"><B>macro (symbolic) definitions</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">#define</font> ...   ....                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+
+ <LI> <FONT color="blue"><B>Read in</B></FONT>
+     <FONT color="red"><B><I>included</I> file</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">#include</font> &lt;stdio.h>
+  or  <FONT color="red">#include</font> "header.h"              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Other</B>
+  <FONT color="red"><B>advanced</B></FONT> 
+    <FONT color="blue"><B>conditionals</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">#ifdef</FONT>   ...                
+      ....
+    <FONT color="red">#endif</FONT>
+
+<HR>
+    <FONT color="red">#ifndef</FONT>  ....
+      ....
+    <FONT color="red">#endif</FONT>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will discuss these
+ <FONT color="red"><B>pre-processor "directives"</B></FONT> in
+ <FONT color="blue"><B>more details</B></FONT> in
+ the <FONT color="red"><B>next few webpage</B></FONT>.
+<P>
+</UL>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

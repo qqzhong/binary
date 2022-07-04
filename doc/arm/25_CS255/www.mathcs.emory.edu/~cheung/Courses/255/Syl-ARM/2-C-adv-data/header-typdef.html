@@ -1,0 +1,187 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Always use 
+<FONT color="red">header files</FONT>
+ to store the struct's and typedef's in your C program
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>struct</TT> and <TT>typedef</TT> definitions
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Because 
+      <FONT color="red"><B><TT>struct</TT> definitions</B></FONT>
+   and <FONT color="red"><B><TT>typedef</TT> clauses</B></FONT>
+   must <FONT color="blue"><B>preceed</B></FONT>
+   all
+   <FONT color="red"><B><I>variable</I> definitions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><I>very</I> common practice</B></FONT> in
+   <FONT color="blue"><B>C programming</B></FONT> is
+   to <B>put</B>
+   <FONT color="red"><B><TT>struct</TT> definitions</B></FONT>
+   and <FONT color="red"><B><TT>typedef</TT> clauses</B></FONT>
+   in (one of more) <FONT color="blue"><B>header files</B></FONT> 
+ <P>
+ <HR>
+<P>
+ <LI> And <FONT color="red"><B>include</B></FONT> the
+      <FONT color="blue"><B>header files</B></FONT> with
+      <FONT color="red"><B><TT>struct</TT> definitions</B></FONT>
+   and <FONT color="red"><B><TT>typedef</TT> clauses</B></FONT>
+   as the
+      <FONT color="blue"><B><I>first</I> include files</B></FONT> !!!
+ <P>
+ (Because the <FONT color="red"><B>type definitions</B></FONT>
+  <FONT color="blue"><B>must preceed</B></FONT>
+  all
+  <FONT color="red"><B>variable definitions <I>and</I>
+ variable  declarations</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Header file: <FONT color="red"><TT>types.h</TT></FONT>
+</TH> 
+<TH>
+Program file: use-types.c
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue"><B><PRE>
+typedef struct BankAccount   
+{  
+   int    accNum;
+   double balance;
+}  
+BankAccount_t;
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE></B></FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue"><B><PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">#include "types.h"</FONT> // Include my type definitions
+
+BankAccount_t b;   // Now we can define global vars
+
+int main(int argc, char *argv[])
+{
+   struct BankAccount a;  // And also define local variables
+
+   a.accNum = 123;
+   a.balance = 4000;
+
+   printf("a.accNum = %d  a.balance = %f\n", a.accNum, a.balance);
+
+   b = a;
+   printf("b.accNum = %d  b.balance = %f\n", b.accNum, b.balance);
+}</TT></B></FONT>
+</TD> 
+
+</TR>
+
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog files:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/types.h
+       </TT></B></FONT>
+       and
+         <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/use-types.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc use-types.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

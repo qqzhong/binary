@@ -1,0 +1,271 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Beware: <I>each</I> user-defined type is a
+   <I>different</I> data type
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How does C identify a <I>data type</I>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C-compiler</B></FONT>
+      uses <FONT color="red"><B><I>name</I> equivalence</B></FONT>
+      to determine if
+      <FONT color="blue"><B>2 data types</B></FONT> are
+      <B>equal</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> What does this mean:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If a <FONT color="blue"><B>variable <I>x</I></B></FONT>
+      (in one file) is
+      defined a <FONT color="red"><B><TT>typeA</TT></B></FONT>
+      and a
+      <FONT color="blue"><B>variable <I>y</I></B></FONT>
+      (possibly in another file) is
+      defined a <FONT color="red"><B><TT>typeB</TT></B></FONT>,
+      then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Variables</B>
+      <FONT color="blue"><B><I>x</I></B></FONT> and 
+      <FONT color="red"><B><I>y</I></B></FONT> are of the
+      <FONT color="darkmagenta"><B>same data type</B></FONT>
+      if and only if the name
+      <FONT color="red"><B><TT>typeA</TT></B></FONT> is
+      equal  to the name
+       <FONT color="red"><B><TT>typeB</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example of name equivalence
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">struct typeA</FONT>
+   {
+      int a;
+   };
+    
+   <FONT color="red">struct typeB</FONT>
+   {
+      int a;
+   };
+    
+   <FONT color="red">struct typeC</FONT>
+   {
+      float a;
+   };
+    
+   int main(int argc, char *argv[])           
+   {
+      struct typeA x, x1;
+      struct typeB y;
+      struct typeC z;
+    
+      x = x1;           // OK, same type !
+      x = y;            // Bad ! DIFFERENT type            
+      x = z;            // Bad ! DIFFERENT type
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you compile the program, you will get 
+ <FONT color="red"><B>error messages</B></FONT> for the statements:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   x = y;                    
+   x = z;
+
+   type1.c:24: error: incompatible types when assigning to type 'struct typeA'
+               from type 'struct typeB'
+   type1.c:25: error: incompatible types when assigning to type 'struct typeA'
+               from type 'struct typeC'
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Reason:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>x</TT></B></FONT> has type:
+         <FONT color="red"><B><TT>struct typeA</TT></B></FONT>
+ <P>
+ <LI> <FONT color="blue"><B><TT>y</TT></B></FONT> has type:
+         <FONT color="red"><B><TT>struct typeB</TT></B></FONT>,
+	 which is a <FONT color="darkmagenta"><B><I>different</I>
+	  type</B></FONT>
+	 than
+	 <FONT color="red"><B><TT>struct typeA</TT></B></FONT>
+	 (even though their <FONT color="blue"><B>structures</B></FONT> are
+	 <B><I>identical</I></B>)
+ <P>
+ <LI> <FONT color="blue"><B><TT>z</TT></B></FONT> has type:
+         <FONT color="red"><B><TT>struct typeC</TT></B></FONT>,
+	 which is a <FONT color="darkmagenta"><B><I>different</I>
+	  type</B></FONT>
+	 than
+	 <FONT color="red"><B><TT>struct typeA</TT></B></FONT>
+	 (this is <B><I>normal</I></B>
+	 because their <FONT color="blue"><B>structures</B></FONT> are
+	 <FONT color="red"><B><I>different</I></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B><I>other</I> way</B></FONT>
+     that a <B>compiler</B> determines whether
+     <FONT color="red"><B>2 data types</B></FONT> are the
+     <B>same</B> is using:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Structure</I> equivalence</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In <B>structure equivalence</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Two data types <FONT color="blue"><B><TT>typeA</TT></B></FONT>
+      and  <FONT color="darkmagenta"><B><TT>typeB</TT></B></FONT> are
+      <B>equivalent (= same)</B> if their
+      <FONT color="red"><B><I>structure</I></B></FONT> are the same.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In the <B>above example</B>,
+ <FONT color="red"><B><TT>struct typeA</TT></B></FONT> and
+ <FONT color="blue"><B><TT>struct typeB</TT></B></FONT> have
+ the <FONT color="darkmagenta"><B><I>same</I> structure</B></FONT>
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

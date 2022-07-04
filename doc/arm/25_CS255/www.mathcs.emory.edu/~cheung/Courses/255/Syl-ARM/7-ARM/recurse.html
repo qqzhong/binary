@@ -1,0 +1,891 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Second Recursive Function: with local variables
+<HR>
+</H3>
+
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A recursive function with local variables
+     </B></FONT>
+
+ <UL>
+<P>
+ <LI> We will translate the following 
+    <FONT color="red"><B>recursive function</B></FONT>
+    into <FONT color="blue"><B>assembler</B></FONT>:
+        
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ public class Recurse
+ {
+   public static int f(int a, int b)              
+   {
+      int i, s;
+
+      s = 0;
+      for (i = a; i < b; i++)
+      {
+         s = s + f(a+1, b-1) + 1;
+      }
+      return s;
+   }
+
+
+  static int result;
+
+  public static void main( ) {
+    result = f(2, 5);
+  }
+} 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main( )</TT></B></FONT> calls the
+       <FONT color="blue"><B><TT>f(2,5)</TT></B></FONT> method
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main( )</TT></B></FONT> must
+      pass the value <FONT color="blue"><B>2 and 5</B></FONT> using the
+      <FONT color="red"><B>program stack</B></FONT> !!!
+ <P>
+  (And the value of these
+    <FONT color="blue"><B>values</B></FONT> are
+   <FONT color="red"><B>refered to</B></FONT> by
+  the <FONT color="blue"><B>variable name <TT>a, b</TT> respectively</B></FONT>
+  inside the <FONT color="red"><B>f( ) method</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    The stack frame structure for the f( ) function
+     </B></FONT>
+<P>
+<UL>
+
+ <LI> The <FONT color="blue"><B>stack frame structure</B></FONT>
+      that you need to 
+    <B>create</B> will
+     <FONT color="red"><B>depend</B></FONT>
+      on:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B>number</B></FONT> of
+      <FONT color="blue"><B> parameters</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>and</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI>  The <FONT color="red"><B>number</B></FONT>
+    of <FONT color="blue"><B>local variables</B></FONT> used in the function.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> In the <FONT color="red"><B><TT>f( )</TT></B></FONT> method
+      above, we see that
+     the <FONT color="blue"><B> f( ) function</B></FONT> has
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> 
+     <FONT color="red"><B>2 (<TT>int</TT>) parameter variables</B></FONT>
+	and 
+ <LI> <FONT color="red"><B>2 (<TT>int</TT>) local variables </B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>stack frame structure</B></FONT>
+     created (and used by <FONT color="blue"><B><TT>fib( )</TT></B></FONT>
+     will <FONT color="red"><B>therefore</B></FONT>
+     be as follows:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="red">Stack frame</FONT> of the <FONT color="red">fib( )</FONT> method:
+
+    SP -----> +---------------------+
+          -8  |  Local var i        |  <FONT color="red">addr(i) = FP - 8</FONT> 
+              +---------------------+
+          -4  |  Local var s        |  <FONT color="red">addr(s) = FP - 4</FONT> 
+    FP -----> +---------------------+                  
+           0  |  old Frame Pointer  | (4 bytes)
+              +---------------------+
+           4  |  Return Address     | (4 bytes)
+              +---------------------+
+           8  |  Parameter a        |  <FONT color="red">addr(a) = FP + 8</FONT> 
+              +---------------------+
+          12  |  Parameter b        |  <FONT color="red">addr(b) = FP + 12</FONT> 
+              +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <FONT color="red"><B>Note:</B></FONT> :
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Most compiler</B></FONT> pass the
+ <FONT color="blue"><B>parameters</B></FONT> in the
+ <FONT color="red"><B>reverse order</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>last parameter</B></FONT> is
+   <FONT color="blue"><B>pushed </B></FONT>
+   <FONT color="red"><B><I>first</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will do the same.... 
+<P>
+<HR>
+<P>
+ <LI> You <FONT color="red"><B>do</B></FONT> have some
+   <FONT color="blue"><B>freedom</B></FONT> to
+   <FONT color="red"><B>place</B></FONT> the
+   <FONT color="blue"><B>local variables</B></FONT> 
+ <P>
+   I decided to place <FONT color="red"><B><TT>i</TT></B></FONT> 
+   <FONT color="blue"><B>above</B></FONT>
+   <FONT color="red"><B><TT>s</TT></B></FONT>;
+   this order can be <FONT color="blue"><B>reversed</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<P>
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>main( )</TT> call to  <TT>fib( )</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> Here is the <FONT color="red"><B>assembler code</B></FONT>
+    for the <FONT color="blue"><B><TT>main( )</TT></B></FONT> function
+    that executes <FONT color="red"><B><TT>result = f(2,5)</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+   /* -------------------------------------------------
+      Pass parameters (using stack)
+      ------------------------------------------------- */
+   mov     r0, #5
+   push    {r0}   // Pass 5 (param 2) using the program stack
+   mov     r0, #2
+   push    {r0}   // Pass 2 (param 1) using the program stack
+
+   /* ------------------------------------------------------
+      call f(2,5)
+      ------------------------------------------------------ */
+   bl      f
+
+   add     sp, sp, #8  // Clean up the parameters 2,5 from the stack
+
+   /* -----------------------------------------------------------------
+      Assign return value (in r0) to variable result
+      ----------------------------------------------------------------- */
+   movw    r1, #:lower16:result  // Do NOT use r0 !!!
+   movt    r1, #:upper16:result  // (Because r0 contains the return value)
+
+   str     r0, [r1]             // This will store return value in result
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Fibonacci recursive method/function
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> The <FONT color="red"><B>f( ) method</B></FONT> in
+   <FONT color="blue"><B>assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+f:
+
+        // When  f begins, we will have: a,b  on the stack
+
+        /* ==========================================================
+           Function Prelude: complete the stack frame structure
+           ========================================================== */
+        push    {lr}            // Save LR (return address)
+        push    {fp}            // Save FP (used by caller)
+        mov     fp, sp          // Mark the stack top location before
+                                // allocating any local variables
+        sub     sp, sp, #8      // Allocate 2 int variables on the stack
+
+        /* ===============================================
+           We completed the stack frame
+           Now we can write the function body
+           =============================================== */
+        // s = 0
+        mov     r0, #0
+        str     r0, [fp, #-4]   // assign 0 to s
+
+        // i = a
+        ldr     r0, [fp, #8]    // r0 = a
+        str     r0, [fp, #-8]   // assign to i
+
+while:
+        // while ( i < b )
+        ldr     r0, [fp, #-8]   // r0 = i
+        ldr     r1, [fp, #12]   // r1 = b
+
+        cmp     r0, r1          // i ? b
+        bge     whileEnd        // Exit for loop
+
+        // We CANNOT compute s + f(a+1, b-1) + 1 without the
+        // value (= a number) for: f(a+1, b-1)
+
+        // Compute f(a+1, b-1) first !
+        ldr     r0, [fp, #12]   // r0 = b
+        sub     r0, r0, #1      // r0 = b-1
+        push    {r0}            // pass param2 (b-1)
+
+        ldr     r0, [fp, #8]    // r0 = a
+        add     r0, r0, #1      // r0 = a+1
+        push    {r0}            // pass param1 (a+1) to f on stack
+
+        bl      f
+        add     sp, sp, #8      // Clean up parameter (n-1) from stack
+
+        // We can now compute s + f(a+1, b-1) + 1
+
+        ldr     r1, [fp, #-4]   // r1 = s
+        add     r0, r0, r1      // r0 = s + f(a+1, b-1)
+        add     r0, r0, #1      // r0 = s + f(a+1, b-1) + 1
+
+        str     r0, [fp, #-4]   // Assign s + f(a+1, b-1) + 1  to s
+
+        // i++
+        ldr     r0, [fp, #-8]   // r0 = i
+        add     r0, r0, #1      // r0 = i + 1
+        str     r0, [fp, #-8]   // Assign i+1  to i
+
+        b       while
+
+whileEnd:
+        // return   s  in r0
+        ldr     r0, [fp, #-4]   // r0 = s
+
+        /* =============================================================
+           Function Postlude: de-allocate local variable and restore FP
+           ============================================================= */
+        mov     sp, fp          // De-allocate local variables
+        pop     {fp}            // Restore fp
+        pop     {pc}            // Return to the caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/recurse.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B>EGTAPI</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+  <LI> I will highlight certain steps in the  program in the
+	remainder of the webpage....
+  </UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Highlights important steps in the <TT>f( )</TT> function
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="blue"><B>Passing the
+      parameters <FONT color="red"><B><TT>2, 5</TT></B></FONT>
+     from main program to f( )</B></FONT>
+ <P>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mov     r0, #5
+   push    {r0}   // Pass 5 (param 2) using the program stack
+   mov     r0, #2
+   push    {r0}   // Pass 2 (param 1) using the program stack   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This will create the following stack structure:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)      
+   | parameter1 (a = 2)  |
+   +---------------------+
+   | parameter2 (b = 5)  |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+
+
+
+<P>
+<LI> <FONT color="blue"><B>Main program calling the
+    <FONT color="red"><B><TT> f( )</TT></B></FONT> function</B></FONT>
+ <P>
+ The main program calls the recursive function with a 
+   <FONT color="red"><B><TT>bl</TT></B></FONT> instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        bl      f                       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This will <FONT color="red"><B>save</B></FONT> the
+  <FONT color="blue"><B>return address to <TT>main( )</TT></B></FONT>
+  in the <FONT color="red"><B><TT>LR register</TT></B></FONT>
+  and <FONT color="blue"><B>jump to the <TT>f</TT> method</B></FONT>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+The <FONT color="red"><B><TT>f( )</TT></B></FONT> function will
+  <FONT color="blue"><B>start running</B></FONT>, so
+ let's take a look at the
+  <FONT color="red"><B><TT>f( )</TT></B></FONT> function
+</SPAN>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Prelude of the Factorial function:</B></FONT>
+  <P>
+  The prelude of the <FONT color="red"><B>f( )</B></FONT>
+   function consists of these instructions:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        <FONT color="red">/* ==========================================================
+           Function Prelude: complete the stack frame structure
+           ========================================================== */</FONT>
+        <FONT color="darkgreen">push    {lr}            // Save LR (return address)
+        push    {fp}            // Save FP (used by caller)
+        mov     fp, sp          // Mark the stack top location before
+                                // allocating any local variables
+        sub     sp, sp, #8      // Allocate 2 int variables on the stack       
+                                </FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  I will explain what each one instruction does below.
+<P>
+  Make sure that you realise that the structure of the stack frame is
+   like this when the prelude of the
+  <FONT color="red"><B><TT>fib( )</TT></B></FONT> method 
+  <FONT color="blue"><B>starts executing</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)      
+   | parameter1 (a = 2)  |
+   +---------------------+
+   | parameter2 (b = 5)  |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <UL>
+  <LI> <FONT color="red"><B><TT>push&nbsp;{lr}</TT></B></FONT>
+ <P>
+   This <B>instruction</B> will
+   save the <B>return address </B> in the
+   <FONT color="red"><B><TT>LR</TT></B></FONT> register on the 
+   <B>program stack</B>.
+ <P>
+   The <B>program stack</B> now looks like this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)         
+   |  return address     |
+   +---------------------+
+   | parameter1 (a = 2)  |
+   +---------------------+
+   | parameter2 (b = 5)  |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B><TT>push&nbsp;{fp}</TT></B></FONT>
+
+
+   <P>
+   This will save the <B>frame pointer</B> on the stack and
+       the <B>program stack</B> now looks like this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)         
+   |  old Frame Pointer  |
+   +---------------------+
+   |  return address     |
+   +---------------------+
+   | parameter1 (a = 2)  |
+   +---------------------+
+   | parameter2 (b = 5)  |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+  <LI> <FONT color="red"><B><TT>mov&nbsp;fp,sp</TT></B></FONT>
+   <P>
+   This will make the <B>frame pointer</B>
+   <FONT color="red"><B><TT>FP</TT></B></FONT>
+      points to the stack frame that
+	is  being built:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Frame pointer FP & Stack pointer SP  
+   |  old Frame Pointer  |               point to the same location....
+   +---------------------+
+   |  return address     |
+   +---------------------+
+   | parameter1 (a = 2)  |
+   +---------------------+
+   | parameter2 (b = 5)  |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The will <FONT color="red"><B>enable</B></FONT>
+ the <FONT color="blue"><B><TT>f( )</TT></B></FONT> to use
+ <FONT color="red"><B>offset</B></FONT> from
+  the <B>frame pointer</B></FONT> to
+  access the <FONT color="blue"><B>parameters </B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT>
+  that are <B>stored</B> in the <FONT color="red"><B>program stack</B></FONT>
+<P>
+
+  <LI> <FONT color="red"><B><TT>sub&nbsp;sp,sp,#8</TT></B></FONT>
+   <P>
+    The <FONT color="red"><B>subtract</B></FONT> instruction
+    is used to <FONT color="blue"><B>allocate 2 local variables</B></FONT>
+    on the <FONT color="red"><B>program stack</B></FONT>
+ <P>
+
+<P>
+ We have now <FONT color="red"><B>completed</B></FONT> the
+   <FONT color="blue"><B>stack frame</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightCYAN" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <---- Stack pointer SP          
+   | Local var1 (i)      |
+   +---------------------+
+   | Local var2 (s)      |
+   +---------------------+ <---- Frame pointer FP   
+   |  old Frame Pointer  |     
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   | parameter1 (a = 2)  |
+   +---------------------+
+   | parameter2 (b = 5)  |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ When the prelude is finish, the stack frame is complete and
+	the actual function can begin.
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How to access the parameters
+  <FONT color="red"><B><TT>a, b</TT></B></FONT> in the
+    <FONT color="red"><B><TT>f( )</TT></B></FONT> function:</B></FONT>
+ <P>
+ <UL>
+ <LI> Parameter <FONT color="red"><B><TT>a</TT></B></FONT>
+        is located <FONT color="blue"><B>8 bytes</B></FONT>
+       (<B>old Frame Pointer</B> is 4 bytes and
+       <B>return address</B> is 4 bytes)
+         <FONT color="red"> <B>below</B></FONT>
+       the location <FONT color="blue"><B>pointed to</B></FONT>
+       by frame pointer <FONT color="red"><B><TT>FP</TT></B></FONT>.
+    <P>
+     So the <FONT color="red"><B>base register (FP)</TT></B></FONT>
+      + <FONT color="blue"><B>offset 8</B></FONT>
+         will let you access this variable
+ <P>
+ The instruction&nbsp;
+  <FONT color="red"><B><TT>ldr&nbsp;r0,&nbsp;[fp,#8]</TT></B></FONT>
+  will get
+  the <FONT color="blue"><B>value</B></FONT> of the  parameter
+    <FONT color="red"><B><TT>a</TT></B></FONT>
+  into register <FONT color="blue"><B><TT>r0</TT></B></FONT>
+ <P>
+ The instruction&nbsp;
+  <FONT color="red"><B><TT>str&nbsp;r0,&nbsp;[fp,#8]</TT></B></FONT>
+  will assign
+  the <FONT color="blue"><B>value in <TT>r0</TT></B></FONT> into
+   the  parameter
+    <FONT color="red"><B><TT>a</TT></B></FONT>
+ 
+ <LI> Parameter <FONT color="red"><B><TT>b</TT></B></FONT>
+        is located <FONT color="blue"><B>12 bytes</B></FONT>
+         <FONT color="red"> <B>below</B></FONT>
+       the location <FONT color="blue"><B>pointed to</B></FONT>
+       by frame pointer <FONT color="red"><B><TT>FP</TT></B></FONT>.
+    <P>
+     So the <FONT color="red"><B>base register (FP)</TT></B></FONT>
+      + <FONT color="blue"><B>offset 12</B></FONT>
+         will let you access this variable
+ <P>
+ The instruction&nbsp;
+  <FONT color="red"><B><TT>ldr&nbsp;r0,&nbsp;[fp,#12]</TT></B></FONT>
+  will get
+  the <FONT color="blue"><B>value</B></FONT> of the  parameter
+    <FONT color="red"><B><TT>b</TT></B></FONT>
+  into register <FONT color="blue"><B><TT>r0</TT></B></FONT>
+ <P>
+ The instruction&nbsp;
+  <FONT color="red"><B><TT>str&nbsp;r0,&nbsp;[fp,#12]</TT></B></FONT>
+  will assign
+  the <FONT color="blue"><B>value in <TT>r0</TT></B></FONT> into
+   the  parameter
+    <FONT color="red"><B><TT>b</TT></B></FONT>
+  </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How <FONT color="red"><B><TT>f( )</TT></B></FONT>
+      calls <FONT color="red"><B><TT>f(a+1, b-1)</TT></B></FONT>:</B></FONT>
+  <P>
+  It is no different from how the main program calls the 
+  <FONT color="red"><B>f( )</B></FONT> function.
+<P>
+  The <B>f( ) </B> method can call
+   the <B>f( )</B> method by
+   <FONT color="red"><B>passing</B></FONT> the
+   <FONT color="blue"><B>parameters</B></FONT> on the
+   <B>program stack</B> and then
+   use <FONT color="red"><B><TT>bl&nbsp;f</TT></B></FONT> to
+   call the <B>f( )</B> method.
+<P>
+
+  But <B>make sure</B> you <B>pop the parameter</B> from the stack
+ <FONT color="red"><B> after</B></FONT> the
+	 function returns - because the parameter
+   has not been cleaned up.
+  <P>
+  The following is the program fragment where 
+    <FONT color="blue"><B>f( )</B></FONT>
+    calls 
+  <FONT color="red"><B><TT>f(a+1, b-1)</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // call f(a+1, b-1) 
+        ldr     r0, [fp, #12]   // r0 = b
+        sub     r0, r0, #1      // r0 = b-1
+        push    {r0}            // pass param2 (b-1)
+
+        ldr     r0, [fp, #8]    // r0 = a
+        add     r0, r0, #1      // r0 = a+1
+        push    {r0}            // pass param1 (a+1) to f on stack
+
+        bl      f
+        add     sp, sp, #8      // Clean up parameter (n-1) from stack    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

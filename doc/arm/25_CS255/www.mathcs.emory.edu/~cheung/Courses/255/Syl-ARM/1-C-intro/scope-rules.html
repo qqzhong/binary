@@ -1,0 +1,612 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+
+
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Scoping rules</I> for: global, <TT>static</TT> global and
+ <TT>static</TT> local variables
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The scope of <I>Global</I> variables in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Scope</B> of <FONT color="red"><B><I>Global</I> variables</B></FONT>
+     in <B><I>C</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>global variable</B></FONT>  is
+     <FONT color="blue"><B>accessible (= "visible")</B></FONT> in
+         <FONT color="red"><B><I>any</I> C program file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Starting</B></FONT>
+      from the 
+      <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B><I>location</I>
+       in the file</B></FONT> where the
+       <FONT color="red"><B>global variable</B></FONT>
+     </SPAN> is
+       <SPAN style="BACKGROUND-COLOR: yellow">
+       <FONT color="blue"><B><I>defined</I></B></FONT> or
+       <FONT color="red"><B><I>declared</I></B></FONT>
+       </SPAN>
+ <P>
+ <LI> <FONT color="red"><B>Until</I></B></FONT> the
+      <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B>end</B></FONT> of the <B><I>file</I></B>
+      </SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example</B>:
+   the <FONT color="red"><B>highlighted area</B></FONT> is
+    the <FONT color="blue"><B>scope (= accessible area)</B></FONT>
+     of the <FONT color="red"><B>global variable <TT>x</TT></B></FONT>
+  in the <FONT color="blue"><B>program files <TT>global1.c</TT>
+   and <TT>global2.c</TT></B></FONT>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Program file 
+ <FONT color="red"><B><TT>global1.c</TT></B></FONT>
+</TH> 
+<TH>
+Program file
+ <FONT color="red"><B><TT>global2.c</TT></B></FONT>
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+   void f4()
+   {
+<SPAN style="BACKGROUND-COLOR: yellow">      <FONT color="red">extern int x;   
+      /* global var x is <FONT color="blue">declared in scope</FONT> */ </FONT>
+                                                     
+      <FONT color="red">x = 4;  // Access x in file global2.c !!!  </FONT>  </SPAN>
+   }
+
+   void f3()       
+   {<FONT color="red">
+      x = 4;  // *** Access error !
+              // x is not defined nor declared</FONT>      
+   }
+<SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red">extern int x;   /* global var x is <FONT color="blue">declared in scope</FONT> */ </FONT>
+                               
+   void f2()    
+   {<FONT color="red">                               
+      x = 4;  // Access x in file global2.c !!!</FONT>   
+   }                                 </SPAN>
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+   void f1()       
+   {<FONT color="red">
+      x = 4;  // *** Access error !
+              // x is not defined nor declared</FONT>      
+   }
+<SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red">int x;   /* global var x is <FONT color="blue">defined HERE</FONT> */ </FONT>
+                               
+   void f2()    
+   {<FONT color="red">                               
+      x = 4;  // OK</FONT>   
+   }                                 </SPAN>
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/global1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -c global1.c</TT></B></FONT>
+ <P>
+ <LI> <B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    global1.c: In function 'f1':
+    global1.c:<FONT color="red">(line) 5</FONT>: error: <FONT color="red">'x' undeclared</FONT> (first use in this function)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>C programming advice:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Always</B></FONT> 
+   <FONT color="blue"><B>define/declare</B></FONT> the
+    <FONT color="red"><B>global variables</B></FONT> at the
+    <FONT color="blue"><B><I>top</I> of each C program file</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This will make <FONT color="red"><B>global variables</B></FONT>
+ <FONT color="blue"><B>accessible</B></FONT> in
+  <FONT color="red"><B><I>every</I> function</B></FONT> in 
+  the <FONT color="blue"><B>program file</B></FONT> !!!
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The scope of <I>static</I> global variables
+     </B></FONT>
+<P>
+<UL>
+ <LI> A <FONT color="red"><B><TT>static</TT> global variable</B></FONT>  is
+     <FONT color="blue"><B>accessible (= "visible")</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Starting</B></FONT>
+      from the 
+      <FONT color="blue"><B>location</B></FONT>
+       in the <B><I>file</I></B> where the
+       <FONT color="red"><B>global variable</B></FONT> is
+       <FONT color="blue"><B><I>defined</I></B></FONT> or
+       <SPAN style="BACKGROUND-COLOR: yellow">
+       <FONT color="red"><B><I>declared</I></B></FONT>
+       </SPAN>
+ <P>
+ <LI> <FONT color="red"><B>Until</I></B></FONT> the
+      <FONT color="blue"><B>end</B></FONT> of the <B><I>file</I></B>
+ <P>
+<HR>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>Limited</B></FONT> to
+    <FONT color="blue"><B><I>only</I></B></FONT> the
+    <FONT color="red"><B>program file</B></FONT> where the
+    <FONT color="blue"><B><TT>static</TT> (global) variable</B></FONT>
+    has been <FONT color="red"><B><I>defined</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+File 1: global4a.c
+</TH> 
+<TH>
+File 2: global4b.c
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<P>
+
+
+<FONT color="blue">
+<B>
+<PRE>
+  #include &lt;stdio.h>
+  <FONT color="red">
+  extern double x;</FONT>
+   
+  extern void func();
+   
+  int main( int argc, char* argv[] )
+  {
+     func();
+     printf( "x = %lf\n", x );    
+      <FONT color="red"> /* x is NOT accessible here !! */</FONT>    
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  #include &lt;stdio.h>
+ <FONT color="red">  
+  <FONT color="magenta">static</FONT> double x;   // Definition of x</FONT>
+   
+   
+  void func()
+  {
+     x = 12345;  <FONT color="red"> // x accessible here !</FONT>
+     printf( "x = %lf\n", x );
+
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+When you compile these programs, you will get
+ an <FONT color="red"><B>error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> gcc  -c   global4a.c           // No error
+   UNIX>> gcc  -c   global4b.c           // No error
+   UNIX>> gcc   global4a.o   global4b.o  // Error in linking loader phase    
+
+   Undefined                       first referenced
+    symbol                             in file
+   x                                   global4a.o
+   ld: fatal: Symbol referencing errors. No output written to a.out
+   collect2: <FONT color="red">ld</FONT> returned 1 exit status
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>static</I> global variable
+  <TT>x</TT></B></FONT> can <FONT color="blue"><B><I>only</I> be
+  access</B></FONT> within <B>File 2</B>.
+ <P>
+ <LI> The <FONT color="blue"><B><TT>main()</TT></B></FONT> function is
+    <FONT color="red"><B><I>not</I> stored in the same file</B></FONT> !
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B> <FONT color="red"><B>try this</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Remove</B></FONT> the keyword
+     <FONT color="blue"><B><TT>static</TT></B></FONT> from
+     the variable <FONT color="red"><B><TT>x</TT></B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Re-compile</B></FONT> --- 
+   <FONT color="blue"><B><I>no</I> error </B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="blue"><B>global4a.c</B></FONT> Prog file:
+       <A HREF="Progs/global4a.c"> click here </A>
+  <LI> The <FONT color="blue"><B>global4b.c</B></FONT> Prog file:
+       <A HREF="Progs/global4b.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc global4a.c global4b</TT></B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Static local variable
+     </B></FONT>
+<P>
+<UL>
+ <LI> A <B><TT>static</TT> local variable</B>  is
+     <FONT color="blue"><B>accessible (= "visible")</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Starting</B></FONT>
+      from the 
+      <FONT color="blue"><B>location</B></FONT>
+       in the <FONT color="red"><B>function</B></FONT>
+        where the
+       <B><TT>static</TT> local variable</B></FONT> is
+       <FONT color="blue"><B><I>defined</I></B></FONT> 
+ <P>
+ <LI> <FONT color="red"><B>Until</I></B></FONT> the
+      <FONT color="blue"><B>end</B></FONT> of the 
+      <FONT color="red"><B><I>function</I></B></FONT>
+ <P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  void func()
+  {<FONT color="red">
+     static double x;   // x is accessible only
+                        // WITHIN this function !!!
+			// (Just like a local variable !) </FONT>          
+
+     x = 12345;   // x accessible here !
+     printf( "x = %lf\n", x );
+
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>only</I> difference</B></FONT>
+    between:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><TT>static</TT> local </B></FONT> variable
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> A (normal) <FONT color="blue"><B>local variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A (normal) <FONT color="red"><B>local variable</B></FONT> is
+       <FONT color="blue"><B>initialized</B></FONT>
+       <FONT color="red"><B><I>each time</I></B></FONT> the
+       <FONT color="blue"><B>function </B></FONT> is
+       <FONT color="red"><B>invoked</B></FONT>
+       <P>
+ (Because a (normal) <FONT color="red"><B>local variable</B></FONT> is
+   <FONT color="blue"><B>created</B></FONT> each time
+   the <B>function</B> is
+   <FONT color="red"><B>called</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> A  <FONT color="red"><B><TT>static</TT> local </B></FONT> variable is
+       <FONT color="blue"><B>initialized</B></FONT>
+       only <FONT color="red"><B><I>once</I></B></FONT>
+       (so it will
+       <FONT color="blue"><B>retain</B></FONT> its <B>value</B>
+       between <FONT color="red"><B>function calls</B></FONT>)
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

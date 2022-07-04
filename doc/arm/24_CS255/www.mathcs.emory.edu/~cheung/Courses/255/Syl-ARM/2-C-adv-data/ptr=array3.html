@@ -1,0 +1,407 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>equivalence</I> of pointers and arrays in C
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Notable observation:
+       a pointer variable look <FONT color="red">exactly</FONT>
+       like an array name
+     </B></FONT>
+<P>
+<UL>
+<LI> If you <FONT color="red"><B>look carefully</B></FONT>
+     at the
+     <FONT color="blue"><B>last program</B></FONT> where we used the
+     <FONT color="red"><B>[&nbsp;]  operator</B></FONT>
+     to <FONT color="blue"><B>access</B></FONT>
+     array elements:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+    int* p;
+
+    <FONT color="red">p = &a[0]</FONT>;                      // p points to variable a[0]
+
+    printf("p[0] = %d, a[0] = %d\n", <FONT color="red">p[0]</FONT>, <FONT color="red">a[0]</FONT> );
+    printf("p[1] = %d, a[1] = %d\n", <FONT color="red">p[1]</FONT>, <FONT color="red">a[1]</FONT> );
+    printf("p[2] = %d, a[2] = %d\n", <FONT color="red">p[2]</FONT>, <FONT color="red">a[2]</FONT> );
+    printf("p[3] = %d, a[3] = %d\n", <FONT color="red">p[3]</FONT>, <FONT color="red">a[3]</FONT> );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will <FONT color="red"><B>notice</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>expression</B></FONT> used to
+      <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B>array element <TT>a[i]</TT></B></FONT> is
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">p[i]</FONT>    (for any value i = 0, 1, 2, 3....)          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>So:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is a <FONT color="red"><B>lot of similarity</B></FONT>
+   between
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>array name</B></FONT>
+      (<FONT color="blue"><B><TT>a</TT></B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>and</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> A <FONT color="red"><B>pointer variable</B></FONT>
+   (<FONT color="blue"><B><TT>p</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>C community</B></FONT> calls this
+  <FONT color="blue"><B>property</B></FONT> in
+   the <FONT color="red"><B>C programming language</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>``equivalence of arrays and pointers in C.''
+   </B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When we speak of this ``equivalence'' we do not mean that arrays and pointers are the same thing (they are in fact quite different), but rather that
+ <FONT color="red"><B> they can be used in related ways</B></FONT>, and they
+  <FONT color="blue"><B>share</B></FONT> 
+ <FONT color="red"><B>many operations</B></FONT>
+   between them. 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Quote above taken from:
+ <A HREF="https://www.eskimo.com/~scs/cclass/notes/sx10e.html">
+  click here</A> (and modified a bit by me)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Why</FONT>
+     does a <FONT color="red"><B>pointer variable</B></FONT>
+      behave like an
+      <FONT color="red">array name</FONT> in <FONT color="red">C</FONT> ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>answer</B></FONT> is
+   <FONT color="blue"><B>very simple</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>name</B></FONT> of
+     an <FONT color="blue"><B>array</B></FONT> in
+      <FONT color="red"><B>C</B></FONT> 
+   <B>&equiv;</B> the
+   <FONT color="blue"><B>address</B></FONT> of
+   the <FONT color="red"><B>array element 0</B></FONT> in
+   the array:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int <FONT color="red">a</FONT>[10];
+
+   Then:           <FONT color="red"> a</FONT>    &equiv;  <FONT color="red"> &(a[0])  </FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> So if we make
+    <FONT color="red"><B><TT>p</TT></B></FONT> point to
+ the <FONT color="blue"><B>base</B></FONT> of
+ the <FONT color="red"><B>array</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">p = &(a[0])</FONT>;     // Or: p = a        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Then</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">p[i]</FONT>    and   <FONT color="red">a[i]</FONT>     will both <FONT color="red">access the same array element</FONT> !!!      
+                          (and will <FONT color="red">behave very similarly</FONT> in many operations)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Note: a pointer variable is not the same as an array name
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Facts:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>array name</B></FONT> is
+       a <FONT color="blue"><B><I>constant</I></B></FONT>
+       (= a <FONT color="red"><B>fixed location</B></FONT> in
+       <FONT color="blue"><B>memory</B></FONT>
+ <P>
+ <HR>
+<P>
+ <LI> A <FONT color="red"><B>pointer variable</B></FONT> can
+     <FONT color="blue"><B>point</B></FONT> to
+   <FONT color="red"><B><I>any</I> where </B></FONT> in the
+   <FONT color="blue"><B>memory</B></FONT>
+  <P>
+    It's <FONT color="red"><B>more flexible</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+     we can <FONT color="red"><B>access</B></FONT>
+     a <FONT color="blue"><B><I>"shifted"</I> array</B></FONT> using
+   <FONT color="red"><B>pointer variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+    int* p;
+
+    <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">p = &a[1]</FONT>;                      // p points to variable a[1]  !!! </SPAN>
+
+    printf("p[0] = %d, a[1] = %d\n", <FONT color="red">p[0]</FONT>, <FONT color="red">a[1]</FONT> );
+    printf("p[1] = %d, a[2] = %d\n", <FONT color="red">p[1]</FONT>, <FONT color="red">a[2]</FONT> );
+    printf("p[2] = %d, a[3] = %d\n", <FONT color="red">p[2]</FONT>, <FONT color="red">a[3]</FONT> );
+    printf("p[3] = %d, a[4] = %d\n", <FONT color="red">p[3]</FONT>, <FONT color="red">a[4]</FONT> );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/pointer-arithm2b.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pointer-arithm2b.c
+       </TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

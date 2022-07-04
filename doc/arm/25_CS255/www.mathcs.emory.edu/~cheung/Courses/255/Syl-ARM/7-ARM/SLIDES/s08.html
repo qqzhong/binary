@@ -1,0 +1,1057 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Introduction: permanent and temporally variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Variables</B></FONT> in
+  a <FONT color="blue"><B>computer program</B></FONT> have
+  <FONT color="red"><B><I>different</I> </B></FONT>
+ <FONT color="blue"><B>life times</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">Permanent</SPAN>
+    variables</B></FONT>:
+    the <FONT color="blue"><B>life time</B></FONT> of these
+   <FONT color="red"><B>variables</B></FONT> is the
+   <FONT color="blue"><B>entire duration</B></FONT> of the
+   <FONT color="red"><B>program execution</B></FONT>
+  <P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B>Java:</B></FONT>
+   &nbsp; <FONT color="blue"><B>
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   class</SPAN> variables</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<LI> <FONT color="red"><B>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">Temporally</SPAN>
+   variables</B></FONT>:
+    the <FONT color="blue"><B>life time</B></FONT> of these
+   <FONT color="red"><B>variables</B></FONT> is the
+   <FONT color="blue"><B>duration</B></FONT> of a
+   <FONT color="red"><B>method invocation (call)</B></FONT>
+  <P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+  <LI> <FONT color="red"><B>Java:</B></FONT>
+   &nbsp; 
+  
+  <FONT color="blue"><B><SPAN style="BACKGROUND-COLOR: #ffff00">
+   parameter</SPAN> variables</B></FONT> and
+   <FONT color="blue"><B>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">local</SPAN> variables</B></FONT>
+&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These <B>kinds</B> of variables are
+  <FONT color="red"><B>created</B></FONT> when a
+ <FONT color="blue"><B>method starts running</B></FONT> and
+ <FONT color="red"><B>destroyed</B></FONT> when
+  the <FONT color="blue"><B>method returns</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">data section/segment</FONT>
+   of an assembler program
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+ <LI> The  <FONT color="red"><B><TT>.data</TT> section</B></FONT>
+    of a <FONT color="blue"><B>computer  program</B></FONT> contains
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <B>permanent</B></SPAN>
+    <FONT color="red"><B><I>constants</I></B></FONT> and
+    <FONT color="red"><B><I>variables</I></B></FONT> used in
+	the <FONT color="blue"><B>computer program</B></FONT>.
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/data01.gif" width=700></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   What happens when you
+  <FONT color="blue"> define a (permanent) 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">uninitialized</SPAN>
+   variable</FONT> in a
+  computer program
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class myClass {
+        <FONT color="red">static</FONT> int x;  <FONT color="red">// uninitialized variable</FONT></PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="blue"><B>Effect:</B></FONT>
+   <B>(1)</B> some <FONT color="red"><B>previously 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">unused</SPAN>
+   memory cells</B></FONT> will be
+  <FONT color="blue"><B>reserved</B></FONT> to
+  <FONT color="red"><B>store</B></FONT> the
+  <FONT color="blue"><B>value (= a binary number)</B></FONT>
+  in the <FONT color="red"><B>variable</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <img src="../FIGS/data02.gif" style="width:30%">
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>(2)</B> the <FONT color="red"><B>variable name</B></FONT> is used
+    to <FONT color="blue"><B>identify (= mark)</B></FONT> the
+  <FONT color="red"><B>memory location</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Identifying the
+   (memory) locations used to 
+   <FONT color="blue">store</FONT> constants and variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Every constant/variable</B></FONT> will
+  be <FONT color="blue"><B>assigned</B></FONT> a
+   <FONT color="red"><B><I>unique</I> memory location (= address)</B></FONT>
+    for
+   <FONT color="blue"><B>storage</B></FONT>
+ <P>
+  <LI> The <FONT color="red"><B>assembler program</B></FONT> 
+   <FONT color="blue"><B>needs</B></FONT> a
+   <FONT color="red"><B>easy way</B></FONT> to
+   <FONT color="blue"><B>identify</B></FONT> the
+    <FONT color="red"><B>memory address (= location)</B></FONT> used
+   to store the <FONT color="blue"><B>contant/variable</B></FONT>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We <FONT color="red"><B>also</B></FONT> use
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>labels</I></B></FONT></SPAN> in the
+   <FONT color="red"><B>data segment</B></FONT> to
+   <FONT color="blue"><B><I>mark</I></B></FONT> the
+   <FONT color="red"><B>memory locations</B></FONT> used to 
+   <FONT color="blue"><B>store</B></FONT>
+   the <FONT color="red"><B>constants/variables</B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>labels</B></FONT> used are
+   <FONT color="blue"><B>usually</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B><I>names</I></B></FONT> of
+   the <FONT color="blue"><B>constants/variables</B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     Assembler directives used for
+   <FONT color="blue">uninitialized</FONT> variable
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Assembler directives</B></FONT> to
+  <FONT color="blue"><B>reserve</B></FONT>
+  <FONT color="red"><B>uninitialized memory bytes</B></FONT>:
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">.skip</FONT>  n   <FONT color="red">// will reserve n bytes in memory</FONT>    
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Examples:</B>
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  x: <FONT color="red">.skip</FONT>  4   <FONT color="red">// will reserve 4 bytes in memory</FONT> 
+  y: <FONT color="red">.skip</FONT>  2   <FONT color="red">// will reserve 2 bytes in memory</FONT>    
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Important:</B></FONT>  &nbsp;
+   you <FONT color="blue"><B>must</B></FONT> 
+   use a 
+  <SPAN style="BACKGROUND-COLOR: #BBFFBB">
+  <FONT color="red"><B>(unique) label</B></FONT> to
+   <FONT color="blue"><B>mark</B></FONT> each
+   <FONT color="red"><B>reserved group of bytes</B></FONT>
+   for <FONT color="blue"><B>identification</B></FONT></SPAN> !
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How Java's class variable definitions are translated into ARM assembler
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+   <FONT color="blue"><B>Examples</B></FONT> of
+   <FONT color="red"><B>Java class variable definitions</B></FONT>:
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   <FONT color="red">static</FONT> int a;
+   <FONT color="red">static</FONT> short b;
+   <FONT color="red">static</FONT> byte c; </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+  <FONT color="red"><B>How</B></FONT>
+   a <FONT color="blue"><B>Java compiler</B></FONT>
+   will <FONT color="red"><B>translate</B></FONT>
+   these <FONT color="blue"><B>variable definitions</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="blue">.data</FONT>
+ a: <FONT color="red">.skip 4</FONT>  // Reserve 4 bytes and id this mem addr with "a"
+ b: <FONT color="red">.skip 2</FONT>  // Reserve 2 bytes and id this mem addr with "b"
+ c: <FONT color="red">.skip 1</FONT>  // Reserve 1 bytes and id this mem addr with "c"</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How Java's class variable definitions are translated into ARM assembler 
+  - <FONT color="blue">DEMO</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/1-directives/skip01.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+  <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  a:      .skip 4
+  b:      .skip 2
+  c:      .skip 1   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+   <center>
+   <img src="uninit-var02.png" style="width:60%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.1in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+ 
+  What happens when you 
+  <FONT color="blue">
+  define a
+   (permanent) 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">initialized</SPAN> variable</FONT>
+ 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class myClass {
+       <FONT color="red">static</FONT> int x <FONT color="red">= 4</FONT>;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="blue"><B>Effect:</B></FONT>
+   <B>(1)</B> some <FONT color="red"><B>previously 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">unused</SPAN>
+   memory cells</B></FONT> will be
+  <FONT color="blue"><B>reserved</B></FONT> to
+  <FONT color="red"><B>store</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>initial</I> value (= a binary number)</B></FONT>
+  </SPAN>
+  in the <FONT color="red"><B>variable</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <img src="../FIGS/data02b.gif" style="width:30%">
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>(2)</B> the <FONT color="red"><B>variable name</B></FONT> is used
+    to <FONT color="blue"><B>identify (= mark)</B></FONT> the
+  <FONT color="red"><B>memory location</B></FONT>
+   </font>
+   </p>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   ARM assembler directives used to define
+   <FONT color="blue">initialized</FONT> variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  <FONT color="red">.byte</FONT> Value    - reserves <FONT color="red">1 byte of memory</FONT> and 
+                   store the <FONT color="red">8 bits 2's complementary 
+                   code</FONT> for <FONT color="red">Value</FONT> in the memory cell
+
+  <FONT color="red">.2byte</FONT> Value   - reserves <FONT color="red">2 bytes of memory</FONT> and 
+                   store the <FONT color="red">16 bits 2's complementary 
+                   code</FONT> for <FONT color="red">Value</FONT> in the memory cells
+
+  <FONT color="red">.4byte</FONT> Value   - reserves <FONT color="red">4 bytes of memory</FONT> and 
+                   store the <FONT color="red">32 bits 2's complementary 
+                   code</FONT> for <FONT color="red">Value</FONT> in the memory cells
+
+  <FONT color="red">.float</FONT> Value   - reserves <FONT color="red">4 bytes of memory</FONT> and 
+                   store the <FONT color="red">32 bits IEEE 754 
+                   code</FONT> for <FONT color="red">Value</FONT> in the memory cells
+
+  <FONT color="red">.asciz</FONT> "..."   - reserves <FONT color="red">strlen bytes of memory</FONT> and 
+                   store the <FONT color="red">ASCII codes for all the 
+                   characters</FONT> in the memory cells
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  How <FONT color="blue">initialized variable definitions</FONT>
+   are translated into ARM assembler
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Examples</B></FONT> of
+  <FONT color="blue"><B>initialized variable</B></FONT>
+  definitions:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   byte   a = 15;
+   short  b = 15;
+   int    c = 15;
+   float  d = 5.0;
+   char[] e = "ABC"; <SPAN style="BACKGROUND-COLOR: #ffff00">// <FONT color="red">C style</FONT> "non-object storage"!</SPAN> </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   Their <FONT color="red"><B>ARM assembler</B></FONT>
+   <FONT color="blue"><B> equivalent</B></FONT>
+   (= how the Java compiler will translate the variable definition) 
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   a:      .byte  15
+   b:      .2byte 15
+   c:      .4byte 15
+   d:      .float  5
+   e:      .asciz "ABC"
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+ 
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  How <FONT color="blue">initialized variable definitions</FONT>
+   are translated into ARM assembler
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/1-directives/init-var.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   a:      .byte  15
+   b:      .2byte 15
+   c:      .4byte 15
+   d:      .float  5
+   e:      .asciz "ABC"</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <img src="init-var02.png" style="width:60%">
+   </center>
+
+
+ 
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Emphasis:
+   a <FONT color="blue">label</FONT> is
+   (a symbolic name of)
+   a <FONT color="blue">memory address</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Notice</B></FONT> how the
+  <FONT color="blue"><B>variables</B></FONT> are
+  <FONT color="red"><B>stored</B></FONT> starting at
+  <FONT color="blue"><B>memory address</B></FONT>
+  <FONT color="red"><B><TT>1878c<sub>(16)</sub> (Hex)</TT></B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <img src="init-var02.png" style="width:55%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Notice</B></FONT> that the
+  <FONT color="blue"><B>label (symbolic name)</B></FONT>
+   <FONT color="red"><B><TT>a</TT></B></FONT> is
+  <FONT color="blue"><B>equal</B></FONT> to the
+  <B>binary number</B>
+  <FONT color="red"><B><TT>1878c<sub>(16)</sub> (Hex)</TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="init-var03.png" style="width:50%">
+   </center>
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+   <span class="dot" onclick="currentSlide(12)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

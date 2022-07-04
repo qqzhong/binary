@@ -1,0 +1,1271 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  How to pass parameters and return values between function calls - 
+  <FONT color="blue">example</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ <FONT color="red"><B>Consider</B></FONT> the following
+  <FONT color="blue"><B>simple</B></FONT>
+  <FONT color="red"><B>function call</B></FONT>
+  with <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="red"><B>return value</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+   f1( )                
+   {
+      int x;
+
+      x = <SPAN style="BACKGROUND-COLOR: #ffff00">f2(111, 222)</SPAN>;    // Pass 2 parameters 
+   }
+
+   int f2(int x, int y)
+   {
+       return(999);          // Pass a return value
+   }
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  We use this <FONT color="red"><B>example</B></FONT>
+ to <FONT color="blue"><B>determine</B></FONT>
+  the <FONT color="red"><B>moment (= time)</B></FONT> when you can
+  <FONT color="blue"><B>pass parameters</B></FONT> and
+ <FONT color="red"><B>return a value</B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We <FONT color="red"><B>have discussed</B></FONT>  the
+   <FONT color="blue"><B>basic</B></FONT>
+   <FONT color="red"><B>function call + return</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>without</B></FONT>
+   <FONT color="red"><B>parameters</B></FONT> and
+   <FONT color="blue"><B>return values</B></FONT>:</SPAN>
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   function f1( )               function f2( ) 
+   {                   +------->{         
+       ...             |            ...  |
+       ...             |            ...  |
+       ...             |            ...  |
+       f2( ) ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ return;
+   }                             } 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The 
+  <FONT color="red"><B>function call + return</B></FONT> is
+   <FONT color="blue"><B>implemented</B></FONT>
+    in <FONT color="red"><B>assembler programming</B></FONT>
+    as <FONT color="blue"><B>follows</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       ...             |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We will 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>add</B></FONT>
+  <FONT color="blue"><B>instructions</B></FONT></SPAN>
+   to
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>implement</B></FONT></SPAN>
+  <B>(1)</B>
+  <FONT color="blue"><B>parameter passing</B></FONT> and
+  <B>(2)</B> <FONT color="red"><B>return a value</B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #000000">
+  <FONT color="yellow"><B>Note:</B></FONT></SPAN>
+  &nbsp;
+  <FONT color="red"><B>pay attention</B></FONT> to
+  the <FONT color="blue"><B>timing</B></FONT> of these
+  <FONT color="red"><B>events</B></FONT>
+   </font>
+   </p>
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>When</B></FONT></SPAN> <B>can/do</B> we
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>pass</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT></SPAN>
+  to a <FONT color="blue"><B>function</B></FONT> ?
+    
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       ...             |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>When</B></FONT></SPAN> <B>can/do</B> we
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>pass</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT></SPAN>
+  to a <FONT color="blue"><B>function</B></FONT> ?
+ 
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">pass params</FONT></SPAN>     |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Answer:</B> &nbsp; it
+   <FONT color="red"><B>must</B></FONT> happen
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B><I>before</I></B></FONT>
+   the <FONT color="darkmagenta"><B><TT>bl f2</TT></B></FONT></SPAN>
+  where
+     we
+   <FONT color="red"><B>call</B></FONT> the
+   <FONT color="blue"><B>function</B></FONT> !!!
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   (It's <FONT color="red"><B>too late</B></FONT> to
+  <FONT color="blue"><B>pass parameters</B></FONT> 
+  <FONT color="red"><B>after</B></FONT> the
+   <FONT color="blue"><B><TT>bl f2</TT></B></FONT> 
+  <FONT color="red"><B>instruction</B></FONT> !)
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+<!----------------- return a value ---------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>When</B></FONT></SPAN> does the
+    <FONT color="blue"><B>callee (<TT>f2( )</tt>)</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>return a value</B></FONT></SPAN> to the
+   <FONT color="blue"><B>caller</B></FONT> ?
+    
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       <FONT color="red">pass params</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>When</B></FONT></SPAN> does the
+    <FONT color="blue"><B>callee (<TT>f2( )</tt>)</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>return a value</B></FONT></SPAN> to the
+   <FONT color="blue"><B>caller</B></FONT> ?
+    
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       <FONT color="red">pass params</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  V
+       ...   <--------------+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">save return value</FONT></SPAN>
+       ...                  |       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">in a register</FONT>  </SPAN>
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>Answer:</B> &nbsp; it
+   <FONT color="red"><B>must</B></FONT> happen
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B><I>before</I></B></FONT> the
+   <FONT color="red"><B>callee</B></FONT> 
+   <FONT color="blue"><B>returns</B></FONT></SPAN> to its
+   <FONT color="red"><B>caller</B></FONT> !!!
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+<!----------------------- Use the return value ------------->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>When</B></FONT></SPAN> does the
+    <FONT color="blue"><B>caller (<TT>f1( )</tt>)</B></FONT>
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <B>use</B> the
+   <FONT color="red"><B>return value</B></FONT></SPAN> from the
+   <FONT color="blue"><B>callee</B></FONT> ?
+    
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       <FONT color="red">pass params</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  V
+       ...   <--------------+       <FONT color="red">save <SPAN style="BACKGROUND-COLOR: #ffff00">return value</SPAN></FONT>
+       ...                  |       <FONT color="red">in a register</FONT>
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>When</B></FONT></SPAN> does the
+    <FONT color="blue"><B>caller (<TT>f1( )</tt>)</B></FONT>
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <B>use</B> the
+   <FONT color="red"><B>return value</B></FONT></SPAN> from the
+   <FONT color="blue"><B>callee</B></FONT> ?
+    
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            ...  |
+       ...             |            ...  |
+       <FONT color="red">pass params</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...  V
+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">use return value</FONT></SPAN> <---+       <FONT color="red">save <SPAN style="BACKGROUND-COLOR: #ffff00">return value</SPAN></FONT>
+       ...                  |       <FONT color="red">in a register</FONT>
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>Answer:</B> &nbsp; the
+  <FONT color="red"><B>return value</B></FONT>
+   <B>must be</B> 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   used 
+   <FONT color="blue"><B><I>immediately</I></B></FONT>
+    <FONT color="red"><B> after</B></FONT> the
+   <FONT color="blue"><B><TT>bl</TT> instruction</B></FONT></SPAN> 
+   !!!
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+<!---------------- Example ---------------------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  How to pass parameters and return values between function calls - 
+  <FONT color="blue">example</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ <FONT color="red"><B>Example</B></FONT> of a
+  <FONT color="blue"><B>function call</B></FONT> with
+  <FONT color="red"><B>parameters</B></FONT> and
+  <FONT color="blue"><B>return value</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+   main( )                
+   {
+      int x;
+
+      x = <SPAN style="BACKGROUND-COLOR: #ffff00">f(111, 222)</SPAN>;    // Pass 2 parameters 
+   }
+
+   int f(int x, int y)
+   {
+       return(999);    // Pass a return value
+   }
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ I will <FONT color="red"><B>write</B></FONT> this
+  <FONT color="blue"><B>program</B></FONT>
+  in <FONT color="red"><B>assembler code</B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We <FONT color="red"><B>start</B></FONT> with the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>function call + return</B></FONT>
+   <FONT color="red"><B>instructions</B></FONT></SPAN>:
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ main:                                         
+                       +---->  f:                 
+       ...             |            ...  |
+                       |            ...  |
+                       |            ...  |
+       <FONT color="darkmagenta">bl f </FONT> ----------+            ...  |
+                <-----------+       ...  V
+       ...                  |                   
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>first</B></FONT>
+  <FONT color="blue"><B> event</B></FONT> was: &nbsp;
+  <FONT color="red"><B>passing </B></FONT> the
+   <FONT color="blue"><B>parameters</B></FONT>
+  <BR>
+  &nbsp;
+  <BR>
+  &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B><TT>main</TT></B></FONT> 
+   <FONT color="blue"><B>passes</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT>
+   (in <FONT color="blue"><B><TT>r0</TT></B></FONT> and
+   <FONT color="blue"><B><TT>r1</TT></B></FONT>):
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ main:                                         
+                       +---->  f:                 
+       ...             |            ...  |
+       <FONT color="red">mov r0,#111</FONT>     |            ...  |
+       <FONT color="red">mov r1,#222</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f </FONT> ----------+            ...  |
+                <-----------+       ...  V
+       ...                  |                   
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  &nbsp;
+  <BR>
+  &nbsp;
+  <BR>
+  &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B><TT>main</TT></B></FONT> 
+   <FONT color="blue"><B>passes</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT>
+   (in <FONT color="blue"><B><TT>r0</TT></B></FONT> and
+   <FONT color="blue"><B><TT>r1</TT></B></FONT>):
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ main:                                         
+                       +---->  f:   <SPAN style="BACKGROUND-COLOR: #ffff00">// note (1)</SPAN>      
+       ...             |            ...  |
+       <FONT color="red">mov r0,#111</FONT>     |            ...  |
+       <FONT color="red">mov r1,#222</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f </FONT> ----------+            ...  |
+                <-----------+       ...  V
+       ...                  |                   
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Note (1):</B> <FONT color="red"><B>When</B></FONT> function
+     <FONT color="blue"><B><TT>f( )</TT></B></FONT> starts
+     running, it 
+     <FONT color="red"><B>"sees"</B></FONT> its
+     <FONT color="blue"><B>parameters</B></FONT> in
+     <FONT color="red"><B>registers <TT>r0</TT> and <TT>r1</TT></B></FONT>
+  <BR>
+  &nbsp;
+  <BR>
+  &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  When <FONT color="blue"><B><TT>f( )</TT></B></FONT> 
+  finishes, it
+  <FONT color="red"><B>passes</B></FONT> the
+   <FONT color="blue"><B>return value (<TT>999</TT>)</B></FONT>
+  in <FONT color="red"><B>register <TT>r0</TT></B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ main:                                         
+                       +---->  f:   <SPAN style="BACKGROUND-COLOR: #ffff00">// note (1)</SPAN>      
+       ...             |            ...  |
+       <FONT color="red">mov r0,#111</FONT>     |            ...  |
+       <FONT color="red">mov r1,#222</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f </FONT> ----------+            ...  |
+                <-----------+       ...  V
+       ...                  |       <FONT color="red">mov r0,#999</FONT>
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Note (1):</B> <FONT color="red"><B>When</B></FONT> function
+     <FONT color="blue"><B><TT>f( )</TT></B></FONT> starts
+     running, it 
+     <FONT color="red"><B>"sees"</B></FONT> its
+     <FONT color="blue"><B>parameters</B></FONT> in
+     <FONT color="red"><B>registers <TT>r0</TT> and <TT>r1</TT></B></FONT>
+  <BR>
+  &nbsp;
+  <BR>
+  &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  When <FONT color="blue"><B><TT>f( )</TT></B></FONT> 
+  finishes, it
+  <FONT color="red"><B>passes</B></FONT> the
+   <FONT color="blue"><B>return value (<TT>999</TT>)</B></FONT>
+  in <FONT color="red"><B>register <TT>r0</TT></B></FONT>:
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ main:                                         
+                       +---->  f:   <SPAN style="BACKGROUND-COLOR: #ffff00">// note (1)</SPAN>      
+       ...             |            ...  |
+       <FONT color="red">mov r0,#111</FONT>     |            ...  |
+       <FONT color="red">mov r1,#222</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f </FONT> ----------+            ...  |
+       <SPAN style="BACKGROUND-COLOR: #ffff00">// note (2)</SPAN> <--------+       ...  V
+       ...                  |       <FONT color="red">mov r0,#999</FONT>
+       ...                  +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+                                  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Note (1):</B> <FONT color="red"><B>When</B></FONT> function
+     <FONT color="blue"><B><TT>f( )</TT></B></FONT> starts
+     running, it 
+     <FONT color="red"><B>"sees"</B></FONT> its
+     <FONT color="blue"><B>parameters</B></FONT> in
+     <FONT color="red"><B>registers <TT>r0</TT> and <TT>r1</TT></B></FONT>
+  <BR>
+  <B>Note (2):</B> <FONT color="red"><B>When</B></FONT> function
+     <FONT color="blue"><B><TT>f( )</TT></B></FONT> 
+    <FONT color="red"><B>returns</B></FONT>,
+    <FONT color="blue"><B><TT>main( )</TT></B></FONT>
+     <FONT color="red"><B>"sees"</B></FONT> the
+     <FONT color="blue"><B>return value</B></FONT> in
+     <FONT color="red"><B>register <TT>r0</TT></B></FONT>
+  <BR>
+  &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with parameters and return values 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We <FONT color="red"><B>must</B></FONT>
+  <FONT color="blue"><B>use</B></FONT> the
+  <FONT color="red"><B>return value in (<TT>R0</TT>)</B></FONT> 
+  <FONT color="blue"><B>immediately</B></FONT>
+  after <FONT color="red"><B>returning</B></FONT>
+  (here: <FONT color="blue"><B>update</B></FONT> the
+   <FONT color="red"><B>variable <TT>x</TT></B></FONT>):
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ main:                                         
+                       +---->  f:   <SPAN style="BACKGROUND-COLOR: #ffff00">// note (1)</SPAN>      
+       ...             |            ...  |
+       <FONT color="red">mov r0,#111</FONT>     |            ...  |
+       <FONT color="red">mov r1,#222</FONT>     |            ...  |
+       <FONT color="darkmagenta">bl f </FONT> ----------+            ...  |
+       <SPAN style="BACKGROUND-COLOR: #ffff00">// note (2)</SPAN> <--------+       ...  V
+       movw r1,#lower16:x   |       <FONT color="red">mov <SPAN style="BACKGROUND-COLOR: #aaffaa">r0</SPAN>,#999</FONT>
+       movt r1,#upper16:x   +------ <FONT color="darkmagenta">mov pc, lr</FONT>
+       str  <SPAN style="BACKGROUND-COLOR: #aaffaa">r0</SPAN>,[r1]               
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Note (1):</B> <FONT color="red"><B>When</B></FONT> function
+     <FONT color="blue"><B><TT>f( )</TT></B></FONT> starts
+     running, it 
+     <FONT color="red"><B>"sees"</B></FONT> its
+     <FONT color="blue"><B>parameters</B></FONT> in
+     <FONT color="red"><B>registers <TT>r0</TT> and <TT>r1</TT></B></FONT>
+  <BR>
+  <B>Note (2):</B> <FONT color="red"><B>When</B></FONT> function
+     <FONT color="blue"><B><TT>f( )</TT></B></FONT> 
+    <FONT color="red"><B>returns</B></FONT>,
+    <FONT color="blue"><B><TT>main( )</TT></B></FONT>
+     <FONT color="red"><B>"sees"</B></FONT> the
+     <FONT color="blue"><B>return value</B></FONT> in
+     <FONT color="red"><B>register <TT>r0</TT></B></FONT>
+  <BR>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/8-sub/skel-reg-param.s 
+</TT></B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

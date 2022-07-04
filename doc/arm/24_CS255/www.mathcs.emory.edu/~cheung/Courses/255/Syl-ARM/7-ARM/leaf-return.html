@@ -1,0 +1,390 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Returning from a <I>leaf</I> subroutine
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Another form of the <FONT color="red"><TT>mov</TT></FONT> instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Previously</B>, we have learned
+     how to <FONT color="red"><B>store</B></FONT> a
+     <FONT color="blue"><B>(small) constant number</B></FONT> into
+     a <FONT color="red"><B>register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     mov   r<sub>0</sub>, #smallNumber    //  Store smallNumber into register r<sub>0</sub>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+<P>
+<LI> The <FONT color="red"><B><TT>mov</TT></B></FONT> instruction can
+  <FONT color="blue"><B>also</B></FONT> be used to
+      <FONT color="red"><B>store (= copy)</B></FONT> the
+      <FONT color="blue"><B>value</B></FONT> in
+      a <B>register</B> into
+      <FONT color="red"><B><I>another</I> register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">mov   r<sub>0</sub>, r<sub>1</sub></FONT>    // Copy r<sub>1</sub> to r<sub>0</sub>        
+                     // I.e.: assign<FONT color="red"> r<sub>0</sub> = r<sub>1</sub> </FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can use <FONT color="red"><B>any register</B></FONT> for
+ <FONT color="blue"><B><TT>r<sub>0</TT></B></FONT> and
+ <FONT color="blue"><B><TT>r<sub>1</sub></TT></B></FONT>.
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+	Returning from a subroutine call in ARM
+     </B></FONT>
+<P>
+ <UL>
+<LI> The <FONT color="red"><B>Return from Subroutine</B></FONT> 
+   in the <FONT color="blue"><B>ARM processor</B></FONT> can be
+   achieved using a
+   <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+  mov   pc, <FONT color="red">lr</FONT> 
+
+  <FONT COLOR="red">Effect:</font>
+
+        Copy the return address saved by the bl instruction        
+        into the Program Counter (PC)   
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you <FONT color="red"><B>update</B></FONT> the
+    <FONT color="blue"><B>PC (register)</B></FONT> with
+    the <FONT color="red"><B>retun address in the <TT>lr</TT>
+   register</B></FONT>,
+    the <FONT color="blue"><B>ARM processor</B></FONT> will
+    <FONT color="red"><B>fetch</B></FONT> the
+    <FONT color="blue"><B><I>next</I> instruction</B></FONT> at
+    the <FONT color="red"><B>return address</B></FONT> !!!
+ <P>
+  The <FONT color="red"><B>effect</B></FONT> of
+  the <FONT color="blue"><B><TT>mov pc, <FONT color="red">lr</FONT>
+  </TT></B></FONT> instruction is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Branch</B></FONT> to the
+      <FONT color="blue"><B>return address</B></FONT> given in the
+    <FONT color="red"><B><TT>lr</TT> register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #4
+        mov     r1, #4
+        <FONT color="red">bl      myMethod</FONT>
+        mov     r2, #4
+        mov     r3, #4
+        <FONT color="red">bl      myMethod</FONT>
+        mov     r4, #4
+        mov     r5, #4
+
+
+<FONT color="red">myMethod:</FONT>
+        mov     r10, #4
+        mov     r9, #4
+
+       <FONT color="red"> mov     pc, lr</FONT>          // Return to caller !!!        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>main program</B></FONT> calls
+ the <B>method</B> <FONT color="red"><B><TT>myMethod</TT></B></FONT>
+ twice.
+<P>
+In <FONT color="red"><B>each call</B></FONT>, the
+  <FONT color="blue"><B>return address</B></FONT> is
+ <FONT color="red"><B>saved</B></FONT> in the
+  <FONT color="blue"><B><TT>lr</TT> register</B></FONT>
+<P>
+So the <FONT color="red"><B><TT>mov pc, lr</TT></B></FONT> instruction in
+ the <FONT color="blue"><B><TT>myMethod</TT></B></FONT> function is
+  able to
+  <FONT color="red"><B>jump back</B></FONT> to the
+ <FONT color="blue"><B>location where the <I>function call</I></B></FONT>
+ took place !!!
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/bl+rts.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255  bl+rts</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Marked differences between methods in high level language and assembler
+     </B></FONT>
+<P>
+ <UL>
+ <P>
+ <LI> Methods (or subroutines) in high level languages have very
+	nice syntax structures to highlight where the method
+	begins and ends...
+ <P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public int  myMethod ( int p1, int p2 )            
+    {
+        ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see the <FONT color="red"><B>method <I>name</I></B></FONT> and
+ the <FONT color="blue"><B>curly braces { .. }</B></FONT> that
+ denote the
+  <FONT color="red"><B>start and the end</B></FONT> of the
+ <FONT color="blue"><B>method</B></FONT>
+  <B>clearly</B>
+<P>
+<HR>
+<HR>
+  <P>
+	Methods (or subroutines) in assembler are nothing more than
+	a series of instructions 
+       <FONT color="red"><B>marked</B></FONT> by  a 
+        <FONT color="blue"><B>label</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  myMethod:
+             ...
+	     ...  (assembler instructions)   
+	     ...
+	     mov  pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>labels</B></FONT> used to
+  <FONT color="blue"><B>mark</B></FONT> the
+  <FONT color="red"><B>beginning</B></FONT> of
+   <FONT color="blue"><B>functions/methods</B></FONT>
+   in assembler code are
+  <FONT color="red"><B>no different</B></FONT> from
+  the <FONT color="blue"><B>labels</B></FONT> you used
+  in <FONT color="red"><B><TT>if</TT> and <TT>while</TT> statements</B></FONT>
+  !!!
+
+<P>
+It's <FONT color="red"><B>very hard</B></FONT> to
+ tell in 
+ <FONT color="blue"><B>assembler program</B></FONT>
+ which <FONT color="red"><B>label</B></FONT> to
+  <B>mark</B> a
+   <FONT color="blue"><B><I>method</I> start location</B></FONT> !!!
+<P>
+So it's a <FONT color="red"><B>good practice</B></FONT> to
+ use <FONT color="blue"><B>comments</B></FONT>, e.g.:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red"> /* **************************************************
+    myMethod:  this method wil do the following 
+               .... bla bla bla ...
+
+    ************************************************** */</FONT>      
+  myMethod:
+             ...
+	     ...  (assembler instructions)   
+	     ...
+	     mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+
+
+
+
+
+
+
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

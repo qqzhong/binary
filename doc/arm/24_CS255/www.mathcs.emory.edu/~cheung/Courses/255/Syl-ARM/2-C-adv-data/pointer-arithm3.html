@@ -1,0 +1,958 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The operators ++ and -- used in pointer arithmetic
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Advanced</I> pointer arithmetic: ++ and &minus;&minus; operators
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Review</B></FONT>:
+        <B><I>post</I> increment/decrement operators</B> 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">p++</FONT>     means:   1. <FONT color="red">p = p + 1</FONT>
+                     2. <FONT color="red">returns</FONT> the <FONT color="red">OLD value</FONT> (before the increment) in p    
+
+    <FONT color="red">p--</FONT>     means:   1. <FONT color="red">p = p - 1</FONT>
+                     2. <FONT color="red">returns</FONT> the <FONT color="red">OLD value</FONT> (before the increment) in p
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Applying the
+     <B><I>post</I> increment/decrement</B> operators on
+     <FONT color="red"><B><I>reference</I> veriables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  if <FONT color="red">p</FONT> is a reference typed variable, then:
+
+    <FONT color="red">p++</FONT>     means:   1. <FONT color="darkred">p = p + 1</FONT>
+                        and will store <FONT color="red">p + 1*sizeof( <FONT color="darkred">(*p)</FONT> )</FONT>  into p
+                     2. <FONT color="red">returns</FONT> the <FONT color="red">OLD value</FONT> (before the increment) in p    
+
+    <FONT color="red">p--</FONT>     means:   1. <FONT color="red">p = p - 1</FONT>
+                        and will store <FONT color="red">p - 1*sizeof( <FONT color="darkred">(*p)</FONT> )</FONT>  into p
+                     2. <FONT color="red">returns</FONT> the <FONT color="red">OLD value</FONT> (before the increment) in p
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int a[10];
+       int *p;
+    <FONT color="red">
+       p = &a[0];</FONT>                      // p points to variable a[0]       
+    
+       printf("staring p    = %u\n", <FONT color="red">p</FONT>);
+       <FONT color="red">p++</FONT>;
+       printf("after p++: p = %u\n", <FONT color="red">p</FONT> );
+       <FONT color="red">p++</FONT>;
+       printf("after p++: p = %u\n", <FONT color="red">p</FONT> );
+       <FONT color="red">p++</FONT>;
+       printf("after p++: p = %u\n", <FONT color="red">p</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  staring p    = 42907694<FONT color="red">44</FONT>     <FONT color="red">// p++ increases p by 4 = sizeof(int) !!!</FONT>
+  after p++: p = 42907694<FONT color="red">48</FONT>
+  after p++: p = 42907694<FONT color="red">52</FONT>
+  after p++: p = 42907694<FONT color="red">56</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/pointer-arithm3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pointer-arithm3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Advanced</I> pointer arithmetic expression: &nbsp;
+     <TT>*(p++)</TT> &nbsp; and &nbsp; <TT>*(p--)</TT> 
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Meaning</B> of the expression
+     <FONT color="red"><B><TT>*(p++)</TT></B></FONT>:
+<P>
+
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+             means
+   *(p++)    <===>   *( <FONT color="red">p++</FONT> )          // apply <FONT color="red">p++</font> first
+
+                     p++ : 1. <FONT color="red">p = p+1</FONT>
+	                   2. <FONT color="red">returns</FONT> the <FONT color="red">OLD value</FONT> of p !!!
+
+
+             <===>   *( <FONT color="red">use the OLD value of p</FONT> )
+
+	     <===>   the <FONT color="red">variable</FONT> pointed to by the <FONT color="red">OLD value</FONT> of p !!!   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In plain English:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Use</B> the <FONT color="blue"><B>(array) element</B></FONT>
+     that is <B><I>currently</I> pointed</B> to
+     by <FONT color="red"><B><TT>p</TT></B></FONT>
+<P>
+ <LI> <B>Increment</B> <FONT color="blue"><B><TT>p</TT></B></FONT>
+       to point to
+       the <FONT color="red"><B>next (array) element</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+       int i;
+       int *p;
+    
+       printf("Array a[]: ");
+       for ( i = 0; i < 10; i++ )
+   	  printf("%d ", a[i] );
+       putchar('\n');
+    <FONT color="red">
+       p = &a[0]; </FONT>                     // p points to variable a[0]      
+    
+       printf("*(p++)  = %d\n", <FONT color="red">*(p++)</FONT> );
+       printf("*(p++)  = %d\n", <FONT color="red">*(p++)</FONT> );
+       printf("*(p++)  = %d\n", <FONT color="red">*(p++)</FONT> );
+       printf("*(p++)  = %d\n", <FONT color="red">*(p++)</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Array a[]: 11 22 33 44 55 66 77 88 99 777       
+   *(p++)  = <FONT color="red">11</FONT>
+   *(p++)  =<FONT color="red"> 22</FONT>
+   *(p++)  =<FONT color="red"> 33</FONT>
+   *(p++)  =<FONT color="red"> 44</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Initially</B>, <FONT color="red"><B><TT>p</TT></B></FONT> points
+      to <FONT color="blue"><B><TT>a[0]</TT></B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> Then the <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    *(<FONT color="red">p++</FONT>)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will return
+  <FONT color="blue"><B><TT>a[0]</TT></B></FONT>
+  because <FONT color="red"><B><TT>p++</TT></B></FONT> uses the
+  <FONT color="blue"><B><I>old</I> value (= <TT>&a[0]</TT>)</B></FONT>
+  of <FONT color="red"><B><TT>p</TT></B></FONT>.
+<P>
+After this <B>expression</B> is <FONT color="blue"><B>evaluated</B></FONT>,
+   the variable <FONT color="red"><B><TT>p</TT></B></FONT> will
+    <B>point to</B> <FONT color="blue"><B><TT>a[1]</TT></B></FONT> !
+<P>
+<HR>
+<P>
+<LI>  Then in the <FONT color="red"><B>second iteration</B></FONT>,
+   the <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    *(<FONT color="red">p++</FONT>)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will return
+  <FONT color="blue"><B><TT>a[1]</TT></B></FONT> !!
+ 
+<P>
+After this <B>expression</B> is <FONT color="blue"><B>evaluated</B></FONT>,
+   the variable <FONT color="red"><B><TT>p</TT></B></FONT> will
+    <B>point to</B> <FONT color="blue"><B><TT>a[2]</TT></B></FONT> !
+<P>
+<HR>
+<HR>
+<P>
+<LI>  And in the <FONT color="red"><B>3rd iteration</B></FONT>,
+   the <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    *(<FONT color="red">p++</FONT>)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will return
+  <FONT color="blue"><B><TT>a[2]</TT></B></FONT> !!
+ 
+<P>
+After this <B>expression</B> is <FONT color="blue"><B>evaluated</B></FONT>,
+   the variable <FONT color="red"><B><TT>p</TT></B></FONT> will
+    <B>point to</B> <FONT color="blue"><B><TT>a[2]</TT></B></FONT> !
+<P>
+<HR>
+<P>
+<LI> <B>And so on</B>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/pointer-arithm4.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pointer-arithm4.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Advanced example: copy and array with pointer arithmetic
+     </B></FONT>
+<P>
+<UL>
+<LI> Here is a <FONT color="blue"><B>traditional</B></FONT> program to
+     copy an array:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+       int b[10];
+       int i;
+   <FONT color="red"> 
+       for ( i = 0; i < 10; i++ )
+   	  b[i] = a[i];</FONT>
+    
+       printf("Array a[]: ");
+       for ( i = 0; i < 10; i++ )
+   	  printf("%d ", a[i] );
+       putchar('\n');
+    
+       printf("Array b[]: ");
+       for ( i = 0; i < 10; i++ )
+   	  printf("%d ", b[i] );
+       putchar('\n');
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-copy1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-copy1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Here is how you can use 
+     <FONT color="red"><B><I>pointer arithmetic</I></B></FONT> to
+     perform the <B>array copy</B> operation:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+    int b[10];
+    int i;
+ <FONT color="red">
+    int *p, *q;  // Defines 2 reference variables</FONT>
+		    // <FONT color="darkred">Incorrect:  int *p, q;</FONT>  - <FONT color="red">q</FONT> will be an <FONT color="red">int</FONT>    
+ <FONT color="darkred">
+    p = &a[0];
+    q = &b[0];</FONT>
+  <FONT color="red">  
+    for ( i = 0; i < 10; i++ )
+	  *(q++) = *(p++);</FONT>
+ 
+    printf("Array a[]: ");
+    for ( i = 0; i < 10; i++ )
+       printf("%d ", a[i] );
+    putchar('\n');
+ 
+    printf("Array b[]: ");
+    for ( i = 0; i < 10; i++ )
+       printf("%d ", b[i] );
+    putchar('\n');
+ 
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-copy2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-copy2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Common practice of C programmers....
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C programs</B> often use
+      <FONT color="blue"><B><I>pointer arithmetic</I></B></FONT> to
+      process elements in an <FONT color="red"><B>array</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">p = &a[0]</FONT>;   //  or <FONT color="red">p = a;</FONT>
+
+     for ( i = 0; i < 10; i++ )
+        <FONT color="red">*(p++)</FONT> = .....;
+
+<HR>
+<FONT color="magenta">  instead of:</FONT>
+
+     for ( i = 0; i < 10; i++ )                   
+        <FONT color="red">a[i]</FONT> = .....;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Reason:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Efficiency</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>number of memory accesses</B></FONT>
+     needed to obtain the <B>value</B> 
+     using <FONT color="red"><B><TT>a[i]</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+         1  memory read to get the value of <FONT color="red">i</FONT>
+	 1  memory read to get the value of <FONT color="red">a[i]</FONT>
+      -------------------------------------------        
+         <FONT color="red">2  memory read operations total</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When the <FONT color="blue"><B>pointer variable <TT>p</TT></B></FONT>
+     is <B>stored</B> in a <FONT color="red"><B>register</B></FONT>
+     (inside the CPU),
+      the <FONT color="blue"><B>number of memory accesses</B></FONT>
+     needed to obtain the <B>value</B> 
+     using <FONT color="red"><B><TT>*(p++)</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+         1  memory read to get the value of <FONT color="red">*p</FONT>
+	 0  memory read to update p++ (in register)
+      --------------------------------------------------------
+         <FONT color="red">1  memory read operations total</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A <I>shorter</I> notation: <TT>*p++</TT>   instead of <TT>*(p++)</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>post increment</B> operator
+      <FONT color="blue"><B><TT>++</TT></B></FONT>
+      has a <FONT color="red"><B><I>higher</I> precedence</B></FONT>
+      than the
+      <B>de-reference</B> operator
+      <FONT color="blue"><B><TT>*</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ See: <A HREF="../1-C-intro/prio+assoc.html"> 
+   <FONT color="red"><B>click here</B></FONT> </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <B>Therefore:</B> <FONT color="red"><B><TT>*p++</TT></B></FONT>
+    is <B>evaluated</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    *p++   ===>    <FONT color="red">*</FONT>p<FONT color="red">++</FONT>   // <FONT color="red">*</FONT> and <FONT color="red">++</FONT> has same priority
+                          // ==> Use <FONT color="red">associativity</FONT> rule
+                          // ==> Perform operations from <FONT color="red">right-to-left</FONT> !
+			  // ==> Perform <FONT color="red">++</FONT> first !!!
+
+           ===>    *(p++)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Conclusion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <B>could have</B> written the
+      <FONT color="red"><B>array copy</B></FONT> program like
+      <B>like</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+       int b[10];
+       int i;
+    
+       int *p, *q;  // Defines 2 reference variables
+   		    // Incorrect:  int *p, q;  - q will be an int        
+    
+       p = &a[0];
+       q = &b[0];
+    
+       for ( i = 0; i < 10; i++ )
+   	  <FONT color="red">*q++</FONT> = <FONT color="red">*p++</FONT>;
+    
+       printf("Array a[]: ");
+       for ( i = 0; i < 10; i++ )
+   	  printf("%d ", a[i] );
+       putchar('\n');
+    
+       printf("Array b[]: ");
+       for ( i = 0; i < 10; i++ )
+   	  printf("%d ", b[i] );
+       putchar('\n');
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Very frequently used expression in C:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     DataType * p;
+
+       <FONT color="red">*p++</FONT>                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><TT>*p++</TT></B></FONT> means:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <B>Use</B> the
+      <FONT color="blue"><B>variable (array element)</B></FONT> that is
+      <FONT color="red"><B><I>currently</I></B></FONT> pointed to
+      by <FONT color="blue"><B><TT>p</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<HR>
+<P>
+ <LI> <B>Incremenet</B> <FONT color="blue"><B><TT>p</TT></B></FONT> to
+      point to the
+      <FONT color="red"><B><I>next</I> (array) element</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,342 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Initializing and copying variables - 
+ simple high level programming statements in assembler: 
+ <FONT color="red"><B><TT>b = 4</TT></B></FONT> and 
+ <FONT color="red"><B><TT>b = a</TT></B></FONT> 
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Initializing variables with some value
+     </B></FONT>
+<P>
+ <UL>
+ The <FONT color="red"><B>assignment statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">b = 4</FONT>  (or any other value)         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is <FONT color="red"><B>executed</B></FONT> 
+  by the <B>computer</B> as
+  <FONT color="blue"><B>follows</B></FONT>:
+<P>
+
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> You <FONT color="red"><B>first</B></FONT>
+    move the <FONT color="blue"><B>value <TT>4</TT></B></FONT> 
+	(or any other value) 
+    into
+    a <FONT color="blue"><B>(unused) register</B></FONT>
+   using a
+   <FONT color="red"><B><TT>mov</TT></B></FONT>
+   (if the value is <B>small</B>) or
+   the
+   <FONT color="blue"><B><TT>movw</TT></B></FONT> and
+   <FONT color="blue"><B><TT>movt</TT></B></FONT> instructions
+   (this will work with any value)
+
+
+<P>
+ See: 
+  <A HREF="mov-1.html"> click here</A> and
+   <A HREF="mov-2.html"> click here</A> 
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Then</B></FONT> you
+      move (= <B>store</B>) the
+      <FONT color="blue"><B>value</B></FONT> in the
+      <FONT color="red"><B>register</B></FONT> to the
+      <FONT color="blue"><B>(memory) variable <TT>b</TT></B></FONT> 
+      (= the <B>memory location(s)</B>
+     given by the
+      <FONT color="red"><B>memory address</B></FONT> marked by the
+      <FONT color="blue"><B>label <TT>b</TT></B></FONT>)
+<P>
+See: 
+  <A HREF="str.html"> click here</A>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+
+ <LI> <FONT color="blue"><B>Make sure</B></FONT> that you use the
+    <FONT color="red"><B>correct store instruction</B></FONT>
+    (<FONT color="blue"><B><TT>ldrb</TT></B></FONT>,
+    <FONT color="blue"><B><TT>ldrh</TT></B></FONT> or
+    <FONT color="blue"><B><TT>ldr</TT></B></FONT>) to store
+    the <FONT color="red"><B>variable <TT>b</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Use  <FONT color="red">strb</FONT>  when  <FONT color="red">b</FONT> is a <FONT color="red">byte</FONT>  typed variable       
+
+  Use  <FONT color="red">strh</FONT>  when  <FONT color="red">b</FONT> is a <FONT color="red">short</FONT> typed variable
+
+  Use  <FONT color="red">str</FONT>   when  <FONT color="red">b</FONT> is a <FONT color="red">int</FONT>   typed variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will <FONT color="red"><B>practice </B></FONT> this
+ in <FONT color="blue"><B>project 4</B></FONT>
+ </UL>
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Copying variables
+     </B></FONT>
+<P>
+ <UL>
+ The <FONT color="red"><B>assignment statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">b = a</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is <FONT color="red"><B>executed</B></FONT> 
+  by the <B>computer</B> as
+  <FONT color="blue"><B>follows</B></FONT>:
+<P>
+
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> You <FONT color="red"><B>first</B></FONT>
+    move (= <B>load</B>) the <FONT color="blue"><B>value</B></FONT> from
+    the <FONT color="red"><B>(memory)
+     variable <TT>a</TT> on the RHS (right hand side)</B></FONT>
+    into
+    a <FONT color="blue"><B>(unused) register</B></FONT>
+ <P>
+  You must <FONT color="red"><B>sign-extend</B></FONT> the value to
+    <FONT color="blue"><B><TT>int</TT></B></FONT> to achieve
+    <FONT color="red"><B>maximum precision</B></FONT>
+<P>
+ See: 
+  <A HREF="ldr.html"> click here</A>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Then</B></FONT> you
+      move (= <B>store</B>) the
+      <FONT color="blue"><B>value</B></FONT> in the
+      <FONT color="red"><B>register</B></FONT> to the
+      <FONT color="blue"><B>(memory) variable <TT>b</TT></B></FONT> 
+      (= the <B>memory location(s)</B>
+     given by the
+      <FONT color="red"><B>memory address</B></FONT> marked by the
+      <FONT color="blue"><B>label <TT>b</TT></B></FONT>)
+<P>
+See: 
+  <A HREF="str.html"> click here</A>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Make sure</B></FONT> that you use the
+    <FONT color="red"><B>correct load instruction</B></FONT>
+    (<FONT color="blue"><B><TT>ldrsb</TT></B></FONT>,
+    <FONT color="blue"><B><TT>ldrsh</TT></B></FONT> or
+    <FONT color="blue"><B><TT>ldr</TT></B></FONT>) to load
+    the <FONT color="red"><B>variable <TT>a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Use  <FONT color="red">ldrsb</FONT>  when  <FONT color="red">a</FONT> is a <FONT color="red">byte</FONT>  typed variable       
+
+  Use  <FONT color="red">ldrsh</FONT>  when  <FONT color="red">a</FONT> is a <FONT color="red">short</FONT> typed variable
+
+  Use  <FONT color="red">ldr</FONT>    when  <FONT color="red">a</FONT> is a <FONT color="red">int</FONT>   typed variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+ <LI> <FONT color="blue"><B>Make sure</B></FONT> that you use the
+    <FONT color="red"><B>correct store instruction</B></FONT>
+    (<FONT color="blue"><B><TT>ldrb</TT></B></FONT>,
+    <FONT color="blue"><B><TT>ldrh</TT></B></FONT> or
+    <FONT color="blue"><B><TT>ldr</TT></B></FONT>) to store
+    the <FONT color="red"><B>variable <TT>b</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Use  <FONT color="red">strb</FONT>  when  <FONT color="red">b</FONT> is a <FONT color="red">byte</FONT>  typed variable       
+
+  Use  <FONT color="red">strh</FONT>  when  <FONT color="red">b</FONT> is a <FONT color="red">short</FONT> typed variable
+
+  Use  <FONT color="red">str</FONT>   when  <FONT color="red">b</FONT> is a <FONT color="red">int</FONT>   typed variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will <FONT color="red"><B>practice </B></FONT> this
+ in <FONT color="blue"><B>project 4</B></FONT>
+ </UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

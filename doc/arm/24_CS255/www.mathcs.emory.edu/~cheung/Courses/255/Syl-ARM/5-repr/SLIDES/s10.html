@@ -1,0 +1,976 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Introduction
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Previously:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> We studied how to find the 
+     <FONT color="red"><B>(decimal) value</B></FONT>
+   <FONT color="blue"><B> represented</B></FONT> by a 
+    <FONT color="red"><B>binary number</B></FONT> &nbsp;&nbsp;&nbsp;
+   <P>
+  (The 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>binary number system</B></FONT></SPAN>)
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: lightcyan">
+  <FONT color="red"><B>Short-coming</B></FONT> of the
+   <FONT color="blue"><B>binary number system</B></FONT>:</SPAN>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>binary number system</B></FONT>
+      can 
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B><I>only</I> represent</B></FONT></span>
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+      <FONT color="red"><B>positive values</B></FONT></SPAN> (and 
+   <B>0</B>)
+       !!! &nbsp;
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We <FONT color="red"><B>now</B></FONT>
+   study how to 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="blue"><B>represent</B></FONT></SPAN>
+  <FONT color="red"><B><I> 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">signed</SPAN></I> 
+  (= positive and negative) 
+   values</B></FONT>
+   <FONT color="blue"><B>in binary</B></FONT>. 
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue">sign-magnitude</FONT> representation system
+  </SPAN>
+  </B></FONT>
+  </div>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  The 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>obvious way</B></FONT></SPAN> (used by humans) to
+  <FONT color="blue"><B>represent</B></FONT>
+  <FONT color="red"><B><I>signed</I> values</B></FONT> is:
+  </font>
+  </p>
+
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> The <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>sign-maginitude</B></FONT>
+    <FONT color="blue"><B>representation system</B></FONT></SPAN>.
+<P>
+ <LI> The <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>sign-maginitude</B></FONT>
+    <FONT color="blue"><B>representation system</B></FONT></SPAN> uses
+    <FONT color="red"><B>2 components</B></FONT> to
+   <FONT color="blue"><B>represent</B></FONT>
+   a <FONT color="red"><B>signed value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <OL>
+ <LI> A <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>sign</B></FONT>
+        <FONT color="blue"><B>component</B></FONT></SPAN> that
+	<B>represents</B> the
+	<FONT color="red"><B>sign (positive/negative)</B></FONT> of
+	the <FONT color="blue"><B>signed number</B></FONT>
+ <P>
+ <LI> A <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>magnitude</B></FONT>
+        <FONT color="blue"><B>component</B></FONT></SPAN> that
+	<B>represents</B> the
+	<FONT color="red"><B>absolute value</B></FONT> of
+	the <FONT color="blue"><B>signed number</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ <B>Examples:</B>
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="#CCFFCC" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+   2   (or:  +2)<FONT color="red"> represents</FONT>  positive 2
+  -2             <FONT color="red">represents</FONT>  negative 2 </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">sign-magnitude</FONT> representation using
+   <FONT color="blue"> decimal number</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Representing</B></FONT>
+  <FONT color="blue"><B>positive values</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/values3.gif" style="width:40%">
+   </center>
+
+    <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Representing</B></FONT>
+  <FONT color="blue"><B><I>negative</I> values</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/values4.gif" style="width:40%">
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">mapping</FONT> between
+   the <FONT color="blue">sign-magnitude representation</FONT> and
+   the <FONT color="blue">signed values</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+  The following
+  <FONT color="red"><B>table</B></FONT> depicts
+  the <FONT color="blue"><B>mapping</B></FONT> between
+  the <FONT color="red"><B>sign-magnitude representation</B></FONT> and
+  the <FONT color="blue"><B>signed values</B></FONT>:
+   </font>
+   </p>
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ Sign-
+ magnitude                                 0   
+ representation:   ...  -4   -3   -2  -1  -0   1    2    3   ... 
+                 ---------------------------------------------  
+ Value:                <FONT color="red">&bull;&bull;&bull;&bull;  &bull;&bull;&bull;  &bull;&bull;   &bull;</FONT>       &bull;   &bull;&bull;   &bull;&bull;&bull;
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+   The <FONT color="red"><B>red dots</B></FONT> represent
+   <FONT color="blue"><B><I>negative</I> values</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.7in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Short-comings</FONT> of the
+   <FONT color="blue">sign-magnitude representation</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Short-comings</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> There are
+   <FONT color="red"><B>2 ways</B></FONT> to
+     <FONT color="blue"><B>represent (= write)</B></FONT>
+     the <FONT color="red"><B>value ZERO</B></FONT> in
+       the  <FONT color="blue"><B>sign-magnitude representation</B></FONT>:
+   <P>
+   <UL>
+   <OL>
+   <LI> <FONT color="blue"><B>0</B></FONT>
+   <LI>  <FONT color="red"><B>&minus;0</B></FONT>
+   </OL>
+   </UL>
+<P>
+<LI> The 
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>meaning</B></FONT> of
+     <FONT color="blue"><B>arithmetic operation</B></FONT></SPAN>
+    performed
+     <FONT color="red"><B>depends</B></FONT> on
+     the <FONT color="blue"><B>values</B></FONT>
+     in the <FONT color="red"><B>operation</B></FONT>
+  </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   When is "add" is  <FONT color="blue">not really</FONT> "add"
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Example</B></FONT> of
+   the  <FONT color="blue"><B>meaning</B></FONT>
+    of an <FONT color="red"><B>arithmetic operation performed</B></FONT>
+    <FONT color="blue"><B>depends</B></FONT> on the 
+  <FONT color="red"><B>values</B></FONT> in the 
+    <FONT color="blue"><B>+ operation</B></FONT>:
+  
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   When we add:           When we add:
+
+           4                     4
+       +   3                 +  -3
+     ---------            ----------
+           7                     1
+
+   We <FONT color="red">added</FONT> 4 and 3       we <FONT color="red">subtracted</FONT> 4 and 3 !    
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.6in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">sign-magnitude</FONT> representation 
+   in <FONT color="blue">binary</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="blue"><B>How to</B></FONT> use
+   the <FONT color="red"><B>sign-magnitude representation</B></FONT>
+   for <FONT color="blue"><B><I>signed</I> values</B></FONT>
+   using <FONT color="red"><B>binary numbers</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+   <LI> The <FONT color="red"><B>sign-magnitude representation</B></FONT>
+       <FONT color="blue"><B>must</B></FONT> use a
+        <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B><I>fixed</I> number</B></FONT> of 
+	<FONT color="blue"><B>bits</B></FONT></SPAN>
+ <P>
+   <LI> The 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B><I>left-most</I> bit</B></FONT></SPAN> in
+     the <FONT color="blue"><B>binary number</B></FONT> will 
+   <FONT color="red"><B>represent</B></FONT>
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   the <FONT color="blue"><B>sign</B></FONT></SPAN>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ Left-most bit = 0  --> positive (binary) number
+ Left-most bit = 1  --> negative (binary) number      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <LI> The <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>remaining bits</B></FONT></SPAN>
+      are <FONT color="blue"><B>used</B></FONT> to
+    <FONT color="red"><B>represent</B></FONT> the
+      <FONT color="blue"><B>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   magnitude (= absolute value)</span></B></FONT> of
+      the <FONT color="red"><B>number</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Examples</B></FONT> of
+    <FONT color="blue"><B>sign-magnitude representation</B></FONT>
+    using
+  <FONT color="red"><B>8 bits</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=850>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">0</SPAN>0000111    represents +7 (= 7)
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">1</SPAN>0000111    represents -7                         </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Problems</FONT> with the 
+  <FONT color="blue">sign-magnitude</FONT> representation
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Problem 1:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5">
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> There are <FONT color="red"><B>2 different representations</B></FONT>
+        for the <FONT color="blue"><B>value 0</B></FONT>
+   &nbsp;&nbsp;&nbsp;
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="blue"><B>Example</B></FONT> in
+   <FONT color="red"><B>8 bits</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    Representation 1:  00000000 (+0) 
+    Representation 2:  10000000 (-0)    
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  This <FONT color="red"><B>phenomenon</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>complicate</B></FONT></SPAN> the
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>testing
+   for 0</SPAN> (i.e.: value in variable == 0)</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Problems with the sign-magnitude representation
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Problem 2:</B></FONT>
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The 
+      <FONT color="red"><B>meaning</B></FONT> of 
+      some
+      <FONT color="blue"><B>arithmetic operations</B></FONT>
+      <FONT color="red"><B> depends</B></FONT> on the 
+     <FONT color="blue"><B>value</B></FONT> of the 
+    <FONT color="red"><B>operands</B></FONT> 
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="blue"><B>Example</B></FONT> in
+   <FONT color="red"><B>8 bits</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+         00000011     (=  +3<sub>10</sub>)      
+       + 10000001     (=  -1<sub>10</sub>)
+     ------------
+         00000010     (=  +2<sub>10</sub>)
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>operation</B></FONT> is
+    <FONT color="blue"><B>add (+)</B></FONT>, but
+    we <FONT color="red"><B>obtained</B></FONT> the
+   <FONT color="blue"><B>answer <TT>00000010</TT></B></FONT> using
+   a <FONT color="red"><B>subtraction</B></FONT>: &nbsp;
+    <FONT color="blue"><B><TT>0000011 &minus; 0000001</TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    A blast from the past
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>In the past</B></FONT>,
+   some <FONT color="blue"><B>computers</B></FONT> had used
+   the <FONT color="red"><B>sign-magnitude representation</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>  <FONT color="red"><B>Computers</B></FONT>
+    (in the past) that used the 
+    <FONT color="blue"><B>sign-magnitude representation</B></FONT>
+    for <FONT color="red"><B>signed values</B></FONT>
+     must use 
+    <FONT color="blue"><B>more complex arithmetic circuits</B></FONT> !!! 
+
+<P>
+ <LI> <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>Disadvantage</B></FONT></SPAN> of
+    <FONT color="blue"><B>using</B></FONT> 
+    the <FONT color="red"><B>sign-magnitude</B></FONT>
+     <FONT color="blue"><B>representation</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI>  The use of
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>more complex</B></FONT>
+     <FONT color="blue"><B>digital circuitry</B></FONT></SPAN>  to
+   <FONT color="red"><B>perform</B></FONT>
+   <FONT color="blue"><B>arithmetic operations</B></FONT>
+   (because we must 
+  <FONT color="red"><B>use</B></FONT> the
+  <FONT color="blue"><B>sign</B></FONT> of the
+  <FONT color="red"><B>operand</B></FONT> to
+  <FONT color="blue"><B>determine</B></FONT>
+  <FONT color="red"><B><I>which</I> operation</B></FONT> that need to be
+  <FONT color="blue"><B>performed</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+<P>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>All</B></FONT>
+   <FONT color="blue"><B>modern computers</B></FONT>
+  use the
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>2s complement code</B></FONT></SPAN>
+  to <FONT color="blue"><B>represent</B></FONT> 
+   <FONT color="red"><B><I>signed</I> integer values</B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We will <FONT color="red"><B>discuss</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>10s complement code</B></FONT></SPAN>
+   <FONT color="red"><B>first</B></FONT> as
+  <FONT color="blue"><B>prelude</B></FONT> to the
+  <FONT color="red"><B>2s complement code</B></FONT>....
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

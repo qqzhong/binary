@@ -1,0 +1,567 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How is a linked list stored in memory
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     A quick (short) <FONT color="red">refresher</FONT> on
+     linked list in Java
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider thsi <FONT color="red"><B>simple</B></FONT>
+     <FONT color="blue"><B>Java program</B></FONT> that
+     illustrates a
+     <FONT color="red"><B>linked list</B></FONT> where
+     each list element contains
+     an <FONT color="blue"><B><TT>int</TT></B></FONT> variable
+     (called "value").
+ <P>
+ This program 
+ travers the linked list and print the
+ <FONT color="red"><B><TT>value</TT></B></FONT> component (= field)
+  in the <FONT color="blue"><B><TT>List</TT></B></FONT> object:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// The List object class:
+
+public class<FONT color="red"> List</FONT>
+{<FONT color="red">
+   int value;
+   List next;</FONT>
+
+   // instance methods omitted - not relevant for discussion
+}
+
+<HR>
+
+<FONT color="red">// Traversing a list:</FONT>
+
+   public static void main(String[] args)
+   {
+      List <FONT color="red">head</FONT> = makeList();   // initial list
+                                //  head point to first element in the list    
+
+      List ptr;
+<FONT color="red">
+      /* =============================================
+         CS171 material: traversing a linked list
+         ============================================= */</FONT>
+      ptr = head;
+
+      while ( ptr != null )
+      {
+         System.out.println( <FONT color="red">ptr.value</FONT> );   // Access the "value" component
+
+         ptr = <FONT color="red">ptr.next</FONT>;                    // Access the "next" component
+      }
+   }
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="blue"><B>similar Java program</B></FONT>
+  <FONT color="red"><B>should </B></FONT> have been 
+ <FONT color="blue"><B>taught</B></FONT> in
+ <FONT color="red"><B>CS171</B></FONT>....
+<P>
+ (I'm not a prophet, so I don't know what example the professor used in 
+ CS171. 
+ But he/she should have explained each
+ of the <FONT color="red"><B>statement</B></FONT> that I used
+ in the program and what the <FONT color="blue"><B>effect</B></FONT> is
+ of the statement)
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/4-linked-list/ListMain.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac ListMain.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>java ListMain</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review:</FONT> the linked list data structure
+     </B></FONT>
+<P>
+<UL>
+
+
+ <LI> What is a <FONT color="blue"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Linked list</B></FONT> =
+      a <FONT color="blue"><B><I>linear</I>
+     (single-way) linked data structure</B></FONT>
+      used to
+      <B>store information</B> of
+      <FONT color="red"><B><I>similar</I> format</B></FONT>
+      where:
+<P>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>size</I> of list</B></FONT>
+      can <FONT color="red"><B><I>change</I> easily</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B><I>elements</I> of the list</B></FONT>
+      are <B>stored</B> in
+      <FONT color="red"><B>sequence</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><I>location</I></B></FONT> of
+      the <FONT color="blue"><B><I>i+1<sup>th</sup></I>-element</B></FONT>
+      in the <B>list</B>
+      is <FONT color="red"><B>stored</B></FONT>
+      inside the
+      <FONT color="blue"><B><I>i<sup>th</sup></I>-element</B></FONT>
+      of the <B>list</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I.e.:
+      we <FONT color="red"><B><I>must</I></B></FONT>
+      consult the <B>information</B> stored in the
+      <FONT color="blue"><B><I>i<sup>th</sup></I>-element</B></FONT>
+      of the <B>list</B> to
+      <FONT color="red"><B>find</B></FONT> the
+      <FONT color="blue"><B><I>i+1<sup>th</sup></I>-element</B></FONT>
+      of the <B>list</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>user</B></FONT>
+     <B>only</B> know the
+     <FONT color="red"><B>location</B></FONT> of
+     the <FONT color="blue"><B><I>first </I> element</B></FONT>
+     of the <B>list</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>programmer</B></FONT>
+      <FONT color="red"><B><I>only</I></B></FONT> has <B>access</B>
+      to the
+      <FONT color="blue"><B>variable</B></FONT> 
+      <FONT color="red"><B><TT>head</TT></B></FONT>
+<P>
+The <FONT color="blue"><B>variable <TT>head</TT></B></FONT> contains
+   a <FONT color="red"><B><I>reference</I></B></FONT> (= address)</B></FONT>
+   of the <B>first</B> <FONT color="blue"><B><I>list element</I></B></FONT>
+  in the <FONT color="red"><B>linked list</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>programmer</B></FONT> (user)
+      <FONT color="red"><B>must</B></FONT> <B>access</B> the
+      <FONT color="blue"><B><I>first</I> list element</B></FONT>
+      through the
+      <FONT color="red"><B>variable <TT>head</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> A <FONT color="blue"><B><I>list element</I></B></FONT>
+    will store some
+    <FONT color="red"><B>useful information</B></FONT>,
+   but it <B><I>also</I></B>
+   contains
+   <FONT color="blue"><B><I>one</I> (and sometimes more)
+   variable</B></FONT>
+   that contains:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>reference</I> (= address)</B></FONT>
+      of the <FONT color="blue"><B><I>next</I> list element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B><I>All</I> list elements</B></FONT>
+     must be <FONT color="red"><B>chained</B></FONT>
+     in <FONT color="blue"><B>sequence</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>only</I> way</B></FONT> to
+      <B>find</B>
+      <FONT color="blue"><B><I>all</I> list elements</B></FONT>
+      is to
+      <FONT color="red"><B><I>traverse</I> the chain</B></FONT>
+      ----
+      <FONT color="magenta"><B>element by element</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B><I>last</I> list element</B></FONT>
+    <B><I>must</I></B>
+     contain the <FONT color="red"><B><I>null</I> value</B></FONT>
+    to indicate that there are
+    <FONT color="blue"><B><I>no more</I> list elements</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How is a linked list stored in the computer memory
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>How</B> a <FONT color="blue"><B>linked list</B></FONT> is
+     <FONT color="red"><B>stored</B></FONT> inside the
+     <B>computer memory</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The following <FONT color="blue"><B>memory content</B></FONT>
+      represents a <B>linked list</B> of
+      <FONT color="red"><B>3 list elements</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>linked list </B></FONT> object can
+       be store in an
+     <FONT color="blue"><B><I>arbitrary</I> location</B></FONT> in
+      the <FONT color="red"><B>computer memory</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>order</I></B></FONT> in the
+   <FONT color="blue"><B>linked list</B></FONT> is
+   established by
+   the <FONT color="red"><B><I>references</I></B></FONT> in
+   the <FONT color="blue"><B>linked list element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>programmer</B></FONT>
+      can <B><I>only</I></B> have
+      <FONT color="blue"><B> access</B></FONT>
+      to the
+      <B>variable</B>
+      <FONT color="red"><B><TT>head</TT></B></FONT>
+<P>
+ <FONT color="blue"><B>Through</B></FONT> the variable
+      <FONT color="red"><B><TT>head</TT></B></FONT>, the
+      <B>programmer</B> can find:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Data</B> stored in the
+    <FONT color="blue"><B><I>first</I> list element</B></FONT>
+    (tagged as <FONT color="red"><B><TT>data1</TT></B></FONT> in the
+    figure)
+ <LI> A <FONT color="blue"><B>reference</B></FONT> to
+     the <FONT color="red"><B><I>second</I> list element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+
+<P>
+ <LI> <FONT color="blue"><B>Through</B></FONT> the
+      <B><I>reference</I></B> stored in the
+      <FONT color="red"><B><I>first</I> list element</B></FONT>, the
+      <B>programmer</B> can find:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Data</B> stored in the
+     <FONT color="blue"><B><I>second</I> list element</B></FONT>
+    (tagged as <FONT color="red"><B><TT>data2</TT></B></FONT> 
+    in the figure)
+ <LI> A <FONT color="blue"><B>reference</B></FONT> to
+     the <FONT color="red"><B><I>third</I> list element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>And so on</I></B></FONT>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>list object</B></FONT> must
+   <FONT color="blue"><B>always</B></FONT> contains
+   a <FONT color="red"><B><I>reference</I> variable</B></FONT>
+   that contains the
+   <FONT color="blue"><B><I>address</I></B></FONT> of its
+   <FONT color="red"><B><I>subsequent</I> list element</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B><I>reference</I> variable</B></FONT> is
+    <B>often</B> named
+    <FONT color="blue"><B><TT>next</TT></B></FONT> in
+    the <FONT color="red"><B>List class definition</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We have discussed the
+ <FONT color="red"><B><I>reference</I></B></FONT> <B>concept</B> already -
+  see:
+ <A HREF="../4-intro/170/ref.html">
+  <FONT color="blue"><B>click here</B></FONT></A>
+ </UL>
+
+
+
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

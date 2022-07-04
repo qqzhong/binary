@@ -1,0 +1,394 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The boolean data type in C
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Boolean data type in <I>C</I> (or the lack there of)
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B><I>Before </I> 1999</B></FONT>,
+   the <B>C programming language</B>
+   <FONT color="red"><B>does <I>not</I></B></FONT> have
+   any
+   <FONT color="blue"><B>boolean (logic) data type</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>C99</B>
+    (see Wikipedia page:
+   <A HREF="http://en.wikipedia.org/wiki/C99">
+    <FONT color="red"><B>click here</B></FONT></A>)
+    introduced the 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    _Bool           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <B>data type</B>
+     that is <FONT color="red"><B>not available</B></FONT> in
+     other <B>C derivates (like C++)</B>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>_Bool</TT></B></FONT>
+     "data type" is the <FONT color="blue"><B>same</B></FONT> as an
+     (ordinary)
+    <FONT color="red"><B> <TT>int</TT></B></FONT> 
+ <P>
+   They also define some
+  <FONT color="red"><B>symbolic names</B></FONT> to
+  represent the
+  <FONT color="blue"><B>Boolean constants <TT>true</TT> and
+  <TT>false</TT></B></FONT>
+  in a <FONT color="red"><B>header file</B></FONT>
+  to make a C program "feels like" it is
+  using <FONT color="blue"><B>boolean values</B></FONT>
+<P>
+ Take a look at:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /usr/lib/gcc/x86_64-linux-gnu/7/include/stdbool.h    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will see these <FONT color="red"><B>definitions</B></FONT> that
+ <FONT color="blue"><B>simulate</B></FONT>
+ <FONT color="red"><B>Boolean constants</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define bool    _Bool                
+   #define <FONT color="red">true</FONT>    1
+   #define <FONT color="red">false</FONT>   0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+You can 
+  <FONT color="red"><B>include</B></FONT> this
+ <FONT color="blue"><B>header file</B></FONT> in your C program using:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     #include  &lt;stdbool.h>   // <...> means: search in C's include files          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>C</B></FONT> does not provide
+       a  <FONT color="red"><B><I>boolean</I> data type</B></FONT>
+ <P>
+ 
+ <P>
+ <LI> The <FONT color="blue"><B>C programming language</B></FONT>
+      uses the
+      <FONT color="red"><B><TT>int</TT> integer type</B></FONT>
+      to represent the
+      <FONT color="blue"><B>boolean data type</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Boolean values (constants)
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Boolean values</B> (in general)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Unlike</I></B></FONT> <B>Java</B>,
+     the 
+   <FONT color="magenta"><B>C programming language</B></FONT>
+     does <FONT color="blue"><B><I>not</I></B></FONT> define
+     <FONT color="red"><B>Boolean values</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> <B>BTW</B>, the
+          <FONT color="blue"><B>Boolean values</B></FONT> in
+	  <B>Java</B> are defined using
+	  the <FONT color="red"><B>keywords</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    true
+    false                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">Java:</FONT>
+
+         boolean a;
+
+         a = true;               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Boolean values</B> in <FONT color="red"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">0</FONT>                =   false
+
+   <FONT color="darkred">Any other value</FONT>  =   true             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> here are
+ <FONT color="red"><B>4 if-statements</B></FONT> using
+ <FONT color="blue"><B>variable numerical values</B></FONT> in
+ <FONT color="red"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+<FONT color="red">#include &lt;stdbool.h></FONT>
+
+
+int main( int argc, char* argv[] )
+{
+   printf("true  = %d\n",   <FONT color="red">true</FONT>);
+   printf("false = %d\n\n", <FONT color="red">false</FONT>);
+
+   if ( 1 )
+      printf("value 1 is true\n");
+   else
+      printf("value 1 is false\n");
+
+   if ( 0 )
+      printf("value 0 is true\n");
+   else
+      printf("value 0 is false\n");
+
+   if ( 0.1 )
+      printf("value 0.1 is true\n");
+   else
+      printf("value 0.1 is false\n");
+
+   if ( 0.0 )
+      printf("value 0.0 is true\n");
+   else
+      printf("value 0.0 is false\n");                  
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+true  = 1
+false = 0
+
+value 1   is true
+value 0   is false
+value 0.1 is true
+value 0.0 is false      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Confirming</B> the fact that:
+ <FONT color="red"><B>0 &equiv; false</B></FONT>
+ and <FONT color="blue"><B>any value &ne; 0 &equiv; true</B></FONT>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/logic1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc logic1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

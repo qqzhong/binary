@@ -1,0 +1,1047 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Accessing</FONT> elements in a
+  <FONT color="blue">dynamic array</FONT> in C
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Problem description:</B></FONT>
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>Previously</B></FONT></SPAN>,
+     we have <FONT color="blue"><B>learned</B></FONT> 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>how</B></FONT> to
+     <FONT color="blue"><B>create</B></FONT> a
+     <FONT color="red"><B>dynamic array</B></FONT></SPAN>
+<P>
+<B>Example:</B> <FONT color="red"><B>creating</B></FONT> a
+   <FONT color="blue"><B>dynamic array</B></FONT> with
+  <FONT color="red"><B>10 array elements</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+<FONT color="blue">
+<B>
+<PRE>
+   int *A;
+
+   A = <FONT color="red">malloc( 10*sizeof(int) )</FONT>;      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> We <FONT color="red"><B>still</B></FONT> need to
+ <FONT color="blue"><B>learn</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>how</B></FONT></SPAN> to
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B>access</B></FONT>
+ the <FONT color="red"><B>elements</B></FONT></SPAN> in
+  this <FONT color="blue"><B>dynamic array</B></FONT>...
+<P>
+<LI> <FONT color="red"><B>Spoiler:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>C language</B></FONT> has a
+     <FONT color="blue"><B>beautiful mechanism</B></FONT>
+     to <FONT color="red"><B>compute</B></FONT> the
+     <FONT color="blue"><B>address</B></FONT> of
+     an <FONT color="red"><B>array element</B></FONT>
+ <P>
+ <LI> This <FONT color="red"><B>mechanism</B></FONT> is
+    <FONT color="blue"><B>called</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>pointer arithmetic</B></FONT></SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Pointer arithmetic</FONT>: defining the meaning of
+    <FONT color="blue">reference</FONT> +
+    <FONT color="blue">integer</FONT> operation
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>Recall</B></FONT></SPAN>  these
+       <FONT color="blue"><B>operators</B></FONT> on
+        the <FONT color="red"><B>reference data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ <FONT color="red">&</FONT>: returns the <FONT color="red">address</FONT> of a variable  
+ <FONT color="red">*</FONT>: returns the <FONT color="red">variable</FONT> at a given address   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> There are 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>other </B></FONT>
+    <FONT color="blue"><B>operators</B></FONT></SPAN>
+    <FONT color="red"><B>defined</B></FONT> on
+    the 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+ <FONT color="blue"><B>reference data type</B></FONT></SPAN>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+  <SPAN style="BACKGROUND-COLOR: #ffdd00"> <FONT color="red">+</FONT> </SPAN>:  pointer addition
+  <SPAN style="BACKGROUND-COLOR: #ffdd00"> <FONT color="red">-</FONT> </SPAN>:  pointer subtraction        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Note</B></FONT> that
+  <FONT color="red"><B>C</B></FONT>
+   can <FONT color="blue"><B>define</B></FONT>
+  the <FONT color="red"><B>meaning</B></FONT> of
+  the <FONT color="blue"><B>pointer addition</B></FONT> and
+  the <FONT color="blue"><B>pointer subtraction</B></FONT>
+  <FONT color="red"><B>operation</B></FONT>
+  <FONT color="blue"><B><I>anyway</I> it likes</B></FONT> 
+  (but the
+  <FONT color="red"><B>operation</B></FONT>
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>must</B></FONT> be
+ <FONT color="red"><B><I>useful</I></B></FONT></SPAN>)
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+      Pointer arithmetic: defining the meaning of
+    <FONT color="blue">reference</FONT> +
+    <FONT color="blue">integer</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>expression</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+   referenceVar + <FONT color="red">i</FONT> // (i is an integer)                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>evaluates (= returns)</B></FONT> a
+  <FONT color="blue"><B><I>reference</I> typed value</B></FONT> equal to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+   referenceVar + <FONT color="red">i</FONT>*<FONT color="red">sizeof</FONT>( *referenceVar )   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Usage:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+  If the <FONT color="red">reference</FONT> variable <FONT color="red">p</FONT>  contains the <FONT color="red">base address</FONT> 
+  of a <FONT color="red">dynamic array</FONT>, then:
+
+     p <FONT color="red">+ i</FONT> = the <FONT color="red">address</FONT> of the <FONT color="red">i<sup>th</sup> element</FONT> of the array
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Pointer arithmetic: defining the meaning of 
+  <FONT color="blue">reference</FONT> + 
+  <FONT color="blue">integer</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Example program</B></FONT>
+  illustrating the
+  <FONT color="blue"><B>add operation</B></FONT> of
+   a <FONT color="red"><B><I>reference</I> typed value</B></FONT> and
+   a <FONT color="blue"><B>integer</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+ #include &lt;stdlib.h>
+
+ int main( int argc, char *argv[] )
+ { 
+     int *A;     // <FONT color="red">sizeof( *A ) = sizeof(int) = 4</FONT>
+     int i = 3;
+
+     A = malloc( 10*sizeof(int) );
+
+     printf("A   = %p\n", A);
+     printf("A+1 = %p\n", <FONT color="red">A+1</FONT>); 
+     printf("A+2 = %p\n", <FONT color="red">A+2</FONT>);
+     printf("A+i = %p\n", <FONT color="red">A+i</FONT>);
+ } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Output:</B></FONT>
+ <FONT color="blue"><B><TT>0x557946b4926<FONT color="red">0</FONT></TT></B></FONT>,
+ <FONT color="blue"><B><TT>0x557946b4926<FONT color="red">4</FONT></TT></B></FONT>,
+ <FONT color="blue"><B><TT>0x557946b4926<FONT color="red">8</FONT></TT></B></FONT> and
+ <FONT color="blue"><B><TT>0x557946b4926<FONT color="red">c</FONT></TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Pointer aritmetic <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  This <FONT color="red"><B>diagram</B></FONT>
+  shows that
+  <FONT color="blue"><B><TT>A+i</TT></B></FONT>
+  is the <FONT color="red"><B>address</B></FONT> of
+  the <FONT color="blue"><B>array element <TT>A[i]</TT></B></FONT>
+  (for an <FONT color="red"><B><TT>int</TT> typed array</B></FONT>)
+  <FONT color="blue"><B>assuming</B></FONT> that
+  <FONT color="red"><B><TT>A</TT></B></FONT> contains
+ the <FONT color="blue"><B>value 8000</TT></B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pointer-arithm4.gif" style="width:60%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B><TT>A</TT></B></FONT> is
+  <FONT color="red"><B>irrelevant</B></FONT> as long as
+  it is <FONT color="blue"><B>equal</B></FONT> to
+  the <FONT color="red"><B><I>base address</I></B></FONT> of
+  the <FONT color="blue"><B>(dynamic) array</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Pointer arithmetic: defining the meaning of 
+  <FONT color="blue">reference</FONT> + 
+  <FONT color="blue">integer</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ When we <FONT color="red"><B>use</B></FONT>
+  a
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B><TT>short *</TT> pointer</B></FONT></SPAN>,
+  the <FONT color="red"><B><I>increase</I></B></FONT> is
+  by <FONT color="blue"><B>2 bytes</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+ #include &lt;stdlib.h>
+
+ int main( int argc, char *argv[] )
+ { 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">short</SPAN> *A;  // <FONT color="red">sizeof( *A ) = sizeof(short) = 2</FONT>
+     int i = 3;
+
+     A = malloc( 10*sizeof(int) );
+
+     printf("A   = %p\n", A);
+     printf("A+1 = %p\n", <FONT color="red">A+1</FONT>); 
+     printf("A+2 = %p\n", <FONT color="red">A+2</FONT>);
+     printf("A+i = %p\n", <FONT color="red">A+i</FONT>);
+ } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Output:</B></FONT>
+ <FONT color="blue"><B><TT>0x564f7190226<FONT color="red">0</FONT></TT></B></FONT>,
+ <FONT color="blue"><B><TT>0x564f7190226<FONT color="red">2</FONT></TT></B></FONT>,
+ <FONT color="blue"><B><TT>0x564f7190226<FONT color="red">4</FONT></TT></B></FONT> and
+ <FONT color="blue"><B><TT>0x564f7190226<FONT color="red">8</FONT></TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Pointer aritmetic <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  This <FONT color="red"><B>diagram</B></FONT>
+  shows that
+  <FONT color="blue"><B><TT>A+i</TT></B></FONT>
+  is the <FONT color="red"><B>address</B></FONT> of
+  the <FONT color="blue"><B>array element <TT>A[i]</TT></B></FONT>
+  (for an <FONT color="red"><B><TT>short</TT> typed array</B></FONT>)
+  <FONT color="blue"><B>assuming</B></FONT> that
+  <FONT color="red"><B><TT>A</TT></B></FONT> contains
+ the <FONT color="blue"><B>value 8000</TT></B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pointer-arithm4b.gif" style="width:60%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B><TT>A</TT></B></FONT> is
+  <FONT color="red"><B>irrelevant</B></FONT> as long as
+  it is <FONT color="blue"><B>equal</B></FONT> to
+  the <FONT color="red"><B><I>base address</I></B></FONT> of
+  the <FONT color="blue"><B>(dynamic) array</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Pointer arithmetic: defining the meaning of 
+  <FONT color="blue">reference</FONT> + 
+  <FONT color="blue">integer</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ When we <FONT color="red"><B>use</B></FONT>
+  a
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B><TT>double *</TT> pointer</B></FONT></SPAN>,
+  the <FONT color="red"><B><I>increase</I></B></FONT> is
+  by <FONT color="blue"><B>8 bytes</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+ #include &lt;stdlib.h>
+
+ int main( int argc, char *argv[] )
+ { 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">double</SPAN> *A; // <FONT color="red">sizeof( *A ) = sizeof(double) = 8</FONT>
+     int i = 3;
+
+     A = malloc( 10*sizeof(int) );
+
+     printf("A   = %p\n", A);
+     printf("A+1 = %p\n", <FONT color="red">A+1</FONT>); 
+     printf("A+2 = %p\n", <FONT color="red">A+2</FONT>);
+     printf("A+i = %p\n", <FONT color="red">A+i</FONT>);
+ } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Output:</B></FONT>
+ <FONT color="blue"><B><TT>0x557946b492<FONT color="red">60</FONT></TT></B></FONT>,
+ <FONT color="blue"><B><TT>0x557946b492<FONT color="red">68</FONT></TT></B></FONT>,
+ <FONT color="blue"><B><TT>0x557946b492<FONT color="red">70</FONT></TT></B></FONT> and
+ <FONT color="blue"><B><TT>0x557946b492<FONT color="red">78</FONT></TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Pointer aritmetic <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  This <FONT color="red"><B>diagram</B></FONT>
+  shows that
+  <FONT color="blue"><B><TT>A+i</TT></B></FONT>
+  is the <FONT color="red"><B>address</B></FONT> of
+  the <FONT color="blue"><B>array element <TT>A[i]</TT></B></FONT>
+  (for an <FONT color="red"><B><TT>double</TT> typed array</B></FONT>)
+  <FONT color="blue"><B>assuming</B></FONT> that
+  <FONT color="red"><B><TT>A</TT></B></FONT> contains
+ the <FONT color="blue"><B>value 8000</TT></B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pointer-arithm4c.gif" style="width:60%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>value</B></FONT> in
+  <FONT color="blue"><B><TT>A</TT></B></FONT> is
+  <FONT color="red"><B>irrelevant</B></FONT> as long as
+  it is <FONT color="blue"><B>equal</B></FONT> to
+  the <FONT color="red"><B><I>base address</I></B></FONT> of
+  the <FONT color="blue"><B>(dynamic) array</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Accessing</FONT> a
+  <FONT color="blue">dynamic array</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  We can <FONT color="red"><B>use</B></FONT> the
+  <FONT color="blue"><B>+ operation</B></FONT> on
+  <FONT color="red"><B>pointer variables</B></FONT> to
+  <FONT color="blue"><B><I>access</I></B></FONT>
+  <FONT color="red"><B>elements</B></FONT> in a
+  <FONT color="blue"><B>dynamic array</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  of <FONT color="red"><B><I>any</I> datatype</B></FONT></SPAN> as
+  <B>follows:</B>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+ #include &lt;stdlib.h>
+
+ int main( int argc, char *argv[] )
+ { 
+     int *A; 
+     int i;
+
+     A = malloc( 10*sizeof(int) ); // Create a <FONT color="red">dynamic array</FONT> 
+
+     for ( i = 0; i < 10; i++ )
+        <FONT color="red">*(A + i)</FONT> = i*i;   // Assigns i^2 to A[i] 
+
+     for ( i = 0; i < 10; i++ )
+        printf("%d\n", <FONT color="red">*(A + i)</FONT> );
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+      Pointer arithmetic: defining the meaning of
+    <FONT color="blue">reference</FONT> &minus;
+    <FONT color="blue">integer</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>expression</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+   referenceVar <FONT color="red">-</FONT> intTypeValue       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>evaluates (= returns)</B></FONT> a
+  <FONT color="blue"><B><I>reference</I> typed value</B></FONT> equal to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+   referenceVar <FONT color="red">-</FONT> intTypeValue*<FONT color="red">sizeof</FONT>( *referenceVar )   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+<font size="+2"> 
+ <UL>
+ <LI> It is <FONT color="red"><B>less common</B></FONT> to use &nbsp;
+    <FONT color="blue"><B><TT>referenceVar <FONT color="red">-</FONT> integer
+   </TT></B></FONT> in a
+   <FONT color="red"><B>C program</B></FONT>
+   because <FONT color="blue"><B>negative offsets</B></FONT> are
+   <FONT color="red"><B>not used</B></FONT> to
+   <FONT color="blue"><B>access array elements</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

@@ -1,0 +1,1380 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus & Progress </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<CENTER>
+<H1> CS255 Syllabus & Progress </H1>
+</CENTER>
+<HR>
+Material covered are displayed in
+<FONT COLOR="#0000FF">blue</FONT>.
+<HR>
+
+
+<FONT COLOR="#0000FF">
+<UL>
+<HR>
+<LI> Intro to CS255: <A HREF="0-intro/intro.html"> click here</A>
+<HR>
+</UL>
+<P>
+
+<OL>
+
+<P>
+
+
+
+<P>
+<HR>
+<P>
+<B>Search the lecture notes:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<script>
+  (function() {
+    var cx = '008040207081668031122:s2gks-dexeg';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> Review of Computer Architecture and Intro to Program Organization 
+ <UL>
+ <LI> <B>Logical View</B> of a Computer System:
+      <A HREF="4-intro/logical-view.html"> click here</A>
+ <LI> Structure of computer main memory:
+      <A HREF="4-intro/memory1.html"> click here</A>
+ <LI> Accessing the computer memory:
+      <A HREF="4-intro/mem-access.html"> click here</A>
+ <P>
+ <LI> Program organization (where different parts of the program 
+	is put in memory):
+      <A HREF="4-intro/memory2.html"> click here</A>
+	-- will be explained in Section 4 in detail
+ <LI> The program translation process:
+      <A HREF="4-intro/translate.html"> click here</A>
+	-- will be explained in Section 5 in detail
+ </UL>
+
+<P>
+
+<P>
+<HR>
+<FONT COLOR="black">
+Before we can explain how the computer works - i.e., how it manipulates
+data, we must understand how information are stored inside the computer...
+</FONT>
+<HR>
+
+
+<P>
+<LI> How information are stored in the computer
+
+ <UL>
+ <LI> Fundamental data used in the computer (these values need to be stored)
+    <UL>
+    <LI> Numbers (int, float, double)
+    <LI> Text (char)
+    <LI> Computer instructions
+    <LI> (Boolean values "true" is represented as the number 1 and
+	"false" as number 0)
+    </UL>
+
+<P>
+ <LI> Storing <B>numeric values</B> inside the computer:
+   <UL> 
+   <LI> Numeric values: 
+		<A HREF="5-repr/values.html"> click here</A>
+   <LI> Positional value representation:
+		<A HREF="5-repr/positional.html"> click here</A>
+   <LI> Representing unsigned integers:
+		<A HREF="5-repr/unsigned.html"> click here</A>
+   <LI> Arithmetic with binary numbers:
+		<A HREF="5-repr/bin-arith.html"> click here</A>
+   </UL>
+ <P>
+   <LI> Other number systems:
+     <UL>
+     <LI> Base-5 numbers: <A HREF="5-repr/base5.html"> click here</A>
+     <LI> Octal numbers: <A HREF="5-repr/octal.html"> click here</A>
+     <LI> Hexadecimal numbers: <A HREF="5-repr/hex.html"> click here</A>
+     </UL>
+<P>
+   <LI> Representing <B>Signed</B> integers:
+		<A HREF="5-repr/signed.html"> click here</A>
+     <UL>
+     <LI> 10's complement number <B>encoding</B>:
+	<A HREF="5-repr/10s-comp.html"> click here</A>
+     <LI> 2's complement number <B>encoding</B>:
+	<A HREF="5-repr/2s-comp.html"> click here</A>
+     <LI> "Excess-n": an alternate <B>binary encoding</B> for signed values:
+	<A HREF="5-repr/excess-n.html"> click here</A>
+    </UL>
+ <P>
+   <LI> Fixed point numbers:
+		<A HREF="5-repr/fixed.html"> click here</A>
+ <P>
+   <LI> Floating point numbers 
+     <UL>
+     <LI> Floating point representation:
+		<A HREF="5-repr/float.html"> click here</A>
+     <LI> Floating point round off error: 
+	<A HREF="demo/Float.java"> Float.java</A>
+     </UL>
+<HR>
+<FONT COLOR="purple"> Homework 1 re-enforces number system concepts:</FONT>
+	<A HREF="../Projects/hw1.html"> click here </A>
+<HR>
+<HR>
+  <LI> A binary number information sheet:
+    <A HREF="../others/BinNumReps.html"> click here</A>
+<HR>
+   </UL>
+
+<P>
+ <LI> Representing <B>alphanumerical (textual) data</B> inside the computer:
+ <P>
+   <UL>
+   <LI> ASCII code: 
+      <A HREF="5-repr/ascii.html"> click here</A>
+   <LI> Unicode: 
+      <A HREF="5-repr/unicode.html"> click here</A>
+  <P>
+  <LI> What's that in the memory ?
+      <A HREF="5-repr/context.html"> click here</A>
+   </UL>
+<P>
+<HR>
+<HR>
+<HR>
+   <LI> Making communication possible between humans and computers:
+  <P>
+  <UL>
+   <LI> Introduction:
+      <A HREF="5-repr/comm.html"> click here</A>
+
+   <P>
+   <LI> Communicating <B>non-textual information</B> to a computer:
+   <UL>
+   <LI> Communicating <B>Boolean values</B> between humans and computers:
+      <A HREF="5-repr/comm3.html"> click here</A>
+   <P>
+   <LI> Communicating <B>numerical values</B> between humans and computers:
+     <UL>
+     <LI> A <B>trivial solution</B>:
+         <A HREF="5-repr/comm2a.html"> click here</A>
+     <LI> Working with ASCII codes:
+         <A HREF="5-repr/ascii-prog.html"> click here</A>
+     <LI> Some <B>Java</B> facts:
+         <A HREF="5-repr/java-review.html"> click here</A>
+   <LI> Communicating <B>numerical values</B> between humans and computers:
+      <A HREF="5-repr/comm2.html"> click here</A>
+     </UL>
+<HR>
+<FONT COLOR="purple"> Homework 2 re-enforces string &lt;-&gt; 
+	binary conversion: </FONT>
+	<A HREF="../Projects/hw2.html"> click here </A>
+<HR>
+   </UL> 
+   </UL> 
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> Storing <B>computer instructions</B> inside the computer:
+   <UL>
+   <LI> Instruction categories: 
+       <UL>
+       <LI> 0 operand
+       <LI> 1 operand (unary operation, e.g., negate)
+       <LI> 2 operands (binary operation, e.g., add)
+       </UL>
+   <LI> Instruction formats: 
+       <UL>
+       <LI> Variable length (Intel, Motorola M68000)
+       <LI> Fixed length (SPARC, MIPS)
+       </UL>
+   <LI> M68000 Instruction encoding: 
+      <A HREF="5-repr/m8k-instr.html"> click here</A>
+   <LI> SPARC Instruction encoding: 
+      <A HREF="5-repr/sparc-instr.html"> click here</A>
+   </UL>
+  <P>
+</UL>
+<P>
+<HR>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Intro to computer programming: anatomy of  computer programs and
+	how to make a computer program
+     </B></FONT>
+<P>
+<UL>
+   <LI> What's in a computer program (instructions + variables in memory cells):
+       <A HREF="6-CPU/program.html"> click here</A>
+   <LI> The general CPU architecture 
+	(= machinery to execute computer instructions):
+      <A HREF="6-CPU/cpu.html"> click here</A>
+</FONT><! xxxxxx Move this line to the current material><A NAME="CURRENT"></A>
+   <LI> The instruction execution cycle (how the CPU works):
+      <A HREF="6-CPU/instr-exec-cycle.html"> click here</A>
+   <P>
+   <LI> Evolution of the art of "programming a computer":
+       <A HREF="6-CPU/intro1.html"> click here</A>
+   <LI> Example of translating high level language program:
+       <A HREF="6-CPU/intro2.html"> click here</A>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Intro to M68000 assembler programming
+     </B></FONT>
+<P>
+<UL>
+   <LI> Why assembler programming ?
+	<A HREF="7-M68000/why.html"> click here</A>
+   <LI> M68000 CPU architecture:
+      <A HREF="7-M68000/cpu.html"> click here</A>
+<P>
+   <LI> Structure of an (M68000) assembler program
+	(assembler <B>directives</B> and
+	assembler <B>instructions</B>):
+      <A HREF="7-M68000/intro.html"> click here</A>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler <FONT COLOR="red">directives</font>:
+	defining constants and variables in a program
+     </B></FONT>
+<P>
+<UL>
+   <LI> Defining <B>(symbolic) constants</B> in a computer program:
+      <A HREF="7-M68000/constants.html"> click here</A>
+  <P>
+   <LI> Defining <B>variables</B> in a computer program:
+   <UL>
+   <LI> Review: <B>kinds</B> of variables in <B>Java</B>:
+      <A HREF="7-M68000/java-vars.html"> click here</A>
+   <LI> Intro to <B>memory organization</B>:
+      <A HREF="7-M68000/store-vars.html"> click here</A>
+   <LI> How the different <B>kinds</B> of variables are
+	stored in <B>memory</B>:
+      <A HREF="7-M68000/store-vars2.html"> click here</A>
+   <P>
+   <LI> Defining <B>(uninitialized) class variables</B> of <B>Java</B> in
+	<B>assembler programming</B>:
+      <A HREF="7-M68000/directives1.html"> click here</A>
+   <LI> Defining <B><I>initialized</I> class variables</B> of <B>Java</B> in
+	<B>assembler programming</B>:
+      <A HREF="7-M68000/directives2.html"> click here</A>
+   <LI> <B><I>Memory alignment</I> requirement</B> for <B>variables</B>:
+      <A HREF="7-M68000/align.html"> click here</A>
+   </UL>
+ <P>
+ <LI> Ending an M68000 assembler program:
+      <A HREF="7-M68000/end.html"> click here</A>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Operands used in assembler instructions
+     </B></FONT>
+<P>
+<UL>
+   <LI> M68000 Assembler Instruction:
+      <A HREF="7-M68000/instructions.html"> click here</A>
+ <P>
+   <LI> Operands in M68000 assembler programming:
+   <UL>
+    <LI> The <B>move</B> instruction 
+	(used to illustrate how to access operands):
+      <A HREF="7-M68000/move.html"> click here</A>
+    <LI> Operands:
+    <UL>
+    <LI> Intro to operands (of assembler instructions):
+      <A HREF="7-M68000/operands1.html"> click here</A>
+    <LI> <B>Data Register</B> operands:
+      <A HREF="7-M68000/operands2.html"> click here</A>
+    <LI> <B>Address Register</B> operands:
+      <A HREF="7-M68000/operands3.html"> click here</A>
+    <LI> <B>Memory</B> operands:
+      <A HREF="7-M68000/operands4.html"> click here</A>
+    </UL>
+    <P>
+   </UL>
+ <P>
+<P>
+<HR>
+<HR>
+  <LI> <font color="red"><B>
+	M68000 instruction nmenomic codes and their meaning:
+	</B></FONT>
+      <A HREF="7-M68000/m68000-1.pdf"> click here</A>
+  <LI> <font color="red"><B>
+	M68000 instruction nmenomic codes and the allowed addressing modes:
+	</B></FONT>
+      <A HREF="7-M68000/m68000-2.pdf"> click here</A>
+  <LI> All M68000 instructions discussed in CS255 (work in progress):
+    <A HREF="7-M68000/M68000-instr.html"> click here</A>
+ </UL>
+<HR>
+<HR>
+<P>
+
+  </UL>
+<P>
+<LI> <B> The Assignment Statement:</B>
+ <UL>
+ <LI> A simple example: C = A + B
+      <A HREF="7-M68000/abc.html"> click here</A>
+ <P>
+ <LI> <FONT COLOR="red"><B>Accessing variables:</B></FONT>
+	<FONT COLOR="blue"><B>
+          M68000 addressing modes</B></FONT>
+	(<B>tough topic</B>...)
+  <UL>
+  <LI> Immediate: 
+       <A HREF="7-M68000/immediate.html"> click here</A>
+  <LI> Absolute or Direct: 
+       <A HREF="7-M68000/direct.html"> click here</A>
+<HR>
+<FONT COLOR="purple"> Homework 3 introduces the Egtapi programming
+	environment, and re-enforces defining and using simple variables
+	with Assembler Directives and the Immediate & Direct Modes: 
+	<A HREF="../Projects/hw3.html"> click here </A>
+<P>
+	<B>This project is very easy to do, but make sure you assemble 
+	and run the program to get familiar with Egtapi, or else, 
+	your future encounter with Egtapi with be very unpleasant
+	if you have to struggle with bugs in the assembler program
+	<I>and</I> finding out on how to operate Egtapi...</B>
+</FONT>
+<HR>
+
+
+  <LI> Address register indirect (with displacement):
+       <A HREF="7-M68000/indirect+displ.html"> click here</A>
+  <P>
+  <LI> Accessing data structures using the indirect modes:
+	<UL>
+	<LI> Accessing arrays:
+           <A HREF="7-M68000/array.html"> click here</A>
+    <P>
+        <LI> How is a linked list stored in memory:
+           <A HREF="7-M68000/linked-list.html"> click here</A>
+        <LI> Accesing data in linked list: 
+		<A HREF="7-M68000/access-linked-list.html"> click here </A>
+      </UL>
+  <P>
+  <LI> Address register indirect with <B>index</B> and displacement:
+       <A HREF="7-M68000/indirect+index+displ.html"> click here</A>
+ </UL>
+ <P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="red"><B>Arithmetic operations (+, -, * and /):</B></FONT>
+       
+ <UL>
+ <LI> The <FONT COLOR="blue"><B>data type</B></FONT>
+         in an <B>operation</B>:
+	<A HREF="7-M68000/operand-size.html"> click here</A>
+ <P>
+ <LI> Important property of computer (= machine) instructions:
+	<A HREF="7-M68000/instr-property.html"> click here</A>
+ <P>
+ <LI> <FONT COLOR="blue"><B>(Arithmetic) operations</B></FONT>
+	(on the <B>operands</B> of the
+	<FONT COLOR="red"><B><I>same</I> data type)</B></FONT>:
+ <UL>
+ <LI> The <B>add</B>  (and <B>adda</B>) instruction:
+	<A HREF="7-M68000/add.html"> click here</A>
+ <LI> The <B>default type</B>  of a M68000 instruction and case
+	sensitivity:
+	<A HREF="7-M68000/default.html"> click here</A>
+ <LI> Note on how <B>"a + b"</B> is translated into
+	assembler code:
+	<A HREF="7-M68000/a+b.html"> click here</A>
+ <P>
+ <LI> The subtract (<B>sub</B>) instruction:
+	<A HREF="7-M68000/sub.html"> click here</A>
+ <LI> The negate (<B>neg</B>) instruction:
+	<A HREF="7-M68000/neg.html"> click here</A>
+ <LI> The <B>muls</B> and <B>divs</B> instructions 
+	(integer multiply and divide):
+	<A HREF="7-M68000/muls+divs1.html"> click here</A>
+ </UL>
+ <P>
+ <LI> Operations on <B>array variables</B> of various data types:
+	<A HREF="7-M68000/add-array.html"> click here</A>
+ </UL>
+ <P>
+ <HR>
+ <HR>
+ <P>
+<LI> <FONT COLOR="red"><B>Computations using <I>different types</I> 
+	of variables:</B></FONT>
+ <UL>
+ <LI> <FONT COLOR="blue"><B>Mixing <TT>int</TT>, <TT>short</TT>, 
+	<TT>byte</TT> operands:</B></FONT>
+ <UL>
+ <LI> <B>Assembler instructions</B> to
+	<font color="red"><B>convert</B></font>
+         between <FONT COLOR="blue">
+	<B>different data types </B>:</font>
+	<A HREF="7-M68000/ext1.html"> click here</A>
+ <P>
+ <LI> <B>Assignment statement</B> using
+	<B>different sizes</B>:
+	<A HREF="7-M68000/ext2.html"> click here</A>
+ <LI> <B>Arithmetic expression</B> using
+	<B>different sizes</B>:
+	<A HREF="7-M68000/ext3.html"> click here</A>
+ <LI> Mixed type operations with <B>array variables</B>:
+	<A HREF="7-M68000/mixed.html"> click here</A>
+ <P>
+ <LI> Using the <B>ext</B> instruction on the
+	results of the <B>muls</B> and <B>divs</B> instructions:
+   <UL>
+   <LI> Multiply: <A HREF="7-M68000/muls+divs2.html"> click here</A>
+   <LI> Divide: <A HREF="7-M68000/muls+divs3.html"> click here</A>
+   </UL>
+ <P>
+ <LI> A large example accessing data structures (includes linked list):
+	<A HREF="7-M68000/juicy-example2.html"> click here</A>
+ </UL>
+ </UL>
+ <P>
+ <LI> "Complicated" functions - like <B>sin(x)</B>:
+    <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/355/Syllabus/1-circuits/sin.html">
+   click here</A>
+<P>
+ </UL>
+<HR>
+<FONT COLOR="purple"> 
+Homework 4 re-enforces using array variables
+ and size conversion with M68000 assembler instructions:
+ <A HREF="../Projects/hw4.html"> click here </A>
+
+</FONT>
+<HR>
+ </UL>
+<P>
+<FONT COLOR="#000000">
+Now you know what the computer actually does when it
+executes an assignment statement: how it
+evaluates an expression and assigns the result to a variable
+in a high level programming language
+</FONT>
+<P>
+
+<A NAME="MT"></A>
+<LI> <B> The Selection (if, if-else) Statements:</B>
+   <UL>
+   <LI> The Compare <TT>(cmp)</TT> and Branch instructions of M68000:
+	<A HREF="7-M68000/cmp+bra.html"> click here</A>
+   <LI> Selection statements in assembler: 
+        <UL>
+      <LI> Simple if: 
+	<A HREF="7-M68000/if.html"> click here</A>
+      <LI> Simple if-else: 
+	<A HREF="7-M68000/if-else.html"> click here</A>
+      <LI> Compound condition using <TT>and</TT>: 
+	<A HREF="7-M68000/if-and.html"> click here</A>
+      <LI> Compound condition using <TT>or</TT>: 
+	<A HREF="7-M68000/if-or.html"> click here</A>
+      <LI> Nested If-statements:
+	<A HREF="7-M68000/nested-if.html"> click here</A>
+        </UL>
+      </UL>
+ <P>
+   <LI> <B>Repetition statements in assembler:</B>
+      <UL>
+      <LI> While-statment:
+	<A HREF="7-M68000/while.html"> click here</A>
+      <LI> For-statment: 
+	<A HREF="7-M68000/for.html"> click here</A>
+      <LI> Do-statment: <A HREF="demo/do.s"> do.s</A>.
+      <LI> Traversing linked lists:
+	<A HREF="7-M68000/traverse-lists.html"> click here</A>
+      </UL>
+ <P>
+     </UL>
+
+<HR>
+<FONT COLOR="purple"> Homework 5 re-enforces the use of compare
+  and branching in writing your first assembler program containing
+  a while loop and two if-statements:
+	<A HREF="../Projects/hw5.html"> click here </A>
+<P>
+Here is an additional practice to re-enforces linked list 
+ access and manipulation
+ (and the WHILE loop construct):
+ <A HREF="../Projects-old/hw6.html"> click here </A>
+(will be given only if there is sufficient time)
+<P>
+<FONT COLOR="#A00000">
+<B>The midterm test will cover the material upto this point and
+ will be scheduled soon.
+</B>
+</FONT>
+</FONT>
+<HR>
+
+
+<P>
+<FONT COLOR="#000000">
+Now you know what the computer actually does when it runs a program.
+The only thing that you still do not know is what happens
+in a function call (there is still a lot to learn...).
+</FONT>
+<P>
+<HR>
+<FONT COLOR="purple"> Programming project pj2 re-enforces 
+  loop and if-statements further with a sorting algorithm...
+	<A HREF="../Projects/hw6.html"> click here </A>
+</FONT>
+<HR>
+
+<P>
+<LI> <B>Subroutines (a.k.a. methods, procedures, functions):</B>
+   <UL>
+   <LI> Prelude to subroutines: try to use <B>BRA</B> to implement
+	subroutines:
+	<A HREF="7-M68000/bra-sub.html"> click here</A>
+   <LI> Prelude to subroutines: implementing a stack
+	<A HREF="7-M68000/impl-stack.html"> click here</A>
+   <P>
+   <LI> M68000 instructions for subroutine invocation and return 
+	<A HREF="7-M68000/bsr+rts.html"> click here</A>
+   <LI> Passing parameters and return values:
+	<A HREF="7-M68000/pass-param.html"> click here</A>
+   <LI> Different ways to pass parameters to a function/subroutine:
+     <UL>
+     <LI> Pass-by-value (a.k.a. Call-by-value):
+	<A HREF="7-M68000/pass-by-value.html"> click here</A>
+     <LI> Pass-by-reference: (a.k.a. Call-by-reference): 
+	<A HREF="7-M68000/pass-by-reference.html"> click here</A>
+     <LI> Important note:
+	<A HREF="7-M68000/note.html"> click here</A>
+     </UL>
+  <P>
+  <LI> <B>Local variables (and parameter variables):</B>
+   <UL>
+   <LI> <B>Intro</B> to Subroutine with local variables:
+	<A HREF="7-M68000/sub+local-var.html"> click here</A>
+   <P>
+   <LI> Review: <B>Lifetime</B> of parameter variables and local variables:
+	<A HREF="7-M68000/behavior.html"> click here</A>
+   <P>
+   <LI> How <B>modern programming languages</B>
+	store <B>parameter</B> and <B>local</B> variables:
+    <UL>
+    <LI> Modern languages:
+	 <A HREF="7-M68000/param-on-stack-1.html"> click here</A>
+    <LI> using the <B>stack</B> to 
+	<B>pass parameters </B>
+	and 
+	<B>store local variables</B>:
+	<A HREF="7-M68000/param-on-stack-3.html"> click here</A>
+    <LI> using a <B><I>frame pointer</I></B> to <B><I>access</I></B>
+        <B>parameters </B>
+        and 
+        <B>local variables</B>:
+        <A HREF="7-M68000/param-on-stack-4.html"> click here</A>
+   </UL>
+
+   </UL>
+<P>
+<LI> <B>Recursion: </B>
+    <UL>
+    <LI> Reminder on parameter variables and local variable:
+	<UL>
+	<LI>  <B><I>parameter variables</I></B>
+	  and <B><I>local variables</I></B> are <B>created</B> 
+	when a function is invoked
+	<LI>  <B><I>parameter variables</I></B>
+          and <B><I>local variables</I></B>
+	are <B>destroyed</B> 
+	when a function returns
+	<LI> We have learned how to
+	<B>implement</B> this behavior using the 
+	<B>system stack</B>
+	</UL>
+    <P>
+    <LI> <B>Writing recursive functions in assembler code:</B>
+     <OL>
+     <LI> always pass parameters on the  stack
+     <LI> always use the  stack to store local variables
+     </OL>
+    <P>
+    <LI> First recursion in assembler, the classical factorial:
+	<A HREF="7-M68000/fac.html"> click here</A>
+    <LI> Another classic recursive problem -- Fibonacci numbers:
+	<A HREF="7-M68000/fib2.html"> click here</A>
+   <P>
+   <HR>
+   <HR>
+   I inserted some material here to help you understand <B>how</B>
+	to <B>program</B> using <B>recursion</b> --- not part
+    of CS255 curriculum:
+   <HR>
+  <LI> <B>Review CS170:</B> recursion is a 
+	<B>divide and conquer</B> technique to solve
+	problems:
+        <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/13/intro.html"> click here </A>
+  <LI> <B>Review CS170:</B> Tower of Hanoi
+   <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/13/hanoi.html"> click here </A>
+  <LI> A <B>tougher</B> example of <B>divide and conquer</B> using
+	<B>recursion:</B>
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/DynProg/money-change.html"> click here </A> (Not part of CS255 material)
+   <HR>
+   <HR>
+    <P>
+    <LI> Tower of Hanoi in M68000 assembler code:
+	<A HREF="7-M68000/hanoi.html"> click here</A>
+	(skipped for brevity - read through it yourself)
+   <P>
+     </UL>
+<P>
+<HR>
+<FONT COLOR="purple"> Programming project <B>hw7</B> re-enforces 
+  recursion:
+	<A HREF="../Projects/hw7.html"> click here </A>
+</FONT>
+<HR>
+
+<P>
+<LI> <B>Working with linked lists:</B>
+ <UL>
+ <LI> Remember how linked lists are stored inside the computer:
+      <A HREF="7-M68000/linked-list.html"> click here</A>
+ <P>
+
+
+ <LI> Insert at start of the linked list: 
+	<A HREF="7-M68000/ll-insert-at-start.html"> click here</A>
+ <LI> Insert a new element at the tail of the list: 
+  <UL>
+  <LI> <B>Iterative algorithm</B> to insert at tail of a list:
+	<A HREF="7-M68000/ll-insert-at-tail1.html"> click here</A>
+	--- skipped (just loop and if, you can read it)
+  <LI> <B>Recursive algorithm</B> to insert at tail of a list:
+   <UL>
+   <LI> My CS171 material on the algorithm:
+    <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/171/Syllabus/12-Recursion/recursion-tail-insert.html"> click here </A>
+   <LI> M68000 program:
+	<A HREF="7-M68000/ll-insert-at-tail2.html"> click here</A>
+   </UL>
+  </UL>
+ <P>
+ <LI> Insert into an ordered list: as hw8
+ </UL>
+<HR>
+<FONT COLOR="purple"> Programming project hw8 re-enforces 
+  linked lists:
+	<A HREF="../Projects/hw8.html"> click here </A>
+</FONT>
+<HR>
+<P>
+
+<FONT COLOR="#000000">
+If you understand everything so far, you now know
+exactly what is going on when a computer executes
+a program.
+You can apply what you learn and write assembler
+programs in <B>any</B> assembler language, e.g.,
+Intel Pentium, IBM PowerChip, DEC Alpha, SunMicrosystem SPARC...
+To program with a new chip, all you need to learn are:
+<UL>
+<LI> its architecture (registers),
+<LI> the addressing modes 
+<LI> the instruction mnemonic codes and what they do.
+</UL>
+I have SPARC and Intel material 
+after the C lecture notes to demonstrate this process.
+<P>
+</FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<A NAME="C"></A>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+       Introduction to the  (System Programming Language) C
+	<font color="red">for Java programmers</font>
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> <B><I>Introduction</I></B>
+	to <B>C</B> programming:
+        <A HREF="1-C-intro/intro.html"> click here </A>
+ <LI> Things that are <B>identical</B> in <B>Java</B>
+	and <B>C</B>:
+        <A HREF="1-C-intro/same.html"> click here </A>
+ <P>
+ <LI> Introduction to the <B><I>C Pre-processor:</I></B>
+   <UL>
+   <LI> Intro:
+        <A HREF="1-C-intro/cprep1a.html"> click here </A>
+   <LI> Macros (<B><TT>#define</TT></B>):
+        <A HREF="1-C-intro/cprep1b.html"> click here </A>
+   <LI> Including files (<B><TT>#include</TT></B>):
+        <A HREF="1-C-intro/cprep1c.html"> click here </A>
+   <LI> <B>Conditional</B> compilation:
+        <A HREF="1-C-intro/cprep1d.html"> click here </A>
+  <LI> A <B>trick</B> to prevent a file being included
+	 <B><I>multiple</I> times</B>:
+        <A HREF="1-C-intro/cprep1e.html"> click here </A>
+   </UL>
+  <P>
+  <LI> C's data types and variables:
+   <UL>
+   <LI> <B>C's data types:</B>
+     <UL>
+     <LI> Overview:
+        <A HREF="1-C-intro/data-type1.html"> click here </A>
+     <LI> Operations involving <B>same</B> and <B><I>different</I></B> 
+	data types:
+        <A HREF="1-C-intro/data-type2.html"> click here </A>
+     <LI> Conversion rules in C:
+        <A HREF="1-C-intro/data-type3.html"> click here </A>
+     </UL>
+   <LI> The <B><TT>const</TT></B> modifier:
+        <A HREF="1-C-intro/const.html"> click here </A>
+   </UL>
+<P>
+ <HR>
+ <HR>
+<P>
+<LI> Basic input/output:
+   <UL>
+   <LI> <B>Printing</B> values of the built-in data types:
+        <A HREF="1-C-intro/printf.html"> click here </A>
+   <LI> <B>Reading in</B> values of the built-in data types:
+        <A HREF="1-C-intro/scanf.html"> click here </A>
+   </UL>
+ <P>
+ <HR>
+ <HR>
+ <P>
+  <LI> <B>Operators</B>:
+  <UL>
+   <LI> <B><I>Arithmetic Operators: </I></B>
+        <A HREF="1-C-intro/arith-oper.html"> click here </A>
+	( +, -, *, / )
+   <LI> <font color="blue"><B><I>Bit-wise-Operators: </I></B></font>
+     <UL>
+     <LI> The <B>bit-wise</B> operators:
+	( &, |, ^, ~ )
+        <A HREF="1-C-intro/bit-oper1.html"> click here </A>
+     <LI> <B>How to</B> use the <B>bit-wise</B> operators:
+        <A HREF="1-C-intro/bit-oper2.html"> click here </A>
+     <LI> Denoting values in base 2, 8 and 16:
+        <A HREF="1-C-intro/bit-oper3.html"> click here </A>
+     <LI> Bit manipulation functions - clear a bit, set a bit, flip a bit
+	and test a bit:
+        <A HREF="1-C-intro/bit-oper4.html"> click here </A>
+     </UL>
+  <P>
+   <LI> <font color="blue"><B><I>Shift-Operators: </I></B></font>
+        <A HREF="1-C-intro/shift-oper.html"> click here </A>
+	( >>, << )
+    <UL>
+    <LI> Intro:
+	<A HREF="1-C-intro/shift-oper1.html"> click here </A>
+    <LI> Set bit at position n:
+	<A HREF="1-C-intro/shift-oper3.html"> click here </A>
+    <LI> Clear bit at position n:
+	<A HREF="1-C-intro/shift-oper2.html"> click here </A>
+    <LI> Flip bit at position n:
+	<A HREF="1-C-intro/shift-oper4.html"> click here </A>
+    <LI> Test bit at position n:
+	<A HREF="1-C-intro/shift-oper5.html"> click here </A>
+    </UL>
+  <P>
+   <LI> <B><I>Assignment Operators: </I></B>
+        <A HREF="1-C-intro/assign-oper.html"> click here </A>
+	( +=, -=, *=, /=, &=, |=, ~=, >>=, <<= )
+  <P>
+   <LI> <B><I>Increment/decrement Operators: </I></B>
+        <A HREF="1-C-intro/incr-decr.html"> click here </A>
+	( ++, -- )
+  <P>
+   <LI> Boolean data type and operations:
+    <UL>
+    <LI> The <font color="blue"><B>Boolean <I>data type </I></B></font> in
+	<B>C</B>:
+        <A HREF="1-C-intro/logic-oper1.html"> click here </A>
+    <LI> <font color="blue"><B>Compare and Logic Operators:</B></font>
+        <A HREF="1-C-intro/logic-oper2.html"> click here </A>
+	( <, <=, >, >=, ==, !=, &&, ||, ! )
+    </UL>
+  <P>
+   <LI> The 
+          <font color="blue"><B><I>conditional operator</I> <TT>?:</TT> </B>
+	  </font>
+        <A HREF="1-C-intro/cond.html"> click here </A>
+   <LI> The 
+          <font color="blue"><B><I>comma operator</I> <TT>,</TT> </B>
+	  </font>
+        <A HREF="1-C-intro/comma.html"> click here </A>
+   <LI> The <font color="blue"><B><TT>sizeof </TT></B></font> operator
+        <A HREF="1-C-intro/sizeof.html"> click here </A>
+  <P>
+   <LI> <B><I>Priority </I></B>  and
+	<B><I>Associativity</I></B>  
+	of the <B>C operators</B>
+        <A HREF="1-C-intro/prio+assoc.html"> click here </A>
+  </UL>
+  <P>
+ <HR>
+ <HR>
+<P>
+ <LI> <B>Statements</B>:
+   <UL>
+   <LI> <B><I>Assignment Statement:</I></B>
+        <A HREF="1-C-intro/assignment.html"> click here </A>
+   <LI> <B><I>Selection Statements (if, if-else, switch): </I></B>
+        <A HREF="1-C-intro/if.html"> click here </A>
+   <LI> <B><I>Loop Statements (while, for, do-while): </I></B>
+        <A HREF="1-C-intro/while.html"> click here </A>
+   </UL>
+ <P>
+ <HR>
+ <HR>
+ <P>
+ <LI> <font color="red"><B>Arrays:</B></font>
+    <UL>
+    <LI> <B>Defining</B> and <B>using</B>
+	<B><I>one-dimensional</I></B> array variables:</I></B>
+        <A HREF="1-C-intro/array1a.html"> click here </A>
+    <LI> Review: <B>static</B> and <B>dynamic</B> arrays:
+        <A HREF="1-C-intro/array1b.html"> click here </A>
+    <LI> <B>Array bound</B> checks:
+        <A HREF="1-C-intro/array1c.html"> click here </A>
+   <P>
+    <LI> <B>Defining</B> and <B>using</B>
+	<B><I>two-dimensional</I></B> array variables:</I></B>
+        <A HREF="1-C-intro/array2.html"> click here </A>
+   <P>
+     <LI> "<B><I>Bit</I>" arrays:</I></B>
+        <A HREF="1-C-intro/bit-array.html"> click here </A>
+    </UL>
+ </UL>
+ <P>
+ <HR>
+ <HR>
+ <P>
+ <LI> <font color="blue"><B>Functions (methods): </B></font>
+   <UL>
+   <LI> Intro to <B><I>C Functions:</I></B>
+        <A HREF="1-C-intro/subroutine.html"> click here </A>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <B>Single file</B> C program:
+     <font color="red"><B><I>Declaring</I> functions: </B></font>
+   <UL>
+   <P>
+   <LI> Preliminary to function declaration:
+     <UL>
+     <LI> Parameters/return values in a function call:
+        <A HREF="1-C-intro/type-func1.html"> click here </A>
+     <LI> <B>Correctness requirement</B> on function call
+	 with <B>mismatched</B> (1) parameter type and
+	(2) return value type:
+        <A HREF="1-C-intro/type-func2a.html"> click here </A>
+     <LI> <B>Automatic conversion rules</B> for function calls:
+        <A HREF="1-C-intro/type-func2b.html"> click here </A>
+     </UL>
+      <P>
+     <LI> <B>Important differences</B> between the C and Java compilers:
+     <UL>
+     <LI> One file vs. multi-file searching:
+        <A HREF="1-C-intro/type-func3a.html"> click here </A>
+     <LI> <B>One-pass</B> vs. <B>two-pass</B> compiler:
+        <A HREF="1-C-intro/type-func3b.html"> click here </A>
+     <LI> <B>Implicit</B> function prototyping in <B>C</B>:
+        <A HREF="1-C-intro/type-func3c.html"> click here </A>
+     </UL>
+  <P>
+  <LI> Function <B>declaration</B>:
+    <UL>
+     <LI> Function prototype --- <B><I>declaring</I></B> a function:
+        <A HREF="1-C-intro/type-func4a.html"> click here </A>
+     <LI> Removing the <B>Implicit</B> function prototyping in <B>C</B>:
+        <A HREF="1-C-intro/type-func4b.html"> click here </A>
+     <LI> The difference between
+	<B>defining</B> and <B>declaring</B> a function in <B>C</B>:
+        <A HREF="1-C-intro/type-func5.html"> click here </A>
+    </UL>
+    </UL>
+  <P>
+ <HR>
+ <HR>
+ <P>
+  <LI> <font color="blue"><B><I>Multi-files</I> C programs</B></font>:
+	the importance of
+	<font color="red"><B><I>declaring </I>functions</B></font>:
+    <UL>
+    <LI> The <B><I>simplest</I></B> way to
+	compile a <B>multiple</B> files C program:
+        <A HREF="1-C-intro/declare-func1a.html"> click here </A>
+    <LI> The <B><I>correct</I></B> way to
+	compile a <B>multiple</B> files C program:
+        <A HREF="1-C-intro/declare-func1b.html"> click here </A>
+    <P>
+    <LI> The <B>importance</B> of 
+        <font color="red"><B>function declaration</B></font> in
+	 multi-file C programs:
+        <A HREF="1-C-intro/declare-func1c.html"> click here </A>
+    <LI> Declaring function using <B>header files</B>:
+        <A HREF="1-C-intro/common-prac1.html"> click here </A>
+    </UL>
+   <P>
+   <P>
+ <HR>
+   <LI> The <B><I>make</I></B> (UNIX) utility: (SKIP if time constrainted)
+    <UL>
+    <LI> Specifying dependency between files --- <B>makefiles</B>:
+        <A HREF="1-C-intro/make1.html"> click here </A>
+    <LI> The <B>make</B> utility:
+        <A HREF="1-C-intro/make2.html"> click here </A>
+    <LI> Structure of <B>makefiles</B>:
+        <A HREF="1-C-intro/make3.html"> click here </A>
+    <LI> <B>Inference rules</B> used in makefiles:
+        <A HREF="1-C-intro/make4.html"> click here </A>
+    <LI> <B>Macros</B> in makefiles:
+        <A HREF="1-C-intro/make5.html"> click here </A>
+    <LI> Miscellaneous makefile stuff (line continuation, comment, ...):
+        <A HREF="1-C-intro/make6.html"> click here </A>
+    </UL>
+<HR>
+ <P>
+   <LI> The <font color="blue"><B><I>Parameter passing</I> mechanism</B></font>
+	 of <B><I>C</I>:</B>
+        <A HREF="1-C-intro/param-passing.html"> click here </A>
+   </UL>
+<HR>
+<font color="red">
+Hand out <B>C</B> Project 1:
+ <A HREF="../Projects/C-proj1.html"> click here </A>
+</font>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT COLOR="darkmagenta"><B>
+	Intermediate topics: things that look similar in <I>C</I> and
+         <I>Java</I> but work differently
+        </B></FONT>
+ <P>
+<UL>
+
+  <LI> <B>Variables in <I>C</I>:</B>
+  <UL>
+   <LI> <B><I>Kinds</I></B> of variables in <B>C</B>:
+        <A HREF="1-C-intro/kinds-vars1.html"> click here </A>
+   <P>
+   <LI> <font color="blue"><B>Brief review:</B></font> <B><I>Life time</I> </B> 
+	and
+        <B><I>Scope</I> </B> 
+	of the variables:
+        <A HREF="1-C-intro/life+scope.html"> click here </A>
+   <P>
+   <LI> <B><I>Life time</I></B> of variables in <B><I>C</I></B>:
+        <A HREF="1-C-intro/lifetime.html"> click here </A>
+   <P>
+   <LI> <B>Scope</B> of variables in <B><I>C</I></B>: 
+    <UL>
+    <LI> <B>Scoping rules</B> for:
+             (1) global,
+             (2) <B><TT>static</TT></B> global and
+             (3) <B><TT>static</TT></B> local variables:
+        <A HREF="1-C-intro/scope-rules.html"> click here </A>
+    <LI> Declaring <B>global </B> variables in <B>C</B>:
+        <A HREF="1-C-intro/cprep2a.html"> click here </A>
+    <LI> <B><I>C Pre-processor</I> trick</B> to 
+         define and declare <B>global variables</B>:
+        <A HREF="1-C-intro/cprep2b.html"> click here </A>
+ <P>
+    <LI> <B>Scoping rules</B> for <B><I>local</I></B>
+		and <B><I>parameter</I></B>
+            variables in <B><I>C</I></B>:
+        <A HREF="1-C-intro/scope-local.html"> click here </A>
+          <font color="red"><B><I>(pay attention !)</I></B></font>
+     </UL>
+   </UL>
+
+   <P>
+   <LI> <B>More</B> on <B>arrays</B>: declaring arrays 
+	and array as parameters of functions
+     <UL>
+     <LI> <B><I>Declaring</I></B> <B> array</B> variables:
+        <A HREF="1-C-intro/declare-array.html"> click here </A>
+     <LI> <B>Functions</B> with <B><I>array</I> parameters</B>:
+        <A HREF="1-C-intro/array-param.html"> click here </A>
+     <UL>
+     <LI> Declaring <B><I>functions</I></B> that have
+           <B>array parameters</B>:
+          <A HREF="1-C-intro/declare-function2.html"> click here </A>
+     </UL>
+     </UL>
+
+<P>
+   <LI> <B>Debugging</B> a <B>C</B> program:
+     <UL>
+     <LI> Using the <B><I>gdb</I> debugger</B>:
+        <A HREF="1-C-intro/debugger.html"> click here </A>
+     </UL>
+<P>
+ <P>
+  <P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+	<I>Advanced</I> datatypes
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> <B>Reference</B> data type and reference (pointer) variables 
+  <UL>
+    <LI> <B><I>Reference (pointer) data type and variables</I></B>:
+        <A HREF="2-C-adv-data/ref-type.html"> click here </A>
+    <LI> The
+	 <B><I>reference</I> (&)</B> operator
+        <A HREF="2-C-adv-data/ref-op.html"> click here </A>
+    <LI> Storing the result of
+	 <B><I>reference</I> (&)</B> operator
+	  in reference data typed variables:
+        <A HREF="2-C-adv-data/ref-type2.html"> click here </A>
+    <LI> Using 
+	 <B><I>reference</I> variables</B> ---
+	the <B><I>dereference</I> (*)</B> operator:
+        <A HREF="2-C-adv-data/deref-op.html"> click here </A>
+   <HR>
+   <LI> <B>How to</B> read <B>C</B>'s syntax for 
+	<B>variable definition</B>:
+     <UL>
+     <LI> How to read  "<B><TT>datatype *</TT></B>":
+        <A HREF="2-C-adv-data/reading-syntax1.html"> click here </A>
+     <LI> How to read  "<B><TT>const</TT></B>":
+        <A HREF="2-C-adv-data/reading-syntax2.html"> click here </A>
+     </UL>
+   <HR>
+    <LI> <B>Reference variables</B> as
+ 	<B><I>parameters</I></B>
+	in a function (<B>pass-by-reference</B>):
+        <A HREF="2-C-adv-data/ref-var-param.html"> click here </A>
+    <LI> Functions <B>returning</B>
+	a <B><I>reference</I> </B>:
+        <A HREF="2-C-adv-data/ref-return.html"> click here </A>
+    <LI> The <B>(type *)</B> casting operator:
+        <A HREF="2-C-adv-data/ref-casting.html"> click here </A>
+   <P>
+
+  </UL>
+<P>
+ <LI> <B>User-defined types:</B>
+   <UL>
+   <LI> <B><I>Structures:</I></B>
+   <UL>
+   <LI> Defining and using <B>struct</B> type and variables:
+        <A HREF="2-C-adv-data/struct1.html"> click here </A>
+   <LI> Declaring <B>struct</B> variables:
+        <A HREF="2-C-adv-data/struct2.html"> click here </A>
+   <LI> <B>struct</B> parameter variables:
+        <A HREF="2-C-adv-data/struct3.html"> click here </A>
+   <LI> Function that returns a <B>struct</B>:
+        <A HREF="2-C-adv-data/struct4.html"> click here </A>
+   <LI> Size of a <B>struct</B> "object":
+        <A HREF="2-C-adv-data/struct5.html"> click here </A>
+   </UL>
+   <LI> <B><I>Unions:</I></B>
+        <A HREF="2-C-adv-data/union.html"> click here </A>
+   <LI> <B><I>Enumeration</I> types:</B>
+        <A HREF="2-C-adv-data/enum.html"> click here </A>
+   <LI> <B><I>Bit fields</I> structures:</B>
+        <A HREF="2-C-adv-data/bit-field.html"> click here </A>
+   <P>
+   <LI> <B><I>Pointer</I></B> to user-defined type (just add *):
+        <A HREF="2-C-adv-data/struct-pointer1.html"> click here </A>
+   <LI> The short-hand operator
+	<B>-></B>:
+        <A HREF="2-C-adv-data/struct-pointer2.html"> click here </A>
+
+   <LI> Passing <B>user-defined typed variables</B>
+	<B>"by <I>reference</I>":</B>
+        <A HREF="2-C-adv-data/struct-param.html"> click here </A>
+   <P>
+   <LI> <B>C's typing mechanism:</B> 
+        by <B> (type) <I>name</I> equivalence</B>:
+        <A HREF="2-C-adv-data/diff-types.html"> click here </A>
+   <LI> <B><TT>typedef</TT></B>: defining a 
+     <B><I>new name</I></B> for a type
+    (<B><I>not</I></B> defining a new type):
+        <A HREF="2-C-adv-data/typdef.html"> click here </A>
+  <P>
+   </UL>
+ <P>
+  <LI> How to create and maintain <B>linked lists </B>  in C:
+   <UL>
+   <LI> <B>Review</B> of linked lists and <B>how to</B>
+	 define linked list elements in <B>C</B>:
+        <A HREF="2-C-adv-data/ll-intro.html"> click here </A>
+   <LI> <B>Introduction</B> to
+	linked lists in <B>C</B>:
+        <A HREF="2-C-adv-data/ll-malloc1.html"> click here </A>
+   <LI> <B>Caveat:</B> free deleted list elements !!!
+        <A HREF="2-C-adv-data/ll-malloc2.html"> click here </A>
+   <LI> Inserting and deleting at the <B>head</B> of a list:
+   <UL>
+   <LI> Insert at head of list:
+        <A HREF="2-C-adv-data/ll-insert1.html"> click here </A>
+   <LI> Delete at head of list:
+        <A HREF="2-C-adv-data/ll-insert2.html"> click here </A>
+   </UL>
+   <LI> <B>Recursion:</B> Inserting and deleting at the <B>tail</B> of a list:
+        <A HREF="2-C-adv-data/ll-insert-tail.html"> click here </A>
+   </UL>
+<P>
+<HR>
+<HR>
+Hand out <B>C</B> Project 2:
+ <A HREF="../Projects/km/km.html"> click here </A>
+<HR>
+ <P>
+ <P>
+ <LI> <B>Pointer arithmetic</B> and <B>Arrays</B>
+   <UL>
+    <LI> <B><I>Pointer arithmetic</I></B>: 
+        <A HREF="2-C-adv-data/pointer-arithm1.html"> click here </A>
+    <LI> Accessing <B>arrays</B> with <B><I>pointers </I></B>: 
+        <A HREF="2-C-adv-data/pointer-arithm2.html"> click here </A>
+    <P>
+    <LI> Using <B>pointer arithmetic</B> to implement
+	<B><I>Dynamic arrays</I></B>:
+        <A HREF="2-C-adv-data/dyn-array.html"> click here </A>
+    <LI> The <B>[ ]</B> operator:
+        <A HREF="2-C-adv-data/ptr=array1.html"> click here </A>
+    <LI> Using the <B>[ ]</B> operator to implement
+	<B><I>Dynamic arrays</I></B>:
+        <A HREF="2-C-adv-data/ptr=array2.html"> click here </A>
+    <LI> The <B><I>equivalance</I></B> of <B>pointers</B> and <B>arrays</B>
+	in <B>C</B>:
+        <A HREF="2-C-adv-data/ptr=array3.html"> click here </A>
+    <P>
+    <LI> The <B>++</B> and <B>--</B> operators used in pointer arithmetic:
+        <A HREF="2-C-adv-data/pointer-arithm3.html"> click here </A>
+  </UL>
+ <P>
+ <HR>
+ <LI> We have cover all operators !!.
+     <B>C's operators</B> and their precedence:
+    <A HREF="http://www.swansontec.com/sopc.html">
+	click here </A>
+ <HR>
+  <P>
+  <LI> <B><I>Strings</I></B> in <B>C</B> --- <B>arrays</B>
+     of <B><TT>char</TT>:</B>
+        <A HREF="2-C-adv-data/string.html"> click here </A>
+  <LI> Some <B><I>Strings</I> functions</B> in <B>C Standard
+	library</B>
+        <A HREF="2-C-adv-data/string-functions.html"> click here </A>
+  <LI> <B>Array of <I>Strings</I></B>  --- command line arguments:
+        <A HREF="2-C-adv-data/arrayOfStrings.html"> click here </A>
+ </UL>
+  <P>
+  <HR>
+  <HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+        Miscellaneous topics in C
+        </B></FONT>
+ <P>
+  <UL>
+  <LI> Special kinds of variables in C:
+   <UL>
+   <LI> <TT>register</TT> variables: </B>
+        <A HREF="3-C-topics/reg-vars.html"> click here </A>
+   </UL>
+ <P>
+  <LI> Function parameters:
+   <UL>
+   <LI> Passing a <B><I>function</I></B> as a parameter to a function:
+        <A HREF="3-C-topics/func-param.html"> click here </A>
+   </UL>
+
+ </UL>
+<P>
+<HR>
+Hand out Homework 7 to re-inforce C++ programming
+ <A HREF="../Projects/hw7.html"> click here </A>
+<HR>
+
+
+
+<HR>
+<HR>
+<font color="red"><B>That's all, Folks !</B></font>
+<HR>
+<HR>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+ <P>
+ <LI> <B> Additional Enrichment Material: 
+	Intel 80x86 programming (<I>not covered</I> in CS255)</B>
+ <P>
+  <UL>
+  <LI> A free Intel Macro Assembler
+        (if you want to write assembler on your PC):
+        <A HREF="9-Intel/masm32/install.exe">
+        RIGHT click here and SAVE AS</A>
+  <LI> An online documentation on Assembler programming with MASM:
+        <A HREF=
+        "http://webster.cs.ucr.edu/Page_TechDocs/MASMDoc/">
+        click here </A>
+  <P>
+  <LI> Intel Assembler Code Table:
+        <A HREF="9-Intel/cs255/IntelCodeTable.pdf"> click here</A>
+<P>
+  <LI> The Intel 80x86 CPU architecture:
+        <A HREF="9-Intel/cs255/cpu.html"> click here</A>
+  <LI> The Intel 80x86 directives:
+        <A HREF="9-Intel/cs255/asm-directives.html"> click here</A>
+  <LI> The Intel 80x86 Addressing modes:
+        <A HREF="9-Intel/cs255/addressing-modes.html"> click here</A>
+  <LI> Arithmetic operations:
+        <A HREF="9-Intel/cs255/arith.html"> click here</A>
+  <LI> Compare and Branch:
+        <A HREF="9-Intel/cs255/branch.html"> click here</A>
+  <LI> Subroutine call and return:
+        <A HREF="9-Intel/cs255/subroutine.html"> click here</A>
+ <P>
+<HR>
+ <P>
+ <LI> The Art of Assembler Language Programming book:
+  <A HREF=
+"9-Intel/Resources/Book04-Art-of-Assembly/Book/Art Of Intel x86 Assembly.pdf">
+  click here</A>
+ <P>
+ Check out chapter 6
+  </UL>
+</UL>
+<P>
+
+
+<FONT COLOR="#000000">
+
+ <P>
+<HR>
+<P>
+ <B>Rough notes on Intel Assemler programming:</B>
+<P>
+ <UL>
+ <LI> Intel registers:
+	<A HREF="9-Intel/myNotes/Intel-Regs-01.pdf"> click here </A>
+ <LI> Intel registers:
+	<A HREF="9-Intel/myNotes/Intel-Regs.txt"> click here </A>
+ <LI> Reserving space for variables:
+	<A HREF="9-Intel/myNotes/variables.txt"> click here </A>
+ <LI> Addressing modes (MOV):
+	<A HREF="9-Intel/myNotes/mov.txt"> click here </A>
+ <LI> Arithmetic:
+	<A HREF="9-Intel/myNotes/arithmetic.txt"> click here </A>
+ <LI> CMP and Jump:
+	<A HREF="9-Intel/myNotes/jump.txt"> click here </A>
+ <LI> Stack, procedure call/return:
+	<A HREF="9-Intel/myNotes/call.txt"> click here </A>
+ </UL>
+
+<P>
+ 
+<B>Other resources:</B>
+<UL>
+ <LI> Matloff GNU assembler programming tutorial:
+	<A HREF="http://heather.cs.ucdavis.edu/~matloff/50/LinuxAssembly.html">
+	click here </A>
+ <LI> Sourceforge GNU assembler programming tutorial:
+	<A HREF="http://asm.sourceforge.net/intro/Assembly-Intro.html">
+	click here </A>
+ <P>
+ <LI> Free Intel Macro Assembler (if you want to write
+	assembler on your PC):
+	<A HREF="9-Intel/masm32/install.exe"> 
+	RIGHT click here and SAVE AS</A>
+ <LI> Intel Assembler Programming book
+	- this book is like the CS255 course using 
+	Intel Assembler code:
+	<A HREF="9-Intel/Resources/Book03-protected-mode/Intel-asm-book.pdf">
+	click here</A>
+ <LI> Step by step Windows programming tutorial
+	shows you how to write window programs, menus,
+	call backs, etc:
+	<A HREF="http://spiff.tripnet.se/~iczelion/tutorials.html">
+	click here </A>
+ <LI> The Art of Assembly Programming (a very good online book,
+	but the 32 bit version uses a non-standard assembler
+	called "HLA" - High Level Assemble language) 
+ <A HREF="http://webster.cs.ucr.edu/AoA/">
+	click here </A>
+	
+</UL>
+</FONT>
+

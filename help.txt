@@ -1,0 +1,35 @@
+# sed -i s"/std::cout << Separator << std::endl;/std::cout << Separator;/g" `grep "std::cout << Separator << std::endl;" -rl ./`
+
+# find ./ -name "*.dsp" |while read -r f ; do rm -f  "${f}"; done
+# find ./ -name "*.dsw" |while read -r f ; do rm -f  "${f}"; done
+# find ./ -name "*.ncb" |while read -r f ; do rm -f  "${f}"; done
+# find ./ -name "*.opt" |while read -r f ; do rm -f  "${f}"; done
+# find ./ -name "*.plg" |while read -r f ; do rm -f  "${f}"; done
+# find $(pwd)  -regextype posix-extended -regex  '.*\.(cpp|h)' -type f  |xargs clang-format-11 -i
+# find  $(pwd) -type f  -iname "*.c" |xargs  clang-format-11 -i
+
+
+# i=01; clang-format-11 -i example${i}.cpp; cppcheck --enable=all example${i}.cpp; g++ -g -o example${i} example${i}.cpp; gdb example${i}
+# i=01; clang-format-11 -i example${i}.cpp; make example${i}; ./example${i}; uex example${i}.cpp;
+# i=01; clang++ --analyze example${i}.cpp;
+
+# mkdir -p x86/chap{04..17}
+# find $(pwd) -type f -name "*.S" |while read -r f; do awk '{if("    "==substr($0,1,4)){print substr($0,3)}else{print $0}}' ${f}>${f}.tmp; mv ${f}.tmp ${f}; done
+# sed -i s/arm64.h/asm.h/g `grep "arm64.h" -rl ./`
+# sed -i s/.ascii/.asciz/g `grep ".ascii" -rl ./`
+# sed -i '/exit(#0)/d' `grep "exit(#0)" -rl ./`
+# grep -rl "Modified by Church.ZHONG" ./ |sort > ../modified.json
+# grep -P '\t' *
+
+# t=example001; make clean; make ${t};./run.sh ${t};./objdump.sh ${t};
+# t=test001; make clean; make ${t};./run.sh ${t};./objdump.sh ${t};
+# #shellcheck -s bash example.sh ;./example.sh;
+# cd debug; t=example001; make ${t}; ./run.sh ${t};  make clean; cd -;
+
+# find ./ -type d -name ".git";
+# find ./ -maxdepth 2 -type f -name "OK";
+# find ./ -maxdepth 2 -type f -name "OK" | while read -r f; do rm -f ${f}; done;
+
+# GitHub's recommended maximum file size of 50.00 MB
+# find ./ -type f -size +20M | while read -r f; do ls -ls "${f}"; done
+

@@ -1,0 +1,726 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The ARM processor from the point of view of an assembler programmer
+<HR>
+</H3>
+<UL>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The most important difference between assembler programming
+     and high-level language programming
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact</B></FONT> about
+      <FONT color="blue"><B>high-level language programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>High level programming languages</B></FONT>
+       will <FONT color="blue"><B><I>never</I></B></FONT> use
+       <FONT color="red"><B>registers</B></FONT>
+       in a <FONT color="blue"><B>CPU</B></FONT>
+       <FONT color="red"><B>directly</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+<LI> <FONT color="red"><B>Important fact</B></FONT> about
+      <FONT color="blue"><B>assembler language programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Assembler programming languages</B></FONT>
+        <FONT color="blue"><B><I>must</I></B></FONT> use
+       <FONT color="red"><B>registers</B></FONT>
+       in a <FONT color="blue"><B>CPU</B></FONT>
+       <FONT color="red"><B>directly</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The registers in a "general" processor (i.e.: in general)
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall the <FONT color="red"><B>structure</B></FONT> of
+     the <FONT color="blue"><B>CPU (= Central Processing Unit, or
+     <I>processor</I>) </B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/cpu01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> When you write <FONT color="blue"><B>assembler programs</B></FONT>,
+     you will need to
+     <FONT color="red"><B>use/access</B></FONT> the
+     <FONT color="blue"><B>registers</B></FONT> within the
+     <FONT color="red"><B>CPU (processor)</B></FONT>:
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Each register</B></FONT> has a
+  <FONT color="blue"><B>unique <I>name</I></B></FONT>
+<P>
+   Unfortunately,
+   <FONT color="red"><B>each type of CPU (processor)</B></FONT> has
+     <FONT color="blue"><B><I>different</I> names</B></FONT>
+   for its  <FONT color="red"><B>registers</B></FONT>
+  <P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   CPU                  Name of some of the registers
+  -------------------  -------------------------------       
+   Intel processor      rax, rbx, rcx, rdx, ...
+   ARM   processor      r0, r1, r2, r3, ...     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you write an
+ <FONT color="red"><B>assembler program</B></FONT>, you will
+ <FONT color="blue"><B>need</B></FONT> to use
+ the <FONT color="red"><B>registers</B></FONT> in the
+ <FONT color="blue"><B>CPU</B></FONT> inside your
+ <FONT color="red"><B>assembler program</B></FONT>
+<P>
+Because the <FONT color="red"><B>registers' names</B></FONT> are
+ <FONT color="blue"><B>different</B></FONT> for different
+ <FONT color="red"><B>processor type</B></FONT>,
+ the <FONT color="blue"><B>assembler programs</B></FONT> written
+ for one type of processor 
+ <FONT color="red"><B>cannot be compiled and run</B></FONT>
+ on <FONT color="blue"><B>another type of processor</B></FONT>
+<P>
+<B>Fortunately:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Assembler programming <I>techiques</I></B></FONT>
+    are <FONT color="blue"><B>similar</B></FONT> regardless of
+    <FONT color="red"><B>CPU type</B></FONT>
+<P>
+<LI> So the 
+   <FONT color="red"><B>assembler programming <I>techiques</I></B></FONT>
+   that you will learn in 
+   <FONT color="blue"><B>CS255</B></FONT> can be
+   apply to
+   <FONT color="red"><B>any assembler language</B></FONT>
+<P>
+<LI> When you need to write
+  <FONT color="red"><B>assembler programs</B></FONT> for
+   <FONT color="blue"><B>another processor</B></FONT>, all
+  you need to find out are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>registers </B></FONT> of
+     that <FONT color="blue"><B>processor</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="blue"><B>assembler nmemonics</B></FONT>
+     of that <FONT color="red"><B>assembler language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> So the first step in learning
+     <FONT color="blue"><B>assembler programming</B></FONT> in the
+   <FONT color="red"><B>ARM assembler language</B></FONT>, you will
+   need to know the 
+  <FONT color="blue"><B>CPU structure</B></FONT> of the
+ <FONT color="red"><B>ARM processor (CPU)</B></FONT>
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What an assembler programmer need to know about the register
+     in order to write assembler programs
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>assembler programmer</B></FONT> must know
+   these <FONT color="red"><B>facts</B></FONT> about the
+ <FONT color="blue"><B>registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How many bits</B></FONT> does each
+        <FONT color="blue"><B>register have</B></FONT> 
+ <LI> What are the <FONT color="red"><B>names</B></FONT>
+  of each <FONT color="blue"><B>register</B></FONT>
+ <LI> <FONT color="red"><B>How</B></FONT> are the
+    <FONT color="blue"><B>registers </B></FONT> used ?
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will learn assembler programming using the
+ <FONT color="red"><B>ARM processor</B></FONT>.
+<P>
+So I will describe these
+ <FONT color="blue"><B>properties</B></FONT> of the
+ <FONT color="red"><B>ARM registers</B></FONT> now.
+<P>
+
+</UL>
+
+
+
+<A NAME="ARM"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     CPU structure of the ARM processor
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B>ARM processor (CPU)</B></FONT>
+     has the following <FONT color="blue"><B> registers</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+I will explain the
+ <FONT color="red"><B>use</B></FONT> of the 
+ <FONT color="blue"><B>register</B></FONT> below.
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Size</B></FONT> of
+     <FONT color="blue"><B>ARM registers</B></FONT>:
+<P>
+<UL>
+<LI> Each <FONT color="red"><B> register</B></FONT>
+     in the <FONT color="blue"><B>ARM processor</B></FONT> consists of
+     <FONT color="red"><B>4 bytes</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/reg01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The different registers in the ARM processor
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="red"><B>2 kinds</B></FONT> of
+    <FONT color="blue"><B>registers</B></FONT>
+    in a <FONT color="red"><B>CPU</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>General purpose</B></FONT> registers
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> They are used to hold <FONT color="blue"><B>operands</B></FONT>
+     in <FONT color="red"><B>arithmetic/logic operations</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Special purpose</B></FONT> registers
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> These <FONT color="blue"><B>registers</B></FONT>
+     are <FONT color="red"><B>reserved</B></FONT>
+       to  hold <FONT color="blue"><B>values</B></FONT>
+     that has
+   a  <FONT color="red"><B><I>specific</I> meaning</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+
+The <FONT color="red"><B>ARM processor</B></FONT> has
+  <FONT color="blue"><B>12 general purpose registers</B></FONT> with the
+  following <FONT color="red"><B>register names</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>R0</B></FONT> (or
+     <FONT color="red"><B>r0</B></FONT> the register names
+     are not case senstive)
+ <LI> <FONT color="blue"><B>R1</B></FONT>
+ <LI> <FONT color="blue"><B>R2</B></FONT>
+ <LI> ...
+ <LI> <FONT color="blue"><B>R10</B></FONT>
+ <LI> <FONT color="blue"><B>R11</B></FONT>
+      -- the register <FONT color="red"><B>R11</B></FONT> is 
+      <B>designed</B> as the
+      <FONT color="red"><B>frame pointer (FP) register</B></FONT>
+      which will be explained (very) later in this course
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Although <FONT color="red"><B>register R11</B></FONT> is
+ a <FONT color="blue"><B>"general purpose" register</B></FONT>,
+ in practice, we have
+  <FONT color="red"><B>assign</B></FONT> it for a
+  <FONT color="blue"><B>specific purpose</B></FONT>....
+ <P>
+ So <FONT color="red"><B>register R11</B></FONT> may be
+ considered as a
+ <FONT color="blue"><B>special purpose register</B></FONT>
+ (i.e.: don't use register r11 to store value for computation !)
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+The <FONT color="red"><B>ARM processor</B></FONT> has the following
+  <FONT color="blue"><B> <I>special</I> purpose registers</B></FONT> with the
+  following <FONT color="red"><B>register names</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>R12</B></FONT> or
+     the <FONT color="red"><B>Intra Procedure (IP) Call register</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>IP register</B></FONT>
+     is  used as 
+     <FONT color="blue"><B> temporary (sratch) register</B></FONT>.
+ <P>
+   We won't need to use this register in CS255.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+ <LI> <FONT color="blue"><B>R13</B></FONT> or
+     the <FONT color="red"><B>Stack Pointer (SP) register</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>stack pointer (SP) register</B></FONT> 
+        contains the <FONT color="blue"><B>address</B></FONT> of
+	the <FONT color="red"><B>top of the system stack</B></FONT>
+ <P>
+  We will learn to use the
+ <FONT color="red"><B>SP register</B></FONT> when we
+  discuss how to write <FONT color="blue"><B>function calls</B></FONT>
+   in <FONT color="red"><B>assembler programming</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <LI> <FONT color="blue"><B>R14</B></FONT> or
+     the <FONT color="red"><B>Link Register (LR)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Link Register (SP) </B></FONT> 
+        contains the <FONT color="blue"><B>return address</B></FONT> of
+	the <FONT color="red"><B>calling program</B></FONT>
+ <P>
+  We will learn to use the
+ <FONT color="red"><B>LR register</B></FONT> when we
+  discuss how to write <FONT color="blue"><B>function calls</B></FONT>
+   in <FONT color="red"><B>assembler programming</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ <LI> <FONT color="blue"><B>R15</B></FONT> or
+     the <FONT color="red"><B>Program Counter (PC)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Program Counter (PC) </B></FONT> 
+        contains the <FONT color="blue"><B> address</B></FONT> of
+	the <FONT color="red"><B>next program instruction</B></FONT>
+ <P>
+ We have explained the use of the
+ <FONT color="red"><B>Program Counter</B></FONT> in
+ this <FONT color="blue"><B>webpage (lecture)</B></FONT>:
+ <A HREF="../4-intro/instr-exec-cycle2.html">
+  <FONT color="red"><B>click here</B></FONT></A>)
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ <LI> <FONT color="blue"><B>CPSR</B></FONT> (=
+     <FONT color="red"><B>Current Program Status Register)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>CPSR</B></FONT> register contains
+      <FONT color="blue"><B>indications ("flags")</B></FONT> of
+      the <FONT color="red"><B>status</B></FONT> of
+      the <FONT color="blue"><B>current instruction execution</B></FONT>
+<P>
+  For the <FONT color="red"><B>assembler programmer</B></FONT>,
+  the following <FONT color="blue"><B>flags (indications)</B></FONT>
+  are especially important:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>N flag</B></FONT>: this
+        <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>set (= 1)</B></FONT> if the
+	<FONT color="blue"><B>result</B></FONT> of the
+	computation is a <FONT color="red"><B>negative value</B></FONT>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Otherwise, this  <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>reset (= 0)</B></FONT>
+<P>
+ <LI> <FONT color="red"><B>Z flag</B></FONT>: this
+        <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>set (= 1)</B></FONT> if the
+	<FONT color="blue"><B>result</B></FONT> of the
+	computation is <B>equal to</B>
+      <FONT color="red"><B>0 (zero)</B></FONT>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Otherwise, this  <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>reset (= 0)</B></FONT>
+<P>
+ <LI> <FONT color="red"><B>V flag</B></FONT>: this
+        <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>set (= 1)</B></FONT> if the
+	<FONT color="blue"><B>result</B></FONT> of the
+	computation has caused 
+      <FONT color="red"><B>overflow</B></FONT> (later)
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Otherwise, this  <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>reset (= 0)</B></FONT>
+<P>
+ <LI> <FONT color="red"><B>C flag</B></FONT>: this
+        <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>set (= 1)</B></FONT> if the
+	<FONT color="blue"><B>result</B></FONT> of the
+	computation produced a
+      <FONT color="red"><B>carry</B></FONT>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Otherwise, this  <FONT color="blue"><B>flag (bit)</B></FONT> is
+	<FONT color="red"><B>reset (= 0)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+As an <FONT color="red"><B>assembler programmer</B></FONT>,
+ you <FONT color="blue"><B>do not need</B></FONT> to
+ <FONT color="red"><B>keep track</B></FONT> of
+ the status of these 4 flags.
+<P>
+These <FONT color="red"><B>4 flags</B></FONT> are used when we
+ <FONT color="blue"><B>compare 2 values</B></FONT>
+<P>
+To 
+ <FONT color="red"><B>compare the values <TT>x</TT> and <TT>y</TT></B></FONT>,
+   we compute the
+ <FONT color="blue"><B>subtraction <TT>x &minus; y</TT></B></FONT>.
+<P>
+The setting of these <FONT color="red"><B>4 flags</B></FONT>
+ will tell us if:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      x > y      x >= y     x < y   x <= y    x == y   or   x != y       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This topic will be discussed later when we discuss how
+ <FONT color="red"><B>if-statements</B></FONT> in
+ <FONT color="blue"><B>Java</B></FONT> is
+ executed in <FONT color="red"><B>assembler language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recommended (or commonly used) register names for assembler programming
+     </B></FONT>
+<P>
+<UL>
+<LI> Although you 
+    <FONT color="red"><B>can</B></FONT> use the registers names
+     <FONT color="blue"><B><TT>R0, R1, R2, ...., R15</TT></B></FONT>
+     to identify the
+     registers in the <FONT color="red"><B>ARM processor</B></FONT>,
+     the <FONT color="blue"><B>UNIX assembler (= compiler)</B></FONT> 
+     <B>also</B> recognize the
+     following 
+     <FONT color="red"><B>commonly used</B></FONT>
+     <FONT color="blue"><B>register names</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ARM register        Commonly used register name in assembler programming 
+   ---------------     ------------------------------------------------------
+         R0                r0  or R0
+         R1                r1  or R1
+         R2                r2  or R2
+         R3                r3  or R3
+         R4                r4  or R4
+         R5                r5  or R5
+         R6                r6  or R6
+         R7                r7  or R7
+         R8                r8  or R8
+         R9                r9  or R9
+         R10               r10 or R10
+         R11               fp  (frame pointer)
+         R12               ip  (intra procedure)
+         R13               sp  (stack pointer)
+         R14               lr  (link register)
+         R15               pc  (program counter)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Assembler programs</B></FONT> will
+ not  use
+ the <FONT color="blue"><B><TT>CPSR</TT> register</B></FONT>
+ <FONT color="red"><B>directly</B></FONT> and will therefore
+ not refer to the
+  <FONT color="blue"><B><TT>CPSR</TT> register</B></FONT>  by a register name.
+<P>
+
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

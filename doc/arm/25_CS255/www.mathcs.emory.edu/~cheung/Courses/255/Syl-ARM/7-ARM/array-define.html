@@ -1,0 +1,705 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Defining arrays in ARM assembler code
+<HR>
+</H3>
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Prelude
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Array variables</B></FONT> is
+      nothing more than a
+      <FONT color="blue"><B>series</B></FONT> of
+      <FONT color="red"><B><I>simple</I> variables</B></FONT>
+<P>
+So:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL> 
+ <LI> <FONT color="red"><B>Everything</B></FONT> that you have learned about
+     how to <FONT color="blue"><B>define simple variables</B></FONT>
+     will <FONT color="red"><B>apply</B></FONT> to
+     <FONT color="blue"><B>array variables</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Specifically:</B> be aware that you must obey the
+  <FONT color="red"><B>memory alignment requirements</B></FONT> !!!
+ <P>
+ See: <A HREF="align.html"> 
+  <FONT color="red"><B>click here</B></FONT></A>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining <I>initialized</I> arrays
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B><I>Initialized</I> array 
+       data structure</B></FONT> is defined in
+   <FONT color="blue"><B>assembler code</B></FONT> by
+   specifying the <B>list</B> of
+   <FONT color="red"><B>initial values</B></FONT> in the
+  <B>array</B> using
+ the  <FONT color="blue"><B>assembler directives</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     .byte          
+     .2byte
+     .4byte
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+that you learned in this webpage:
+  <A HREF="data-section.html">
+   <FONT color="red"><B>click here</B></FONT></A>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To define a
+     <FONT color="red"><B><TT>byte</TT> typed array <TT>A</TT></B></FONT>
+     containing the following
+     <FONT color="blue"><B>initial values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    11   12   13   14   15
+
+    (I.e.: A[0] = 11, A[1] = 12, A[2] = 13, A[3] = 14, A[4] = 15)     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we need to write the following
+ <FONT color="red"><B>assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   A: <FONT color="red">.byte</FONT>   11, 12, 13, 14, 15     // byte typed initialzied array A   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>list of values</B></FONT> will
+ but stored <FONT color="blue"><B>consecutively </B></FONT> in memory
+<P>
+<FONT color="blue"><B>Furthermore</B></FONT>:
+  the <FONT color="red"><B>label <TT>A</TT></B></FONT> will be
+ <FONT color="blue"><B>equated to</B></FONT> the
+ <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> element</B></FONT> of the
+ <FONT color="red"><B>array <TT>A</TT></B></FONT>
+<P>
+(This label will be used to
+  <FONT color="red"><B>compute</B></FONT> the address of
+ any given array element - see next few  webpages)
+<P>
+<HR>
+<P>
+ <LI> To define a
+     <FONT color="red"><B><TT>short</TT> typed array <TT>B</TT></B></FONT>
+     containing the following
+     <FONT color="blue"><B>initial values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    111   112   113   114   115
+
+    (I.e.: B[0] = 11, B[1] = 12, B[2] = 13, B[3] = 14, B[4] = 15)     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we need to write the following
+ <FONT color="red"><B>assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   B: <FONT color="red">.2byte</FONT>  111, 112, 113, 114, 115     // short typed initialzied array B   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>list of values</B></FONT> will
+ but stored <FONT color="blue"><B>consecutively </B></FONT> in memory -
+ and each value is stored in
+ <FONT color="red"><B>2 bytes</B></FONT> of memory.
+<P>
+The <FONT color="red"><B>label <TT>B</TT></B></FONT> will be
+ <FONT color="blue"><B>equated to</B></FONT> the
+ <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> element</B></FONT> of the
+ <FONT color="red"><B>array <TT>B</TT></B></FONT>
+<P>
+<HR>
+<P>
+ <LI> To define an
+     <FONT color="red"><B><TT>int</TT> typed array <TT>C</TT></B></FONT>
+     containing the following
+     <FONT color="blue"><B>initial values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1111   1112   1113   1114   1115
+
+    (I.e.: C[0] = 1111, C[1] = 1112, C[2] = 1113, C[3] = 1114, C[4] = 1115)     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we need to write the following
+ <FONT color="red"><B>assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   C: <FONT color="red">.4byte</FONT>   1111, 1112, 1113, 1114, 1115     // int typed initialzied array C   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>list of values</B></FONT> will
+ but stored <FONT color="blue"><B>consecutively </B></FONT> in memory -
+ and each value is stored in
+ <FONT color="red"><B>4 bytes</B></FONT> of memory.
+<P>
+The <FONT color="red"><B>label <TT>C</TT></B></FONT> will be
+ <FONT color="blue"><B>equated to</B></FONT> the
+ <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> element</B></FONT> of the
+ <FONT color="red"><B>array <TT>C</TT></B></FONT>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining <I>uninitialized</I> arrays 
+     </B></FONT>
+<P>
+<UL>
+<LI>
+<FONT color="red"><B><I>UNinitialized</I> array 
+       data structure</B></FONT> is defined in
+   <FONT color="blue"><B>assembler code</B></FONT> by
+   specifying the <B>list</B> of
+   <FONT color="red"><B>initial values</B></FONT> in the
+  <B>array</B> using
+ the  <FONT color="blue"><B>assembler directives</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     .skip <FONT color="red">n</FONT>    // Reserve <FONT color="red">n consecutive bytes</FONT> of memory     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+that you learned in this webpage:
+  <A HREF="data-section.html">
+   <FONT color="red"><B>click here</B></FONT></A>
+<P>
+You need to
+ <FONT color="red"><B>calculate</B></FONT> the
+ <FONT color="blue"><B>number of bytes</B></FONT> that you need to
+ reserve for the array that you want to define....
+ (that's pretty easy)
+<P>
+You can use the <FONT color="red"><B>multiply operator *</B></FONT>
+ to compute the 
+ <FONT color="blue"><B>number of bytes</B></FONT> needed.
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To define a 
+    <FONT color="red"><B><TT>byte</TT> typed array <TT>a</TT></B></FONT>
+    of <FONT color="blue"><B>10 elements</B></FONT>,
+    we write the following
+    <FONT color="red"><B>assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a: <FONT color="red">.skip   10*1</FONT>    // byte  typed UNinitialized array a (10 elements)   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+The <FONT color="red"><B>label <TT>a</TT></B></FONT> will be
+ <FONT color="blue"><B>equated to</B></FONT> the
+ <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> element</B></FONT> of the
+ <FONT color="red"><B>array <TT>a</TT></B></FONT>
+<P>
+<HR>
+<P>
+
+
+
+ <LI> To define a 
+    <FONT color="red"><B><TT>short</TT> typed array <TT>b</TT></B></FONT>
+    of <FONT color="blue"><B>10 elements</B></FONT>,
+    we write the following
+    <FONT color="red"><B>assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   b: <FONT color="red">.skip   10*2</FONT>    // short  typed UNinitialized array b (10 elements)   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+The <FONT color="red"><B>label <TT>b</TT></B></FONT> will be
+ <FONT color="blue"><B>equated to</B></FONT> the
+ <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> element</B></FONT> of the
+ <FONT color="red"><B>array <TT>b</TT></B></FONT>
+<P>
+<HR>
+<P>
+
+ <LI> To define an 
+    <FONT color="red"><B><TT>int</TT> typed array <TT>c</TT></B></FONT>
+    of <FONT color="blue"><B>10 elements</B></FONT>,
+    we write the following
+    <FONT color="red"><B>assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   c: <FONT color="red">.skip   10*4</FONT>    // short  typed UNinitialized array c (10 elements)   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+The <FONT color="red"><B>label <TT>c</TT></B></FONT> will be
+ <FONT color="blue"><B>equated to</B></FONT> the
+ <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> element</B></FONT> of the
+ <FONT color="red"><B>array <TT>c</TT></B></FONT>
+<P>
+
+
+
+
+
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/3-array/array-def.s
+       </TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+A:      .byte   11, 12, 13, 14, 15     // byte typed initialzied array A
+a:      .skip   10*1    // byte  typed UNinitialized array a (10 elements)
+
+        <FONT color="red">.align 1</FONT>
+B:      .short  111, 112, 113, 114, 115 // short typed initialzied array B
+b:      .skip   10*2    // short typed UNinitialized array b (10 elements)
+
+        <FONT color="red">.align 2</FONT>
+C:      .short  1111, 1112, 1113, 1114, 1115 // int typed initialzied array C
+c:      .skip   10*4    // int   typed UNinitialized array c (10 elements)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 array-def</TT></B></FONT>
+ <LI> To run: 
+    <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here's a snapshot of the  
+  <FONT color="red"><B>memory content</B></FONT>
+  when you run this program in
+  <FONT color="blue"><B>EGTAPI</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/array01.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>content</B></FONT> of the memory is
+ shown in <FONT color="red"><B>hexadecimal numbers</B></FONT>
+<P>
+<FONT color="red"><B>Each pair</B></FONT> of 
+ <FONT color="blue"><B>hexadecimal digit</B></FONT> represents
+ the <FONT color="red"><B>byte</B></FONT> stored at that location
+ in <FONT color="blue"><B>memory</B></FONT>.
+<P>
+The <FONT color="red"><B>memory address</B></FONT> of the
+ <FONT color="blue"><B><I>first</I> byte</B></FONT> in
+  a <FONT color="red"><B>line of bytes</B></FONT> is given in
+ <FONT color="blue"><B>hexadecimal</B></FONT> at the
+ <FONT color="red"><B>left margin</B></FONT>
+<P>
+<HR>
+<P>
+You can see that the 
+ <FONT color="red"><B>first 5 bytes (<TT>0b 0c 0d 0e 0f</TT>) </B></FONT>
+ is the 
+  <FONT color="blue"><B>initialized array <TT>A[ ] = 11, 12, 13, 14, 16
+  </TT></B></FONT>
+<P>
+Then the <FONT color="red"><B>next 10 bytes (all <TT>00</TT>)</B></FONT>
+ is the 
+ <FONT color="blue"><B>UNinitialized array <TT>a[10]
+  </TT></B></FONT> (10 elements)
+<P>
+The <FONT color="red"><B>next byte</B></FONT> 
+ (the <FONT color="blue"><B><TT>00</TT></B></FONT> at the
+  <FONT color="red"><B>end</B></FONT> of <B>line 1</B>) is
+ <FONT color="blue"><B>skipped</B></FONT> to
+ comply with the
+ <FONT color="red"><B>alignment requirement</B></FONT> for
+ the <FONT color="blue"><B><TT>B[ ] array</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><TT>short</TT></B></FONT> typed variable
+   must start on an <FONT color="blue"><B>even address</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>first 10 bytes</B></FONT> on
+  <FONT color="blue"><B>line 2</B></FONT> belong to
+  the <FONT color="red"><B>initialized <TT>short</TT> array 
+   <TT>B</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  006f hex = 111 decimal
+  0070 hex = 112 decimal
+  0071 hex = 113 decimal
+  0072 hex = 114 decimal
+  0073 hex = 115 decimal              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Then the <FONT color="red"><B>next 20 bytes</B></FONT>
+ (all equal to <FONT color="blue"><B><TT>00</TT></B></FONT>) belongs to
+ the <FONT color="red"><B>unintialized <TT>short</TT> array <TT>b[10]
+</TT></B></FONT>
+<P>
+The <FONT color="red"><B>next 2 bytes</B></FONT> 
+ (the <FONT color="blue"><B><TT>00  00</TT></B></FONT> at the
+  <FONT color="red"><B>end</B></FONT> of <B>line 3</B>) are
+ <FONT color="blue"><B>skipped</B></FONT> to
+ comply with the
+ <FONT color="red"><B>alignment requirement</B></FONT> for
+ the <FONT color="blue"><B><TT>C[ ] array</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B><TT>int</TT></B></FONT> typed variable
+   must start on an <FONT color="blue"><B> address</B></FONT> that
+ is <FONT color="red"><B>divisible by 4</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The bytes on <FONT color="red"><B>line 4</B></FONT> and
+  the <FONT color="red"><B>first 4 bytes</B></FONT> on
+  <FONT color="blue"><B>line 5</B></FONT> belong to
+  the <FONT color="red"><B>initialized <TT>int</TT> array 
+   <TT>C</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  00000457 hex = 1111 decimal           
+  00000458 hex = 1112 decimal
+  00000459 hex = 1113 decimal
+  0000045a hex = 1114 decimal
+  0000045b hex = 1115 decimal       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Then the <FONT color="red"><B>next 40 bytes</B></FONT>
+ (all equal to <FONT color="blue"><B><TT>00</TT></B></FONT>) belongs to
+ the <FONT color="red"><B>unintialized <TT>int</TT> array <TT>c[10]
+</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> You can see in this
+  <FONT color="red"><B>snap shot</B></FONT> that
+ the <FONT color="blue"><B>address</B></FONT> of the
+  <FONT color="red"><B>label <TT>A</TT></B></FONT> is equal to
+  <FONT color="blue"><B><TT>0x18784</TT></B></FONT> --
+   which is the
+ <FONT color="red"><B>address</B></FONT> of the
+  <FONT color="blue"><B><I>first</I> array element</B></FONT>
+  of <FONT color="red"><B>array <TT>A[ ]</TT></B></FONT>
+  that we defined using the
+  <B>directive line</B>
+  <FONT color="blue"><B><TT>A: .byte  11, 12, 13, 14, 15</TT></B></FONT>:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/array01b" width=340 height=200></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

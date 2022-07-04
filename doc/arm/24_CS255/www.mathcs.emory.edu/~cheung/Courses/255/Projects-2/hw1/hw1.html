@@ -1,0 +1,831 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H4>
+CS255 - Computer Architecture and Assembler Programming
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<BR>
+Homework 1
+<BR>
+Due date: see class webpage
+<P>
+<!----------  Pandemic...
+<FONT color="red">
+Print this webpage out, write you name on the page and write the answer 
+ in the box for each question.</FONT>
+------------->
+<HR>
+<HR>
+</H4>
+
+
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Preparation
+     </B></FONT>
+<P>
+ <UL>
+
+<LI> To do this project, you need to obtain a copy of the
+   <FONT color="blue"><B>prepared file <TT>hw1.s</TT></B></FONT>
+   into your <B>cs255</B> project directory
+   using <B>EGTAPI</B>
+ <P>
+  <UL> 
+  <LI>
+  Watch this video on how to get the 
+   <FONT color="blue"><B>prepared files</B></FONT>
+   for this homework (and other homework/project):
+  <A HREF="../../Egtapi/Docs/Egtapi-prepare.mp4">
+  click here </A>
+  </UL>
+ <P>
+<HR>
+<P>
+ <LI>
+ After you obtained the prepared file,
+  you must enter your answers to homework 1 into the
+  prepared file "hw1.s".
+<P>
+  You can use <B>EGTAPI</B> to edit your copy of the file "hw1.s" and
+  enter the answers for this homework.
+ <P>
+ <UL>
+  <LI>
+  Watch this video on how to 
+   <FONT color="blue"><B>edit and save files</B></FONT>
+   using <B>EGTAPI</B>:
+  <A HREF="../../Egtapi/Docs/Egtapi-edit.mp4">
+  click here </A>
+  </UL>
+ <P>
+</UL>
+<HR>
+<P>
+  <FONT color="red"><B>Note:</B></FONT>
+  When you're done, you must 
+  <FONT color="red"><B>turnin your work</B></FONT>
+ <P>
+  See the end of this write up for instructions on how to turn in
+   this assignment.
+ <P>
+
+
+<P>
+<HR>
+<HR>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 1 (10 pts - 2 pts per question)
+     </B></FONT>
+<P>
+ <UL>
+   <LI> Name one (1) non-programmable machine that was invented
+     to help humans perform
+     computations.
+
+
+   <LI> Name one (1) <B>non-electrical</B> 
+      machine that is <B>programmable</B>, i.e.:
+     the machine can change its programming (= can perform
+     different variants of a task)
+   <LI> Give the 4 categories of components in a <B>computer</B>.
+   <LI> Give the 2 components in a <B>computer system</B>.
+   <LI> Give an example of a peripheral device that can
+     perform both input and output operations.
+<P>
+ </UL>
+
+ <P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 2 - computer system (10 pts - 2 pts per question)
+     </B></FONT>
+<P>
+<UL>
+  <LI> What is the functiuon of the CPU (Central Processing Unit) ?
+  <LI> What is the function of the computer memory (RAM) ?
+  <LI> Where are all the <B>instructions</B> of a computer program
+    stored ?
+  <LI> Where are all the <B>variables</B> of a computer program stored ?
+  <LI> Which component in the computer system execute the instructions
+    of a computer program ?
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 3 - interconnections (10 pts - 2 pts per question)
+     </B></FONT>
+<P>
+<UL>
+  <LI> How is a memory cell in the computer memory (RAM) identified,
+    i.e.: what do you use to <B>distiniguish</B> different memory cells.
+  <LI> Which bus in the system bus carries (= transmits) the
+    <B>memory identifying information</B> from the CPU to the memory ?
+
+  <LI> Which bus in the system bus is used to transfer
+    <B>data</B> between the CPU and the memory ?
+ 
+    <LI> Which bus in the system bus contains the
+      <B>Read/Write signal</B> ?
+  <LI> Which bus is used by the CPU
+       to send the value of its <B>Program Counter</B> to the memory ?
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 4 - RAM (10 pts)
+     </B></FONT>
+<P>
+<UL>
+<LI> What is a <B>bit</B> ?
+<LI> How many bits are in a <B>byte</B> in modern computers ?
+<LI> Show all the binary number patterns that 1 bit can store.
+<LI> Show all the binary number patterns that 2 bits can store.
+<LI> How many different binary number patterns can 1 <B>byte</B> store ?
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 5 - combining memory cells (2 pts each)
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following content of the computer memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="memory.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+</UL>
+
+Questions:
+<P>
+<UL>
+<LI> Can the bytes at memory location 4000 and 4001 be combined 
+     to make a larger memory unit ?
+<LI> If you answer yes to the above question, then:
+     how many different binary number patterns can the cobined memory unit
+     store ?
+
+<LI> Can the bytes at memory location 4000 and 4002 be combined 
+     to make a larger memory unit ?
+<LI> Can the bytes at memory location 4000, 4001 and 4002 be combined 
+     to make a larger memory unit ?
+
+<LI> Can the bytes at memory location 4001 and 4002 be combined 
+     to make a larger memory unit ?
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 6 (10 pts)
+     </B></FONT>
+<P>
+<UL>
+<LI> What type (kind) of numbers are stored inside a
+    computer memory ?
+<LI> Name the 2 operations that the CPU can perform on the
+    computer memory.
+<LI> If the data bus has 16 wires, how many bytes can the data bus transfer in
+    one read/write operation ?
+<LI> If the <B>address bus</B> has 16 wires, 
+     what is the maximum memory size of this computer 
+     (i.e., how many bytes maximum can the memory contain) ?
+<LI> If the <B>address bus</B> has 34 wires, 
+     what is the maximum memory size of this computer 
+     (i.e., how many bytes maximum can the memory contain) ?
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 7 (Codes - you need to do some research for this question)
+     </B></FONT>
+<P>
+<UL>
+<LI> For this question, you need to search online for
+      <B>Morse code</B>
+ <P> 
+      Or you can use this 
+     <A HREF="https://en.wikipedia.org/wiki/Morse_code">Wikipedia page</A>
+ <P>
+  The <B>Morse code</B> is a <B>signalling code</B>
+   designed to transmit <B>English text</B> by
+   <B>raido pulses (beeps)</B>.
+ <P>
+  We denote a <B>short pulse</B> as <B>&bullet;</B> (dot)
+  and a <B>long pulse</B> as <B>-</B> (dash)
+ <P>
+ Decode this message in Morse code:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          <font size="+1">&bullet;&bullet;&bullet;&bullet;   &bullet;    &bullet;-&bullet;&bullet;   &bullet;-&bullet;&bullet;   ---</font>    
+
+Message:
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> For this question, you need to search online for <B>binary ASCII code</B>
+<P>
+ The ASCII code is a binary code to represent the English characters
+<P>
+ Decode this message in ASCII code:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+            01000110   01101001   01110011   01101000    
+
+Message:
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Suppose you are given the following binary number:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                               01000001      
+
+Corresponding decimal number:
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+What is the decimal number that corresponds to this binary number ?
+
+<P>
+<LI> Suppose you are given the following binary number:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                                     01000001      
+
+Character represented by ASCII code:
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+What is the character that is represented by this binary number ?
+<P>
+<LI> Make a <B>correct</B> English sentence that
+     <B>starts</B> with:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     I  is                                                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 8 (10 pts)
+     </B></FONT>
+<P>
+<UL>
+<LI> What is the purpose (in terms of usage) of
+       the <B>general purpose</B> registers ?
+<LI> What are the 2 kinds of operations that the <B>ALU</B> can perform ?
+<LI> What is the purpose (in terms of usage) of the
+   <B>Program Counter (PC)</B> ?
+<LI> What is the purpose (in term of usage) of the
+   <B>Instruction Register (IR)</B> ?
+<LI> What is the purpose (in term of usage) of the
+   <B>Processor Status Register (PSR)</B> ?
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 9 (10 pts)
+     </B></FONT>
+<P>
+<UL>
+<LI> The CPU repeated execute a series of steps to execute an instruction.
+     What is the <B>term</B> used to describe this series of steps ?
+<LI> Which device in the computer will 
+     the CPU access to obtain a new instruction ?
+<LI> How does the CPU prepare itself to get a new (different) instruction
+     in each execution cycle ?
+<LI> Which component <B>inside the CPU</B> will provide the
+     <B>operands</B> for  computer instructions - be <B>very specific</B>
+     with your answer, include the <B>adjective</B> if any ?
+<LI> Which component <B>inside the CPU</B> is used to store the results
+     of  computer instructions - be <B>very specific</B>
+     with your answer, include the <B>adjective</B> if any ?
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Question 10 (10 pts)
+     </B></FONT>
+<P>
+<UL>
+ Suppose the <B>Program Counter</B> contains the value <B>4000</B> and
+     assume that each computer instruction is stored in 1 byte of memory.
+<P>
+     This is a partial content of the computer memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="memory.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<LI> Which instruction code will the CPU fetch from
+     the memory next ? The answer is a <B>binary number</B> !
+<P>
+<LI> Which register inside the CPU is used to store this
+      instruction code ?
+<P>
+<LI> Let's call the next instruction that was fetched (= your answer to
+     the first part of this question):
+    instruction <B><TT>instrX</TT></B>.
+<P>
+     Suppose the instruction <B><TT>instrX</TT></B> updates a
+      general purpose register <B><TT>R0</TT></B> to 4000.
+ <P>
+    In this case, which is the next instruction 
+    that will be fetched
+    from memory after the CPU finished executing  <B><TT>instrX</TT></B> ?
+  <P>
+   The answer is a <B>binary number</B> !
+<P>
+<LI>      Suppose the instruction <B><TT>instrX</TT></B> updates the
+      <B>Program Counter</B> <B><TT>PC</TT></B> to 4000.
+ <P>
+    In this case, which is the next instruction 
+    that will be fetched
+    from memory after the CPU finished executing  <B><TT>instrX</TT></B> ?
+  <P>
+   The answer is a <B>binary number</B> !
+<P>
+<LI> What is the <B>name</B> of the
+     <B>program phenomenon</B> exhibited by the 
+    <B>program behavior</B> in the
+    <B>previous question</B>
+	that you have learned in CS170 or any "Intro to CS course"
+   (where the Program Counter is updated by 4000) ?
+</UL>
+
+
+<P>
+<A NAME="extension"></A>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Extension request
+     </B></FONT>
+<P>
+<UL>
+
+<LI> You can make and receive extension requests for a homework/project 
+     as long as you have not exceeded the maximum requests allowed.
+<P>
+   <font color="red">
+   Extension requests must be made before the assignment is due !!!
+   </font>
+
+<P>
+     "Free" extension requests are granted for illness and family
+	emergencies.
+<P>
+ To make an extension request, do the following in <B>EGTAPI</B>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Click on <FONT color="red">File Browser</FONT> in <FONT color="red">EGTAPI</FONT>        
+
+  2. Click on <FONT color="red">Req ext</FONT> (lower right corner) in the File Browser menu
+
+     The "Egtapi Extension Request" window will pop up:
+
+       <IMG SRC="FIGS/pic03.png" width=700></IMG>
+
+
+  3. In the "Section Number" drop down tab:
+
+          Select "1" if you are in Section 1
+
+          Select "2" if you are in Section 2
+
+  4. Enter "Project Code":  hw1
+
+  5. Click the "Request extension" button
+
+  6. You will see the request result in the right most panel.
+
+     If your request is successfull, you will see:
+<font color="red">
+       Extension request was successful:
+
+       Turn hw1 in before ..... (new due date) </font>
+
+     in the "Request extension" pop up window (you may need to scroll down)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+
+<P>
+
+
+
+
+
+
+<LI> <B>Alternately</B>,
+    you can request an <FONT color="blue"><B>extension</B></FONT>
+      by <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      inside the <B>EGTAPI terminal</B>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">hw1</FONT>   // If you're in section 1
+
+ or
+
+    /home/cs255002/req-ext    <FONT color="red">hw1</FONT>   // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to turnin your homework
+     </B></FONT>
+<P>
+<UL>
+<B>Important note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must</B></FONT> 
+      <B>turn in</B> your program to complete the assignment !!!
+ <P>
+ <LI> You <FONT color="red"><B>must</B></FONT>
+     turn in <FONT color="blue"><B>each assignment</B></FONT>
+   <FONT color="red"><B>before its due date</B></FONT>
+  (unless you have requested an <B>extension</B>).
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+  <LI> The <FONT color="red"><B>easiest way</B></FONT>  to turn in 
+      your work  is
+      using <FONT color="blue"><B>EGTAPI</B></FONT>
+ <P>
+  <B>Watch</B> this video on how to 
+   <FONT color="blue"><B>turn in a file</B></FONT>
+   with <B>EGTAPI</B>:
+  <A HREF="../../Egtapi/Docs/Egtapi-turnin.mp4">
+  click here </A>
+<P>
+<LI> Here are the <B>written instructions</b> explained in the video:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Click on <FONT color="red">File Browser</FONT> in <FONT color="red">EGTAPI</FONT>        
+
+  2. Select the <FONT color="red">file</FONT> that you want to turn in
+
+       <IMG SRC="FIGS/pic01.png" width=700></IMG>
+
+     In this case, select the file  "hw1.s"  inside your hw1 folder
+
+  3. After selecting the file (in this case: "hw1.s"), click <FONT color="red">Turnin</FONT>  in the File Browser menu
+
+     The "Egtapi Turn-in" window will pop up:
+
+       <IMG SRC="FIGS/pic02.png" width=700></IMG>
+
+
+  4. In the "Section Number" drop down tab:
+
+          Select "1" if you are in Section 1
+
+          Select "2" if you are in Section 2
+
+  5. Enter "Project Code":  hw1
+
+  6. Click the "Turn in" button
+
+  7. You will see the turn in result in the right most panel.
+
+     Make sure that your see the message: "Program ... has been successfully turned in..."
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Alternately, you can turn in your file using the <B>EGTAPI</B> Terminal:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter these command in the lower input area of the Terminal panel:
+
+       (a)  cd  ~/cs255/hw1                  (go to your hw1 folder) 
+
+       (b) /home/cs255001/turnin  hw1.s  hw1  // If you're in section 1            
+  or
+       (b) /home/cs255002/turnin  hw1.s  hw1  // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+If you want to see what you have turned in, then
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter this command in the lower input area of the Terminal panel:
+
+       /home/cs255001/turnin    // If you're in section 1            
+  or
+       /home/cs255002/turnin    // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+<CENTER> <B>Statement of Policy on Project/Homework Assignments </B></CENTER>
+<P>
+ Students will be graded partially on the basis of their homework assignments. These homework assignments are to be treated as examinations, and are expected to be your individual work. While discussions with other students in the course may be permitted or encouraged by your instructor, you should write your program yourself. Your instructor (and any teaching assistants assigned to the course) will be glad to help you to the extent that he or she feels reasonable.
+
+Submissions based on other students solutions in prior offerings of the course specifically violate these guidelines, as do submissions prepared with the help of an outside "tutor".
+
+You should take precautions to protect the confidentiality of your work, do not collaborate on questions that you turn in for a grade, do not show your solution to a fellow student, not even after the due date for some students may have receive extension.
+
+All submissions should include a comment statement near the top of the program of the form:
+
+<P>
+<UL>
+<TABLE bgcolor="FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  THIS HOMEWORK IS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING A TUTOR   
+  OR WORK WRITTEN BY OTHER STUDENTS - your name
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+Cases of apparent plagiarism or collusion will be referred to the
+ Honor Council. 

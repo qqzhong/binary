@@ -1,0 +1,282 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+1><B>
+Caveat in C:
+<I>free-ing</I> list elements
+</B></FONT>
+<HR>
+
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">most important difference</font> between C and Java
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Very important difference</B></FONT>
+  between <FONT color="blue"><B>Java and C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Java</B></FONT> has a
+        <B>built-in</B>
+	<FONT color="red"><B><I>garbage collection</I> mechanism</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>C</B></FONT>
+        (and <B>most</B> programming languages)
+	does <FONT color="red"><B>not</B></FONT> have
+	a <B>built-in</B>
+	<FONT color="blue"><B><I>garbage collection mechanism</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Consequence:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>program</B></FONT> (= <B>you !!!</B>)
+      <FONT color="red"><B>must</B></FONT>
+      <FONT color="blue"><B><I>de-allocate</I> (= un-reserve)</B></FONT>
+       linked list elements
+      that have been <FONT color="red"><B>deleted</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>De-allocate</I> the memory reserved for linked list element
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">#include &lt;stdlib.h></FONT>   // You must include this <FONT color="red">header file</FONT>
+                           // to obtain the <FONT color="red">function declaration for malloc( ) and free( )</FONT>
+
+
+     <FONT color="red">struct List  *</FONT>p;
+
+     p = malloc( sizeof( struct List ) );   // Allocate (= reserve) memroy for List object
+ 
+     <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">free( <FONT color="blue">p</FONT> ); </FONT>      // <FONT color="red">De-allocate (= unreserve)</FONT> the memory used </SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will use <FONT color="red"><B><TT>free( )</TT></B></FONT> in
+  an <FONT color="blue"><B>example </B></FONT> 
+ <FONT color="red"><B>soon</B></FONT>
+</UL>
+
+
+<!------------------------
+<B>Iluustrated:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the <B>memory reservation</B> is
+        as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/malloc1b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> After the <B>statement</B>
+    <FONT color="red"><B><TT>free(p)</TT></B></FONT>
+    (which will invoke <FONT color="red"><B><TT>free(2024)</TT></B></FONT>),
+    the <B>memory reservation</B> will be as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/malloc1c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The variable <FONT color="red"><B><TT>p</TT></B></FONT>
+      will now point to some
+     <FONT color="blue"><B><I>un-reserved</I> memory cells</B></FONT>
+ <P>
+ <LI> You should <FONT color="red"><B>not</B></FONT> used
+      <FONT color="blue"><B><TT>p</TT></B></FONT> to
+      accesses any <B>member variables</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+   #include &lt;stdlib.h>
+    
+   /* ------------------------
+      Structure definition
+      ------------------------ */
+   struct BankAccount
+   {
+      int    accNum;
+      double balance;
+   };
+    
+    
+   int main(int argc, char *argv[])
+   {
+      struct BankAccount* p;
+   <FONT color="red"> 
+      p = malloc( sizeof(struct BankAccount) )</font>;            // (1)
+    
+      (*p).accNum = 123;           // Long form to access a member variable
+      p->balance= 400;             // Short form to access a member variable     
+    
+      printf("p->accNum = %d  p->balance = %f\n", p->accNum, p->balance);
+   <FONT color="red"> 
+      /* ==================================================
+   	 Unreserve memory that was allocated at step (1)
+   	 ================================================== */
+      free(p);</FONT>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/free1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc free1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+------------------------------->
+
+
+
+  </UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

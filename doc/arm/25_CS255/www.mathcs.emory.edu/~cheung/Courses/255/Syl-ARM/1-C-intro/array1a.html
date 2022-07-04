@@ -1,0 +1,534 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>One</I>-dimensional arrays in <I>C</I>
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining <I>on-dimensional</I> arrays in <I>C</I> and in <I>Java</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall </B> that <FONT color="blue"><B>defining</B></FONT>
+     an <B>array</B> in <FONT color="red"><B>Java</B></FONT> is
+     a <FONT color="blue"><B><I>two</I> step process</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="red">Java:</FONT>
+
+   1. Define an <FONT color="red">array object</FONT> variable:         
+
+        Example:   <FONT color="red">double[] a;</FONT>
+
+   2. <FONT color="red">Create the array</FONT>:
+
+        Example:   a = <FONT color="red">new double[10]</FONT>;     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Array in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>In contrast</B></FONT>,
+     <B>defining</B> an <FONT color="blue"><B>array</B></FONT> in
+    <B><I>C</I></B> is a
+    <FONT color="red"><B><I>one</I> step process</B></FONT>
+    ------ just like defining
+    <FONT color="blue"><B><I>ordinary</I> variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Syntax</I> to define a <I>one</I>-dimensional arrays in <I>C</I>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax</B> to define an
+    <FONT color="blue"><B><I>one</I> dimensional array</B></FONT>
+    in <B>C</B>
+   <FONT color="red"><B>before C99 (C standard 1999)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   DataType  <FONT color="red">varName</FONT> [ constantSize ]  ;           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">double a[10];</FONT>   // Define an array of 10 variables of type double      
+
+   <FONT color="red">int b[20];</FONT>      // Define an array of 20 variables of type int     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> This is what will happen inside the computer when 
+  you define an <FONT color="blue"><B>array</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The computer will <FONT color="blue"><B>reserve</B></FONT>
+      <B>memory cell</B> to store the elements of the
+      <B>array</B>
+<P>
+<HR>
+ <P>
+ <LI> The computer will <B>remember</B> that the
+    <FONT color="blue"><B><I>symbol name</I> <TT>a</TT></B></FONT>
+    is <B><I>associated</I></B> with the
+    <FONT color="red"><B><I>first</I> allocated memory cell</B></FONT>
+    of the array
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In the example, the computer will 
+    <B>remember</B> that
+    <FONT color="red"><B>symbol <TT>a</TT></B></FONT> is <B>equal</B>
+    to
+    <FONT color="blue"><B><TT>5000</TT></B></FONT> !!!
+
+ <P>
+ (BTW, this is <B>exactly</B> the same as
+ using <FONT color="red"><B><TT>a: ds.l 10</TT></B></FONT> 
+	in <B>m68000</B> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main( int argc, char* argv[] )
+{
+   <FONT color="red">double a[10];</FONT>
+   int    i;
+    
+   for ( i = 0; i < 10; i++ )
+      <FONT color="red">a[i] = i;</FONT>
+    
+   for ( i = 0; i < 10; i++ )
+      printf( "a[%d] = <FONT color="red">%lf</FONT>\n", i, <FONT color="red">a[i]</FONT> );            
+}   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a[0] = 0.000000
+   a[1] = 1.000000
+   a[2] = 2.000000
+   a[3] = 3.000000
+   a[4] = 4.000000
+   a[5] = 5.000000
+   a[6] = 6.000000
+   a[7] = 7.000000
+   a[8] = 8.000000
+   a[9] = 9.000000                       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/array1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Variable length arrays (C99)
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>C99 standard</B></FONT> allows for the
+   <FONT color="blue"><B>definition</B></FONT> of
+    <FONT color="red"><B>variable length arrays</B></FONT> in
+    <FONT color="blue"><B>C99</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   dataType   arrayName[ <FONT color="red">variableName</FONT> ];               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main( int argc, char* argv[] )
+{
+   int<FONT color="red"> N = 10</FONT>;
+
+   double a[<FONT color="red">N</FONT>];  <FONT color="red">  // Variable length array (length depends on current value in N)</FONT>   
+   int    i;
+
+   for ( i = 0; i < N; i++ )
+      a[i] = i;
+
+   for ( i = 0; i < N; i++ )
+      printf( "a[%d] = %lf\n", i, a[i] );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/array04.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array04.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The name of an array in C
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>name</B> of an <FONT color="blue"><B>array</B></FONT> in
+       <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>name of an array</B></FONT> in
+       <B>C</B> is <B>equal</B> to
+       the <FONT color="red"><B><I>starting</I> address</B></FONT> of
+       the array
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Experiment:</B>
+   the following C program prints
+	the value of the name of an array and
+	the value of the address of the first element in an array.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      double a[10];
+    
+    
+      printf("     a = %u\n", <FONT color="red">a</FONT>);     // Print <FONT color="red">array name</FONT>
+      printf(" &a[0] = %u\n", <FONT color="red">&a[0]</FONT>); // Print <FONT color="red">address of first elem.</FONT>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     a = 4290768640
+ &a[0] = 4290768640     <FONT color="red">(EQUAL !)</FONT>                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-name1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-name1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

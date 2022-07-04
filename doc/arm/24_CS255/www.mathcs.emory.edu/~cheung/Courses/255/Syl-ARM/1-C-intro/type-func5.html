@@ -1,0 +1,306 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Defining</I> 
+ and
+<I>declaring</I> a function 
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Defining</I>  a function
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B><I>definition</I></B></FONT> of a 
+      <B>function</B> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>function <I>header</I></B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>and</B>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>function body</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double square( double x )     <FONT color="red">// Function header</FONT>                       
+   {                             
+      double r;      
+
+      r = x * x;                 <FONT color="red">// Function body</FONT>
+
+      return ( r ); 
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important fact</B></FONT> about
+      <FONT color="blue"><B>function <I>definitions</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>function</B></FONT> must be
+           <B>defined</B>
+	   <FONT color="red"><B><I>exactly</I> once</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<B>because:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+  <LI> You  <FONT color="red"><B>cannot </B></FONT> have
+  <FONT color="blue"><B>two <I>different</I> function bodies</B></FONT> for
+  <B>one function</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(<FONT color="red"><B>Which one</B></FONT> do you
+  <FONT color="blue"><B>execute</B></FONT> ????)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+ 
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Declaring</I> a function
+     </B></FONT>
+<P>
+<UL>
+
+
+<P>
+<LI> The <FONT color="red"><B><I>declaration</I></B></FONT> of a 
+      <B>function</B> contains:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ 
+ <LI> The <FONT color="red"><B>function <I>header</I></B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double square( double x ) <FONT color="red">; </font>    <FONT color="darkred">// Function declaration   </FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>function declaration</B></FONT>
+        <B><I>ends</I></B> in a 
+	<FONT color="red"><B><I>semi-colon</I> (;)</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><I>declaration</I></B></FONT> of a
+      <B>function</B> provides:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>neccessary</B></FONT> information
+      on a <B>function</B> to the
+      <FONT color="blue"><B>C compiler</B></FONT> to
+      <FONT color="red"><B>translate</B></FONT> a
+      <FONT color="blue"><B>function call</B></FONT>
+<P>
+  (It has the <FONT color="red"><B>data type</B></FONT> information
+   of all <FONT color="blue"><B> <I>parameter</I> variables</B></FONT> and
+   the <FONT color="red"><B>data type</B></FONT> of the
+   <FONT color="blue"><B>return value</B></FONT>)
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important fact</B></FONT> about
+   <FONT color="blue"><B>function <I>declarations</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can have
+        <FONT color="red"><B><I>multiple</I> function declarations
+    </B></FONT> for the
+    <FONT color="blue"><B><I>same</I> function</B></FONT>
+    
+<P>
+<B>However:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>different</I> function declarations
+   </B></FONT>
+   can <FONT color="red"><B>not be <I>conflicting</I></B></FONT> with
+   <B>each other</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float f( float x );
+   float f( float x );</FONT>
+
+   int main( int argc, char *argv[] )          
+   {
+      float a, b;
+    
+      a = 2.0;
+    
+      b = f( a ); 
+    
+      printf("b = %f\n", b);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

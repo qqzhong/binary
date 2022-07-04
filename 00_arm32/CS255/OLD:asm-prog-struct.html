@@ -1,0 +1,450 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<B>Structure of an assembler program</B>
+<HR>
+<UL>
+<P>
+<P>
+
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler program
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Assembler program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler program</B></FONT> =
+     a <B>computer cprogram</B> written in an
+     <FONT color="red"><B><I>assembler</I> programming language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Assembler programming language:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler programming language</B></FONT> =
+     a <FONT color="blue"><B>"language"</B></FONT> that consist of
+     <FONT color="red"><B><I>mnemonic</I> codes </B></FONT>
+     that <B>represent</B> all the
+	<FONT color="blue"><B>computer instructions</B></FONT>
+	
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Explanation:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that
+      <FONT color="blue"><B>computer instructions</B></FONT> are
+      <B>represented</B> by
+      <FONT color="red"><B><I>binary</I> numbers</B></FONT>
+<P>
+  See: 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler
+     </B></FONT>
+<P>
+
+ <P>
+ <UL>
+ <LI> <FONT color="red"><B>Assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler</B></FONT> =
+   a <B>computer program</B> that translates 
+	<FONT color="red"><B><I>mnemonic</I> codes </B></FONT>
+	into 
+	<FONT color="blue"><B>computer instructions</B></FONT>
+	 (stored in <FONT color="red"><B>binary representation</B></FONT> !!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+ <LI> A <B>mnemonic</B> helps one remember a complicated fact
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <B>remember</B> the
+     <FONT color="blue"><B> names</B></FONT>
+    of the <FONT color="red"><B>5 great lakes</B></FONT>, you
+	 can use the mnemonic 
+	 <FONT color="blue"><B>HOMES</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> H = Huron
+ <LI> O = Ontario
+ <LI> M = Michigan
+ <LI> E = Erie
+ <LI> S = Superior
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+	
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Assembler instructions</B></FONT> are written
+     using  <FONT color="red"><B>mnemonics</B></FONT>  
+ <P>
+ <B>Example assembler instructions:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">add.b</FONT> D0, D1     mnemonic for: <FONT color="red">add</FONT> the byte operands in D0
+				 and D1 and store result in D1    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<PRE>
+
+</PRE>
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Format of an assembler program
+     </B></FONT>
+<P>
+<UL>
+
+<LI> What an <FONT color="blue"><B>assembler program</B></FONT>
+     look like:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   [label1] <FONT color="red">line1</FONT>  [comment1]
+   [label2] <FONT color="red">line2</FONT>  [comment2]
+   [label3] <FONT color="red">line3</FONT>  [comment3]         
+   .... and so on
+   <FONT color="red">end</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The bracket <FONT color="blue"><B><TT>[ ... ]</TT></B></FONT> denotes
+ an <FONT color="red"><B><I>optional</I> field</B></FONT>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>line</B></FONT> in the 
+      <FONT color="blue"><B>assembler program</B></FONT> can contain:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>one</I></B>
+        <FONT color="red"><B> assembler <I>directive</I></B></FONT>,
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
+ <LI> <B><I>one</I></B>
+    <FONT color="red"><B> assembler <I>instruction</I></B></FONT>
+     (= <FONT color="blue"><B>mnemonic</B></FONT> for a computer instruction)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler Directives
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Assembler <I>directive</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler <I>directive</I></B></FONT> =
+       a <FONT color="red"><B>command</B></FONT> given  to the 
+       <FONT color="blue"><B>assembler program</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="blue"><B>assembler <I>directive</I></B></FONT>
+     tells (= directs) the
+     <B>assembler</B> to
+     <FONT color="red"><B><I>do</I> something</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> <B>Sample directives:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+  <LI> Tell assembler to 
+    <FONT color="red"><B>start</B></FONT> a program
+     at a <FONT color="blue"><B>certain location</B></FONT> in memory
+  <LI> Tell assembler to <FONT color="red"><B>define</B></FONT>
+      a <FONT color="blue"><B>symbolic constant</B></FONT>
+  <LI> Tell assembler to <FONT color="red"><B>reserve space</B></FONT>
+       in <FONT color="blue"><B>memory (RAM)</B></FONT>
+       for <FONT color="red"><B>program variables</B></FONT>
+  <LI> Tell assembler to <FONT color="red"><B>stop</B></FONT> assembling
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Assembler <I>instruction</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler <I>instruction</I></B></FONT> =
+        a <FONT color="red"><B>"easy to remember" (mnemonic)</B></FONT>
+    <B>code</B> to
+    <FONT color="blue"><B>represent</B></FONT> a
+    <FONT color="red"><B><I>computer</I> instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Further explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="blue"><B>program</B></FONT> a
+       <FONT color="red"><B>computer</B></FONT>, you would
+       <B>actually</B> have to write
+       <FONT color="blue"><B>binary codes</B></FONT> that
+       represent
+       <FONT color="red"><B>computer operations</B></FONT>
+ <P>
+ <B>For example</B>, you would <FONT color="blue"><B>need</B></FONT> to
+   <FONT color="red"><B>write</B></FONT> this:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   11001100     <--- computer instructions are encoded
+   01001000          using <FONT color="red">binary numbers</FONT> !!!
+   10101100
+   10010101
+   ....
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To <FONT color="red"><B><I>simplify</I></B></FONT> the
+     <FONT color="blue"><B>process</B></FONT> of writing
+     <FONT color="red"><B>assembler programs</B></FONT>, <B>you</B>
+     will <FONT color="blue"><B>write</B></FONT>
+     <FONT color="red"><B><I>assembler</I> instructions</B></FONT>
+<P>
+  <B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    add  d0, d1       <---  <FONT color="red">assembler instruction</FONT>     
+    move  x, d0
+    ....
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You use a <FONT color="red"><B>translation program</B></FONT> 
+  (called the <FONT color="blue"><B><I>assembler</I></B></FONT>)
+  to <FONT color="red"><B>translate</B></FONT> the
+  <FONT color="blue"><B>assembler program</B></FONT> into
+  <FONT color="red"><B>(binary) machine codes</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+
+
+
+
+
+
+

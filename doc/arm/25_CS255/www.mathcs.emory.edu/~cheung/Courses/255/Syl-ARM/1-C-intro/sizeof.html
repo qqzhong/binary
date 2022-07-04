@@ -1,0 +1,472 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>sizeof</TT> operator
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Size of a data type
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Size</B> of a <FONT color="blue"><B>data type</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Size</B></FONT> of a 
+        <FONT color="blue"><B>data type</B></FONT> =
+       the <FONT color="red"><B>number of <I>bytes</I></B></FONT>
+       used to 
+    <FONT color="blue"><B>store</B></FONT>
+    a <FONT color="red"><B>value</B></FONT> of that
+     <FONT color="blue"><B> data type</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>sizeof</TT> <FONT color="red">operator</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>C</B></FONT> has
+    a <FONT color="blue"><B>special <I>operator</I>
+   (<TT>sizeof</TT>)</B></FONT> that
+    <FONT color="red"><B>returns</B></FONT> the
+     <FONT color="blue"><B>size</B></FONT> of
+     a <FONT color="red"><B>data type</B></FONT>
+ <P>
+ <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">sizeof</FONT>( dataType )    returns the <FONT color="red">size of a variable</FONT> of type "dataType"    
+
+  or
+
+     <FONT color="red">sizeof</FONT>( varName )     returns the <FONT color="red">size of the variable</FONT> "varName"    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>sizeof</TT> operator</B></FONT> 
+  is <FONT color="blue"><B>unusual</B></FONT> in that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B><TT>sizeof</TT> operator</B></FONT> 
+  is  <B>represented</B> by
+    an <FONT color="blue"><B>English-like word</B></FONT>
+    ("sizeof")
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+    <FONT color="red"><B>Other operators</B></FONT> in
+    <FONT color="blue"><B>C</B></FONT> are
+    <B>represented</B> by
+    <FONT color="red"><B><I>symbols</I></B></FONT>
+    such as <FONT color="blue"><B><TT>+, =, &&, ||</TT>, etc</B></FONT>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( int argc, char* argv[] )
+{
+   printf("sizeof(char)               = %lu\n", sizeof(char) );
+   printf("sizeof(short)              = %lu\n", sizeof(short) );
+   printf("sizeof(int)                = %lu\n", sizeof(int) );
+   printf("sizeof(long)               = %lu\n", sizeof(long) );
+   printf("sizeof(long long)          = %lu\n", sizeof(long long) );
+   printf("\n");
+
+   printf("sizeof(unsigned char)      = %lu\n", sizeof(unsigned char) );
+   printf("sizeof(unsigned short)     = %lu\n", sizeof(unsigned short) );
+   printf("sizeof(unsigned int)       = %lu\n", sizeof(unsigned int) );
+   printf("sizeof(unsigned long)      = %lu\n", sizeof(unsigned long) );
+   printf("sizeof(unsigned long long) = %lu\n", sizeof(unsigned long long) );      
+   printf("\n");
+
+   printf("sizeof(float)              = %lu\n", sizeof(float) );
+   printf("sizeof(double)             = %lu\n", sizeof(double) );
+   printf("sizeof(long double)        = %lu\n", sizeof(long double) );
+   printf("\n");
+
+   int x;
+
+   printf("sizeof(x)                  = %lu\n", sizeof(x) );
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// gcc on Ubuntu 18
+sizeof(char)               = 1
+sizeof(short)              = 2
+sizeof(int)                = 4
+sizeof(long)               = 8
+sizeof(long long)          = 8
+
+sizeof(unsigned char)      = 1
+sizeof(unsigned short)     = 2
+sizeof(unsigned int)       = 4
+sizeof(unsigned long)      = 8
+sizeof(unsigned long long) = 8
+
+sizeof(float)              = 4
+sizeof(double)             = 8
+sizeof(long double)        = 16
+
+sizeof(x)                  = 4                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/sizeof1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc sizeof1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Typical use of <FONT color="red"><TT>sizeof</TT></FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B><TT>sizeof</TT> operator</B></FONT>
+  is <FONT color="blue"><B>commonly used</B></FONT> to
+  find the
+  <FONT color="red"><B>size</B></FONT> of
+  <FONT color="blue"><B>user defined data types</B></FONT>
+  (= <FONT color="red"><B>Java's "classes"</B></FONT>)
+<P>
+<LI> <FONT color="red"><B>Later</B></FONT>, we will
+ learn <FONT color="blue"><B>hot to</B></FONT>
+ define
+ <FONT color="red"><B>user-defined data types</B></FONT>.
+ <P>
+  Here I will give you a <FONT color="red"><B>preview</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+<FONT color="red">
+/* ----------------------------------------------
+   User-defined data type (like a class in Java)
+   ---------------------------------------------- */
+struct BankAccount
+{
+   int accNum;          // 4 bytes
+   double balance;      // 8 bytes
+};</FONT>
+
+int main( int argc, char* argv[] )
+{
+   struct BankAccount x;
+
+   printf("sizeof(BankAccount)        = %lu\n", <FONT color="red">sizeof(struct BankAccount)</FONT> );
+   printf("sizeof(x)                  = %lu\n", sizeof(x) );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+sizeof(BankAccount)        = 16
+sizeof(x)                  = 16                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B><TT>BankAccount</TT> object</B></FONT>
+   requires <FONT color="blue"><B>16 bytes</B></FONT> to store because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Alignment requirement</B></FONT> for
+     the <FONT color="blue"><B><TT>double</TT> typed variable</B></FONT>
+     <FONT color="red"><B><TT>balance</TT></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically explained:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bankacc.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+There is a <FONT color="red"><B>gap of 4 bytes</B></FONT>
+ between
+ the <FONT color="blue"><B>2 components</B></FONT> in the
+  <FONT color="red"><B><TT>BankAccount</TT> object</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Experiment to show the <FONT color="red">gap</FONT> in
+  the <FONT color="red"><TT>BankAccount</TT></FONT> object
+     </B></FONT>
+<P>
+<UL>
+<LI> This <FONT color="red"><B>program</B></FONT> 
+    shows that there is
+     a <FONT color="blue"><B>gap</B></FONT> in
+     the <FONT color="red"><B><TT>BankAccount</TT> object</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+<FONT color="red">
+/* ----------------------------------------------
+   User-defined data type (like a class in Java)
+   ---------------------------------------------- */
+struct BankAccount
+{
+   int accNum;          // 4 bytes
+   <FONT color="darkgreen">int FILLER;          // Gap Filler of 4 bytes</FONT>
+   double balance;      // 8 bytes
+};</FONT>
+
+int main( int argc, char* argv[] )
+{
+   struct BankAccount x;
+
+   printf("sizeof(BankAccount)        = %lu\n", <FONT color="red">sizeof(struct BankAccount)</FONT> );
+   printf("sizeof(x)                  = %lu\n", sizeof(x) );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+sizeof(BankAccount)        = 16   <FONT color="red">same size !!!</FONT>      
+sizeof(x)                  = 16                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can <FONT color="red"><B>insert an <TT>int</TT> variable</B></FONT>
+ in the <FONT color="blue"><B><TT>BankAccount</TT> object</B></FONT>
+ <FONT color="red"><B>without</B></FONT>
+  <FONT color="blue"><B>increasing its size</B></FONT> !!!
+<P>
+The <FONT color="red"><B><TT>FILLER</TT></B></FONT> variable 
+ <FONT color="blue"><B>occupied</B></FONT> the
+ <FONT color="red"><B>4 byte gap</B></FONT> between
+  <FONT color="blue"><B><TT>accNum</TT></B></FONT> and
+  <FONT color="blue"><B><TT>balance</TT></B></FONT>.
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

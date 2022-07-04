@@ -1,0 +1,277 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using <TT>B</TT> (branch always) instruction to implement subroutine ???
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implement Subroutine
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Consider:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   main( )
+   {
+      ...
+      A( );     // Execute instructions in A and continue         
+      ...
+   }
+
+   A( )
+   {
+      ....
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can <FONT color="red"><B>implement</B></FONT> the
+  <FONT color="blue"><B>subroutine call</B></FONT> as
+  <FONT color="red"><B>follows</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ main:
+        ....
+        ....
+	<FONT color="red">b  A</font>
+   Ret: ...
+        ...
+
+
+    <FONT color="red">A:</font>  ....
+        ....
+	....
+        <FONT color="red">b  Ret    </font>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Why the "branch always" instruction will not work !
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider <FONT color="red"><B>now</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   main( )
+   {
+      ...
+      A( );     // Execute instructions in A and continue         
+      ...
+      A( );     // Execute instructions in A and continue 
+   }
+
+   A( )
+   {
+      ....
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>implementation</B></FONT> would be
+ <FONT color="blue"><B>as follows</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ main:
+        ....
+        ....
+	<FONT color="red">b  A</font>
+  Ret1: ...
+        ...
+	<FONT color="red">b  A</font>
+  Ret2: ...
+        ...
+	...
+
+    <FONT color="red">A:</font>  ....
+        ....
+	....
+        <FONT color="red">b  Ret1    </font>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Problem:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>b  Ret1</TT></B></FONT> will
+        <FONT color="blue"><B>jump</B></FONT> to the
+	<FONT color="red"><B><I>wrong</I> continuation location</B></FONT>
+	in the <FONT color="blue"><B><I>second</I> invocation</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Lesson learned
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Lesson:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>subroutine call</B></FONT>
+       (to run code in the
+       <FONT color="blue"><B>subroutine</B></FONT>)
+       <B>must</B>
+       <FONT color="red"><B><I>remember</I></B></FONT> the
+       <FONT color="blue"><B><I>location</I></B></FONT> of the
+       <FONT color="red"><B>subroutine invocation</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>subroutine</B></FONT> must
+      <FONT color="red"><B>return (= go back)</B></FONT> to
+      the <FONT color="blue"><B>location</B></FONT> where the
+      <FONT color="red"><B>subroutine call instruction</B></FONT> was
+      <FONT color="blue"><B>executed</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Analogy:</B>
+  <FONT color="red"><B>Hansel and Gretel</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Just like
+      <FONT color="red"><B>Hansel and Gretel</B></FONT> 
+   (<A HREF="https://en.wikipedia.org/wiki/Hansel_and_Gretel">
+    click here </A>)
+     who tracked
+      into a forrest, they left
+      a <FONT color="blue"><B>trail</B></FONT> of
+      <FONT color="red"><B>bread crumbs</B></FONT> to help them
+      get back home:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/hansel+gretel.jpg" width="400" height=250></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+When you 
+ <FONT color="red"><B>call a method/function</B></FONT>, you
+ <FONT color="blue"><B>must</B></FONT> leave 
+ a <FONT color="red"><B><I>return</I> address</B></FONT>
+ to indicate <FONT color="blue"><B>where</B></FONT> you need to
+ go back to when the
+ <FONT color="red"><B>method/function has completed execution</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

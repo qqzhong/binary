@@ -1,0 +1,298 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How is an array data structure stored in computer memory
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What is an array (in Java/C) ?
+     </B></FONT>
+<P>
+ <UL>
+ <LI> From <FONT color="red"><B>CS170</B></FONT>, you learned that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>array</B></FONT> is
+      a <FONT color="blue"><B>series</B></FONT> of
+      <FONT color="red"><B>variables</B></FONT> 
+ <P>
+ <LI> Each <FONT color="blue"><B>variable</B></FONT> (called
+    <FONT color="red"><B>array element</B></FONT>) has the
+    <FONT color="blue"><B><I>same</I> data type</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If <FONT color="red"><B><TT>A[ ]</TT></B></FONT> is
+ a <FONT color="blue"><B>one-dimensional array</B></FONT>, then 
+  <FONT color="red"><B><TT>A[i]</TT></B></FONT> denotes the
+ <FONT color="blue"><B>i<sup>th</sup>-element</B></FONT> in
+ the array <FONT color="red"><B><TT>A[ ]</TT></B></FONT>
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Array bound check
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Java</B></FONT> provides
+     <FONT color="blue"><B>array bound checks</B></FONT> as
+     a <FONT color="red"><B>built-in service</B></FONT> to
+     prevent the <FONT color="blue"><B>(Java) program</B></FONT> to
+     access <FONT color="red"><B>non-existing array elements</B></FONT>
+<P>
+<LI> <FONT color="red"><B>Array bound checks</B></FONT> is
+    <FONT color="blue"><B><I>not</I> </B></FONT> a
+    <FONT color="red"><B>common practice</B></FONT> because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Array bound check</B></FONT> will
+       <FONT color="blue"><B>slow down</B></FONT> the
+       <FONT color="red"><B>program execution</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Each time an array element is used in the program, a small piece of
+ <FONT color="red"><B>array bound check program code fragment</B></FONT>
+ is run.
+<P>
+The array bound check execution can slow down the program considerably.
+<P>
+That's why  <FONT color="red"><B>most programming languages</B></FONT>
+do <FONT color="blue"><B>not</B></FONT> provide
+ array bound check by default.
+
+<P>
+In some languages,
+ you can request the compiler to add array bound check when you 
+ develop the program).
+<P>
+<HR>
+<P>
+<LI> We will <FONT color="red"><B>not</B></FONT> perform
+   <FONT color="blue"><B>array bound check</B></FONT> when
+   we write code to
+   access <FONT color="red"><B>array elements</B></FONT>
+ <P> 
+  Adding array bound check codes in assembler will make
+  the assembler program <FONT color="red"><B>extremely complex</B></FONT>.
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Storing array variables in computer memory
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>elements</B></FONT> of an
+    <FONT color="blue"><B>array</B></FONT> are
+    stored <FONT color="red"><B><I>contiguously</I></B></FONT>
+    in <FONT color="blue"><B>memory</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Storing arrays of <I>different</I> data types
+     </B></FONT>
+<P>
+<UL>
+<LI> You can define <FONT color="blue"><B>arrays</B></FONT> of
+   <FONT color="red"><B><I>different</I> data types</B></FONT>, such as
+   <FONT color="blue"><B>byte arrays</B></FONT>,
+   <FONT color="blue"><B>short arrays</B></FONT> and
+   <FONT color="blue"><B>integer arrays</B></FONT>
+<P>
+ Since <FONT color="blue"><B>each data type</B></FONT> uses
+  a <FONT color="red"><B>different number bytes</B></FONT> to
+  store their <FONT color="red"><B>values</B></FONT>,
+  consequently:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Array elements</B></FONT> of
+       <FONT color="blue"><B>differently typed array</B></FONT> will
+       use <FONT color="red"><B>different number of bytes</B></FONT> to
+       store each <FONT color="blue"><B>array element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Specifically:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A <FONT color="red"><B><TT>byte</TT> (typed) array</B></FONT>
+   uses <FONT color="blue"><B>1 byte</B></FONT> to store
+   each of its <FONT color="red"><B>array element</B></FONT>
+ <LI> A <FONT color="red"><B><TT>short</TT> (typed) array</B></FONT>
+   uses <FONT color="blue"><B>2 bytes</B></FONT> to store
+   each of its <FONT color="red"><B>array element</B></FONT>
+ <LI> A <FONT color="red"><B><TT>int</TT> (typed) array</B></FONT>
+   uses <FONT color="blue"><B>4 bytes</B></FONT> to store
+   each of its <FONT color="red"><B>array element</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> This is how a
+     <FONT color="red"><B><TT>byte</TT> typed array</B></FONT> is stored
+     in memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Each <FONT color="blue"><B>array element</B></FONT> is stored
+ in <FONT color="red"><B>1 byte of memory</B></FONT>
+<P>
+The <FONT color="blue"><B>array elements </B></FONT> are
+ stored in <FONT color="red"><B>contiguous memory</B></FONT>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> This is how a
+     <FONT color="red"><B><TT>short</TT> typed array</B></FONT> is stored
+     in memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Each <FONT color="blue"><B>array element</B></FONT> is stored
+ in <FONT color="red"><B>2 bytes of memory</B></FONT>
+<P>
+The <FONT color="blue"><B>array elements </B></FONT> are
+ stored in <FONT color="red"><B>contiguous memory</B></FONT>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> This is how a
+     <FONT color="red"><B><TT>int</TT> typed array</B></FONT> is stored
+     in memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Each <FONT color="blue"><B>array element</B></FONT> is stored
+ in <FONT color="red"><B>4 bytes of memory</B></FONT>
+<P>
+The <FONT color="blue"><B>array elements </B></FONT> are
+ stored in <FONT color="red"><B>contiguous memory</B></FONT>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

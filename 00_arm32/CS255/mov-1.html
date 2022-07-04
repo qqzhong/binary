@@ -1,0 +1,636 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Moving an integer value (integer constant) into a register
+<HR>
+</H3>
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Motivation: moving (integer) values into registers
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Registers</B></FONT> are the
+    <FONT color="blue"><B>most important resource</B></FONT> inside
+    the <FONT color="red"><B>CPU</B></FONT> because they
+    are used as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Input operands</B></FONT> for
+       <FONT color="blue"><B>all computer operations</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So <FONT color="red"><B>before</B></FONT>
+   you can <FONT color="blue"><B>perform a computation</B></FONT>
+  with <FONT color="red"><B>some value</B></FONT>, you 
+  <B>usually</B>
+  need to:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move <FONT color="red"><B>that value</B></FONT> into
+         one of the <FONT color="blue"><B>(general purpose) register</B></FONT>
+	 first.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will start learning how to
+ move <FONT color="red"><B>small integer values</B></FONT> into registers.
+<P>
+Then we will learn how to move
+  <FONT color="red"><B>large (any) integer value</B></FONT> into
+  registers.
+<P>
+Next we will learn how to move <FONT color="blue"><B>values</B></FONT>
+  stored in 
+ <FONT color="red"><B>memory variables</B></FONT> into registers
+ and <FONT color="blue"><B>vice versa</B></FONT>.
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>mov</TT> instruction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>
+    is used to
+    <FONT color="blue"><B>move (= store)</B></FONT> a
+   <FONT color="red"><B><I>small</I> integer value</B></FONT> into
+   a <FONT color="blue"><B>(general purpose) register</B></FONT>
+<P>
+<LI> The 
+     <FONT color="red"><B>assembler syntax</B></FONT> to
+      move the <FONT color="red"><B>value <TT>x</TT></B></FONT> to
+ register <FONT color="blue"><B><TT>rN</TT></B></FONT>
+ (any register in the ARM processor) is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov rN, #<FONT color="red">x</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+The <FONT color="red"><B>value <TT>x</TT></B></FONT> will be stored
+ as a <FONT color="blue"><B>32 bit 2's complement number</B></FONT> inside
+ the register <FONT color="red"><B><TT>rN</TT></B></FONT>
+ (X is any number between 0 and 10).
+</SPAN>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    mov  r0, #<FONT color="red">4</FONT>       // Stores  <FONT color="red">00000000000000000000000000000100</FONT> in r0
+
+    mov  r0, #<FONT color="red">15</FONT>      // Stores  <FONT color="red">00000000000000000000000000001111</FONT> in r0  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+    <FONT color="red"><B><TT>       
+       /home/cs255001/demo/asm/2-mov/mov-intro.s</TT></B></FONT>
+      on a <FONT color="blue"><B>lab machine</B></FONT>
+</UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 mov-intro</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: use <FONT color="red"><B>EGTAPI</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What is considered a "small" integer value
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>ARM processor</B></FONT> has a
+    pretty <FONT color="blue"><B>complicated way</B></FONT> to
+    <FONT color="red"><B>encode</B></FONT>
+    a <FONT color="blue"><B>number</B></FONT> in the
+    <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>.
+<P>
+The <FONT color="red"><B>format</B></FONT> to 
+ <FONT color="blue"><B>encode</B></FONT> the
+ instruction to
+ move the <FONT color="red"><B>value <TT>x</TT></B></FONT> to
+ register number <FONT color="blue"><B><TT>dest</TT></B></FONT>
+ is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  mov  r0, #x    is encoded in ARM as:
+
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-<SPAN style="BACKGROUND-COLOR: yellow">+-+-+-+-+-+-+-+-+-+-+-+-+</SPAN>
+    | | | | |0|0|1|<FONT color="red">1|1|0|1</FONT>|S|x|x|x|x|  dest |       <SPAN style="BACKGROUND-COLOR: yellow">     <FONT color="red">value (x) </FONT>         |</SPAN>
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-<SPAN style="BACKGROUND-COLOR: yellow">+-+-+-+-+-+-+-+-+-+-+-+-+</SPAN>       
+     <----->       <----->   <----->                 <FONT color="red"><---------------------></FONT>
+     1 1 1 0         "mov"   not used                       <FONT color="red">12 bits</FONT>
+  unconditional
+
+    (S = 0  means: don't set the condition codes)
+    (S = 1  means: set the condition codes according to the result of the operation)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>
+ has <FONT color="blue"><B><I>only</I></B></FONT>
+ <FONT color="red"><B>12 bits</B></FONT> to
+ <FONT color="blue"><B>represent</B></FONT>
+ the <FONT color="red"><B>value <TT>x</TT></B></FONT>.
+<P>
+Without going in the details on <FONT color="red"><B>how</B></FONT>
+ the <FONT color="blue"><B>ARM processor</B></FONT> uses these
+ <FONT color="red"><B>12 bits</B></FONT> to
+ represent <FONT color="blue"><B>numeric values</B></FONT>
+ (it uses a very complicated method), you can deduce from the 
+ <FONT color="red"><B>fact</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>12 bits</B></FONT> is
+      <FONT color="blue"><B>not enough bits</B></FONT> to
+      represent
+      <FONT color="red"><B><I>all</I> <TT>int</TT> typed values</B></FONT>
+ <P>
+ <B>Because:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>int</TT> typed values</B></FONT> ranges
+       between
+    <FONT color="blue"><B>&minus;2<sup>31</sup> .. (2<sup>31</sup>&minus;1)
+    </B></FONT> which requires
+    <FONT color="red"><B>32 bits</B></FONT> to
+    represent all of them !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<A NAME="explain"></A>
+<HR>
+<HR>
+<P>
+<LI>
+<FONT color="red"><B>Postscript</B></FONT>:
+ (only intended for the <FONT color="blue"><B>curious student</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To satisfy the <FONT color="red"><B>curiosity</B></FONT> of
+     some students, here's how
+    the <FONT color="blue"><B>ARM process</B></FONT> encodes
+    a <FONT color="red"><B>constant</B></FONT> using its
+    <FONT color="blue"><B>12 bits</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/arm-const.jpg" width=300 height=100></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>last 8 bits</B></FONT> encodes
+  a <FONT color="blue"><B>8 bits unsigned binary number</B></FONT>
+<P>
+ The <FONT color="red"><B>first 4 bits</B></FONT> encodes
+  a <FONT color="blue"><B>"rotation count"</B></FONT> - but this
+  count is <FONT color="red"><B>multiplied by 2</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B><TT>rotate4 = 0</TT></B></FONT>, 
+      the <FONT color="blue"><B>8 bits constant</B></FONT> is
+      <FONT color="red"><B>not rotated</B></FONT>
+ <LI> If <FONT color="red"><B><TT>rotate4 = 1</TT></B></FONT>, 
+      the <FONT color="blue"><B>8 bits constant</B></FONT> is
+      <FONT color="red"><B>rotated left 2 positions</B></FONT>
+ <LI> If <FONT color="red"><B><TT>rotate4 = 2</TT></B></FONT>, 
+      the <FONT color="blue"><B>8 bits constant</B></FONT> is
+      <FONT color="red"><B>rotated left 4 positions</B></FONT>
+ <LI> (and so on)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>encoding</B></FONT> makes it
+  <FONT color="blue"><B>extremely hard (or impossible)</B></FONT> for
+  <FONT color="red"><B>humans</B></FONT> 
+  (without using a <FONT color="blue"><B>binary number calculator</B></FONT>)
+  to
+  figure out
+  <FONT color="red"><B><I>which</I> integer constant</B></FONT> can be
+   represented !!!
+<P>
+Reference:
+ <A HREF="http://www.davespace.co.uk/arm/introduction-to-arm/immediates.html">
+ click here</A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Post postscript</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>ARM processor</B></FONT>
+   may be using <FONT color="blue"><B>more bits</B></FONT> to
+   encode constants since that article was written because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I was able to use the constant
+    <FONT color="red"><B><TT>0x000001FE</TT> (= 510 decimal)</B></FONT>
+    in the <FONT color="blue"><B><TT>mov</TT></B></FONT> instruction
+    (which was supposed to be <FONT color="red"><B>illegal</B></FONT>
+    according to the article)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+
+<P>
+As a <FONT color="red"><B>rule of thumb</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>mov</TT></B></FONT> instruction
+      can use <FONT color="blue"><B><I>any</I> integer values</B></FONT> that
+      is in the range of
+      <FONT color="red"><B>-100 .. 100</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ (The <FONT color="red"><B>range</B></FONT> is (a bit)
+  <FONT color="blue"><B>larger</B></FONT> that what I have stated above,
+  but the value <FONT color="red"><B>100</B></FONT> is
+  <FONT color="blue"><B><I>easy</I> to remember</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Illustrating the <TT>mov</TT> instruction in EGTAPI
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following 
+     <FONT color="blue"><B>ARM assembler (source) program</B></FONT> with 3 
+   <FONT color="red"><B><TT>mov</TT></B></FONT> instructions:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #4   // Instr code: e3 a0 00 04 (4 is stored in binary!)
+        mov     r0, #15  // Instr code: e3 a0 00 0f (15 is stored in binary!)   
+
+        mov     r1, #123456 // mov cannot handle very large values
+                            // Comment the above instruction to compile
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>After assembly (= compiling)</B></FONT>,
+ the <FONT color="blue"><B>assembler</B></FONT> will generate
+ the following <FONT color="red"><B>machine instruction codes</B></FONT>
+ for the <FONT color="blue"><B>first 2 instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Assembler instrcution       Machine code
+  -----------------------     --------------
+       mov r0, <FONT color="red">#4</FONT>         -->  1110 0011 1010 0000 <FONT color="red">0000 0000 0000 0100</FONT> (e3 a0 <FONT color="red">00 04</FONT>)
+       mov r0, <FONT color="red">#15</FONT>        -->  1110 0011 1010 0000 <FONT color="red">0000 0000 0000 1111</FONT> (e3 a0 <FONT color="red">00 0f</FONT>)    
+
+       mov r0, <FONT color="red">#123456</FONT>    -->  Error: invalid constant (<FONT color="red">1e240</FONT>) after fixup (123456 = 1e240 Hex)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Observe that:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>You</B></FONT> can write
+      a <FONT color="blue"><B>number</B></FONT> in
+      <FONT color="red"><B>decimal number string text</B></FONT> in the
+      assembler program, and the
+      <FONT color="blue"><B>assembler</B></FONT> will
+      <FONT color="red"><B>convert</B></FONT> the numeric number in text
+      format into a
+    <FONT color="blue"><B>2's complement binary number</B></FONT>
+<P>
+ I.e.:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B>assembler</B></FONT> has used the
+   <FONT color="blue"><B>ASCII to binary conversion algorithm</B></FONT>
+   (see: <A HREF="../5-repr/atoi-alg2.html"> click here </A>)
+   during the <FONT color="red"><B>translation process</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Using a <FONT color="red"><B>large integer value</B></FONT>
+     (such as <FONT color="blue"><B>123456</B></FONT>) will cause
+     an <FONT color="red"><B>error</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="red"><B>not enough bits</B></FONT> in the
+      <FONT color="blue"><B><TT>mov</TT></B></FONT> instruction
+      to <FONT color="red"><B>encode <I>large</I> integer values</B></FONT> 
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So as a <FONT color="red"><B>rule of thumb:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can  use the
+       <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>
+       on <FONT color="blue"><B>integer values</B></FONT> between
+       <FONT color="red"><B>-100 .. 100</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What if you need <FONT color="red">larger</FONT> integer values ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>ARM processor</B></FONT>
+    <FONT color="blue"><B>can use</B></FONT>
+    <FONT color="red"><B>larger integer values</B></FONT>...
+ <P>
+   <FONT color="red"><B>Except that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It's more 
+ <FONT color="red"><B>complicated</B></FONT> and
+ requires <FONT color="blue"><B>2 instructions</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+We will learn how to move larger values into a register next...
+</SPAN>
+<P>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

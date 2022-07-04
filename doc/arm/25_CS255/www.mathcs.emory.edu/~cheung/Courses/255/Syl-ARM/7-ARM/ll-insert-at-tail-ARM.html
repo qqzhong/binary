@@ -1,0 +1,1235 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Implementing the recursive search algorithm in ARM assembler code
+<HR>
+</H3>
+
+<UL>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Brief summary of my CS170 page on "insert at tail" of list
+     </B></FONT>
+<P>
+<UL>
+<LI> Pretend that you are hold on to a
+    <FONT color="red"><B>linked list</B></FONT> and you need
+    <FONT color="blue"><B>insert</B></FONT> a new list element
+   at the <FONT color="red"><B>end</B></FONT> of the list:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list06b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+And you are <B>lazy</B> and
+  <FONT color="red"><B>refuse</B></FONT> to
+  <FONT color="blue"><B>traverse</B></FONT> the
+  linked list.
+<P>
+The <FONT color="red"><B>only</B></FONT> action
+ that you want to do is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Check</B> if  you can
+      <FONT color="red"><B>insert</B></FONT> the
+      new list element
+      as the <FONT color="blue"><B>first element</B></FONT>
+      in the  <FONT color="red"><B>list</B></FONT> you got
+      in your hand
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Convince yourself that
+  this <FONT color="red"><B>insert procedure</B></FONT> will
+  <FONT color="blue"><B>insert</B></FONT> the 
+   <B>new list element</B>
+  at the 
+  <FONT color="red"><B>end of the list</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>If</B></FONT> the
+  list <B>in your hand</B> is <FONT color="blue"><B>empty</B></FONT>:
+  (that means inserting the new element will create a list with
+   <FONT color="red"><B>only 1 element</B></FONT> in
+   the list and the inserted element will <B>also</B> be
+   the <FONT color="blue"><B><I>last</I> element</B></FONT> in the
+   list !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> 
+      <B>You </B>
+      will <FONT color="red"><B>return</B></FONT>
+      the <FONT color="blue"><B>new list element</B></FONT> as
+      the <FONT color="red"><B>new list</B></FONT>
+ <P>
+  (The  <FONT color="blue"><B>new list element</B></FONT> will
+  be the <FONT color="red"><B>last element</B></FONT> in the list
+  because it's the 
+  <FONT color="blue"><B>only element</B></FONT> in the list !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Otherwise</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  You <FONT color="red"><B>hire an "inserter"</B></FONT> to
+   insert the <FONT color="blue"><B>new list element</B></FONT> at the
+      <FONT color="red"><B>end</B></FONT> of the
+      <FONT color="blue"><B>sub-list</B></FONT>
+      <FONT color="red"><B><TT>head.next</TT></B></FONT>
+ <P>
+ <LI> 
+   When this <FONT color="red"><B>hired person</B></FONT> completes
+   his <FONT color="blue"><B>task</B></FONT> (i.e.,
+    he has successfull inserted the new list element at the end
+  of the sub-list and he is giving you
+  the <FONT color="red"><B>new list</B></FONT> with the
+  inserted list element included),  you will
+   <FONT color="red"><B>attach</B></FONT> his result list
+   to <FONT color="blue"><B><TT>head.next</TT></B></FONT>
+ <P>
+ <LI> Then you return <FONT color="red"><B><TT>h</TT></B></FONT> as
+      the <FONT color="blue"><B>new list</B></FONT> 
+ <P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> When you <FONT color="red"><B>code</B></FONT> this
+    <FONT color="blue"><B>lazy man's search algorithm</B></FONT>, you will
+    have the following algorithm:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static List  Insert( List h, List p )                      
+   {
+      if ( the list at h is empty )
+      {
+         Make list element p as the new list;
+           // p is the only element and is also the last element in the list   
+      }
+      else
+      {
+         Hire someone to insert p at the end of sublist (h.next);
+         Get his result;
+         Attach his result to h.next;
+	 return h;
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+If you <FONT color="red"><B>translates</B></FONT> these
+  <FONT color="blue"><B>actions</B></FONT> into
+  <FONT color="red"><B>Java constructs</B></FONT>, you will
+  <B>also</B> get this
+  <FONT color="blue"><B>algorithm</B></FONT>
+  as discussed in my <B>CS170</B> webpage
+  (but with some <FONT color="red"><B>abreviation</B></FONT> -
+  I can shortend the else part, you are not in <B>CS170</B>
+  and should be able to handle this shorted code):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static List  Insert( List h, List p )                      
+   {
+      if ( h == null )
+      {
+         p.next = null;
+         return p;
+      }
+      else
+      {
+         // Insert( h.next, p ) = hire an "inserter" to insert 
+         //                       the new list element at the end of 
+	 //                       the sub-list head.next
+         // h.next = ...        = you attach his result list to head.next
+         h.next = Insert( h.next, p );
+         return h;
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The recursive Insert function
+     </B></FONT>
+
+ <UL>
+<P>
+ <LI> I will <B>code</B>
+	the following
+   <FONT color="blue"><B>recursive insert at tail</B></FONT>
+   in 
+  <FONT color="red"><B>ARM assembler</B></FONT>:
+   
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static List  Insert( List h, List p )                      
+   {
+      if ( h == null )
+      {
+         p.next = null;
+         return p;
+      }
+      else
+      {
+         // Insert( h.next, p ) = hire an "inserter" to insert 
+         //                       the new list element at the end of 
+	 //                       the sub-list head.next
+         // h.next = ...        = you attach his result list to head.next
+         h.next = <FONT color="red">Insert( h.next, p )</FONT>;
+         return h;
+      }
+   }
+ 
+   static void main( )
+   {
+      ptr = new List( );
+
+      head = <FONT color="red">Insert(head, ptr)</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main( )</TT></B></FONT> calls the
+       <FONT color="blue"><B><TT>Insert( )</TT></B></FONT> method
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main( )</TT></B></FONT> must
+      pass the <FONT color="blue"><B>parameter</B></FONT> using the
+      <FONT color="red"><B>program stack</B></FONT> (because
+    <FONT color="blue"><B><TT>Insert</TT></B></FONT> is 
+   <FONT color="red"><B>not a leaf method</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>Insert( )</TT></B></FONT> <B>also</B>
+       calls the
+       <FONT color="blue"><B><TT>Insert( )</TT></B></FONT> method
+       (see the call
+	 <FONT color="red"><B><TT>Insert(h.next, p)</TT></B></FONT>
+	inside the <B>Insert</B> method)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When <FONT color="red"><B><TT>Insert(h, p)</TT></B></FONT>
+     calls <FONT color="blue"><B><TT>Insert(h.next, p)</TT></B></FONT>,
+      <FONT color="red"><B>Insert(head,ptr)</TT></B></FONT> must
+      pass the <FONT color="blue"><B>parameters 
+	&nbsp;
+ <TT>h.next</TT> and <TT>ptr</TT></B></FONT> using the
+      <FONT color="red"><B>program stack</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How the <TT>main</TT> function calls the Insert method
+     </B></FONT>
+<P>
+<UL>
+<LI> From the fact that 
+     you must <FONT color="red"><B>pass parameters</B></FONT> of
+     a <FONT color="blue"><B>recursive method</B></FONT> using the
+     <FONT color="red"><B>program stack</B></FONT>
+	(because a recursive function is <B>always</B>
+	a <B>non-leaf</B> function)
+     and the fact that
+     <FONT color="blue"><B><TT>Insert( )</TT></B></FONT> has
+     a <FONT color="red"><B>parameters
+  &nbsp; <TT>head</TT> and <TT>ptr</TT></B></FONT>, 
+     this is <FONT color="blue"><B>how</B></FONT> the
+    <B><TT>main( )</TT></B> function must
+     call <FONT color="red"><B><TT>Insert( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     push  parameters (head and ptr) on the stack
+
+     bl    Insert
+
+     add   sp, sp, #8           // Clean up the parameter from the stack   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    The stack frame structure for the Insert function
+     </B></FONT>
+<P>
+<UL>
+
+ <LI> The <FONT color="blue"><B>stack frame structure</B></FONT>
+      that you need to 
+    <B>create</B> will
+     <FONT color="red"><B>depend</B></FONT>
+      on:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B>number</B></FONT> of
+      <FONT color="blue"><B> parameters</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>and</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI>  The <FONT color="red"><B>number</B></FONT>
+    of <FONT color="blue"><B>local variables</B></FONT> used in the function.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> In the <FONT color="red"><B><TT>Insert( )</TT></B></FONT> method
+      above, we see that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B> Insert function</B></FONT> has
+     <FONT color="red"><B>2 parameter variables</B></FONT>
+	and 
+ <LI> <FONT color="red"><B>0 local variables</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>stack frame structure</B></FONT>
+     created (and used by <FONT color="blue"><B><TT>Insert( )</TT></B></FONT>
+     will <FONT color="red"><B>therefore</B></FONT>
+     be as follows:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="red">Stack frame</FONT> of the <FONT color="red">Insert( )</FONT> method:
+
+    SP
+    FP -----> +---------------------+                  
+              |  old Frame Pointer  |
+              +---------------------+
+              |  Return Address     |
+              +---------------------+
+              |       head          |  <FONT color="red">addr(n) = FP + 8</FONT>        
+              +---------------------+
+              |        ptr          |  <FONT color="red">addr(n) = FP + 12</FONT>
+              +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see that the
+ <FONT color="red"><B><TT>Insert( )</TT></B></FONT> function will:
+<P>
+ <UL>
+ <LI> <FONT color="blue"><B>access</B></FONT> the
+ <FONT color="red"><B>parameter variable <TT>head</TT></B></FONT> using
+  <FONT color="blue"><B>offset 8</B></FONT> from the
+ <FONT color="red"><B>frame pointer FP</B></FONT>
+ <LI> <FONT color="blue"><B>access</B></FONT> the
+ <FONT color="red"><B>parameter variable <TT>ptr</TT></B></FONT> using
+  <FONT color="blue"><B>offset 12</B></FONT> from the
+ <FONT color="red"><B>frame pointer FP</B></FONT>
+</UL>
+<P>
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>main( )</TT> call to Insert
+     </B></FONT>
+<P>
+<UL>
+<LI> Here is the <FONT color="red"><B>assembler code</B></FONT>
+    for the <FONT color="blue"><B><TT>main( )</TT></B></FONT> function
+    that calls <FONT color="red"><B><TT>Insert( )</TT></B></FONT> with
+    the <FONT color="blue"><B>value in the variables
+    <TT>head</TT> and <TT>ptr</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+<FONT color="darkgreen">
+        //  High level programming statement:
+	//
+	//     head = Insert(head, ptr)</FONT>
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass parameter ptr (using stack)
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:ptr
+        movt    r0, #:upper16:ptr
+        ldr     r0, [r0]            // r0 = ptr
+        push    {r0}                // Pass ptr using the program stack
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass parameter head (using stack)
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head
+        ldr     r0, [r0]            // r0 = head
+        push    {r0}                // Pass head using the program stack
+
+<FONT color="red">
+        /* ------------------------------------------------------
+           call Insert(k)
+           ------------------------------------------------------ */</FONT>
+        bl      Insert
+
+        add     sp, sp, #8      <FONT color="red">// Clean up the parameters </FONT>
+<FONT color="red">
+        /* -----------------------------------------------------------------
+           Save return value (in r0) to variable searchValue
+           ----------------------------------------------------------------- */</FONT>
+        movw    r1, #:lower16:head  // Do NOT use r0 !!!
+        movt    r1, #:upper16:head  // (Because <FONT color="red">r0 contains the return value</FONT>)
+
+        str     r0, [r1]             // This will store return value in head
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Insert recursive method/function
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> The <FONT color="red"><B>Insert method</B></FONT> in
+   <FONT color="blue"><B>assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* -----------------------------------------------------------------------
+   Insert at tail - recursive function
+
+    Algorithm:
+
+      List Insert( List h, List p )
+      {
+         if ( h == null )
+         {
+            p.next = null;
+            return p;
+         }
+         else
+         {
+            h.next = Insert( h.next, p );
+            return h;
+         }
+      }
+
+    Stack frame of the Insert( ) method:
+
+          SP
+          FP -----> +---------------------+
+                    |  old Frame Pointer  |
+                    +---------------------+
+                    |  Return Address     |
+                    +---------------------+
+                    |         h           |  addr(n) = FP + 8
+                    +---------------------+
+                    |         p           |  addr(n) = FP + 12
+                    +---------------------+
+   ----------------------------------------------------------------------- */
+
+Insert:
+       <FONT color="darkgreen"> /* =============================
+           Prelude: build stack frame
+           ============================= */</FONT>
+        <FONT color="darkmagenta">push    {lr}
+        push    {fp}
+        mov     fp, sp
+        sub     sp, sp, #0 </FONT>     // No local variables
+
+        <FONT color="red">// if ( h == null )</FONT>
+        ldr     r0, [fp, #8]
+        cmp     r0, #0
+        bne     else
+
+        // p.next = null
+        ldr     r0, [fp, #12]
+        mov     r1, #0          // null
+        str     r1, [r0, #4]    // p.next = null
+
+        <FONT color="red">// return p</FONT>
+        ldr     r0, [fp, #12]   // Set up r0 = return value (p)
+
+        <FONT color="darkgreen">/* ==========================================
+           Postlude - clean up and return to caller
+	   ========================================== */</FONT>
+        <FONT color="darkmagenta">mov     sp, fp
+        pop     {fp}
+        pop     {pc}</FONT>
+
+else:
+        <FONT color="red">// h.next = Insert( h.next, p );</FONT>
+
+        //// pass p
+        ldr     r0, [fp, #12]   // r0 = p
+        push    {r0}            // Pass p with stack
+
+        //// pass h.next
+        ldr     r0, [fp, #8]    // r0 = h
+        ldr     r0, [r0, #4]    // r0 = h.next
+        push    {r0}            // Pass h.next with stack
+
+        bl      Insert
+        add     sp, sp, #8      // Clean up 2 parameters
+
+        ////  Store return value (in r0) in h.next
+        ldr     r1, [fp, #8]    // r1 = h
+        str     r0, [r1, #4]    // h.next = return value from Insert(h.next,p)
+
+        <FONT color="red">// return( h );</FONT>
+        ldr     r0, [fp, #8]    // Set up r0 = return value (h)
+
+        <FONT color="darkgreen">/* ===========================================
+	   Postlude - clean up and return to caller
+	   ===========================================</FONT>
+        <FONT color="darkmagenta">mov     sp, fp
+        pop     {fp}
+        pop     {pc}</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/9-list-recursion/Insert.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 Insert</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+  <LI> I will highlight certain steps in the  program in the
+	remainder of the webpage....
+  </UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Highlights important steps in the <TT>Insert</TT> function
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="blue"><B>Passing the
+      parameters 
+	<FONT color="red"><B><TT>head</TT></B></FONT>
+	and
+	<FONT color="red"><B><TT>ptr</TT></B></FONT>
+     from main program to Insert</B></FONT>
+ <P>
+ The main program passes the variables
+	<FONT color="red"><B><TT>head</TT></B></FONT>
+	and
+	<FONT color="red"><B><TT>ptr</TT></B></FONT>
+      to the Insert method by pushing
+	the value
+  of variables
+	<FONT color="red"><B><TT>head</TT></B></FONT>
+	and
+	<FONT color="red"><B><TT>ptr</TT></B></FONT>
+    onto the system stack with the following instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Pass ptr using the stack
+        movw    r0, #:lower16:ptr
+        movt    r0, #:upper16:ptr // r0 = addr(ptr)
+        ldr     r0, [r0]                // r0 = ptr
+        push    {r0}                    // Pass ptr on the stack
+
+        // Pass head using the stack
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r0 = addr(head)
+        ldr     r0, [r0]                // r0 = head
+        push    {r0}                    // Pass head on the stack
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This will create the following stack structure:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)      
+   |        head         |
+   +---------------------+
+   |        ptr          |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+
+
+
+<P>
+<LI> <FONT color="blue"><B>Main program calling the
+    <FONT color="red"><B><TT> Insert</TT></B></FONT> function</B></FONT>
+ <P>
+ The main program calls the Insert function with a 
+   <FONT color="red"><B><TT>bl</TT></B></FONT> instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        bl      Insert                       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This will <FONT color="red"><B>save</B></FONT> the
+  <FONT color="blue"><B>return address to <TT>main( )</TT></B></FONT>
+  in the <FONT color="red"><B><TT>LR register</TT></B></FONT>
+  and <FONT color="blue"><B>jump to the <TT>Insert</TT> method</B></FONT>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+The <FONT color="red"><B><TT>Insert( )</TT></B></FONT> function will
+  <FONT color="blue"><B>start running</B></FONT>, so
+ let's take a look at the
+  <FONT color="red"><B><TT>Insert( )</TT></B></FONT> function
+</SPAN>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Prelude of the Factorial function:</B></FONT>
+  <P>
+  The prelude of the Insert function consists of these instructions:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        <FONT color="red">/* ==========================================================
+           Function Prelude: complete the stack frame structure
+           ========================================================== */</FONT>
+        <FONT color="darkgreen">push    {lr}            // Save LR (return address)
+        push    {fp}            // Save FP (used by caller)
+        mov     fp, sp          // Mark the stack top location before
+                                // allocating any local variables
+        sub     sp, sp, #0      // Allocate 0 int variables on the stack            
+                                <FONT color="red">// (I could omit this instruction....)</FONT></FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  I will explain what each one does below.
+<P>
+  Make sure that you realise that the structure of the stack frame is
+   like this when the prelude of the
+  <FONT color="red"><B><TT>Insert( )</TT></B></FONT> method is executed:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)     
+   |        head         |
+   +---------------------+
+   |         ptr         |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <UL>
+  <LI> <FONT color="red"><B><TT>push&nbsp;{lr}</TT></B></FONT>
+ <P>
+   This <B>instruction</B> will
+   save the <B>return address </B> in the
+   <FONT color="red"><B><TT>LR</TT></B></FONT> register on the 
+   <B>program stack</B>.
+ <P>
+   The <B>program stack</B> now looks like this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)         
+   |  return address     |
+   +---------------------+
+   |        head         |
+   +---------------------+
+   |        ptr          |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B><TT>push&nbsp;{fp}</TT></B></FONT>
+
+
+   <P>
+   This will save the <B>frame pointer</B> on the stack and
+       the <B>program stack</B> now looks like this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)         
+   |  old Frame Pointer  |
+   +---------------------+
+   |  return address     |
+   +---------------------+
+   |        head         |
+   +---------------------+
+   |        ptr          |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+  <LI> <FONT color="red"><B><TT>mov&nbsp;fp,sp</TT></B></FONT>
+   <P>
+   This will make the <B>frame pointer</B>
+   <FONT color="red"><B><TT>FP</TT></B></FONT>
+      points to the stack frame that
+	is  being built:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Frame pointer FP & Stack pointer SP  
+   |  old Frame Pointer  |               point to the same location....
+   +---------------------+
+   |  return address     |
+   +---------------------+
+   |        head         |
+   +---------------------+
+   |        ptr          |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The will <FONT color="red"><B>enable</B></FONT>
+ the <FONT color="blue"><B><TT>Insert( )</TT></B></FONT> to use
+ <FONT color="red"><B>offset</B></FONT> from
+  the <B>frame pointer</B></FONT> to
+  access the <FONT color="blue"><B>parameters </B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT>
+  that are <B>stored</B> in the <FONT color="red"><B>program stack</B></FONT>
+<P>
+
+  <LI> <FONT color="red"><B><TT>sub&nbsp;sp,sp,#0</TT></B></FONT>
+   <P>
+    The <FONT color="red"><B>subtract</B></FONT> instruction
+    is used to <FONT color="blue"><B>allocate local variables</B></FONT>
+    on the <FONT color="red"><B>program stack</B></FONT>
+ <P>
+   But since <FONT color="red"><B><TT>Insert( )</TT></B></FONT> has
+   <FONT color="blue"><B>no local variables</B></FONT>,
+   this instruction does nothing to the stack pointer 
+   <FONT color="red"><B><TT>SP</TT></B></FONT>... (and we could omit it -
+   I left it in to keep the discussion 
+  <FONT color="blue"><B>uniform</B></FONT>)
+<P>
+ We have now <FONT color="red"><B>completed</B></FONT> the
+   <FONT color="blue"><B>stack frame</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightCYAN" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <---- Frame pointer FP & Stack pointer SP     
+   |  old Frame Pointer  |       point to the same location....
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |        head         |
+   +---------------------+
+   |        ptr          |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ When the prelude is finish, the stack frame is complete and
+	the actual function can begin.
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How to access the parameters
+  <FONT color="red"><B><TT>h (= head)</TT></B></FONT> 
+  and
+  <FONT color="red"><B><TT>ptr</TT></B></FONT> 
+	in the
+    <FONT color="red"><B><TT>Insert</TT></B></FONT> function:</B></FONT>
+ <P>
+ <UL>
+ <LI> Parameter <FONT color="red"><B><TT>h</TT></B></FONT>
+        is located <FONT color="blue"><B>8 bytes</B></FONT>
+       (<B>old Frame Pointer</B> is 4 bytes and
+       <B>return address</B> is 4 bytes)
+         <FONT color="red"> <B>below</B></FONT>
+       the location <FONT color="blue"><B>pointed to</B></FONT>
+       by frame pointer <FONT color="red"><B><TT>FP</TT></B></FONT>.
+ <P>
+<LI>
+   Parameter <FONT color="red"><B><TT>ptr</TT></B></FONT>
+        is located <FONT color="blue"><B>12 bytes</B></FONT>
+       (<B>old Frame Pointer</B> is 4 bytes,
+       <B>return address</B> is 4 bytes and
+	<B>h</B> is 4 bytes))
+         <FONT color="red"> <B>below</B></FONT>
+       the location <FONT color="blue"><B>pointed to</B></FONT>
+       by frame pointer <FONT color="red"><B><TT>FP</TT></B></FONT>.
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <-------------- Frame pointer FP 
+   |  old Frame Pointer  |  (4 bytes)     
+   +---------------------+
+   |     return address  |  (4 bytes)
+   +---------------------+
+   |       h=head        | <--- offset = 8
+   +---------------------+
+   |       p=ptr         | <--- offset = 12
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    <P>
+     So <FONT color="red"><B>base register (FP)</B></FONT>
+      + <FONT color="blue"><B>offset 8</B></FONT>
+         will let you access 
+	<FONT color="red"><B><TT>h (= head)</TT></B></FONT>
+  <P>
+     And <FONT color="red"><B>base register (FP)</B></FONT>
+      + <FONT color="blue"><B>offset 12</B></FONT>
+         will let you access 
+	<FONT color="red"><B><TT>ptr</TT></B></FONT>
+
+ <P>
+ That's why you see the use of the following instructions
+    in
+  <FONT color="red"><B><TT>Insert( )</TT></B></FONT> to get
+  the parameter:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        ldr     r0, [fp,#8]             // r0 = h
+
+  and
+
+	ldr     r0, [fp,#12]            // r0 = p       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How <FONT color="red"><B><TT>Insert(h, p)</TT></B></FONT>
+      calls <FONT color="red"><B><TT>Insert(h.next, p)</TT></B></FONT>:</B></FONT>
+  <P>
+  It is no different from how the main program calls the Insert function.
+<P>
+  The <B>Insert</B> method can call
+   the <B>Insert </B> method by
+   <FONT color="red"><B>passing</B></FONT> the
+   <FONT color="blue"><B>parameter</B></FONT> on the
+   <B>program stack</B> and then
+   use <FONT color="red"><B><TT>bl&nbsp;Insert</TT></B></FONT> to
+   call the <B>Insert </B> method.
+<P>
+
+  But <B>make sure</B> you <B>pop the parameter</B> from the stack
+ <FONT color="red"><B> after</B></FONT> the
+	Insert function returns - because the parameter
+   has not been cleaned up.
+  <P>
+  The following is the program fragment where Insert calls 
+  <FONT color="red"><B><TT>Insert(h.next, p)</TT></B></FONT>
+ by passing
+  the parameters
+  <FONT color="blue"><B><TT>h.next</TT></B></FONT>
+ and
+  <FONT color="blue"><B><TT>ptr</TT></B></FONT>
+  on the stack:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // Call   Insert( h.next, ptr )
+
+        ldr     r0, [fp,#12]            // r0 = p
+        push    {r0}                    // Pass p as parameter on stack
+
+        ldr     r0, [fp,#8]             // r0 = h
+        ldr     r0, [r0,#4]             // r0 = h.next
+        push    {r0}                    // Pass h.next as parameter on stack
+
+        // Call Insert( )  with parameters:  h.next  and  p  on stack
+        <font color="red">bl      Insert</font>
+        add     sp, sp, #8              // Clean up parameters
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

@@ -1,0 +1,388 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Pointer to user-defined (<TT>struct</TT>) variables
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pointer to user-defined data type
+     </B></FONT>
+<P>
+<UL>
+<LI> You can <FONT color="red"><B>define</B></FONT>
+      a <FONT color="blue"><B>reference (= pointer)</B></FONT>
+      to <FONT color="red"><B><I>any</I> data type</B></FONT>,
+     <B>including</B> to
+     <FONT color="blue"><B>user-defined type (= <TT>struct</TT>)</B></FONT>
+<P>
+  <FONT color="red"><B>Previously</B></FONT>,
+   we <FONT color="blue"><B>disccussed</B></FONT>
+  <FONT color="red"><B>user-defined data type (= <TT>struct</TT>)</B></FONT>
+   on this <FONT color="blue"><B>webpage</B></FONT>:
+  <A HREF="struct1.html">
+ <FONT color="red"><B>click here</B></FONT> </A>
+<P>
+<FONT color="blue"><B>For review</B></FONT>,
+   here is an
+ <FONT color="red"><B>example program</B></FONT> on
+  <FONT color="blue"><B>how to </B></FONT>
+ <FONT color="red"><B>define</B></FONT> and
+  <FONT color="blue"><B>use</B></FONT> a
+   <FONT color="red"><B><TT>struct</TT> typed variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+
+   <FONT color="red">/* ------------------------
+      Structure definition
+      ------------------------ */
+   struct BankAccount
+   {
+      int    accNum;
+      double balance;
+   };</FONT>
+
+   <FONT color="red">struct BankAccount  a;   // Global variable </FONT>
+
+   int main(int argc, char *argv[])
+   {
+      <FONT color="red">struct BankAccount  b;    // Local variable</FONT>
+
+      <FONT color="red">a.accNum</FONT>  = 123;          // Access member fields
+      <FONT color="red">a.balance</FONT> = 1000.0;
+
+      <FONT color="red">b.accNum</FONT>  = 444;
+      <FONT color="red">b.balance</FONT> = 3000.0;
+
+
+      printf("a.accNum = %d  a.balance = %f\n", <FONT color="red">a.accNum, a.balance</FONT>);
+      printf("b.accNum = %d  b.balance = %f\n", <FONT color="red">b.accNum, b.balance</FONT>);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Pointer variable</B></FONT> to
+     a <FONT color="blue"><B>user-defined type (= <TT>struct</TT>)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can define a
+   <FONT color="red"><B>reference (= pointer) variable</B></FONT> 
+  to a
+   <FONT color="blue"><B>user-defined type (= <TT>struct</TT>)</B></FONT>
+   as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">struct BankAccount *</FONT>p;   // Defines variable p as a pointer to       
+                              // any struct BankAccount variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You can make <FONT color="red"><B><TT>p</TT></B></FONT> 
+   point to the
+    <FONT color="blue"><B><TT>BankAccount</TT> object <TT>a</TT></B></FONT>
+   using this
+   <FONT color="red"><B>assignment</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct BankAccount  a;
+
+   <FONT color="red">p = &a;</FONT>  // <FONT color="red">&a</FONT> = address of the BankAccount object a     
+            // p  points to a
+	    // The expression <FONT color="red"> *p</FONT>   is now an alias for <FONT color="red"> a</FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>diagram</B></FONT> depicts
+   what happens
+  <FONT color="blue"><B>inside the variables</B></FONT>
+  after the
+  <FONT color="red"><B>assignment <TT>p = &a</TT></B></FONT>
+ (assuming that
+  the <FONT color="blue"><B>object <TT>a</TT></B></FONT> was
+  <B>stored</B> at <FONT color="red"><B>address 4000</B></FONT> in memory):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> This <FONT color="red"><B>program</B></FONT> shows 
+       you <FONT color="blue"><B>how to</B></FONT>
+   <FONT color="red"><B>define and use </B></FONT>
+   a <FONT color="blue"><B>reference variable</B></FONT> 
+  of the <FONT color="red"><B>user-defined type
+  <TT>BankAccount</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+/* ------------------------
+   Structure definition
+   ------------------------ */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};
+
+struct BankAccount a;
+
+int main(int argc, char *argv[])
+{
+   struct BankAccount b;
+
+   <FONT color="red">struct BankAccount *</FONT>p;  // Reference variable to type "struct BankAccount"    
+
+   <FONT color="red">p = &a;</FONT>                 // Now: <FONT color="red">*p</FONT>  is  <FONT color="red">alias</FONT> for<FONT color="red"> a</FONT>
+   <FONT color="red">(*p)</FONT>.accNum = 123;      // This statement is equal to: a.accNum  = 123;
+   <FONT color="red">(*p)</FONT>.balance = 1000.0;  // This statement is equal to: a.balance = 1000.0;
+
+   <FONT color="red">p = &b;</FONT>                 // Now: <FONT color="red">*p</FONT>  is  <FONT color="red">alias</FONT> for<FONT color="red"> b</FONT>
+   (*p).accNum = 444;      // This statement is equal to: b.accNum  = 444;
+   (*p).balance = 9999.0;  // This statement is equal to: b.balance = 9999.0;
+
+   printf("a.accNum = %d  a.balance = %f\n", a.accNum, a.balance);
+   printf("b.accNum = %d  b.balance = %f\n", b.accNum, b.balance);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5584)> a.out
+a.accNum = 123  a.balance = 1000.000000
+b.accNum = 444  b.balance = 9999.000000              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="red"><B>must</B></FONT> use
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">(*p)</FONT>.accNum        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+because the <FONT color="red"><B>member selection operator "."</B></FONT>
+ has a <FONT color="blue"><B><I>higher</I> precedence (= priority)</B></FONT>
+ that the <FONT color="red"><B>deference operator "*"</B></FONT>
+<P>
+See the
+ <FONT color="red"><B>operator precedence table</B></FONT>:
+ <A HREF="../1-C-intro/prio+assoc.html">
+   <FONT color="blue"><B>click here </B></FONT> </A>
+<P>
+<HR>
+<P>
+<LI> <B>In other words</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    *p.accNum     is processed as:     *( <FONT color="red">p.accNum</FONT> )     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+which is <FONT color="blue"><B>wrong</B></FONT> because
+  <FONT color="red"><B><TT>p</TT></B></FONT> is
+  <FONT color="blue"><B><I>not</I></B></FONT> a 
+  <FONT color="red"><B><TT>BankAccount</TT> typed
+  variable</B></FONT>
+<P>
+ (In order to write <FONT color="red"><B><TT>p.accNum</TT></B></FONT>
+   as a <FONT color="blue"><B>correct</B></FONT>
+  <FONT color="red"><B>C language expression</B></FONT>,
+  the <FONT color="blue"><B>variable</B></FONT>
+   <FONT color="red"><B> <TT>p</TT></B></FONT>
+   must have the <FONT color="blue"><B>type</B></FONT>:
+  <FONT color="red"><B><TT>struct BankAccount</TT></B></FONT>.
+  <P>
+  The <FONT color="blue"><B>variable</B></FONT>
+   <FONT color="red"><B> <TT>p</TT></B></FONT>
+    has the <FONT color="blue"><B>type</B></FONT>:
+  <FONT color="red"><B><TT>struct
+  BankAccount<SPAN style="BACKGROUND-COLOR: yellow">
+  * </SPAN></TT></B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/ref-struct1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-struct1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

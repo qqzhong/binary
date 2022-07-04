@@ -1,0 +1,592 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization and Assembler Programming <BR>
+Project 6
+</H2>
+</CENTER>
+<P>
+<HR>
+Due date: See Class Webpage
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+0. Preparations
+</H3>
+<UL>
+<P>
+<LI> To do this project, you must obtain a copy of the prepared
+   files using <B>EGTAPI</B> (use project code <B>pj6</B>)
+    - you have done this enough times that I don't need to give more
+   detailed instructions.
+<P>
+  The alternative method to get the prepared files is to
+  enter these commands in the <B>EGTAPI</B>  terminal:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mkdir  ~/cs255/pj6
+
+   For CS255-1 students:
+       cp /home/cs255001/Handouts/pj6/*  ~/cs255/pj6       
+
+   For CS255-2 students:
+       cp /home/cs255002/Handouts/pj6/*  ~/cs255/pj6
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<H3>
+1. Euler's Algorithm
+</H3>
+
+<UL>
+I have "converted" 
+ the famous Euler algorithm for determining the Greatest Common Divisor (GCD)
+ of two numbers A and B <B>without</B> using
+ a <B>division</B> operation:
+<font color="blue"><B>
+<PRE>
+    int A, B, GCD;
+
+    // First, make sure A is largest of the two numbers...
+    if (B > A)
+     { X = A;    // Swap A and B 
+       A = B;
+       B = X;
+     }
+
+    while (A != B)
+    {
+       while ( B < A )
+       {
+         A = A - B;
+       }
+
+       X = A;    // Swap A and B
+       A = B;
+       B = X;
+    }
+
+    GCD = B;
+</PRE>
+</B></font>
+When the algorithm ends, the variable <TT>GCD</TT> 
+will contain the Greatest Common Divisor of A and B.
+<P>
+Your program can change the values in A and B; I won't check these
+ values when the program ends.
+I will only check whether GCD variable contains the correct 
+ GCD of A and B at the end of execution.
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+
+<H3>
+2. Assignment
+</H3>
+
+<UL>
+<P>
+Your assignment is to write the above Euler algorithm in 
+ ARM assembler language
+ between the <B><TT>main</TT></B> and <B><TT>Stop</TT></B> labels in
+ <TT>pj6.s</TT> that will
+ determine the GCD of the <B>integer variables</B>
+ <TT>A</TT> and <TT>B</TT>.
+<P>
+The variables 
+<B><TT>A</TT></B>,
+<B><TT>B</TT></B>, and
+<B><TT>GCD</TT></B>
+have already been defined in 
+ <FONT color="red"><B><TT>pj6.s</TT></B></FONT> -
+they are all <FONT color="blue"><B>integer variables</B></FONT>.
+<P>
+Also, the variables 
+<B><TT>A</TT></B> and
+<B><TT>B</TT></B> have been
+initialized with some value.
+You need to write the Euler Algorithm
+ beginning at the label 
+  <FONT color="red"><B><TT>main</TT></B></FONT>.
+The GCD computed by the algorithm
+must be stored in the integer variable 
+ <FONT color="blue"><B><TT>GCD</TT></B></FONT>.
+<P>
+<B>Note:</B>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Your program must work using
+    <FONT color="red"><B>any value</B></FONT> stored in the
+    variables
+    <FONT color="blue"><B><TT>A</TT></B></FONT> and
+    <FONT color="blue"><B><TT>B</TT></B></FONT>
+ <P>
+  (I will use <FONT color="red"><B>different values</B></FONT> 
+  in  <FONT color="blue"><B><TT>A</TT></B></FONT> and
+    <FONT color="blue"><B><TT>B</TT></B></FONT>
+    to <B>test</B> your program !!!)
+ <P>
+ <LI> You can <B>assume</B> that
+       <FONT color="blue"><B><TT>A</TT></B></FONT> and
+    <FONT color="blue"><B><TT>B</TT></B></FONT> are
+    both <FONT color="red"><B><I>positive</I> numbers</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+3. The EGTAPI debug file
+</H3>
+<UL>
+I have made an <TT>Egtapi</TT> startup file 
+   (<FONT color="red"><B><TT>egt.pj6.arm</TT></B></FONT>)
+ for use in this project that will
+ <FONT color="blue"><B>display</B></FONT>
+   the variables 
+   <FONT color="red"><B><TT>A</TT></B></FONT>, 
+   <FONT color="red"><B><TT>B</TT></B></FONT> and 
+   <FONT color="red"><B><TT>GCD</TT></B></FONT>.
+You have already made a copy of this debug file in
+ the <FONT color="blue"><B>preparation section</B></FONT>
+
+<P>
+You may need to <FONT color="red"><B>add</B></FONT>
+     more <FONT color="blue"><B>display variables</B></FONT> and/or
+  <FONT color="blue"><B> breakpoints</B></FONT> to help
+you debug the assembler program.
+<P>
+To <FONT color="red"><B>add</B></FONT> a
+  <FONT color="blue"><B>variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Enter the <FONT color="blue"><B>name</B></FONT> of the 
+    <B>variable</B> in the
+    <FONT color="red"><B>variable watch area</B></FONT>
+ <LI> Select the <FONT color="blue"><B>data type</B></FONT>
+      (signed int, signed short, etc)
+ <LI> Select the <FONT color="red"><B>base</B></FONT>
+        (binary, decimal or hexadecimal)
+ <LI> Then click <FONT color="blue"><B>Add Var</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Make sure</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>variable name</B></FONT> is
+      defined as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">.global</FONT>  Varname            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+at the <FONT color="blue"><B>start</B></FONT> of your program
+(you will need to <FONT color="red"><B>add</B></FONT> this
+ <FONT color="blue"><B>assembler directive</B></FONT> to your program)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+To <FONT color="red"><B>add</B></FONT> a 
+  <FONT color="blue"><B>breakpoint</B></FONT>
+  (learn more about break points in next section of
+     this handout):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  Enter the <FONT color="blue"><B>name</B></FONT> of a 
+      <FONT color="red"><B>label</B></FONT> in the 
+      <FONT color="blue"><B>Break Points</B></FONT> panel of
+      <B>Egtapi</B>
+ <P>
+ <LI> <FONT color="blue"><B>Click</B></FONT>
+       the <FONT color="red"><B>Add Brkpoint</B></FONT> button
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+   You must have <FONT color="blue"><B>defined</B></FONT>
+   the <FONT color="red"><B> label</B></FONT> in your program
+   (and <B>compiled</B> it.)
+
+<P>
+<FONT color="red"><B>Make sure</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>label</B></FONT> is
+      defined as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">.global</FONT>  label            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+at the <FONT color="blue"><B>start</B></FONT> of your program
+(you will need to <FONT color="red"><B>add</B></FONT> this
+ <FONT color="blue"><B>assembler directive</B></FONT> to your program)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+</UL>
+<A NAME="breakpoint"></A>
+<H3>
+4. Some Information on Breakpoints
+</H3>
+<P>
+<UL>
+This is your first <I>real</I> assembler programming project; 
+the program is no longer a bunch of <I>move</I> instructions.
+Your program will surely have bugs that you need to find, so here
+ is a little advice on what to do to find them.
+<P>
+To find bugs in an assembler program, you have to <B>look</B>
+ the the execution of the <B>portion</B> of the program
+ that is in error.
+First, you have to make the program stop at the place
+ that contains an error - that is done using "break points".
+<P>
+A 
+ <FONT color="red"><B> breakpoint  </B></FONT>
+ is a location in the program that when the program reaches
+ that location, Egtapi will stop and await your next command.
+After the program stopped, you can:
+ look at the value of the variables to see if the program
+	has progressed correctly so far.
+<P>
+After examining various things (e.g. variables),
+you can then choose to continue the execution of the program 
+ from the breakpoint with one of these two actions:
+<P>
+<UL>
+<LI> <FONT color="red"><B> "Run" </B></FONT>
+	(the "Run" button is located at the top right corner of 
+	the Egtapi window).
+  <P>
+     When you click on the "Run" button, Egtapi will
+     run the program until it reaches a <B>break point</B>.
+<P>
+<LI> <FONT color="red"><B> "Step"  </B></FONT>
+	(the "Step" button is
+	located at the top right corner of the Egtapi window, it's the
+	left most button on the "bar")
+ <P>
+     When you click on the "Step" button, Egtapi will
+     execute <B>one</B> assembler instruction and stop.
+ <P>
+     When Egtapi stops, it will show you the current value of
+     all registers and variables that you have requested (in the variable
+     watch window).
+</UL>
+<P>
+The "Step" button is <B>very helpful</B> to
+find bugs in your program !!
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+5. How to debug assembler programs
+</H3>
+<P>
+<UL>
+<P>
+To find bugs in a program, you need to 
+ <P>
+ <OL>
+  <LI> determine what is the 
+ <B>correct behavior</B> of your program and then
+  <LI> follow the execution of the program to see if it is indeed doing
+	what it is supposed to do.
+  </OL>
+ <P>
+If the result prodcued by the program differs from what it supposed
+ to do, you found yourself a bug....
+<P>
+Ofcourse, this requires from you that <B>you know what the 
+ assembler program is supposed to do</B>.
+If you don't have a clue about the assembler program is supposed to do,
+ Egtapi will not be much help to you.... - because you do not know
+ <B>what to look for</B>.
+(Analogy: if you know nothing about radiology,
+  showing you an X-ray picture is useless since you don't know
+  what to look for....)
+<P>
+ So to be successful in finding bugs: 
+ <P>
+ <UL> 
+ <LI> Find out what values of the variables
+	is supposed to be changed to.
+  <P>
+ <LI> When you detect that the values of the variable are
+	<B>NOT</B> what they should be,
+	<B>STOP</B>.
+   <P>
+	Find out what caused the program to stray !
+  </UL>
+<P>
+<P>
+<FONT color="red"><B>More information</B></FONT> on how to 
+   <FONT color="blue"><B>find errors</B></FONT> in your
+  <FONT color="red"><B>assembler programs</B></FONT>
+  using <B>Egtapi</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I have written an <FONT color="blue"><B>extensive guide</B></FONT>
+     on how to use
+     <FONT color="red"><B>breakpoints</B></FONT> in 
+     <FONT color="blue"><B>Egtapi</B></FONT> here:
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/">
+   <FONT color="red"><B>click here</B></FONT></A>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<P>
+---
+Read Sections <FONT color="red"><B>9</B></FONT> and 
+ <FONT color="red"><B>10</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+
+<H3>
+6. Turn in
+</H3>
+<P>
+<UL>
+Turn in your program using project code
+   <FONT color="red"><B> pj6</B></FONT>
+   using <B>EGTAPI</B>
+<P>
+   (In EGTAPI, select: File Browser, Turnin, 
+   click on the file you want to turn in (pj6.s),
+   use the turn in code: <B>pj6</B>)
+<P>
+<HR>
+<P>
+You can also use 
+the 
+  <FONT color="blue"><B><TT>turnin</TT> </B></FONT>
+command (executed while you're in your cs255 directory)
+<P>
+ Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ these command:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cd  ~/cs255/pj6 
+
+
+
+    /home/cs255001/turnin  pj6.s  pj6  // If you're in section 1         
+
+ or
+
+    /home/cs255002/turnin  pj6.s  pj6  // If you're in section 2         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+I want the source (so I can read it).
+<B>DO NOT</B> turn in the executable or the object code !
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+</UL>
+
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  7.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj6</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj6</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj6</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj6</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

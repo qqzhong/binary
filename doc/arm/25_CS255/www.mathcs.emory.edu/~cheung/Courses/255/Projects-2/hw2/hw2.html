@@ -1,0 +1,617 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<title> CS255 </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization and Assembler Programming <BR>
+Homework Assignment 2
+</H2>
+</CENTER>
+<P>
+Due date: See Class Webpage
+<P>
+<HR>
+<HR>
+
+<P>
+ <FONT COLOR="darkmagenta"><B>
+    Preparation
+     </B></FONT>
+<P>
+<UL>
+<LI> To do this project, you must obtain a copy of the
+   <FONT color="blue"><B>prepared files</B></FONT>
+    using the procedure explained in
+	the <B>homework 1 write up</B>
+   (see the write up of <B>homework 1</B> for details).
+ <P>
+  The <FONT color="red"><B><I>only</I> difference</B></FONT>
+   is that for 
+   <B>this homework</B>, you must use the
+	<FONT color="blue"><B>homework code <TT>hw2</TT></B></FONT>
+<P>
+
+ The <B>preparation procedure</B> will create a
+ <FONT color="red"><B>folder named <TT>hw2</TT></B></FONT>
+  and copies the <B>answer file</B> named
+  <FONT color="blue"><B><TT>hw2.s</TT></B></FONT>
+  in to the folder.
+<P>
+  You must edit the <B>answer file</B> 
+  <FONT color="blue"><B><TT>hw2.s</TT></B></FONT>
+  with your answers to the question in this assignment.
+ <P>
+  You can use <B>EGTAPI</B> to edit the <B>answer file</B>
+  <FONT color="blue"><B><TT>hw2.s</TT></B></FONT>
+
+ <P>
+ The questions are given below.
+<P>
+
+</UL>
+<HR>
+<HR>
+<P>
+
+
+
+<H3>
+Question 1. 2's Complement Encoding (20 pts)
+</H3>
+
+<UL>
+A computer <I>X</I> uses 2-bytes 
+ to store the values in this question.
+Furthermore,
+ the computer uses the 2's complement number system 
+ to represent signed numbers.
+<P>
+Each question is 5 pts.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" border=5>
+<TR>
+<TD>
+<OL>
+   <LI> What are the 2's complement representation for the values 
+	3791<SUB>(10)</SUB> and &minus;3791<SUB>(10)</SUB> 
+	in computer <I>X</I> ?
+	<P>
+   <LI> What decimal values are represented by the following
+	 16 bits 2s complement codes in computer <I>X</I> ?
+<PRE>
+         0000010100101001     ---> value represented = ?
+         1111100110011101     ---> value represented = ?
+</PRE>
+
+<P>
+   <LI> Give the binary pattern that results from adding
+	 the two 2s complement codes in part 2:
+<PRE>
+         0000010100101001
+      +  1111100110011101
+    ----------------------
+</PRE>
+   <P>
+	 What <I>value</I> (in signed decimal) is represented by 
+   the resulting sum ?
+<P>
+   <LI> Give the binary pattern that results from subtracting
+	 the two 2s complement codes in part 2:
+<PRE>
+         1111100110011101
+      -  0000010100101001
+    ----------------------
+</PRE>
+   <P>
+	 What <I>value</I> (in signed decimal) is represented by 
+	the difference ?
+</OL>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+Question 2. 10's Complement Encoding (20 pts)
+</H3>
+<P>
+<UL>
+Consider the 10's complement encoding scheme using 
+	<B>4 digits</b>.
+<P>
+Each question is 5 pts.
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" border=5>
+<TR>
+<TD>
+<OL>
+  <LI> What are the 10's complement representation for the value 
+		4292 and &minus;4292 ?
+<P>
+  <LI> What value is represented by 7193 ?
+<P>
+ <LI> You are given the following 10s complement representations: 9675 and 9997.
+ <P>
+   <B>Add</B> the <B>representations</B> 9675 and 9997. 
+     (<B>Truncate</B> the result to 4 digits !)
+<P>
+  	What value is represented by the result of the addition ?
+<P>
+	Is the value represented by the resulting 
+     representation equal to the addition of
+	the actual values represented by
+	9675 and 9997 ?
+<P>
+ <LI> You are given the following 10's complement representations: 
+	9675 and 9997.
+ <P>
+   <B>Multiply</B> the <B>representations</B> 9675 and 9997.
+     (<B>Truncate</B> the result to 4 digits !)
+<P>
+        What value is represented by the result of the multiplication ?
+<P>
+        Is the value represented by the resulting  representation equal 
+      to the product of
+        the actual values represented by
+        9675 and 9997 ?
+<P>
+
+</OL>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+Question 3. Binary Arithmetic (10 pts)
+</H3>
+
+<P>
+<UL>
+Do the following arithmetic computations in binary.
+<OL>
+<P>
+<LI> 11010101 x 1011 
+<P> 
+Show the complete long multiplication (i.e.: show the all the multiplication steps) to get full credit
+<P>
+<LI> 11010101 / 1011 
+<P> 
+Show the complete long division (i.e., show the all the division steps) to get full credit
+</OL>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+Question 4. Base-5 Arithmetic (10 pts)
+</H3>
+
+<P>
+<UL>
+The following questions are on the number system based on
+ the base number <B>5</B>.
+<P>
+<UL>
+<LI> What decimal value is represented by the
+     Base-5 number
+     <B>34<sub>(5)</sub></B> ? (2 pts)
+<LI> What decimal value is represented by the
+     Base-5 number
+     <B>42<sub>(5)</sub></B> ? (2 pts)
+<P>
+You are given the following addition table for the number system based on 
+ the base number <B>5</B>:
+<P>
+<B>
+<PRE>
+      + |  1 |  2 |  3 |  4 
+    ----+----+----+----+----       
+      1 |  2 |  3 |  4 | 10 
+    ----+----+----+----+----
+      2 |  3 |  4 | 10 | 11 
+    ----+----+----+----+----
+      3 |  4 | 10 | 11 | 12 
+    ----+----+----+----+----
+      4 | 10 | 11 | 12 | 13 
+</PRE>
+</B>
+<LI> Perform the following computation in base-5 arithmetic
+     using the above addition table: (4 pts)
+<P>
+<PRE>
+<font size="+1">
+            34<SUB>(5)</SUB> 
+          + 42<sub>(5)</SUB>
+        ---------
+
+</font>
+</pre>
+<P>
+<LI> What decimal value is represented by the
+     Base-5 number about result in the last question ? (2 pts)
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+Question 5. Octal, Hexadecimal and Other Numbers (20 pts)
+</H3>
+
+<P>
+<UL>
+<OL>
+<LI> Give the representation of the value 4359 in the octal number system
+	(that is based on the number 8).
+<P>
+<LI> Give the representation of the value 4359 in the hexadecimal number system
+	(that is based on the number 16).
+<P>
+<LI> Give the representation of the value 4359 in the "nano number system"
+	(that is based on the number 9).
+<P>
+<LI> Give the representation of the value 4359 in the "13 number system"
+	(that is based on the number 13; use A to represent 10, B for 11 and C
+	for 12).
+</OL>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+Question 6. Encoding (20 pts)
+</H3>
+
+<P>
+<UL>
+Show the <B>binary representation</B> (in bits) for the following
+data items when they are stored in computer memory:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" border=5>
+<TR>
+<TD>
+<OL>
+<LI> The octal number 1234 in 16 bits
+<LI> The string "a=34;"
+<LI> The pattern stored in a <B>byte</b> typed variable 
+     <B><TT>a</TT></B> by the
+      Java statement <B><TT>a=34;</TT></B>
+<LI> The single precision float point number 16.375
+	in IEEE 754 representation
+	 <B>in binary</B>
+<LI> What is the float point number (written in decimal) represented by the
+    following IEEE 754 representation:
+ <BR>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  1<font color="red">10000011</font>11001000000000000000000
+</OL>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Extension request
+     </B></FONT>
+<P>
+<UL>
+
+<LI> You can make and receive extension requests for a homework/project 
+     as long as you have not exceeded the maximum requests allowed.
+<P>
+   <font color="red">
+   Extension requests must be made before the assignment is due !!!
+   </font>
+<P>
+     "Free" extension requests can be granted for illness and family
+	emergencies.
+<P>
+ To make an extension request, do the following in <B>EGTAPI</B>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Click on <FONT color="red">File Browser</FONT> in <FONT color="red">EGTAPI</FONT>        
+
+  2. Click on <FONT color="red">Req ext</FONT> (lower right corner) in the File Browser menu
+
+     The "Egtapi Extension Request" window will pop up:
+
+       <IMG SRC="../hw1/FIGS/pic03.png" width=700></IMG>
+
+
+  3. In the "Section Number" drop down tab:
+
+          Select "1" if you are in Section 1
+
+          Select "2" if you are in Section 2
+
+  4. Enter "Project Code":  hw2
+
+  5. Click the "Request extension" button
+
+  6. You will see the request result in the right most panel.
+
+     If your request is successfull, you will see:
+<font color="red">
+       Extension request was successful:
+
+       Turn hw1 in before ..... (new due date) </font>
+
+     in the "Request extension" pop up window (you may need to scroll down)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+
+<P>
+
+
+
+
+
+
+<LI> <B>Alternately</B>,
+    you can request an <FONT color="blue"><B>extension</B></FONT>
+      by <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      inside the <B>EGTAPI terminal</B>:
+<P>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">hw2</FONT>   // If you're in section 1        
+
+ or 
+
+    /home/cs255002/req-ext    <FONT color="red">hw2</FONT>   // If you're in section 2        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to turnin your homework
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> You must turn in your assignments 
+   (in this case the file <FONT color="blue"><B>hw2.s</B></FONT>)
+   electronically by using the
+ the following turnin procedure
+  <FONT color="red"><B>before the due date</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Click on <FONT color="red">File Browser</FONT> in <FONT color="red">EGTAPI</FONT>        
+
+  2. Select the <FONT color="red">file</FONT> that you want to turn in
+
+     In this case, select the file  "hw2.s"  inside your hw2 folder
+
+  3. After selecting the file (in this case: "hw2.s"), click <FONT color="red">Turnin</FONT>  in the File Browser menu
+
+     The "Egtapi Turn-in" window will pop up
+
+
+  4. In the "Section Number" drop down tab:
+
+          Select "1" if you are in Section 1
+
+          Select "2" if you are in Section 2
+
+  5. Enter "Project Code":  hw2
+
+  6. Click the "Turn in" button
+
+  7. You will see the turn in result in the right most panel.
+
+     Make sure that your see the message: "Program ... has been successfully turned in..."
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Alternately, you can turn in your file using the <B>EGTAPI</B> Terminal:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter these command in the lower input area of the Terminal panel:
+
+       (a)  cd  ~/cs255/hw2                  (go to your hw2 folder) 
+
+       (b) /home/cs255001/turnin  hw2.s  hw2  // If you're in section 1            
+  or
+       (b) /home/cs255002/turnin  hw2.s  hw2  // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+If you want to see what you have turned in, then
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter this command in the lower input area of the Terminal panel:
+
+       /home/cs255001/turnin    // If you're in section 1            
+  or
+       /home/cs255002/turnin    // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</UL>
+<P>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<center>
+<h2> <B> Statement of Policy on Homework Assignments </b> </h2>
+</center>
+<p>
+
+Students will be graded partially on the basis of their
+homework assignments. These homework
+assignments are to be treated as examinations, and are
+expected to be your <B>individual</B> work. While
+discussions with other students in the course may be
+permitted or encouraged by your instructor, you
+should write your program yourself. 
+Your instructor (and any teaching assistants assigned to
+the course) will be glad to help you to the extent
+that he or she feels reasonable.
+
+<p>
+Submissions based on other students solutions in prior
+offerings of the course specifically violate these
+guidelines, as do submissions prepared with the help of an outside "tutor".
+
+<p>
+You should take precautions to protect the confidentiality
+of your work, do not collaborate on questions that you turn in
+for a grade, do not show your solution to a fellow student,
+not even after the due date for some students may have
+receive extension.
+
+<p>
+All submissions should include a <B>comment</B> statement near
+the top of the program of the form:
+
+<p>
+<tt>
+	THIS HOMEWORK IS MY OWN WORK, IT WAS WRITTEN WITHOUT CONSULTING
+    A TUTOR OR WORK WRITTEN BY OTHER STUDENTS - your name
+</tt>
+<p>
+Cases of apparent plagiarism or collusion will be referred
+to the Honor Council.
+<P>
+</UL>

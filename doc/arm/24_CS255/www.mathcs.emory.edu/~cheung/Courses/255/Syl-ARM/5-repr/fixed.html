@@ -1,0 +1,599 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Fixed point numbers
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The fixed point <I>decimal</I> number representation
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <B><I>decimal</I> point:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Decimal point</B></FONT> =
+      a <B>point</B> places in a
+      <B><I>decimal</I> number representation</B> to 
+      <FONT color="magenta"><B>indicate</B></FONT>
+      the <FONT color="red"><B>location of the digit</B></FONT>
+      whose <FONT color="blue"><B>weight = 1</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Weights</B></FONT> of the
+    <B>digits</B> in a
+    <FONT color="red"><B>fixed point <I>decimal</I> number</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>digit</B> that
+      <FONT color="red"><B>immediately preceeds</B></FONT> the
+      <FONT color="blue"><B>decimal point</B></FONT> has
+      <FONT color="red"><B>weight = 10<sup>0</sup> = 1</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>left</B></FONT>
+    <B><I>increases</I></B> by a 
+    <FONT color="blue"><B>factor of 10</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>right</B></FONT>
+    <B><I>decreases</I></B> by a 
+    <FONT color="blue"><B>factor of 10</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Decimal number:     12<FONT color="red">3.</font>45
+                      ^^^ ^^
+	              ||| ||
+		      ||| |+---  weight = 1/100            
+		      ||| +----  weight = 1/10
+                      ||+------- <FONT color="red">weight = 1</font>
+		      |+-------- weight = 10
+		      +--------- weight = 100
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The fixed point <I>binary</I> number representation
+     </B></FONT>
+ <UL>
+<P>
+ <LI> The <B>"<I>binary</I> decimal" point:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>Binary</I> decimal point</B></FONT> =
+      a <B>point</B> places in a
+      <B><I>binary</I> number representation</B> to 
+      <FONT color="magenta"><B>indicate</B></FONT>
+      the <FONT color="red"><B>location of the digit</B></FONT>
+      whose <FONT color="blue"><B>weight = 1</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Weights</B></FONT> of the
+    <B>digits</B> in a
+    <FONT color="red"><B>fixed point <I>decimal</I> number</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>digit</B> that
+      <FONT color="red"><B>immediately preceeds</B></FONT> the
+      <FONT color="blue"><B>decimal point</B></FONT> has
+      <FONT color="red"><B>weight = <FONT color="red">2</font><sup>0</sup>
+     = 1</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>left</B></FONT>
+    <B><I>increases</I></B> by a 
+    <FONT color="blue"><B>factor</B></FONT> of 
+    <FONT color="red"><B>2</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>right</B></FONT>
+    <B><I>decreases</I></B> by a 
+    <FONT color="blue"><B>factor</B></FONT>
+     of <FONT color="red"><B>2</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Binary number:     10<FONT color="red">1.</font>01
+                      ^^^ ^^
+	              ||| ||
+		      ||| |+---  weight = 1/4            
+		      ||| +----  weight = 1/2
+                      ||+------- <FONT color="red">weight = 1</font>
+		      |+-------- weight = 2
+		      +--------- weight = 4
+
+<HR>
+  The value represented by   101.01  is:
+
+                  1*(4) + 0*(2) + 1*(1) + 0*(1/2) + 1*(1/4) =  <FONT color="red">5 1/4</font> = <FONT color="red">5.25 (decimal) </FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting: value <==>
+     fixed point <I>binary</I> representation
+     </B></FONT>
+<P>
+<UL>
+<LI> In the next 2 sections, I will show you how to
+      convert:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>fixed point <I>binary</I> representation</B></FONT>
+      ==>  <FONT color="red"><B>value</B></FONT> that is represented
+ <P>
+ <LI> Given a (fractional)
+    <FONT color="red"><B>value</B></FONT> ==> find the
+      <FONT color="blue"><B>fixed point <I>binary</I> representation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Convert: fixed point <I>binary</I> representation ==> value represented
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Method</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Compute the <FONT color="red"><B>value</B></FONT> represented
+      by a <FONT color="blue"><B>fixed point <I>binary</I>
+      represention</B></FONT> by
+      <FONT color="red"><B>adding</B></FONT> the
+      <FONT color="blue"><B>weighted sum</B></FONT> of the 
+      <B>value</B> of the
+      <FONT color="red"><B>digits</B></FONT> in the representation
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Given the following <FONT color="red">fixed point binary representation</FONT>:
+<FONT color="darkred">
+            10111.1011</FONT>
+
+    The <FONT color="red">value</FONT> represented is computed as:
+
+            10111.1011
+            ||||| ||||
+	    ||||| |||+---  1*(1/16)
+            ||||| ||+----  1*(1/8)
+	    ||||| |+-----  0*(1/4)
+	    ||||| +------  1*(1/2)
+	    |||||
+	    ||||+--------  1*(1)
+	    |||+---------  1*(2)
+	    ||+----------  1*(4)
+	    |+-----------  0*(8)
+	    +------------  1*(16)
+
+      value represented = 16 + 4 + 2 + 1 + 1/2 + 1/8 + 1/16
+                        = 23 11/16
+			= <FONT color="red">23.6875</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Convert: value ==> fixed point <I>binary</I> representation
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Method</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Split</I></B></FONT> the <B>value</B> into
+    <FONT color="blue"><B>2 parts</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B><I>integral</I> part</B></FONT>
+ <LI> A <FONT color="red"><B><I>fractional</I> part</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Find the <FONT color="blue"><B>binary representation</B></FONT>
+     of the <FONT color="red"><B><I>integral</I> part</B></FONT>
+     by <FONT color="blue"><B>repeatedly <I>divide</I> the value</B></FONT>
+     by <B>2</B>
+     (to obtain the <FONT color="red"><B>powers of 2<sup>n</sup></B></FONT>)
+   <P>
+<LI> Find the <FONT color="blue"><B>binary representation</B></FONT>
+     of the <FONT color="red"><B><I>fractional</I> part</B></FONT>
+     by <FONT color="blue"><B>repeatedly <I>multiply</I> the value</B></FONT>
+     by <B>2</B>
+     (to obtain the <FONT color="red"><B>powers of 2<sup>-n</sup></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Given the value <FONT color="red"><B>23.6875</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B><I>Split</I></B></FONT> the value into
+     <FONT color="blue"><B>2 parts</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     integral part   = <FONT color="red">23</FONT>
+     fractional part = <FONT color="red">0.6875</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Convert</B></FONT> the 
+      <FONT color="blue"><B>integral part 23</B></FONT> by
+      <B>repeated <I>division</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+               <FONT color="red">23</FONT>
+         /2 -------- <FONT color="red">1</FONT> <---- remainder (= digit for the weight <FONT color="red">2<sup>0</sup></FONT>)     
+	       11
+	 /2 -------- <FONT color="red">1</FONT> <---- remainder (= digit for the weight <FONT color="red">2<sup>1</sup></FONT>)
+	        5
+	 /2 -------- <FONT color="red">1</FONT> <---- remainder (= digit for the weight <FONT color="red">2<sup>2</sup></FONT>)
+	        2
+	 /2 -------- <FONT color="red">0</FONT> <---- remainder (= digit for the weight <FONT color="red">2<sup>3</sup></FONT>)
+	        1
+	 /2 -------- <FONT color="red">1</FONT> <---- remainder (= digit for the weight <FONT color="red">2<sup>4</sup></FONT>)
+	        <FONT color="red">0</FONT>
+
+   Binary representation for the value <FONT color="red">23</FONT> = <FONT color="red">10111</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Convert</B></FONT> the 
+      <FONT color="blue"><B>fractional part 0.6875</B></FONT> by
+      <B>repeated <I>multiplication</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+         0.6875
+   x2 ------------  <FONT color="red">1</FONT> <--- Overflow digit (= digit for the weight <FONT color="red">2<sup>-1</sup></FONT>)
+         <FONT color="red">1</FONT>.<FONT color="darkred">375</FONT>
+
+ <FONT color="red">remove the overflow digit</FONT> before continuing: <FONT color="red"><STRIKE>1</STRIKE></FONT>.375 ==> 0.375
+
+<HR>
+         0.<FONT color="darkred">375</FONT>         
+   x2 ------------  <FONT color="red">0</FONT> <--- Overflow digit (= digit for the weight <FONT color="red">2<sup>-2</sup></FONT>)
+         <FONT color="red">0</FONT>.75
+
+ <FONT color="red">remove the overflow digit</FONT> before continuing: <FONT color="red"><STRIKE>0</STRIKE></FONT>.75 ==> 0.75
+
+<HR>
+         0.75     
+   x2 ------------  <FONT color="red">1</FONT> <--- Overflow digit (= digit for the weight <FONT color="red">2<sup>-3</sup></FONT>)    
+         <FONT color="red">1</FONT>.5
+
+ <FONT color="red">remove the overflow digit</FONT> before continuing: <FONT color="red"><STRIKE>1</STRIKE></FONT>.5 ==> 0.5
+
+<HR>
+         0.5     
+   x2 ------------  <FONT color="red">1</FONT> <--- Overflow digit (= digit for the weight <FONT color="red">2<sup>-4</sup></FONT>)    
+         <FONT color="red">1</FONT>.0
+
+ <FONT color="red">remove the overflow digit</FONT> before continuing: <FONT color="red"><STRIKE>1</STRIKE></FONT>.0 ==> <FONT color="magenta">0.0</FONT>
+
+ <FONT color="red">Done</FONT>  (remainder of the value is 0 !)
+
+<HR>
+
+ Binary representation for the value <FONT color="red">0.6875</FONT> = <FONT color="red">0.1011</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Summary:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Binary representation for the value <FONT color="red">23</FONT> = <FONT color="red">10111</FONT>
+   Binary representation for the value <FONT color="red">0.6875</FONT> = <FONT color="red">0.1011</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Binary representation for the value <FONT color="red">23.6875</FONT> = <FONT color="red">10111.1011</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Comment
+     </B></FONT>
+<P>
+<UL>
+<LI> Although we <B>can</B> design a way to store
+    <FONT color="red"><B>fixed point</B></FONT>
+    fractional numbers inside the computer,
+    there is a <FONT color="blue"><B>better way</B></FONT> to
+    represent <FONT color="red"><B>fractional values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Floating</I> point numbers</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we <FONT color="red"><B>never</B></FONT> use
+  <FONT color="blue"><B><I>fixed</I> point</B></FONT>
+  fractional numbers.
+<P>
+This material is just used as an
+  <FONT color="red"><B>introduction</B></FONT> to
+ <FONT color="blue"><B><I>floating</I> point numbers</B></FONT>.
+<P>
+We will study that next.
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

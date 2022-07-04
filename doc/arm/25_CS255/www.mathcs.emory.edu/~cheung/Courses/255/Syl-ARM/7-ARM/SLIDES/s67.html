@@ -1,0 +1,484 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Why we need to use the runtime stack to store 
+   parameters and local variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> A <FONT color="red"><B>non-leaf subroutine</B></FONT> will
+      <FONT color="blue"><B>call</B></FONT> 
+      <B>another</B>
+      <FONT color="red"><B>subroutine</B></FONT>
+  <P>
+  <LI> <FONT color="blue"><B>Therefore:</B></FONT>
+    <FONT color="red"><B>parameters</B></FONT> and
+    <FONT color="blue"><B>local variables</B></FONT> stored
+    inside <FONT color="red"><B>registers</B></FONT>
+    will get <FONT color="blue"><B>overwritten</B></FONT>
+    by a <FONT color="red"><B>subroutine call</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ NonLeafSub:
+
+    ...  r0, r1, r2, ... contain important values
+    ...
+    <FONT color="red">bl  anotherSub   // r0, r1, r2, ... may be overwritten</FONT>  
+    ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We <FONT color="red"><B>must</B></FONT> use the
+  <FONT color="blue"><B>runtime stack</B></FONT> to
+  <FONT color="red"><B>store</B></FONT> the
+  <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT> !
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Stack frame: data structure used to store
+   a subroutine's parameters and local variables
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>data structure</B></FONT>
+  used to <FONT color="blue"><B>store</B></FONT>
+  a <FONT color="red"><B>(non-leaf) subroutine</B></FONT>'s
+  <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="red"><B>local variables</B></FONT> is
+  the <FONT color="blue"><B><I>stack frame</I></B></FONT>
+  (or <FONT color="red"><B>activation record</B></FONT>):
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame01.gif" style="width:60%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>FP register</B></FONT> contains
+  the <FONT color="blue"><B>base address</B></FONT> to
+  a <FONT color="red"><B>stack frame</B></FONT>
+  <B>object</B>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  A <FONT color="red"><B>field</B></FONT> 
+  (= a <FONT color="red"><B>parameter</B></FONT> or
+   a <FONT color="blue"><B>local variable</B></FONT>) stored inside
+   the <FONT color="red"><B>stack frame</B></FONT>
+  <B>object</B>
+  is <FONT color="blue"><B>accessed</B></FONT> using
+  a <FONT color="red"><B>offset</B></FONT> from the
+  <FONT color="blue"><B>base address</B></FONT> in the
+  <FONT color="red"><B>FP register</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to call a <FONT color="blue">non-leaf subroutine</FONT>
+   (that needs to store parameters on the runtime stack)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>How</B></FONT> to
+   <FONT color="blue"><B>call</B></FONT> a
+   <FONT color="red"><B>(non-leaf) subroutine</B></FONT></SPAN> with
+   <FONT color="blue"><B><TT>k</TT> parameters</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+     // Push the parameters on the stack
+     <FONT color="red">load  parameter <FONT color="blue">k</FONT> into r0            
+     push  {r0}
+     load  parameter <FONT color="blue">k-1</FONT> into r0
+     push  {r0}
+     ....
+     load  parameter <FONT color="blue">2</FONT> into r0            
+     push  {r0}
+     load  parameter <FONT color="blue">1</FONT> into r0
+     push  {r0}</FONT>
+
+     bl    Subroutine   // Call the subroutine
+
+     // Pop the parameters off the stack
+     <FONT color="red">add   sp, sp,  #4&times;k</FONT>  // Clean up k int parameters 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The structure of a (<FONT color="blue">non-leaf</FONT>) subroutine
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+   The
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>structure</B></FONT> of
+   a <FONT color="blue"><B>(non-leaf) subroutine</B></FONT></SPAN>
+    that
+   has <FONT color="red"><B><TT>n</TT> local variables</B></FONT>
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  Subroutine:
+     // Prelude
+     <FONT color="red">push    {lr}         // Save return addr
+     push    {fp}	  // Save caller's FP reg
+     mov     fp, sp	  // Establish the base address
+     sub     sp, sp, #4n  // Allocate n local variables</FONT>
+
+     ...
+     ...  // Body of the subroutine
+     ...
+
+     <SPAN style="BACKGROUND-COLOR: #ffff00">put the return value in the return location</SPAN> (usually r0)
+
+     // Postlude
+     <FONT color="red">mov    sp, fp        // De-allocates the local variables   
+     pop    {fp}	  // Restore the saved FP value
+     pop    {pc}	  // Return to the caller</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+ 
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

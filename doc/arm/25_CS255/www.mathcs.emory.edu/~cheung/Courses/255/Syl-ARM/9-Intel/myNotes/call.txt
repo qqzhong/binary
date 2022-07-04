@@ -1,0 +1,88 @@
+===================================
+The Program Stack
+===================================
+
+A stack is an area of memory for storing data temporarily. 
+Unlike other segments that store data starting from low memory, 
+the stack stores data starting from high memory. 
+Data is always pushed onto, or "popped" from the top of the stack.
+
+A stack is an essential part of any nontrivial program. 
+A program continually uses its stack to temporarily store 
+return addresses, procedure arguments, memory data, flags, 
+or registers.
+
+The SP register serves as an indirect memory operand to 
+the top of the stack. 
+
+==========================================================
+Saving Operands on the Stack
+==========================================================
+
+The PUSH instruction stores a 2-byte operand on the stack. 
+The POP instruction retrieves the most recent pushed value. 
+
+When a value is pushed onto the stack, the assembler decreases 
+the SP (Stack Pointer) register by 2.
+
+On 8086-based processors, the SP register always points to 
+the top of the stack. 
+The PUSH and POP instructions use the SP register to keep track 
+of the current position.
+
+When a value is popped off the stack, the assembler increases 
+the SP register by 2. Since the stack always contains word values, 
+the SP register changes in multiples of two. 
+
+
+When a PUSH or POP instruction executes in a 32-bit code segment 
+(one with USE32 use type), the assembler transfers a 4-byte value, 
+and ESP changes in multiples of four.
+
+
+----------------
+This example shows how you can access values on the stack 
+using indirect memory operands with BP as the base register.
+----------------
+
+	push bp 	; Save current value of BP
+	mov bp, sp 	; Set stack frame
+
+			; Save 3 words on the stack
+	push ax 	; Push first;   SP = BP - 2
+	push bx 	; Push second;  SP = BP - 4
+	push cx 	; Push third;   SP = BP - 6
+	.
+	.
+	.
+	mov ax, [bp-6] 	; Put third word in AX
+	mov bx, [bp-4] 	; Put second word in BX
+	mov cx, [bp-2] 	; Put first word in CX
+	.
+	.
+	.
+
+----------------
+This is how you deallocate the 6 bytes:
+(Break down stack frame before returning from subroutine)
+----------------
+
+	add sp, 6 	; Restore stack pointer
+			; (two bytes per push, 3 pushes)
+	pop bp 		; Restore BP
+
+
+========================================================
+Other instructions related to procedure call:
+========================================================
+
+Call instruction:   CALL
+
+	call label
+
+Return instruction: RET
+
+	ret
+
+
+

@@ -1,0 +1,499 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>short-hand</I> operator  "->"
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Prelude: syntactical sugar
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Syntactical sugar</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Syntactical sugar</B></FONT> =
+     an <FONT color="blue"><B>programming language construct</B></FONT> that
+     <FONT color="red"><B>look nice ("sweeter")</B></FONT> but
+     does <FONT color="blue"><B>not add more features</B></FONT>
+     (sugar has no nutritional value...)
+<P>
+ Wikipedia page on
+ <FONT color="red"><B>syntactical sugar</B></FONT>:
+ <A HREF="https://en.wikipedia.org/wiki/Syntactic_sugar">
+   <FONT color="blue"><B>click here</B></FONT></A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>C programming language</B></FONT> has
+     a <FONT color="blue"><B>lot of syntactical sugars</B></FONT>....
+ <P>
+  Here a <FONT color="red"><B>some</B></FONT> that
+  you have <FONT color="blue"><B>already learned</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Ordinary way   |  "Nicer looking" way
+  ----------------+-----------------------         
+    i = i + 1     |   i++      // The <FONT color="red">++</FONT> is a <FONT color="red">new operator</FONT> !!!     
+    i = i - 1     |   i--
+    i = i + 7     |   i += 7
+    ....          |   ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We will now introduce
+      a <FONT color="red"><B>very nicely looking</B></FONT>
+        <FONT color="blue"><B>operator</B></FONT>
+	that is used
+    <FONT color="red"><B><I>extremely</I> often</B></FONT> by
+    <FONT color="blue"><B>C programmer</B></FONT> when they
+    use <FONT color="red"><B>reference variables</B></FONT> to
+    <FONT color="blue"><B><TT>struct</TT> typed variables</B></FONT>
+<P>
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "->" operator: <I>short hand</I> for the expression "(*p)."
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C programs</B>
+       <FONT color="red"><B><I>often</I></B></FONT> use
+      <FONT color="blue"><B>pointer</B></FONT>
+      to <FONT color="red"><B>structures</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>C program</B> will
+      <FONT color="red"><B><I>often</I></B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">(*p).</font>VarName               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This occur <FONT color="red"><B><I>so</I> often</B></FONT> than
+ <B>C</B> has introduced a
+ <FONT color="blue"><B><I>short-hand</I> notation</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>-></TT></B></FONT> <B>operator</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">   p-><FONT color="blue">varName</font></FONT>
+
+      // p must be defined as: <FONT color="red">struct  StructName*  p</FONT> ;     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is a <FONT color="red"><B>short hand</B></FONT> for:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    (*p).<FONT color="blue">varName</font>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Illustrated</B> (using the
+    <FONT color="red"><B><TT>BankAccount</TT></B></FONT> struct):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>original</I> syntax</B></FONT> to
+      access <B>member variables</B> in
+      a <FONT color="red"><B><TT>struct</TT></B></FONT>
+      through a <FONT color="red"><B><I>pointer</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-var9b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<UL>
+<LI> <FONT color="red"><B><TT>p</TT></B></FONT> &nbsp;
+    <B> points to</B>
+      a <FONT color="blue"><B><TT>struct</TT></B></FONT> variable
+<LI> <B>Then:</B> &nbsp; <FONT color="red"><B><TT>*p</TT></B></FONT>  &nbsp;
+     <B><I>is</I></B> a
+     <FONT color="blue"><B><TT>struct</TT></B></FONT> variable
+<LI> <B>Therefore:</B> &nbsp;
+    <FONT color="red"><B><TT>(*p).varName</TT></B></FONT> 
+    &nbsp; <B><I>selects</I></B> a member variable
+    <B>inside</B>
+    a <FONT color="blue"><B><TT>struct</TT></B></FONT> variable
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B><I>new</I> syntax</B></FONT> to access
+       <B>member variables</B>
+     in a <FONT color="blue"><B><TT>struct</TT></B></FONT>
+    through a 
+   <FONT color="red"><B><I>pointer</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-var9c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+You can <FONT color="blue"><B><I>visualize</I></B></FONT> the
+    <FONT color="red"><B><TT>-></TT></B></FONT> operator as
+    an <FONT color="magenta"><B><I>arrow</I></B></FONT> from
+    the <FONT color="blue"><B>pointer variable</B></FONT> to a
+    <FONT color="red"><B>member variable</B></FONT> inside the
+    <FONT color="blue"><B><TT>struct</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-var9d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> <B>Example program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+/* ------------------------
+   Structure definition
+   ------------------------ */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};
+
+struct BankAccount a;
+
+int main(int argc, char *argv[])
+{
+   struct BankAccount b;
+
+   struct BankAccount *p;  // Reference variable to type "struct BankAccount"
+
+   p = &a;                 // Now: *p  is  alias for a
+   <FONT color="red">p->accNum</FONT> = 123;        // This statement is equal to: a.accNum  = 123;
+   <FONT color="red">p->balance</FONT> = 1000.0;    // This statement is equal to: a.balance = 1000.0;
+
+   p = &b;                 // Now: *p  is  alias for b
+   p->accNum = 444;        // This statement is equal to: b.accNum  = 444;
+   p->balance = 9999.0;    // This statement is equal to: b.balance = 9999.0;
+
+   printf("a.accNum = %d  a.balance = %f\n", a.accNum, a.balance);
+   printf("b.accNum = %d  b.balance = %f\n", b.accNum, b.balance);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/ref-struct2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-struct2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Why</B></FONT>
+    is it called a <FONT color="blue"><B>short hand</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (<FONT color="red">*</FONT>p)<FONT color="red">.</FONT>accNum        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+contains <FONT color="red"><B>2 operations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>*</B></FONT>
+        (de-reference operator)
+ <LI> <FONT color="red"><B><TT>.</TT></B></FONT> (the member selection
+    operator)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>In contrast</B></FONT>, the 
+     <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   p<FONT color="red">-></FONT>accNum        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+contains <FONT color="red"><B><I>only</I> 1 operation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>-></B></FONT>
+        (de-reference plus member selection operator)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

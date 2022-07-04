@@ -1,0 +1,357 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Intro: Accessing variables in a <I>multi-files</I> C program
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Importance of making the program variables 
+     accessible to <FONT color="red">all</FONT> functions
+     in the program
+     </B></FONT>
+<P>
+<UL>
+<LI> When you write a <FONT color="red"><B>computer program</B></FONT>,
+   you will <FONT color="blue"><B>use variables</B></FONT> to
+   <FONT color="red"><B>store information</B></FONT>
+   needed/used by the
+   <FONT color="blue"><B>statements</B></FONT> in the
+   <FONT color="red"><B>program</B></FONT>
+<P>
+<LI> One <FONT color="red"><B>important task</B></FONT> when
+  you  <B>write</B> a (correct)
+      <FONT color="blue"><B>computer program</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Making sure that
+       a <FONT color="red"><B>program variable</B></FONT> is
+      <FONT color="blue"><B>accessible</B></FONT> in
+      the <FONT color="red"><B>function(s)</B></FONT> that
+      need to <FONT color="blue"><B>make use (= access)</B></FONT>
+      of the <FONT color="red"><B>information</B></FONT> stored in
+      that <FONT color="blue"><B>variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>scoping rules</B></FONT> (that we just learned)
+ will
+  <FONT color="blue"><B>determine</B></FONT>
+  <FONT color="red"><B><I>which</I> function(s)</B></FONT> will
+  be able to
+  <FONT color="blue"><B>access</B></FONT> a
+  <FONT color="red"><B>variable</B></FONT>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    The easy cases:
+     <FONT color="red">local  variables</FONT>,
+     <FONT color="red">parameters</FONT> and
+     <FONT color="red"><TT>static</TT> local variables</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> You <FONT color="red"><B>don't have to worry</B></FONT>
+   about the
+    <FONT color="blue"><B>accessibility</B></FONT> of
+     <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B>local  variables</B></FONT>,
+     <FONT color="red"><B>parameters</B></FONT> and
+     <FONT color="red"><B><TT>static</TT> local variables</B></FONT>,</SPAN>
+     <B>because:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> <FONT color="blue"><B>Due</B></FONT> to their
+      <FONT color="red"><B>scope</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Local variables</B></FONT>,
+       <FONT color="blue"><B>parameter variables</B></FONT> and
+       <FONT color="red"><B><TT>static</TT> local variables</B></FONT> are
+       <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B>only</B></FONT> accessible in
+       <FONT color="red"><B><I>one</I> function</B></FONT>
+       </SPAN>
+  (i.e.: inside the <FONT color="blue"><B>function</B></FONT> where
+   the <FONT color="red"><B>variable is <I>defined</I></B></FONT>)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/kinds-of-vars2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<FONT color="red"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We do <FONT color="red"><B>not need</B></FONT> to
+    <B>worry</B> about
+      making <FONT color="blue"><B>these kinds of variables</B></FONT>
+      <FONT color="red"><B>accessible</B></FONT> in
+       <FONT color="blue"><B><I>other</I> functions</B></FONT>
+       (because 
+       <FONT color="red"><B>they <I>cannot</I></B></FONT> 
+       be <FONT color="blue"><B>accessed</B></FONT> by
+       <FONT color="red"><B><I>other</I> functions</B></FONT>....)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making <FONT color="red"><TT>static</TT> global variables</FONT>
+     accessible to
+     <FONT color="red">all</FONT> functions (in the same program file)
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Where</B></FONT> can 
+     a <FONT color="blue"><B><TT>static</TT> global varaible</B></FONT>
+     be <FONT color="red"><B>accessed</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>static</TT> global variables</B></FONT> are
+   <FONT color="blue"><B>accessible</B></FONT> by
+   <FONT color="red"><B>functions </B></FONT> in the
+   <FONT color="blue"><B><I>same</I> program file</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Best practice</B></FONT> to ensure that
+     <FONT color="blue"><B><TT>static</TT> global variables</B></FONT>
+     are <FONT color="red"><B><I>most</I> accessible</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>If</B></FONT> we
+      <FONT color="blue"><B>define</B></FONT> the
+     <FONT color="red"><B><TT>static</TT> global variables</B></FONT> 
+     at the <FONT color="blue"><B><I>top</I></B></FONT> of the
+     <FONT color="red"><B>program file</B></FONT>,
+     the <FONT color="blue"><B>all</B></FONT> the
+     <FONT color="red"><B><TT>static</TT> global variables</B></FONT>
+     will be 
+     <FONT color="blue"><B>accessible</B></FONT> by
+     <FONT color="red"><B><I>all</I> functions</B></FONT> in the
+     <B>program file</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/kinds-of-vars2b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because when
+ the <FONT color="red"><B><TT>static</TT> global variables</B></FONT> 
+ are <FONT color="blue"><B>defined</B></FONT> at the
+  <FONT color="red"><B><I>top</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>All functions</B></FONT> in
+     the <FONT color="blue"><B>program file</B></FONT> will
+     follow <FONT color="red"><B><I>after</I></B></FONT> the
+     <FONT color="blue"><B>definition</B></FONT> of the
+     <FONT color="red"><B><TT>static</TT> global variables</B></FONT> 
+ <P>
+ <B>Consequently</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>All functions</B></FONT> in the
+   <FONT color="blue"><B>program file</B></FONT> can
+    <FONT color="red"><B>access</B></FONT> the
+     <FONT color="blue"><B><TT>static</TT> global variables</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important fact about <FONT color="red">global </FONT> variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Property</B></FONT> of
+     <FONT color="blue"><B>global variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Only</B></FONT> the
+      <FONT color="blue"><B>global variables</B></FONT> are
+     <FONT color="red"><B><I>accessible</I> (= used)</B></FONT>
+     by
+     <FONT color="blue"><B>functions (= program statements)</B></FONT>
+     in
+     <FONT color="red"><B><I>different</I> files</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We need to
+   <FONT color="red"><B>organize</B></FONT> the
+   <FONT color="blue"><B>global variables</B></FONT> 
+   carefully so they can 
+   <FONT color="red"><B>accessed</B></FONT> by
+   <FONT color="blue"><B><I>all</I> functions</B></FONT> in
+   <FONT color="red"><B><I>all</I> program files</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will discuss this in the <FONT color="red"><B>next webpage</B></FONT>....
+<P>
+</UL>
+<P>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+&nbsp;
+<P>

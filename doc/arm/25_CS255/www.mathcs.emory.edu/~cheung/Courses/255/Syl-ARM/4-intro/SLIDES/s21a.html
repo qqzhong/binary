@@ -1,0 +1,1086 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<!---------------  Changes the first line height in slide -------------->
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Review</FONT> of
+    information important 
+  to the 2 examples of the Instruction Execution Cycle
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  <FONT color="red"><B>Review:</B></FONT>
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> The <FONT color="red"><B>CPU</B></FONT> 
+       <FONT color="blue"><B>fetch an instruction</B></FONT> and 
+      then <FONT color="red"><B>execute the (fetched) instruction</B></FONT>
+      <P>
+     The <FONT color="red"><B>CPU</B></FONT> does this
+     <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B><I>repeatedly</I></B></FONT></SPAN>
+     (<B>i.e.:</B>
+  <FONT color="red"><B>indefinitely</B></FONT>)
+  <P>
+  <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>In-order </B></FONT></SPAN>
+     <FONT color="blue"><B>program flow</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B><I>next</I> instruction </B></FONT>
+     <FONT color="blue"><B>fetched and executed</B></FONT> is
+     the <FONT color="red"><B>instruction</B></FONT> that
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B><I>physically</I> follows</B></FONT>
+     the <FONT color="red"><B>current instruction</B></FONT></SPAN> 
+     that was <FONT color="blue"><B>executed</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <P>
+  <LI> <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>Out-of-order </B></FONT></SPAN>
+     <FONT color="blue"><B>program flow</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B><I>next</I> instruction </B></FONT>
+     <FONT color="blue"><B>fetched and executed</B></FONT> is
+     the <FONT color="red"><B>instruction</B></FONT> that
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="blue"><B>
+   <SPAN style="BACKGROUND-COLOR: #ffee00">
+     <FONT color="red">does not</FONT> <I>physically</I> 
+    follow</SPAN></B></FONT>
+     the <FONT color="red"><B>current instruction</B></FONT> </SPAN>
+     that was <FONT color="blue"><B>executed</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   In <FONT color="red"><B>this webpage</B></FONT></SPAN>,
+  I will <FONT color="blue"><B>show</B></FONT> an
+  <FONT color="red"><B>example</B></FONT> of the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>in-order</B></FONT>
+  <FONT color="red"><B>program flow</B></FONT></SPAN>
+  <FONT color="blue"><B>instruction execution</B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+<!--------------------- In order ---------------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Details of the Instruction Execution Cycle 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ <FONT color="red"><B>Example instruction</B></FONT>
+   that has an 
+   <FONT color="blue"><B>in-order</B></FONT>
+  <FONT color="red"><B> program flow</B></FONT>
+  <FONT color="blue"><B>execution</B></FONT>: the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><TT>  add</TT></B></FONT> <B>instruction</B> </SPAN>
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> <FONT color="red"><B>Computer instruction:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+  <FONT color="red">add</FONT> R2, R0, R1      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>effect</B></FONT> of the
+ <FONT color="blue"><B>instruction</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B><TT>add R2, R0, R1</TT></B></FONT> instructs
+   the <FONT color="blue"><B>CPU</B></FONT> to
+   <FONT color="red"><B>add</B></FONT> the
+   <FONT color="blue"><B>values</B></FONT> in its
+   <FONT color="red"><B>registers <TT>R0</TT> and <TT>R1</TT></B></FONT>
+  and <FONT color="blue"><B>store</B></FONT> the
+  <FONT color="red"><B>sum (<TT>R0</TT> + <TT>R1</TT>)</B></FONT> in
+  its <FONT color="blue"><B>register <TT>R2</TT></B></FONT>.
+ <P>
+ <LI> <FONT color="red"><B>After</B></FONT>
+    <FONT color="blue"><B>executing</B></FONT>
+  the <FONT color="red"><B><TT>"add R2, R0, R1"</TT></B></FONT> 
+ <B>instruction</B>, the
+ <FONT color="blue"><B>CPU</B></FONT> will
+   <FONT color="red"><B>fetch (and execute)</B></FONT> the
+    <FONT color="blue"><B>instruction</B></FONT> that
+   <FONT color="red"><B><I>physically</I> follows</B></FONT> the
+   <FONT color="blue"><B><TT>"add R2, R0, R1"</TT></B></FONT> 
+   in <FONT color="red"><B>memory</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+ <FONT color="red"><B>Note:</B></FONT> &nbsp; 
+ the <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>default behavior</B></FONT></SPAN> of
+  <FONT color="red"><B>computer instructions</B></FONT> is
+  the  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>in-order</B></FONT>
+  <FONT color="red"><B>program flow</B></FONT>
+  <FONT color="blue"><B>execution</B></FONT></SPAN> !!
+ 
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>initial situation</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>CPU</B></FONT> has
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>(just) finished executing</B></FONT> the
+  <FONT color="red"><B>instruction</B></FONT></SPAN>
+  in the <FONT color="blue"><B>IR register</B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>CPU</B></FONT> must now 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>fetch and execute</B></FONT> the
+  <FONT color="red"><B>next instruction</B></FONT></SPAN> --
+  (<FONT color="blue"><B>assume </B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>1 instruction</B></FONT> is
+  <FONT color="blue"><B>4 bytes long</B></FONT></SPAN>)
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>initial situation</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01k.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <FONT color="red"><B>Notice that:</B></FONT> &nbsp;
+  <FONT color="blue"><B>Program Counter (PC) = 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">44</SPAN></B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Therefore:</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B><I>next</I> instruction (4 bytes)</B></FONT></SPAN> is
+  <FONT color="red"><B>fetched</B></FONT> from
+  <FONT color="blue"><B>memory address <TT>44</TT></B></FONT>
+ 
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+<!------------- Step 1 --------------->
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 1</B></FONT>: the
+ <FONT color="blue"><B>instruction fetch</B></FONT> step
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01b.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>CPU</B></FONT> send a
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>READ command</B></FONT></SPAN> on the
+  <FONT color="red"><B>control bus</B></FONT> to the
+  <FONT color="blue"><B>memory</B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>CPU</B></FONT> will
+  <FONT color="blue"><B>also</B></FONT> send 
+  the 
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>value of its PC</B></FONT> on the
+  <FONT color="blue"><B>address bus</B></FONT></SPAN> to
+  <FONT color="red"><B>read memory address 44</B></FONT> !!
+ 
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 1</B></FONT>: the
+ <FONT color="blue"><B>instruction fetch</B></FONT> step 
+  <B>(continued)</B>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01c.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>In response</B></FONT></SPAN>,
+  the <FONT color="blue"><B>memory</B></FONT> will 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">send the
+  <FONT color="red"><B>data</B></FONT> in
+ <FONT color="blue"><B>memory address 44</B></FONT></SPAN> on the
+  <FONT color="red"><B>data bus</B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <FONT color="red"><B>data</B></FONT> on the
+ <FONT color="blue"><B>data bus</B></FONT> is the
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B>binary code</B></FONT> of the
+  <FONT color="blue"><B>next instruction</B></FONT></SPAN> that the
+ <FONT color="red"><B>CPU</B></FONT> must
+  <FONT color="blue"><B>execute</B></FONT> !!!
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 1</B></FONT>: the
+ <FONT color="blue"><B>instruction fetch</B></FONT> step 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00"><B>(<I>almost</I> final)</B></SPAN>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01d.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>CPU</B></FONT> will 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>store</B></FONT> the
+  <FONT color="red"><B>data</B></FONT></SPAN> on the
+  <FONT color="blue"><B>data bus</B></FONT> in its
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Instruction Register</B></FONT></SPAN>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>CPU</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">has 
+ <FONT color="blue"><B>fetched</B></FONT> the
+ <FONT color="red"><B>next instruction</B></FONT></SPAN>....
+  it 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+<FONT color="blue"><B>still needs</B></FONT> to
+  do <FONT color="red"><B>one more thing</B></FONT></SPAN>....
+
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 1</B></FONT>: the
+ <FONT color="blue"><B>instruction fetch</B></FONT> step 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><B>(final)</B></SPAN>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01e.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>Program Counter</B></FONT> is
+  <FONT color="blue"><B>increased</B></FONT></SPAN> to
+  the <FONT color="red"><B>address</B></FONT> of the
+  <FONT color="blue"><B>"new" next instruction</B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ Because we <FONT color="red"><B>assumed</B></FONT> that
+   an <FONT color="blue"><B>instruction</B></FONT> is
+  <FONT color="red"><B>4 bytes long</B></FONT>,
+  <FONT color="blue"><B>PC</B></FONT> will be
+  <FONT color="red"><B>increased by 4</B></FONT>
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>Taking stock</B></FONT>:</SPAN>
+  <FONT color="blue"><B>what</B></FONT>
+   has been <FONT color="red"><B>achieved</B></FONT> by the
+  <FONT color="blue"><B>Instruction Fetch</B></FONT> step
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01e2.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <B>(1)</B> The <FONT color="red"><B>CPU</B></FONT> has
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B> fetched</B></FONT>
+    an <FONT color="red"><B>(next) instruction</B></FONT></SPAN>
+  into the <FONT color="blue"><B>Instruction Register (IR)</B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <B>(2)</B> The
+  <SPAN style="BACKGROUND-COLOR: #ffdd00"> <FONT color="red"><B>PC</B></FONT>
+     <FONT color="blue"><B>points</B></FONT> to the 
+    <FONT color="red"><B><I>new</I> next instruction</B></FONT></SPAN>
+    (the <FONT color="blue"><B>CPU</B></FONT>
+    has 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>prepared</B></FONT>
+    a <FONT color="blue"><B><I>new</I></B></FONT>
+    <FONT color="red"><B> instruction exec cycle</B></FONT></SPAN>)
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+<!----------- Step 2 ----------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 2</B></FONT>: the
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B>instruction decode</B></FONT> step </SPAN>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><B></B></SPAN>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01e2.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ In the <FONT color="red"><B>instruction decode</B></FONT>
+  <B>step</B>, the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>CPU</B></FONT> 
+  <FONT color="red"><B>determines</B></FONT> 
+  <FONT color="blue"><B><I>what</I> operation</B></FONT></SPAN>
+  it needs to <FONT color="red"><B>perform</B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>details</B></FONT> of the
+  <FONT color="blue"><B>instruction decode </B></FONT> <B>step</B>
+  will be <FONT color="red"><B>explained</B></FONT> in
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B>CS355</B></FONT></SPAN>...
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+<!----------- Step 3 ----------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 3</B></FONT>: the
+ <FONT color="blue"><B>operand fetch</B></FONT> step 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><B></B></SPAN>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01f.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>CPU</B></FONT> will
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B><I>transfer</I></B></FONT> the
+  <FONT color="red"><B>data</B></FONT></SPAN> in the
+  <FONT color="blue"><B><I>required</I> registers
+  (<TT>R0</TT> and <TT>R1</TT>)</B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>input</B></FONT> of
+  the <FONT color="blue"><B>ALU</B></FONT></SPAN>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>ALU</B></FONT> contains
+  <FONT color="blue"><B>arithmetic/logc circuitry</B></FONT></SPAN> and will
+  <FONT color="red"><B>perform</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>addition operation</B></FONT> on the
+  <FONT color="red"><B>inputs</B></FONT></SPAN> !!!
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+<!----------- Step 4 ----------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <FONT color="red"><B>Step 4</B></FONT>: the
+ <FONT color="blue"><B>instruction execute</B></FONT> step 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><B></B></SPAN>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01g.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  The <FONT color="red"><B>CPU</B></FONT> will
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B><I>transfer</I></B></FONT> the
+  <FONT color="red"><B>result</B></FONT> of the
+  <FONT color="blue"><B>ALU</B></FONT>
+  (= <FONT color="red"><B><TT>R0</TT> + <TT>R1</TT></TT></B></FONT>)</SPAN>
+  <B>into</B>
+   the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>destination register <TT>R3</TT></B></FONT></SPAN>.
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #000000">
+  <FONT color="orange"><B>Note:</B></FONT></SPAN> &nbsp;
+  the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>instruction <TT>add R2,R0,R1</TT></B></FONT></SPAN>
+  has <FONT color="red"><B>now</B></FONT> been
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B><I>executed</I></B></FONT> by the
+  <FONT color="red"><B>CPU</B></FONT></SPAN> !!
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+<!----------- Taking stock ----------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #000000">
+ <FONT color="yellow"><B>Taking stock</B></FONT>
+ </SPAN>: &nbsp;
+  <FONT color="blue"><B>what exactly</B></FONT> have been
+  <FONT color="red"><B>achieved</B></FONT> by 
+   the
+  <FONT color="blue"><B>instruction execution cycle</B></FONT>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01h2.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <B>(1)</B> The
+  <FONT color="red"><B>CPU</B></FONT> has
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>fetched
+  and <I>execute</I></B></FONT> the
+   <FONT color="red"><B>"next" instruction</B></FONT></SPAN>
+  which was
+  <FONT color="blue"><B><TT>add R2,R0,R1</TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  The
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>effect</B></FONT> of the
+  <FONT color="blue"><B>execution</B></FONT></SPAN>
+   was
+ <FONT color="red"><B>updating</B></FONT>
+  <FONT color="blue"><B>register <TT>R2</TT></B></FONT> with the
+  <FONT color="red"><B>sum <TT>R0+R1</TT></B></FONT>
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Execution the <FONT color="blue"><B><TT>add R2, R0, R1</TT></B></FONT>
+  (in-order program flow) instruction
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #000000">
+ <FONT color="yellow"><B>Taking stock</B></FONT>
+ </SPAN>: &nbsp;
+  <FONT color="blue"><B>what exactly</B></FONT> have been
+  <FONT color="red"><B>achieved</B></FONT> by 
+   the
+  <FONT color="red"><B>instruction execution cycle</B></FONT>
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/instr-exec01h.gif" style="width:80%">
+  </center>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  <B>(2)</B> The
+  <FONT color="red"><B>CPU</B></FONT> has
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>has increased</B></FONT> the
+   <FONT color="red"><B>PC</B></FONT></SPAN>
+  to the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>address</B></FONT> of
+  the <FONT color="red"><B>"new" next instruction</B></FONT></SPAN>
+  </font>
+  </p>
+
+  <p style="margin-left: 0.6in">
+  <font size="+2">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  This
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><I>new</I> next instruction</B></FONT></SPAN>
+   will be
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>fetched and executed</B></FONT>
+  by the <FONT color="red"><B><I>next</I></B></FONT>
+   <FONT color="blue"><B> instruction exec cycle</B></FONT></SPAN> !
+   </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

@@ -1,0 +1,1207 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Strings</I> in C --- arrays of <TT>char</TT>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>String</TT>  in <I>C</I>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="blue"><B>Strings</B></FONT> in <B>C</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>String</B></FONT> = a
+      <FONT color="red"><B><I>sequence</I></B></FONT> of
+      <FONT color="blue"><B>characters</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Unlike</B></FONT> <B>Java</B>,
+     the <B>C programming language</B>
+      <FONT color="blue"><B>does <I>not</I></B></FONT>
+      have a <FONT color="red"><B><TT>String</TT></B></FONT> 
+     data type
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>string</B></FONT>
+     (= sequence of <B>characters</B>)
+      in <B>C</B> is simply stored
+      in an <FONT color="red"><B>array of <TT>char</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Representing a <I>string</I> in C
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="blue"><B>2 representation methods</B></FONT>
+     of <FONT color="red"><B>strings</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5" width=700>
+<TR> <TD>
+
+ <OL>
+ <LI> The (<FONT color="blue"><B>location</B></FONT> + 
+      <FONT color="red"><B>length</B></FONT>) method
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Java</B> uses this method
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> The (<FONT color="blue"><B>location</B></FONT> + 
+      <FONT color="red"><B>sentinel</B></FONT>) method
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> uses this method
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Representing</B></FONT> a
+     <FONT color="red"><B>string</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>string</B></FONT> is
+      stored in <B>memory</B> using
+      <FONT color="red"><B>consecutive memory cells</B></FONT>
+      and the string is <FONT color="blue"><B>terminated</B></FONT>
+      by the <FONT color="red"><B>sentinel '\0'</B></FONT>
+      (known as the <B>NUL</B> character).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> the <FONT color="blue"><B>string</B></FONT>
+    <FONT color="red"><B>"Hello"</B></FONT> is
+    represented as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/string01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>characters</B></FONT>
+     (e.g. 'H', 'e', ...) are
+     <B>encoded</B> using the
+     <FONT color="red"><B>ASCII code</B></FONT>
+     --- you learned this in <FONT color="blue"><B>CS170</B></FONT> !
+ <P>
+ <LI> So <FONT color="blue"><B>'H'</B></FONT> is
+     nothing more than a
+    <FONT color="red"><B>small (1 byte) integer</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Printing a string
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Conversion character</B></FONT> for
+      a <FONT color="red"><B>string</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">%s</FONT>         conversion character in <FONT color="red">printf</FONT> for a string                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+      printf("Print the string `<FONT color="red">%s</FONT>' here\n", <FONT color="red">"Hello"</FONT> );       
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Print the string `Hello' here      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/string1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc string1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String <I>variables</I> in C
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>String variables</B></FONT>  in <B>C</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>string variable</B></FONT> in
+     <B>C</B> is just an
+     <FONT color="red"><B>array of <TT>char</TT></B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>ASCII character code</B></FONT> is
+      stored in the <B>array element</B> at the
+      character position
+ <P>
+ <LI> The <FONT color="blue"><B>end of the string</B></FONT> is
+     <B><I>marked</I></B> by the
+     <FONT color="red"><B>sentinel character '\0' (NUL)</B></FONT>
+     (which has the <B>ASCII code value 0</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> using a <FONT color="blue"><B>string variable</B></FONT>
+    the <FONT color="red"><B>hard way</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {<FONT color="red">
+      char a[10] = { 'H', 'e', 'l', 'l', 'o', '\0' } ; // String variable</FONT>
+              <FONT color="magenta">     // Don't forget the <FONT color="red">sentinel '\0'</FONT>
+	           // that ends the string !</FONT>
+
+      printf( "sizeof(a) = %d\n", sizeof(a) );
+      printf( "String a = <FONT color="red">%s</FONT>\n", <FONT color="red">&a[0]</FONT> );      // Print string starting at a[0]
+      printf( "Strange string: <FONT color="red">%s</FONT>\n", <FONT color="red">&a[3]</FONT> ); // Print string starting at a[3]   
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5" width=600>
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   sizeof(a) = <FONT color="red">10</FONT>
+   String a = Hello
+   Strange string: <FONT color="red">lo</FONT>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5" width=600>
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   The string in array a[] is as follows:
+
+          a[0]        a[3]     a[5]
+          +---+---+---+---+---+---+---+---+---+---+             
+	  | H | e | l | l | o | \0| ? | ? | ? | ? |
+          +---+---+---+---+---+---+---+---+---+---+
+
+<HR>
+   The string starting at <FONT color="red">location a[0]</FONT> is:
+
+          <FONT color="red">a[0]</FONT>        a[3]<FONT color="red">
+          +---+---+---+---+---+---+<FONT color="blue">---+---+---+---+</FONT>
+	  | H | e | l | l | o | \0|<FONT color="blue"> ? | ? | ? | ? |</FONT>
+          +---+---+---+---+---+---+<FONT color="blue">---+---+---+---+</FONT></FONT>
+
+   So the program prints <FONT color="red">Hello</FONT>
+
+<HR>
+   The string starting at <FONT color="red">location a[3]</FONT> is:
+
+          a[0]        <FONT color="red">a[3]</FONT>
+          +---+---+---<FONT color="red">+---+---+---+</FONT><FONT color="blue">---+---+---+---+</FONT>
+	  | H | e | l <FONT color="red">| l | o | \0|</FONT><FONT color="blue"> ? | ? | ? | ? |</FONT>
+          +---+---+---<FONT color="red">+---+---+---+</FONT><FONT color="blue">---+---+---+---+</FONT>
+
+   So the program prints <FONT color="red">lo</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because the <FONT color="blue"><B>sentinal '\0'</B></FONT>
+     marks the <FONT color="red"><B>end of a string</B></FONT>,
+     the data inside
+    <FONT color="blue"><B><TT>a[6]</TT></B></FONT>,
+     <FONT color="blue"><B><TT>a[7]</TT></B></FONT>,
+    <FONT color="blue"><B><TT>a[8]</TT></B></FONT> and
+    <FONT color="blue"><B><TT>a[9]</TT></B></FONT> 
+    are <FONT color="red"><B>ignored</B></FONT>
+    by the <FONT color="blue"><B><TT>printf()</TT></B></FONT> function.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/string2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc string2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Short hand assignment syntax for string variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Short hand syntax</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       char a[10] = <FONT color="red">"Hello"</FONT>;
+
+<HR>
+  is <FONT color="red">short hand</FONT> for:
+
+       char a[10] = <FONT color="red">{ 'H', 'e', 'l', 'l', 'o', '\0' }</FONT> ;            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B><I>More</I> short hand syntax</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       char a[] = <FONT color="red">"Hello"</FONT>;
+
+<HR>
+  is <FONT color="red">short hand</FONT> for:
+
+       char a[<FONT color="magenta">6</font>] = <FONT color="red">{ 'H', 'e', 'l', 'l', 'o', '\0' }</FONT> ;            
+
+       (Size of the array is determined by the number of characters      
+        in the string (including the '\0' char !) )    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {<FONT color="red">
+      char a[10] = "Hello";</FONT>
+    
+      printf( "sizeof(a) = %d\n", sizeof(a) );            
+      printf( "String a = %s\n", &a[0] );
+      printf( "Strange string: %s\n", &a[3] );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/string3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc string3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String: array of characters <I>or</I> a <TT>(char *)</TT>
+     </B></FONT>
+<P>
+<UL>
+ <LI> We have just seen that a
+     <FONT color="blue"><B>string</B></FONT> in <B>C</B> is stored
+     as an <FONT color="red"><B>array of characters</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>
+    A <FONT color="blue"><B>string</B></FONT> in <B>C</B> can
+    <FONT color="red"><B>also</B></FONT>
+    be <FONT color="blue"><B><I>declared</I></B></FONT> as
+    a <B>value/variable</B> of the
+    type <FONT color="red"><B><TT>char *</TT></B></FONT>
+    (i.e., a point to a <FONT color="blue"><B><TT>char</TT></B></FONT> 
+    typed variable).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Reason:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="blue"><B><TT>a</TT></B></FONT> is
+      defined as an <B>array of characters</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     char <FONT color="red">a</FONT>[10] = "Hello";               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+then <FONT color="red"><B><TT>a</TT></B></FONT> is the
+   <FONT color="blue"><B>address</B></FONT> of the
+  <B><I>first</I> element</B> in the array:
+  <FONT color="red"><B><TT>a == &a[0]</TT></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/string02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B><TT>variable a[0]</TT></B></FONT>
+     has the <B>type</B> <FONT color="red"><B><TT>char</TT></B></FONT> !!!
+ <P>
+  <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>data type</B></FONT> of
+      the <B><I>expression</I></B>
+     &nbsp; <FONT color="blue"><B> <TT>&a[0]</TT></B></FONT> &nbsp; is:
+      <FONT color="red"><B><TT>(char *)</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>data type</B></FONT> of
+      the <B><I>expression</I></B>
+     &nbsp; <FONT color="blue"><B> <TT>a</TT></B></FONT> &nbsp; is
+    <B>also</B>:
+      <FONT color="red"><B><TT>(char *)</TT></B></FONT>
+   !!!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+     function with a <FONT color="blue"><B>string variable</B></font>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+    
+   void print1( <FONT color="red">char x[]</FONT> )  <FONT color="red">// Normal way to express array of string</FONT>      
+   {
+      printf( "print1: string x = %s\n", x);
+   }
+    
+   void print2( <FONT color="red">char *x</FONT> )   <FONT color="red">// Alternate way to express array of string</FONT>
+   {
+      printf( "print2: string x = %s\n", x);
+   }
+    
+   int main(int argc, char *argv[])
+   {
+      char a[10] = "Hello";           // String         
+    
+      print1( <FONT color="red">a</FONT> );
+      print2( <FONT color="red">a</FONT> );
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/string4.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc string4.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String constants
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>String constant (or string)</B></FONT> are denoted
+     in the <FONT color="blue"><B>same way</B></FONT> as
+     <B>Java</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">"......."</FONT>              
+
+<HR>
+ Example:
+
+     <FONT color="red">"Hello"</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Facts:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5" width=600>
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>string</B></FONT> is an
+      <B><I>expression</I></B>
+ <P>
+ <LI> It has:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>value</B></FONT>
+ <LI> A <FONT color="red"><B>data type</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> The <B>value</B> of a 
+    <FONT color="blue"><B>string</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>string constant</B></FONT> will
+    <B><I>evaluate</I></B> to the
+  <FONT color="red"><B><I>memory location</I> of the first character</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this example:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/string01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+since the string <B>"Hello"</B> is stored at
+  <FONT color="red"><B>memory address 5000</B></FONT>,
+ the <FONT color="blue"><B>string constant</B></FONT>
+  <B>"Hello"</B> will 
+ <FONT color="red"><B><I>evaluate</I></B></FONT> to the value
+  <FONT color="blue"><B>5000</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <B>data type</B>
+     of a <FONT color="blue"><B>string</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>string constant</B></FONT> has the
+      <B>data type</B>
+   <FONT color="red"><B><I>address</I> of a <TT>char</TT> variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <B>BTW</B>, the <B>data type</B>
+      makes <B>sense</B> because 
+    <FONT color="blue"><B>address 5000</B></FONT> is the 
+   <B>address</B> of a (<B>one</B>)
+    <FONT color="red"><B><TT>char</TT> typed variable</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/string01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+(The <B>fact</B> that this
+  <FONT color="red"><B><TT>char</TT> typed variable</B></FONT> is
+  the <B><I>first</I> one</B> in a 
+   <FONT color="blue"><B>serie</B></FONT> (= array)
+   does <FONT color="red"><B>not void</B></FONT>
+   the <B>fact</B> that it
+   <FONT color="blue"><B>is</B></FONT> a
+   <FONT color="red"><B><TT>char</TT> typed variable</B></FONT>)
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+   (shows the fact that a <FONT color="blue"><B>string</B></FONT>
+     evaluates to an
+     <FONT color="red"><B>address</B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+    
+   int main(int argc, char *argv[])
+   {
+      printf(<FONT color="red">"%lu\n", "Hello"</FONT>);            // <FONT color="red">Show me the address</FONT>
+    
+      printf("%s\n", <FONT color="red">(char *)(4195964)</FONT> );   // Use the address to print the string    
+      printf("%s\n", (char *)(<FONT color="darkred">4195965</FONT>) );                  
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/string5.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc string5.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   4195964                    
+   Hello
+   ello
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String library
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>C facts:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>Standard C library</B></FONT>
+      contains <B>many function</B> for
+      <FONT color="red"><B>string manipulations</B></FONT>
+ <P>
+     I will discuss some <FONT color="red"><B>string  functions</B></FONT>
+     in this library and
+     <FONT color="blue"><B>expose</B></FONT> the
+     <FONT color="red"><B>implementation</B></FONT> of
+     a few of them.
+<P>
+<HR>
+<P>
+ <LI> Many of the <B>string functions</B>
+       access <FONT color="blue"><B>array elements</B></FONT> - and
+       <B><I>especially</I></B>
+    <FONT color="red"><B>character arrays</B></FONT> -
+     using
+    <FONT color="blue"><B>pointer variables</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>data type</B></FONT> of
+      a <B>string</B> in the library functions are
+    <FONT color="darkmagenta"><B>often</B></FONT> declared as:
+    <FONT color="red"><B><TT>char *</TT></B></FONT>
+ <P>
+    (or as 
+    <FONT color="red"><B><TT>const char *</TT></B></FONT> if
+    you are <B><I>not</I> allowed</B> to
+    change the <FONT color="blue"><B>characters</B></FONT>
+    in the <B>string</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+  Exposing some of the functions will allow you
+  to <FONT color="blue"><B>see</B></FONT> the <B>power</B>
+  of <FONT color="red"><B>pointer arithmetic</B></FONT> of
+  <B>C</B> 
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

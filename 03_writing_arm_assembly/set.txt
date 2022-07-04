@@ -1,0 +1,144 @@
+A64中，提出了全新的特权模式，不再使用A32中所使用的7种复杂的特权模式。
+A64提出了简单的4种特权模式EL(exception level)，分别是EL0，EL1，EL2，EL3。
+EL0 ： 运行应用程序
+EL1 ： 运行操作系统
+EL2 ： 运行虚拟机
+EL3 ： 运行安全管理
+其中EL3的运行权限最高，EL0的运行权限最低。运行权限，会影响资源的访问。
+
+#if __LP64__
+#define __WORDSIZE 64
+#else
+#define __WORDSIZE 32
+#endif
+//  注：那么 LP64 是什么意思呢？
+在64位机器上，如果int是32位，long是64位，pointer也是64位，那么该机器就是LP64的，其中的L表示Long，P表示Pointer，64表示Long和Pointer都是64位的。
+
+
+寄存器
+ARM64 有34个寄存器，包括31个通用寄存器、SP、PC、CPSR。
+
+寄存器	位数	描述
+x0-x30	64bit	通用寄存器，如果有需要可以当做32bit使用：WO-W30
+FP(x29)	64bit	保存栈帧地址(栈底指针)
+LR(x30)	64bit	通常称X30为程序链接寄存器，保存子程序结束后需要执行的下一条指令
+SP	64bit	保存栈指针,使用 SP/WSP来进行对SP寄存器的访问。
+PC	64bit	程序计数器，俗称PC指针，总是指向即将要执行的下一条指令,在arm64中，软件是不能改写PC寄存器的。
+CPSR	64bit	状态寄存器
+x0-x7: 用于子程序调用时的参数传递，X0还用于返回值传递
+
+x0 - x30 是31个通用整形寄存器。每个寄存器可以存取一个64位大小的数。 当使用 x0 - x30 访问时，它就是一个64位的数。当使用 w0 - w30 访问时，访问的是这些寄存器的低32位，如图：
+
+CPSR(状态寄存器)
+
+NZCV是状态寄存器的条件标志位，分别代表运算过程中产生的状态，其中：
+
+N, negative condition flag，一般代表运算结果是负数
+Z, zero condition flag, 指令结果为0时Z=1，否则Z=0；
+C, carry condition flag, 无符号运算有溢出时，C=1。
+V, oVerflow condition flag 有符号运算有溢出时，V=1。
+
+
+
+寄存器r31是一个特殊的寄存器：
+Zero Register: 在大多数情况下，作为源寄存器使用时， r31读出来的值 是0; 作为目标寄存器使用时， 丢弃结果。 WZR(word zero rigiser)或者XZR(64位）
+Stack Register: 当 用作load/store 的base register时， 或者 一些算术指令中， r31提供当前的stack pointer WSP或者 SP
+
+
+
+ARM64经常用到的汇编指令
+MOV    X1，X0         ;将寄存器X0的值传送到寄存器X1
+ADD    X0，X1，X2     ;寄存器X1和X2的值相加后传送到X0
+SUB    X0，X1，X2     ;寄存器X1和X2的值相减后传送到X0
+
+AND    X0，X0，#0xF    ; X0的值与0xF相位与后的值传送到X0
+ORR    X0，X0，#9      ; X0的值与9相位或后的值传送到X0
+EOR    X0，X0，#0xF    ; X0的值与0xF相异或后的值传送到X0
+
+LDR    X5，[X6，#0x08]        ；ld：load; X6寄存器加0x08的和的地址值内的数据传送到X5
+LDP  x29, x30, [sp, #0x10]    ; ldp :load pair ; 一对寄存器, 从内存读取数据到寄存器
+
+STR X0, [SP, #0x8]         ；st:store,str:往内存中写数据（偏移值为正）; X0寄存器的数据传送到SP+0x8地址值指向的存储空间
+STUR   w0, [x29, #-0x8]   ;往内存中写数据（偏移值为负）
+STP  x29, x30, [sp, #0x10]    ;store pair，存放一对数据, 入栈指令
+
+CBZ  ;比较（Compare），如果结果为零（Zero）就转移（只能跳到后面的指令）
+CBNZ ;比较，如果结果非零（Non Zero）就转移（只能跳到后面的指令）
+CMP  ;比较指令，相当于SUBS，影响程序状态寄存器CPSR 
+
+B   ;跳转指令，可带条件跳转与cmp配合使用
+BL  ;带返回的跳转指令， 返回地址保存到LR（X30）
+BLR  ; 带返回的跳转指令，跳转到指令后边跟随寄存器中保存的地址(例：blr    x8 ;跳转到x8保存的地址中去执行)
+RET   ;子程序返回指令，返回地址默认保存在LR（X30）
+
+
+ARM指令包含4位的条件码列表：
+操作码	条件码助记符	标志	含义
+0000	EQ	Z=1	相等
+0001	NE(Not Equal)	Z=0	不相等
+0010	CS/HS(Carry Set/High or Same)	C=1	无符号数大于或等于
+0011	CC/LO(Carry Clear/LOwer)	C=0	无符号数小于
+0100	MI(MInus)	N=1	负数
+0101	PL(PLus)	N=0	正数或零
+0110	VS(oVerflow set)	V=1	溢出
+0111	VC(oVerflow clear)	V=0	没有溢出
+1000	HI(HIgh)	C=1,Z=0	无符号数大于
+1001	LS(Lower or Same)	C=0,Z=1	无符号数小于或等于
+1010	GE(Greater or Equal)	N=V	有符号数大于或等于
+1011	LT(Less Than)	N!=V	有符号数小于
+1100	GT(Greater Than)	Z=0,N=V	有符号数大于
+1101	LE(Less or Equal)	Z=1,N!=V	有符号数小于或等于
+1110	AL	任何	无条件执行(默认)
+1111	NV	任何	从不执行
+
+
+3. 函数的堆栈；
+3.1 函数分类：
+叶子函数：不调用其他函数的函数称为叶子函数；
+非叶子函数： 调用其他函数的函数称为非叶子函数；
+3.2 叶子函数的堆栈平衡；
+3.3 非叶子函数的堆栈平衡；
+
+
+ARM核的七种工作模式
+SVC管理模式： 当系统复位或者软件执行swi指令，CPU核切换到此模式下。
+FIQ快速中断模式： 外设给CPU核发送一个FIQ快速中断信号，CPU核会切换到此模式下。
+IRQ中断模式： 外设给CPU核发送一个IRQ普通中断信号，CPU核切换到此模式。
+Abort中止模式： 当CPU核取指失败或者访存失败，CPU核进入此模式。
+undef未定义指令模式： 当CPU核执行一个不认识的指令（lisi），CPU核进入此模式。
+system系统模式：
+user用户模式： system和user一样，CPU核正常运行情况下，CPU就会处于这两个模式其中之一。Linux系统下，当CPU处理一个进程时就工作在user模式下。
+
+ARM异常
+ARM核有7种异常：
+
+异常	工作模式	CPU核运行地址	场景
+复位异常	SVC管理模式	0x00	系统复位
+undef未定义指令异常	undef未定义指令模式	0x04	CPU核执行一个不认识的指令
+软中断异常	SVC管理模式	0x08	CPU核执行swi指令
+预取指令异常	abort中止模式	0x0C	CPU核取指失败
+数据处理异常	abort中止模式	0x10	CPU核访存失败
+IRQ中断异常	IRQ中断模式	0x18	外设给CPU发送IRQ中断电信号
+FIQ中断异常	FIQ快速中断模式	0x1C	外设给CPU核发送FIQ快速中断电信号异常
+
+
+
+
+条件码	助记符后缀	标志	含义
+0000	EQ	Z 置位	相等 ==
+0001	NE	Z 清零	不相等 !=
+0010	CS	C 置位	无符号数大于或等于
+0011	CC	C 清零	无符号数小于
+0100	MI	N 置位	负数
+0101	PL	N 清零	正数或零
+0110	VS	V 置位	溢出
+0111	VC	V 清零	未溢出
+1000	HI	C 置位 Z 清零	无符号数大于
+1001	LS	C 清零 Z 置位	无符号数小于或等于
+1010	GE	N 等于 V	带符号数大于或等于
+1011	LT	N 不等于 V	带符号数小于
+1100	GT	Z 清零且（N 等于 V）	带符号数大于
+1101	LE	Z 置位或（N 不等于 V）	带符号数小于或等于
+1110	AL	忽略	无条件执行
+
+

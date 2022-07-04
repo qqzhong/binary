@@ -1,0 +1,329 @@
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting between different representation systems
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <B>just</B> learned that
+      <FONT color="red"><B>key board/terminal</B></FONT> uses
+      the <FONT color="blue"><B>ASCII code</B></FONT> to
+      represent
+      the <FONT color="red"><B>input/output data</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Specifically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  The number <FONT color="red">12</FONT> is represented by the <FONT color="red">ASCII codes: 00110001 00110010 (binary)  </FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Previously (a few lectures ago)</B></FONT>,
+    we studied
+      the <FONT color="blue"><B>2'c somplete (numerical value)
+     encoding</B></FONT>
+   used to <FONT color="red"><B>represent </B></FONT>
+   <FONT color="blue"><B><I>signed</I> integer values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  In <FONT color="red">2'c complement code</FONT>, the value <FONT color="red">12</FONT> is represented as:       
+
+                                   <FONT color="red">00001100</FONT> (in  8 bits)
+			   <FONT color="red">0000000000001100</FONT> (in 16 bits)
+	   <FONT color="red">00000000000000000000000000001100</FONT> (in 32 bits)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>computer</B></FONT> uses
+      <FONT color="red"><B><I>many different</I> representations
+      (= encoding methods)</B></FONT>
+      for the <FONT color="blue"><B><I>same</I> "information"</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>encoding method (= representation method)
+      the tha <FONT color="blue"><B>computer</B></FONT>
+       will use to <FONT color="red"><B>represent the data</B></FONT>
+       will </B></FONT> used <FONT color="blue"><B>depend</B></FONT> on
+      the <FONT color="red"><B><I>purpose</I> (= context)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>computer</B></FONT> uses
+     <FONT color="red"><B>2's complement representation</B></FONT> if it 
+   <FONT color="blue"><B>needs</B></FONT>
+     to <FONT color="red"><B>perform <I>computation</I></B></FONT> on
+     the <FONT color="blue"><B>data</B></FONT>
+<P>
+<HR>
+<P>
+   <LI> The <FONT color="blue"><B>computer</B></FONT> uses
+     <FONT color="red"><B>ASCII representation</B></FONT> if it 
+   <FONT color="blue"><B>needs</B></FONT>
+     to <FONT color="red"><B> <I>input/output</I></B></FONT> 
+     the <FONT color="blue"><B>data</B></FONT> from/to
+     a <FONT color="red"><B>key board/terminal</B></FONT>
+     
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Due to the <FONT color="red"><B>existance</B></FONT>
+  of  <FONT color="blue"><B>different representation (= encoding)</B></FONT>
+    for
+ the <FONT color="red"><B><I>same value</I></B></FONT>
+   (but for different purposes),
+ there is a <B>need</B> to
+ <FONT color="blue"><B>convert</B></FONT>
+  from one representation to another representation when
+  the <FONT color="red"><B>purpose changes</B></FONT>.
+<P>
+<B>Example:</B> 
+    <FONT color="red"><B>integer input</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Suppose</B></FONT>
+        the <B>program</B> needs an
+     <FONT color="red"><B>integer value</B></FONT> 
+     for <FONT color="blue"><B>input</B></FONT> in some
+    <FONT color="red"><B>computation</B></FONT>
+     
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Since the <FONT color="blue"><B>integer value</B></FONT>
+     is  used for
+    <FONT color="red"><B>computation</B></FONT>, we want to use
+    the <FONT color="blue"><B>2's complement representation</B></FONT>
+    for the <FONT color="red"><B>integer value</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>However</B></FONT>, the
+    <FONT color="blue"><B>key board device</B></FONT> uses the
+    <FONT color="red"><B>ASCII representation</B></FONT> for
+    the <FONT color="blue"><B>input data</B></FONT>
+ <P>
+   <FONT color="blue"><B>That means:</B></FONT>
+    when the user types in:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    12      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>computer</B></FONT> will
+  receive these
+  <FONT color="blue"><B>ASCII codes</B></FONT> as
+ <FONT color="red"><B>input</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    00110001 00110010          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+But in order to perform
+ <FONT color="red"><B>computation</B></FONT>, the
+ <FONT color="blue"><B>number 12</B></FONT> must be
+ represented by
+ <FONT color="red"><B><TT>00000000000000000000000000001100</TT></B></FONT> !!
+
+
+
+
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We need to <FONT color="red"><B>convert</B></FONT> the
+    <FONT color="blue"><B>ASCII input representation</B></FONT>
+    (emitted by the keyboard) to
+    the corresponing
+    <FONT color="red"><B>2's complement representation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+BTW: that's is why you need to use the following construct to read in
+  <FONT color="red"><B>numbers</B></FONT> in 
+  a <FONT color="blue"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    String s = in.next( );       // Read input - it's always in ASCII code
+
+    int    i = <FONT color="red">Integer.parseInt( s )</FONT>; // Convert ASCII repr to 2's compl repr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(The method <FONT color="red"><B><TT>in.nextInt( )</TT></B></FONT>
+ combines the
+  <FONT color="blue"><B><TT>in.next( )</TT></B></FONT> and
+ the <FONT color="red"><B><TT>Integer.parseInt( )</TT></B></FONT> for
+ your convenience.)
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We will next study 2 conversion methods:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>ASCII representation</B></FONT> 
+         <-->
+	 <FONT color="blue"><B>Boolean representation</B></FONT>
+   (This is a very simple conversion and I use it to
+   introduce the next harder one)
+ <P>
+ <LI> <FONT color="red"><B>ASCII representation</B></FONT> 
+         <-->
+	 <FONT color="blue"><B><TT>int</TT> 2's complement 
+     representation</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+</UL>

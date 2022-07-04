@@ -1,0 +1,303 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Structure  parameters are passed-by-value
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Passing objects as parameters in <FONT color="red">Java</FONT> and
+    in <FONT color="red">C</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>C and Java</B></FONT>
+     <FONT color="blue"><B>exhibit</B></FONT> the
+   <FONT color="red"><B><I>same</I> difference</B></FONT>
+   in <FONT color="blue"><B>behavior</B></FONT>
+   <FONT color="red"><B>describe</B></FONT>
+   in 
+   <A HREF="struct1.html">
+   <FONT color="blue"><B>this webpage</B></FONT></A>,
+   when you
+   <FONT color="red"><B>pass (= copy !!)</B></FONT>
+   an <FONT color="blue"><B>object</B></FONT>
+   as <FONT color="red"><B>parameter</B></FONT> to
+   a <FONT color="blue"><B>function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>Java</B></FONT>,
+      the <B>program</B>
+      <FONT color="blue"><B>passes (= copies)</B></FONT> a
+      <FONT color="red"><B><I>reference</I> (= address)</B></FONT>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>Java</B></FONT>,
+      an <FONT color="blue"><B>object</B></FONT> is
+      <FONT color="red"><B>passed-by-<I>reference</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> In <FONT color="red"><B>C</B></FONT>, the
+      <B>program</B> 
+      <FONT color="blue"><B>passes (= copies)</B></FONT> an
+      <B>entire</B> <FONT color="red"><B><I>object</I></B></FONT>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>C</B></FONT>,
+      an <FONT color="blue"><B>object (= <TT>struct</TT> variable)</B></FONT> 
+   is
+      <FONT color="red"><B>passed-by-<I>value</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Here are <FONT color="red"><B>2 programs</B></FONT> to
+   <FONT color="blue"><B>show you this fact</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+struct_param.java
+</TH> 
+<TH>
+struct-param.c
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+class BankAccount
+{
+   int    accNum;
+   double balance;
+};
+
+public class struct_param
+{
+   public static void f(<FONT color="red"> BankAccount x</FONT> )
+   {
+      x.accNum = 888;
+      x.balance = 9999.0;
+   }
+
+   public static void main(String[] argv)
+   {
+      BankAccount a;
+   
+      a = new BankAccount( );  // Create the objects
+
+      a.accNum  = 123;
+      a.balance = 1000.0;
+   
+      System.out.printf("a = (%d, %f)\n", a.accNum, a.balance);   
+   
+      <FONT color="red">f(a);              // Pass a </FONT>
+ 
+      /* ===================================================
+         Proof that <FONT color="red">objects</FONT> in Java are <FONT color="red">passed by reference</FONT>
+         =================================================== */
+      System.out.printf("a = (%d, %f)\n", a.accNum, a.balance);   
+   }
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};
+
+void f( <FONT color="red">struct BankAccount x</FONT> )
+{
+   x.accNum = 888;
+   x.balance = 9999.0;
+}
+
+int main(int argc, char *argv[])
+{
+   struct BankAccount a;
+
+   a.accNum  = 123;
+   a.balance = 1000.0;
+
+   printf("a = (%d, %f)\n", a.accNum, a.balance);   
+
+   <FONT color="red">f(a);              // Pass a </FONT>
+ 
+   /* ===================================================
+      Proof that <FONT color="red">objects</FONT> in C are <FONT color="red">passed by value</FONT>
+      =================================================== */
+   printf("a = (%d, %f)\n", a.accNum, a.balance);   
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+<FONT color="blue"><B>Output</B></FONT> of 
+the <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5681)> java struct_param          
+a = (123, 1000.000000) 
+a = <FONT color="red">(888, 9999.000000)</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Output</B></FONT> of 
+the <FONT color="red"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5681)> java struct_param          
+a = (123, 1000.000000) 
+a = <FONT color="red">(123, 1000.000000)</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/struct_param.java + struct-param.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac struct_param.java</TT></B></FONT>
+   and
+   <FONT color="red"><B><TT>gcc struct-param.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+   <FONT color="red"><B><TT>java struct_param</TT></B></FONT>
+    and
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

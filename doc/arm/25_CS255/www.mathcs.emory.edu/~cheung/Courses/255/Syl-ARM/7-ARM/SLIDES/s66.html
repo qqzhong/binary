@@ -1,0 +1,959 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="blue">Consequences</FONT> of
+   using the <FONT color="blue">runtime stack</FONT> to
+   store <FONT color="blue">parameters and local variables</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+   <FONT color="red"><B>Necesary condition</B></FONT> for
+   <FONT color="blue"><B>correctly returning</B></FONT>
+   to its <FONT color="red"><B>caller</B></FONT>:
+   </font>
+   </p>
+
+  
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> A <FONT color="red"><B>subroutine</B></FONT> 
+     <FONT color="blue"><B>returns</B></FONT> to its
+     <FONT color="red"><B>caller</B></FONT> by
+     <FONT color="blue"><B>executing</B></FONT> the
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+     <FONT color="red"><B><TT>pop {pc}</TT></B></FONT></SPAN>
+      instruction
+  <P>
+  <LI> The <FONT color="red"><B><TT>pop {pc}</TT></B></FONT> instruction
+  <FONT color="blue"><B>will (= must)</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>pop</B></FONT> the
+  <FONT color="blue"><B>return address</B></FONT> from the
+  <FONT color="red"><B>runtime stack</B></FONT></SPAN> (and update
+  the <FONT color="blue"><B>PC register</B></FONT> with the
+  <FONT color="red"><B>return address</B></FONT>)
+<P>
+ <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+     <B>Therefore:</B>
+     </SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+
+ <LI> When the <FONT color="red"><B>subroutine</B></FONT>
+   <FONT color="blue"><B>executes</B></FONT> the
+   <FONT color="red"><B><TT>pop {pc}</TT></B></FONT> instruction,
+   the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>(correct) return address</B></FONT>
+   <FONT color="red"><B>must</B></FONT> be
+    at  <FONT color="blue"><B>top of the runtime stack</B></FONT></SPAN>:
+<P>
+ &nbsp;&nbsp; <IMG SRC="../FIGS/stack-frame03e.gif" width=600></IMG>
+<P>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Consequences</FONT> of
+   using the <FONT color="blue">runtime stack</FONT> to
+   store <FONT color="blue">parameters and local variables</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   When we <FONT color="red"><B>store</B></FONT>
+  <FONT color="blue"><B>parameters </B></FONT> and
+    <FONT color="red"><B>local variables</B></FONT> in the
+    <FONT color="blue"><B>runtime stack</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+   <IMG SRC="../FIGS/stack-frame03.gif" width=600></IMG>
+  <P>
+   <LI> A <FONT color="red"><B>subroutine</B></FONT> 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="blue"><B>cannot</B></FONT> <B>arbitrarily</B>
+     <FONT color="red"><B>execute</B></FONT>
+     the <FONT color="blue"><B><TT>pop {pc}</TT></B></FONT></SPAN>
+     instruction to
+     <FONT color="red"><B>return</B></FONT> to
+     its <FONT color="blue"><B>caller</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> <FONT color="blue"><B>Because</B></FONT> 
+    the <FONT color="red"><B>return address</B></FONT> is
+       <FONT color="blue"><B><I>not</I></B></FONT> at the
+       <FONT color="red"><B>top of the program stack</B></FONT> !!!!
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   A <FONT color="blue"><B>subroutine</B></FONT>
+    <FONT color="red"><B>must</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="blue"><B>clean up</B></FONT> the
+   <FONT color="red"><B>runtime stack</B></FONT>
+   <FONT color="blue"><B><I>correctly</I></B></FONT></SPAN> before
+   it can <FONT color="red"><B>return</B></FONT> !!
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">postlude code</FONT> of a
+   <FONT color="blue">subroutine</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Recall</B></FONT> the
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+     <FONT color="blue"><B>prelude code</B></FONT></SPAN> of a
+    <FONT color="red"><B>subroutine</B></FONT> that
+    <FONT color="blue"><B>builds</B></FONT>
+    the <FONT color="red"><B>stack frame (activation record)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+    push  {lr}
+    push  {fp}
+    mov   fp, sp
+    sub   sp, sp, #n         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> A <FONT color="red"><B>(non-leaf) subroutine</B></FONT>
+     must <FONT color="blue"><B>tear down (= pop)</B></FONT>
+     the <FONT color="red"><B>stack frame</B></FONT> in
+     an <FONT color="blue"><B>orderly manner</B></FONT>
+     before it can <FONT color="red"><B>return</B></FONT> to
+     its <FONT color="blue"><B>caller</B></FONT>
+ <P>
+<LI> The <FONT color="red"><B>sequence of assembler instructions</B></FONT>
+    used to
+     <FONT color="blue"><B>tear down (= pop)</B></FONT>
+     the <FONT color="red"><B>stack frame</B></FONT>
+     is called:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>postlude code</B></FONT></SPAN> &nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (or 
+    <FONT color="blue"><B>postlude</B></FONT> for short) 
+  &nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will show you the <FONT color="red"><B>subroutine postlude code</B></FONT>
+  <B>next</B>....
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+<!------------------------ postlude ---------------------->
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">subroutine postlude code</FONT> -
+    step-by-step
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Before</B></FONT> the
+  <FONT color="blue"><B>postlude code</B></FONT> starts tearing down
+  the stack,
+    the 
+   <FONT color="red"><B>stack frame</B></FONT>
+   looks like this:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame03.gif" style="width:60%">
+   </center>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">Postlude code:</FONT>
+
+
+
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">subroutine postlude code</FONT> -
+    step-by-step
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  (1)
+  <FONT color="red"><B>De-allocate</B></FONT> the
+   <FONT color="blue"><B>space</B></FONT> reserved for the
+  <FONT color="red"><B>local variables</B></FONT>
+
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame03b.gif" style="width:60%">
+   </center>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">Postlude code:</FONT>
+          mov   sp, fp
+
+
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">subroutine postlude code</FONT> -
+    step-by-step
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  (2)
+  <FONT color="red"><B>Restore</B></FONT> the
+   <FONT color="blue"><B>saved value of FP</B></FONT> back into the
+  <FONT color="red"><B>FP register</B></FONT>
+  (used by the <FONT color="blue"><B>caller</B></FONT>)
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame03c.gif" style="width:60%">
+   </center>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">Postlude code:</FONT>
+          mov   sp, fp
+	  pop	{fp}
+
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+    <FONT color="red"><B>Finally</B></FONT>,
+    we <FONT color="blue"><B>return</B></FONT> to
+    the <FONT color="red"><B>caller</B></FONT> because
+    the <FONT color="blue"><B>return address</B></FONT> is
+    the <FONT color="red"><B>top of the runtime stack</B></FONT> !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">subroutine postlude code</FONT> -
+    step-by-step
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  (3) <FONT color="red"><B>return</B></FONT> to the
+    <FONT color="blue"><B>caller</B></FONT>
+    (by popping the return address into PC):
+ 
+
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame03d.gif" style="width:60%">
+   </center>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">Postlude code:</FONT>
+          mov   sp, fp
+	  pop	{fp}
+	  pop   {pc} // Execution goes back to the caller !
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Note:</B></FONT>
+   the <FONT color="blue"><B>program</B></FONT> will 
+   <FONT color="red"><B>return to its caller</B></FONT>
+     and
+   <FONT color="red"><B>execute</B></FONT> the
+   <FONT color="blue"><B>instruction</B></FONT> 
+   <B>after</B> the <FONT color="red"><B><TT>bl</TT> instruction</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Summary: the <FONT color="blue">prelude and postlude code</FONT> of
+    a <FONT color="blue">(non-leaf) subroutine</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   A <FONT color="red"><B>(non-leaf) subroutine</B></FONT>
+   <FONT color="blue"><B>always</B></FONT>
+   executes this 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>prelude code</B></FONT></SPAN> 
+   at its <FONT color="blue"><B>start</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    push  {lr}
+    push  {fp}
+    mov   fp, sp
+    sub   sp, sp, #n  // n depends on # local variables   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   A <FONT color="red"><B>(non-leaf) subroutine</B></FONT>
+   <FONT color="blue"><B>always</B></FONT>
+   executes this 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>postlude code</B></FONT></SPAN> 
+   when it <FONT color="blue"><B>returns</B></FONT>
+   (to its <FONT color="red"><B>caller</B></FONT>):
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   mov   sp, fp
+   pop	 {fp}
+   pop   {pc}   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Notice</B></FONT> the
+  <FONT color="blue"><B>LIFO</B></FONT> 
+  <FONT color="red"><B>ordering</B></FONT>:
+ <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>insert</B>: &nbsp;&nbsp;&nbsp; <FONT color="blue"><B><TT>push lr, push fp</TT></B></FONT>
+ <BR>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <B>remove</B>: &nbsp;<FONT color="blue"><B><TT>pop fp, push pc</TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Important fact about the function return 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>After</B></FONT> a
+   <FONT color="blue"><B>function</B></FONT>
+   has <FONT color="red"><B>returned to its caller</B></FONT>,
+   the <FONT color="blue"><B>runtime stack</B></FONT>
+   <FONT color="red"><B><I>still</I></B></FONT> contains
+   the <FONT color="blue"><B>parameters</B></FONT>!
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>runtime stack</B></FONT> contains
+  the <FONT color="blue"><B>following</B></FONT>
+  when the <FONT color="blue"><B>function</B></FONT>
+  <FONT color="red"><B>returns</B></FONT>
+  (<FONT color="blue"><B><TT>pop {pc}</TT></B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <img src="../FIGS/stack-frame03d.gif" style="width:60%">
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Important fact about the function return 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>caller</B></FONT> must
+   <FONT color="blue"><B>clean up</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT> from
+   the <FONT color="blue"><B>runtime stack</B></FONT>
+   after the <FONT color="red"><B>function return</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame03d.gif" style="width:60%">
+   </center>
+
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>caller</B></FONT>'s 
+  <FONT color="blue"><B>function call</B></FONT> code:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    push  parameters on stack
+    bl    function
+    <FONT color="red">clean up the parameters pushed on the stack !!!</FONT>     </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Important fact about the function return 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>caller</B></FONT> must
+   <FONT color="blue"><B>clean up</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT> from
+   the <FONT color="blue"><B>runtime stack</B></FONT>
+   after the <FONT color="red"><B>function return</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/stack-frame03d.gif" style="width:60%">
+   </center>
+
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>caller</B></FONT>'s 
+  <FONT color="blue"><B>function call</B></FONT> code:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    push  parameters on stack
+    bl    function
+   <SPAN style="BACKGROUND-COLOR: #ffff00"> <FONT color="red">add   sp, sp #n  // n = 4 * # params pushed</FONT> </SPAN>   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/8-sub/pre+postlude.s
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

@@ -1,0 +1,385 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Macros</I> used in makefiles
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Macros section
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recal</B> the <FONT color="blue"><B>structure</B></FONT> of
+     a <FONT color="red"><B>makefile</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="darkred"># Comment lines can appear anywhere</FONT>
+     Macros section    (will be discussed later)        
+<FONT color="red">
+     Rules section</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Macros section</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Contains <FONT color="blue"><B>zero or
+    more</B></FONT>
+   <FONT color="red"><B> <I>macro definition(s)</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will <B>now</B> discuss <FONT color="red"><B>macros</B></FONT>...
+<P>
+(You have seen the <FONT color="blue"><B>rules section</B></FONT>)
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Macros
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Macro</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Macro</B></FONT> = a
+     <B>pattern</B> that can be <FONT color="red"><B>expanded</B></FONT>
+     into a (usually) <FONT color="blue"><B>larger number</B></FONT> of
+     <B>patterns</B>
+ <P>
+ <LI> In other words:
+    <FONT color="blue"><B>Macro</B></FONT> =
+     an <FONT color="red"><B>abbreviated representation</B></FONT>
+     of 
+      a (usually larger) <FONT color="blue"><B>set of instructions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Syntax</B></FONT> of a
+       <B>macro definition</B> in <FONT color="red"><B>makefile</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   src-pattern = <FONT color="red">replacement-pattern</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Meaning</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <B>pattern</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    $(<FONT color="blue">src-pattern</FONT>)           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is found inside a <B>rule</B> of
+ a <FONT color="blue"><B>makefile</B></FONT>, it will be
+ <FONT color="red"><B>replaced</B></FONT> with the pattern:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <B>replacement-pattern        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Purpose:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Macros</B></FONT> can
+    <B>enhance</B> the <FONT color="red"><B>flexibility</B></FONT> of
+    the <FONT color="blue"><B>rules</B></FONT> 
+   inside a <FONT color="red"><B>makefile</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example using macros: using different compilers
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="blue"><B>many</B></FONT>
+    different <B>C compilers</B>.
+ <P>
+ <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFFF" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>GNU</B> compiler: <FONT color="red"><B><TT>gcc</TT></B></FONT>
+ <LI> <B>Solaris<B> compiler: <FONT color="red"><B><TT>cc</TT></B></FONT>
+ <LI> <B>Microsoft C</B>: <FONT color="red"><B>Visual C++</B></FONT>
+ <LI> ...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> Each <B>C compiler</B> is 
+   <FONT color="blue"><B>invoked</B></FONT> with a
+   <FONT color="red"><B>different command name</B></FONT> and
+   <FONT color="darkred"><B>different command line options</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Use</B> <FONT color="blue"><B>macros</B></FONT>
+     to <FONT color="red"><B>adpat</B></FONT> a <B>makefile</B>
+     for <FONT color="blue"><B>different C compiler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">CC=gcc</FONT>          # Compiler command
+   <FONT color="red">CFLAGS=-c</FONT>       # Compiler options
+   <FONT color="red">OFLAG=-o</FONT>        # Output flag
+   			     
+   main: func5a.o func5b.o	  
+   	   <FONT color="red">$(CC) $(OFLAG)</FONT> main func5a.o func5b.o           
+   			     
+   %.o:  %.c  func5b.h	  
+   	   <FONT color="red">$(CC) $(CFLAGS)</FONT> $<
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="red"><B><TT>func5a.c</TT></B></FONT> Prog file:
+       <A HREF="Progs/4/func5a.c"> click here </A>
+  <LI> The <FONT color="red"><B><TT>func5b.c</TT></B></FONT> Prog file:
+       <A HREF="Progs/4/func5b.c"> click here </A>
+  <LI> The <FONT color="red"><B><TT>func5b.h</TT></B></FONT> header file:
+       <A HREF="Progs/4/func5b.h"> click here </A>
+  <LI> The <FONT color="red"><B><TT>Makefile</TT></B></FONT>:
+       <A HREF="Progs/4/Makefile"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc xx.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Change</B></FONT> to <B>different platform</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you want to <FONT color="blue"><B>compile</B></FONT>
+      the <B>C program</B> on a <FONT color="blue"><B>different 
+      platform</B></FONT> (using a
+      <B>different C compiler</B>), all you need to do is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Update</B></FONT> the
+   <FONT color="blue"><B>macro definitions</B></FONT>
+   inside the <FONT color="red"><B>makefile</B></FONT>
+ <P>
+ <LI> and.... <B>Make</B>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

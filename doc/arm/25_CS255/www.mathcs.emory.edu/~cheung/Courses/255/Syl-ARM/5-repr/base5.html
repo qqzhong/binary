@@ -1,0 +1,193 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Multiplication with Base-5 Numbers
+<HR>
+<UL>
+<LI> <B>Base-5 number system</B>: number system based on number 5
+  <P>
+  <UL>
+  <LI> Has <B>5</B> digits: 0, 1, 2, 3, 4
+  <LI> Value of digits increase by  a factor of <B>5</B> for each position
+  </UL>
+<PRE>
+   Example:
+
+      243<SUB>(5)</SUB> = 2 x 5<SUP>2</SUP> + 4 x 5<SUP>1</SUP> + 3 x 5<SUP>0</SUP>
+	    = 2 x 25 + 4 x 5 + 3 x 1
+	    = 50 + 20 + 3 = 73
+</PRE>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Base-5 addition</B>
+ <P>
+ <UL>
+ <LI> You must remember that the digit 0 follows the digit 4 in the base-5 system
+ <P>
+ <LI> So:
+<PRE>
+     1 + 1 =  2     1 + 2 =  3     1 + 3 =  4    <font color="red">1 + 4 = 10</font>
+     2 + 1 =  3     2 + 2 =  4     <font color="red">2 + 3 = 10    2 + 4 = 11</font>
+     3 + 1 =  4     <font color="red">3 + 2 = 10     3 + 3 = 11    3 + 4 = 12</font>
+     <font color="red">4 + 1 = 10     4 + 2 = 11     4 + 3 = 12    4 + 4 = 13</font>
+</PRE>
+     
+ <LI> <B>More complex examles...</B>
+ <P>
+ <UL>
+ <B>Example 1:</B>
+<UL>
+<PRE>
+       12          =  1 x 5<sup>1</sup> + 2 x 5<sup>0</sup> = 7<sub>(10)</sub>
+    +   2          =           2 x 5<sup>0</sup> = 2<sub>(10)</sub>
+    -------
+       14          =  1 x 5<sup>1</sup> + 4 x 5<sup>0</sup> = 9<sub>(10)</sub>
+</PRE>
+</UL>
+
+ <B>Example 2:</B>
+<UL>
+<PRE>
+       12          =  1 x 5<sup>1</sup> + 2 x 5<sup>0</sup> =  7<sub>(10)</sub>
+    +   3	   =           3 x 5<sup>0</sup> =  3<sub>(10)</sub>
+    -------
+       20          =  2 x 5<sup>1</sup> + 0 x 5<sup>0</sup> = 10<sub>(10)</sub>
+
+<FONT color="red"> How to add:</FONT>
+                   2 + 3 = 10, write down 0 and remember carry 1
+		   1 + carry 1 = 2
+</PRE>
+</UL>
+ <B>Example 3:</B>
+<UL>
+<PRE>
+       141         = 1 x 5<sup>2</sup> + 4 x 5<sup>1</sup> + 1 x 5<sup>0</sup> = 46<sub>(10)</sub>
+    + 2340         = 2 x 5<sup>3</sup> + 3 x 5<sup>2</sup> + 4 x 5<sup>1</sup> + 0 x 5<sup>0</sup> = 345<sub>(10)</sub>
+    -------
+      3031         = 3 x 5<sup>3</sup> + 0 x 5<sup>2</sup> + 3 x 5<sup>1</sup> + 1 x 5<sup>0</sup> = 391<sub>(10)</sub>
+
+<FONT color="red"> How to add:</FONT>
+                                1 + 0 = 1
+				4 + 4 = 13, write down 3, remember carry 1
+				1 + 3 = 4, add carry 1 = 10, write down 0, carry 1
+				2 + carry 1 = 3
+</PRE>
+</UL>
+
+
+ </UL>
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <B>Base-5 multiplication</B>
+ <P>
+ <UL>
+<LI> In order to perform multiplication in base-5, we need to
+	"memorize" the multiplication table for base-5.
+ <P>
+ <LI> The following is the multiplcation table for base-5:
+ <PRE>
+        |  1   2   3   4
+    ----+-------------------
+      1 |  1   2   3   4
+      2 |  2   4  11  13
+      3 |  3  11  14  22
+      4 |  4  13  22  31
+ </PRE>
+ <UL>
+  <LI> 2x3 = 11, because:
+<PRE>
+       2 x 3 = value 6 ----- which is represented in base-5 as 11  (1 x 5 + 1 = 6)
+</PRE>
+  <LI> 2x4 = 13, because:
+<PRE>
+       2 x 4 = value 8 ----- which is represented in base-5 as 13  (1 x 5 + 3 = 8)
+</PRE>
+  <LI> 3x3 = 14, because:
+<PRE>
+       3 x 3 = value 9 ----- which is represented in base-5 as 14  (1 x 5 + 4 = 9)
+</PRE>
+  <LI> 3x4 = 22, because:
+<PRE>
+       3 x 4 = value 12 ----- which is represented in base-5 as 22  (2 x 5 + 2 = 12)
+</PRE>
+  <LI> 4x4 = 31, because:
+<PRE>
+       4 x 4 = value 16 ----- which is represented in base-5 as 31  (3 x 5 + 1 = 16)
+</PRE>
+ </UL>
+
+<P>
+<HR>
+<P>
+<LI> We can now perform base-5 multiplication using the above table.
+<P> 
+<B>Example 1:</B>
+<UL>
+<PRE>
+    Base-5         Value
+
+       23           2 x 5 + 3 = <FONT color="red">13<sub>(10)</sub></FONT>
+     x  4                     = <FONT color="red">4<sub>(10)</sub></FONT>
+     ----
+      <FONT color="blue">202 </FONT>          4 x 3 = 22, write down 2 and remember carry 2
+                    4 x 2 = 13, add the carry 2: 
+				13 + 2 = 20
+				write down 0 and remember carry 2
+</PRE>
+In other words: 23<sub>(5)</sub> x 4<sub>(5)</sub> = <FONT color="blue">202<sub>(5)</sub></FONT>
+<P>
+We can check the correctness:
+<PRE>
+      <FONT color="blue">202<sub>(5)</sub></FONT> = 2 x 5<sup>2</sup> + 0 x 5<sup>1</sup> + 2 x 5<sup>0</sup> 
+            = 2 x 25 + 2
+	   = <FONT color="red">52<sub>(10)</sub></FONT>  (which is equal to <FONT color="red">13<sub>(10)</sub> x 4<sub>(10)</sub></FONT>)
+</PRE>
+</UL>
+<P>
+<P>
+<B>Example 2:</B>
+<UL>
+<PRE>
+    Base-5         Value
+
+       43           4 x 5 + 3 = <FONT color="red">23<sub>(10)</sub></FONT>
+     x 32           3 x 5 + 2 = <FONT color="red">17<sub>(10)</sub></FONT>
+     ----
+      141           
+     2340
+    -----
+     <FONT color="blue">3031</FONT>
+</PRE>
+In other words: 43<sub>(5)</sub> x 32<sub>(5)</sub> = <FONT color="blue">3031<sub>(5)</sub></FONT>
+<P>
+We can check the correctness:
+<PRE>
+      <FONT color="blue">3021<sub>(5)</sub></FONT> = 3 x 5<sup>3</sup> + 0 x 5<sup>2</sup> + 3 x 5<sup>1</sup> + 1 x 5<sup>0</sup>
+             = 3 x 125 + 0 x 25 + 3 x 5 + 1
+             = 375 + 15 + 1 
+	     = <FONT color="red">391<sub>(10)</sub></FONT> (which is equal to <FONT color="red">23<sub>(10)</sub> x 17<sub>(10)</sub></FONT>)
+</PRE>
+</UL>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

@@ -1,0 +1,613 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Subset of ARM instructions used in CS255 to learn ARM assembler programming
+ to understand high level language programs
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM registers and their usage
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>General and special purpose registers</B></FONT>
+     in the <FONT color="blue"><B>ARM processor</B></FONT> used in
+     <FONT color="red"><B>assembler programming</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    r0, r1, ...., r10       - general purpose
+
+    r11                     - fp (frame pointer)
+    r12                     - ip (intra procedural call SCRATCH register)     
+    r13                     - fp (stack pointer)
+    r14                     - lr (link register - return addr)
+    r15                     - pc (program counter)
+
+    cpsr                    - current program status reg 
+                              (you don't use the cpsr reg directly in assembler programming)   
+                              (you use it indirectly using  "cmp"  and  conditional branch)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Program labels used in EGTAPI
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>EGTAPI</B></FONT> uses
+     <FONT color="blue"><B>5 labels</B></FONT> to mark 
+     <FONT color="red"><B>code</B></FONT> and
+     <FONT color="blue"><B>data (variables)</B></FONT> locations:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main</TT></B></FONT>: this label marks the
+        <FONT color="blue"><B>start address</B></FONT> of the
+	<FONT color="red"><B>main program (first instruction)</B></FONT>
+ <LI> <FONT color="red"><B><TT>CodeEnd</TT></B></FONT>: this label marks the
+        <FONT color="blue"><B>last address</B></FONT> of the
+	<FONT color="red"><B>main program (last instruction)</B></FONT>
+ <LI> <FONT color="red"><B><TT>Stop</TT></B></FONT>: this label marks the
+        <FONT color="blue"><B>stop address</B></FONT> of the
+	<FONT color="red"><B>main program execution</B></FONT>
+<P>
+ <LI> <FONT color="red"><B><TT>DataStart</TT></B></FONT>: this label marks the
+        <FONT color="blue"><B>start address</B></FONT> of the
+	<FONT color="red"><B>data (=variables)</B></FONT> 
+ <LI> <FONT color="red"><B><TT>DataEnd</TT></B></FONT>: this label marks the
+        <FONT color="blue"><B>last address</B></FONT> of the
+	<FONT color="red"><B>main program (first instruction)</B></FONT>
+	in the main program
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .global main, Stop, CodeEnd, DataStart, DataEnd
+
+/* --------------------------------------------------
+   if ( x < 0 )
+     x = -x
+   -------------------------------------------------- */
+       <FONT color="red"> .text</FONT>
+<FONT color="red">main:</FONT>
+        // Test if ( x < 0 )
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+
+        ldr     r1, [r0]                // r1 = x
+
+        cmp     r1, #0                  // x ? 0
+        bge     isPos                   // Branch to "isPos" if  x >= 0
+
+        // x < 0 is TRUE
+        neg     r1, r1                  // r1 = 0 - r1 (negate)
+        str     r1, [r0]                // Update x with -x
+                                        // NOTE: if you OMIT this instruction,
+                                        //       the variable x will NOT be
+                                        //       updated !!!
+
+isPos:
+
+<FONT color="red">Stop:
+CodeEnd:</FONT>
+        nop
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        <FONT color="red">.data</FONT>
+<FONT color="red">DataStart:</FONT>
+
+x:    .4byte  -4        // x = -4   -- try changing the sign and run the prog
+
+<FONT color="red">DataEnd:</FONT>
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red"><B><TT>.text</TT></B></FONT> and
+      <FONT color="red"><B><TT>.text</TT></B></FONT> directives
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B><TT>.text</TT></B></FONT>:
+     items that follows this directive will be stored in the
+    <FONT color="blue"><B>text (code) segment)</B></FONT>
+<P>
+<LI> <FONT color="red"><B><TT>.data</TT></B></FONT>:
+     items that follows this directive will be stored in the
+    <FONT color="blue"><B>data (variables) segment)</B></FONT>
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining constants and variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Defining <FONT color="red"><B>constants</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Syntax:
+
+        .equiv   SYM, value	           
+
+Example:
+
+        .equiv   MAX, 100       // Symbolic name MAX is equal to 100    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Defining <FONT color="red"><B>global (permanent) variables</B></FONT>:
+<P>
+ You must define <FONT color="red"><B>variables</B></FONT> in the
+  <FONT color="blue"><B>data segment</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          Syntax                 Example            Meaning
+    --------------------     -----------------  -------------------
+            .align 1            .align 1        Skip forward to an even (2<sup>1</sup>) address if necessary
+            .align 2            .align 2        Skip forward to a  quad (2<sup>2</sup>) address if necessary
+
+     label: .4byte value     L: .4byte 123456   Define an int (4 bytes) variable with initial value 123456  
+     label: .2byte value     L: .2byte 12345    Define a short (2 bytes) variable with initial value 12345
+     label: .byte  value     L: .byte  123      Define a byte variable with initial value 123      
+
+     label: .skip 4          L: .skip 4         Define a variable occupying 4 bytes of memory (int or float)
+     label: .skip 2          L: .skip 2         Define a variable occupying 2 bytes of memory (short)
+     label: .skip 1          L: .skip 1         Define a variable occupying 1 bytes of memory (char)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM instructions used in CS255
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>ARM instructions</B></FONT> used in
+       <FONT color="blue"><B>CS255</B></FONT> organized by 
+    <FONT color="red"><B>functionality</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+Move SMALL constants into a register:
+
+        mov     r0, #C                  // Guaranteed to work for: -100 <= C <= 100   
+                                        // OTHER constants CAN work;
+                                        // but not guaranteed
+
+        // Note:  mov r0, #-1  ==> mvn r0, #0 !!!  (neg 00000 --> 1111111)
+
+<HR>
+
+Move LARGER constants (specially: addresses !!!) into a register:
+
+        // These 2 instructions TOGETHER will move 1234567 into reg r0
+        movw    r0, #:lower16:1234567  // 
+                                       // MOVW = MOVe Wide: moves a value into the lower half of reg
+                                       // #:lower16:1234567 = 1234567%(2^16) = lower 16 bits of 1234567
+
+        movt    r0, #:upper16:1234567  // 
+                                       // MOVT = MOVe Top: moves a value into the upper half of reg
+                                       // #:upper16:1234567 = 1234567/(2^16) = upper 16 bits of 1234567 
+
+You can use a label that marks a memory location (= address) for the constant:
+
+        movw    r0, #:lower16:label    // These 2 instructions will
+        movt    r0, #:upper16:label    // move address label into reg r0
+
+<HR>
+
+Move the value in a simple memory variable into a register:
+
+    First move the address of the memory variable into a general purpose register:
+
+        movw    r0, #:lower16:Label     // r0 = memory address of the variable
+        movt    r0, #:upper16:Label     //      at "Label"
+
+    Then use one of the following instructions depending on the data type:
+
+        (a) ldrsb   r1, [r0]      // Load a  byte  type variable and sign ext to int
+                                  // LDRSB = LoaD Register and Sign-extend Byte
+
+        (b) ldrsh   r1, [r0]      // Load a  short type variable and sign ext to int
+                                  // LDRSH = LoaD Register and Sign-extend Half word
+
+        (c) ldr     r1, [r0]      // Load an int   type variable
+
+<HR>
+
+Move the value in a register (e.g.: r1) to a simple variable in memory:
+
+    First move the address of the memory variable into a general purpose register:
+
+        movw    r0, #:lower16:Label     // Set up memory address to variable
+        movt    r0, #:upper16:Label     // at "Label" in r0
+
+    Then use one of the following instructions depending on the data type:
+
+        (a) strb    r1, [r0]    // Store byte  in reg r1 into memory location r0
+                                // STRB = STore Register Byte
+
+        (b) strh    r1, [r0]    // Store short in reg r1 into memory location r0
+                                // STRH = STore Register Half word
+
+        (c) str     r1, [r0]    // Store int   in reg r1 into memory location r0
+
+<HR>
+<!--- -------------------------- NOT NEEDED when using ldrsh and ldrsb
+Convert byte to int and short to int:
+
+        sxtb    r0, r0          // Sign extend byte to int
+        sxth    r0, r0          // Sign extend short to int
+
+  (To convert byte to short: use  sxtb  and then only use the lower 16 bits)
+
+<HR>
+
+Move array variable A[4] into a register (e.g.: r2):
+
+    First move the base address of the array into a general purpose register:
+
+        movw    r0, #:lower16:A     // r0 = address of label A
+        movt    r0, #:upper16:A     //
+
+    Then followed by one of these instructions that adds the offset
+    to register r0 to reach the 4th array element AND read the 
+    approriate amount of data from memory - depending on the data type
+    of array A:
+
+        (a) ldrb    r2, [r0, #4]    // r2 = A[4] (byte  array A)
+        (b) ldrh    r2, [r0, #8]    // r2 = A[4] (short array A)
+        (c) ldr     r2, [r0, #16]   // r2 = A[4] (int   array A)
+
+
+Note:
+      to move the value in a register (e.g.: r2) to the array variable A[4],
+      you would do the same, except in the last step. You use
+      a store instruction - depending on the data type of the array A:
+
+        (a) strb     r2, [r0, #4]    // A[4] = r2 (byte value in r2)
+        (b) strh     r2, [r0, #8]    // A[4] = r2 (short value in r2)
+        (c) str      r2, [r0, #16]   // A[4] = r2 (whole reg r2)
+<HR>
+--------------------------------------------------------------------------- -->
+Move the array variable A[7] into a register:
+
+    First move the base address of the array into a general purpose register:
+
+        movw    r0, #:lower16:A     // r0 = address of label A
+        movt    r0, #:upper16:A     //    = base address of array A
+
+      Depending on the data type of the array, multiply the index 4
+      with the size of array data type to get the offset:
+
+	byte  typed array A, use offset:  7*1 = 7
+	short typed array A, use offset:  7*2 = 14
+	int   typed array A, use offset:  7*4 = 28 
+
+      Depending on the data type of the array A, use ldrsb, ldrsh or ldr
+      to fetch the array value A[4] into the register:
+
+	(a) byte array A:   ldrsb  r1, [r0, 7]    // Base address + offset 7
+	(b) short array A:  ldrsh  r1, [r0, 14]   // Base address + offset 14
+	(c) int array A:    ldr    r1, [r0, 28]   // Base address + offset 28
+
+Note:
+      To move the value in a register (e.g.: r2) to the array variable A[4],
+      you would do the same, except in the last step. You use
+      a store instruction - depending on the data type of the array A:
+
+        (a) strb     r2, [r0, #7]    // A[4] = r2 (byte value in r2)
+        (b) strh    r2, [r0, #14]   // A[4] = r2 (short value in r2)
+        (c) str     r2, [r0, #28]   // A[4] = r2 (whole reg r2)
+
+<HR>
+Move the array variable A[i] into a register:
+
+    (1) First move the base address of the array into a general purpose register:
+
+           movw    r0, #:lower16:A
+           movt    r0, #:upper16:A
+
+    (2) Next move the index in variable i into another general purpose register:
+
+           movw    r1, #:lower16:i         // Get value i in r1
+           movt    r1, #:upper16:i
+
+        To read the value in the index variable "i" into a register (r1),
+        use one of these instruction depending on data type of 
+        the index variable "i", 
+
+           (a) ldrb    r1, [r1]        // Load byte  type variable i
+           (b) ldrh    r1, [r1]        // Load short type variable i
+           (c) ldr     r1, [r1]        // Load int   type variable i
+
+    (3) Depending on the data type of the array, multiply the index value
+        in reg r1 by the size of array data type to get the offset.
+
+        Use one add instruction to multiply by 2:
+
+           add     r1, r1, r1          // r1 = r1+r1 = 2*r1
+
+        Use 2 add instructions to multiply by 4:
+
+           add     r1, r1, r1          // r1 = r1+r1 = 2*r1
+           add     r1, r1, r1          // r1 = 2*r1+2*r1 = 4*r1
+
+    (4) Finally. use one of these instructions to load the 
+        approriate amount of data from memory into reg r2 
+        depending on the data type of the array A:
+
+           (a) ldrsb   r2, [r0,r1]     // r2 = A[i] (if A is byte  array)
+           (b) ldrsh   r2, [r0,r1]     // r2 = A[i] (if A is short array)
+           (c) ldr     r2, [r0,r1]     // r2 = A[i] (if A is int   array)
+
+Note:
+      To move the value in a register (e.g.: r2) to the array variable A[i],
+      you would do the same, except in the last step. You use
+      a store instruction - depending on the data type of the array A:
+
+           (a) strb    r2, [r0,r1]     // A[i] = r2 (byte value in r2)
+           (b) strh    r2, [r0,r1]     // A[i] = r2 (short value in r2)
+           (c) str     r2, [r0,r1]     // A[i] = r2 (whole reg r2)
+
+<HR>
+
+Move some component in an object into a register:
+
+        1. fetch the base address of the object inside a register (e.g.: r0)
+
+	   E.g.: ptr points to an object (e.g. list)
+
+		movw    r0, #:lower16:ptr
+		movt    r0, #:upper16:ptr
+
+		ldr     r0, [r0]
+
+        2. Find the OFFSET of the component in the object
+	   from its CLASS definition
+
+	   	Say this offset is X
+
+           Depending on the data type of the component, fetch the 
+	   component into a register using:
+
+              (a) ldrsb    r1, [r0, #X]     // if component type is byte  
+              (b) ldrsh    r1, [r0, #X]     // if component type is short
+              (c) ldr      r1, [r0, #X]     // if component type is int 
+
+<HR>
+
+Arithmetic operations:
+
+        add     r2, r1, r0      // r2 = r1 + r0
+        add     r2, r1, #4      // r2 = r1 + 4
+
+        sub     r2, r1, r0      // r2 = r1 - r0
+        sub     r2, r1, #4      // r2 = r1 - 4
+
+        rsb     r2, r0, #0      // r2 = 0 - r0 (reverse subtraction)
+                                // sub r0, r1, r2 = r0 = r1 - r2
+                                // rsb r0, r1, r2 = r0 = r2 - r1 (reverse sub)
+                                // Useful: negate a value !!!
+
+        mul     r2, r1, r0      // r2 = r1 * r0
+
+        <FONT color="red">mul     r2, r1, #4      // ILLEGAL !!!
+                                // CANNOT use a constant as 2nd source !!!</FONT>
+        <FONT color="red">mul     r1, r1, r2      // ILLEGAL !!!
+                                // CANNOT use same src1 and dest register !!!</FONT>
+
+        * The ARM processor does NOT have a divide instruction !!!
+          (You call a subroutine in the run time library to perform division)
+
+<HR>
+
+Compare and branch:
+
+        cmp     r0, #4          // Compare r0 against 4
+        bCC     Label           // Branch to location Label if  r0 CC r1
+                                // bCC can be: beq, bne, blt, ble, bgt, bge
+
+        cmp     r0, r1          // Compare r0 against r1
+        bCC     Label           // Branch to location Label if  r0 CC r1
+
+The conditional branch instructions are:
+
+	beq	bne	blt	ble	bgt	bge
+
+UNconditional branch:
+
+        b       Label           // Branch to location Lable UNCONDITIONALLY
+
+<HR>
+
+Subroutine call
+
+        bl      Label           // Branch and link
+                                // Stores return address in reg "lr" (r14)
+
+How to save return address (in reg "lr") on the system stack:
+
+	push	{lr}
+
+Subroutine return without saving return address on system stack:
+
+        mov     pc, lr          // PC := lr
+
+Subroutine return after saving return address on system stack:
+
+        pop     {pc}            // Pop return address from system stack into PC
+
+<HR>
+
+Parameter passing and local variables in stack frame:
+
+        Pass a parameter:    push {r0}        // MUST use register in push
+                                              // So: put the parameter in a register
+					      // before pushing
+
+        Pop a parameter:     add  sp, sp, #4  // Pops 4 bytes off the stack
+
+<HR>
+
+Subroutine construct summary:
+
+        Subroutine Prelude:
+
+                push    {lr}            // Save return address
+                push    {fp}            // Save frame pointer
+                mov     fp, sp          // Set up my stack frame pointer
+                sub     sp, sp, #8      // 2 int locals
+
+        Access parameters:
+
+                ldr     .., [fp, #8]    // First int parameter
+                ldr     .., [fp, #12]   // Second int parameter
+
+        Access local variables:
+
+                ldr     .., [fp, #-4]   // First int variable
+                ldr     .., [fp, #-8]   // Second int variable
+
+        Subroutine Postlude:
+
+                mov     sp, fp          // Pop locals
+                pop     {fp}            // Restore stack frame pointer
+                pop     {pc}            // Return
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

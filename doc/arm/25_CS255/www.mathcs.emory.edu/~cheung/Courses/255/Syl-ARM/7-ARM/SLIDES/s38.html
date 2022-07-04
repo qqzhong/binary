@@ -1,0 +1,1332 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Review</FONT> of the
+   <FONT color="blue">assembler instructions</FONT> used in
+   <TT>if</TT>-statement translation
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+ 
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+   
+   I want to <FONT color="red"><B>make sure</B></FONT> you 
+   <FONT color="blue"><B>understand</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: #CCFFCC">
+   <FONT color="red"><B>effect</B></FONT> of 
+   the <FONT color="blue"><B>combination</B></FONT></SPAN> of 
+   the
+   <FONT color="red"><B><TT>cmp + blt</TT> assembler instructions</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ cmp  r<sub>N</sub>, <FONT color="red">#n</FONT>  // compares r<sub>N</sub> with n, setup flags
+ <SPAN style="BACKGROUND-COLOR: #ffff00">blt</SPAN>  label   // If the flags indicate that ( r<sub>N</sub><SPAN style="BACKGROUND-COLOR: #ffff00"> < </SPAN><FONT color="red">n</FONT> ) 
+              // then branch to label 
+
+ next-instr   // Otherwise, continue here with the "next-instr" </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+   And the <FONT color="red"><B>2nd compare instruction format</B></FONT> is:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ cmp  r<sub>N</sub>, <FONT color="red">r<sub>M</sub></FONT>  // compares r<sub>N</sub> with n, setup flags
+ <SPAN style="BACKGROUND-COLOR: #ffff00">blt</SPAN>  label   // if the flags indicate that ( r<sub>N</sub><SPAN style="BACKGROUND-COLOR: #ffff00"> < </SPAN><FONT color="red">r<sub>M</sub></FONT> ) 
+              // then branch to label 
+ next-instr   // Otherwise, continue here with the "next-instr" </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.0in">
+   <font size="+2">
+  The <FONT color="red"><B>same explanation </B></FONT> applies 
+  with the <FONT color="blue"><B>other</B></FONT>
+  <FONT color="red"><B>conditional branch</B></FONT> instructions !
+   </font>
+   </p>
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="blue">Review</FONT> of the
+   <FONT color="blue">assembler instructions</FONT> used in
+   <TT>if</TT>-statement translation
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We can 
+  <FONT color="red"><B>combinate</B></FONT> any
+  <FONT color="blue"><B>one of the 2 compare instructions</B></FONT> with
+   any <FONT color="red"><B>one of the 6 conditional brannch 
+   instructions</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ cmp  r<sub>N</sub>, <FONT color="red">#n</FONT>  // compares r<sub>N</sub> with n
+              // sets the flags according to comparison 
+ cmp  r<sub>N</sub>, <FONT color="red">r<sub>M</sub></FONT>  // compares r<sub>N</sub> with r<sub>M</sub>
+              // sets the flags according to comparison
+
+ beq  label   // if ( r<sub>N</sub> == {<FONT color="red">n or r<sub>M</sub></FONT>} ) branch to label
+ bne  label   // if ( r<sub>N</sub> != {<FONT color="red">n or r<sub>M</sub></FONT>} ) branch to label
+ blt  label   // if ( r<sub>N</sub> <  {<FONT color="red">n or r<sub>M</sub></FONT>} ) branch to label
+ ble  label   // if ( r<sub>N</sub> <= {<FONT color="red">n or r<sub>M</sub></FONT>} ) branch to label
+ bgt  label   // if ( r<sub>N</sub> >  {<FONT color="red">n or r<sub>M</sub></FONT>} ) branch to label
+ bge  label   // if ( r<sub>N</sub> >= {<FONT color="red">n or r<sub>M</sub></FONT>} ) branch to label
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>Furthermore</B>, there is an
+  <FONT color="red"><B>unconditional branch instruction</B></FONT>
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B><TT>b label</TT></B></FONT></SPAN>
+ that <B>always</B> branches to the
+ <FONT color="red"><B>location <TT>label</TT></B></FONT>.
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Background information</FONT>: a quick course in 
+  <FONT color="blue">logic</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+ 
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   
+   The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>inverse</B></FONT></SPAN> of the
+   <FONT color="red"><B>comparison operations</B></FONT>:
+   </SPAN>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    Comparison     Inverse
+  --------------------------------------------------  
+      x == y        x != y      !(x == y) <FONT color="red">&equiv;</FONT> x != y
+      x != y        x == y	!(x != y) <FONT color="red">&equiv;</FONT> x == y
+
+      x  < y        x >= y	!(x  < y) <FONT color="red">&equiv;</FONT> x >= y
+      x <= y        x >  y	!(x <= y) <FONT color="red">&equiv;</FONT> x >  y
+
+      x  > y        x <= y	!(x  > y) <FONT color="red">&equiv;</FONT> x <= y
+      x >= y        x <  y	!(x >= y) <FONT color="red">&equiv;</FONT> x <  y
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.5in">
+   </p>
+ </div>
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Prelude</FONT> to the discussion
+  </SPAN>
+  </B></FONT>
+  </div>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> I will <FONT color="blue"><B><I>first</I></B></FONT>
+     <FONT color="red"><B>focus</B></FONT> on the
+       <FONT color="blue"><B>construction/programming</B></FONT> of
+       the <FONT color="red"><B>control structures</B></FONT>
+       by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B>Using</B></FONT>
+     <FONT color="blue"><B><I>only</I></B></FONT>
+     <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>simple</B></FONT></SPAN>
+    (= <FONT color="blue"><B>non data structure</B></FONT>)
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><TT>int</TT> typed</B></FONT>
+     <FONT color="blue"><B>variables</B></FONT></SPAN>
+     in the <FONT color="red"><B><TT>if</TT>-statements</B></FONT> and
+     <FONT color="blue"><B><TT>while</TT>-statements</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Later</B></FONT>, I will
+     <FONT color="blue"><B>show </B></FONT> you an
+     <FONT color="red"><B>examples</B></FONT> of
+    <FONT color="blue"><B>control structures</B></FONT> that
+    <SPAN style="BACKGROUND-COLOR: #ffdd00">uses
+    <FONT color="red"><B>data structures</B></FONT>:</SPAN>
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <OL>
+ <LI> A <FONT color="red"><B><TT>for</TT>-loop</B></FONT> that
+    <FONT color="blue"><B>sums</B></FONT> the
+    <FONT color="red"><B>elements</B></FONT> in an
+    <FONT color="blue"><B>array</B></FONT>
+ <P>
+ <LI> A <FONT color="red"><B><TT>while</TT>-loop</B></FONT> with
+     an <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+     that finds the <FONT color="red"><B>maximum value</B></FONT> stored
+     in a <FONT color="blue"><B>linked list</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.2in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Program flow of the
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+                                 <FONT color="red">Flow chart of the if-statement</FONT> 
+
+   if ( condition )   ---->            |
+   {                                   |
+      statement(s);	       	+--------------+  <FONT color="red">FALSE</FONT>  
+   }				|  condition   |--------+     
+				+--------------+	|
+				       |		|
+				       | <FONT color="red">TRUE</FONT>		|
+				       |		|
+				       V		|
+				   statement(s)		|
+				       |		|
+				       |		|
+				       V		|
+				       +<---------------+
+				       |
+				       V
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How a compiler translates an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   into assembler code
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>compiler</B></FONT> will
+   <FONT color="blue"><B>output</B></FONT> the following
+   <FONT color="red"><B>assembler codes</B></FONT> to
+   <FONT color="blue"><B>realise</B></FONT> the
+   <FONT color="red"><B>program flow</B></FONT> specified by
+   an <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  Assembler codes to evaluate "condition" (use <FONT color="red">cmp</FONT> instruction)
+                |
+		V				        <FONT color="red">FALSE</FONT>     
+  <FONT color="red">Branch</FONT> on  <FONT color="red">FALSE outcome</FONT> of "condition" to label<FONT color="red"> L:</FONT> ----+
+		|					  |
+		| (true)                                  |
+		|					  |
+		V					  |
+  Assembler codes to execute "statement(s)"      	  |
+		|					  |
+		|					  |
+		V					  |
+   <FONT color="red"> L:</FONT>		+<----------------------------------------+  
+		|
+		V
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   I will <FONT color="red"><B>illustrate</B></FONT> the
+   <FONT color="blue"><B>translation process</B></FONT> with
+   an <FONT color="red"><B>example</B></FONT>...
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Example translating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Example</B></FONT>
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   int x;
+
+   if ( x < 0 )
+     x = -x;           
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+
+ 
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>For 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">brevity</SPAN></B></FONT>,
+  I will 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>omit</B></FONT> the
+  <FONT color="red"><B>variable definition</B></FONT>
+  from now on</SPAN>
+  (of <FONT color="blue"><B><TT>x</TT></B></FONT>)
+  because we have seen such
+  <FONT color="red"><B>definition</B></FONT> many times
+  already...
+   </font>
+   </p>
+
+   <p style="padding: 1.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     Example translating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   if ( x < 0 )
+     x = -x;       </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>corresponding</B></FONT>
+  <FONT color="blue"><B>flow chart</B></FONT> for this
+  <FONT color="red"><B><TT>if</TT>-statement</B></FONT> is:
+   </font>
+   </p>
+
+<center>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/if1.gif" width=600
+ onclick='window.open("../FIGS/if1.gif", "_blank", "width=700,height=500")'
+></IMG>
+</TD> </TR>
+
+</TABLE>
+</center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">How</FONT> to
+  <FONT color="blue">translate</FONT>
+  a <FONT color="blue">conditional</FONT>
+  in assembler
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> <FONT color="red"><B>Recall</B></FONT> 
+    <FONT color="blue"><B>how</B></FONT> a
+ <FONT color="red"><B>conditional branch</B></FONT>
+   is <FONT color="blue"><B>executed</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#ffeeee" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> If the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>branch condition</B></FONT> is
+      <FONT color="blue"><B>false</B></FONT></SPAN>,
+      the <FONT color="red"><B>program flow</B></FONT> will
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>continue</B></FONT>
+    with the <FONT color="red"><B>next instruction</B></FONT></SPAN>
+    (<FONT color="blue"><B>following</B></FONT> the
+    <FONT color="red"><B>conditional branch</B></FONT> instruction)
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <LI> A <FONT color="red"><B>conditional</B></FONT>
+     (= a <FONT color="blue"><B>diamond</B></FONT> in the
+  <FONT color="red"><B>flow chart</B></FONT>) is
+   <FONT color="red"><B>translated</B></FONT> as
+   follows:
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<IMG SRC="../FIGS/if1b.gif" width=650></IMG>
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Back to</FONT> the  example translating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   if ( x < 0 )
+     x = -x;       </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>corresponding</B></FONT>
+  <FONT color="blue"><B>flow chart</B></FONT> for this
+  <FONT color="red"><B><TT>if</TT>-statement</B></FONT> is:
+   </font>
+   </p>
+
+<center>
+<TABLE BORDER="0" bgcolor="blue">
+
+<TR> <TD>
+<IMG SRC="../FIGS/if1.gif" width=550
+  onclick='window.open("../FIGS/if1.gif", "_blank", "width=700,height=500")'
+></IMG>
+</TD> </TR>
+
+</TABLE>
+</center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>branch condition</B></FONT> is
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B><TT>NOT ( x < 0 )</TT></B></FONT></SPAN>
+  <B>&equiv;</B>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><TT> ( x >= 0 ) </TT></B></FONT> </SPAN>
+   - now  translate into assembler !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+      Example translating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:
+   movw    r0, #:lower16:x
+   movt    r0, #:upper16:x         // r0 = addr(x)
+   ldr     r1, [r0]                // r1 = x
+
+   cmp     r1, #0                  // Compare x against 0
+
+   <FONT color="red">bge     IfEnd </FONT>                  // if (x<FONT color="red"> >=</FONT> 0) branch to <FONT color="red">ifEnd</FONT>  
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="magenta">// x = -x;  (1) compute RHS</FONT></SPAN>
+   movw    r0, #:lower16:x
+   movt    r0, #:upper16:x         // r0 = addr(x)
+   ldr     r1, [r0]                // r1 = x
+   neg     r1, r1                  // r1 = 0 - r1 (negate)
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="magenta">// x = -x;  (2) store r1 into LHS</FONT></SPAN>
+   movw    r0, #:lower16:x
+   movt    r0, #:upper16:x         // r0 = addr(x)
+   str     r1, [r0]                // Update x with -x in r0
+<FONT color="red">IfEnd:</FONT>
+
+        .data
+x:      .4byte  -4  // x = -4   --<FONT color="red"> try +4 also</FONT>
+        .end  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO</B></FONT>: &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/6-if/if1.s 
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Optimized example</FONT> of
+    the same
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:
+   movw    r0, #:lower16:x
+   movt    r0, #:upper16:x         // r0 = addr(x)
+
+   ldr     r1, [r0]                // r1 = x
+
+   cmp     r1, #0                  // Compare x ? 0
+   <FONT color="red">bge     IfEnd </FONT>                  // Branch to <FONT color="red">"ifEnd"</FONT> if  x<FONT color="red"> >=</FONT> 0 
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="darkgreen">// (We don't need to fetch x, since r1 = x !</FONT></SPAN>
+   neg     r1, r1                  // r1 = 0 - r1 (negate)
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="darkgreen">// Note: r0 still contains addr(x) !</FONT></SPAN>
+   str     r1, [r0]                // Update x with -x in r0
+<FONT color="red">IfEnd:</FONT>
+
+        .data
+x:      .4byte  -4  // x = -4   --<FONT color="red"> try +4 also</FONT>
+        .end
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   I <FONT color="red"><B>do not recommend/require</B></FONT> that you
+  <FONT color="blue"><B>optimize</B></FONT> (because it's
+  <FONT color="red"><B>more error prone</B></FONT>)
+  </SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Example 2 on tranlating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+  (comparing 2 variables)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+   <FONT color="red"><B>Example 2</B></FONT>:
+   <FONT color="blue"><B>making sure</TT></B></FONT> that
+   <FONT color="red"><B><TT>x &le; y</TT></B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   int x;
+   int y;
+   int help;
+
+   // If-statement to make sure: x &le; y 
+   if ( x > y )   // This is the classic <FONT color="red">"swap(x,y)"</FONT> algorithm  
+   {
+      help = x;
+      x = y;
+      y = help;
+   }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.6in">
+   <font size="+2">
+  <FONT color="red"><B>Comment</B></FONT>: &nbsp; this
+  <FONT color="blue"><B><TT>if-statement</TT></B></FONT> is part
+  of the <FONT color="red"><B>Bubble Sort</B></FONT> 
+  <FONT color="blue"><B>algorithm</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Example 2 on tranlating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   if ( x > y )                 
+   {
+      help = x;
+      x = y;
+      y = help;
+   }   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>corresponding</B></FONT>
+  <FONT color="blue"><B>flow chart</B></FONT> for this
+  <FONT color="red"><B><TT>if</TT>-statement</B></FONT> is:
+   </font>
+   </p>
+
+<center>
+<TABLE BORDER="0" bgcolor="blue">
+
+<TR> <TD>
+<IMG SRC="../FIGS/if2.gif" width=500
+   onclick='window.open("../FIGS/if2.gif", "_blank", "width=700,height=500")'
+></IMG>
+</TD> </TR>
+
+</TABLE>
+</center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will write the code in class
+  - you <FONT color="red"><B>do not</B></FONT> need the
+  <FONT color="blue"><B><TT>help</TT></B></FONT> variable
+ (use a <FONT color="red"><B>register</B></FONT> instead) !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Example 2 on tranlating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:
+
+    movw    r0, #:lower16:x
+    movt    r0, #:upper16:x  // r0 = addr(x)
+    ldr     r1, [r0]         // r1 = x
+
+    movw    r2, #:lower16:y
+    movt    r2, #:upper16:y  // r2 = addr(y)
+    ldr     r3, [r2]         // r3 = y 
+
+    cmp     r1, r3           // Compare x against y
+    <FONT color="red">ble     ifEnd </FONT>           // if ( x <= y ) branch to ifEnd
+
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">/* ------------- swap x and y ------------------------ */</SPAN>
+    // help = x; (I use <FONT color="red">r10</FONT> as the <FONT color="red">help</FONT> variable
+    movw    r0, #:lower16:x
+    movt    r0, #:upper16:x  // r0 = addr(x)
+    ldr     r10, [r0]        // r10 = x <FONT color="red">(i,.e.: help = x)</FONT>
+
+    // x = y;
+    movw    r0, #:lower16:y
+    movt    r0, #:upper16:y  // r0 = addr(y)
+    ldr     r1, [r0]         // r1 = y 
+    movw    r0, #:lower16:x
+    movt    r0, #:upper16:x  // r0 = addr(x)
+    str     r1, [r0]         // y = x
+
+    // y = help;
+    movw    r0, #:lower16:y
+    movt    r0, #:upper16:y  // r0 = addr(y)
+    str     r10, [r0]        // y = r10 <FONT color="red">(i.e.: y = help)</FONT>
+
+<FONT color="red">ifEnd:</FONT>
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+    .data
+x:  .4byte   9   // x = 9   -- try a value smaller that 4
+y:  .4byte   4   // y = 4
+
+        .end
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/6-if/if2.s 
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">More efficient solution</FONT>
+   - Example 2 on tranlating an
+   <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+main:
+
+    movw    r0, #:lower16:x
+    movt    r0, #:upper16:x  // r0 = addr(x)
+    ldr     r1, [r0]         // r1 = copy of x
+
+    movw    r2, #:lower16:y
+    movt    r2, #:upper16:y  // r2 = addr(y)
+    ldr     r3, [r2]         // r3 = copy of y 
+
+    cmp     r1, r3           // Compare x against y
+    <FONT color="red">ble     ifEnd </FONT>           // if ( x <= y ) branch to ifEnd
+
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">// Swap x and y using copies of x and y in R1 and R3</SPAN>
+    str     r3, [r0]         // var x in memory = copy of y in R3
+    str     r1, [r2]         // var y in memory = copy of x in R1
+<FONT color="red">ifEnd:</FONT>
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+    .data
+x:  .4byte   9   // x = 9   -- try a value smaller that 4
+y:  .4byte   4   // y = 4
+
+        .end  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/6-if/if2.s 
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

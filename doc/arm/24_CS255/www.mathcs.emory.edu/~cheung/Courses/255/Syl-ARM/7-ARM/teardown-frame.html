@@ -1,0 +1,560 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How to code subroutine return --- Tearing down a stack frame
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Be very careful when you return from a subroutine
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> As you know,
+   a <FONT color="blue"><B>computer</B></FONT> is
+   as <FONT color="red"><B>dumb</B></FONT> as
+   a <FONT color="blue"><B>door nail</B></FONT> ---
+   it will <FONT color="red"><B>execute</B></FONT>
+   an <FONT color="blue"><B>instruction</B></FONT>
+   <FONT color="red"><B>faithfully</B></FONT>, even
+   if it will
+   <FONT color="blue"><B>crash</B></FONT> a
+   <FONT color="red"><B>program</B></FONT>....
+<P>
+<HR>
+<P>
+<LI> You have <FONT color="red"><B>learned</B></FONT> that
+     you must use this
+     <FONT color="blue"><B>ARM instruction</B></FONT> to
+   <FONT color="red"><B>return</B></FONT> from
+   a <FONT color="blue"><B>subroutine</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">pop   {pc}</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here's the <FONT color="red"><B>caveat</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>instruction</B></FONT> will
+   <FONT color="red"><B><I>only</I> execute correctly</B></FONT>
+   <B>if</B> the
+   <FONT color="blue"><B>top of the program stack</B></FONT>
+   contains
+   the <FONT color="red"><B>return address</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Consider the
+     <FONT color="red"><B>program stack</B></FONT> that
+ contains a
+  <FONT color="blue"><B>stack frame structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+As you can see:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>return address</B></FONT> is
+       <FONT color="blue"><B><I>not</I></B></FONT> at the
+       <FONT color="red"><B>top of the program stack</B></FONT> !!!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we must
+  <FONT color="red"><B>"tear down"</B></FONT> the
+  <FONT color="blue"><B>stack frame</B></FONT>
+  (carefully !!!) before we can
+  <FONT color="red"><B>return </B></FONT> from a 
+   subroutine
+<P>
+<FONT color="red"><B>Fortunately</B></FONT>, the
+  <FONT color="blue"><B>sequence of (assembler) instruction</B></FONT> used
+  is the <FONT color="red"><B><I>same</I></B></FONT> because
+  the <FONT color="blue"><B>structure</B></FONT> of
+  the <FONT color="red"><B>stack frame</B></FONT> always has
+  a <FONT color="blue"><B>specific structure</B></FONT>
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "postlude" of a subroutine: steps to tear down a stack frame and
+     return to caller
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>sequence of steps</B></FONT> used to
+    <FONT color="blue"><B>tear down</B></FONT> 
+    a <FONT color="red"><B>stack frame</B></FONT> and
+    <FONT color="blue"><B>return to the caller</B></FONT> is called:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>postlude</B></FONT> of
+    a <FONT color="blue"><B>subroutine</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Steps</B></FONT> in
+   the <FONT color="blue"><B>postlude</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+  <FONT color="red"><B>Before</B></FONT> the
+  <FONT color="blue"><B>postlude</B></FONT> starts,
+    the 
+   <FONT color="red"><B>stack frame</B></FONT>
+   looks like this:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>De-allocate</B></FONT> the
+   <FONT color="blue"><B>space</B></FONT> reserved for the
+  <FONT color="red"><B>local variables</B></FONT>
+ <P>
+  <FONT color="red"><B>Instruction used</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red"> mov   sp, fp</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Restore</B></FONT> the
+   <FONT color="blue"><B>old value of FP</B></FONT> back into the
+  <FONT color="red"><B>FP register</B></FONT>
+ <P>
+  <FONT color="red"><B>Instruction used</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red"> pop  {fp}</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>old FP </B></FONT> is needed by
+ the <FONT color="blue"><B>caller</B></FONT> of this
+ <FONT color="red"><B>subroutine</B></FONT> (the one that is
+ gonna return)
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>return address</B></FONT> is 
+     <FONT color="blue"><B>now</B></FONT> at the
+      <FONT color="red"><B>top of the program stack</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> We can <FONT color="red"><B>now</B></FONT> return to
+  the <FONT color="blue"><B>caller</B></FONT> !!!
+
+ <P>
+  <FONT color="red"><B>Instruction used</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red"> pop  {pc}</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that</B></FONT> when
+  this <FONT color="blue"><B>subroutine</B></FONT> returns
+ to its <FONT color="red"><B>caller</B></FONT>,
+  the <FONT color="blue"><B>parameters</B></FONT>
+  are <FONT color="red"><B>still</B></FONT> in the
+  <FONT color="blue"><B>stack</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame03d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Summary:</B></FONT>
+  the <FONT color="blue"><B>steps</B></FONT> of
+  the <FONT color="red"><B>postlude</B></FONT> is
+  <B>always</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     mov   sp, fp    // De-allocate the local variables
+     pop   {fp}      // Restore thd old FP register for the caller      
+
+     pop   {pc}	     // return to the caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important observation
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>After</B></FONT>
+      the <FONT color="red"><B>called function</B></FONT> 
+      executes the 
+   <FONT color="blue"><B>instruction used to return to its caller</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">pop   {pc}            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>program stack</B></FONT> will
+ <FONT color="blue"><B>contain</B></FONT> the following:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/stack-frame03d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>I.e.:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>program stack</B></FONT> will
+   <FONT color="blue"><B>still</B></FONT> contain the
+    <FONT color="red"><B>parameters pushed</B></FONT> by
+    the <FONT color="blue"><B>calling function</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>After</B></FONT> a function
+      <FONT color="blue"><B>returns</B></FONT> to
+      its <FONT color="red"><B>caller</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>caller</B></FONT>
+      <FONT color="blue"><B>must</B></FONT>
+      <FONT color="red"><B>clean up</B></FONT> the
+      <FONT color="blue"><B>parameters</B></FONT> that it has
+      <FONT color="red"><B>pushed on the stack</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+That means that the
+ <FONT color="red"><B>sequence of instructions</B></FONT> used by
+  the <FONT color="blue"><B>caller function</B></FONT> to
+  <FONT color="red"><B>pass parameters on the stack</B></FONT> are
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    push  parameters on stack
+
+    bl    callee-function
+
+    <FONT color="red">clean up the parameters pushed on the stack !!!</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can use <FONT color="red"><B>this assembler instruction</B></FONT> 
+ to <FONT color="blue"><B>clean up the parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">add   sp, sp,  #N</FONT>     // N = #bytes pushed            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Use <FONT color="red"><B>N = 4</B></FONT> if you 
+  <FONT color="blue"><B>pushed 1 <TT>int</TT> parameter</B></FONT>,
+ use <FONT color="red"><B>N = 4</B></FONT> if you 
+  <FONT color="blue"><B>pushed 2 <TT>int</TT> parameter</B></FONT>,
+ and so on.
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

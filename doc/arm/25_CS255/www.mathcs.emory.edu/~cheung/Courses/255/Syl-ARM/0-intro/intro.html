@@ -1,0 +1,261 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction to CS255 - Computer Architecture and Assembler Programming I
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Online resources for the class taught by Prof. Cheung
+     </B></FONT>
+<P>
+ <UL>
+ 
+<LI> Instructor's webpage:
+        <A HREF="http://www.mathcs.emory.edu/~cheung">
+        Click here</A>
+ <P>
+  <LI> <B>Text book:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  No text book used.
+ <LI> The course material are  online at:
+ <A HREF=
+  "http://www.mathcs.emory.edu/~cheung/Courses/255/Syl-ARM/syl.html">
+ <FONT color="red">
+<B>http://www.mathcs.emory.edu/~cheung/Courses/255/Syl-ARM/syl.html</B>
+ </FONT>
+</A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Goal of CS255
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Pre-requisite</B></FONT> for 
+   <FONT color="blue"><B>CS255</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Knowledge of a <FONT color="red"><B>procedural programming
+     language</B></FONT>
+     (e.g.: <FONT color="blue"><B>Java</B></FONT>, 
+      <FONT color="blue"><B>C</B></FONT>, etc)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You know how to <FONT color="red"><B>define</B></FONT> a
+      <FONT color="blue"><B>simple variable</B></FONT> and
+      <FONT color="red"><B>structured variables
+     (arrays, linked lists)</B></FONT> 
+ <LI> You know how to <FONT color="blue"><B>use</B></FONT> these
+       <FONT color="red"><B>variables</B></FONT>
+<P>
+ <LI> You know what an <FONT color="red"><B>assignment statement</B></FONT>
+     is and what it <FONT color="blue"><B>does</B></FONT>
+ <LI> You know what an <FONT color="red"><B>if-statement</B></FONT>
+     is and what it <FONT color="blue"><B>does</B></FONT>
+ <LI> You know what an <FONT color="red"><B>while-statement</B></FONT>
+     is and what it <FONT color="blue"><B>does</B></FONT>
+ <LI> You know what an <FONT color="red"><B>for-statement</B></FONT>
+     is and what it <FONT color="blue"><B>does</B></FONT>
+ <P>
+ <LI> You know how to <FONT color="blue"><B>define</B></FONT> a
+    <FONT color="red"><B>method</B></FONT> and
+    how to <FONT color="blue"><B>use</B></FONT> it
+    (= passing parameters and get return value)
+ <LI> You know what a
+   <FONT color="red"><B>recursive method (function)</B></FONT>
+ <LI> Etc.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Knowledge of 2 <FONT color="red"><B>simple data structures</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> How to <FONT color="blue"><B>define</B></FONT> an
+        <FONT color="red"><B>array</B></FONT>
+	and <FONT color="blue"><B>how to</B></FONT>
+	<FONT color="red"><B>use</B></FONT> the array elements
+ <LI> How to <FONT color="blue"><B>define</B></FONT> a
+        <FONT color="red"><B>linked list</B></FONT>
+	and <FONT color="blue"><B>how to</B></FONT>
+	<FONT color="red"><B>insert/delete/find</B></FONT> 
+	elements in the linked list
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In <FONT color="blue"><B>CS255</B></FONT>, we will learn:
+     
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when you
+     <FONT color="blue"><B>define</B></FONT> 
+    <FONT color="red"><B>variables</B></FONT>
+ <LI> <FONT color="red"><B>How</B></FONT> is 
+     an <FONT color="blue"><B>array variable</B></FONT> stored/organized
+     inside the <FONT color="red"><B>computer memory</B></FONT>
+ <LI> <FONT color="red"><B>How</B></FONT> statements
+      in Java <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B>variables</B></FONT> in memory
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>assignment statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>if-statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>while-statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>for-statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> the computer
+     <FONT color="blue"><B>executes</B></FONT> a
+     <FONT color="red"><B>method call</B></FONT>
+<LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when a method 
+     <FONT color="blue"><B>passes parameters</B></FONT> and
+     <FONT color="red"><B>returns a value</B></FONT>
+<LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when a 
+     <FONT color="blue"><B>parameter</B></FONT> is
+     <FONT color="red"><B>passed by <I>value</I></B></FONT> and
+     <FONT color="blue"><B>passed by <I>reference</I></B></FONT>
+<LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when a 
+     <FONT color="blue"><B>function/method</B></FONT> is
+     <FONT color="red"><B><I>recursive</I></B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> to
+      <FONT color="blue"><B>store</B></FONT> an
+      <FONT color="red"><B>array</B></FONT> - and
+      how to <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B>array elements</B></FONT>
+<LI> <FONT color="red"><B>How</B></FONT> to
+      <FONT color="blue"><B>store</B></FONT> an
+      <FONT color="red"><B>linked list</B></FONT> - and
+      <FONT color="blue"><B>what happens inside the computer</B></FONT> when
+      you
+      <FONT color="red"><B>insert/delete/access</B></FONT> the
+      <FONT color="blue"><B>linked list elements</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>What</B></FONT> will you
+ <FONT color="blue"><B>gain/learn</B></FONT> by taking
+ <FONT color="red"><B>CS255</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You will <FONT color="red"><B>completely understand</B></FONT>
+      the <FONT color="blue"><B>internal operations</B></FONT> of
+      <B><I>any</I></B> <FONT color="red"><B>computer programming 
+      language</B></FONT> and
+      <FONT color="blue"><B>language construct</B></FONT>
+ <LI> You will <B>also</B> know the
+    <FONT color="red"><B>capabilities and <I>limitations</I></B></FONT>
+    of a <FONT color="blue"><B>computer</B></FONT>
+	and <B>computer programs</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+

@@ -1,0 +1,549 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Arithmetic Instructions
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Add
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>add</B> instruction can operate with any register
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  add  <FONT color="red">DEST</FONT>, SRC     
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Effect:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>DEST</B></FONT> =
+     <FONT color="red"><B>DEST</B></FONT> +
+   <FONT color="blue"><B>SRC</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make sure that the 
+   <FONT color="red"><B>size</B></FONT> of the 
+	<FONT color="blue"><B>source and destination operands</B></FONT> are
+	<FONT color="red"><B>equal </B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  i    dd   89
+
+  add  eax, 12
+  add  eax, ebx       
+  add  eax, i
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Sub
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>sub</B> instruction can operate with any register
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  sub <FONT color="red">DEST</FONT>, SRC          
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Effect:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>DEST</B></FONT> =
+     <FONT color="red"><B>DEST</B></FONT> -
+   <FONT color="blue"><B>SRC</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make sure that the 
+   <FONT color="red"><B>size</B></FONT> of the 
+	<FONT color="blue"><B>source and destination operands</B></FONT> are
+	<FONT color="red"><B>equal </B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  i    dd   89
+
+  sub  eax, 12
+  sub  eax, ebx       
+  sub  eax, i
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Multiply: Mul and IMul
+     </B></FONT>
+<P>
+<UL>
+ <LI> <B>Signed and unsigned multiplication:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>imul</B></FONT> =
+    <FONT color="blue"><B>signed</B></FONT> multiplication
+  <P>
+    (we only learned to use 
+    <B>signed multiplication</B>
+    in <FONT color="darkmagenta"><B>M68000 and SPARC</B></FONT>) 
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>mul</B></FONT> =
+    <FONT color="blue"><B>unsigned</B></FONT> multiplication
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="blue"><B>many formats</B></FONT>
+    of the <FONT color="red"><B>multiply instruction</B></FONT>
+ <P>
+ <LI> I will only discuss the <FONT color="red"><B>single operand</B></FONT>
+     format.
+    <P>
+  (This format works in <FONT color="blue"><B>all versions</B></FONT>
+   of <B>Intel CPUs</B>, even in <FONT color="red"><B>8080</B></FONT> :-))
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Imul syntax: (for the single operand imul)</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  imul <FONT color="red">SRC</FONT>          
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Effect:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+    <FONT color="darkmagenta">DEST</FONT> = <FONT color="darkmagenta">DEST</FONT> * <FONT color="red">SRC</FONT>        
+
+    <FONT color="darkmagenta">DEST</FONT> is some <FONT color="red">part of the EAX register</FONT>
+    Which part will <FONT color="red">depend on the SRC operand</FONT>    
+   
+<HR>
+    <FONT color="red">Byte size</FONT> SRC operand:              <FONT color="red">AX</FONT>  = AL  * SRC(8)
+    <FONT color="red">Word size</FONT> SRC operand:           <FONT color="red">DX:AX</FONT>  = AX  * SRC(16)
+    <FONT color="red">Double word size</FONT> SRC operand:   <FONT color="red">EDX:EAX</FONT> = EAX * SRC(32)        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+ <P>
+ <LI> <B>Example: EDX = BX (16 bit value) * AX (16 bit value) </B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+    mov  ax, 10000
+    mov  bx, 8888
+
+    <font color="red">imul bx</font>             ;; Result DX:AX = ax * bx
+			;;     DX          AX
+			;; +---------+  +---------+
+			;; |xxxxxxxxx|  |yyyyyyyyy|
+			;; +---------+  +---------+
+			;;
+
+    <FONT color="red">ROL  EDX, 16</FONT>        ;; Rotate EDX 16 bits to the LEFT
+			;;<FONT color="darkred">
+			;; Before:
+			;;         EDX
+			;; +---------+---------+
+			;; |?????????|xxxxxxxxx|
+			;; +---------+---------+</FONT>
+			;;<FONT color="red">
+			;; After:
+			;;         EDX
+			;; +---------+---------+
+			;; |xxxxxxxxx|?????????|
+			;; +---------+---------+</FONT>
+			;;
+                        ;; This will put lower EDX in upper EDX    
+
+    <FONT color="red">mov  dx, ax</FONT>		;; Result:
+			;;         EDX
+			;; +---------+---------+
+			;; |xxxxxxxxx|<FONT color="red">yyyyyyyyy</FONT>|
+			;; +---------+---------+
+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Divide: Div and IDiv
+     </B></FONT>
+<P>
+<UL>
+ <LI> <B>Signed and unsigned division:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>idiv</B></FONT> =
+    <FONT color="blue"><B>signed</B></FONT> division
+  <P>
+    (we only learned to use 
+    <B>signed division</B>
+    in <FONT color="darkmagenta"><B>M68000 and SPARC</B></FONT>) 
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>div</B></FONT> =
+    <FONT color="blue"><B>unsigned</B></FONT> division
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="blue"><B>many formats</B></FONT>
+    of the <FONT color="red"><B>divide instruction</B></FONT>
+ <P>
+ <LI> I will only discuss the <FONT color="red"><B>single operand</B></FONT>
+     format.
+    <P>
+  (This format works in <FONT color="blue"><B>all versions</B></FONT>
+   of <B>Intel CPUs</B>, even in <FONT color="red"><B>8080</B></FONT> :-))
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Idiv syntax: (for the single operand imul)</B>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  idiv <FONT color="red">SRC</FONT>          
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Effect:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Just like</B></FONT> the 
+    <FONT color="red"><B>M68000 divide instruction</B></FONT>,
+	the <FONT color="darkmagenta"><B>idvi</B></FONT> instruction
+     computes
+	the <FONT color="red"><B>quotient</B></FONT>
+     and the <FONT color="red"><B>remainder</B></FONT>
+ <P>
+ <LI> The
+	<FONT color="red"><B> destination register </B></FONT>
+	of the divide instruction is
+	<FONT color="blue"><B> always </B></FONT>
+	the <FONT color="red"><B> accumulator </B></FONT>
+
+ 
+ <P>
+
+ <P>
+ <LI> <B>Effect for different SRC operand sizes</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  idiv SRC     --->  <FONT color="red">DEST = DEST / SRC     </font>
+
+<FONT color="darkmagenta">
+
+                      Remainder: Quotient
+  Byte size SRC:            AH : AL            =        AX / SRC(8)
+  Word size SRC:            DX : AX	       =     DX:AX / SRC(16)
+  Double word size SRC:    EDX : EAX	       =   EDX:EAX / SRC(32)</FONT>
+
+<HR>
+
+-----------------+-----------------+-------------+---------+---------
+                 |Must use this    |             |         |
+Size of Operand  |Dividend Register| Size Divisor| Quotient|Remainder
+-----------------+-----------------+-------------+---------+---------
+16 bits          |  AX             |  8 bits     |    AL   |   AH
+-----------------+-----------------+-------------+---------+---------
+32 bits          |  DX:AX          |  16 bits    |    AX   |   DX
+-----------------+-----------------+-------------+---------+---------
+64 bits          |  EDX:EAX        |  32 bits    |    EAX  |  EDX
+-----------------+-----------------+-------------+---------+---------
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+    mov  ax, 18		;; AX(16 bits) = 18
+
+    cwd                 ;; DX:AX(32 bits) = 18
+
+    mov  bx, 7		;; Prepare for division
+
+    <font color="red">idiv bx</font>             ;; Divide by 16 bit source...     
+			;;
+			;; Operation performed:
+			;;	   DX:AX / BX
+			;;
+			;; Result:
+			;;         AX = quotient
+			;;         DX = remainder
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="Progs/arith01.asm"> click here </A>
+   </UL>
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>

@@ -1,0 +1,626 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Storing (your own) <I>non-numerical</I> information inside a computer memory
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Storing your own type of information
+     </B></FONT>
+<P>
+<UL>
+ <LI> <FONT color="red"><B>Problem statement:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose we want to
+     <FONT color="red"><B>store information</B></FONT>
+     of people's <FONT color="blue"><B>gender</B></FONT> and
+     <FONT color="red"><B>marital status</B></FONT>
+     in a <FONT color="blue"><B>computer program</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+<LI> <FONT color="blue"><B>Problem:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> The <FONT color="red"><B>computer memory</B></FONT> can
+       <FONT color="blue"><B><I>only</I></B></FONT> store
+      <FONT color="red"><B>binary patterns (= binary numbers)</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Binary numbers</B></FONT> are
+      <FONT color="blue"><B><I>not</I></B></FONT> the
+      same as <FONT color="red"><B>information</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>$64,000 question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> How do we <FONT color="red"><B>bridge the gap</B></FONT> between
+  <FONT color="blue"><B>code (= binary numbers)</B></FONT> and
+  <FONT color="red"><B><I>information</I></B></FONT> ???
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Representating information
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> to
+     <FONT color="blue"><B>represent</B></FONT>
+     <FONT color="red"><B><I>information</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B>Code</B></FONT> <B>+</B>
+       <FONT color="red"><B><I>Context</I></B></FONT> 
+       <B>= </B>
+       <FONT color="blue"><B><I>Information</I></B></FONT>
+       </SPAN>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ I.e.: <FONT color="red"><B>information</B></FONT> is
+    <FONT color="blue"><B>represented</B></FONT> by
+    a <FONT color="red"><B>code</B></FONT> by
+  agreeing on a <FONT color="blue"><B>context</B></FONT> to
+  <FONT color="red"><B>interpret a code</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B>encode</B></FONT> the
+   <FONT color="red"><B>gender</B></FONT> information of
+   <B>persons</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0  =  male
+    1  =  female                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I.e.: we <FONT color="red"><B>agree</B></FONT> that when
+  storing <FONT color="blue"><B>"gender" information</B></FONT>, we use
+  <FONT color="red"><B>0</B></FONT> to represent
+   <FONT color="blue"><B>"male"</B></FONT> and
+   <FONT color="red"><B>1</B></FONT> to represent
+   <FONT color="blue"><B>"female"</B></FONT>
+<HR>
+<P>
+<LI> Furthermore, we <FONT color="blue"><B>encode</B></FONT>
+     the <FONT color="red"><B>marital status</B></FONT> information
+     of <B>persons</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0 = single
+    1 = married
+    2 = divorse
+    3 = widowed              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Can you <FONT color="red"><B>read (= understand)</B></FONT> this 
+     <FONT color="blue"><B>information</B></FONT> about  these
+   <FONT color="red"><B>2 persons</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Person  
+   -----------------------
+    JJ        0      0
+    JM        0      1            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B> <FONT color="red"><B>no</B></FONT> because
+    we do <FONT color="blue"><B>not</B></FONT> have
+   the <FONT color="red"><B>context</B></FONT> for the
+   <FONT color="blue"><B>code value 0, 1</B></FONT>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> Can you <FONT color="red"><B>read (= understand)</B></FONT> this 
+     <FONT color="blue"><B>information</B></FONT> about  these
+   <FONT color="red"><B>2 persons</B></FONT>
+     <FONT color="blue"><B><I>now</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Person   MaritalStatus   Sex
+   -------------------------------
+    JJ          0            0
+    JM          0            1            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+    JJ:  single male
+    JM:  single female                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     An English example to show you the importance of
+      <FONT color="red">context</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make a <FONT color="red"><B><I>correct</I> English sentence</B></FONT>
+      that <FONT color="blue"><B>begins</B></FONT> with:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     You <FONT color="red">is</FONT> ....                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I'll give you the answer in class.
+<P>
+<FONT color="red"><B>Hint:</B></FONT> if you have a hard time coming up
+      with a correct sentence, then you have been using
+      <FONT color="red"><B>"you"</B></FONT> as
+      a <FONT color="blue"><B>personal pronoun</B></FONT>
+<P>
+<HR>
+<P>
+The <FONT color="blue"><B>context</B></FONT> of the
+  <FONT color="red"><B>word usage</B></FONT> will determine
+  <FONT color="blue"><B>how</B></FONT> you
+  <FONT color="red"><B>interpret</B></FONT> the
+  <FONT color="blue"><B>information</B></FONT>
+  convey by a <FONT color="red"><B>word</B></FONT> !!!
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Representing information inside a computer
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Where</B></FONT> in a
+     <FONT color="blue"><B>computer program </B></FONT> is
+     <FONT color="red"><B>information</B></FONT> 
+   <FONT color="blue"><B>stored</B></FONT> ?
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Information</B></FONT> are
+   <FONT color="blue"><B>stored</B></FONT> in
+   the <FONT color="red"><B>program <I>variables</I></B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How</B></FONT> to
+     <FONT color="red"><B>store</B></FONT>
+    <FONT color="blue"><B>information</B></FONT> inside a
+       <FONT color="red"><B>computer program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>data type</B></FONT>
+      of a <FONT color="blue"><B>variable</B></FONT>
+      convey the
+      <FONT color="red"><B>context</B></FONT> used to
+      <FONT color="blue"><B>decipher</B></FONT> the
+      <FONT color="red"><B>value (= number)</B></FONT> 
+      stored in the <FONT color="blue"><B>variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Each data type</B></FONT> uses
+    its own <FONT color="blue"><B>information encoding method</B></FONT> !!!
+&nbsp;&nbsp;
+   <P>
+  (More detail below)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>information</B></FONT> is 
+      <FONT color="red"><B>encode</B></FONT> as
+      <FONT color="blue"><B>binary number patterns</B></FONT>
+      and
+      <FONT color="red"><B>stored</B></FONT> in the
+      <FONT color="blue"><B>program variable</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char letter;
+   int  number;
+
+   letter = 65;   // The value 65 in <FONT color="red">char</FONT> type 
+                  // represents the letter 'A'   
+   number = 65;   // The value 65 in <FONT color="red">int</FONT>  type
+                  // represents the number 65     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Codes used to represent information stored inside the computer
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Different</I> types</B></FONT> of
+      <FONT color="blue"><B>information</B></FONT> are
+      represented by
+      <FONT color="red"><B><I>different</I> codes</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Textual</I> information</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>encoded</B></FONT> using
+       the <FONT color="red"><B>ASCII code</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ (Or the <FONT color="red"><B>Unicode</B></FONT> in case of
+  <FONT color="blue"><B>non-English language</B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Unsigned <I>integer</I> values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>encoded</B></FONT> using
+       the <FONT color="red"><B>binary number system</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Signed <I>integer</I> values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>encoded</B></FONT> using
+       the <FONT color="red"><B>2's complement code</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Single-precision
+      <I>floating number</I> values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>encoded</B></FONT> using
+       the <FONT color="red"><B>"Binary32" IEEE 754 code</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ See:
+ <A HREF="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"> click here </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Double-precision
+      <I>floating number</I> values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>encoded</B></FONT> using
+       the <FONT color="red"><B>"Binary64" IEEE 754 code</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ See:
+ <A HREF="https://en.wikipedia.org/wiki/Double-precision_floating-point_format"> click here </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+We will discuss these code <FONT color="red"><B>later</B></FONT>
+ in the course.
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

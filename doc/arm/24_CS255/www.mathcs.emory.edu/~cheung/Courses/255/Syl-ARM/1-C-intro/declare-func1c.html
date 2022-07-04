@@ -1,0 +1,651 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <FONT color="red">importance</FONT>
+ of <FONT color="red">function declaration</FONT> in multi-file C programs
+
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review:  C compiler  can make an
+      <FONT color="red">incorrect <I>implicit</I>
+     function prototype assumptions</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Consider</B></FONT> the following
+   <FONT color="blue"><B><I>correct</I> C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int f( <FONT color="red">float</FONT> x );       // Declare f !!                    
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+   b = <FONT color="red">f( a )</FONT>;  
+
+   printf("a = %d, b = %d\n", a, b);
+}
+
+int f( <FONT color="red">float</FONT> x )
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> When we <FONT color="red"><B>delete</B></FONT> the
+ <FONT color="blue"><B>function declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // *** short !!! </FONT>
+   int y = 0;
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">y = f(x);            // Assumes: int f(int x)</FONT> </SPAN>
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */
+<SPAN style="BACKGROUND-COLOR: yellow">int f(<FONT color="red">float</FONT> x) </SPAN>
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  the <FONT color="blue"><B>C compiler </B></FONT>
+ <B>will</B> make
+ a <FONT color="red"><B><I>incorrect</I> 
+ function prototype assumption</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int f ( <FONT color="red">int</FONT> x )           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+when the <FONT color="red"><B>actual function definition</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">int f(<FONT color="red">float</FONT> x) </SPAN>                  
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We <FONT color="red"><B>also</B></FONT> saw 
+   that the <FONT color="blue"><B>C compiler</B></FONT>
+   was able to
+  <FONT color="red"><B>detect the <I>conflicting</I>
+   function prototype</B></FONT>
+   when it <FONT color="blue"><B>processes</B></FONT> the
+   <FONT color="red"><B>function definition</B></FONT>
+   (and <FONT color="blue"><B>discovers the <I>error</I></B></FONT>):
+
+<P>
+<UL>
+<TABLE bgcolor="#FFDDDD" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4845)> gcc impl-declare3.c
+<FONT color="darkgreen">impl-declare3.c: In function 'main':
+impl-declare3.c:9:8: warning: implicit declaration of function 'f' [-Wimplicit-function-declaration]
+    y = f(x);  // C compiler will assume:   int f(int x)
+        ^</FONT>
+impl-declare3.c: At top level:
+impl-declare3.c:24:5: error: <FONT color="red">conflicting types for 'f'</FONT>
+<FONT color="red"> int f( float x )</FONT>
+     ^
+impl-declare3.c:25:1: note: an argument type that has a default promotion can't match an empty parameter name list declaration
+ {
+ ^
+impl-declare3.c:9:8: note: <FONT color="red">previous implicit declaration of 'f'</FONT> was here
+   <FONT color="red"> y = f(x);</FONT>  // C compiler will assume:   <FONT color="red">int f(int x)</FONT>
+        ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Multi-file-prog/q-orig2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc q-orig2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>cannot be run</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">inability</FONT> for
+     the C compiler to <FONT color="red">verify</FONT>
+     its <FONT color="red">implicit function prototype assumptions</FONT>
+     in <I>multi-files</I> C program
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT>
+    <B>processes</B>
+    (= <FONT color="blue"><B>translates</B></FONT>)
+    each <FONT color="red"><B>C program file</B></FONT>
+    <FONT color="blue"><B><I>independently</I></B></FONT> from
+    each other.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Consider</B></FONT> the
+   <FONT color="blue"><B>above example</B></FONT>
+ (where the <FONT color="red"><B>C compiler</B></FONT> was
+   able to <FONT color="blue"><B><I>verify</I></B></FONT> its
+   <FONT color="red"><B><I>incorrect</I> 
+   function prototype assumption</B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+   <FONT color="red">short x = 2;         // *** short !!! </FONT>
+   int y = 0;
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">y = f(x);            // Assumes: int f(int x)</FONT> </SPAN>
+
+   printf("x = %d, y = %d\n", x, y);
+}
+
+
+/* ---------------------------------------------------
+   Function f( ) is defined AFTER main's use of f( )
+   --------------------------------------------------- */
+<SPAN style="BACKGROUND-COLOR: yellow">int f(<FONT color="red">float</FONT> x) </SPAN>
+{
+   return(x*x);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Suppose</B> we
+   <FONT color="red"><B>split</B></FONT> this
+ <FONT color="blue"><B>C program</B></FONT> into
+    <FONT color="red"><B><I>2</I> program files</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+
+<TR bgcolor="lightcyan"> 
+<TH>
+ File 1 (q1.c)
+</TH> 
+<TH>
+ File 2 (q2.c)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+   b = f( a ); <FONT color="red">// **** assumes: int f( int x )</FONT> 
+
+   printf("a = %d, b = %d\n", a, b);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int f(<FONT color="red"> float</FONT> x )                  
+{
+   return(x*x);
+}
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Observe</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>File <TT>q1.c</TT></B></FONT>
+     does <FONT color="blue"><B>not contain</B></FONT> the
+   <FONT color="red"><B>function definition </B></FONT> for
+   <FONT color="blue"><B><TT>f( )</TT></B></FONT>
+<P>
+ <LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> can
+    <FONT color="blue"><B>not discover</B></FONT> the
+    <FONT color="red"><B>conflicting function prototype</B></FONT>
+    <FONT color="blue"><B><I>only</I></B></FONT> by
+    <B>processing</B> the
+    file <FONT color="red"><B><TT>q1.c</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When we <FONT color="red"><B>compile</B></FONT> these
+ <FONT color="blue"><B>program files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cd <FONT color="red">/home/cs255001/demo/C/Multi-file-prog</FONT>
+
+   gcc  -c  q1.c
+   q1.c: In function 'main':
+   q1.c:9:8: <FONT color="red">warning:</FONT> implicit declaration of function 'f' [-Wimplicit-function-declaration]
+       b = f( a );      // **** assumes:  int f( int x )
+           ^
+
+   gcc  -c  q2.c
+   gcc  q1.o   q2.o
+
+   ***** A <FONT color="red">warning</FONT> is <FONT color="red">not fatal</FONT> !!!
+   ***** Program compiles <FONT color="red">successfully</FONT> !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>However</B></FONT>, the 
+ <FONT color="blue"><B>program</B></FONT> will
+  <FONT color="red"><B><I>not</I> run</B></FONT>
+  <FONT color="blue"><B>correctly</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4978)> a.out
+a = 2, <FONT color="red">b = 0</FONT>   (correct output is: b = 4)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Because:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT> did
+   <FONT color="red"><B>not convert</B></FONT> the
+   <FONT color="blue"><B>input</B></FONT> to
+   a <FONT color="red"><B><TT>float</TT>
+  (IEEE 754) representation</B></FONT>
+   (it converted to an <FONT color="blue"><B><TT>int</TT>
+   representation</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Fixing the <FONT color="red">incorrect function prototype assumption
+     </FONT> with a function declaration
+     </B></FONT>
+<P>
+<UL>
+<LI> This <FONT color="red"><B>problem</B></FONT> is
+   <FONT color="blue"><B>easy to fix</B></FONT>:
+      we just need to
+      <FONT color="red"><B>declare</B></FONT> the
+      <FONT color="blue"><B>function <TT>f( )</TT></B></FONT>
+   (just like before):
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+
+<TR bgcolor="lightcyan"> 
+<TH>
+ File 1 (q1.c)
+</TH> 
+<TH>
+ File 2 (q2.c)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">int f(float x);      // Declare f !!!</FONT>
+
+int main( int argc, char *argv[])
+{
+   short a = 2;
+   int   b;
+
+   b = f( a ); <FONT color="red">// Works correctly now</FONT>     
+
+   printf("a = %d, b = %d\n", a, b);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int f(<FONT color="red"> float</FONT> x )                  
+{
+   return(x*x);
+}
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+I'll do the <FONT color="red"><B>demo</B></FONT> in
+  <FONT color="blue"><B>class</B></FONT>
+<P>
+</UL>
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Moral of this experiment
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Moral</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It is <FONT color="red"><B>very important</B></FONT> to
+      <FONT color="blue"><B>declare</B></FONT>
+      <FONT color="red"><B><I>all</I> functions</B></FONT> that are
+      <B>used</B> in your
+      <FONT color="blue"><B>C program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Next</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We will <FONT color="blue"><B>learn</B></FONT> to
+     <FONT color="red"><B>organize</B></FONT> the
+     <FONT color="blue"><B>function declarations</B></FONT>
+     using
+      <FONT color="red"><B><I>header files</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will discuss this <FONT color="blue"><B>next</B></FONT>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

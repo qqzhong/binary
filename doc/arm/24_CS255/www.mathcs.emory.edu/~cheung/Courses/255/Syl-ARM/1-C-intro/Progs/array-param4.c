@@ -1,0 +1,30 @@
+
+
+#include <stdio.h>
+
+
+/* --------------------------------------------
+   Declare a function with an array parameter
+   -------------------------------------------- */
+extern void func( double [ ] ); 
+
+
+int main( int argc, char* argv[] )
+{
+   double a[10];
+   int    i;
+
+   for ( i = 0; i < 10; i++ )
+      a[i] = i;
+
+   func( a );
+}
+
+
+void func( double x[ ] )
+{
+   int i;
+
+   for ( i = 0; i < 10; i++ )
+      printf( "x[%d] = %lf\n", i, x[i] );
+}

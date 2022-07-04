@@ -1,0 +1,719 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+<H3>
+<HR>
+The program stack of a running program
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review:</FONT> the
+      stack data structure
+     </B></FONT>
+<P>
+<UL>
+
+
+<LI> A <B>stack</B> is a <B>data structure</B> with
+     <B>two</B> operation:
+ <P>
+ <UL>
+ <LI> void Push(int x): put the value "x" in the stack.
+	The value "x" is put "at the top" of the stack.
+ <LI> int Pop(): remove the top value off the stack.
+	The value removed is returned.
+ </UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     (1) Initially:      +----------+  (empty stack)
+
+<HR>
+     (2) After Push(4):  +----------+
+			 |    4     |
+                         +----------+
+
+<HR>
+     (3) After Push(9):  +----------+
+			 |    9     |    (new value get put ON TOP)
+                         +----------+
+			 |    4     |
+                         +----------+
+
+<HR>
+     (4) After Push(1):  +----------+
+			 |    1     |    (new value get put ON TOP again)
+                         +----------+
+			 |    9     |
+                         +----------+
+			 |    4     |
+                         +----------+
+
+<HR>
+  Suppose we have 3 variables "a", "b" and "c" defined....
+
+     (5) After a = Pop():  +----------+
+			   |    9     |  (top value is REMOVED !)
+                           +----------+
+			   |    4     |
+                           +----------+
+	   and  a = 1
+
+<HR>
+     (6) After b = Pop():  +----------+
+			   |    4     |  (top value is REMOVED again !)
+                           +----------+
+	   and  b = 9
+
+<HR>
+     (7) After c = Pop():  +----------+  (Stack is empty)
+			   
+	   and  c = 4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Stack used in a computer program versus the <I>Program Stack</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>stack <I>data structure</I></B></FONT> that
+      you learned in <FONT color="blue"><B>Java (CS171)</B></FONT> is
+       <FONT color="red"><B>implemented</B></FONT> 
+      <B><I>using</I></B> an <FONT color="blue"><B>array variable</B></FONT>
+<P>
+<B>Example:</B> (<FONT color="red"><B>CS171 </B></FONT> material)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Stack
+   {
+      int[] A;
+      int  stacktop;      // Points to the top of the stack
+
+      public Stack(int size)
+      {
+         A = new int[size];       // Create the array to hold values in stack
+	 stacktop = -1;
+      }
+
+      public void push( int x )
+      {
+  
+	 A[++stacktop] = x;         // Move stack top and put x on the stack
+      }
+
+      public int pop( )
+      {
+         return A[stacktop--];
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+due to the
+ <FONT color="red"><B>limitation</B></FONT> of
+  the <FONT color="blue"><B>programming language</B></FONT> to
+  <FONT color="red"><B><I>store</I> data</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>only</I></B></FONT> way to
+       <FONT color="blue"><B>"create" a stack</B></FONT> is
+       to <FONT color="red"><B>define</B></FONT> a
+      <B>suitable type of variable</B> in a
+       <FONT color="blue"><B>Java program</B></FONT>
+       and
+        <FONT color="red"><B>use it</B></FONT>
+     to <FONT color="blue"><B>implement</B></FONT>
+   a <FONT color="red"><B>stack</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We <FONT color="red"><B>do not</B></FONT> have this
+    <FONT color="blue"><B>limitation</B></FONT> when
+    the <FONT color="red"><B>computer system</B></FONT>
+    executes
+    a <FONT color="blue"><B>computer program</B></FONT>.
+<P>
+ <FONT color="red"><B>Recall</B></FONT> from this lecture note
+  (<A HREF="../4-intro/memory2.html">
+  <FONT color="blue"><B>click here</B></FONT>
+  </A>)
+ that
+ when a <FONT color="red"><B>computer program</B></FONT> is
+  <FONT color="blue"><B>execute</B></FONT>,
+  the <FONT color="red"><B>computer memory</B></FONT>
+  contains:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+<LI> When a <FONT color="blue"><B>program</B></FONT> is
+     <FONT color="red"><B>running</B></FONT>, the
+     <B>computer system</B> will need to 
+     <FONT color="blue"><B>store</B></FONT> various
+     <FONT color="red"><B>information items (variables)</B></FONT>
+     in a <FONT color="blue"><B><I>stack</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+     <B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="blue"><B>computer system </B></FONT> maintains
+     (= manages) a 
+        <FONT color="red"><B> stack</B></font>
+	
+     to <FONT color="blue"><B>manage (= organize)</B></FONT>
+  <FONT color="red"><B> information</B></FONT>
+  it needs during
+  <FONT color="blue"><B>program execution</B></FONT> !!!
+<P>
+<B>This</B> particular <FONT color="red"><B>stack</B></FONT>
+ data structure is called:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The
+    <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue"><B><I>Program</I> stack</B></FONT></SPAN>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Information</B></FONT> stored in the
+  <FONT color="blue"><B><I>program</I> stack</B></FONT> include:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>Function activation information</B></FONT>
+           (created when a <B>function</B> is
+            <FONT color="blue"><B>called</B></FONT>) that consists of:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Parameters</B></FONT> of the
+     <FONT color="blue"><B>function call</B></FONT>
+ <LI> <FONT color="red"><B>Return address</B></FONT> to the
+ <FONT color="blue"><B>caller</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+  (These <B>function activation information</B> will be
+   <FONT color="red"><B>removed (popped)</B></FONT>
+   when a function
+   <FONT color="blue"><B>returns (exits)</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Local variables</B></FONT> used by the
+    <FONT color="blue"><B>called function</B></FONT>
+ <P>
+  (These <FONT color="blue"><B>local variables</B></FONT> will 
+  <B>also</B> be
+   <FONT color="red"><B>removed (popped)</B></FONT>
+   when a function
+   <FONT color="blue"><B>returns (exits)</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will
+ <FONT color="red"><B>first</B></FONT> study how to
+ <FONT color="blue"><B>save</B></FONT> the
+  <FONT color="red"><B>return address</B></FONT>
+  using the <FONT color="blue"><B>stack</B></FONT>
+<P>
+Later, we will
+  <FONT color="red"><B>pass parameters</B></FONT> using the
+  <FONT color="blue"><B>stack</B></FONT> and
+  <FONT color="red"><B>create local variables</B></FONT> on 
+  the <FONT color="blue"><B>stack</B></FONT>
+<P>
+ (I.e., I will separate the discussion on these 3 items)
+<P>
+<HR>
+<HR>
+<P>
+But first,
+ we need to study
+ <FONT color="red"><B>how</B></FONT> to 
+ <FONT color="blue"><B>implement</B></FONT> the
+  <FONT color="red"><B>program stack</B></FONT>.
+<P>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implementing the Program Stack
+     </B></FONT>
+<P>
+<UL>
+<LI> Just like a <FONT color="blue"><B>stack</B></FONT> object in
+    <B>Java</B>, in order to 
+    <FONT color="red"><B>implement</B></FONT> a <B>stack</B>, we need:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>array</B></FONT>
+    (= a <FONT color="blue"><B>series (large number)</B></FONT> of
+    <FONT color="red"><B>memory cells</B></FONT>)
+ <LI> A <FONT color="red"><B>StackTop</B></FONT> 
+   <FONT color="blue"><B>indicator</B></FONT>
+  (= a way to mark the location of the 
+   <FONT color="red"><B>top</B></FONT> of the stack)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Unlike</I></B></FONT> in a
+    <B>programming language</B>, the
+   <FONT color="blue"><B>computer system</B></FONT> have
+    access to the 
+    <FONT color="red"><B>entire computer memory</B></FONT>  !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="red"><B>do not</B></FONT> need to
+    <FONT color="blue"><B>"define" an array</B></FONT>
+ <P>
+ <LI> We just have to
+     <FONT color="red"><B>organize</B></FONT> the
+     <FONT color="blue"><B>memory</B></FONT> (because we can
+     <FONT color="red"><B>access</B></FONT> the
+     <FONT color="blue"><B>entire computer memory</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <FONT color="red"><B>Traditionally </B></FONT>
+  (for <FONT color="blue"><B>efficiency reasons</B></FONT>),
+   the <FONT color="red"><B>program stack</B></FONT>  is
+  <FONT color="blue"><B>located</B></FONT> at the
+  <FONT color="red"><B><I>end</I></B></FONT> of the
+  <FONT color="blue"><B>memory area</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">Memory:</font>
+
+      0 +----------+
+	|	   |  <--- this part contains the "code"
+	|    A	   |       This part of the memory is "write protected"
+	|	   |	   (can not - and should not - be modified)
+	|	   |
+        +----------+
+	|	   | <--- this part contains "static variables"
+	|    B	   |	  These variables exist at the start of the
+	|	   |	  program (a.k.a.: <FONT color="red">compiled-time variables</font>)
+        +----------+
+	|	   | ^
+	|	   | | <---  this part grows when the program creates
+	|	   | |	     <FONT color="red">new objects</font>: <B>reserve space for instance </B>
+	|    C	   | |	     <B>variables in the new object</B>
+	|	   | v
+	|	   | v<FONT color="red"> <--- Direction of growth is "downwards"</font>
+	|	   | v
+	+==========+
+	|	   | <---- this part is "free" memory
+	|	   |       (Free means: unreserved !)
+	|	   |
+	|	   |<FONT color="darkred">
+	+==========+
+	|	   | ^
+	|	   | ^ <--- Direction of growth is "upwards"
+	|	   | ^ 
+	|    D	   | |
+	|	   | | <--- This part grows when the program invokes
+	| <FONT color="red"> Program</font> | |	    a function/method, <B>reserve space for:</B>
+	| <FONT color="red"> stack</font>   | |      <B>(1) return address</B>
+	|	   | |      <B>(2) parameter variables</B>
+	|	   | v      <B>(1) local variables</B>
+        +----------+</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> Since we don't need to "create an array",
+     all that is left to do to <FONT color="blue"><B>implement</B></FONT> the
+    <FONT color="red"><B>Program Stack</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Define a <FONT color="red"><B>stacktop </B></FONT> 
+   <FONT color="blue"><B>indicator</B></FONT>
+    (= a way to <FONT color="red"><B>mark the location</B></FONT>
+  of the <FONT color="blue"><B>top</B></FONT> of the 
+  <FONT color="red"><B>program stack</B></FONT>)  
+    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implementating the program stack in the computer system
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="blue"><B>program stack</B></FONT> in
+     a <FONT color="red"><B>computer system</B></FONT>
+   (in every CPU processor) is
+    <B>always</B> implemented by:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Using <FONT color="red"><B><I>one</I></B></FONT> of the
+     <FONT color="blue"><B>registers</B></FONT> in the <B>CPU</B>
+     as <FONT color="red"><B>stacktop </B></FONT> index
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Furthermore, the
+  <FONT color="red"><B>program stack</B></FONT> <B>always</B>
+  grows
+  <FONT color="blue"><B>towards</B></FONT> 
+  <FONT color="red"><B>lower memory addresses</B></FONT>.
+<P>
+That's because the <FONT color="red"><B>beginning</B></FONT> of
+  the <FONT color="blue"><B>computer memory</B></FONT> is used to
+  store <FONT color="red"><B>program instructions</B></FONT>, so
+ the <FONT color="blue"><B>program stack</B></FONT> is
+ located at the <FONT color="red"><B>far end</B></FONT> of the
+ <FONT color="blue"><B>memory</B></FONT>
+<P>
+Therefore, the <FONT color="red"><B>grow direction</B></FONT> of the
+ <FONT color="blue"><B>program stack</B></FONT> is <B>always</B>
+ toward the <FONT color="red"><B>top of the memory</B></FONT>
+
+<P>
+<HR>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B>ARM</B></FONT>, the 
+       <B>stacktop</B> index is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B> register</B> <FONT color="red"><B>R13</B></FONT>
+   (also known by the name
+   <FONT color="blue"><B>SP</B></FONT> for <B>Stack Pointer</B>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see the <FONT color="red"><B>stack pointer register
+  <TT>SP</TT></B></FONT> in 
+ <FONT color="blue"><B>EGTAPI</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/stack02.png" width=700 height=200></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>SP</TT></B></FONT> register is
+ near the <FONT color="blue"><B>bottom</B></FONT> of
+ the list of registers...
+<P>
+The <FONT color="red"><B>stack area</B></FONT> is
+ displayed in the
+ <FONT color="blue"><B>Program Stack</B></FONT> window in
+ <FONT color="red"><B>EGTAPI</B></FONT> - so you can easily see
+ the <FONT color="blue"><B>values</B></FONT> stored in the
+  <FONT color="red"><B>program stack</B></FONT>
+<P>
+The <FONT color="red"><B>top</B></FONT> of the
+  <FONT color="blue"><B>stack</B></FONT> is 
+  highlighted in <FONT color="red"><B>red</B></FONT> color.
+
+<P>
+<HR>
+<P>
+<LI> In <FONT color="blue"><B>Intel</B></FONT>'s CPU (Pentium, Core Duo...),
+     the <B>stacktop</B> index is stored in:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>special purpose register (named)</B>
+     <FONT color="red"><B>sp</B></FONT>
+     (= stack pointer)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> So in <FONT color="red"><B>ARM</B></FONT>,
+      the <FONT color="blue"><B>program stack</B></FONT> is
+      given <B>as follows:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">Memory:</font>
+
+      0 +----------+
+	|	   |  <--- this part contains the "code"
+	|    A	   |       This part of the memory is "write protected"
+	|	   |	   (can not - and should not - be modified)
+	|	   |
+        +----------+
+	|	   | <--- this part contains "static variables"
+	|    B	   |	  These variables exist at the start of the
+	|	   |	  program (a.k.a.: <FONT color="red">compiled-time variables</font>)
+        +----------+
+	|	   | ^
+	|	   | | <---  this part grows when the program creates
+	|	   | |	     <FONT color="red">new objects</font>: <B>reserve space for instance </B>
+	|    C	   | |	     <B>variables in the new object</B>
+	|	   | v
+	|	   | v<FONT color="red"> <--- Direction of growth is "downwards"</font>
+	|	   | v
+	+==========+
+	|	   | <---- this part is "free" memory
+	|	   |       (Free means: unreserved !)
+	|	   |
+	|	   |<FONT color="darkred">
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">SP --></span></font>+==========+
+	|	   | ^
+	|	   | ^ <--- Direction of growth is "upwards"
+	|	   | ^ 
+	|    D	   | |
+	|	   | | <--- This part grows when the program invokes
+	| <FONT color="red"> Program</font> | |	    a function/method, <B>reserve space for:</B>
+	| <FONT color="red"> stack</font>   | |      <B>(1) return address</B>
+	|	   | |      <B>(2) parameter variables</B>
+	|	   | v      <B>(1) local variables</B>
+        +----------+</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will use
+ the name <FONT color="red"><B>SP</B></FONT> (or
+  <FONT color="blue"><B>sp</B></FONT> to denote the
+ <FONT color="blue"><B>stack pointer (register)</B></FONT> 
+ -- it's easier to remember that
+ <FONT color="red"><B>R13</B></FONT>...
+</UL>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+
+
+
+

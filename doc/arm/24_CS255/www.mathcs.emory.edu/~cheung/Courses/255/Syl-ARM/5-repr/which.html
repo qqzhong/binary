@@ -1,0 +1,300 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+How can we tell <B>which code</B> we are using ?
+<HR>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to tell which encoding (=representation) method is used
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> How can we tell if <FONT color="red"><B>11111111</B></FONT>
+      represents:
+ <P>
+  <UL>
+  <LI> 255 (in the
+	binary number system used to represent
+   <FONT color="darkmagenta"><B><I>unsigned</I>
+    values</B></FONT>)
+  <LI> -1 (in the 2s complement code used to represent 
+   <FONT color="darkmagenta"><B><I>signed</I>
+    values</B></FONT>)
+  <LI> 127 (in the Excess-128 code)
+  <LI> 128 (in the Excess-127 code)
+    values</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="blue"><B>Answer:</B></FONT> 
+   <FONT color="red"><B>context</B></FONT>
+ <P>
+  In this case: the <B>data type</B> information provides the context
+  to use the correct encoding method.
+<P>
+<HR>
+<P>
+<LI> <B>Example (I have to do it in C++ because Java does not have
+        <I>unsigned</I> numbers)</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   short x = -1;           // signed numeric variable in C++
+			   // It stores 11111111 11111111 in x
+
+   cout << x;              // Prints -1
+
+   unsigned short y;       // unsigned numeric variable in C++       
+
+   y = x;                  // Stores 11111111 11111111 in y
+
+   cout << y;              // Prints 65535 (2^16 - 1)
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>variable type information</B></FONT>
+gives the <FONT color="blue"><B>context</B></FONT>
+to the program on
+ <FONT color="darkmagenta"><B><I>how</I> to interprete</B></FONT>
+ the <FONT color="red"><B>representation</B></FONT>
+<P>
+Each <FONT color="red"><B>data type</B></FONT> uses
+  its own <FONT color="blue"><B>code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   unsigned int     uses   the binary number system            
+   unsigned short   uses   the binary number system
+
+   int              uses   the 2s complement code
+   short            uses   the 2s complement code
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because <FONT color="red"><B>each variable</B></FONT> in
+ <FONT color="blue"><B>Java</B></FONT> (and C) must be
+ <FONT color="red"><B>defined using a data type</B></FONT>,
+ the <FONT color="blue"><B>Java compiler</B></FONT> can know
+ <FONT color="red"><B>which code</B></FONT> it needs to use
+ to interpret the <FONT color="blue"><B>binary number</B></FONT> stored
+ in a variable.
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+	<FONT color="red"><B><TT>
+	/home/cs255001/demo/C++/context-info.C
+	</TT></B></FONT>
+   <P>
+  <LI> Compile: <FONT color="red"><B><TT>
+	g++  context-info.C
+        </TT></B></FONT>
+  <LI> Run: <FONT color="red"><B><TT>
+	a.out
+        </TT></B></FONT>
+  </UL>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     An <I>English</I> language example of <I>context</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make a <FONT color="blue"><B>correct English sentence</B></FONT>
+     that start with:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   You is ....            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    You is <FONT color="red">an English word</FONT>.      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The word <FONT color="red"><B>you</B></FONT>
+       can have <FONT color="blue"><B>multiple contexts</B></FONT>
+       in <FONT color="red"><B>English</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>You</B></FONT> can be used
+      as a <FONT color="blue"><B>personal pronoun</B></FONT>
+      (this is the <FONT color="red"><B><I>most</I> frequent</B></FONT>
+      scenario - so frequent, that you don't realize there
+      is <FONT color="blue"><B>another context</B></FONT> !!!)
+ <LI> <FONT color="red"><B>You</B></FONT> can
+    be an <FONT color="blue"><B>English word</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> If you have a hard time coming up with such a sentence, it is
+     because you have <FONT color="blue"><B>always taught</B></FONT> that
+     <FONT color="red"><B>"you"</B></FONT> is
+     a <B>personal pronoun</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>context</B></FONT> in which you used
+    the word <FONT color="red"><B>"you"</B></FONT> has 
+    <B><I>always</I></B> been as a
+    <FONT color="darkmagenta"><B>personal pronoun</B></FONT>
+ <P>
+ <LI> You was <FONT color="blue"><B>not aware</B></FONT> that
+   the word <FONT color="red"><B>you</B></FONT> can be used
+   in a <FONT color="darkmagenta"><B>different <I>context</I></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Joke:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  (Millie is in Kindergarten,,,,)
+
+  TEACHER:  Millie, give me a sentence starting with 'I. '
+  MILLIE:   I is..
+  TEACHER:  No, Millie..... Always say, 'I am.'
+  MILLIE:   All right... 'I am the ninth letter of the alphabet.'    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

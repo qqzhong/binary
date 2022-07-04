@@ -1,0 +1,618 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Casting operators and the (type *) casting operator
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Casting operators
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Use</B> of <FONT color="blue"><B>casting operators</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>casting operator</B></FONT>
+      tells the <B>compiler</B> to
+      <FONT color="red"><B>apply</B></FONT> the
+      indicated <FONT color="blue"><B>type conversion</B></FONT>
+      to the <B>values</B>
+<P>
+ <LI> The <FONT color="blue"><B>type conversion</B></FONT> 
+      often entails
+      <FONT color="red"><B><I>changing</I> the encoding method</B></FONT>
+      used to represent the <B>value</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value         int (2's complement) encoding
+  ------------------------------------------------------
+    .. (1)       00000000 00000000 00000000 00000001
+
+   Value         IEEE 754 (float) encoding
+  ------------------------------------------------------
+    .. (1)       01111111 10000000 00000000 00000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The IEEE 754 encoding tool:
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/04/IEEE-float/IEEE-754-encoding.html"> 
+  <FONT color="red"><B>click here</B></FONT> </A>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>That means:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int a;
+
+   a = 2;    // will store 00000000 00000000 00000000 00000010 in a        
+
+<HR>
+   float b;
+
+   b = a;    // will store 0<FONT color="red">1000000 0</font>0000000 00000000 00000000 in b
+             // (The red portion is the mantissa in excess 127 code)
+             // This is the representation of 2.0 in float (IEEE 754 code)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Casting of <I>reference</I> typed variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Facts:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B><I>reference</I> type </B></FONT> stores an
+     <FONT color="red"><B>address</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int   *<FONT color="red">a</FONT>;     // <FONT color="red">a</FONT> stores an <FONT color="red">address</FONT> of an int typed variable    
+
+    float *<FONT color="red">b</FONT>;     // <FONT color="red">b</FONT> stores an <FONT color="red">address</FONT> of an float typed variable    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> An <FONT color="blue"><B><I>address</I></B></FONT> is an
+   <FONT color="red"><B>unsigned integer</B></FONT>
+ <P>
+   <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   The <FONT color="red">encoding method</FONT> used for values stored in <FONT color="red">a</font> is: Binary number system    
+
+   The <FONT color="red">encoding method</FONT> used for values stored in <FONT color="red">b</font> is: Binary number system
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Conclusion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="red"><B><I>no</I> conversion</B></FONT>
+        of <B>values</B> necessary for
+	<FONT color="blue"><B><I>any</I> reference data types</B></FONT> !!!
+ <P>
+ (Because a <FONT color="blue"><B><I>reference</I></B></FONT> is
+   an <FONT color="red"><B><I>address</I></B></FONT> and
+  <B>address</B> are
+  all <FONT color="blue"><B>unsigned integers</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Casting operators for <I>reference</I> data types
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Type1 *p;
+    Type2 *q;
+
+    p = <FONT color="red">(Type1 *)</FONT> q;                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>meaning:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Convert the
+     <FONT color="blue"><B><I>reference</I> value</B></FONT>
+     to a <FONT color="red"><B><TT>Type 2</TT> variable</B></FONT> stored in
+     the <B>variable <TT>q</TT></B> into a
+     <FONT color="blue"><B><I>reference</I> value</B></FONT>
+     to a <FONT color="red"><B><TT>Type 1</TT> variable</B></FONT>
+   <P>
+ <LI> And then <B>store</B> the result in
+    the variable <FONT color="red"><B><TT>p</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> As you have <FONT color="blue"><B>seen</B></FONT> above</B></FONT>,
+     there is <FONT color="red"><B>no change in <I>encoding</I></B></FONT>
+     necessary.
+<P>
+ <B>Effect</B> of
+   <FONT color="blue"><B><TT>p =
+    <FONT color="red">(Type1 *)</FONT> q</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Store the <FONT color="blue"><B>address </B></FONT> in
+      <FONT color="darkred"><B>variable <TT>q</TT></B></FONT>
+      into the 
+      <FONT color="red"><B>variable <TT>p</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Dangerous use reference variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> is a 
+   very <FONT color="blue"><B>dangerous</B></FONT>
+   (= <FONT color="red"><B>powerful</B></FONT>) 
+   programming language
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>reference</B></FONT> <B>data type</B>
+     allows to <B>programmer</B> to
+     <FONT color="red"><B>access</B></FONT>
+     <FONT color="blue"><B><I>any</I> memory location</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+      int i = 1234;
+      int *p;
+    
+      /* =====================================================
+         Read the memory location 4000
+	 ===================================================== */
+      p = <FONT color="red">(int *) 4000</FONT>;          // Give p the value 4000    
+      printf("Value stored at memory location 4000 = %d\n", <FONT color="red">*p</FONT>);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Due to <FONT color="red"><B>memory protection</B></FONT>
+      (the <FONT color="blue"><B>part</B></FONT> of the <B>memory</B> that
+      contains <FONT color="red"><B><I>instructions</I></B></FONT> is
+      <FONT color="blue"><B>protected</B></FONT> from 
+      <FONT color="red"><B>read</B></FONT> operations),
+      a <FONT color="blue"><B>read operation</B></FONT> can cause
+      a <FONT color="red"><B><I>crash</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">setarch $(uname -m) -R /bin/bash</FONT>                 
+
+   cd ~/demo/c/set2
+   gcc  peek-mem1.c
+
+   a.out
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Trick to copy variables of <I>different</I> types
+     <FONT color="red"><I>without</I></FONT> type 
+     <FONT color="red">conversion</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="blue"><B>value</B></FONT> is
+        assigned to a <B>variable</B> of
+	a <FONT color="red"><B><I>different</I> data type</B></FONT>,
+	the <FONT color="blue"><B>C compiler</B></FONT>
+	will <B>always</B> perform
+	a <FONT color="red"><B>conversion</B></FONT>
+	of the <FONT color="blue"><B>data representation</B></FONT>
+<P>
+<HR>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int a;
+   float b;
+
+   b = 2.0       // IEEE 754 repr for 2.0 is: 
+                 //        0<FONT color="red">10000000</FONT>00000000000000000000000    
+
+   a = b;        // C will perform conversion:
+                 //    IEEE 754 repr ===> 2's complement repr
+		 //    Stores  00000000000000000000000000000010 in a        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Trick</B></FONT>
+     to <FONT color="blue"><B>skip</B></FONT> the
+     <FONT color="red"><B>conversion</B></FONT> operation:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int a;
+   float b;
+
+   int *p;
+
+   p = <FONT color="red">(int *) &b</FONT>;      // Make C think that p points to an int variable
+                        // Note: <FONT color="red">&b</FONT> is <FONT color="red">(float *)</FONT> !!!
+
+   a = *p;              // int = int !!!
+                        // C will not perform conversion !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int   a, *p;
+   float b, *q;
+
+
+   b = 2.0;          // b = 0<FONT color="red">10000000</font>00000000000000000000000 !!!
+   a = b;            // C detects <FONT color="red">type change</font>: performs <FONT color="red">type conversion</font> to <FONT color="red">int</font> !
+
+   printf("a = %d, b = %f\n", a, b);     // Conversion took place (implicitly)
+<FONT color="darkgreen">
+   /* ===========================================
+      How to <FONT color="red">circumvent</font> C's implicit conversion
+      =========================================== */</font>
+  <FONT color="red"> p = (int *)&b;</FONT>     // Make p point to b   
+   a = <FONT color="red">*p;</FONT>            // Read b as an int typed variable !
+
+   printf("a = %d, b = %f\n", a, b);     // NO conversion !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a = <FONT color="red">2</FONT>, b = 2.000000
+
+   a = <FONT color="red">1073741824</FONT>, b = 2.000000
+
+<HR>
+   The bits in a = 0<FONT color="red">10000000</FONT>00000000000000000000000          
+   Interpreted as an <FONT color="red">int</font>, the value is:
+
+          2<sup>30</sup> = <FONT color="red">1073741824</FONT>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/casting1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc casting1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

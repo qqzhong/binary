@@ -1,0 +1,774 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Pointer arithmetic
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review of reference (pointer) variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  i;      // An integer variable
+    int  a[10];  // An integer array
+
+    <FONT color="red">int *</FONT>p;      // A <FONT color="red">reference variable</FONT> to an <FONT color="red">int</FONT> variable
+                 // <FONT color="red">p</FONT> can contain an <FONT color="red">address</FONT> of an <FONT color="red">int</FONT> variable         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Review</I>: access variables through a <I>reference</I> variable
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider these <FONT color="blue"><B>2 kinds</B></FONT> of
+    <FONT color="red"><B><TT>int</TT></B></FONT> variables:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int  i</FONT>;      // An integer variable             
+    <FONT color="red">int  a[10]</FONT>;  // An integer array
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Illustrated:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pointer-arithm1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<B>Notice that:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>i</TT></B></FONT> is an
+      <FONT color="blue"><B><TT>int</TT></B></FONT> typed <B>variable</B>
+ <LI> <FONT color="red"><B><TT>a[0]</TT></B></FONT> is an
+      <FONT color="blue"><B><TT>int</TT></B></FONT> typed <B>variable</B>
+ <LI> <FONT color="red"><B><TT>a[1]</TT></B></FONT> is an
+      <FONT color="blue"><B><TT>int</TT></B></FONT> typed <B>variable</B>
+ <LI> And so on...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Therefore</B>, we can use an
+      <FONT color="red"><B><TT>int *p</TT> variable</B></FONT> to access
+      <FONT color="blue"><B><I>any</I> one</B></FONT> of these
+      <FONT color="red"><B><TT>int</TT> typed variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int *p;   
+
+    <FONT color="darkred">p = &i</FONT>; 
+    <FONT color="red">*p</FONT>  will access <FONT color="red">i</FONT>
+
+    <FONT color="darkred">p = &a[0]</FONT>; 
+    <FONT color="red">*p</FONT>  will access <FONT color="red">a[0]</FONT>
+
+    <FONT color="darkred">p = &a[1]</FONT>; 
+    <FONT color="red">*p</FONT>  will access <FONT color="red">a[1]</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pointer arithmentic: the <FONT color="red">+</FONT> operator on
+     <I>reference</I> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact</B></FONT> about
+   <FONT color="blue"><B>pointer/reference variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>reference/pointer variable</B></FONT>
+     <FONT color="blue"><B>always</B></FONT> has
+       an <FONT color="red"><B>associated <I>data type</I></B></FONT>:
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int</FONT>   *<FONT color="red">p</FONT>;     // <FONT color="red">p</FONT>  must point to an <FONT color="red">int   typed</FONT> variable 
+
+   <FONT color="red">float</FONT> *<FONT color="red">q</FONT>;     // <FONT color="red">q</FONT>  must point to an <FONT color="red">float typed</FONT> variable    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> 
+    <FONT color="red"><B>Pointer addition</B></FONT>:
+     what does it mean to
+     <FONT color="blue"><B>add</B></FONT> an
+    <FONT color="red"><B>integer</B></FONT> to
+    a <FONT color="blue"><B><I>pointer</I> value</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    referenceVariable <FONT color="red">+</FONT> integer           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+evaluates (returns) to the <FONT color="red"><B>address</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    referenceVariable <FONT color="red">+</FONT> integer<SPAN style="BACKGROUND-COLOR: yellow">*<FONT color="red">sizeof</FONT>( <FONT color="red">(*referenceVariable)</FONT> )<?SPAN>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>If</B></FONT> you 
+    <FONT color="blue"><B>remember</B></FONT> the
+   <FONT color="red"><B>lecture</B></FONT> on
+  <FONT color="blue"><B><I>how to</I> access
+       array elements</B></FONT> in
+       <FONT color="red"><B>assembler code</B></FONT>
+   (<A HREF="../7-ARM/array-theory.html">
+    <FONT color="blue"><B>click here</B></FONT></A>),
+   then you <B>should already</B>
+   <FONT color="red"><B>understand</B></FONT>
+   what 
+   <FONT color="blue"><B>adding an integer</B></FONT> to
+   a <FONT color="red"><B>pointer value</B></FONT>
+   achieves.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Initially</B>, the variable <FONT color="red"><B><TT>p</TT></B></FONT>
+     points to the variable <FONT color="blue"><B><TT>a[0]</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int a[10];
+    int *p;          
+<FONT color="red">
+    p = &a[0];</FONT>                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Then the <B>expression</B>
+        <FONT color="red"><B><TT>p + 1</TT></B></FONT> will
+	<B>evaluates</B> to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    p + <FONT color="red">1</FONT>     ===>   &a[0] + <FONT color="red">1*sizeof( <FONT color="darkred">(*p)</FONT> )</FONT>    // <FONT color="darkred">(*p)</FONT> is an <FONT color="red">int</FONT> !    
+             <===>   &a[0] + <FONT color="red">1*4</FONT>
+	     <===>   &a[0] + <FONT color="red">4</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <B>expression</B>
+        <FONT color="red"><B><TT>p + 2</TT></B></FONT> will
+	<B>evaluates</B> to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    p + <FONT color="red">2</FONT>     ===>   &a[0] + <FONT color="red">1*sizeof( <FONT color="darkred">(*p)</FONT> )</FONT>    // <FONT color="darkred">(*p)</FONT> is an <FONT color="red">int</FONT> !    
+             <===>   &a[0] + <FONT color="red">2*4</FONT>
+	     <===>   &a[0] + <FONT color="red">8</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example C progra:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int a[10];
+       int *p;
+    
+       p = &a[0];        // p points to variable a[0]
+    
+       printf("p     = %u, &a[%d] = %u\n", p, 0, &a[0] );
+       printf("p + 1 = %u, &a[%d] = %u\n", <FONT color="red">p+1</FONT>, 1, <FONT color="red">&a[1]</FONT> );
+       printf("p + 2 = %u, &a[%d] = %u\n", <FONT color="red">p+2</FONT>, 2, <FONT color="red">&a[2]</FONT> );
+       printf("p + 3 = %u, &a[%d] = %u\n", <FONT color="red">p+3</FONT>, 3, <FONT color="red">&a[3]</FONT> );              
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output of C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   p     = 42907694<FONT color="red">44</FONT>, &a[0] = 4290769444  <FONT color="magenta">(increased by <FONT color="red">4</FONT> !!!)</FONT>    
+   p + 1 = 42907694<FONT color="red">48</FONT>, &a[1] = 4290769448
+   p + 2 = 42907694<FONT color="red">52</FONT>, &a[2] = 4290769452
+   p + 3 = 42907694<FONT color="red">56</FONT>, &a[3] = 4290769456               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/pointer-arithm1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pointer-arithm1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The following <B>figure</B>
+     <FONT color="blue"><B>shows</B></FONT> the
+     <B>result</B> of the 
+     <FONT color="red"><B>p+1</B></FONT>
+     and <FONT color="red"><B>p+2</B></FONT> more 
+     <B><I>clearly</I></B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pointer-arithm2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  If p points to <FONT color="red">a[0]</FONT> then:
+
+    p + <FONT color="red">1</FONT>  =  &a[0] + 4   =  the <FONT color="red">address</FONT> of the array element <FONT color="red">a[1]</FONT> !!
+    p + <FONT color="red">2</FONT>  =  &a[0] + 8   =  the <FONT color="red">address</FONT> of the array element <FONT color="red">a[2]</FONT> !!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> <B>In general:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     p + <FONT color="red">x</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+evaluates to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <B><I>address</I></B>
+ of the <FONT color="blue"><B><I>x</I><sup>th</TH></B></FONT>
+ <B><I>array element</I></B>
+ <FONT color="red"><B>following</B></FONT>
+ the <B>array element</B> that is
+ <FONT color="blue"><B>pointed to</B></FONT> by
+ <FONT color="red"><B><TT>p</TT></B></FONT> !!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">&minus;</FONT> operator on
+      <I>reference</I> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>&minus;</B></FONT> operator
+     on <B>reference variables</B> has a
+     <FONT color="blue"><B>similar effect</B></FONT> as the
+     <FONT color="red"><B><TT>+</TT></B></FONT> operator:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Suppose</B>, the variable <FONT color="red"><B><TT>p</TT></B></FONT>
+     points to the variable <FONT color="blue"><B><TT>a[5]</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int a[10];
+    int *p;          
+<FONT color="red">
+    p = &a[5];</FONT>                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Then the <B>expression</B>
+        <FONT color="red"><B><TT>p - 1</TT></B></FONT> will
+	<B>evaluates</B> to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    p - <FONT color="red">1</FONT>     ===>   &a[5] - <FONT color="red">1*sizeof( <FONT color="darkred">(*p)</FONT> )</FONT>    // <FONT color="darkred">(*p)</FONT> is an <FONT color="red">int</FONT> !    
+             <===>   &a[5] - <FONT color="red">1*4</FONT>
+	     <===>   &a[5] - <FONT color="red">4</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <B>expression</B>
+        <FONT color="red"><B><TT>p - 2</TT></B></FONT> will
+	<B>evaluates</B> to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    p - <FONT color="red">2</FONT>     ===>   &a[5] - <FONT color="red">1*sizeof( <FONT color="darkred">(*p)</FONT> )</FONT>    // <FONT color="darkred">(*p)</FONT> is an <FONT color="red">int</FONT> !    
+             <===>   &a[5] - <FONT color="red">2*4</FONT>
+	     <===>   &a[5] - <FONT color="red">8</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  If p points to <FONT color="red">a[5]</FONT> then:
+
+    p - <FONT color="red">1</FONT>  =  &a[5] - 4   =  the <FONT color="red">address</FONT> of the array element <FONT color="red">a[4]</FONT> !!
+    p - <FONT color="red">2</FONT>  =  &a[5] - 8   =  the <FONT color="red">address</FONT> of the array element <FONT color="red">a[3]</FONT> !!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> <B>In general:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     p - <FONT color="red">x</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+evaluates to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <B><I>address</I></B>
+ of the <FONT color="blue"><B><I>x</I><sup>th</TH></B></FONT>
+ <B><I>array element</I></B>
+ <FONT color="red"><B>prior to</B></FONT>
+ the <B>array element</B> that is
+ <FONT color="blue"><B>pointed to</B></FONT> by
+ <FONT color="red"><B><TT>p</TT></B></FONT> !!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

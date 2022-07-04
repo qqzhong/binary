@@ -1,0 +1,581 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Traversing linked lists
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Recall</I>: linked lists
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Recall</B> that a
+     <FONT color="blue"><B>linked list</B></FONT> is
+     <FONT color="red"><B>chained togeher</B></FONT> using
+     <FONT color="blue"><B>references (= addresses)</B></FONT>
+<P>
+ <LI> <B>Example:</B> a list with <FONT color="blue"><B>3 nodes</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Memory:
+        +---------------+
+  <FONT color="red">head</font>: |  8000         |-------------------------------+
+        +---------------+                               |
+        |               |                               |
+	  .......                                       |
+	  .......                                       |
+        +---------------+                               |
+  8000  |  data1        |  <FONT color="red">Linked list element 1</font>  <-----+
+        +---------------+
+        | next=10000    |-------------------------------------+
+        +---------------+                                     |
+        |               |                                     |
+        +---------------+                                     |
+	  .......                                             |         
+	  .......                                             |
+        +---------------+                                     |
+  9000  |  data3        |  <FONT color="red">Linked list element 3</font> <----+       |
+        +---------------+                             |       |
+        | next=0 (null) |                             |       |
+        +---------------+                             |       |
+	  .......                                     |       |
+	  .......                                     |       |
+        +---------------+                             |       |
+ 10000  |  data2        |  <FONT color="red">Linked list element 2</font>      | <-----+
+        +---------------+                             |
+        | next=9000     |-----------------------------+
+        +---------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Structure of our example list
+     </B></FONT>
+<P>
+<UL>
+<LI> We use the following <B>Node</B> class definition in the 
+    <FONT color="blue"><B>examples</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Node        // Linked list element    
+   {
+      int value;    // 4 bytes
+      Node next;    // 4 bytes
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will need to <FONT color="red"><B>adjust</B></FONT> the
+  <FONT color="blue"><B>offsets</B></FONT> for
+  <FONT color="red"><B>different node structures</B></FONT>
+<P>
+The <FONT color="blue"><B>underlying technique</B></FONT> on
+ how to <B>traverse</B> the list
+  will remain <FONT color="red"><B>unchange</B></FONT>
+<P>
+<HR>
+<P>
+<LI>
+Suppose a <FONT color="blue"><B>linked list</B></FONT> has been
+  <B>constructed</B>; we just need to
+  <FONT color="red"><B>traverse </B></FONT> the linked list.
+<P>
+The <FONT color="blue"><B>list</B></FONT> starts
+ at the <B>location</B> given by the variable
+   <FONT color="red"><B><TT>head</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Node <FONT color="red">head</font>;           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     List traversal example 1: sum the values stored in a list
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <B>Java</B> code to
+     find the <FONT color="red"><B>sum</B></FONT>
+     stored in all elements of the list:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int sum;
+   Node ptr;
+
+   sum = 0;
+   ptr = <FONT color="red">head</FONT>;        // We assume the list is given     
+
+   while ( ptr != null )
+   {
+      sum = sum + ptr.value;                  
+      ptr = ptr.next;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+The <FONT color="red"><B>flow chart</B></FONT> of the
+ <B>above program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/for3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>variable <TT>ptr</TT></B></FONT>
+    in the <FONT color="blue"><B>high level programming language</B></FONT>
+    is a <FONT color="red"><B><I>help</I> variable</B></FONT> needed
+    to <FONT color="blue"><B>traverse</B></FONT> the
+    linked list
+<P>
+ In <FONT color="red"><B>assembler programming</B></FONT>,
+ the <FONT color="blue"><B>assembler programmer</B></FONT> can use
+  <FONT color="red"><B>registers</B></FONT> as
+  <FONT color="blue"><B><I>help</I> variables</B></FONT> !!!
+<P>
+ I will therefore 
+  use <FONT color="red"><B>register <TT>r10</TT></B></FONT>
+  as the <FONT color="blue"><B><TT>ptr</TT></B></FONT> variable !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<FONT color="red"><B>ARM assembler code</B></FONT> that implements
+ this <FONT color="blue"><B>program control flow</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        <FONT color="red">// sum = 0;  - always execute the RHS first !!!</FONT>
+        mov     r0, #0                  // r0 = 0 - ready to save it
+
+        movw    r1, #:lower16:sum
+        movt    r1, #:upper16:sum       // r1 = addr(sum)
+        str     r0, [r1]                // sum = 0;
+
+        <FONT color="red">// ptr(r10) = head;</FONT>
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r0 = addr(head)
+        ldr     r10, [r0]               // r10 = head
+
+while:  <FONT color="darkgreen">// START of while loop</FONT>
+
+        <FONT color="red">// Test while condition  ptr (r10) != null</FONT>
+        cmp     r10, #0                 // Check:  ptr (r10) != null
+
+        beq     whileEnd                // If ptr(r10) == null: exit while loop
+<FONT color="darkgreen">
+        /* ***********************************
+           While body
+           *********************************** */</FONT>
+        <FONT color="red">// sum = sum + ptr(r10).value</FONT>
+
+        //// Get sum
+        movw    r0, #:lower16:sum
+        movt    r0, #:upper16:sum       // r0 = addr(sum)
+        ldr     r1, [r0]                // r1 = sum;
+
+
+        //// Get ptr(r10).value  (use base + offset !)
+        ldr     r2, <FONT color="red">[r10, #0]</FONT>           // r2 = <FONT color="red">ptr(r10).value</FONT>
+
+        //// compute   sum + ptr(r10).value
+        add     r1, r1, r2              // r1 = sum + ptr(r10).value
+
+        //// Store result in sum (in memory)
+        movw    r0, #:lower16:sum
+        movt    r0, #:upper16:sum       // r0 = addr(sum)
+        str     r1, [r0]                // sum = sum + ptr(r10).value
+
+        <FONT color="red">// ptr = ptr.next</FONT>
+        ldr     r10, <FONT color="red">[r10, #4]</FONT>          // ptr(r10) = <FONT color="red">ptr(r10).next</FONT>
+<FONT color="darkgreen">
+        // End of while body --- <FONT color="red">branch back</FONT> to test !!</FONT>
+        <FONT color="red">b       while</FONT>
+
+whileEnd:
+
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+sum:    .skip   4
+
+head:   .4byte  p0        // head contains the address of the first list elem
+                        // head->[34]->[-9]->[99]->[78]->[55]
+
+// list structure is: [int value, next]
+p0: .4byte  34, p3      // p0 contains [34, p3]
+p1: .4byte  59, p2      // p1 contains [99, p2]
+p2: .4byte  66, p4      // p2 contains [78, p2]
+p3: .4byte  -9, p1      // p3 contains [-9, p2]
+p4: .4byte  50, 0       // p4 contains [55, p2]
+
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/7-while/sum-list.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 sum-list</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: use
+ 
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     List traversal example 2: find max of the values stored in a
+   <FONT color="red">non-empty</FONT>  list
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <B>Java</B> code to
+     find the <FONT color="red"><B>maximum</B></FONT>
+     of the values stored in a 
+   <FONT color="blue"><B>non-emply</B></FONT> list:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    // Assume we have a NON-empty lsit !!!
+
+    max = head.value;    // first value in linked list
+    ptr = head.next;     // ptr starts at 2nd list elem
+
+    while ( ptr != null )
+    {
+       if ( ptr.value > max )                  
+          max = ptr.value;
+       ptr = ptr.next;
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+The <FONT color="red"><B>flow chart</B></FONT> of the
+ <B>above program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/for4.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+In <B>M68000 assembler code</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+       <FONT color="red"> // max = head.value;  - always execute the RHS first !!!</FONT>
+
+        <FONT color="red">// Step 1: Get the LHS value (into a register)</FONT>
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r0 = addr(head)
+        ldr     r0, [r0]                // r0 = head
+
+        ldr     r0, [r0]                // r0 = head.value
+
+	<FONT color="red">// Step 2: Store value into RHS (max)</FONT> 
+        movw    r1, #:lower16:max
+        movt    r1, #:upper16:max       // r1 = addr(max)
+        str     r0, [r1]                // max = head.value;
+
+        <FONT color="red">// ptr(r10) = head.next;</FONT>
+
+        <FONT color="red">// Step 1: Get the LHS value (into a register)</FONT>
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r1 = addr(head)
+        ldr     r0, [r0]                // r0 = head
+
+        ldr     r10,[r0, #4]            // r10 = head.next
+
+	<FONT color="red">// Step 2: Store value into RHS (r10), is already done</FONT> 
+
+
+while:  <FONT color="darkgreen">// START of while loop</FONT>
+
+        <FONT color="red">// Test while condition  ptr (r10) != null</FONT>
+        cmp     r10, #0                 // Check:  ptr (r10) != null
+
+        beq     whileEnd                // If ptr(r10) == null: exit while loop
+<FONT color="darkgreen">
+        /* ***********************************
+           While body
+           *********************************** */</FONT>
+        <FONT color="red">// if ( ptr(r10).value > max )</FONT>
+
+        //// Get ptr(r10).value  (use base + offset access technique !)
+        ldr     r0, [r10, #0]           // r0 = ptr(r10).value
+
+        //// Get max
+        movw    r1, #:lower16:max
+        movt    r1, #:upper16:max       // r1 = addr(max)
+        ldr     r2, [r1]                // r2 = max;
+
+        //// Compare  ptr(r10).value (= r0) < max (= r2)
+        cmp     r0, r2
+
+        ble     ifEnd
+<FONT color="red">
+        /* ********************************************
+           Then-part: max = ptr(r10).value
+
+           Note: r1 = addr(max),  r0 = ptr(r10).value
+           ******************************************** */</FONT>
+        str     r0, [r1]                // max = ptr(r10).value
+
+ifEnd:
+
+        <FONT color="red">// ptr(r10) = ptr(r10).next</FONT>
+        ldr     r10, [r10, #4]          // ptr(r10) = ptr(r10).next
+<FONT color="darkgreen">
+        // End of while body --- <FONT color="red">branch back</FONT> to test !!</FONT>
+        b       while
+
+whileEnd:
+
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+max:    .skip   4
+
+head:   .4byte  p0      // head contains the address of the first list elem
+                        // head->[34]->[-9]->[99]->[78]->[55]
+
+// list structure is: [int value, next]
+p0: .4byte  34, p3      // p0 contains [34, p3]
+p1: .4byte  59, p2      // p1 contains [99, p2]
+p2: .4byte  66, p4      // p2 contains [78, p4]
+p3: .4byte  -9, p1      // p3 contains [-9, p1]
+p4: .4byte  50, 0       // p4 contains [55, null]
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/7-while/max-list.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 max-list</TT></B></FONT>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

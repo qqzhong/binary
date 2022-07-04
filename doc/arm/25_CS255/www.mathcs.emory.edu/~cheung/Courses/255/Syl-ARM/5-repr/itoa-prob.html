@@ -1,0 +1,267 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Problem: printing integer numbers
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Problem description: why can't you print an <TT>int</TT> number ?
+     </B></FONT>
+<P>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Internally</B></FONT>
+   (= inside a computer program),
+    <FONT color="red"><B>(signed) integer values</B></FONT>
+    are <FONT color="blue"><B>represented</B></FONT>
+    using the
+    <FONT color="red"><B>2's complement code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Value            Internal representation (in 32 bits)
+   ------------     ----------------------------------------
+     ...               ...
+     neg three         11111111111111111111111111111101
+     neg two           11111111111111111111111111111110
+     neg one           11111111111111111111111111111111
+     zero              00000000000000000000000000000000
+     one	       00000000000000000000000000000001
+     two	       00000000000000000000000000000010
+     three	       00000000000000000000000000000011
+     ...               ...
+     <FONT color="red">twelve            00000000000000000000000000001100</FONT>
+     ...               ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>2's complement representation</B></FONT>
+ is <FONT color="blue"><B>very efficient</B></FONT> to perform
+ <FONT color="red"><B>arithmetic calculations</B></FONT>
+<P>
+ (See: <A HREF="2s-comp.html"> click here </A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+For example: the value
+  <FONT color="blue"><B>twelve</B></FONT> is represented by
+  <FONT color="red"><B><TT>00000000000000000000000000001100</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Numbers</B></FONT> are 
+ <FONT color="blue"><B>printed</B></FONT> to the 
+   <FONT color="red"><B>terminal</B></FONT> by
+   <FONT color="blue"><B>sending</B></FONT> 
+  <FONT color="red"><B>ASCII codes</B></FONT> to the terminal:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ For example, to print
+
+     <FONT color="red">12</FONT>          
+
+ the computer must send these ASCII codes to the terminal:
+
+     <FONT color="red">00110001 00110010</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ <FONT color="red"><B>Problem</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+     of a <B>number</B> 
+     cannot be <FONT color="blue"><B>naively (= directly)</B></FONT> send
+      to the <FONT color="red"><B>terminal</B></FONT> to
+      display the <FONT color="blue"><B>number</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Again, there is a <FONT color="red"><B>disconnect</B></FONT>
+ between
+  <FONT color="blue"><B><I>internal</I> (2's complement) representation</B></FONT>
+  of a <B>number</B> and
+  what a <FONT color="red"><B>terminal</B></FONT> needs
+  to receive to display the
+  <B>number</B>
+<P>
+<HR>
+<HR>
+<P>
+<LI> This <FONT color="red"><B>disconnect</B></FONT> is
+   <FONT color="blue"><B>summarized</B></FONT> in
+   this <FONT color="red"><B>figure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/output02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ <LI> <FONT color="red"><B>Internally</B></FONT>
+   (= <FONT color="blue"><B>inside a Java program</B></FONT>, the number
+   <FONT color="red"><B><TT>12</TT> </B></FONT> is
+   <FONT color="blue"><B>represented</B></FONT> by
+   the <FONT color="red"><B>binary number
+    <TT>00000000000000000000000000001100</TT></B></FONT>
+<P>
+ <LI> In order to <FONT color="blue"><B>print (= show)</B></FONT>
+      <FONT color="red"><B>12</B></FONT> on the
+     <FONT color="blue"><B>terminal</B></FONT>
+     (so the user can see it),
+     the computer can't send
+      the <FONT color="red"><B>binary number
+    <TT>00000000000000000000000000001100</TT></B></FONT>, but
+    <FONT color="blue"><B><TT>00110001 00110010</TT></B></FONT>, whcih
+    are the <FONT color="red"><B>ASCII codes</B></FONT> that 
+    represent the characters
+   <FONT color="red"><B><TT>1</TT></B></FONT> and
+       <FONT color="red"><B><TT>2</TT></B></FONT>
+
+<
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Therefore</B></FONT>:
+  we need to <FONT color="blue"><B>convert</B></FONT>
+  the <FONT color="red"><B>input (2's complement) representation</B></FONT>
+  to the <FONT color="blue"><B>ASCII representation</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>Java class <TT>Integer</TT></B></FONT>
+   has provide the
+  <FONT color="blue"><B>conversion method
+   <TT>toString( )</TT></B></FONT> to
+   Java programmers to do the
+   conversion.
+ <P>
+  You may not have use this method in
+   <FONT color="red"><B>CS170/CS171</B></FONT>, because the
+  conversion also take place in the
+  <FONT color="blue"><B><TT>println( )</TT></B></FONT> method.
+<P>
+Here's an <B>example</B> how you can convert 
+ an <FONT color="red"><B><TT>int</TT></B></FONT> variable into
+ a <FONT color="blue"><B>string</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int i = 123;
+    String s;
+
+    s = <FONT color="red">Integer.toString</FONT>(i);   // Convert i to String representation   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Again, in <FONT color="red"><B>CS255</B></FONT>, we will
+ <FONT color="blue"><B>reveal the secret</B></FONT> inside
+ the <FONT color="red"><B><TT>toString( )</TT></B></FONT> method
+ so you will understand the computer operation better.
+<P>
+ Also, unlike the Boolean example,
+ the <FONT color="red"><B>conversion</B></FONT> from
+  <FONT color="blue"><B>2's complement representation</B></FONT>
+ of numbers
+  to
+  <FONT color="red"><B>ASCII representation</B></FONT> of
+  numbers
+ 
+ is <FONT color="blue"><B>more complex</B></FONT> and
+  will take more than 1 webpage to explain....
+<P>
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

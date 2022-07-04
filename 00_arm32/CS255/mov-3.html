@@ -1,0 +1,264 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Moving <I>memory addresses</I> into a register
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Moving memory addresses into a register
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>memory address</B></FONT> is
+       (always) a
+       <FONT color="blue"><B>32 bit binary number</B></FONT>
+ <P>
+  I.e.:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>memory address</B></FONT> is
+    (always) a <FONT color="blue"><B>"large" number</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+That means that if you need to
+ move the <FONT color="red"><B>memory address 
+  <TT>memAddress</TT></B></FONT> into a
+ <FONT color="blue"><B>register</B></FONT>, you
+  <FONT color="red"><B>must use</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   movw  rN, #:lower16:<FONT color="red">memAddress</FONT>
+   movt  rN, #:upper16:<FONT color="red">memAddress</FONT>                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Recall</B></FONT> that
+    we <FONT color="blue"><B>always</B></FONT> use
+   <FONT color="red"><B><I>labels</I></B></FONT> to
+   mark
+   <FONT color="blue"><B>important memory addresses</B></FONT>
+ <P>
+   And the <FONT color="red"><B>assembler</B></FONT> has
+   conveniently
+   <FONT color="blue"><B>equated</B></FONT> every
+   <FONT color="red"><B>label</B></FONT> used in
+   an <B>assembler program</B> to
+   its corresponding
+   <FONT color="blue"><B>memory address</B></FONT> for us !!!
+<P>
+ So if you need to move 
+  a <FONT color="red"><B>memory address</B></FONT> into
+  a <FONT color="blue"><B>register</B></FONT>, you can
+  use its
+  <FONT color="red"><B><I>label</I></B></FONT> to
+  represent the <FONT color="blue"><B>memory address value</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Previous</B></FONT>,
+      we have <FONT color="red"><B>define</B></FONT>
+       a <FONT color="blue"><B><TT>int</TT> constant value</B></FONT> in the
+       <FONT color="red"><B><TT>.data</TT> segment</B></FONT>
+       as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .data
+
+intConst:   .word  4444                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Recall</B></FONT> that the
+  <FONT color="blue"><B>assembler</B></FONT> will
+  put the <FONT color="red"><B>binary number</B></FONT> in
+  <B>some</B> <FONT color="blue"><B>memory location</B></FONT> and
+  <FONT color="red"><B><I>equates</I></B></FONT> that
+  <FONT color="blue"><B>memory location</B></FONT> with the
+  <FONT color="red"><B>identifier (label) <TT>intConst</TT></B></FONT>
+<P>
+<B>Explained using a picture:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/label01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+ In other words:
+  the <FONT color="red"><B>symbolic name <TT>intConst</TT></B></FONT>
+  is <FONT color="blue"><B>equal</B></FONT> to the
+  <FONT color="red"><B>memory address
+   (which is always a <I>large</I> number)</B></FONT>
+   of the memory location where that number is located.
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Suppose</B></FONT> we want to
+     move the
+   <FONT color="blue"><B>memory address</B></FONT> where the
+   integer is stored into
+   the <FONT color="red"><B>register <TT>r0</TT></B></FONT>.
+ <P>
+ From the above discussion, we need to use the following
+  <FONT color="blue"><B>2 instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   movw  r0, #:lower16:<FONT color="red">intConst</FONT>
+   movt  r0, #:upper16:<FONT color="red">intConst</FONT>              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>/home/cs255001/demo/asm/2-mov/mov-address.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255  mov-address</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+        use <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In class, I will show you that
+ the <FONT color="red"><B>register <TT>r0</TT></B></FONT> will
+ indeed contain the
+  <FONT color="blue"><B>address 
+  <TT>100228</TT></B></FONT> which is the
+  <FONT color="red"><B>memory location</B></FONT> of the
+  value <FONT color="blue"><B>4444</B></FONT> in the memory.
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

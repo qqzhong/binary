@@ -1,0 +1,254 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Java's "non-conversion" output method
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Printing integer to the terminal
+     </B></FONT>
+<P>
+<UL>
+<LI>  I like to show students what's going on using
+      <FONT color="red"><B>programming examples</B></FONT>
+     <P>
+     What I like to show you is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You cannot <FONT color="blue"><B>naively</B></FONT> print a
+       <FONT color="red"><B>binary number</B></FONT> to
+       the <FONT color="blue"><B>terminal</B></FONT>
+     because it will not be display correctly
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+But I <FONT color="red"><B>cannot show</B></FONT>
+ you this fact by using
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    System.out.print( 12 );            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+because the <FONT color="red"><B><TT>print( )</TT></B></FONT> function
+ will <FONT color="blue"><B>first convert</B></FONT> the
+ <FONT color="red"><B>number</B></FONT> to
+ an <FONT color="blue"><B>ASCII string (i.e.: "12")</B></FONT>
+ for your <FONT color="red"><B>convenience</B></FONT>
+<P>
+In fact, Java has provided
+ <FONT color="red"><B>many conversion methods</B></FONT> 
+  <B>within</B> the
+  <FONT color="blue"><B><TT>print( )</TT></B></FONT> methods
+ (plural !!!) by
+ using the <FONT color="red"><B><I>overloading</I></B></FONT> feature
+ in the Java language.
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Overloaded <TT>print( )</TT> and
+      <TT>println( )</TT> in Java's <TT>System.out</TT>
+     </B></FONT>
+<P>
+ <UL>
+
+
+ <LI> As you know, <FONT color="red"><B>Java's methods</B></FONT> 
+     can be <FONT color="blue"><B>overloaded</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A Java class can contain
+     <FONT color="red"><B><I>multiple</I> (different) methods</B></FONT>
+     that has the 
+     <FONT color="blue"><B><I>same</I> method name</B></FONT>
+     but with
+     <FONT color="red"><B><I>different</I> parameters</B></FONT>
+     (= "signature")
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is the case with:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       System.out.<FONT color="red">print</FONT>( )
+ and
+       System.out.<FONT color="red">println</FONT>( )              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><TT>System.out</TT></B></FONT> is
+     <FONT color="blue"><B><TT>PrintStream</TT> object</B></FONT>
+     (
+  See this <FONT color="blue"><B>Java doc page</B></FONT>:
+<A HREF="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#out">
+  click here</A>)
+<P>
+If you take a look at the
+     <FONT color="red"><B>documentation</B></FONT> for the
+   <FONT color="blue"><B><TT>PrintStream</TT> Java class</B></FONT>,
+  you will see the
+  <FONT color="red"><B>overloaded</B></FONT> methods
+   <FONT color="blue"><B><TT>print( )</TT></B></FONT> and
+  <FONT color="blue"><B><TT>println( )</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     void print(boolean b)
+     void print(char c)
+     void print(char[] s)
+     void print(double d)
+     void print(float f)
+     void print(int i)
+     void print(long l)
+     void print(object obj)
+     void print(String s)                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Java doc</B></FONT> for
+ <FONT color="blue"><B><TT>PrintStream</TT></B></FONT> is here for
+ easy access:
+ <A HREF="https://docs.oracle.com/javase/7/docs/api/java/io/PrintStream.html">
+  click here</A>
+<P>
+<FONT color="red"><B>Therefore:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Java will invoke
+     a <FONT color="red"><B><I>different</I> <TT>print( )</TT> 
+      (or <TT>println( )</TT> method</B></FONT> if you
+      <FONT color="blue"><B>pass</B></FONT> a
+      <FONT color="red"><B><I>different</I> data type</B></FONT>
+      to the method
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I can tell you that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Each <TT>print( )</TT></B></FONT> method
+      contains a
+      <FONT color="blue"><B><I>conversion</I> algorithm</B></FONT>
+      that converts the
+      <FONT color="red"><B>represetation</B></FONT> of the
+      <FONT color="blue"><B>input type</B></FONT> to
+      an <FONT color="red"><B>ASCII string representation</B></FONT>
+      before it performs the
+      <FONT color="blue"><B>print operation</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+That's why we
+  <FONT color="red"><B>cannot</B></FONT> use
+  <FONT color="blue"><B><TT>print( )</TT></B></FONT> or
+  <FONT color="blue"><B><TT>println( )</TT></B></FONT> 
+  to illustrate the
+  <FONT color="red"><B>need</B></FONT> to convert
+  to <FONT color="blue"><B>ASCII representation</B></FONT>
+  (because inside the <B>need</B> for
+  <FONT color="red"><B>conversion</B></FONT> is
+  taken care of by 
+  <FONT color="blue"><B><TT>print( )</TT></B></FONT> !!!.
+<P>
+  If <FONT color="red"><B><TT>print( )</TT></B></FONT> did the
+   conversion (secretly) for
+  us, there is no more need for us to do the conversion...)
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

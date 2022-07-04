@@ -1,0 +1,172 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - A Brief Manual for Egtapi </title>
+<body
+text = "#000000"
+link="#0000ff"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<B>
+<H2>CS 255 - Computer Organization/Architecture I <BR>
+EGTAPI Manual <BR></H2>
+Sept 2019
+</B>
+</CENTER>
+<P>
+<P><HR><P>
+
+
+
+<H3>
+Prelude
+</H3>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Download page</B></FONT> of the
+      <FONT color="blue"><B>Egtapi</B></FONT> software:
+   <A HREF="http://www.cs.emory.edu/~egtapi/download.html">
+	click here </A>
+ <P>
+   To install: create a folder (I recommend: "cs255") and
+   unpack the <B>zip</B> file that you have downloaded in the "cs255" folder.
+ <P>
+  You can then run <B>EGTAPI</B> by using the 
+   <B>file browser/explorer</B> 
+	on your laption.
+   Browse in the "cs255" folder and click on the <B>Egtapi</B> icon to
+   run <B>EGTAPI</B>.
+<P>
+<LI> If you want to <FONT color="red"><B>try out</B></FONT> the
+    <FONT color="blue"><B>features</B></FONT> of 
+    <FONT color="red"><B>Egtapi</B></FONT> <B><I>while reading</I></b> this
+    <B>documentation</B>, then
+     make a <FONT color="blue"><B>copy</B></FONT> of the
+    <FONT color="red"><B><TT>fac.s</TT></B></FONT> demo assembler
+   program to your 
+  <FONT color="blue"><B>cs255/Egtapi</B></FONT>
+   directory by doing the following:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1. login to a <FONT color="red">lab machine</FONT>
+
+       (If you're <FONT color="red">home</FONT>, login to <FONT color="red">lab0z.mathcs.emory.edu</FONT>         
+        and then to a <FONT color="blue">real lab machine</FONT>)
+
+    2. Create your own "Egtapi" directory:
+
+          <FONT color="red">mkdir ~/cs255/Egtapi</FONT>
+
+    3. Go to the "Egtapi" directory:
+
+          <FONT color="red">cd ~/cs255/Egtapi</FONT>
+
+    4. Copy the <FONT color="red">fac.s</FONT> assembler program:
+
+          <FONT color="red">cp ~cs255001/demo/asm/8-sub/fac.s  ~/cs255/Egtapi</FONT>   
+
+    5. Copy the debug files:
+
+          <FONT color="red">cp ~cs255001/demo/asm/8-sub/.egt.fac.arm ~/cs255/Egtapi</FONT>   
+
+    6. Then <FONT color="red">compile</FONT> (assemble) the program:
+
+          <FONT color="red">/home/cs255001/bin/as255 fac</FONT> 
+
+    7. Run <FONT color="red">Egtapi</FONT> on your laptop
+
+       If you're using a Lab machine, execute this in a window: <FONT color="red">/home/cs255001/bin/egtapi &</FONT>     
+
+       The <FONT color="red">Egtapi</FONT> window will pop up and you are ready to use <FONT color="red">Egtapi</FONT>
+
+       (Learn what to do by following the examples in this tutorial)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+       Try out <FONT color="blue"><B>Egtapi</B></FONT> by
+  pressing the <FONT color="red"><B>buttons</B></FONT> in
+  the <B>Egtapi window</B> and watch the effect as explained in this doc.
+</UL>
+<A NAME="TOC"></A>
+<P>
+<HR>
+<HR>
+<HR>
+
+
+<H2>Table of Contents</H2>
+<UL>
+<LI><A HREF="intro.html">1. Introduction</A>
+
+<LI> <A HREF="login.html">
+     2. Logging in to Egtapi</A>
+
+<LI> <A HREF="menu.html">
+     3. Menu functions provided by the Egtapi  window</A>
+
+
+<LI> <A HREF="edit.html">
+     4. Editing your assembler programs </A>
+
+<LI> <A HREF="compile.html">
+     5. Compiling your assembler programs </A>
+
+<LI> <A HREF="load.html">
+     6. Loading/reloading your assembler programs </A>
+<P>
+<LI> <A HREF="info.html">
+     7. The panels and buttons in EGTAPI (and the SAVE button) </A>
+   <UL>
+   <LI> <A HREF="step.html">
+      7a. How to execute 1 instruction in your program</A>
+   </UL>
+<P>
+<LI> Examining registers and program variables using EGTAPI:
+ <UL>
+ <LI> <A HREF="reginfo.html">
+      8a. Examining values stored inside the registers </A>
+ <LI> <A HREF="varinfo.html">
+      8b. Examining values stored inside variables</A>
+ <LI> <A HREF="arrayinfo.html">
+      8c. Examining values stored inside an <I>entire</I> array</A>
+ <LI> <A HREF="listinfo.html">
+      8d. Examining values stored inside a <I>list</I></A>
+ <LI> <A HREF="stackinfo.html">
+      8e. Examining values stored inside the <I>system stack</I></A>
+ </UL>
+<P>
+<LI> <A HREF="exec.html">
+      9. Controlling the execution of your assembler programs  </A>
+<P>
+<LI><A HREF="breakpoint.html">
+      10. <B><I>Using Breakpoints</I></B></A>
+	to help you find bugs
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

@@ -1,0 +1,764 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Shift operators: << and >>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>left shift</I> shift operator of <I>C</I>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Left shift</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT> x << n </TT></B></FONT> =
+      <FONT color="blue"><B><I>left</I> shift</B></FONT>
+     the <B>bit pattern <TT>x</TT></B> over
+      <FONT color="blue"><B><TT>n</TT></B></FONT> positions 
+ <P>
+  The <FONT color="blue"><B>right-most bit positions</B></FONT>
+  will be filled with <FONT color="red"><B>0 bits</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     char a = 0b<FONT color="red">00000001</FONT>;          
+
+     char b = <FONT color="red">a << 1</FONT>;  /* b = <FONT color="red">00000010</FONT> */    
+
+     char c = <FONT color="red">a << 2</FONT>;  /* c = <FONT color="red">00000100</FONT> */
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>right shift</I> shift operator of <I>C</I>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Right shift</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT> x >> n </TT></B></FONT> =
+      <FONT color="blue"><B><I>right</I> shift</B></FONT>
+     the <B>bit pattern <TT>x</TT></B> over
+      <FONT color="blue"><B><TT>n</TT></B></FONT> positions 
+ <P>
+ <HR>
+<P>
+ <LI> <B>Filler bit used:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>If</I></B> the <FONT color="blue"><B>type</B></FONT> of the 
+       <B>variable</B> <FONT color="red"><B><TT>x</TT></B></FONT> is
+       an <FONT color="blue"><B>unsigned type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>left-most bit positions</B></FONT>
+  will 
+   <B><I>always</I></B>
+   be filled with <FONT color="red"><B>0 bits</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B><I>If</I></B> the <FONT color="blue"><B>type</B></FONT> of the 
+       <B>variable</B> <FONT color="red"><B><TT>x</TT></B></FONT> is
+       an <FONT color="blue"><B><I>signed</I> type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>left-most bit positions</B></FONT>
+  will 
+   be filled with <FONT color="red"><B>0 bits</B></FONT>
+   <FONT color="blue"><B><I>if</I></B></FONT> 
+    the <B>left-most bit</B>
+   of <FONT color="red"><B><TT>x</TT></B></FONT> is equal to
+   <FONT color="blue"><B>0</B></FONT>
+<P>
+ <LI> The <FONT color="blue"><B>left-most bit positions</B></FONT>
+  will 
+   be filled with <FONT color="red"><B>1 bits</B></FONT>
+   <FONT color="blue"><B><I>if</I></B></FONT> 
+    the <B>left-most bit</B>
+   of <FONT color="red"><B><TT>x</TT></B></FONT> is equal to
+   <FONT color="blue"><B>1</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example 1:</B> <FONT color="red"><B>unsigned type</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="magenta">unsigned</FONT> char a = 0b<FONT color="red">00000100</FONT>;          
+     <FONT color="magenta">unsigned</FONT> char b = 0b<FONT color="red">10000100</FONT>; 
+
+     char c;
+
+     c = <FONT color="red">a >> 1</FONT>;  /* c = <FONT color="red"><FONT color="darkred">0</FONT>0000010</FONT> */    
+
+     c = <FONT color="red">b >> 1</FONT>;  /* c = <FONT color="red"><FONT color="darkred">0</FONT>1000010</FONT> */
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example 2:</B> <FONT color="red"><B><I>signed</I> type</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     char a = 0b<FONT color="red">00000100</FONT>;          
+     char b = 0b<FONT color="red">10000100</FONT>; 
+
+     char c;
+
+     c = <FONT color="red">a >> 1</FONT>;  /* c = <FONT color="darkred"><FONT color="red">0</FONT>0000010</FONT> */    
+
+     c = <FONT color="red">b >> 1</FONT>;  /* c = <FONT color="darkred"><FONT color="magenta">1</FONT>1000010</FONT> */       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/shift1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc shift1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<FONT color="red"><B>Delete</B></FONT> the
+  <FONT color="blue"><B><TT>unsigned</TT></B></FONT> keyword,
+  <B>re-compile</B> it and
+  <FONT color="red"><B>re-run it</B></FONT> !!!
+ </UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Using</I> the shift operators
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Common</B> usage of the
+      <FONT color="blue"><B>shift operators</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Shift <I>left</I> one bit</B></FONT> =
+      <FONT color="red"><B>multiply</B></FONT> a value by
+      <B>2</B>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Bit pattern  |  Value in decimal       Left shift 1 bit | Value in decimal
+  --------------+--------------------   -------------------+-------------------
+    00000011    |        3                  00000110       |      6
+    00000101    |        5                  00001010	   |     10
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Shift <I>right</I> one bit</B></FONT> =
+      <FONT color="red"><B>divide</B></FONT> a value by
+      <B>2</B> (= <FONT color="red"><B>quotient</B></FONT> of
+      a division by <B>2</B>)
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Bit pattern  |  Value in decimal       Right shift 1 bit | Value in decimal
+  --------------+--------------------   --------------------+------------------
+    00000110    |        6                   00000011       |     3 (= 6%2)
+    00000011    |        3                   00000001       |     1 (= 3%2)
+    00000101    |        5                   00000010	    |     2 (= 5%2)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<P>
+<LI> <B>Example C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = 1;          /* a =<FONT color="red"> 00000001</FONT> (= 1) */
+  <FONT color="red">  
+      a = a << 1;          /* Now: a = 00000010 (= 2) */</FONT>            
+      printf( "a =  %d\n", a  );
+   <FONT color="red"> 
+      a = a << 1;          /* Now: a = 00000100 (= 4) */</FONT>
+      printf( "a =  %d\n", a  );
+    <FONT color="red">
+      a = a >> 1;          /* Now: a = 00000010 (= 2) */</FONT>
+      printf( "a =  %d\n", a  );
+    <FONT color="red">
+      a = a >> 1;          /* Now: a = 00000001 (= 1) */</FONT>
+      printf( "a =  %d\n", a  );
+    <FONT color="red">
+      a = a >> 1;          /* Now: a = 00000001 (= 0) */</FONT>
+      printf( "a =  %d\n", a  );
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/mult-div1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc mult-div1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example using shift operation: print an <TT>int</TT> variable in
+     bit representation
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> that
+     <FONT color="blue"><B><TT>int</TT></B></FONT> (integer) typed variables
+      use the
+      <FONT color="red"><B>binary number system</B></FONT>
+      to represent values
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     What is stored in an int variable   |  Value that is represented
+   --------------------------------------+-------------------------------    
+     00000000 00000000 00000000 00000000 |              0
+     00000000 00000000 00000000 00000001 |              1
+     00000000 00000000 00000000 00000010 |              2
+     00000000 00000000 00000000 00000011 |              3
+                   ....                               ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you <FONT color="blue"><B>write</B></FONT> the
+      following <FONT color="red"><B>assignment statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int x;
+<FONT color="red">
+     x = 3; </FONT>                 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> the <B>computer</B> will
+     <FONT color="blue"><B>store</B></FONT> the following
+     <FONT color="red"><B>bit pattern</B></FONT> in the 
+     variable <B><TT>x</TT></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   00000000 00000000 00000000 00000011          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Write an <B>algorithm</B> to
+      <FONT color="blue"><B>print</B></FONT> the 
+      <B><I>bit pattern</I></B> stored inside an
+      <FONT color="red"><B><TT>int</TT> variable <TT>a</TT></B></FONT>
+      (in <B>binary format</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Pseudo code:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  bit position 31              bit position 0
+       |                              |
+       v                              v
+   a = xxxxxx<FONT color="red">x</FONT>xxxxxxxxxxxxxxxxxxxxxxxxx      (32 bits)     
+             ^
+	     |
+      bit position i
+
+<HR>
+   for ( i = 31; i >= 0; i-- )
+      if ( <FONT color="red">bit at position i in variable a</FONT> == 1 )
+         print '1';
+      else
+         print '0';
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void printBits( int a )
+   {
+      int i;
+    
+      /*                    10987654321098765432109876543210  */
+      unsigned int <FONT color="red">mask = 0b10000000000000000000000000000000</FONT>;           
+    
+      for ( i = 31; i >= 0; i-- )
+      {
+   	 if ( <FONT color="red">(a & mask) != 0</FONT> )
+   	    <FONT color="red">putchar('1');</FONT>
+   	 else
+   	    <FONT color="red">putchar('0');</FONT>
+    <FONT color="magenta">
+   	 mask = mask >> 1;</FONT>     /* Shift mask bit to right */
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I have written the <B>algorithm</B> as a 
+     <FONT color="red"><B>C <I>function</I></B></FONT>
+ <P>
+ <LI> Yes, I know that we have not covered 
+   <FONT color="blue"><B>C functions </B></FONT> yet, but
+   the <FONT color="red"><B>syntax</B></FONT> of <B>C functions</B>
+   is <FONT color="blue"><B>very similar</B></FONT> to that
+   of <B>Java</B>
+   (but <FONT color="blue"><B><I>without</I></B></FONT> the
+   <B>class</B> construct around it)
+ <P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>putchar(x)</TT></B></FONT> function
+    will <FONT color="blue"><B>print</B></FONT> the
+    <B>character <TT>x</TT></B> to the
+    <FONT color="red"><B>standard output (terminal)</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Whole C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void printBits( int a )
+   {
+      int i;
+    
+      /*                    10987654321098765432109876543210  */      
+      unsigned int mask = 0b10000000000000000000000000000000;
+    
+      for ( i = 31; i >= 0; i-- )
+      {
+   	 if ( (a & mask) != 0 )
+   	    putchar('1');
+   	 else
+   	    putchar('0');
+    
+   	 mask = mask >> 1;     /* Shift mask bit to right */
+      }
+    
+   }
+    
+   int <FONT color="red">main( int argc, char* argv[] )</FONT>
+   {
+      int a;
+    
+      printf( "a = " );
+      scanf( "%d", &a );
+    
+      printf( "a = %d\n", a );
+      printf( "Binary representation = " );
+  <FONT color="red">  
+      printBits( a );   /* Call the printBits() function */ </FONT>
+      putchar('\n');
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Remember</B> that: a <FONT color="blue"><B>C program</B></FONT>
+  <B>always</B> starts running in the
+  <FONT color="red"><B><TT>main()</TT></B></FONT> function
+  (just like <B>Java</B>)
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/pr-bits.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pr-bits.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Final note
+     </B></FONT>
+<P>
+<UL>
+<LI> These <FONT color="blue"><B>shift operators</B></FONT> are
+      <B><I>also</I></B> defined in <B>Java</B>.
+<P>
+<LI> They are <B>often</B> <FONT color="blue"><B>omitted</B></FONT>
+       in <FONT color="red"><B>introduction courses</B></FONT>
+       because they are <B>not used</B> in
+       program at the introduction level. 
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

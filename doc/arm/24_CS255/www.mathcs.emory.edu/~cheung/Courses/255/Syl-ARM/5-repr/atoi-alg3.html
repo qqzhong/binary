@@ -1,0 +1,505 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting any decimal integer string to 2's complement representation
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Sketch of the ASCII representation -> 2's complement representation
+     conversion algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> The following diagram illustrates the steps to convert
+     a number given in the
+     ASCII representation and convert it to an
+     <B>equivalent</B>
+      2's complement representation
+      using a <B>concrete example</B>
+      (12):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Input:                          "12"
+
+   ASCII representation is:        00110001 00110010 
+
+   (1) Map each ASCII code
+       to it's 2's complement
+       equivalent:                 00000001 00000010 
+
+   (2) Compute the value
+       (in binary) using
+       highschool formula:         00000001&times;00001010<sup>1</sup> + 00000010&times;00001010<sup>0</sup>
+                                =  00001100
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Caveat:</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+     We must take care of the
+    <FONT color="red"><B>negative sign</B></FONT> !!!</SPAN>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<P>
+<B>Example:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   The string "<FONT color="red">-</FONT>12" contains the following ASCII codes:
+
+           <FONT color="red"> 00101101 ('-')</FONT>   00110001 ('1')   00110010 ('2')          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The negative sign ("dash" character
+  <FONT color="red"><B><TT>'-'</TT></B></FONT>)
+ is represented by the 
+ <FONT color="blue"><B>ASCII code <TT>00101101</TT></B></FONT>.
+<P>
+If the <FONT color="red"><B>first character</B></FONT> of the
+  <FONT color="blue"><B>(input) string</B></FONT> is
+  <FONT color="red"><B>'-'</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We process the <FONT color="red"><B>remainder string</B></FONT>
+        (= the positive number) first and
+	obtain the
+    <FONT color="blue"><B>2's complement code</B></FONT> for the
+    <FONT color="red"><B>positive number</B></FONT>
+<P>
+ <LI> Then <FONT color="red"><B>negate</B></FONT> the
+    <FONT color="blue"><B>2's complement code</B></FONT>
+    (= flip the bits and add 1) to obtain the
+    <FONT color="red"><B>final 2's complement code</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+
+
+<P>
+<LI> The <FONT color="red"><B>complete conversion algorithm</B></FONT>
+ with <FONT color="blue"><B>negative sign</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Input:                          "<FONT color="red">-</FONT>12"
+
+   ASCII representation is:        <FONT color="red">00101101</FONT> 00110001 00110010 
+
+   (0) If the first character 
+       is '-' then
+       {
+          Remember the negative sign
+          and discard it
+
+          Remaining input:                  00110001 00110010 
+       }
+
+   (1) Map each ASCII code
+       to it's 2's complement
+       equivalent:                          00000001 00000010 
+
+   (2) Compute the value
+       (in binary) using
+       highschool formula:         00000001Å◊000010101 + 00000010Å◊000010100
+                                =  00001100
+
+   (3) If number was negative
+       {
+          negate result
+          (flip all bits
+	   and add 1)           =   11110011 + 1 = <FONT color="red">11110100</FONT>
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>algorithm</B></FONT> expressed
+ in <FONT color="red"><B>Java</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">/* -----------------------------------------------------
+      Power(k): Return 10^k in Binary 2's complement code
+      ------------------------------------------------------ */</FONT>
+   public static int <FONT color="red">Power(int k)</FONT>
+   {
+      int r = 1;   // Stores: 00000000000000000000000000000001  in variable r
+
+      for (int i = 0; i < k; i++ )
+      {
+         r = r * 10;  // The Java compiler will convert 10 into the
+                      // binary number 00000000000000000000000000001010
+                      // This statement will multiply bin number r
+                      // with 00000000000000000000000000001010
+      }
+
+      return r;    // Returns a BINARY number in 2's compl
+                   // that represents the VALUE 10^k
+   }
+<FONT color="red">
+   /* --------------------------------------------------------------
+      parseInt(s): Ascii to Integer conversion function
+
+      Input:  String (ASCII) representation of a number
+      Output: int (2's complement) representation of same number
+      -------------------------------------------------------------- */</FONT>
+   public static <FONT color="red">int myParseInt(String s)</FONT>
+   {
+      int[] digit = new int[20]; // Used to store individual digits in String s
+      int  value, sign;
+      int  i, pos;
+      int  len;
+
+      <FONT color="red">/* -------------------------
+         Check for negative sign
+         ------------------------- */</FONT>
+      if (s.charAt(0) == '-')
+      {  sign = -1;
+         pos = 1;     // Start processing at charAt(1)
+      }
+      else
+      {  sign = 0;
+         pos  = 0;    // Start processing at charAt(0)
+      }
+
+      <FONT color="red">/* -------------------------------------------
+         Convert each character digit into 2s compl
+         (and keep a count on the number of digits
+         ------------------------------------------- */</FONT>
+      len = 0;        // len counts # digits (without the leading '-')
+
+      for ( i = pos; i < s.length(); i++ ) // Convert ASCII digits
+      {
+          digit[len] = s.charAt(i) - 48;
+          len++;       // Count # digits in number
+      }
+<FONT color="red">
+      /* ------------------------------------------
+         Compute the absolute value of the number
+         ------------------------------------------ */</FONT>
+      value = 0;
+      for (int k = 0; k < len; k++)
+      {<font color="red">
+         /* ---------------------------------------------------------------
+            Value of the digits:
+
+               digit[0] ...  digit[k]    ...     digit[len-2] digit[len-1]
+                           10^((len-1)-k)            10^1          10^0
+            ---------------------------------------------------------------- */</font>
+         pos = (len - 1) - k;
+
+         value = value + digit[k]*<FONT color="red">Power( pos )</FONT>;  // High school knowledge....
+      }
+<FONT color="red">
+      /* ========================================================
+         Negate 2's complement representation if first character
+	 of input was '-'
+	 ========================================================= */</FONT>
+      if (sign == -1)
+         value = -value;  // Compute the negative value (= flip bits and add 1 !!)
+
+      return(value);      // Return a BINARY 2's compl code
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The algorithm is doing exactly what I describe with the examples:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ (1) In the
+
+         <FONT color="red">"Check for negative sign and process input"</FONT> code segment
+
+     we check if the first character in the input string s is a dash ('-')
+
+     If so: we start at the 2nd character in the input (skipping the '-' char)
+     If not: we start at the 1st charcater in the input
+
+     We take each character in the input string and map the character to
+     it 2's complement equivalent using:
+
+                 s.charAt(i) - 48
+
+     After this processing, the array "digit[ ]" will contains
+     the digits of the number in 2's complement representation
+
+ (2) In the
+ 
+          <FONT color="red">"Compute the absolute value of the number"</FONT> code segment
+
+     we use the highschool formula to compute the value of the decimal
+     number (in binary)
+
+     The function <FONT color="red">Power(pos)</FONT> -- where <FONT color="red">pos</FONT> is the position
+     of the digit, returns the value <FONT color="red">10<sup>pos</sup></FONT> in binary.
+
+  (3) Finally, in the
+
+           <FONT color="red">Compute the absolute value of the number..."</FONT> code segment
+
+      we apply the <FONT color="red">2's complement negation operation</FONT>
+      on the result if the first character was a dash (-')
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+ <P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> get a copy of the program at:
+   <FONT color="red"><B><TT>/home/cs255001/demo/atoi/Atoi.java</TT></B></FONT>
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Atoi.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Atoi</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript
+     </B></FONT>
+<P>
+<UL>
+<LI> There is a <FONT color="red"><B>more compact
+    and <I>elegant</I> algorithm</B></FONT> to
+  convert <FONT color="blue"><B>String</B></FONT> to
+  <FONT color="red"><B>int (2s complement)</B></FONT> but it's
+  harder to understand.
+ <P>
+  I will just show it for those who are 
+ <FONT color="red"><B>interested</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public static int myParseInt(String s)
+   {
+      int  value, sign;
+      int  pos;
+
+      /* -------
+         Check for negative sign
+         ------- */
+      if (s.charAt(0) == '-')
+      { sign = -1;
+        pos = 1;           // Start at digit s.charAt(1)
+      }
+      else
+      { sign = 1;
+        pos = 0;           // Start at digit s.charAt(0)
+      }
+<FONT color="red">
+      /* ------------------------------------------
+         Compute the absolute value of the number
+         ------------------------------------------ */
+      value = 0;
+      for (int k = pos; k < s.length(); k++)
+      {
+         value = 10*value + ( s.charAt(k) - 48 );  // High school knowledge....
+      }
+</FONT>
+      /* ========================================================
+         Return the 2s complement representation
+         ========================================================= */
+      return (sign*value);  // If sign == -1, we will return 
+			    // the 2s complement negative value !
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/atoi/Atoi_Elegant.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Atoi_Elegant.java</TT></B></FONT>
+ <LI> To run: 
+  
+  <FONT color="red"><B><TT>java Atoi_Elegant</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

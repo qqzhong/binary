@@ -1,0 +1,627 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Subroutine call and return:
+<TT>bl</TT> (branch and <I>link</I>) and <B><TT>mov pc, lr</TT></B>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     General discussion:
+     Assembler Instructions to implement subroutine (method) calling
+     </B></FONT>
+<P>
+ <UL>
+<LI> Modern computer
+         <FONT color="red"><B>typically</B></FONT>
+     provides 
+     <FONT color="blue"><B>2 assembler instructions</B></FONT>
+      that user can use
+	to implement
+	<FONT color="red"><B>methods</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> An <FONT color="red"><B>assembler instruction</B></FONT> that is
+       used by the
+       <FONT color="blue"><B>caller</B></FONT> to
+       <FONT color="red"><B>invoke a method</B></FONT>
+ <LI> An <FONT color="red"><B>assembler instruction</B></FONT> that is
+       used by the
+       <FONT color="blue"><B>callee (= the called method)</B></FONT> to
+       <FONT color="red"><B>return to <I>its</I> caller</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ARM assembler instructions used to implement subrouting (method)
+     calling and return
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>branch <I>and</I> link
+        (<TT>bl</TT></B></FONT>
+	<B>instruction</B> in the
+	<FONT color="blue"><B>ARM processor</B></FONT> is used
+	to
+	<FONT color="red"><B>invoke (= call)</B></FONT> a
+	method.
+<P>
+<LI> Syntax of the 
+   <FONT color="red"><B>branch and link</B></FONT> instruction:
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+  bl  label       
+
+  <font color="red">Effect:</font>
+        (1) Save the Program Counter (PC) in the Link Register (LR)
+	(2) Branch to memory location marked by the label "label"   
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that the
+   <FONT color="blue"><B>Program Counter (PC)</B></FONT> contains
+   the <FONT color="red"><B><I>address</I></B></FONT> of the
+   <FONT color="blue"><B><I>next</I> instruction</B></FONT> that the
+   <FONT color="red"><B>CPU</B></FONT> will
+   <FONT color="blue"><B>fetch</B></FONT> (and execute) after it processed
+   the <FONT color="red"><B>current instruction</B></FONT> in the
+   <FONT color="blue"><B>Instruction Register (IR)</B></FONT>
+<P>
+ In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>PC</B></FONT> contains the
+     <FONT color="blue"><B>location</B></FONT> of the
+     <FONT color="red"><B>instruction</B></FONT>
+     <FONT color="blue"><B><I>following</I></B></FONT> the
+     <FONT color="red"><B><TT>bl</TT> instruction</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Assembler program in memory:
+
+          ....
+	  ....
+	  <FONT color="red">bl</FONT>    method    <--- CPU currently executing the bl instruction
+          next instr      <--- The PC contains the address of this instruction ! 
+	  ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+By <FONT color="red"><B>saving</B></FONT> the
+ <FONT color="blue"><B>value in the PC</B></FONT> 
+ (in the <FONT color="red"><B>LR register</B></FONT>),
+ we have <FONT color="blue"><B>saved</B></FONT> the
+ <FONT color="red"><B>return address</B></FONT> that the
+ <FONT color="blue"><B>invoked method</B></FONT> must use
+ to <FONT color="red"><B>return back</B></FONT> to
+ its <FONT color="blue"><B>caller</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ <LI> The <FONT color="red"><B> retrurn address</B></FONT>
+  saved in the <FONT color="blue"><B>LR register</B></FONT>
+     is a <FONT color="red"><B>"bread crump"</B></FONT> - using the analogy of
+	Hansel and Gretel....
+
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+ <LI> <FONT COLOR="darkmagenta"><B>
+     Example of the <TT>bl</TT> instruction
+     </B></FONT>
+ <P>
+ <UL>
+ <LI> Consider the
+      following <FONT color="red"><B>ARM assembler program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        mov     r0, #4
+        mov     r1, #4
+        <FONT color="red">bl      myMethod</FONT>                         
+        mov     r2, #4
+        mov     r3, #4
+
+
+<FONT color="red">myMethod:</FONT>
+        mov     r10, #4
+        mov     r9, #4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will use <FONT color="red"><B>EGTAPI</B></FONT> in class
+ to show you the
+ <FONT color="blue"><B>executing</B></FONT>.
+<P>
+I have taken some <FONT color="red"><B>snapshot</B></FONT>
+ of the <FONT color="blue"><B>execution</B></FONT> for my notes.
+<P>
+The <FONT color="red"><B>content</B></FONT> of the
+ <FONT color="blue"><B>registers</B></FONT> at the moment
+ the <FONT color="red"><B>ARM processor</B></FONT> executes the
+  <FONT color="blue"><B><TT>bl</TT> instruction</B></FONT>
+  is as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/bl-1.jpg" width=300 heigh=500></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Notice that
+ <FONT color="red"><B>PC = 33280</B></FONT> which is the
+  <FONT color="blue"><B>location</B></FONT> of the
+  <FONT color="red"><B><TT>"bl myMethod"</TT></B></FONT> instruction
+<P>
+The <FONT color="red"><B><TT>"bl myMethod"</TT></B></FONT> instruction
+ will <FONT color="blue"><B>call (= run, jump)</B></FONT> the
+  <FONT color="red"><B><TT>myMethod</TT></B></FONT> function which is
+ located at address <FONT color="blue"><B>33292</B></FONT> as
+ given by <FONT color="red"><B>EGTAPI</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/bl-3.jpg" width=400 heigh=100></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+When we <FONT color="red"><B>click <TT>STEP</TT></B></FONT> and
+  <FONT color="blue"><B>execute</B></FONT> the
+  <FONT color="red"><B><TT>"bl myMethod"</TT></B></FONT> in
+  <FONT color="blue"><B>EGTAPI</B></FONT>, we will see these values
+ in the <FONT color="red"><B>registers</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/bl-2.jpg" width=300 heigh=500></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>PC = 33292</B></FONT> - the program
+      made a <FONT color="blue"><B>jump</B></FONT> to
+      the <FONT color="red"><B><TT>myMethod</TT></B></FONT> function
+      <P>
+    (So the <FONT color="blue"><B>instructions</B></FONT> in the
+      <FONT color="red"><B><TT>myMethod</TT></B></FONT> function
+      will now be <FONT color="blue"><B>executed</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Notice</B></FONT> that
+   the <FONT color="blue"><B>LR register</B></FONT> contains:
+      <FONT color="red"><B>33284</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is the <FONT color="red"><B>address</B></FONT> of the
+        <FONT color="blue"><B>instruction</B></FONT> that
+	<FONT color="red"><B><I>follows</I></B></FONT> the
+	<FONT color="blue"><B><TT>"bl myMethod"</TT></B></FONT> instruction !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ So the <FONT color="red"><B><TT>bl</TT> (branch and link)</B></FONT>
+ instruct has <FONT color="blue"><B><I>saved</I></B></FONT> the
+ <FONT color="red"><B>return address</B></FONT> in the
+ <FONT color="blue"><B><TT>lr</TT> register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+	Returning from a subroutine call in ARM
+     </B></FONT>
+<P>
+ <UL>
+<LI> The <FONT color="red"><B>Return from Subroutine</B></FONT> 
+   in the <FONT color="blue"><B>ARM processor</B></FONT> can be
+   achieved using a
+   <FONT color="red"><B><TT>mov</TT> instruction</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+  mov   pc, <FONT color="red">lr</FONT> 
+
+  <FONT COLOR="red">Effect:</font>
+
+        Copy the return address saved by the bl instruction        
+        into the Program Counter (PC)   
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example using the RTS instruction
+     </B></FONT>
+
+     We continue with the example from above:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+ Memory        Instruction             
+ Address:      in the memory address: 
+ ---------     ----------------------- 
+
+
+  2244:          BSR    label
+  2246:	     MOVE.L #0, Dummy1
+
+
+  4012:   label: MOVE.L #0, Dummy2 
+  4014:          <FONT color="red">RTS</font>
+</PRE>
+</FONT> </B>
+</TD> 
+<TD bgcolor="lightcyan">
+<B> <FONT color="blue">
+<PRE>
+
+  PC = 4012     +---------------+  
+  A7 = 9996	|		|
+		+---------------+
+		|		|<B><FONT COLOR="red">
+		+---------------+
+    A7 --> 9996	|    2246	|</font>
+		+---------------+
+	  10000 |   xxxxxxxx    |</FONT></B>
+</PRE>
+</FONT> </B>
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+
+   Suppose the CPU fetched "RTS" and executes it...
+
+  <P>
+  AFTER the CPU finishes executing  "RTS", the stack will be changed  to:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+        PC = 2246               +---------------+
+        A7 = 10000		|		|
+				+---------------+
+				|		|
+				+---------------+
+		           9996	|    2246	| <- NOT part of the stack ! <B><FONT COLOR="red">
+				+---------------+
+		    A7 -->10000 |   xxxxxxxx    |</FONT></B>
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+ <P>
+ <LI> <B>NOTE:</B> although the value <B>2246</B> is still in memory,
+	it is <B>NO LONGER</B> part of the system stack - because the
+	stack top (indicated by A7) has moved <B>below</B> that memory
+	location !!!!
+</UL>
+<P>
+
+  Note that the value <B>2246</B> which was at the top of the stack
+   is now in the PC  !!!
+  <P>
+  <UL>
+   In other words, the PC has been updated to <B>2246</B>
+   (In computer science jargon: <B>2246</B> was POPPED from the program
+    stack into the PC.)
+   </UL>
+ <P>
+ Note also that the value <B>2246</B> is the location <B>AFTER</B>
+	the <B>BSR</B> instruction !!!
+ <P>
+  Becasue PC = 2246, the <B>next</B> instruction that the CPU will
+  fetch and execute is the one <B>after</B> the <B>BSR</B> instruction !!
+<P>
+  That is <B>exactly</B> the location where you want to
+   be when you <B>return</B> from the called function !!!!
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     "Format" of a method/function in assembler code
+     </B></FONT>
+<P>
+ <UL>
+ <LI> While functions/methods look very "formidable" in high level
+	languages (such as Java), functions/methods written
+	in assembler does not look like much:
+ <P>
+ <LI> A function in assembler code looks something like this:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+        FuncName:   ......
+		    ...... (assembler instructions that comprise   
+		    ......  the body of the function)
+		    ......
+		    RTS
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  <P>
+ <LI> Needless to say that this is a far-cry from the "nice-looking"
+	(human readable) block structures in a high level language.
+
+ <P>
+ <LI> Furthermore, functions/methods written in assembler 
+	are <B>very hard</B> to discern - especially if
+	you remember that
+	there are <B>many labels</B> all over the place from
+	<B>IF</B> and <B>WHILE</B> statements !!!
+ </UL>
+
+<P>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+	Example: BSR and RTS
+     </B></FONT>
+<P>
+ <UL>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+	<A HREF="../../demo/subroutine.s"> click here </A>
+   </UL>
+<P>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Marked differences between methods in high level language and assembler
+     </B></FONT>
+<P>
+ <UL>
+ <P>
+ <LI> Methods (or subroutines) in high level languages have very
+	nice syntax structures to highlight where the method
+	begins and ends...
+ <P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public int  myMethod ( int p1, int p2 )            
+    {
+        ...
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see the <FONT color="red"><B>method <I>name</I></B></FONT> and
+ the <FONT color="blue"><B>curly braces { .. }</B></FONT> that
+ denote the
+  <FONT color="red"><B>start and the end</B></FONT> of the
+ <FONT color="blue"><B>method</B></FONT>
+  <B>clearly</B>
+<P>
+<HR>
+<HR>
+  <P>
+	Methods (or subroutines) in assembler are nothing more than
+	a series of instructions 
+       <FONT color="red"><B>marked</B></FONT> by  a 
+        <FONT color="blue"><B>label</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  myMethod:
+             ...
+	     ...  (assembler instructions)   
+	     ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+It's <FONT color="red"><B>very hard</B></FONT> to
+ tell in 
+ <FONT color="blue"><B>assembler program</B></FONT>
+ which <FONT color="red"><B>label</B></FONT> to
+  <B>mark</B> a
+   <FONT color="blue"><B><I>method</I> start location</B></FONT> !!!
+
+ </UL>
+
+
+
+
+
+
+
+
+
+
+
+</UL>
+<HR>
+<HR>

@@ -1,0 +1,406 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Example assembler program: 
+Passing parameters and allocating local variables using the system stack
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: using register as storage for local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following 
+  <FONT color="red"><B>function invocation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="magenta">/* -------------------------------------------------------
+      sumRange(A,a,b):  returns  (A[a] + A[a+1] + ... + A[b-1]) 
+      ------------------------------------------------------- */  </FONT>       
+   <FONT color="red">int sumRange(int[] A, int a, int b )</FONT>           
+   {
+       int i, s;
+
+       s = 0;
+       for (i = a, i < b; i++)
+          s = s + A[i];
+       return(s);
+   }
+
+   void main( )
+   {
+      int[] A = {11,12,13,14,15,16,17,18,19,20};
+      int x, y, z;
+
+      <FONT color="red">z = sumRange(A, x, y)</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+ <FONT color="blue"><B>how to</B></FONT> pass
+   an <FONT color="red"><B>array</B></FONT> to a <B>function</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>array</B></FONT> is
+    <FONT color="blue"><B>passed</B></FONT> by
+    <B>passing</B> the
+    <FONT color="red"><B>base address</B></FONT> of
+    the <FONT color="blue"><B>array</B></FONT>
+ <P>
+  <FONT color="blue"><B>Because</B></FONT> if we know the
+  <FONT color="red"><B>base address</B></FONT> of an
+  <FONT color="blue"><B>array</B></FONT>,
+  we can find 
+  <FONT color="red"><B><I>all</I> elements</B></FONT>
+  in the <FONT color="blue"><B>array</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> We will <FONT color="red"><B>pass the parameters</B></FONT>
+     and <FONT color="blue"><B>allocate the local variables</B></FONT> 
+	as follows
+    <FONT color="red"><B>using the system stack</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <IMG SRC="FIGS/pass-param04i.gif"></IMG>
+
+<HR>
+  We will use register <FONT color="red">r0</FONT> to pass the <FONT color="red">return value</FONT> 
+  back to the caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>main( )</TT> method</B></FONT>
+    will pass the
+    <FONT color="blue"><B>parameters <TT>x</TT> and <TT>y</TT></B></FONT>
+    and
+    <FONT color="red"><B>use the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="magenta">   //  Java statement: sum = sumRange(A, a, b):</FONT>
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass 3nd parameter value b using the stack
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:b
+        movt    r0, #:upper16:b
+        ldr     r0, [r0]
+        push    {r0}
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass 2nd parameter value a using the stack
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:a
+        movt    r0, #:upper16:a
+        ldr     r0, [r0]
+        push    {r0}
+<FONT color="red">
+        /* -------------------------------------------------------
+           Pass 1st parameter address of array A using the stack
+           ------------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A
+        push    {r0}
+
+        /* ----------------------------------------------------------------
+	   <IMG SRC="FIGS/pass-param04b.gif"></IMG>
+
+           call sum = sumRange(A, a, b)
+                agreed inputs:  r0 = addr of array A, r1 = a, r2 = b
+                agreed return:  r0 = return value
+           ---------------------------------------------------------------- */
+        bl      sumRange
+	<FONT color="red">add	sp, sp, #12</font>	     // Clean up the 3 int parameters off the stack 
+
+        /* -----------------------------------------------------------------
+           Save return value (in r0) to variable sum (sum = sumRange(..))
+           ----------------------------------------------------------------- */
+        movw    r1, #:lower16:sum    // Do NOT use r0 !!!
+        movt    r1, #:upper16:sum    // (Because r0 contains the return value)
+
+        str    <FONT color="red"> r0</FONT>, [r1]             // This will store <FONT color="red">return value</FONT> in sum
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B><TT>sumRange</TT></B></FONT> 
+   function <FONT color="red"><B>retruns</B></FONT>,
+   the <FONT color="blue"><B>3 parameters</B></FONT> that were
+   <FONT color="red"><B>pushed</B></FONT> will
+   <FONT color="blue"><B>still</B></FONT> be 
+   on the <FONT color="red"><B>stack</B></FONT> !!!
+<P>
+   <B>Therefore</B>: the
+   <FONT color="red"><B>caller function</B></FONT> must
+   <FONT color="blue"><B>clean up</B></FONT> the
+   <FONT color="red"><B>pushed parameters</B></FONT>
+   when the function returns !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>sumRange( )</TT> method</B></FONT>
+    will first save the
+    <FONT color="blue"><B>register <TT>LR</TT> and <TT>FP</TT></B></FONT>
+	on the stack
+    and
+    <FONT color="red"><B>allocate 2 <I>local variables</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">/* ----------------------------------------------------------------
+   Function sumRange(a,b):
+        agreed inputs:  A, a, b   on stack
+        agreed return:  r0 = return value
+
+   Unused registers:   r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10
+
+   Use stack to store local vars
+
+   Body of sumRange(A,a,b):
+
+       s = 0;
+       for (i = a, i < b; i++)
+          s = s + A[i];
+       return(s);
+   ---------------------------------------------------------------- */</FONT>
+
+sumRange:
+
+        <FONT color="magenta">// When  sumRange  begins, we will have the parameters on the stack: </FONT>
+
+            <IMG SRC="FIGS/pass-param04b.gif"></IMG>
+<FONT color="darkgreen">
+        /* ==========================================================
+           Function Prelude: complete the stack frame structure
+           ========================================================== */</FONT>
+        push    {lr}            <FONT color="red">// Save LR (return address)</FONT>
+        push    {fp}            <FONT color="red">// Save FP (used by caller)</FONT>
+        mov     fp, sp          <FONT color="red">// Mark the stack top location before</FONT>
+                                <FONT color="red">// allocating any local variables</FONT>
+        sub     sp, sp, #8      <FONT color="red">// Allocate 2 int variables on the stack</FONT>
+
+            <IMG SRC="FIGS/pass-param04i.gif"></IMG>
+
+<FONT color="red">
+        /* ===============================================
+           We completed the stack frame
+           Now we can write the function body
+           =============================================== */</FONT>
+        // s = 0
+        mov     r0, #0          // offset(local var s) = -4 from FP
+        str     r0, [fp, #-4]   // s = 0
+
+        // i = a
+        ldr     r0, [fp, #12]   // offset(param a) = 12 from FP
+        str     r0, [fp, #-8]   // offset(loca var i) = -8 from FP
+
+while:  // while (i < b)
+
+        //// Get i into r0
+        ldr     r0, [fp, #-8]   // offset(local var i) = -8 from FP
+
+        //// Get b into r1
+        ldr     r1, [fp, #16]   // offset(b) = 16 from FP
+
+        //// Check for (i < b)
+        cmp     r0, r1          // r0 = i, r1 = b
+        bge     whileEnd        // Exit while loop if FALSE
+
+        // s = s + A[i];
+
+        ///// get A[i] into r10
+        ldr     r0, [fp, #8]    // r0 = addr of array A
+
+        ldr     r1, [fp, #-8]   // r1 = i
+        add     r1, r1, r1      // r1 = 2*i
+        add     r1, r1, r1      // r1 = 4*i   = offset used to access A[i]
+
+        ldr     r10, [r0, r1]   // r10 = A[i] (r0=A(base), r1=offset)
+
+        ///// get s into r0
+        ldr     r0, [fp, #-4]   // r0 = s
+
+        ///// compute s + A[i]
+        add     r0, r0, r10     // r0 = s + A[i]
+
+        ///// Save sum in memory variable s
+        str     r0, [fp, #-4]   // s = s + A[i]
+
+        // i++
+        ldr     r0, [fp, #-8]   // r0 = i
+        add     r0, r0, #1      // r0 = i+1
+        str     r0, [fp, #-8]   // i = i+1
+
+        b       while           // End of while body - loop back !!
+
+whileEnd:
+
+        // return(s)
+
+        //// Put the return value in the agreed register (r0)
+        ldr     r0, [fp, #-4]   // r0=s
+<FONT color="darkgreen">
+        /* =============================================================
+           Function Postlude: de-allocate local variable and restore FP
+           ============================================================= */</FONT>
+        mov     sp, fp          <FONT color="red">// De-allocate local variables</FONT>
+        pop     {fp}            <FONT color="red">// Restore fp</FONT>
+        pop     {pc}            <FONT color="red">// Return to the caller</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/stack1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 stack1</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+</UL>
+
+<P>
+<UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

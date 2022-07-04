@@ -1,0 +1,805 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Overview:</FONT>
+  the different kinds of 
+  <FONT color="blue">data</FONT> stored in a computer
+  </SPAN>
+  </B></FONT>
+  </div>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/type-overview01b3.png" style="width:80%">
+  </center>
+<P>
+ &nbsp;
+<P>
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  We will <FONT color="red"><B>study</B></FONT>
+  <FONT color="blue"><B>how</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>fractional numbers</B></FONT></SPAN>
+  are <FONT color="blue"><B>represented</B></FONT> inside
+  a <FONT color="red"><B>computer</B></FONT>
+  next
+  </font>
+  </p>
+
+  <p style="padding: 0.2in">
+  </p>
+</div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Fixed point <FONT color="blue">decimal</FONT> numbers
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   I will <FONT color="red"><B>use</B></FONT>
+  <FONT color="blue"><B>fixed point decimal numbers</B></FONT> to
+  <FONT color="red"><B>introduce ("ease into")</B></FONT> the
+   <FONT color="blue"><B>fixed point <I>binary</I> numbers</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="blue"><B>Decimal point</B></FONT> =
+      a <FONT color="red"><B>point (period)</B></FONT> places in a
+      <FONT color="blue"><B>number representation</B></FONT> to 
+      <FONT color="red"><B>mark</B></FONT>
+      the <FONT color="blue"><B>location of the digit</B></FONT>
+      whose <FONT color="red"><B>weight&nbsp;=&nbsp;1</B></FONT>
+
+ <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>left</B></FONT>
+    <B><I>increases</I></B> by a 
+    <FONT color="blue"><B>factor of 10</B></FONT>
+  <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>right</B></FONT>
+    <B><I>decreases</I></B> by a 
+    <FONT color="blue"><B>factor of 10</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.8in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Fixed point <FONT color="blue">decimal</FONT> numbers
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Example:</B></FONT>
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  Decimal number:     12<FONT color="red">3.</font>45
+                      ^^^ ^^
+                      ||| ||
+                      ||| |+---  weight = 1/100   
+                      ||| +----  weight = 1/10
+                      ||+------- <FONT color="red">weight = 1</font>
+                      |+-------- weight = 10
+                      +--------- weight = 100
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.5in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Fixed point <FONT color="blue">binary</FONT> numbers
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Structure</B></FONT> of
+   a <FONT color="blue"><B>fixed point</B></FONT>
+   <FONT color="red"><B>binary number</B></FONT>:
+   </font>
+   </p>
+
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="blue"><B><I>Binary</I> decimal point</B></FONT> =
+      a <FONT color="red"><B>point (period)</B></FONT> places in a
+      <B><I>binary</I> number representation</B> to 
+      <FONT color="magenta"><B>indicate</B></FONT>
+      the <FONT color="red"><B>location of the digit</B></FONT>
+      whose <FONT color="blue"><B>weight = 1</B></FONT>
+<P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>left</B></FONT>
+    <B><I>increases</I></B> by a 
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>factor</B></FONT> of 
+    <FONT color="red"><B>2</B></FONT></SPAN>
+ <P>
+ <LI> The <FONT color="blue"><B>weight</B></FONT> of 
+    <B>digits</B> moving towards <FONT color="red"><B>right</B></FONT>
+    <B><I>decreases</I></B> by a 
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>factor</B></FONT>
+     of <FONT color="red"><B>2</B></FONT></SPAN>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Fixed point <FONT color="blue">binary</FONT> numbers
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Example:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Binary number:     10<FONT color="red">1.</font>01
+                      ^^^ ^^
+                      ||| ||
+                      ||| |+---  weight = 1/4    
+                      ||| +----  weight = 1/2
+                      ||+------- <FONT color="red">weight = 1</font>
+                      |+-------- weight = 2
+                      +--------- weight = 4
+</sub> </FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.5in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to convert
+   <FONT color="blue">fixed point binary repr</FONT> to
+   <FONT color="blue">fixed point decimal repr</FONT>
+
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Method:</B></FONT> &nbsp;
+  <FONT color="blue"><B>compute</B></FONT> the
+   <FONT color="red"><B>value</B></FONT> using
+   <FONT color="blue"><B>decimal arithmetic</B></FONT>
+   </font>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Example:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5">
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Binary number:     10<FONT color="red">1.</font>01
+                      ^^^ ^^
+                      ||| ||
+                      ||| |+---  weight = 1/4    
+                      ||| +----  weight = 1/2
+                      ||+------- <FONT color="red">weight = 1</font>
+                      |+-------- weight = 2
+                      +--------- weight = 4
+
+  The value represented by   101.01<sub>(2)</sub>  is:
+
+    1*(4) + 0*(2) + 1*(1) + 0*(1/2) + 1*(1/4) = <FONT color="red">5 1/4</font>
+                                              = <FONT color="red">5.25<sub>(10)</sub> </FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to convert
+   <FONT color="blue">fixed point decimal repr</FONT> to
+   <FONT color="blue">fixed point binary repr</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Method:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+ <LI> <FONT color="red"><B><I>Split</I></B></FONT> the 
+    <FONT color="blue"><B>fixed point deciaml representation</B></FONT>
+     into
+    <FONT color="red"><B>2 parts</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> An <FONT color="red"><B><I>integral</I> part</B></FONT>
+ <LI> A <FONT color="red"><B><I>fractional</I> part</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Find the <FONT color="blue"><B>binary representation</B></FONT>
+     of the <FONT color="red"><B><I>integral</I> part</B></FONT>
+     by <FONT color="blue"><B>repeatedly 
+     <SPAN style="BACKGROUND-COLOR: #ffffFF"><I>divide</I></SPAN>
+     the value</B></FONT>
+     by <B>2</B>
+     (to obtain the <FONT color="red"><B>powers of 2<sup>n</sup></B></FONT>)
+ <BR>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>Collect</B></FONT> the
+   <FONT color="blue"><B>remainders</B></FONT> of the 
+   <FONT color="red"><B>divisions</B></FONT> in
+  <FONT color="blue"><B> reverse order</B></FONT></SPAN>
+   <P>
+<LI> Find the <FONT color="blue"><B>binary representation</B></FONT>
+     of the <FONT color="red"><B><I>fractional</I> part</B></FONT>
+     by <FONT color="blue"><B>repeatedly
+   <SPAN style="BACKGROUND-COLOR: #ffffFF">
+   <I>multiply</I></SPAN> the value</B></FONT>
+     by <B>2</B>
+     (to obtain the <FONT color="red"><B>powers of 2<sup>-n</sup></B></FONT>)
+<BR>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>Collect</B></FONT> the
+   <FONT color="blue"><B>whole digits</B></FONT> of the 
+   <FONT color="red"><B>multiplications</B></FONT> in
+  <FONT color="blue"><B>"straight" order</B></FONT></SPAN>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  It's <FONT color="red"><B>easier</B></FONT> to 
+  <FONT color="blue"><B>understand</B></FONT> the
+  <FONT color="red"><B>method</B></FONT> using an 
+  <FONT color="blue"><B>example</B></FONT>
+  (<FONT color="red"><B>next slide</B></FONT>)
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue">Example: </FONT>
+   How to convert 
+   <FONT color="blue">fixed point decimal repr</FONT>
+  to <FONT color="blue">fixed point binary repr</FONT>
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Convert</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>23.6875<sub>(10)</sub></B></FONT></SPAN>
+   to <FONT color="red"><B>fixed point binary representation</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B><I>Split</I></B></FONT> 
+    <FONT color="blue"><B>23.6875</B></FONT>
+     into
+    <FONT color="red"><B>2 parts</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B><I>Integral</I> part</B></FONT> =
+     <FONT color="blue"><B>23</B></FONT>
+ <LI> <FONT color="red"><B><I>Fractional</I> part</B></FONT> =
+     <FONT color="blue"><B>0.6875</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Convert</B></FONT>
+   <FONT color="blue"><B>integral part
+  (= <SPAN style="BACKGROUND-COLOR: #aaffaa">23</SPAN>)</B></FONT> by
+   <FONT color="red"><B>repeatly dividing by 2</B></FONT>
+ <BR>
+  <FONT color="red"><B>Collect</B></FONT> the
+   <FONT color="blue"><B>remainders</B></FONT> in
+  <FONT color="red"><B>reverse</B></FONT>:
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>10111</B></FONT></SPAN>
+<P>
+<LI> <FONT color="red"><B>Convert</B></FONT>
+   <FONT color="blue"><B>fractional  part 
+  (<SPAN style="BACKGROUND-COLOR: #ffff00">0.6875</SPAN>)</B></FONT> by
+   <FONT color="red"><B>repeatly multiplying by 2</B></FONT>
+ <BR>
+  <FONT color="red"><B>Collect</B></FONT> the
+   <FONT color="blue"><B>"whole" digits</B></FONT>  
+   <FONT color="red"><B>in order</B></FONT>:
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="blue"><B>0.1011</B></FONT></SPAN>
+<P>
+<LI> <FONT color="red"><B>Concatenate</B></FONT> the
+   <FONT color="blue"><B>2 pieces</B></FONT> with a
+   <FONT color="red"><B>decimal point</B></FONT> between them:
+   <FONT color="blue"><B><TT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">10111</SPAN>.<SPAN style="BACKGROUND-COLOR: #ffff00">1011</SPAN></TT></B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   I will <FONT color="red"><B>do this example</B></FONT> in the
+   <FONT color="blue"><B>lecture</B></FONT> </SPAN>
+  (using <FONT color="red"><B><TT>paint</TT></B></FONT> as
+  <FONT color="blue"><B>writing board</B></FONT>)
+
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  Postscript
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Comments:</B></FONT>
+   </font>
+   </p>
+
+
+
+   <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Computers</B></FONT> do
+     <FONT color="blue"><B> not use</B></FONT>
+   <FONT color="red"><B>fixed point (binary) representation</B></FONT>
+ <P>
+   Instead, 
+  <FONT color="red"><B>computers</B></FONT> 
+     <FONT color="blue"><B>use</B></FONT>
+   <FONT color="red"><B><I>floating</I>
+    point (binary) representation</B></FONT>
+<P>
+<LI> We discussed
+    the
+    <FONT color="red"><B>fixed point (binary) representation</B></FONT>
+   as a
+   <FONT color="blue"><B>pre-requisite</B></FONT> for
+   understanding
+   the
+   <FONT color="red"><B><I>floating</I>
+    point (binary) representation</B></FONT>
+   (which will be discussed <B>next</B>)
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

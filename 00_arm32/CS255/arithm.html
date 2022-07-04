@@ -1,0 +1,393 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+ARM's arithmetic instructions 
+<HR>
+</H3>
+<UL>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Dictatical reminder
+     </B></FONT>
+<P>
+<UL>
+<LI> Again, I like to remind you that
+    <FONT color="red"><B>CS255</B></FONT> is not primarily an
+        assembler programming course, but
+	to reveal the internal operational workings of
+	a <FONT color="blue"><B>high level programming language</B></FONT>
+ <P>
+<LI> The assembler language has special
+     arithmetic operations that allow the
+     programmer to perform
+     addition, subtract and multiplication of
+     <FONT color="red"><B>arbitrary length</B></FONT>
+  <P>
+ (I.e.: you can add more values that consist of 
+ <FONT color="blue"><B>more than 32 bits</B></FONT>; but you need to use
+  special instructions that add the <FONT color="red"><B>carry bit</B></FONT>)
+<P>
+ I will <FONT color="red"><B>not</B></FONT> discuss these special
+ instructions and only discuss the
+ <FONT color="blue"><B>32 bit instructions</B></FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    ARM's arithmetic instructions 
+       
+     </B></FONT>
+<P>
+ <UL>
+<LI> The <FONT color="red"><B>arithmetic operations</B></FONT>
+   of the
+  <FONT color="blue"><B>ARM processor</B></FONT> can
+  <FONT color="red"><B>only</B></FONT> operate using:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>One operand</B></FONT> that is 
+     <FONT color="blue"><B>stored</B></FONT> in a
+     <FONT color="red"><B>register</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>second operand</B></FONT> of the
+   <FONT color="blue"><B>arithmetic operation</B></FONT> can be:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A <FONT color="blue"><B>value</B></FONT> stored in
+      a <FONT color="red"><B>register</B></FONT>
+ <LI> A <FONT color="red"><B><I>small</I> constant</B></FONT>
+       (between about -100 and 100)
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<FONT color="red"><B>Exception:</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: orange">
+  <FONT color="blue"><B>multiply operation (*)</B></FONT> </SPAN>
+   <FONT color="red"><B>must</B></FONT>  
+   use a <B>value</B> in a
+   <FONT color="red"><B>register</B></FONT>
+   as its <FONT color="blue"><B>second operand</B></FONT>
+</SPAN>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>result</B></FONT> is
+    <FONT color="blue"><B><I>always</I></B></FONT> stored in
+    a <FONT color="red"><B>destination register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can use any <FONT color="red"><B>register</B></FONT>
+  both as a <FONT color="blue"><B>source registers</B></FONT> and
+  as a <FONT color="red"><B>destination register</B></FONT>
+<P>
+You can even use the
+ <FONT color="red"><B><I>same</I> register</B></FONT> as
+  <FONT color="blue"><B>source operand</B></FONT> and
+  as <FONT color="red"><B>destination operand</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> The following are the <FONT color="red"><B>ARM processor's</B></FONT> 
+      (normal) <FONT color="blue"><B>arithmetic instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    add  destReg, srcReg, <FONT color="red">op2</FONT>        // destReg = srcReg +<FONT color="red"> op2</FONT>
+
+    sub  destReg, srcReg, <FONT color="red">op2</FONT>        // destReg = srcReg - <FONT color="red">op2</FONT>
+
+    rsb  destReg, srcReg, <FONT color="red">op2</FONT>        // destReg = <FONT color="red">op2</FONT> - srcReg  (reverse subtract)   
+
+    <SPAN style="BACKGROUND-COLOR: yellow">mul</SPAN>  destReg, srcReg1, <SPAN style="BACKGROUND-COLOR: yellow">srcReg2</SPAN>   // destReg = srcReg1 * srcReg2       
+                                     //<SPAN style="BACKGROUND-COLOR: yellow"> <FONT color="red">Important restriction:</FONT> <FONT color="magenta">destReg != srcReg1</FONT> !!! </SPAN>  
+
+    <FONT color="red">op2</FONT>  can be:  a <FONT color="red">register</FONT> or a <FONT color="red">small constant</FONT> (between <FONT color="red">-100 and 100</FONT>)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Assembler instruction       Effect of the assembler instruction
+  ------------------------    --------------------------------------
+    add  r0, r1, r2              r0 = r1 + r2
+    add  r0, r0, r0              r0 = r0 + r0 = 2&times;r0
+    add  r0, r0, #1              r0 = r0 + 1
+
+    sub  r0, r1, r2		 r0 = r1 - r2
+    rsb  r0, r1, r2              r0 = r2 - r1
+    rsb  r0, r0, #0              r0 =  0 - r1 = -r0  <FONT color="red">(negation !!)</FONT>
+
+    mul  r0, r1, r2              r0 = r1 * r2
+    mul  r1, r0, r0              r1 = r0 * r0 = r0<sup>2</sup>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+ the <FONT color="red"><B><TT>rsb</TT></B></FONT> instruction
+  is <FONT color="blue"><B>often</B></FONT> used to
+  <FONT color="red"><B><I>negate</I></B></FONT> the value in
+  a register
+ <P>
+ <B>Therefore:</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   For easy of programming, the ARM assembler has the following         
+   <FONT color="red">pseudo instruction</FONT> to <FONT color="red">negate</FONT> a register:
+
+
+      <FONT color="red">neg</FONT>  r<sub>n</sub>, r<sub>m</sub>     &equiv;   <FONT color="red">rsb</FONT>  r<sub>n</sub>, r<sub>m</sub>, #0      
+
+<HR>
+   So instead of:
+
+         rsb  r0, r0, #0
+
+   We can also use:
+
+         neg  r0, r0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Divide operation
+     </B></FONT>
+<P>
+<UL>
+<LI> The ARM processor does <FONT color="red"><B>not</B></FONT> have
+      a <FONT color="blue"><B>divide instruction</B></FONT>
+<P>
+<HR>
+<P>
+<LI> There are <FONT color="red"><B>algorithms</B></FONT> available
+     that computes the <FONT color="blue"><B>quotient</B></FONT> and
+   the <FONT color="blue"><B>remainder</B></FONT> of
+   a <FONT color="red"><B>division</B></FONT>.
+ <P>
+ For example, through <FONT color="red"><B>repeated subtraction</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Algorithm to compute Q = A/B and R = A%B
+
+   Q = 0;
+   R = A;
+
+   // Subtract B from R as long as B has more to give....    
+   while ( R &ge; B )
+   {
+      Q = Q + 1;
+      R = R - B;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> The <FONT color="red"><B>"run time library"</B></FONT> provides
+      a more <FONT color="blue"><B>efficient function</B></FONT> to compute
+      the <FONT color="red"><B>quotient</B></FONT> of a
+      division.
+ <P>
+  The <FONT color="red"><B>division function</B></FONT> is called
+   <FONT color="blue"><B><TT>__aeabi_idiv</TT></B></FONT>.
+<P>
+ Here is a little code to show you that
+ you can use division in ARM assembler, but just a bit tedious:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">// File:   /home/cs255001/demo/asm/2-mov/divide.s</FONT>
+
+   // This is how you compute  14 / 3
+
+   mov   r0, 14
+   mov   r1, 3
+   <FONT color="red">bl    __aeabi_idiv</font>
+
+   // Register r0 will contains the quotient or 14/3 = 4              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/divide.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 divide</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We won't be using the <FONT color="red"><B>dvision operation</B></FONT>
+ in the <FONT color="blue"><B>CS255 projects</B></FONT> so you don't need to
+ use the library function....
+<P>
+ <LI> The information about
+   <FONT color="red"><B>division using a library function</B></FONT>
+  is provided for you in case you wonder whether
+ we can perform <FONT color="red"><B>division</B></FONT> in
+ <FONT color="blue"><B>ARM assembler</B></FONT> - answer is yes, just
+ not with an assembler instruction, but with a subroutine.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

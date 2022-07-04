@@ -1,0 +1,893 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Details of the CPU that assembler programmers must know
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Assembler programmers</B></FONT>
+   <FONT color="blue"><B>must</B></FONT>
+   use the 
+ <SPAN style="BACKGROUND-COLOR: lightgreen">
+  <FONT color="red"><B>registers</B></FONT></SPAN>
+   inside the 
+  <FONT color="blue"><B>CPU</B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  So <FONT color="red"><B>assembler programmers</B></FONT> 
+  <FONT color="blue"><B>must</B></FONT> find out:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>How many</B></FONT>
+        <FONT color="blue"><B>registers</B></FONT> 
+	does the processor have
+ <P>
+  <LI> The <FONT color="red"><B>structure</B></FONT> of
+     <FONT color="blue"><B>each register</B></FONT>
+    (how many bits does each register have)
+ <P>
+ <LI> The <FONT color="red"><B>name</B></FONT> of
+     each <FONT color="blue"><B>register</B></FONT>
+ <P>
+  <LI> Are there <FONT color="red"><B>any</B></FONT>
+   <FONT color="blue"><B>general purpose 
+   registers</B></FONT> that are
+   <FONT color="red"><B>assigned</B></FONT> for
+   a <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>special role </B></FONT></SPAN> ?
+ <P>
+  <FONT color="red"><B>Discussed later:</B></FONT>
+  <FONT color="blue"><B>: <TT>SP</TT> (stack pointer),
+  <TT>FP</TT> (frame pointer), ...</B></FONT>
+   
+      
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+
+ 
+   <p style="padding: 0.1in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Identifying registers</FONT> in a CPU
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+  
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+   <LI> <FONT color="red"><B>Registers</B></FONT> are
+      <FONT color="blue"><B>identified</B></FONT> by
+      <FONT color="red"><B>name</B></FONT>
+  <P>
+   <LI> <FONT color="red"><B>Each register</B></FONT> has a
+  <FONT color="blue"><B>unique <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <I>name</I></SPAN></B></FONT>
+ <P>
+ <LI>   <FONT color="red"><B>Register names</B></FONT> are
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>case-<I>insensitive</I></B></FONT></SPAN>
+  <P>
+  <LI>
+   <FONT color="red"><B>Different CPU (processor)</B></FONT> will have
+     <FONT color="blue"><B><I>different</I> names</B></FONT>
+   for its  <FONT color="red"><B>registers</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+ <B>Example:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   CPU                  Name of some of the registers
+  -------------------  ------------------------------- 
+   <FONT color="red">Intel</FONT> processor      rax, rbx, rcx, rdx, ...
+   <FONT color="red">ARM</FONT>   processor      r0, r1, r2, r3, ... sp, pc, ...     </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Know your processor: 
+  <A HREF="https://en.wikipedia.org/wiki/ARM_architecture">
+  the <FONT color="blue">ARM</FONT> CPU</A>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/cpu01.gif" style="width:60%">
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Register names:</B></FONT>
+   <FONT color="blue"><B><TT>R0, R1, ..., R15</TT></B></FONT>
+  <BR>
+   The <FONT color="red"><B>registers</B></FONT>
+   <FONT color="blue"><B><TT>R0, R1, ..., R10</TT></B></FONT> are
+   are <FONT color="red"><B>general purpose registers</B></FONT> 
+  <BR>
+   The <FONT color="red"><B>registers</B></FONT>
+   <FONT color="blue"><B><TT>R11, R12, R13, R14, R15</TT></B></FONT>
+   are <FONT color="red"><B>special purpose registers</B></FONT> 
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Structure</FONT> of each 
+  <FONT color="blue">register</FONT> in the ARM processor
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Structure</B></FONT> of
+   each <FONT color="blue"><B>register</B></FONT> in
+   the <FONT color="red"><B>ARM processor</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/reg01.gif" style="width:60%">
+   </center>
+
+ 
+<P>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Every register</B></FONT> in
+  <FONT color="blue"><B>ARM</B></FONT> contains
+  <FONT color="red"><B>32 bits</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.99in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<! ---------------- General purpose registers --------->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">general purpose registers</FONT> of
+   the ARM processor
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Names</B></FONT> of <B>ARM's</B>
+  <FONT color="blue"><B>11  general purpose registers</B></FONT>
+   (named r0, r1, ..., r10 - 
+   <FONT color="red"><B>case insensitive</B></FONT>)
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="blue"><B>R0</B></FONT> (or
+     <FONT color="red"><B>r0</B></FONT> the register names
+     are not case senstive)
+ <LI> <FONT color="blue"><B>R1</B></FONT>
+ <LI> <FONT color="blue"><B>R2</B></FONT>
+ <LI> ...
+ <LI> <FONT color="blue"><B>R10</B></FONT>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ &nbsp; 
+
+
+
+    <p style="margin-left: 1.2in">
+   <font size="+2">
+   The 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>use</B></FONT></SPAN> of
+    the <FONT color="red"><B>general purpose registers</B></FONT>:
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> Use <FONT color="red"><B>general purpose registers</B></FONT>
+    as  <FONT color="blue"><B>temporal storage</B></FONT> to
+   <FONT color="red"><B>hold</B></FONT>
+   the <FONT color="blue"><B>operands</B></FONT> when you 
+  want to <FONT color="red"><B>perform</B></FONT>
+   <FONT color="blue"><B>operations</B></FONT> on
+   <FONT color="red"><B>data</B></FONT> stored
+   in <FONT color="blue"><B>memory variables</B></FONT>
+  <P>
+  <LI> The <FONT color="red"><B>program</B></FONT> must
+  <FONT color="blue"><B>fetch</B></FONT> the
+   <FONT color="red"><B>value</B></FONT> from
+    a <FONT color="blue"><B>memory variable</B></FONT> into
+   a <FONT color="red"><B>general register</B></FONT> before
+   it can <FONT color="blue"><B>perform</B></FONT> an
+  <FONT color="red"><B>operation</B></FONT> on the
+  <FONT color="blue"><B>data</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+  
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<!------------ Special purpose registers ---------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">special purpose registers</FONT> of the
+  ARM processor
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="blue"><B>R11</B></FONT> or
+     the <FONT color="red"><B>Frame Pointer (FP) register</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#ffeeee" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>FP register</B></FONT>
+      is used to
+     <FONT color="blue"><B>access</B></FONT> the
+     <FONT color="red"><B>parameters</B></FONT> and
+     the <FONT color="blue"><B>local variables</B></FONT>
+     of a <FONT color="red"><B>function</B></FONT>
+ <P>
+   We <FONT color="red"><B>will</B></FONT> 
+  <FONT color="blue"><B>learn to use</B></FONT> the
+ <FONT color="red"><B>FP register</B></FONT> when we
+  <FONT color="blue"><B>discuss</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>how to</B></FONT>
+   write <FONT color="blue"><B>function calls</B></FONT></SPAN>
+   in <FONT color="red"><B>assembler programming</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 1.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">special purpose registers</FONT> of the
+  ARM processor
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+ <LI> <FONT color="blue"><B>R12</B></FONT> or
+     the <FONT color="red"><B>Intra Procedure (IP) Call register</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#ccffcc" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>IP register</B></FONT>
+      is used by the <FONT color="blue"><B>compiler</B></FONT> to
+     <FONT color="red"><B>pass</B></FONT> some
+   <FONT color="blue"><B>data</B></FONT> in
+   <FONT color="red"><B>function calls</B></FONT>.
+ <P>
+   We <FONT color="red"><B>will 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">not need to</SPAN> use</B></FONT>
+    the <FONT color="blue"><B>IP register</B></FONT>
+    in <FONT color="red"><B>CS255</B></FONT>.
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+ <LI> <FONT color="blue"><B>R13</B></FONT> or
+     the <FONT color="red"><B>Stack Pointer (SP) register</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>stack pointer (SP) register</B></FONT> 
+        contains the <FONT color="blue"><B>address</B></FONT> of
+	the <FONT color="red"><B>top of the system stack</B></FONT>
+ <P>
+  We <FONT color="red"><B>will</B></FONT> 
+  <FONT color="blue"><B>learn to use</B></FONT> the
+ <FONT color="red"><B>SP register</B></FONT> when we
+  <FONT color="blue"><B>discuss</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>how to</B></FONT>
+   write <FONT color="blue"><B>function calls</B></FONT></SPAN>
+   in <FONT color="red"><B>assembler programming</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">special purpose registers</FONT> of the
+  ARM processor
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+
+ <LI> <FONT color="blue"><B>R14</B></FONT> or
+     the <FONT color="red"><B>Link Register (LR)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>Link Register (SP) </B></FONT> 
+        contains the <FONT color="blue"><B>return address</B></FONT> of
+	the <FONT color="red"><B>calling program</B></FONT>
+ <P>
+  We <FONT color="red"><B>will</B></FONT> 
+  <FONT color="blue"><B>learn to use</B></FONT> the
+ <FONT color="red"><B>LR register</B></FONT> when we
+  <FONT color="blue"><B>discuss</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>how to</B></FONT>
+   write <FONT color="blue"><B>function calls</B></FONT></SPAN>
+   in <FONT color="red"><B>assembler programming</B></FONT>
+
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+ <LI> <FONT color="blue"><B>R15</B></FONT> or
+     the <FONT color="red"><B>Program Counter (PC)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>Program Counter (PC) </B></FONT> 
+        contains the <FONT color="blue"><B> address</B></FONT> of
+	the <FONT color="red"><B>next program instruction</B></FONT>
+ <P>
+ I  <FONT color="blue"><B>have already explained</B></FONT> the use of the
+ <FONT color="red"><B>Program Counter</B></FONT> in
+ this <FONT color="blue"><B>webpage (lecture)</B></FONT>:
+ <A HREF="../../4-intro/instr-exec-cycle2.html">
+  <FONT color="red"><B>click here</B></FONT></A>)
+
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Recommended <FONT color="blue"> register names</FONT>
+   for assembler programming
+  in ARM
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+                         <FONT color="red">Commonly used register name</FONT> 
+    <FONT color="red">ARM register</FONT>         in <FONT color="red">assembler programming</FONT> 
+   ---------------     -------------------------------
+         R0                r0  or R0
+         R1                r1  or R1
+         R2                r2  or R2
+         R3                r3  or R3
+         R4                r4  or R4
+         R5                r5  or R5
+         R6                r6  or R6
+         R7                r7  or R7
+         R8                r8  or R8
+         R9                r9  or R9
+         R10               r10 or R10
+         <FONT color="red"><B>R11               fp  (frame pointer)
+         R12               ip  (intra procedure)
+         R13               sp  (stack pointer)
+         R14               lr  (link register)
+         R15               pc  (program counter)</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+   <span class="dot" onclick="currentSlide(9)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

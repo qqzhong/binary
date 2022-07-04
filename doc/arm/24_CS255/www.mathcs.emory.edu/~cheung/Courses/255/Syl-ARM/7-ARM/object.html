@@ -1,0 +1,581 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How is an object stored in memory
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Classes and objects
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Linked lists</B></FONT> are
+      <FONT color="blue"><B>objects</B></FONT>
+ <P>
+ So we must first study <FONT color="red"><B>how</B></FONT>
+  <FONT color="blue"><B>objects</B></FONT> are stored in memory
+  <FONT color="red"><B>before</B></FONT> we can study 
+  how <FONT color="blue"><B>linked lists</B></FONT> are stored in memory...
+<P>
+<HR>
+<P>
+ <LI> When you <FONT color="red"><B>define</B></FONT> a
+    <FONT color="blue"><B>class</B></FONT>, e.g.:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class BankAccount
+   {<FONT color="red">
+      int    accNum;
+      double balance;</FONT>
+
+      public double getBalance( )
+      {
+          return balance;
+      }
+
+      // Other methods omitted for brevity                           
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>Java compiler</B></FONT> will
+ <FONT color="blue"><B>separate</B></FONT> the
+ <FONT color="red"><B>instance variables</B></FONT> and the
+ <FONT color="blue"><B>methods</B></FONT> in the class.
+<P>
+The <FONT color="red"><B>Java compiler</B></FONT> will
+  <B>collect</B> all the <FONT color="blue"><B>instance variables</B></FONT>
+ in the class and
+  <FONT color="red"><B>place the variables</B></FONT> in the 
+ <B>class definition</B>
+  <FONT color="blue"><B>one-after-another</B></FONT> in memory
+  and compute the
+  <FONT color="red"><B>amount of memory</B></FONT> needed to
+  store <FONT color="blue"><B>all the (instance) variables</B></FONT> in
+  the class.
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Java compiler</B></FONT> will
+    <FONT color="blue"><B>obey</B></FONT> the
+    <FONT color="red"><B>alignment requirements</B></FONT> for
+    <FONT color="blue"><B><I>each</I> variable</B></FONT> when
+    it <FONT color="red"><B>computes</B></FONT> the
+    <FONT color="blue"><B>necessary memory</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+  For a discussion of <FONT color="red"><B>alignment requirements</B></FONT>,
+  see this webpage:
+  <A HREF="../7-ARM/align.html">
+  <FONT color="blue"><B>click here</B></FONT></A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When we <FONT color="red"><B>create</B></FONT> an
+ <FONT color="blue"><B>object</B></FONT> in
+ a <FONT color="red"><B>Java program</B></FONT>,
+ the <FONT color="blue"><B>Java compiler</B></FONT> will
+  <FONT color="red"><B><I>allocate</I> (= reserve)</B></FONT>
+  the <FONT color="blue"><B>computed amount of memory</B></FONT>
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     An  example of storing objects
+     </B></FONT>
+<P>
+<UL>
+<LI> Suppose we have the following 
+    <FONT color="red"><B>class definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public class myClass1
+    {<FONT color="red">
+       int x;
+       int y;
+       int z;</FONT>
+
+       // Methods omitted because they are not relevant           
+       // in memory need computation....
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you <FONT color="red"><B>create</B></FONT> an
+ <FONT color="blue"><B>object </B></FONT> of the
+  class <FONT color="red"><B><TT>myClass1</TT></B></FONT>, the
+ <FONT color="blue"><B>Java compiler</B></FONT> will
+  reserve <FONT color="red"><B>12 bytes</B></FONT> of memory
+ and store the <FONT color="blue"><B>instance varaibles</B></FONT> of the
+ <FONT color="red"><B><TT>myClass1</TT> object</B></FONT>
+ as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/object01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Java compiler</B></FONT> will
+ <FONT color="blue"><B>remember </B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The
+ <FONT color="red"><B>base address</B></FONT> of the
+ <FONT color="blue"><B>object</B></FONT>.
+ <LI> The <FONT color="red"><B>structure</B></FONT>
+       of the <FONT color="blue"><B>object</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+<P>
+
+<!---         *********** We don't need to define object - use malloc *****
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to create objects in assembler
+     </B></FONT>
+<P>
+<UL>
+<LI> You create an <FONT color="red"><B>object</B></FONT> in
+   <FONT color="blue"><B>assembler</B></FONT> by:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Reserve</B></FONT> the
+      <FONT color="blue"><B>neccessary amount of 
+      <I>consecutive</I> memory cells</B></FONT>
+      to store the
+      <FONT color="red"><B>components</B></FONT> in the 
+      <FONT color="blue"><B>object</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Remember</B></FONT> the
+       <FONT color="blue"><B>location </B></FONT>
+       of the
+       <FONT color="red"><B><I>first</I> reserved memory cell</B></FONT>
+       of the <FONT color="blue"><B>object</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can do this using
+ the <FONT color="red"><B><TT>.skip</TT></B></FONT> 
+  <B>assembler directive</B>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="red"><B>reserve</B></FONT>
+       <FONT color="blue"><B>12 consecutive bytes</B></FONT> of
+      <B>memory</B> for a
+   <FONT color="red"><B><TT>myClass1</TT> object</B></FONT>, we
+    use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     obj1:   .skip 12        // Reserve 12 bytes 
+                             // (4 bytes to store x, 4 for y and 4 for z)
+
+     // Note: <FONT color="red">you</FONT> must <FONT color="red">remember</FONT> the <FONT color="red">structure</FONT> of the <FONT color="red">myClass1</FONT> object !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+------------------------------------------------------------------ --->
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Accessing the individual components in an object
+     </B></FONT>
+<P>
+<UL>
+<LI> In <FONT color="red"><B>Java</B></FONT>,
+     you have used the following
+    <FONT color="blue"><B>syntax</B></FONT> to
+    access the different
+    <FONT color="red"><B>components</B></FONT> in
+    an <FONT color="blue"><B>object</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">objVar.</FONT>x     = the x component (variable) in the object <FONT color="red">objVar</FONT>     
+    <FONT color="red">objVar.</FONT>y     = the y component (variable) in the object <FONT color="red">objVar</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice that each
+ <FONT color="red"><B>component variable</B></FONT> is
+ a <FONT color="blue"><B>primitive typed variable</B></FONT>
+<P>
+This <FONT color="red"><B>notation</B></FONT> is
+  a <FONT color="blue"><B>very convenient way</B></FONT> for
+  the <FONT color="red"><B>Java programmer</B></FONT> to
+ access a <FONT color="blue"><B>component variable</B></FONT> in
+  an <FONT color="red"><B>object</B></FONT>
+<P>
+The <FONT color="red"><B>Java compiler</B></FONT>
+ provide this
+ <FONT color="blue"><B>easy syntax</B></FONT> to the
+  <FONT color="red"><B>Java programmer</B></FONT> to help him
+ write code that uses 
+ <FONT color="blue"><B>components</B></FONT> inside
+  an <FONT color="red"><B>object</B></FONT>
+<P>
+When you write a program
+ <FONT color="red"><B>without the help</B></FONT> of
+the <FONT color="blue"><B>Java compiler</B></FONT>
+ (i.e., in <FONT color="red"><B>assembler</B></FONT>),
+ you will need to do
+ a lot of work
+ <FONT color="blue"><B>yourself</B></FONT> !!!
+<P>
+Let me explain 
+ <FONT color="red"><B>what exactly</B></FONT> is
+ going on inside the
+ <FONT color="blue"><B>Java compiler</B></FONT> first when it
+ access a component in an object.
+
+<P>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> In order to <FONT color="red"><B>access</B></FONT> the
+    <FONT color="blue"><B>components (= instance variables)</B></FONT> 
+   in the
+    <FONT color="red"><B>object</B></FONT>,
+    the <FONT color="blue"><B>Java compiler</B></FONT> will
+    use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Base address(object)</B></FONT> +
+    <FONT color="blue"><B>offset of component in object</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to compute the
+ <FONT color="red"><B>address</B></FONT> of the
+  <FONT color="blue"><B>component</B></FONT>.
+<P>
+<FONT color="red"><B>Furthermore</B></FONT>,
+ the <FONT color="blue"><B>Java compiler</B></FONT> will
+ <FONT color="red"><B>calculate</B></FONT> the
+  <FONT color="blue"><B>offset</B></FONT> of each component
+ of the object
+ <FONT color="red"><B>using</B></FONT> the
+  <FONT color="blue"><B>class definition</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public class myClass1
+    {
+       int x;        <--- First component always has offset = 0
+       int y;        <--- Offset(y) = 4 because x is an int (4 bytes)
+       int z;        <--- Offset(z) = 8 because there are 2 ints preceeding z     
+
+       // Methods omitted because they are not relevant           
+       // in memory need computation....
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>Java compiler</B></FONT> will 
+ <FONT color="blue"><B>remember</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Offset</B></FONT> for the
+      <FONT color="red"><B><TT>x</TT> component</B></FONT>
+      of the object = <FONT color="blue"><B>0</B></FONT>
+      (because there are <FONT color="red"><B>no components</B></FONT>
+      <FONT color="blue"><B> preceeding</B></FONT> 
+      <FONT color="red"><B><TT>x</TT></B></FONT>)
+ <LI> <FONT color="blue"><B>Offset</B></FONT> for the
+      <FONT color="red"><B><TT>y</TT> component</B></FONT>
+      of the object = <FONT color="blue"><B>4</B></FONT>
+            (because  <FONT color="red"><B><TT>int x</TT> (4 bytes)</B></FONT>
+      <FONT color="blue"><B> preceeds</B></FONT> 
+      <FONT color="red"><B><TT>y</TT></B></FONT>)
+ <LI> <FONT color="blue"><B>Offset</B></FONT> for the
+      <FONT color="red"><B><TT>z</TT> component</B></FONT>
+      of the object = <FONT color="blue"><B>8</B></FONT>
+(because  <FONT color="red"><B><TT>int x, y</TT> (4+4 bytes)</B></FONT>
+      <FONT color="blue"><B> preceed</B></FONT> 
+      <FONT color="red"><B><TT>z</TT></B></FONT>)
+ </UL> 
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Java compiler</B></FONT> must
+ <FONT color="blue"><B>also</B></FONT> remember the
+ <FONT color="red"><B>data type</B></FONT> of
+ <FONT color="blue"><B>each component</B></FONT> in the object.
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+<FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Using:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>type information</B></FONT> of each component
+ <LI> The <FONT color="blue"><B>offset information</B></FONT> of
+        each component
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ the <FONT color="red"><B>Java compiler</B></FONT>
+ (and <FONT color="red"><B>you</B></FONT>)  can 
+  <FONT color="blue"><B>access</B></FONT> the
+  <FONT color="red"><B>object component</B></FONT> stored in the memory !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will learn how to do so in the next webpage.
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Linked list
+     </B></FONT>
+<P>
+<UL>
+<LI> A linked list is nothing more than an
+    <FONT color="red"><B>object</B></FONT> where
+    <FONT color="blue"><B>one</B></FONT> of
+    its <FONT color="red"><B>component (= instance variable)</B></FONT>
+    is a <FONT color="blue"><B><I>reference</I> variable</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List
+   {
+      int value;
+      <FONT color="red">List next;       // This is a "reference" variable !!   </FONT>
+
+      ....
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+  <FONT color="red"><B>Recall</B></FONT> that
+   a <FONT color="blue"><B>reference</B></FONT> is
+   an <FONT color="red"><B>memory address</B></FONT>
+  (see:
+  <A HREF="../4-intro/170/ref.html">
+  <FONT color="blue"><B>click here</B></FONT></A>)
+<P>
+  A <FONT color="red"><B><I>reference</I> variable</B></FONT> is
+  a <FONT color="blue"><B>variable</B></FONT> that
+  stores
+  a <FONT color="red"><B>memory address</B></FONT> !!!
+<P>
+ <FONT color="red"><B>Recall</B></FONT> that a
+  <FONT color="blue"><B>memory address</B></FONT> is
+  a <FONT color="red"><B>32 binary unsigned integer value</B></FONT>
+ <P>
+ So a <FONT color="red"><B>reference variable</B></FONT> is
+ a <FONT color="blue"><B>4 byte variable</B></FONT> that stores
+ an <FONT color="red"><B>unsigned 32 bit binary number</B></FONT>
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

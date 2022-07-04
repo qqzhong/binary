@@ -1,0 +1,768 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Desiging the recursive search algorithm in a linked list
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>List</TT> structure used in the search algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> To make the material more <FONT color="red"><B>concrete</B></FONT>,
+   I will use this <FONT color="blue"><B>List structure</B></FONT> to
+   illustrate the <FONT color="red"><B>recursive serach algorithm</B></FONT>
+   on
+   <FONT color="blue"><B>linked lists</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List
+   {
+      int key;
+      int value;
+      List next;       // This is a "reference" (= address) variable !!   
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="red"><B>List object</B></FONT> has the following
+ <FONT color="blue"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>key</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>0</B></FONT>
+<BR>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>value</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>4</B></FONT>
+<BR>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>next</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>8</B></FONT>
+</UL>
+<P>
+<B>Sample list:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05f.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Look up a <TT>value</TT> using the <TT>key</TT> field
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Given a <FONT color="red"><B>linked list</B></FONT>
+    (with list element of the above structure) pointed to
+    by the variable <FONT color="blue"><B><TT>head</TT></B></FONT>
+<P>
+ <LI> Write a <FONT color="blue"><B>recursive</B></FONT> function
+  <FONT color="red"><B><TT>int Lookup(List h, int searchKey)</TT></B></FONT>
+  that returns:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>value</TT></B></FONT>
+       for the
+    <FONT color="blue"><B>key <TT>searchKey</TT></B></FONT> if
+    the key is found in the list that start at
+    <FONT color="red"><B><TT>h</TT></B></FONT>
+ <LI> The <FONT color="red"><B>value 0</B></FONT>
+      if 
+    the key is <FONT color="blue"><B>not found</B></FONT> in the list
+    (we assume <B>for simplicity</B> that the value
+   <FONT color="red"><B>0</B></FONT> will not correspond to any
+   search key)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Now we will <FONT color="red"><B>develop</B></FONT> the
+    <FONT color="blue"><B>recursive </B></FONT> function
+   <FONT color="red"><B><TT>int Lookup(List h, int searchKey)</TT></B></FONT>
+ <P>
+   To understand how you can come up with
+   a <FONT color="red"><B>recursive algorithm</B></FONT>, you must understand
+   the <FONT color="blue"><B>recursive nature</B></FONT> of
+   a <FONT color="red"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05g.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Due to the
+ <FONT color="red"><B>recursive nature</B></FONT> of
+ a <FONT color="blue"><B>linked list</B></FONT>, we can use
+   <FONT color="red"><B>divide and conquer</B></FONT> to
+   <FONT color="blue"><B>solve</B></FONT> the
+   <FONT color="red"><B>original problem</B></FONT> 
+   <B>using</B> the
+   <FONT color="blue"><B>solution</B></FONT> of a
+   <FONT color="red"><B><I>smaller</I> problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>outcome</B></FONT> of
+        a <FONT color="red"><B>search</B></FONT> for
+     <FONT color="blue"><B><TT>searchKey</TT></B></FONT> in
+     this list:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05h2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+is the <FONT color="red"><B>same</B></FONT> as
+ <FONT color="blue"><B>outcome</B></FONT> of
+        a <FONT color="red"><B>search</B></FONT> for
+     <FONT color="blue"><B><TT>searchKey</TT></B></FONT> in:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05h3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+When we write the <FONT color="blue"><B>recursive</B></FONT>
+  <FONT color="red"><B>lookup algorithm</B></FONT> for
+ an <FONT color="blue"><B>(input) list</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int  Lookup( <FONT color="red">List h</FONT>, int searchKey )
+   {
+       // We are developing this algorith right now...     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we must be
+ <FONT color="red"><B>aware</B></FONT> 
+  <FONT color="blue"><B>what</B></FONT> the
+  <FONT color="red"><B>parameters</B></FONT> represent !!!
+<P>
+The <FONT color="red"><B>input parameter <TT>h</TT></B></FONT> 
+  will <FONT color="blue"><B>represent</B></FONT> the
+  <FONT color="red"><B><I>original</I> list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05i.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In order to find
+     the <FONT color="red"><B><TT>searchKey</TT></B></FONT> in the
+     <FONT color="blue"><B>list starting at <TT>h</TT></B></FONT>,
+     we must compare
+     <FONT color="red"><B><I>every</I> key</B></FONT> value in the
+     <FONT color="blue"><B>list</B></FONT> against the
+     <FONT color="red"><B><TT>searchKey</TT></B></FONT>.
+ <P>
+ So the <FONT color="red"><B><TT>Lookup( )</TT></B></FONT> method will
+  be like this:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int  Lookup( List h, int searchKey )
+   {
+      if ( <FONT color="red">list h is empty</FONT> )
+        return 0;             // Not found is represented by 0     
+      else if ( <FONT color="red">key in first list element == searchKey</FONT> )
+        return (value in first list element);
+      else <SPAN style="BACKGROUND-COLOR: yellow">if ( <FONT color="red">key in 2nd list element == searchKey</FONT> )
+        return (value in 2nd list element);
+      else if ( <FONT color="red">key in 3rd list element == searchKey</FONT> )
+        return (value in 3rd list element);
+      and so on....</SPAN>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that the
+ <FONT color="blue"><B>work</B></FONT> done in the
+  <FONT color="red"><B>highlighted area</B></FONT> is the
+  <FONT color="blue"><B>task</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Lookup</B></FONT> the
+    <FONT color="blue"><B><TT>searchKey</TT></B></FONT>
+    in this <FONT color="red"><B><I>sub</I>-list</B></FONT>
+  of the <FONT color="blue"><B>original list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05h.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we can
+  <FONT color="red"><B>replace</B></FONT> this code using 
+  a <FONT color="blue"><B><TT>Lookup( )</TT></B></FONT> call to
+  search the <FONT color="red"><B>sublist</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int  Lookup( List h, int searchKey )
+   {
+      if ( <FONT color="red">list h is empty</FONT> )
+         return 0;             // Not found is represented by 0     
+      else if ( <FONT color="red">key in first list element == searchKey</FONT> )
+         return (value in first list element);
+      else 
+         <SPAN style="BACKGROUND-COLOR: yellow">return <FONT color="red">Lookup( h.next, searchKey )</FONT>;</SPAN>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So <B>in essence</B>,
+  we have 
+ <FONT color="red"><B>implemented</B></FONT> the 
+ following 
+ <FONT color="blue"><B>search algorithm</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05h3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>if-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    if (<FONT color="red"> key in first list element == searchKey</FONT> )     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is the <FONT color="red"><B><TT>(1) Search here</TT></B></FONT> part.
+
+<P>
+And the <FONT color="red"><B>else</B></FONT> part:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <SPAN style="BACKGROUND-COLOR: yellow">return <FONT color="red">Lookup( h.next, searchKey )</FONT>;</SPAN>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is the
+  <FONT color="red"><B><TT>(2) Lookup in sub-list</TT></B></FONT>
+  part.
+<P>
+(And we must handle the <FONT color="red"><B>empty list</B></FONT>
+ as a special case or else
+ the empty list will cause an error).
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The recursive Lookup algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> Using the <FONT color="red"><B>design</B></FONT> above,
+     we can now <FONT color="blue"><B>flesh out</B></FONT> the
+     <FONT color="red"><B>recursive </B></FONT> 
+     <FONT color="blue"><B><TT>Lookup( )</TT></B></FONT> algorithm in
+     <FONT color="red"><B>Java syntax</B></FONT>:
+ <P>
+ (You just need to use <FONT color="red"><B>Java expressions</B></FONT>
+ to replace the <FONT color="blue"><B>pseudo code</B></FONT>
+ in the <FONT color="red"><B>description</B></FONT>)
+<P>
+The <FONT color="red"><B>Lookup</B></FONT> method in
+ <FONT color="blue"><B>Java</B></FONT>
+  (without the class, we can add that later) is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">static</FONT> int  Lookup( List h, int searchKey )
+   {
+      if (<FONT color="red"> h == null</FONT> )
+         return 0;             // Not found is represented by 0     
+      else if ( <FONT color="red">h.key == searchKey</FONT> )
+         return (h.value);
+      else 
+         return <FONT color="red">Lookup( h.next, searchKey )</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In <FONT color="red"><B>CS170 or CS171</B></FONT>, you would have learn that
+ the cases
+ <FONT color="blue"><B><TT>h == null</TT></B></FONT> and
+ <FONT color="blue"><B><TT>h.key == searchKey</TT></B></FONT> are
+ called the <FONT color="red"><B>base cases</B></FONT>.
+<P>
+I hope with this approach, you get a 
+ <FONT color="red"><B>feel</B></FONT> on
+ <FONT color="blue"><B>how</B></FONT> the
+ <FONT color="red"><B>recursion</B></FONT> was 
+ <FONT color="blue"><B>introduced</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <B>first</B> <FONT color="red"><B>solve</B></FONT> the
+      <FONT color="blue"><B>problem</B></FONT> without
+      <FONT color="red"><B>recursion </B></FONT>
+ <P>
+ <LI> <B>Then</B> we <FONT color="red"><B>recognize</B></FONT> that
+      <FONT color="blue"><B>all the work</B></FONT> done
+      by <FONT color="red"><B>some part</B></FONT> of the
+      <FONT color="blue"><B>algorithm</B></FONT> is the
+      <FONT color="red"><B>same</B></FONT> as the
+      <FONT color="blue"><B>solution</B></FONT> of
+      a <FONT color="red"><B><I>smaller</I> problem</B></FONT>
+ <P>
+ <HR>
+<P>
+ <LI> We <FONT color="red"><B>replace</B></FONT> that part
+      with a <FONT color="blue"><B>recursive call</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>remaining part</B></FONT> that are
+   <FONT color="blue"><B>not covered</B></FONT> will become
+   the <FONT color="red"><B><I>bases cases</I></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/9-list-recurison/Lookup.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Lookup.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>java Lookup</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Another way to develop the reursive
+     look up algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> Pretend that you are hold on to a
+    <FONT color="red"><B>linked list</B></FONT> and you need
+    <FONT color="blue"><B>look up</B></FONT> the
+    value for the <FONT color="red"><B>key 333</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list06.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+And you are <B>lazy</B> and
+  <FONT color="red"><B>refuse</B></FONT> to
+  <FONT color="blue"><B>traverse</B></FONT> the
+  linked list.
+<P>
+The <FONT color="red"><B>only</B></FONT> action
+ that you want to do is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Check</B> the <FONT color="red"><B><I>first</I> element</B></FONT>
+      in the list
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Convince yourself that
+  this <FONT color="red"><B>search procedure</B></FONT> will
+  <FONT color="blue"><B>find</B></FONT> the
+  <FONT color="red"><B>correct value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>If</B></FONT> the
+  list is <FONT color="blue"><B>not empty</B></FONT>:
+    <FONT color="red"><B>check</B></FONT> if
+    the <FONT color="blue"><B><I>first</I> element</B></FONT> contains
+    the <FONT color="red"><B><TT>searchKey</TT></B></FONT>
+<P>
+ If so, you have <FONT color="blue"><B>found</B></FONT> the
+  <FONT color="red"><B><TT>searchKey</TT></B></FONT> and
+ you should <FONT color="blue"><B>return</B></FONT> the
+  corresponding
+   <FONT color="red"><B><TT>value</TT></B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Otherwise</B></FONT>,
+       you <FONT color="blue"><B>delegate</B></FONT> the
+       <FONT color="red"><B>look up operation</B></FONT> to
+       <FONT color="blue"><B><I>someone</I> else</B></FONT>
+  <P>
+  I.e.: you <FONT color="red"><B>hire a searcher</B></FONT> to find
+   the <FONT color="blue"><B>search key</B></FONT> for you
+ <P>
+   When this <FONT color="red"><B>hired person</B></FONT> completes
+   his <FONT color="blue"><B>task</B></FONT> (i.e.,
+    find the searchKey and return the corresponding value),  you will
+   <FONT color="red"><B>use</B></FONT> his result
+   <FONT color="blue"><B>as if you have found it</B></FONT>
+   (and you return this result).
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> When you <FONT color="red"><B>code</B></FONT> this
+    <FONT color="blue"><B>lazy man's search algorithm</B></FONT>, you will
+    have the following algorithm:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /* ---------------------------------------------------
+       Lookup( ) describes how a lazy guy will lookup
+                 a search key in a list that start at h
+       --------------------------------------------------- */
+    int  Lookup( List h, int searchKey )
+    {
+       /* -----------------------------------------------------
+          I (the lazy guy) will only look at the first element
+	  if the list is not empty
+          ----------------------------------------------------- */        
+       if ( list h is empty )
+          return not found
+       else if ( key of first element in list == searchKey )
+          return value in first element
+       else
+       {
+           Hire someone to find "searchKey" in sublist (h.next);
+           Take what he give me and return it
+       }
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Again: you should
+  <FONT color="red"><B>convince yourself</B></FONT> that
+  this <FONT color="blue"><B>lazy guy algorithm</B></FONT>
+  will <FONT color="red"><B>achieve</B></FONT> the
+  desired result (and find the value) ---
+ you must have faith that the
+ <FONT color="red"><B>hired searcher</B></FONT> is
+ <FONT color="blue"><B>competent</B></FONT> and he will
+ do his job <FONT color="red"><B>correctly</B></FONT>.
+<P>
+<P>
+If you <FONT color="red"><B>translates</B></FONT> these
+  <FONT color="blue"><B>actions</B></FONT> into
+  <FONT color="red"><B>Java constructs</B></FONT>, you will
+  <B>also</B> get the
+  <FONT color="blue"><B><I>same</I> algorithm</B></FONT>
+  as discussed above:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   static int  Lookup( List h, int searchKey )
+   {
+       /* -----------------------------------------------------
+          I (the lazy guy) will only look at the first element
+	  if the list is not empty
+          ----------------------------------------------------- */ 
+      if ( h == null )
+         return 0;             // Not found is represented by 0     
+      else if ( h.key == searchKey )
+         return (h.value);
+      else 
+         // <FONT color="red">Lookup(h.next, searchKey)</FONT> = Hire someone to find "searchKey" 
+         //                             in sublist (h.next)
+         return <FONT color="red">Lookup( h.next, searchKey )</FONT>;     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

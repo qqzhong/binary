@@ -1,0 +1,761 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Bit <I>manipulation</I> functions: 
+ clear a bit, set a bit, flip a bit and test a bit
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Setting a certain bit in a <I>bit pattern</I>
+     </B></font>
+<P>
+
+<P>
+<UL>
+<LI> <B>Recall</B> how to
+<FONT color="red"><B>Set</B></FONT> a <B><I>certain</I> bit</B>
+in variable:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      a = 1010...<FONT color="red">x</FONT>...1101 
+          0000..010..0000      <------------- Or this bit pattern      
+    <FONT color="red">OR</FONT>    ---------------
+          1010...<FONT color="red">1</FONT>...1101
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can <B>best</B> <FONT color="blue"><B>use</B></FONT> the
+ <FONT color="red"><B>base 2, 8 or 16</B></FONT> number 
+ notation  to
+  <FONT color="blue"><B>denote</B></FONT>
+  <FONT color="red"><B><I>bit patterns</I></B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+     <FONT color="red"><B>set</B></FONT>
+    the <FONT color="blue"><B>2nd bit</B></FONT>
+     and the <FONT color="blue"><B>4th bit</B></FONT> in
+     a bit pattern
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = 1;          /* 1 = 00000001 */
+    <FONT color="red">
+
+      a = a | <FONT color="darkblue">0b</FONT>00000100;  /* 00000100  - set 2nd bit */
+      a = a | <FONT color="darkblue">0b</FONT>00010000;  /* 00010000  - set 4th bit */ </FONT>
+
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Clearing a certain bit in a <I>bit pattern</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Clear</B></FONT> a certain bit in a 
+     <B>bit pattern</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the variable <FONT color="blue"><B><TT>a</TT></B></FONT>
+      contains a <B>bit pattern</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Problem:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Clear</B></FONT> the bit
+    <FONT color="red"><B><TT>x</TT></B></FONT> to the value
+    <FONT color="blue"><B><TT>1</TT></B></FONT>
+    <FONT color="red"><B><I>without</I> changing</B></FONT>
+    <B>all other bits</B> in the pattern.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> We can <FONT color="blue"><B>clear</B></FONT> the bit
+      <FONT color="red"><B><TT>x</TT></B></FONT> inside the
+      <B>bit pattern</B> to <FONT color="blue"><B>0</B></FONT> using
+      the <FONT color="red"><B>AND operation</B></FONT> with
+      the following
+     <FONT color="blue"><B><I>specific</I> pattern</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101       
+        1111..101..1111
+  <FONT color="red">AND</FONT>   ---------------
+        1010...<FONT color="red">0</FONT>...1101
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The bit pattern
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+         1111...101...1111         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+can be <FONT color="blue"><B>obtained</B></FONT> using:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">NOT</FONT> ( 0000...010...0000 )      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> 
+    <FONT color="red"><B>clear</B></FONT>
+   the <FONT color="blue"><B>4th bit</B></FONT> 
+     and the <FONT color="blue"><B>2nd bit</B></FONT> in
+     a bit pattern
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = 31;         /* a = 00011111 (= 31) */
+
+      a = <FONT color="red">a & (~0b00010000);       /* Now: a = 00001111 (= 15) */</FONT>       
+    
+      printf( "a =  %d\n", a  );
+    
+      a = <FONT color="red">a & (~0b0000100);        /* Now: a = 00001011 (= 11) */</FONT>
+    
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bit-op3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bit-op3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Flip</I> a certain bit in a <I>bit pattern</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Flipping</B> a bit:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Flipping</B></FONT> a bit =
+      changing a <FONT color="red"><B>0</B></FONT> bit to <B>1</B>
+     <B><I>or</I></B>
+     changing a <FONT color="red"><B>1</B></FONT> bit to <B>0</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Flip</B></FONT> a certain bit in a 
+     <B>bit pattern</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the variable <FONT color="blue"><B><TT>a</TT></B></FONT>
+      contains a <B>bit pattern</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Problem:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Flip</B></FONT> the bit
+    <FONT color="red"><B><TT>x</TT></B></FONT> 
+    <FONT color="blue"><B><I>without</I> changing</B></FONT>
+    <B>all other bits</B> in the pattern.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> We can <FONT color="blue"><B>flip</B></FONT> the bit
+      <FONT color="red"><B><TT>x</TT></B></FONT> inside the
+      <B>bit pattern</B> using
+      the <FONT color="red"><B>XOR operation</B></FONT> with
+      the following
+     <FONT color="blue"><B><I>specific</I> pattern</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101       
+        0000..010..0000
+  <FONT color="red">XOR</FONT>   ---------------
+        1010...<FONT color="red"><U>x</U></FONT>...1101
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> 
+    <FONT color="red"><B>flip</B></FONT>
+   the <FONT color="blue"><B>4th bit</B></FONT> 
+     in
+     a bit pattern <B>OFF</B> and <B>ON</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = 31;              /* a = 00011111 (= 31) */
+
+      a = <FONT color="red">a ^ <FONT color="darkblue">0b</FONT>00010000;       /* Now: a = 00001111 (= 15) */</FONT>       
+    
+      printf( "a =  %d\n", a  );
+    
+      a = <FONT color="red">a ^ <FONT color="darkblue">0b</FONT>00010000;       /* Now: a = 00011111 (= 31) */</FONT>
+    
+      printf( "a =  %d\n", a  );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bit-op5.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bit-op5.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Testing if a certain bit in a <I>bit pattern</I> is set/reset
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Testing</B></FONT> a certain bit in a 
+     <B>bit pattern</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the variable <FONT color="blue"><B><TT>a</TT></B></FONT>
+      contains a <B>bit pattern</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Problem:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Test</B></FONT> whether the bit
+    <FONT color="red"><B><TT>x</TT></B></FONT> is
+    <FONT color="blue"><B><TT>1</TT></B></FONT> or not
+    <FONT color="red"><B><I>without</I> changing</B></FONT>
+    <B><I>any</I>  bit</B> in the pattern.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> We can <FONT color="blue"><B>test</B></FONT> the bit
+      <FONT color="red"><B><TT>x</TT></B></FONT> inside the
+      <B>bit pattern</B> by
+      <B><I>first</I></B> 
+      <FONT color="blue"><B>filtering out</B></FONT>
+      this bit using 
+      the <FONT color="red"><B>AND operation</B></FONT> with
+      the following
+     <FONT color="blue"><B><I>specific</I> pattern</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = 1010...<FONT color="red">x</FONT>...1101       
+        0000..010..0000
+  <FONT color="red">AND</FONT>   ---------------
+        0000...<FONT color="red">x</FONT>...0000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and then:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B>Testing</B></FONT> whether the
+  <B>result</B> is equal to <FONT color="red"><B>0</B></FONT> or not.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> <FONT color="red"><B>test</B></FONT>
+    whether the <FONT color="blue"><B>3rd bit</B></FONT> in
+     a bit pattern is <B>set</B> or <B>reset</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      char a = .....;   /* Any bit pattern */
+    
+    
+      if ( <FONT color="red">(a & 0b00001000) == 0</FONT> )    <FONT color="red">/* Test is 3rd bit is set */</FONT>     
+   	 printf( "bit is 0\n" );
+      else
+   	 printf( "bit is 1\n" );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bit-op4.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bit-op4.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript
+     </B></FONT>
+<P>
+<UL>
+<LI> We will see <FONT color="blue"><B>soon</B></FONT> that there is
+     a <FONT color="red"><B><I>better</I> way</B></FONT> to
+     <B>construct</B>
+     <FONT color="blue"><B><I>bit patterns</I></B></FONT> that are
+     <B>used</B> in the
+     <FONT color="red"><B>bit manipulation operations</B></FONT>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Programming note
+     </B></FONT>
+<P>
+<UL>
+<LI> These <FONT color="blue"><B>bit wise operators</B></FONT> are
+      <B><I>also</I></B> defined in <B>Java</B>.
+<P>
+<LI> They are <B>often</B> <FONT color="blue"><B>omitted</B></FONT>
+       in <FONT color="red"><B>introduction courses</B></FONT>
+       because they are <B>not used</B> in
+       program at the introduction level. 
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

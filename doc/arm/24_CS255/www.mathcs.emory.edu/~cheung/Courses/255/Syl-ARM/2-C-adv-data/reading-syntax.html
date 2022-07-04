@@ -1,0 +1,937 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Understanding C's syntax for variable definition
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to read a <I>variable definition</I> clause in
+      <I>modern</I> programming languages
+     </B></FONT>
+<P>
+<UL>
+<LI> Students in <B>Emory</B> 
+    studied <FONT color="blue"><B>programming</B></FONT>
+     using the 
+     <B>modern</B>
+     <FONT color="red"><B>Java</B></FONT>
+      programming language
+     which has a <B><I>simple to understand</I></B>
+     <FONT color="blue"><B>syntax</B></FONT> for
+     <B>variable definition</B>
+<P>
+<HR>
+<P>
+<LI> <B>Java's</B> syntax to
+     <FONT color="blue"><B>define</B></FONT> a <B>variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">DataType</FONT>   variableName ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int</FONT>    a ;         a is an <FONT color="red">int</FONT>
+    <FONT color="red">int[]</FONT>  b ;         b is an <FONT color="red">int[] (array of int)</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <B>Java</B>, you can 
+     <FONT color="blue"><B>also</B></FONT> define an
+     <B>array (object) variable</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  a[] ;               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> This <B>syntax</B> is
+     to <FONT color="blue"><B>accommodate</B></FONT> the
+     <FONT color="red"><B><I>older</I> generation </B></FONT> of
+     <B>C style</B> 
+     array definition.
+ <P>
+   The <FONT color="red"><B>proper form</B></FONT> of
+   <FONT color="blue"><B>array definition</B></FONT> in <B>Java</B> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int[]</FONT>  a ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reading C's syntax for variable definitions
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>How to</B></FONT> read a
+      <FONT color="red"><B>simple</B> </FONT>
+     <B>variable definition</B> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT>   <FONT color="darkred">a</FONT> ;      // meaning: the expression <FONT color="darkred">a</FONT> is of the type <FONT color="red">int</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How to</B></FONT> read a
+      <FONT color="red"><B><I>reference</I></B> </FONT>
+     <B>variable definition</B> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int *</FONT><FONT color="darkred">a</FONT> ;
+
+  should be read as:
+
+     <FONT color="red">int </FONT><FONT color="darkred">*a</FONT> ;    // meaning: the expression  <FONT color="darkred">*a</FONT>  is an <FONT color="red">int</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>How</B></FONT> can the fact that
+ <P>
+  <UL>
+      "<FONT color="red"><B><TT>*a</TT></B></FONT> is an 
+    <FONT color="blue"><B><TT>int</TT></B></FONT> variable"
+  </UL>
+  <P>
+    be <B><I>equivalent</I></B> to
+    the fact that
+  <P>
+  <UL>
+   "<FONT color="red"><B><TT>a</TT></B></FONT> is an 
+   <FONT color="blue"><B><I>reference</I> variable</B></FONT> to an
+    <FONT color="red"><B><TT>int</TT></B></FONT> variable"
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<B>Explanation:</B> 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>If:</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">*a</FONT> is an <FONT color="red">int</font>     (and <FONT color="red">*</FONT> is the <FONT color="red">de-reference operator</FONT> !)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><I>then:</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">a</FONT>    contains  an <FONT color="red">address</FONT> of an <FONT color="darkred">int</font> variable !!!      
+
+ i.e.:
+
+     <FONT color="red">a</FONT>    is a <FONT color="red">reference variable</FONT> to an <FONT color="darkred">int</font> variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     More common way to write a definition of <I>reference</I> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Some times, you see programmers use the following "style"
+     (that is 
+      <FONT color="blue"><B>not used</B></FONT> by
+      <B><I>mature</I> C programmers</B>) to
+      write the <FONT color="red"><B>definition</B></FONT> of
+      a <B><I>reference</I> variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int*</FONT>  a ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The "intention is to <FONT color="blue"><B>mimic</B></FONT> the
+  <FONT color="red"><B>Java style</B></FONT> of
+   <B>variable definition</B> to reflect the fact that
+   the variable <FONT color="blue"><B><TT>a</TT></B></FONT>
+   has the <B>type</B> <FONT color="red"><B><TT>int*</TT></B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>conventional (and proper) way</B></FONT>
+     in <B>C</B> to write 
+     the <FONT color="red"><B>definition</B></FONT> of
+      a <B><I>reference</I> variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT>  *a ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+because this <B>notation</B>
+ <FONT color="blue"><B>reflects</B></FONT> the
+ <B>underlying meaning</B> of the
+ <FONT color="red"><B>definition</B></FONT> as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B><I>expression</I></B> 
+ &nbsp;
+    <FONT color="blue"><B><TT>*a</TT></B></FONT> &nbsp; 
+  is
+    of the type <FONT color="red"><B><TT>int</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Some more advanced examples of <I>variable definition</I> syntax
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following
+    <FONT color="blue"><B>variable definition</B></FONT> that
+    defines <FONT color="red"><B>2 variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT>  *a, b ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <B>variable definition</B> defines:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">*a</FONT>    is an int   ===>  <FONT color="red">a</FONT>   is a <FONT color="darkred">reference variable</FONT> to an int    
+       <FONT color="red">b</FONT>    is an int   ===>  <FONT color="red">b</FONT>   is an int
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example 2:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int</FONT>  *a, *b ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <B>variable definition</B> defines:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">*a</FONT>    is an int   ===>  <FONT color="red">a</FONT>   is a <FONT color="darkred">reference variable</FONT> to an int    
+      <FONT color="red">*b</FONT>    is an int   ===>  <FONT color="red">b</FONT>   is <FONT color="red">also</FONT> a <FONT color="darkred">reference variable</FONT> an int
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to read variable definitions with the <TT>const</TT> modifier
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">int</FONT>  <FONT color="darkred">a</FONT> ;         read as:         <FONT color="darkred">a</FONT>  is an <FONT color="red">int</FONT>      
+
+    <FONT color="red">int</FONT>  <FONT color="darkred">const a</FONT> ;   read as:   <FONT color="darkred">const a</FONT>  is an <FONT color="red">int</FONT>
+                          <==>        <FONT color="darkred">a</FONT>  is an <FONT color="red">int</FONT> and you <FONT color="red">cannot update</FONT> <FONT color="darkred">a</FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     More advanced example: reading variable definitions with
+     the <TT>const</TT> modifier
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Question:</B>
+      <FONT color="red"><B>what kind</B></FONT> of variable
+      is <FONT color="blue"><B><TT>a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int const</FONT> *a ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="darkred">int</FONT> <FONT color="magenta">const</FONT> <FONT color="red">*a</FONT>  means:
+
+        <FONT color="magenta">const</FONT> <FONT color="red">*a</FONT>    is an <FONT color="darkred">int</FONT>
+
+  <==>        <FONT color="red">*a</FONT>    is an <FONT color="darkred">int</FONT> and you <FONT color="magenta">cannot update</FONT> <FONT color="red">*a</FONT>       
+
+  <==>         <FONT color="red">a</FONT>    is a <FONT color="red">reference</FONT> to an <FONT color="darkred">int</FONT> 
+                    and you <FONT color="magenta">cannot update</FONT> <FONT color="red">*a</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The variable <FONT color="red">a</FONT>  points to
+     an <FONT color="blue"><B>integer variable</B></FONT> that
+     you <FONT color="red"><B>cannot</B></FONT> update that
+     <FONT color="blue"><B>integer variable</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+      int a;
+    <FONT color="red">
+      const int *p; </FONT> // You <FONT color="red">CANNOT</FONT> use *p to update the int value !      
+    
+      a = 4;
+    
+      p = &a;
+      <FONT color="red">*p = 100</FONT>;     <FONT color="red"> // Illegal !!!</FONT>
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+UNIX>> gcc const1.c
+const1.c: In function 'main':
+const1.c:15: error: assignment of <FONT color="red">read-only</FONT> location '<FONT color="red">*p</FONT>'      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/const1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc const1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A variation of the previous example....
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+     
+<LI> <B>Question:</B>
+      <FONT color="red"><B>what kind</B></FONT> of variable
+      is <FONT color="blue"><B><TT>a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</FONT> * const a ;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="darkred">int</FONT> <FONT color="red">* <FONT color="magenta">const</FONT> a</FONT>   means:
+
+        <FONT color="red">* <FONT color="magenta">const</FONT> a</FONT>    is an  <FONT color="darkred">int </FONT> 
+
+  <==>    <FONT color="red"><FONT color="magenta">const</FONT> a</FONT>    is a <FONT color="red">reference</FONT> variable to an <FONT color="darkred">int</FONT>       
+       
+  <==>          <FONT color="red">a</FONT>    is a <FONT color="red">reference</FONT> variable to an <FONT color="darkred">int</FONT>
+                     and you <FONT color="magenta">cannot update</FONT> <FONT color="red">a</FONT>         
+  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>int * const</TT></B></FONT> 
+      <FONT color="red"><B><TT>a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The variable <FONT color="red"><B><TT>a</TT></B></FONT>
+    points to an <FONT color="blue"><B>integer variable</B></FONT>
+       that you <FONT color="red"><B>cannot</B></FONT> make
+       <B><TT>a</TT></B> point so
+       <FONT color="blue"><B><I>another</I> variable</B></FONT> 
+       (= <FONT color="red"><B>cannot</B></FONT>
+       <FONT color="magenta"><B>update</B></FONT>
+       <B><TT>a</TT></B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+      int a = 4;
+      int b = 7;
+    <FONT color="red">
+      int * const</FONT> p = &a;    // p points to <FONT color="red">a</FONT>, and you <FONT color="red">cannot update</FONT> p
+    
+      
+      printf ("a = %d, b = %d\n", a, b);
+    <FONT color="#004400">
+      *p = 555; </FONT>             // You <FONT color="#004400">CAN</FONT> update <FONT color="red">*p</FONT>  (it is <FONT color="red">not the same</FONT> as p)        
+    
+      printf ("a = %d, b = %d\n", a, b);
+    <FONT color="red">
+      p = &b; </FONT>               // <FONT color="red">Illegal</FONT> - can't update p
+    
+  <FONT color="darkmagenta">  
+      /* --------------------------
+   	 Contrast with this:
+   	 -------------------------- */</FONT>
+    
+      <FONT color="red">int const *</FONT> q = &a;    // *q is a const
+    <FONT color="#004400">
+      q = &b;</FONT>                // You <FONT color="#004400">CAN</FONT> update <FONT color="red">q</FONT>
+   <FONT color="red"> 
+      *q = 555;  </FONT>            // <FONT color="red">Illegal:</FONT> You CANNOT update *q
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+UNIX>> gcc const2.c
+const2.c: In function 'main':
+const2.c:<FONT color="red">line 20:</FONT> error: assignment of read-only variable <FONT color="red">'p'</FONT>
+const2.c:<FONT color="red">line 31:</FONT> error: assignment of read-only location <FONT color="red">'*q'</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/const2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc const2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Exercise:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Remove the offending lines, and recompile....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,330 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting a TWO-digits decimal integer string to 2's complement representation
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The value of a decimal number
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall from <FONT color="red"><B>high school</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Value of the decimal number <FONT color="red"> 12 </FONT>  is computed as:       
+
+
+               <FONT color="red">1</FONT>&times;10<sup>1</sup>  +  <FONT color="red">2</FONT>&times;10<sup>0</sup>  
+           =   <FONT color="red">1</FONT>&times;10   +  <FONT color="red">2</FONT>&times;1 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Notice</B></FONT> that 
+ if we perform the <FONT color="red"><B>same computation</B></FONT> with
+ <FONT color="blue"><B>binary numbers</B></FONT>,
+ we will get the
+  <FONT color="red"><B>binary representation</B></FONT> for the
+ <B>same number</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          <FONT color="red">00000001</FONT>&times;00001010    +  <FONT color="red">00000010</FONT>&times;00000001  
+       =  00001010 + 00000010
+       =  <FONT color="red">00001100</FONT>
+
+ And:
+
+        Binary number <FONT color="red">00001100</FONT><sub>(2)</sub>  is the decimal number <FONT color="red">12</FONT><sub>(10)</sub> !!!      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can use this <FONT color="red"><B>high school formula</B></FONT> 
+ and <FONT color="blue"><B>binary arithmetical operations</B></FONT> to
+ compute the
+ <FONT color="blue"><B>2's complement representation</B></FONT> from
+ it's <FONT color="blue"><B>string</B></FONT> !
+<P>
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example to help you understand
+      the conversion algorithm: convert a number string of 2 characters
+     to 2's complement
+     </B></FONT>
+<P>
+<UL>
+<LI> Before we discuss the algorithm, let's look at how you would
+    <FONT color="red"><B>convert</B></FONT> the string
+    <FONT color="blue"><B><TT>"12"</TT></B></FONT> into
+    its <FONT color="red"><B>2's complement representation</B></FONT>
+<P>
+<LI> The string <FONT color="blue"><B><TT>"12"</TT></B></FONT> consists
+    of <FONT color="red"><B>2 ASCII codes
+  <TT>00110001 (= 49) 00110010 (= 50)</TT></B></FONT>:
+<P>
+&nbsp;&nbsp;&nbsp;<textarea pattern="[\x00-\xFF]*" autofocus cols=40>
+12</textarea>
+<BR>
+their <B>binary ASCII code:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea cols=40 pattern="(\s*[01]{8}\s*)*">0100100001100101011100100110010100100000011000100110010100100000011100110110010101100011011100100110010101110100001000000110110101100101011100110111001101100001011001110110010101110011001000010010000100110001</textarea>
+<p id=footer>Made by <a href=http://mathiasbynens.be/>@mathias</a>  
+---- <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/binary-ascii>GitHub! source</a></p>
+<script>(function(i,o){var l=o.getElementsByTagName("textarea"),b=l[0],a=l[1],k=o.getElementById("permalink"),j=/\s*[01]{8}\s*/g,e=/[\s\S]/g,f=/^(\s*[01]{8}\s*)*$/,r=/^[\x00-\xff]*$/,p=(function(){var t=new Date,v,s;try{(v=i.localStorage).setItem(t,t);s=v.getItem(t)==t;v.removeItem(t);return s&&v}catch(u){}}()),n=String.fromCharCode;function d(s){return encodeURIComponent(s).replace(/['()_*]/g,function(t){return"%"+t.charCodeAt().toString(16)})}function m(s){return"00000000".slice(String(s).length)+s}function q(s){return s.replace(j,function(t){return n(parseInt(t,2))})}function c(s){return s.replace(e,function(t){return m(t.charCodeAt().toString(2))+' '})}function h(x,v,u,t){var w=x.value,s="";if(v.test(w)){t.value=s=u(w);x.className=t.className=""}else{t.value="ERROR: invalid input";x.className=t.className="invalid"}return x==b?w:s}function g(){var s=this==a?h(a,f,q,b):h(b,r,c,a);k.hash=d(s);p&&(p.ascii=s)}b.onkeyup=a.onkeyup=g;b.oninput=a.oninput=function(){b.onkeyup=a.onkeyup=null;g.call(this)};if(p){p.ascii&&(b.value=p.ascii);g()}i.onhashchange=function(){b.value=decodeURIComponent(location.hash.slice(1));g()};if(location.hash){i.onhashchange()}}(this,document));window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src="//www.google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"))</script>
+<P>
+<LI> We can <FONT color="red"><B>individually</B></FONT>
+     map the
+    <FONT color="blue"><B>ASCII codes</B></FONT> to their
+    <FONT color="red"><B>2's complement values</B></FONT> that
+    are suitable for 
+    <FONT color="blue"><B>binary arithmetic</B></FONT> by
+    the <FONT color="red"><B>mapping function</B></FONT> that
+    we found previously:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   "12"  consists of the ASCII code:  00110001 00110010
+
+   Map each ASCII code uisng  "input <FONT color="red">- 48</FONT>":
+
+                00110001 (=49) <FONT color="red">- 00110000 (=48)</FONT> -->  00000001 (=1)
+                00110010 (=50) <FONT color="red">- 00110000 (=48)</FONT> -->  00000010 (=2)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+After we got their <FONT color="red"><B>computable 2's complement codes</B></FONT>
+ for the digits, we can use the
+ <FONT color="blue"><B>high school formula</B></FONT> to
+ find the <FONT color="red"><B>value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       1&times;10 + 2
+
+ The computer can perform this calculation in binary:
+
+       00000001&times;00001010 + 00000010 = 00001010 + 00000010 
+                                    = <FONT color="red">00001100</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and obtain the <FONT color="red"><B>2's complement representation
+  <TT>00001100</TT></B></FONT> for
+  the <FONT color="blue"><B>String "12"</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> I made a simple Java program to
+   show you the steps to convert the
+   <FONT color="blue"><B>string "12"</B></FONT> to
+   it's 
+   <FONT color="red"><B>2's complement code <TT>00001100</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File:  /home/cs255001/demo/atoi/Atoi_1.java
+//
+// Convert "12" to 2's complement
+//
+
+public class Atoi_1
+{
+   public static void main(String[] args)  throws Exception
+   {
+      String  s  = "12";        // You can use any string of 2 digits
+      int[]   v = new int[2];   // To save values of the digits
+      int     i;
+
+      System.out.println("ASCII codes (in decimal) = "
+                             + (int) s.charAt(0) + "    "
+                             + (int) s.charAt(1) );
+
+      /* -------------------------------------------------------
+         Convert the ASCII character to 2's compl - per digit
+         ------------------------------------------------------- */
+      v[0] = <FONT color="red">(int) s.charAt(0) - 48</FONT>;
+      v[1] = <FONT color="red">(int) s.charAt(1) - 48</FONT>;
+
+      i = <FONT color="red">v[0]*10 + v[1]</FONT>;  // High school formula to find value of dec number
+                           // Note: calculation<FONT color="red"> performed in BINARY</FONT> by computer !!!    
+
+      System.out.println("integer value i = " + i);
+
+      /* =============================================================
+         Prive to students that this is an integer (you can add !)
+         ============================================================= */
+      i = i + 1;
+      System.out.println("After i+1, i = " + i);
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@aruba> java Atoi_1      
+ASCII codes (in decimal) = 49    50
+integer value i = 12
+After i+1, i = 13
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice that the <FONT color="blue"><B>string "12"</B></FONT> is
+ represented by the
+ <FONT color="red"><B>2 ASCII codes 
+  <TT>00110001 (= 49) 00110010 (= 50)</TT></B></FONT>
+ as shown in the
+ <FONT color="blue"><B>sample output</B></FONT>.
+<P>
+When we <FONT color="red"><B>subtract 48</B></FONT> from them, we get
+ <FONT color="blue"><B>1</B></FONT> and
+ <FONT color="blue"><B>2</B></FONT>.
+<P>
+That's why the <FONT color="blue"><B>high school formula</B></FONT>
+ can be used to
+ <FONT color="red"><B>compute</B></FONT> the
+ <FONT color="blue"><B>2's complement representation</B></FONT> because
+ <FONT color="red"><B>1</B></FONT> and 
+ <FONT color="red"><B>2</B></FONT> are
+ <FONT color="blue"><B>suitabel for computation</B></FONT>
+  (while <FONT color="red"><B>49</B></FONT> and
+ <FONT color="red"><B>50</B></FONT> are <FONT color="blue"><B>not</B></FONT> !!)
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/atoi/Atoi_1.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Atoi_1.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>java Atoi_1</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,324 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Compare and Logical operators in C
+<HR>
+</H3>
+<UL>
+
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Compare operators in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Compare operators</B></FONT> in
+         <B>C</B> behave the <FONT color="red"><B>same way</B></FONT> as
+	 those in <B>Java</B>....
+  <P>
+   But you need to know <B>how</B> interpret 
+   <FONT color="blue"><B>true</B></FONT>
+   and <FONT color="blue"><B>false</B></FONT>
+
+<P>
+<HR>
+ <P>
+ <LI> The <FONT color="red"><B>compare operators</B></FONT>
+	in <B>C</B> and <B>Java</B>
+     are the <FONT color="blue"><B>"same"</B></FONT>
+	<FONT color="red"><B><I>if</I></B></FONT>
+    you interpret the <B>result</B> of the
+       <B>compare operators</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>1</B></FONT> to represent
+    <FONT color="blue"><B>true</B></FONT>
+ <LI> <FONT color="red"><B>0</B></FONT> to represent
+     <FONT color="blue"><B>false</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Summary</B> of the <FONT color="blue"><B>compare operators</B></FONT>
+     in <B>C</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Compare operations  | Meaning
+  ---------------------+-----------------------------------------------------   
+      x <FONT color="red">==</FONT> y           | returns <FONT color="red">1</FONT> if x is <FONT color="red">equals to</FONT> y, returns <FONT color="red">0 otherwise</font>
+      x <FONT color="red">!=</FONT> y           | returns <FONT color="red">1</FONT> if x is <FONT color="red">not equals to</FONT> y, returns <FONT color="red">0 otherwise</font> 
+      x <FONT color="red"><</FONT>  y           | Ditto: less than
+      x <FONT color="red"><=</FONT> y           | Ditto: less than or equal
+      x <FONT color="red">></FONT>  y           | Ditto: greater than
+      x <FONT color="red">>=</FONT> y           | Ditto: greater than or equal
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Logical operators in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Logical operators</B></FONT> in
+         <B>C</B> behave the <FONT color="red"><B>same way</B></FONT> as
+	 those in <B>Java</B>....
+ <P>
+ <LI> <FONT color="red"><B><I>if</I></B></FONT>
+    you interpret the <B>result</B> of the
+       <B>compare operators</B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>1</B></FONT> to represent
+    <FONT color="blue"><B>true</B></FONT>
+ <LI> <FONT color="red"><B>0</B></FONT> to represent
+     <FONT color="blue"><B>false</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Summary</B> of the <FONT color="blue"><B>logical operators</B></FONT>
+     in <B>C</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Compare operations  | Meaning
+  ---------------------+-----------------------------------------------------   
+      x <FONT color="red">&&</FONT> y           | returns <FONT color="red">1</FONT> if <FONT color="red">"x and y"</font> is true, returns <FONT color="red">0 otherwise</font>
+      x <FONT color="red">||</FONT> y           | Ditto: logical or
+      <FONT color="red">!</FONT>x               | Ditto: logical not
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <HR>
+ <HR>
+<P>
+<LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main( int argc, char* argv[] )
+{
+   printf("4 == 3 = %d\n",  <FONT color="red">(4==3)</FONT>  );                  
+   printf("4 > 3 = %d\n",   <FONT color="red">(4 > 3)</FONT> );
+
+   printf("4 && 3 = %d\n",  <FONT color="red">(4 && 3)</FONT> );
+   printf("4 && 0 = %d\n",  <FONT color="red">(4 && 0)</FONT> );
+   printf("4 || 0 = %d\n",  <FONT color="red">(4 || 0)</FONT> );
+   printf("0 || 0 = %d\n",  <FONT color="red">(0 || 0)</FONT> );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+4 == 3 = 0
+4 > 3  = 1
+4 && 3 = 1
+4 && 0 = 0
+4 || 0 = 1
+0 || 0 = 0                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/logic2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc logic2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Compare operators
+   (<TT> < , <= , > , >= , == , != </TT>)</B></FONT> and
+    <FONT color="blue"><B>logical operators
+    (<TT>&& , || , ! </TT>)</B></FONT>
+  in <FONT color="red"><B>C</B></FONT> will
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> return the <FONT color="red"><B><TT>int</TT> value 1</B></FONT>
+      if the <FONT color="blue"><B>result is <TT>true</TT></B></FONT>
+ <LI> return the <FONT color="red"><B><TT>int</TT> value 0</B></FONT>
+      if the <FONT color="blue"><B>result is <TT>false</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

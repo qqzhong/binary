@@ -1,0 +1,347 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Prelude to using register to pass parameters and store local variables
+<HR>
+</H3>
+<UL>
+<! -------- Explain: memory reservation !!! --->
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The main 
+    <FONT color="red">caveat</FONT> in using <FONT color="red">registers</FONT>
+     to store parameters  and local variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Introduction:</B>
+<P>
+  Although a <FONT color="red"><B>computer program</B></FONT> is
+      <FONT color="blue"><B><I>one</I> unit</B></FONT>, but:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> a <FONT color="red"><B>computer program</B></FONT> is
+   <FONT color="blue"><B>logically</B></FONT> partitioned
+   into <B>multiple units</B> called
+   <FONT color="red"><B>subroutines/methods</B></FONT>
+   to <FONT color="blue"><B>reduce</B></FONT> the
+   <FONT color="red"><B>complexity</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ (Humans can't handle things that are
+ <FONT color="red"><B>too large</B></FONT>)
+ <P>
+ By dividing  up a <FONT color="red"><B>complex program</B></FONT> into
+  <FONT color="blue"><B>units (subroutines)</B></FONT> that
+  perform
+  <FONT color="red"><B><I>specific</I> (and more simpler) tasks</B></FONT>,
+  we can <FONT color="blue"><B>reduce</B></FONT> the
+  <FONT color="red"><B>program complexity</B></FONT> and
+  write <FONT color="blue"><B>bug-free programs</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So, although <FONT color="red"><B>subroutines</B></FONT> are
+  in the <FONT color="blue"><B>same program</B></FONT>,
+ you must view each
+ <FONT color="red"><B>subroutine</B></FONT> as
+ a <FONT color="blue"><B>separate and independent </B></FONT>
+  <FONT color="red"><B>execution unit</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> <B>All subroutines (must) use  in their computations:</B>
+ <P>
+  <B>Each</B> <FONT color="red"><B>subroutine</B></FONT>
+      will need to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> <FONT color="red"><B>Use</B></FONT>
+      the <FONT color="blue"><B>CPU register</B></FONT> to
+      perform
+      <FONT color="red"><B>computations</B></FONT>
+      (because that's how the CPU operates !)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+It is <FONT color="red"><B>important</B></FONT> that you 
+ <FONT color="blue"><B>understand</B></FONT> that
+ the <FONT color="red"><B>CPU registers</B></FONT> are
+  <FONT color="blue"><B> resources</B></FONT> 
+ <FONT color="red"><B><I>shared</I></B></FONT> by
+  <FONT color="blue"><B>all subroutines</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Each</B> 
+   <FONT color="red"><B>subroutine</B></FONT> can
+    access <FONT color="blue"><B><I>all</I> </B></FONT> the
+    <FONT color="red"><B>CPU registers</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Main caveat</B></FONT> in using
+     <FONT color="blue"><B>registers</B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>value</B></FONT> in
+    <FONT color="blue"><B><I>any</I> register</B></FONT>
+    used by a <FONT color="red"><B>subroutine</B></FONT>
+    <FONT color="blue"><B> <TT>A</TT></B></FONT> can
+    be <FONT color="red"><B><I>changed</I></B></FONT> 
+    after <FONT color="blue"><B><TT>A</TT></B></FONT>
+    <B>calls</B>
+    a <FONT color="red"><B>subroutine</B></FONT>
+    <FONT color="blue"><B><TT>B</TT></B></FONT> !!!
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main</TT></B></FONT> set
+ the <FONT color="blue"><B>register <TT>r0</TT></B></FONT> to
+    <FONT color="red"><B>4</B></FONT> and
+    <FONT color="blue"><B>call</B></FONT> 
+    <FONT color="red"><B>subroutine <TT>subroutine1</TT></B></FONT> that
+    <FONT color="blue"><B>changes</B></FONT>
+    <FONT color="red"><B>register <TT>r0</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub03a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> When
+    <FONT color="red"><B>subroutine <TT>subroutine1</TT></B></FONT> 
+  <FONT color="blue"><B>returns</B></FONT> to
+  <FONT color="red"><B><TT>main</TT></B></FONT>, the
+  <FONT color="blue"><B>register <TT>r0</TT></B></FONT> will
+  have <FONT color="red"><B>changed</B></FONT> !!!
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+This can happen with
+ <FONT color="red"><B><I>any</I> subroutine call</B></FONT>.
+<P>
+<B>Another example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>subroutine1</TT></B></FONT> set
+ the <FONT color="blue"><B>register <TT>r0</TT></B></FONT> to
+    <FONT color="red"><B>7</B></FONT> and
+    <FONT color="blue"><B>call</B></FONT> 
+    <FONT color="red"><B>subroutine <TT>subroutine2</TT></B></FONT> that
+    <FONT color="blue"><B>changes</B></FONT>
+    <FONT color="red"><B>register <TT>r0</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> When
+    <FONT color="red"><B>subroutine <TT>subroutine2</TT></B></FONT> 
+  <FONT color="blue"><B>returns</B></FONT> to
+  <FONT color="red"><B><TT>subroutine1</TT></B></FONT>, the
+  <FONT color="blue"><B>register <TT>r0</TT></B></FONT> will
+  have <FONT color="red"><B>changed</B></FONT> !!!
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub03d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Moral (programming rule)</B></FONT> of this
+    <FONT color="blue"><B>story</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If a <FONT color="red"><B>sub-program</B></FONT> has an
+   <FONT color="blue"><B>important value</B></FONT> stored in
+   a <FONT color="red"><B>register</B></FONT>, <B>then</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>sub-program</B></FONT>
+       can<FONT color="blue"><B>not</B></FONT>
+      call make any <FONT color="red"><B>subroutine call</B></FONT>
+      <FONT color="blue"><B>without</B></FONT> first
+      <FONT color="red"><B>saving</B></FONT> the value
+      in the <FONT color="blue"><B>register</B></FONT>
+ <P>
+  (Otherwise, the value will be <FONT color="red"><B>lost</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will learn how to save value in registers
+ <FONT color="red"><B>later</B></FONT>
+<P>
+<HR>
+<P>
+<LI> But <FONT color="red"><B>the above rule</B></FONT> can
+  help use understand
+  that we can <FONT color="blue"><B>use registers</B></FONT>
+  to store 
+  <FONT color="red"><B>parameters and local variables</B></FONT>
+  for <FONT color="blue"><B><I>leaf</I> functions</B></FONT>
+  (that do <FONT color="red"><B>not</B></FONT> call
+  any function)
+<P
+  Because <B>storing</B>
+  <FONT color="red"><B>parameters and local variables</B></FONT> is
+   <FONT color="blue"><B>simple and <I>efficient</I></B></FONT>,
+   we will discuss this technique first.
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,170 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Functions that returns a <TT>struct</TT>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Functions that return a <TT>struct</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="darkgreen">/* ---------------------------------
+   Define the BankAccount data type
+   --------------------------------- */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};</FONT>
+
+<FONT color="red">/* ----------------------------------------------------
+   Function that returns a BankAccount struct (object)
+   ---------------------------------------------------- */
+struct BankAccount f( )
+{
+   struct BankAccount p;
+
+   p.accNum = 4;
+   p.balance = 4444.0;
+
+   return p;    // Return a BankAccount "object" (struct)
+}</FONT>
+
+int main(int argc, char *argv[])
+{
+   struct BankAccount a;
+
+   <FONT color="red">a = f ( );   // How to call f( )</FONT>
+
+   printf("AFTER  calling update: a.accNum = %d  a.balance = %f\n",    
+                 a.accNum, a.balance);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>How to</B> use
+      a <FONT color="blue"><B>function</B></FONT> that
+     <B><I>returns</I></B> a
+     <FONT color="red"><B><TT>struct</TT> type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct BankAccount a;          
+
+   <FONT color="red">a = f ( );</FONT>  // Assign the returned structure to a struct variable    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/struct-return1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc struct-return1.c</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+<P>

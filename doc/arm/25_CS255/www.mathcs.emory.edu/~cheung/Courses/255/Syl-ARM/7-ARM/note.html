@@ -1,0 +1,201 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Important note
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The parameter passing <FONT color="red">mechanism</font>
+	 and the <FONT color="red">place</font> used
+    to pass parameters
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> These are <FONT color="red"><B>2 independent/orthogonal</B></FONT>
+     <B>issues</B> when you <FONT color="blue"><B>pass parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> a <B>function</B>
+        <FONT color="blue"><B>passes</B></FONT> a
+	<FONT color="red"><B>parameters</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Pass</B> the <FONT color="blue"><B>parameter</B></FONT>
+      by <FONT color="red"><B>value</B></FONT>
+ <LI> <B>Pass</B> the <FONT color="blue"><B>parameter</B></FONT>
+      by <FONT color="red"><B>reference</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Where (= what memory space)</B></FONT> does
+      the <FONT color="blue"><B>function</B></FONT> <B>uses</B>
+      to <FONT color="red"><B>pass</B></FONT> the
+      <FONT color="blue"><B>parameter</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can use <FONT color="red"><B>register</B></FONT>
+	(if the method is a <B>leaf</B> function)
+ <LI> We can use the
+       <FONT color="red"><B>program stack</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You can combine any of these 2 
+    <FONT color="red"><B>orthogonal features</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> You can pass a parameter by value using
+         a register
+	 (provided the method is a <B>leaf</B> function) by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Putting the <FONT color="red"><B>value</B></FONT> of a
+     variable in a register
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> You can pass a parameter by reference using
+         a register
+	 (provided the method is a <B>leaf</B> function) by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Putting the <FONT color="red"><B>address</B></FONT> of a
+     variable in a register
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> You can pass a parameter by value using
+         the program stack by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Pushing the <FONT color="red"><B>value</B></FONT> of a
+     variable on the stack
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> You can pass a parameter by reference using
+         the program stack by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Pushing the <FONT color="red"><B>address</B></FONT> of a
+     variable on the stack
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

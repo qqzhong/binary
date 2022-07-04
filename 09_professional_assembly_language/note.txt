@@ -1,0 +1,398 @@
+The core groups of registers available to all processors in the IA-32 family are shown in the following table.
+Register                Description
+General purpose         Eight 32-bit registers used for storing working data
+Segment                 Six 16-bit registers used for handling memory access
+Instruction pointer     A single 32-bit register pointing to the next instruction code to execute
+Floating-point data     Eight 80-bit registers used for floating-point arithmetic data
+Control                 Five 32-bit registers used to determine the operating mode of the processor
+Debug                   Eight 32-bit registers used to contain information when debugging the processor
+
+# General-purpose registers
+Register Description
+EAX Accumulator for operands and results data
+EBX Pointer to data in the data memory segment
+ECX Counter for string and loop operations
+EDX I/O pointer
+EDI Data pointer for destination of string operations
+ESI Data pointer for source of string operations
+ESP Stack pointer
+EBP Stack data pointer
+
+# Segment registers
+Flat memory model
+Segmented memory model
+Real-address mode
+
+Segment Register Description
+CS Code segment
+DS Data segment
+SS Stack segment
+ES Extra segment pointer
+FS Extra segment pointer
+GS Extra segment pointer
+
+# Instruction pointer register
+Control Register Description
+CR0 System flags that control the operating mode and states of the processor
+CR1 Not currently used
+CR2 Memory page fault information
+CR3 Memory page directory information
+CR4 Flags that enable processor features and indicate feature capabilities of the processor
+
+
+# Flags
+
+The flags are divided into three groups based on function:
+ Status flags
+ Control flags
+ System flags
+The following sections describe the flags found in each group.
+Status flags
+The status flags are used to indicate the results of a mathematical operation by the processor. The current
+status flags are shown in the following table.
+Flag Bit Name
+CF 0 Carry flag
+PF 2 Parity flag
+AF 4 Adjust flag
+ZF 6 Zero flag
+SF 7 Sign flag
+OF 11 Overflow flag
+
+
+Control flags
+Control flags are used to control specific behavior in the processor. Currently, only one control flag is
+defined, the DF flag, or direction flag. It is used to control the way strings are handled by the processor.
+When the DF flag is set (set to one), string instructions automatically decrement memory addresses to
+get the next byte in the string. When the DF flag is cleared (set to zero), string instructions automatically
+increment memory addresses to get the next byte in the string.
+
+System flags
+The system flags are used to control operating system–level operations. Application programs should
+never attempt to modify the system flags. The system flags are listed in the following table.
+
+Flag Bit Name
+TF 8 Trap flag
+IF 9 Interrupt enable flag
+IOPL 12 and 13 I/O privilege level flag
+NT 14 Nested task flag
+RF 16 Resume flag
+VM 17 Virtual-8086 mode flag
+AC 18 Alignment check flag
+VIF 19 Virtual interrupt flag
+VIP 20 Virtual interrupt pending flag
+ID 21 Identification flag
+
+
+
+# The x87 floating-point unit
+
+FPU Register Description
+Data registers Eight 80-bit registers for floating-point data
+Status register 16-bit register to report the status of the FPU
+Control register 16-bit register to control the precision of the FPU
+Tag register 16-bit register to describe the contents of the eight data registers
+FIP register 48-bit FPU instruction pointer (FIP) points to the next FPU instruction
+FDP register 48-bit FPU data pointer (FDP) points to the data in memory
+Opcode register 11-bit register to hold the last instruction processed by the FPU
+
+# Multimedia extensions (MMX)
+64-bit packed byte integers
+64-bit packed word integers
+64-bit packed doubleword integers
+
+# Streaming SIMD extensions (SSE)
+128-bit packed double-precision floating point
+128-bit packed byte integers
+128-bit packed word integers
+128-bit packed doubleword integers
+128-bit packed quadword integers
+
+
+# Chapter 3
+Package Description
+addr2line Converts addresses into filenames and line numbers
+ar Creates, modifies, and extracts file archives
+as Assembles assembly language code into object code
+c++filt Filter to demangle C++ symbols
+gprof Program to display program profiling information
+ld Linker to convert object code files into executable files
+nlmconv Converts object code into Netware Loadable Module format
+nm Lists symbols from object files
+objcopy Copies and translates object files
+objdump Displays information from object files
+ranlib Generates an index to the contents of an archive file
+readelf Displays information from an object file in ELF format
+size Lists the section sizes of an object or archive file
+strings Displays printable strings found in object files
+strip Discards symbols
+windres Compiles Microsoft Windows resource files
+
+
+
+# Chapter 5
+Directive Data Type
+.ascii Text string
+.asciz Null-terminated text string
+.byte Byte value
+.double Double-precision floating-point number
+.float Single-precision floating-point number
+.int 32-bit integer number
+.long 32-bit integer number (same as .int)
+.octa 16-byte integer number
+.quad 8-byte integer number
+.short 16-bit integer number
+.single Single-precision floating-point number (same as .float)
+
+# The bss section
+Directive Description
+.comm Declares a common memory area for data that is not initialized
+.lcomm Declares a local common memory area for data that is not initialized
+
+
+The format of the expression is "base_address(offset_address, index, size)"
+The data value retrieved is located at "base_address + offset_address + index * size"
+
+Conditional Move Instructions
+dec %ecx
+jz continue
+movl $0, %ecx
+continue:
+
+
+The following table shows the unsigned conditional move instructions.
+Instruction Pair Description EFLAGS Condition
+CMOVA/CMOVNBE Above/not below or equal (CF or ZF) = 0
+CMOVAE/CMOVNB Above or equal/not below CF=0
+CMOVNC Not carry CF=0
+CMOVB/CMOVNAE Below/not above or equal CF=1
+CMOVC Carry CF=1
+CMOVBE/CMOVNA Below or equal/not above (CF or ZF) = 1
+CMOVE/CMOVZ Equal/zero ZF=1
+CMOVNE/CMOVNZ Not equal/not zero ZF=0
+CMOVP/CMOVPE Parity/parity even PF=1
+CMOVNP/CMOVPO Not parity/parity odd PF=0
+
+As you can see from the table, the unsigned conditional move instructions rely on the Carry, Zero, and
+Parity flags to determine the difference between two operands. If the operands are signed values, a different set of conditional move instructions must be used, as shown in the following table.
+Instruction Pair Description EFLAGS Condition
+CMOVGE/CMOVNL Greater or equal/not less (SF xor OF)=0
+CMOVL/CMOVNGE Less/not greater or equal (SF xor OF)=1
+CMOVLE/CMOVNG Less or equal/not greater ((SF xor OF) or ZF)=1
+CMOVO Overflow OF=1
+CMOVNO Not overflow OF=0
+CMOVS Sign (negative) SF=1
+CMOVNS Not sign (non-negative) SF=0
+
+
+
+The data exchange instructions
+Instruction Description
+XCHG Exchanges the values of two registers, or a register and a memory location
+BSWAP Reverses the byte order in a 32-bit register
+XADD Exchanges two values and stores the sum in the destination operand
+CMPXCHG Compares a value with an external value and exchanges it with another
+CMPXCHG8B Compares two 64-bit values and exchanges it with another
+
+
+
+# Chapter 7
+Standard integer sizes
+Integers can be represented by a variety of sizes — that is, the number of bytes used to represent the integer quantity. The basic IA-32 platform supports four different integer sizes:
+Byte: 8 bits
+Word: 16 bits
+Doubleword: 32 bits
+Quadword: 64 bits
+
+the SIMD extensions on Pentium processors add other advanced numeric data types:
+ 64-bit packed integers
+128-bit packed integers
+128-bit packed single-precision floating-point
+128-bit packed double-precision floating-point
+
+Using preset floating-point values
+The IA-32 instruction set includes some preset floating-point values that can be loaded into the FPU register stack. These are shown in the following table.
+Instruction Description
+FLD1 Push +1.0 into the FPU stack
+FLDL2T Push log(base 2) 10 onto the FPU stack
+FLDL2E Push log(base 2) e onto the FPU stack
+FLDPI Push the value of pi onto the FPU stack
+FLDLG2 Push log(base 10) 2 onto the FPU stack
+FLDLN2 Push log(base e) 2 onto the FPU stack
+FLDZ Push +0.0 onto the FPU stack
+
+
+
+# Moving SSE floating-point values
+Instruction Description
+MOVAPS Move four aligned, packed single-precision values to XMM registers or memory
+MOVUPS Move four unaligned, packed single-precision values to XMM registers or memory
+MOVSS Move a single-precision value to memory or the low doubleword of a register
+MOVLPS Move two single-precision values to memory or the low quadword of a register
+MOVHPS Move two single-precision values to memory or the high quadword of a register
+MOVLHPS Move two single-precision values from the low quadword to the high quadword
+MOVHLPS Move two single-precision values from the high quadword to the low quadword
+
+# SSE2 floating-point values
+Instruction Description
+MOVAPD Move two aligned, double-precision values to XMM registers or memory
+MOVUPD Move two unaligned, double-precision values to XMM registers or memory
+MOVSD Move one double-precision value to memory or the low quadword of a register
+MOVHPD Move one double-precision value to memory or the high quadword of a register
+MOVLPD Move one double-precision value to memory or the low quadword of a register
+
+
+
+# Conversion instructions
+Instruction Converts
+CVTDQ2PD Packed doubleword integers to packed double-precision FP (XMM)
+CVTDQ2PS Packed doubleword integers to packed single-precision FP (XMM)
+CVTPD2DQ Packed double-precision FP to packed doubleword integers (XMM)
+CVTPD2PI Packed double-precision FP to packed doubleword integers (MMX)
+CVTPD2PS Packed double-precision FP to packed single-precision FP (XMM)
+CVTPI2PD Packed doubleword integers to packed double-precision FP (XMM)
+CVTPI2PS Packed doubleword integers to packed single-precision FP (XMM)
+CVTPS2DQ Packed single-precision FP to packed doubleword integers (XMM)
+CVTPS2PD Packed single-precision FP to packed double-precision FP (XMM)
+CVTPS2PI Packed single-precision FP to packed doubleword integers (MMX)
+CVTTPD2PI Packed double-precision FP to packed doubleword integers (MMX, truncated)
+CVTTPD2DQ Packed double-precision FP to packed doubleword integers (XMM, truncated)
+CVTTPS2DQ Packed single-precision FP to packed doubleword integers (XMM, truncated)
+CVTTPS2PI Packed single-precision FP to packed doubleword integers (MMX, truncated)
+
+
+# Chapter 8
+Multiplication
+Unsigned integer multiplication using MUL
+
+Source Operand Size Destination Operand Destination Location
+8 bits AL AX
+16 bits AX DX:AX
+32 bits EAX EDX:EAX
+
+Signed integer multiplication using IMUL
+
+
+Unsigned division
+Dividend Dividend Size Quotient Remainder
+AX 16 bits AL AH
+DX:AX 32 bits AX DX
+EDX:EAX 64 bits EAX EDX
+
+
+
+
+# Chapter 9
+Basic Floating-Point Math
+Instruction Description
+FADD Floating-point addition
+FDIV Floating-point division
+FDIVR Reverse floating-point division
+FMUL Floating-point multiplication
+FSUB Floating-point subtraction
+FSUBR Reverse floating-point subtraction
+
+
+FADD source: Add a 32- or 64-bit value from memory to the ST0 register
+FADD %st(x), %st(0): Add st(x) to st(0) and store the result in st(0)
+FADD %st(0), %st(x): Add st(0) to st(x) and store the result in st(x)
+FADDP %st(0), %st(x): Add st(0) to st(x), store the result in st(x), and pop st(0)
+FADDP: Add st(0) to st(1), store the result in st(1), and pop st(0)
+FIADD source: Add a 16- or 32-bit integer value to st(0) and store the result in st(0)
+
+
+
+# Chapter 10
+The MOVS instruction
+MOVSB: Moves a single byte
+MOVSW: Moves a word (2 bytes)
+MOVSL: Moves a doubleword (4 bytes)
+
+
+Other REP instructions
+Instruction Description
+REPE Repeat while equal
+REPNE Repeat while not equal
+REPNZ Repeat while not zero
+REPZ Repeat while zero
+
+
+# Storing and Loading Strings
+The LODS instruction
+LODSB: Loads a byte into the AL register
+LODSW: Loads a word (2 bytes) into the AX register
+LODSL: Loads a doubleword (4 bytes) into the EAX register
+
+The STOS instruction
+STOSB: Stores a byte of data from the AL register
+STOSW: Stores a word (2 bytes) of data from the AX register
+STOSL: Stores a doubleword (4 bytes) of data from the EAX register
+
+
+# Chapter 14
+ar r libchap14.a square.o cpuidfunc.o areafunc.o greater.o fpmathfunc.o
+ar t libchap14.a
+ar tv libchap14.a
+ranlib libchap14.a
+nm -s libchap14.a | more
+
+$ gcc –o intttest inttest.c libchap14.a
+$ gcc –o stringtest stringtest.c libchap14.a
+$ gcc –o floattest floattest.c libchap14.a
+
+gcc -o inttest inttest.c square.o
+gcc -o inttest inttest.c libchap14.a
+
+gcc –shared –o libchap14.so square.o cpuidfunc.o areafunc.o greater.o fpmathfunc.o
+
+gcc –o inttest –L. –lchap14 inttest.c
+ldd inttest
+
+
+Running programs that use shared libraries
+The dynamic loader must know how to access the libchap14.so shared library. There are two ways to
+inform it where the file is located:
+The LD_LIBRARY_PATH environment variable
+The /etc/ld.so.conf file
+
+export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:.”
+$ ldd inttest
+
+
+Optimization Tricks
+This section demonstrates five of the most common optimizations used in assembly language:
+Optimizing calculations
+Optimizing variables
+Optimizing loops
+Optimizing conditional branches
+Optimizing common subexpressions
+
+Optimizing variables
+ There are three ways to handle variables:
+ Define variables in memory using the .data or .bss sections.
+ Define local variables on the stack using the EBP base pointer.
+ Use available registers to hold variable values.
+ 
+ 
+ 
+ .section .data
+.align 16
+value1:
+.float 12.34, 2345.543, -3493.2, 0.4491
+.section .text
+.globl _start
+_start:
+movaps value1, %xmm0
+
+
+.section .data
+.align 16
+packedvalue1:
+.double 10.235, 289.1
+packedvalue2:
+.int 10, 20, 30, 40
+.section .text
+.globl _start
+_start:
+movapd packedvalue1, %xmm0
+movdqa packedvalue2, %xmm1
+

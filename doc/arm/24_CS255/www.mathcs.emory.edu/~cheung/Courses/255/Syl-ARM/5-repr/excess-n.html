@@ -1,0 +1,409 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Excess 2<sup>n-1</sup> encoding
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     2's complement encoding
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B>2's complement encoding</B></FONT>
+      makes the <FONT color="red"><B>assumption</B></FONT>
+      that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>representation</B> for the
+        <FONT color="red"><B>value 0</B></FONT> is:
+        <FONT color="blue"><B><TT>00000000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This results in the <FONT color="red"><B>following</B></FONT>
+ <FONT color="blue"><B>assignment scheme</B></FONT>
+ of <FONT color="darkmagenta"><B>binary numbers</B></FONT> and
+ <FONT color="red"><B>values</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/2s-comp.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Excess 2<sup>n&minus;1</sup> encoding
+     </B></FONT>
+<P>
+<UL>
+<LI> There is <FONT color="blue"><B>another way</B></FONT>
+     to obtain a
+     <B>representation</B> of
+     <FONT color="red"><B>signed numbers</B></FONT>
+<P>
+<LI> The <FONT color="blue"><B>Excess 2<sup>n&minus;1</sup> encoding</B></FONT>
+      makes the <FONT color="red"><B>assumption</B></FONT>
+      that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>representation</B> for the
+        <FONT color="red"><B>value 0</B></FONT> is:
+        <FONT color="blue"><B><TT>1000...0000</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>binary number
+        <TT>1000...0000</TT></B></FONT> of 
+	<B><I>n</I> bits</B>
+	is the representation for the
+	value
+	<FONT color="red"><B>2<sup>n&minus;1</sup></B></FONT>
+<P>
+ (Hence the encoding is called
+     <FONT color="blue"><B>Excess 2<sup>n&minus;1</sup> encoding</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: Excess 2<sup>n&minus;1</sup> encoding with
+     <I>n = 8</I> bits
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>Excess 128 (= 2<sup>8&minus;1</sup>)</B></FONT>
+      encoding scheme
+      makes the <FONT color="red"><B>assumption</B></FONT>
+      that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>representation</B> for the
+        <FONT color="red"><B>value 0</B></FONT> is:
+        <FONT color="blue"><B><TT>10000000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+This results in the <FONT color="red"><B>following</B></FONT>
+ <FONT color="blue"><B>assignment scheme</B></FONT>
+ of <FONT color="darkmagenta"><B>binary numbers</B></FONT> and
+ <FONT color="red"><B>values</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/excess-n.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="red"><B>Excess 128 encoding</B></FONT>
+     scheme is as follows:
+<PRE>
+        Code      Value
+        ================
+        00000000  -128  <--- smallest negative value with 8 bits (-2<SUP>7</SUP>)
+        00000001  -127
+        .....
+        01111000    -8
+        01111001    -7
+        01111010    -6
+        01111011    -5
+        01111100    -4
+        01111101    -3
+        01111110    -2
+        01111111    -1
+<FONT COLOR="red"><B>        10000000     0</B></FONT>
+        10000001     1
+        10000010     2
+        10000011     3
+        10000100     4
+        10000101     5
+        10000110     6
+        10000110     6
+        10000111     7
+        10001000     8
+        .....
+        11111111   127  <--- largest positive value with 8 bits (2<SUP>7</SUP>-1)
+</PRE>
+
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>representation <TT>00000000</TT></B></FONT>
+      represents the 
+      <FONT color="red"><B>value &minus;128</B></FONT> !!!
+ <P>
+ This is <FONT color="red"><B>not</B></FONT> a
+ <FONT color="blue"><B>typo</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Wikipedia</B> calls this scheme
+     <FONT color="red"><B><I>offset binary</I></B></FONT>:
+  <A HREF="http://en.wikipedia.org/wiki/Offset_binary">
+   click here </A>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Another possible offset: 2<sup>n&minus;1</sup> &minus; 1
+     </B></FONT>
+<P>
+<UL>
+<LI> There is <FONT color="blue"><B>another commonly used</B></FONT>
+     choice for the <B>representation</B> of
+      the <FONT color="red"><B>value 0</B></FONT>
+<P>
+<LI> The <FONT color="blue"><B>Excess 2<sup>n&minus;1</sup> &minus;1 encoding</B></FONT>
+      makes the <FONT color="red"><B>assumption</B></FONT>
+      that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>representation</B> for the
+        <FONT color="red"><B>value 0</B></FONT> is:
+        <FONT color="blue"><B><TT>011111...11111</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>binary number
+        <TT>011111...11111</TT></B></FONT> of 
+	<B><I>n</I> bits</B>
+	is the representation for the
+	value
+	<FONT color="red"><B>2<sup>n&minus;1</sup> &minus;1</B></FONT>
+<P>
+ (Hence the encoding is called
+     <FONT color="blue"><B>Excess 2<sup>n&minus;1</sup> &minus;1 encoding</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: Excess 2<sup>n&minus;1</sup>&minus;1 encoding with
+     <I>n = 8</I> bits
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>Excess 127 (= 2<sup>8&minus;1</sup>&minus;1)</B></FONT>
+      encoding scheme
+      makes the <FONT color="red"><B>assumption</B></FONT>
+      that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>representation</B> for the
+        <FONT color="red"><B>value 0</B></FONT> is:
+        <FONT color="blue"><B><TT>01111111</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+This results in the <FONT color="red"><B>following</B></FONT>
+ <FONT color="blue"><B>assignment scheme</B></FONT>
+ of <FONT color="darkmagenta"><B>binary numbers</B></FONT> and
+ <FONT color="red"><B>values</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/excess-n-1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="red"><B>Excess 127 encoding</B></FONT>
+     scheme is as follows:
+<PRE>
+        Code      Value
+        ================
+        00000000  -127  <--- smallest negative value with 8 bits (-2<SUP>7</SUP>)
+        00000001  -126
+        .....
+        01111000    -7
+        01111001    -6
+        01111010    -5
+        01111011    -4
+        01111100    -3
+        01111101    -2
+        01111110    -1<FONT color="red"><B>
+        01111111     0</B></FONT>
+        10000000     1
+        10000001     2
+        10000010     3
+        10000011     4
+        10000100     5
+        10000101     6
+        10000110     7
+        10000110     8
+        10000111     9
+        10001000    10
+        .....
+        11111111   128  <--- largest positive value with 8 bits (2<SUP>7</SUP>-1)
+</PRE>
+
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>representation <TT>00000000</TT></B></FONT>
+      represents the 
+      <FONT color="red"><B>value &minus;127</B></FONT> !!!
+ <P>
+ This is <FONT color="red"><B>not</B></FONT> a
+ <FONT color="blue"><B>typo</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We will see the
+      <FONT color="red"><B>excess 127</B></FONT> encode again
+      when we discuss
+      <FONT color="blue"><B>floating point number representation</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Excess 127</B></FONT> is used to
+     represent the <FONT color="blue"><B>exponent</B></FONT> of
+     the <FONT color="red"><B>single precision</B></FONT>
+     IEEE 754 standard.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,306 @@
+
+	<!DOCTYPE html>
+    <html class="no-js" lang="en">
+    <head>
+        
+        <title>Department of Math/CS - News</title>
+        
+        <meta charset="utf-8"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="resources/css/main.min.css" rel="stylesheet"/>
+		<link href="resources/css/components.min.css" rel="stylesheet"/>
+        <link href="resources/css/home.min.css" rel="stylesheet"/>
+        <link href="resources/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9 ]>
+		<link rel="stylesheet" href="resources/site_files/ie8.min.css" />
+		<![endif]-->
+		<!--[if lt IE 8 ]>
+		<link rel="stylesheet" href="resources/site_files/ie7.min.css" />
+		<![endif]-->
+        
+	    <script src="resources/js/modernizr-2.6.2.min.js"></script>
+		<script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/bootstrap-dropdown.js"></script>
+
+
+
+        <!-- Google Analytics 
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-79270112-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        <!-- end Google Analytics -->
+
+            <!-- used for smooth scrolling anchor links  -->
+            <script>$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script>
+
+                                                        
+    </head>
+	        <div class="wrapper">
+            <!-- header tag added via xslt -->
+            <header class="container blue mobile-logo" id="header" role="banner">
+                <h1 class="container logo-tall-som"><img alt="" class="classic" id="logo" src="resources/site_files/logo2.png">
+                <a href="http://emory.edu/" id="emory-logo">Emory College of Arts and Sciences</a>
+                <a href="http://mathcs.emory.edu/" id="unit-logo">Department of Mathematics and Computer Science</a>
+                    <a href="#" id="">
+                        <img alt="" class="classic" src="resources/site_files/mobil_logo.png"></a></h1>
+                        <div class="toggles container">
+                            <a class="toggle-nav" href="#"> <span class="icon-list"></span> Navigation</a>
+                                <a class="toggle-search" href="#" title="Search"><span class="icon-search"></span> Search</a></div>
+
+                                <nav id="emory-wide">
+                                    <a class="skip" href="#main-content">Skip to Content</a><ul><li class="top"><a>Schools</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Undergraduate</h4>
+                <ul>
+                <li><a href="http://www.college.emory.edu/" target="_blank" title="Emory College">Emory College</a></li>
+                <li><a href="http://oxford.emory.edu/" target="_blank" title="Oxford College">Oxford College</a></li>
+                <li><a href="http://goizueta.emory.edu/" target="_blank" title="Business School">Business School</a></li>
+                <li><a href="http://www.nursing.emory.edu/" target="_blank" title="School of Nursing">School of Nursing</a></li>
+                </ul>
+                <h4>Community</h4>
+                <ul>
+                <li><a href="http://www.ece.emory.edu/" target="_blank" title="Emory Continuing Education">Emory Continuing Education</a></li>
+                <li><a href="http://www.emory.edu/home/academics/continuing-education.html" target="_blank" title="Continuing Professional Education">Professional Education</a></li>
+                <li><a href="http://precollege.emory.edu/" target="_blank" title="Pre-College Program">Pre-College Program</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Graduate</h4>
+                <ul>
+                <li><a href="http://goizueta.emory.edu/" target="_blank" title="Business School">Business School</a></li>
+                <li><a href="http://www.gs.emory.edu/" target="_blank" title="Graduate School">Graduate School</a></li>
+                <li><a href="http://www.law.emory.edu/" target="_blank" title="School of Law">School of Law</a></li>
+                <li><a href="http://www.med.emory.edu/" target="_blank" title="School of Medicine">School of Medicine</a></li>
+                <li><a href="http://www.nursing.emory.edu/" target="_blank" title="School of Nursing">School of Nursing</a></li>
+                <li><a href="http://www.sph.emory.edu/" target="_blank" title="School of Public Health">School of Public Health</a></li>
+                <li><a href="http://www.candler.emory.edu/" target="_blank" title="School of Theology">School of Theology</a></li>
+                </ul>
+                </div>
+                </div></li><li class="top"><a>Libraries</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Libraries</h4>
+                <ul>
+                <li><a href="http://web.library.emory.edu/" target="_blank" title="Robert W. Woodruff">Robert W. Woodruff</a></li>
+                <li><a href="http://business.library.emory.edu/" target="_blank" title="Business">Business</a></li>
+                <li><a href="http://web.library.emory.edu/about/libraries/other-libraries/chemistry-library/" target="_blank" title="Science Commons">Science Commons</a></li>
+                <li><a href="http://health.library.emory.edu/" target="_blank" title="Health Sciences">Health Sciences</a></li>
+                <li><a href="http://library.law.emory.edu/" target="_blank" title="Law">Law</a></li>
+                <li><a href="http://marbl.library.emory.edu/" target="_blank" title="MARBL">MARBL</a></li>
+                <li><a href="http://web.library.emory.edu/about/libraries/woodruff-building/music-media-library.html" target="_blank" title="Music and Media">Music &amp; Media</a></li>
+                <li><a href="http://oxford.library.emory.edu/" target="_blank" title="Oxford College">Oxford College</a></li>
+                <li><a href="http://www.pitts.emory.edu/" target="_blank" title="Theology">Theology</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Library Tools</h4>
+                <ul>
+                <li><a href="https://ereserves.library.emory.edu/reserves2/index.php" target="_blank" title="Course Reserves">Course Reserves</a></li>
+                <li><a href="http://web.library.emory.edu/library-materials/databases-ebooks-ejournals/databases/" target="_blank" title="Databases">Databases</a></li>
+                <li><a href="http://digitalscholarship.emory.edu/" target="_blank" title="Emory Center for Digital Scholarship (ECDS)">Digital Scholarship (ECDS)</a></li>
+                <li><a href="http://discovere.emory.edu/" target="_blank" title="discoverE">discoverE</a></li>
+                <li><a href="http://ejournals.emory.edu/" target="_blank" title="eJournals">eJournals</a></li>
+                <li><a href="https://etd.library.emory.edu/" target="_blank" title="Electronic Dissertations">Electronic Dissertations</a></li>
+                <li><a href="http://findingaids.library.emory.edu/" target="_blank" title="EmoryFindingAids">EmoryFindingAids</a></li>
+                <li><a href="http://www.library.emory.edu/uhtbin/nph-illiad" target="_blank" title="ILLiad">ILLiad</a></li>
+                <li><a href="https://open.library.emory.edu/" target="_blank" title="OpenEmory">OpenEmory</a></li>
+                <li><a href="http://guides.main.library.emory.edu/" target="_blank" title="Research Guides">Research Guides</a></li>
+                </ul>
+                </div>
+                </div></li><li class="top"><a>Resources</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Resources</h4>
+                <ul>
+                <li><a href="http://www.emory.edu/" target="_blank" title="Emory University main site">Emory University main site</a></li>
+                <li><a href="http://www.emory.edu/home/about/administration/index.html" target="_blank" title="Administrative Offices">Administrative Offices</a></li>
+                <li><a href="http://www.emoryhealthcare.org/" target="_blank" title="Emory Healthcare">Emory Healthcare</a></li>
+                <li><a href="http://www.emory.edu/home/giving/index.html" target="_blank" title="Give to Emory">Give to Emory</a></li>
+                <li><a href="http://registrar.emory.edu/Students/Calendars/" target="_blank" title="Academic Calendars">Academic Calendars</a></li>
+                <li><a href="http://www.bookstore.emory.edu/" target="_blank" title="Bookstore">Bookstore</a></li>
+                <li><a href="http://map.emory.edu/" target="_blank" title="Campus Maps">Campus Maps</a></li>
+                <li><a href="http://transportation.emory.edu/" target="_blank" title="Shuttles and Parking">Shuttles and Parking</a></li>
+                <li><a href="http://www.emoryathletics.com/" target="_blank" title="Athletics: Emory Eagles">Athletics: Emory Eagles</a></li>
+                <li><a href="http://www.arts.emory.edu/" target="_blank" title="Arts at Emory">Arts at Emory</a></li>
+                <li><a href="http://news.emory.edu/" target="_blank" title="Emory News Center">Emory News Center</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Resources</h4>
+                <ul>
+                <li><a href="http://www.emory.edu/home/emergency/index.html" target="_blank" title="Emergency">Emergency</a></li>
+                <li><a href="http://www.it.emory.edu/" target="_blank" title="Information Technology (IT)">Information Technology (IT)</a></li>
+                <li><a href="https://owa.emory.edu/" target="_blank" title="Outlook Web Access">Outlook Web Access</a></li>
+                <li><a href="http://it.emory.edu/student_community/office365/" target="_blank" title="Office 365">Office 365</a></li>
+                <li><a href="https://classes.emory.edu/webapps/portal/frameset.jsp" target="_blank" title="Blackboard">Blackboard</a></li>
+                <li><a href="https://www.opus.emory.edu/" target="_blank" title="OPUS">OPUS</a></li>
+                <li><a href="https://compass-login.emory.edu/" target="_blank" title="PeopleSoft Financials: Compass">PeopleSoft Financials: Compass</a></li>
+                <li><a href="http://www.hr.emory.edu/eu/careers/" target="_blank" title="Careers">Careers</a></li>
+                <li><a href="http://www.hr.emory.edu/eu/" target="_blank" title="Human Resources">Human Resources</a></li>
+                <li><a href="http://news.emory.edu/campus/index.html" target="_blank" title="Emory Report">Emory Report</a></li>
+                </ul>
+                </div>
+    </div></li>
+            <li class="top search">
+                <div class="nav-box search">
+                    <form action="http://search.emory.edu/search" id="form-search" method="get" name="searchForm">
+                        <input name="searchString" type="hidden">
+                        <input name="numgm" value="5" type="hidden">
+                        <input name="client" value="default_frontend" type="hidden">
+                        <input name="output" value="xml_no_dtd" type="hidden">
+                        <input name="proxystylesheet" value="homepage" type="hidden">
+                        <div class="input-append">
+                        <label>
+                            <input autocomplete="off" class="input-medium" id="q" maxlength="2048" name="q" placeholder="Search" type="search">
+                        </label>
+                        <button class="btn" type="submit">
+                            <strong class="label">Search</strong><span class="icon-search"></span>
+                        </button>
+                </div>
+                        <fieldset style="display: none;" class="search-scope">
+                        <!-- <label class="checked"><input checked="checked" id="search-site" name="site" value="default_collection" type="radio"> This Site</label> -->
+                        <label class="checked"><input id="search-emory" name="site" value="default_collection" type="radio"> All Emory Sites</label>
+                        <label><input id="search-directory" name="site" value="directory" type="radio"> People</label>
+                    </fieldset>
+                </form>
+            </div>
+        </li>
+    </ul>
+    </nav>
+    <div class="hdrnote" style="border:dashed 8px;padding:24px;background-color:yellow">
+    <h3 style="color:black">This site is historical. For updated information, please visit:</h3>
+    <h3 style="margin-left:16px"><a href="http://www.cs.emory.edu">Department of Computer Science</a></h3>
+    <h3 style="margin-left:16px"><a href="http://www.math.emory.edu">Department of Mathematics</a></h3>
+    </div>
+</header>    <style>
+        #navbar-li-ele{
+            border-left:none!important;
+        }
+    
+    </style>
+
+    <nav class="container blue" id="main-nav" role="navigation">
+    <ul><li id='navbar-li-ele'><a style=""  href="/site/home/">Home</a></li><li id='navbar-li-ele'><a style=""  href="/site/undergraduate/">Undergraduate</a></li><li id='navbar-li-ele'><a style=""  href="/site/graduate/">Graduate</a></li><li id='navbar-li-ele'><a style=""  href="/site/courses/">Courses</a></li><li id='navbar-li-ele'><a style=""  href="/site/research/">Research</a></li><li id='navbar-li-ele'><a style=""  href="/site/people/">People</a></li><li id='navbar-li-ele'><a style="" class="active" href="/site/events/">Events</a></li><li id='navbar-li-ele'><a style=""  href="/site/about/">About</a></li></ul>
+    </nav>
+    <!-- content - may need subdivs for cols -->
+    <!-- section -->
+    <div class="container"><div class="container" style="background-color:white!important">
+
+    <div class="row col1col2" >
+
+
+        <!-- column 1-->
+        <div class="span3" id="context"  style="background-color:white!important;display:table-header-group!important">
+            
+            <nav class="gold" id="sub-nav"  role="navigation">
+                <ul id="section-nav"><li ><a href='../general-information'  >Seminars</a></li><li class="selected"><a href='../news'  >News</a></li>   </ul>
+            </nav>        </div><!-- end span3 menu -->
+
+
+
+        <!-- column 2-->
+    <div class="span9" id="main-content" style="background-color:white!important"><br>
+                 
+        <h1 id="title-heading">News</h1>
+    
+    <div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news1'></a>Ken Ono profiled in Scientific American</th></tr><tr><td width='90' height='90'  style='border-top: none !important; '> <a href='/site/api/v2/image.php?file=NWS-00157.JPG'><img src='/site/api/v2/image.php?file=NWS-00157.JPG&resize=crop&width=100&height=100' alt='news'></a>  </td><td style='border-top: none !important; '><b>Published Date:</b> 2014-04-15<br>Ken Ono, the Asa Griggs Candler Professor of Mathematics, is profiled in
+a feature story in the <a href="http://www.scientificamerican.com/article/one-of-srinivasa-ramanujans-neglected-manuscripts-has-helped-solve-long-standing-mathematical-mysteries/">May 2014</a> issue of Scientific American. Ono and his collaborators have solved a large number of open problems in number theory related to the enigmatic writings of Srinivasa Ramanujan.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news2'></a>Atlanta Science Festival</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-03-29<br>The <a href="http://atlantasciencefestival.org/">Atlanta Science Festival</a> is a week-long celebration of local science and technology. Atlanta residents of all ages will have the opportunity to explore the science and technology in our region and see how science is connected to all parts of our lives in a range of hands-on activities, facility tours, presentations, and performances. The Festival culminates in the free family-friendly EXPLORATION EXPO at Centennial Olympic Park, March 29 from 11 a.m. to 4 p.m.
+<br><br>
+<a href="http://www.atlantasciencefestival.org/events/event/580">Science at Emory: The Lab Changing The World</a> (Saturday, March 22, 2014 - 2:00pm to 5:00pm):<br>
+Featuring our own Dr. Alessandro Veneziani!
+<br><br>
+Come learn about the exciting research happening in your hometown at Emory University.  Science faculty from Physics, Chemistry, Biology and other Emory science departments will share their work in a series of short talks. They will explain how basic research on esoteric topics in a lab today affects our ability to confront some of the most pressing questions facing the humankind: global warming, ecological collapse, spread of infectious diseases, aging, and so on. Following the talks, you will have the chance to tour the speakers labs and see where the science is happening.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news3'></a>Computer Science Graduate Student Wins Best Student Paper Award</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-02-28<br>Dmitry Lagun, a graduate student in the Data Management Research Group, was awarded Best Student Paper at the 7th International ACM Conference on Web Search and Data Mining, WSDM, held in New York recently. "Discovering Common Motifs in Mouse Cursor Movement Data for Improving Web Search" was in collaboration with Misha Ageev, Qi Guo, and his mentor, Dr. Eugene Agichtein.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news4'></a>Algorithms enhance imaging techniques for breast cancer diagnosis</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-02-14<br>With the assistance of Drs. Veronica Mejia Bustamante, Steve Feng, and Ioannis Sechopoulos, Dr. James Nagy co-author a paper together on breast tomosynthesis image reconstruction published last fall in the SIAM Journal on Scientific Computing. The paper can be found  <a href="http://connect.siam.org/algorithms-enhance-imaging-techniques-for-breast-cancer-diagnosis/">here</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news5'></a>Ono awarded the 2014 Albert E. Levy Scientific Research Award</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-02-03<br>Ken Ono, the Asa Griggs Candler Professor of Mathematics, has been awarded the 2014 Albert E. Levy Scientific Research Award. The annual award, which is administered by the Emory University Research Committee, recognizes outstanding research by Emory faculty members in scientific disciplines including mathematics, the physical sciences, and the biological sciences. Each year awards are given to a junior and a senior Emory faculty member. Professor Ono is the 2014 recipient for the senior award. He is recognized for his transformational contributions to Number Theory.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news6'></a>Agichtein awarded 2013 BCS/ BCS IRSG Karen Spärck-Jones Award</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-02-03<br>Dr. Eugene Agichtein has been awarded the 2013 British Computer Society Karen Spärck-Jones Award. The award is named after Professor Karen Spärck-Jones, for her contributions to the field of information Retrieval and Natural Language Processing. Dr Agichtein is being recognized for several important contributions he has made in search and large scale web text data mining with a focus on user interaction data. His work has included demonstrating how models of human information interactions can be inferred by leveraging computational techniques on what are large-scale but also noisy behaviour records. Dr. Agichtein will receive the award at the 2014 European Conference on Information Retrieval (ECIR 2014) in Amsterdam, where he will be the opening keynote speaker.  The full award citation is posted on the <a
+href="http://irsg.bcs.org/ksjaward.php">British Computer Society
+website</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news7'></a>We are hiring! Lecture-track faculty opening in MathCS</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-01-22<br>The department of Mathematics and Computer Science has an opening for a Lecturer in Mathematics to begin Fall 2014. Duties involve teaching 5 semester courses a year, coordinating graduate instructors and committtee service as appropriate. for details see <a href="http://www.mathcs.emory.edu/uploaded-files/Emory-ML-Ad.pdf">Emory-ML-Ad.pdf</a>  Please contact mlsearch2014@mathcs.emory.edu for additional information.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news8'></a>Ono selected as the first Editor-in-Chief of Research in the Mathematical Sciences</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-01-13<br>Ken Ono, the Asa Griggs Candler Professor of Mathematics, has been selected to be the first Editor-in-Chief of the Springer journal "Research in the Mathematical Sciences" (RIMS) (link: <a href ="http://www.resmathsci.com/">http://www.resmathsci.com/</a>). This
+journal will be Springer Verlag's main open access journal in the mathematical
+sciences. RIMS will publish the highest quality research in applied
+mathematics, theoretical mathematics, and theoretical computer science.
+RIMS is Professor Ono's 12th editorial board. He also serves as the Managing
+Editor of the Proceedings of the American Mathematical Society
+(link: <a href ="http://www.ams.org/publications/journals/journalsframework/proc">http://www.ams.org/publications/journals/journalsframework/proc</a>).</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news9'></a>We are hiring! Tenure-track faculty openings in MathCS</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2014-01-01<br>The department of Mathematics and Computer Science has multiple openings for tenure track faculty positions to begin in Fall 2014. Areas of interest include: <a href="http://www.mathcs.emory.edu/uploaded-files/Emory-CM-Ad.pdf">Computational Mathematics</a>, <a href="http://www.mathcs.emory.edu/uploaded-files/Emory-DM-Ad.pdf">Discrete Mathematics</a>, and several specializations in <a href="http://www.mathcs.emory.edu/uploaded-files/Emory-DS-Ad.pdf">Data Science</a> (please follow the individual links for position details). Please contact chair@mathcs.emory.edu for general information.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news10'></a>The Department will host the XXIII-rd SOUTHEAST GEOMETRY SEMINAR (SGS) on Sunday, November 10, 2013</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2013-10-25<br>Speakers:<br>
+=========================<br>
+Alex Freire (Univ. of Tennessee, Knoxville)<br>
+Matthew Gursky (University of Notre Dame)<br>
+William Minicozzi II (MIT)<br>
+Yanir Rubinstein (Univ. of Maryland)<br>
+Gaoyong Zhang (NYU-Poly)<br>
+There will also be a POSTER SESSION and we invite all interested
+participants, especially, Ph.D. students and postdocs, to submit
+a poster presentation. Please let us know in advance if you plan to do so.<br>
+==========================<br>
+The program can be found at: <a href ="http://www2.math.uab.edu/sgs/">http://www2.math.uab.edu/sgs/</a> <br>
+==========================<br>
+The Southeast Geometry Seminar (SGS) is a semiannual series of one day
+events sponsored jointly by:<br><br>
+
+* National Science Foundation<br>
+* Emory University<br>
+* Georgia Institute of Technology<br>
+* University of Alabama at Birmingham<br>
+* University of Tennessee Knoxville<br><br>
+
+We have limited NSF funds to support travel expenses of participants.
+Priority will be given to current or recent Ph.D. students and postdocs.
+Women and minorities are encouraged to apply.<br><br>
+
+Please email <a href="mailto:oliker@mathcs.emory.edu">oliker@mathcs.emory.edu</a> if you plan to attend and wish to request support.<br>
+<br>
+Organizers:<br>
+<br>
+* John McCuan and Mohammad Ghomi (GT)<br>
+* Vladimir Oliker (Emory)<br>
+* Fernando Schwartz (UTK)<br>
+* Gilbert Weinstein and Junfang Li (UAB)<br>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=</td></tr></table></div><div class="span10"><div class="pagination"><ul class=" quick-links"><li><a href='index.php?PAGE=1'>1...</a></li><li ><a href='index.php?PAGE=5'>5</a></li><li ><a href='index.php?PAGE=6'>6</a></li><li ><a href='index.php?PAGE=7'>7</a></li><li ><a href='index.php?PAGE=8'>8</a></li><li ><a href='index.php?PAGE=9'>9</a></li><li class="active"><a href='#'>10</a></li><li ><a href='index.php?PAGE=11'>11</a></li><li ><a href='index.php?PAGE=12'>12</a></li><li ><a href='index.php?PAGE=13'>13</a></li><li ><a href='index.php?PAGE=14'>14</a></li><li ><a href='index.php?PAGE=15'>15</a></li></ul></div>
+
+
+        </div><!-- end of span9 main-content -->
+                    
+                    
+                    
+                    
+                 
+    </div>
+</div>
+
+
+
+
+
+<footer class="container" id="footer">
+                
+                <ul id="footLinks"><li><a href="http://www.emory.edu/" target="_blank" title="Emory University main website">EMORY HOME</a></li><li><a href="http://www.emory.edu/home/contact-emory/index.html" target="_blank" title="Contacts">CONTACTS</a></li><li><a href="http://www.emory.edu/home/emergency/index.html" target="_blank" title="Emergency">EMERGENCY</a></li><li><a href="http://www.hr.emory.edu/eu/careers/" target="_blank" title="Careers">CAREERS</a></li><li><a href="http://www.emory.edu/home/giving/index.html" target="_blank" title="Give to Emory">GIVE TO EMORY</a></li><li><a href="http://communications.emory.edu/tools/web-guide/about.html" target="_blank" title="About Emory's Web">ABOUT EMORY'S WEB</a></li></ul><p><a href="http://communications.emory.edu/tools/web-guide/copyright-dmca.html" target="_blank" title="Copyright">Copyright</a> © <span id="copyright-date">2016</span> <a href="http://www.emory.edu/" target="_blank" title="Emory Homepage">Emory University</a> - All Rights Reserved <span class="address">| 201 Dowman Drive, Atlanta, Georgia 30322 USA 404.727.6123</span></p>
+                 
+            </footer>
+            <!-- footer -->
+        </div>
+        <!-- /wrapper -->
+        <script src="resources/js/plugins/bootstrap.min.js"></script>
+<script src="resources/js/template/main.min.js"></script>
+<!--[if lt IE 9 ]>
+<script src="resources/js/template/ie8.min.js"></script>
+<![endif]-->
+    
+        <!-- end page js -->
+    
+</body></html>

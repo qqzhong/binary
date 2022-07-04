@@ -1,0 +1,267 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Representing boolean values inside the computer
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The (all possible) Boolean values
+     </B></FONT>
+<P>
+ <UL>
+ <LI> I start with 
+   <FONT color="blue"><B>representing</B></FONT> the
+  <FONT color="red"><B>Boolean values</B></FONT> because it is
+  <FONT color="blue"><B>easy and intuitive</B></FONT>
+<P>
+<LI> There are <FONT color="red"><B>only 2 Boolean values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">true</FONT>
+   <FONT color="red">false</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Representing</FONT> the Boolean values
+     </B></FONT>
+<P>
+<UL>
+<LI> A <FONT color="red"><B>representation</B></FONT> is
+    a <FONT color="blue"><B><I>encoding</I> system</B></FONT> that
+    allow you to
+    <FONT color="red"><B>associate</B></FONT>
+    a <FONT color="blue"><B>set of values</B></FONT>
+    <FONT color="red"><B><I>uniquely</I></B></FONT> using the
+    <FONT color="blue"><B>encoding system</B></FONT>
+<P>
+<HR>
+<P>
+<LI> When we need to
+  <FONT color="blue"><B>represent</B></FONT>
+       the <FONT color="red"><B> Boolean values</B></FONT>
+         <B>inside</B> a
+	 <FONT color="blue"><B>computer</B></FONT>,
+	 we must make a
+	 <FONT color="red"><B> association</B></FONT>
+	 between these <FONT color="blue"><B>2 sets</B></FONT> of
+	 <FONT color="red"><B>values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Boolean values            Values stored by the computer
+  --------------------      ---------------------------------
+      false                       00000000
+      true 			  00000001
+				  00000010
+				  00000011
+				  ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B> association</B></FONT> that
+ <FONT color="blue"><B>many (if not all) computer programming languages</B></FONT>
+ use is the <FONT color="red"><B>following</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Boolean values            Values stored by the computer
+  --------------------      ---------------------------------    
+      false       <-------->      00000000
+      true 	  <-------->      00000001
+      true	  <-------->	  00000010
+      true	  <-------->	  00000011
+      ...			  ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I.e.: the Boolean value <FONT color="red"><B>false</B></FONT> is 
+     <FONT color="blue"><B>represented</B></FONT> by the
+     <FONT color="red"><B>binary number <TT>00000000</TT></B></FONT>.
+ <P>
+     The Boolean value <FONT color="red"><B>true</B></FONT> is
+     associated with all 
+     <FONT color="blue"><B>non-zero binary numbers</B></FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example of Boolean representation in the
+   <FONT color="red">Python</FONT> programming language
+     </B></FONT>
+<P>
+<UL>
+<LI> I can  <FONT color="red"><B>illustrate</B></FONT> 
+   the above <FONT color="blue"><B>Boolean representation method</B></FONT>
+   using 
+   the <FONT color="blue"><B>Python </B></FONT> programming
+   language 
+   (because Python uses the above method to represent Boolean values).
+<P>
+<HR>
+<P>
+<LI> To run this experiment, you need 
+   <FONT color="red"><B>Python</B></FONT> installed on your
+   <FONT color="blue"><B>laptop</B></FONT> or
+   login to a <FONT color="red"><B>lab machine</B></FONT>
+<P>
+ The following <FONT color="red"><B>Python program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">/home/cs255001/demo/Python/Boolean/boolean.py</FONT>       
+
+if 0:
+  print("0: true")
+else:
+  print("0: false")
+
+if 1:
+  print("1: true")
+else:
+  print("1: false")
+
+if 4:
+  print("4: true")
+else:
+  print("4: false")
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="red"><B>output</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@lab1a> python boolean.py
+<FONT color="red">0: false
+1: true
+4: true</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ which 
+  shows you that
+  <FONT color="red"><B>Python</B></FONT> uses the following
+  <FONT color="blue"><B> Boolean to integer <I>encoding</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Boolean values            Values in <FONT color="red">Python</FONT>
+  --------------------      ---------------------------------    
+     <FONT color="red"> false       <-------->      00000000   (= 0)</FONT>
+     <FONT color="red"> true 	  <-------->      00000001   (= 1)</FONT>
+      true	  <-------->	  00000010   (= 2)
+      true	  <-------->	  00000011   (= 3)
+     <FONT color="red"> true	  <-------->	  00000100   (= 4)</FONT>
+      ...			  ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I <B>highlighted</B> the <FONT color="red"><B>partial association</B></FONT>
+ printed by the
+ <FONT color="blue"><B>Python program</B></FONT> in
+ <FONT color="red"><B>red</B></FONT>
+<P>
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

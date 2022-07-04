@@ -1,0 +1,444 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The Parameter passing mechanism of C
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The most common <I>parameter passing</I> mechanisms
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Recall</B> that the
+   <FONT color="blue"><B>2 most commonly used</B></FONT>
+   forms of
+   <FONT color="red"><B>parameter passing mechanisms</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Pass-by-value</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>value</I></B></FONT> of the
+     <B>actual parameter variable</B> is
+     <FONT color="red"><B><I>passed</I> (= copied)</B></FONT> into the
+     <B>formal parameter variable</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Pass-by-reference</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>location</I> (reference or
+     address)</B></FONT> of the
+     <B>actual parameter variable</B> is
+     <FONT color="red"><B><I>passed</I> (= copied)</B></FONT> into the
+     <B>formal parameter variable</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> If you need a <FONT color="blue"><B>refresher</B></FONT> on
+     the <B>parameter passing mechanism</B>, here are my
+      <FONT color="red"><B>CS170 material</B></FONT> on these topics:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>CS170</B> notes on
+      <FONT color="blue"><B>pass-by-value</B></FONT>:
+  <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/08/parameter2.html"> 
+   <FONT color="red"><B>click here</B></FONT></A>
+ <P>
+  <LI> <B>CS170</B> notes on
+      <FONT color="blue"><B>pass-by-reference</B></FONT>:
+  <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/08/parameter3.html"> 
+   <FONT color="red"><B>click here</B></FONT></A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>parameter passing</I> mechanism in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Parameter passing mechanism</B></FONT>
+   in <FONT color="blue"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C programming language</B></FONT>
+      <FONT color="blue"><B><I>only</I></B></FONT> has the
+      <FONT color="red"><B>pass-by-<I>value</I></B></FONT>
+      <FONT color="blue"><B>parameter passing mechanism</B></FONT> !!!
+  <P>
+  (I.e., just like <B>Java</B>).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>However</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>C language</B></FONT> contains
+       <FONT color="blue"><B><I>low level</I>
+       operators</B></FONT>
+       (<FONT color="red"><B>reference operator <TT>&</TT></B></FONT> and
+       <FONT color="red"><B>de-reference operator <TT>*</TT></B></FONT>
+       discussed <FONT color="blue"><B>later</B></FONT>)
+       that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Enable</B></FONT> the
+  <FONT color="blue"><B>C programmer</B></FONT> to
+  <FONT color="red"><B>pass a parameter</B></FONT>
+  <FONT color="blue"><B>by <I>reference</I></B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The
+  <FONT color="blue"><B><I>low level</I>
+       operators</B></FONT>
+       (<FONT color="red"><B>reference operator <TT>&</TT></B></FONT> and
+       <FONT color="red"><B>de-reference operator <TT>*</TT></B></FONT>)
+       <B>will</B> be 
+       discussed <FONT color="blue"><B>later</B></FONT> !!!
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Experiment that shows that <I>C</I> uses the 
+     pass-by-<I>value</I> parameter mechanism
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void update( <FONT color="red">double a</FONT> )    <FONT color="red">// a is passed by value</FONT> 
+   {
+      printf( "Inside update - before changing a, a = %lf\n", a);
+      <FONT color="red">a = a + 1;</FONT>
+      printf( "Inside update - AFTER  changing a, a = %lf\n", a);
+   }
+    
+   int main( int argc, char* argv[] )
+   {
+      double a = 3.14;
+    
+      printf( "Inside main - before calling update(a), a = %lf\n", a);
+      update ( a );
+      printf( "Inside main - AFTER  calling update(a), a = %lf\n", a);      
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Inside main - before calling update(a), a = 3.140000	
+   <FONT color="red">Inside update</FONT> - before changing a, a = 3.140000         
+   I<FONT color="red">nside update</FONT> - AFTER  changing a, a = <FONT color="darkred">4.140000</FONT>		       
+   Inside main - AFTER  calling update(a), a = <FONT color="red">3.140000</FONT>     <FONT color="magenta">Unchanged !!!</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/pass-by-value1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc pass-by-value1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is the situation when the program starts in the
+       <FONT color="red"><B><TT>main()</TT></B></FONT> function:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When <B>execution</B> reaches the <FONT color="blue"><B>variable
+    definition</B></FONT>,
+    the <B>local variable</B> <FONT color="red"><B><TT>a</TT></B></FONT>
+    will be <B><I>created</I></B> on the stack:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param1a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> When <B>execution</B> reaches the
+    <FONT color="blue"><B>function invocation
+    </B></FONT>,
+    a <FONT color="red"><B><I>parameter</I> variable</B></FONT>
+   (<FONT color="darkmagenta"><B><TT>a</TT></B></FONT>) is
+   <B><I>created</I></B> on the stack
+   <B>and</B> the
+   <FONT color="blue"><B><I>value</I></B></FONT> of the
+   <B>actual parameter</B> is
+   <FONT color="red"><B><I>copied</I> (= passed)</B></FONT>
+   to the <B>parameter variable</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param1b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <B>execution</B> continues
+ inside the <FONT color="red"><B><TT>update()</TT></B></FONT> 
+ function....
+<P>
+<HR>
+<P>
+<LI> When <B>execution</B> reaches the
+    <FONT color="blue"><B><TT>a = a + 1</TT>
+    </B></FONT> statement,
+    the <FONT color="red"><B><I>parameter</I> variable</B></FONT>
+   (<FONT color="darkmagenta"><B><TT>a</TT></B></FONT>) is
+   <B><I>updated</I></B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param1c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<P>
+<LI> After the <B>function</B>
+   <FONT color="red"><B><TT>update()</TT></B></FONT>
+      returns, 
+    the <FONT color="red"><B><I>parameter</I> variable</B></FONT>
+   (<FONT color="darkmagenta"><B><TT>a</TT></B></FONT>) is
+   <B><I>destroyed</I></B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param1d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Hence:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <B>clearly</B> see that
+ <FONT color="blue"><B>statements</B></FONT> after the
+ <FONT color="red"><B><TT>update(a)</TT></B></FONT> call will
+ use <FONT color="blue"><B><TT>a = 3.14</TT></B></FONT> 
+ (<B><I>unchanged</I></B>).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,1277 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Review: the (in)famous
+  <FONT color="blue">Hello World</FONT>  program (in C)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>Hello World</B></FONT> program
+  in <FONT color="blue"><B>C</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  #include &lt;stdio.h>
+
+  int main( )
+  {
+     printf("Hello World\n");
+  }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.99in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">Hello World</FONT>
+   program in <FONT color="blue">ARM assembler</FONT>
+  (<A HREF="pull-out.html" target="_blank"> pull out </A>)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+       <FONT color="red">.global main</FONT>    // "Export" the identifier "main"
+
+       .text
+<SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">main:</FONT>                  <FONT color="red">// Start of program</FONT></SPAN>
+        push    {lr}   // Save the return address on the stack
+        push    {fp}   // Save the frame pointer on the stack
+                       <FONT color="red">// Explained later in CS255</FONT>
+
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+        bl      printf  // Call printf function     
+
+        pop     {fp}    // Pop the frame pointer
+        pop     {pc}    // Pop the return address into PC
+                        <FONT color="red">// Explained later in CS255</FONT>
+
+       .data
+HelloStr:                      // Label marking this location
+        .asciz "Hello World\n" // The Hello string
+        .end </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Every</B></FONT>
+  <FONT color="blue"><B>assembler program</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>starts executing</B></FONT></SPAN> at
+  the <FONT color="blue"><B>instruction</B></FONT> at
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>address</B></FONT>
+   <B>marked</B> by
+  <FONT color="blue"><B> <TT>main:</TT></B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to compile and run the <FONT color="blue">Hello World</FONT> program
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="blue"><B>DEMO:</B></FONT>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  You <FONT color="red"><B>must</B></FONT> run this program
+  <FONT color="blue"><B>ARM assembler program</B></FONT> on
+  the <FONT color="red"><B>Raspberry Pi</B></FONT> 
+  <FONT color="blue"><B><TT>cs255host1</TT></B></FONT>:
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    ssh -X  cs255@cs255host1      (passwd: abc123)   
+
+    cd   /home/cs255/cs255/hello              
+
+    <FONT color="red">as</FONT>    -o  hello.o   hello.s      // run <FONT color="red">assembler</FONT>    
+
+    <FONT color="red">gcc</FONT>   -o  hello     hello.o      // run <FONT color="red">linker</FONT>
+
+    hello
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+<!----------------- Explain the structure of a program ------------>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Structure of a computer program
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.7in">
+   <font size="+2">
+  A <FONT color="red"><B>program</B></FONT> consists of
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>instructions (statements)</B></FONT></SPAN> and
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>data (constants and variables)</B></FONT></SPAN>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+       .global main
+
+       .text    <FONT color="red">(starts the instructions section)</FONT>
+main:
+<SPAN style="BACKGROUND-COLOR: #ffff00">        push    {lr}   // Save the return address on the stack
+        push    {fp}   // Save the frame pointer on the stack
+                       // <FONT color="red">Explained later in CS255</FONT>
+
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+        bl      printf  // Call printf function     
+
+        pop     {fp}    // Pop the frame pointer
+        pop     {pc}    // Pop the return address into PC
+                        // <FONT color="red">Explained later in CS255</FONT></SPAN>
+
+       .data    <FONT color="red">(starts the constants and variables section)</FONT>
+HelloStr:                      // Label marking this location
+<SPAN style="BACKGROUND-COLOR: #aaffaa">        .asciz "Hello World\n" // The Hello string (constant)</SPAN>
+        .end </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will now
+  <FONT color="red"><B>explain</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>elements</B></FONT> in
+  the <FONT color="red"><B><TT>Hello World</TT></B></FONT></SPAN>
+  <FONT color="blue"><B>assembler program</B></FONT>
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Explanation of line 1: <FONT color="blue"><B><TT>.global main</TT></B></FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>Besides</B></FONT></SPAN> the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>instructions</B></FONT></SPAN> and
+  the 
+  <FONT color="red"><B><SPAN style="BACKGROUND-COLOR: #ffff00">variables</SPAN>
+   </B></FONT>,
+  we can have
+   the following
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B>constructs</B></FONT></SPAN> in
+  an <FONT color="red"><B>assembler program</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI> <FONT color="red"><B>Assembler directives</B></FONT>:
+  (<B>e.g.</B>: <FONT color="blue"><B><TT>.global</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> <FONT color="red"><B>Assembler directive</B></FONT> = a
+      <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="blue"><B>command/request</B></FONT></SPAN> to
+      the 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>assembler (= translator)</B></FONT></SPAN>
+      asking the
+      <FONT color="blue"><B>assembler</B></FONT> to
+      <FONT color="red"><B>"do something"</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will <FONT color="red"><B>study</B></FONT> the
+  <FONT color="blue"><B>essential </B></FONT>
+  <FONT color="red"><B>assembler directives</B></FONT> in this
+   <FONT color="blue"><B>set of slides</B></FONT>
+<P>
+<LI> <FONT color="red"><B>Labels</B></FONT>
+  (<B>e.g.</B>: <FONT color="blue"><B><TT>main</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> A <FONT color="red"><B>label</B></FONT></SPAN> =
+    an <FONT color="blue"><B>identifier</B></FONT> in
+    an <FONT color="red"><B>assembler program</B></FONT> that is
+    used to
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>mark (identify)</B></FONT> the
+    <FONT color="red"><B>memory location (= address)</B></FONT></SPAN> of:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <OL>
+ <LI>    an <FONT color="red"><B>instruction</B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <B> or</B>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> a  <FONT color="blue"><B>constant/variable</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+ 
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">.global</FONT> 
+  assembler directive
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B><TT>.global  
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">main</SPAN></TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B><TT>.global</TT> directive</B></FONT> 
+    <FONT color="blue"><B>instructs</B></FONT> the
+   <FONT color="red"><B>assembler (= translating program)</B></FONT> to
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>make</B></FONT> the
+  <FONT color="red"><B>label <TT>main</TT></B></FONT>
+  <FONT color="blue"><B>accessible</B></FONT></SPAN> to
+  the 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>linker</B></FONT></SPAN> <B>application</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B><TT>main</TT></B></FONT></SPAN> is
+     a 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>label</B></FONT></SPAN>
+    used to 
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>mark</B></FONT> the
+   <FONT color="blue"><B>memory location (= address)</B></FONT> of the
+    <FONT color="red"><B><I>first</I> instruction</B></FONT></SPAN> of
+    a <FONT color="blue"><B>(Java/C) program</B></FONT>
+ <P>
+ <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>Linker</B></FONT></SPAN> =
+   an <FONT color="blue"><B>application</B></FONT> that
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>combines</B></FONT>
+   <FONT color="blue"><B>multiple program files</B></FONT></SPAN> into
+   <FONT color="red"><B>one</B></FONT>
+   <FONT color="blue"><B> executable program</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#ffeeee" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The <FONT color="red"><B>linker</B></FONT> will
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>need to know</B></FONT> the
+   <FONT color="red"><B>memory locations</B></FONT></SPAN> of
+   some <FONT color="blue"><B>important 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">labels</SPAN></B></FONT> in order
+   to <FONT color="red"><B>combine</B></FONT>
+   <FONT color="blue"><B>different programs</B></FONT> !
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size="+2"><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue">Background information:</FONT></SPAN>
+    Program organization (arranged by the assembler)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   For 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>efficiency reason</B></FONT></SPAN>,
+  the <FONT color="blue"><B>assembler</B></FONT> will
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>store</B></FONT>
+   <FONT color="blue"><B><I>similar</I> things</B></FONT></SPAN>
+   in a <FONT color="red"><B>computer program</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>together</B></FONT></SPAN>.
+   </font>
+   </p>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <B>All</B>
+  <FONT color="red"><B>program instructions</B></FONT></SPAN>
+  are <FONT color="blue"><B>stored</B></FONT> at the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>start</B></FONT></SPAN>
+  of the <FONT color="blue"><B>memory</B></FONT> called
+ the 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>instruction section</B></FONT></SPAN>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../../4-intro/FIGS/run-time4b.png" style="width:50%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size="+2"><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue">Background information:</FONT></SPAN>
+    Program organization (arranged by the assembler)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The
+   <SPAN style="BACKGROUND-COLOR: #aaffaa"> 
+  <FONT color="red"><B>constants</B></FONT>
+   used in the <FONT color="blue"><B>program</B></FONT>
+  </SPAN> and
+  the <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>permanent</B></FONT>
+  <FONT color="blue"><B>variables</B></FONT></SPAN>
+  are <FONT color="red"><B>stored</B></FONT> 
+  after the <FONT color="red"><B>instructions</B></FONT>
+   </font>
+   </p>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   This <FONT color="red"><B>area</B></FONT> of the
+   <FONT color="blue"><B>memory</B></FONT> is called
+  the 
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>data section</B></FONT>
+   (or <FONT color="blue"><B>data segment</B>)</FONT></SPAN>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../../4-intro/FIGS/run-time4c.png" style="width:50%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size="+2"><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue">Background information:</FONT></SPAN>
+    Program organization (arranged by the assembler)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>rest</B></FONT> of the
+   <FONT color="blue"><B>memory</B></FONT> are
+   <FONT color="red"><B>unused (= 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">available</SPAN>)</B></FONT> -
+   <B>some</B> of
+  these <FONT color="blue"><B>memory cells</B></FONT> may be
+  <FONT color="red"><B>used</B></FONT> later
+  when the <FONT color="blue"><B>program</B></FONT> is
+  <FONT color="red"><B>running</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <img src="../../4-intro/FIGS/run-time4d.png" style="width:50%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">.text</FONT> assembler directive
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B><TT>.text</TT></B></FONT>:
+     &nbsp; <FONT color="blue"><B>instructs</B></FONT> the
+   <FONT color="red"><B>assembler (= translating program)</B></FONT> to
+   <FONT color="blue"><B>assembler (= translate)</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>subsequent items</B></FONT></SPAN> 
+  (usually <FONT color="blue"><B> program instructions</B></FONT>) 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">in
+  the <FONT color="red"><B>instruction section</B></FONT> 
+  (or <FONT color="blue"><B>instruction segment</B></FONT>)</SPAN>
+  of the
+  <FONT color="red"><B>computer program</B></FONT>
+  
+  <P>
+  <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>Program lines</B></FONT> that
+     <FONT color="blue"><B>follows</B></FONT> the
+      <FONT color="red"><B><TT>.text</TT></B></FONT></SPAN> keyword
+      are <FONT color="blue"><B>stored</B></FONT> in the
+      <SPAN style="BACKGROUND-COLOR: #ffdd00">
+<FONT color="red"><B>instructions section</B></FONT></SPAN>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">.text</FONT>     // Store what follows in the <FONT color="red">instructions section</FONT> 
+
+  push {lr} <-- Stored in the <FONT color="red">instructions section/segment</FONT>   
+  push {fp} <-- Stored in the <FONT color="red">instructions section/segment</FONT>
+  ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size="+2"><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+ The <FONT color="blue">.text</FONT> assembler directive -
+  <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B><TT>.text</TT></B></FONT> 
+  <FONT color="blue"><B>directive</B></FONT>
+   will <FONT color="red"><B>tell</B></FONT> the
+  <FONT color="blue"><B>assembler</B></FONT> to
+  <FONT color="red"><B>store</B></FONT> the
+   <FONT color="blue"><B>subsequent items</B></FONT> in
+   the <FONT color="red"><B>instruction section</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../../4-intro/FIGS/run-time1b.png" style="width:50%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Effect of the <FONT color="blue"><B><TT>.text</TT></B></FONT>
+  directive <FONT color="blue">illustrated</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  The <FONT color="red"><B><TT>.text</TT> directive</B></FONT>
+  causes the
+  <FONT color="blue"><B>instruction codes</B></FONT> to be
+  <FONT color="red"><B>placed</B></FONT> in the
+  <FONT color="blue"><B>instruction section</B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+      .global main    // "Export" the identifier "main"
+
+       <FONT color="red">.text</FONT>
+main:                  // Start of program
+<SPAN style="BACKGROUND-COLOR: #ffff00">        push    {lr}   // Save the return address on the stack
+        push    {fp}   // Save the frame pointer on the stack
+                       // Explained later in CS255
+
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+        bl      printf  // Call printf function     
+
+        pop     {fp}    // Pop the frame pointer
+        pop     {pc}    // Pop the return address into PC
+                        // Explained later in CS255</SPAN>
+
+       .data
+HelloStr:                      // Label marking this location
+        .asciz "Hello World\n" // The Hello string
+        .end 
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">.data</FONT> assembler directive
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B><TT>.data</TT></B></FONT>:
+     &nbsp; <FONT color="blue"><B>instructs</B></FONT> the
+   <FONT color="red"><B>assembler (= translating program)</B></FONT> to
+   <FONT color="blue"><B>assemble</B></FONT>
+  <FONT color="red"><B>constants and variable definitions</B></FONT>
+  <P>
+  <LI> <FONT color="red"><B>Program lines</B></FONT> that
+     <FONT color="blue"><B>follows</B></FONT> the
+      <FONT color="red"><B><TT>.data</TT></B></FONT> keyword
+      are <FONT color="blue"><B>stored</B></FONT> in the
+      <SPAN style="BACKGROUND-COLOR: #aaffaa">
+<FONT color="red"><B>constants and 
+ <SPAN style="BACKGROUND-COLOR: #ffff00">permanent</SPAN>
+  variables section</B></FONT></SPAN>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+<FONT color="blue">
+<B>
+<PRE>
+  .data
+
+  .asciz "Hello World\n" // Stored in the 
+                         // <FONT color="red">constants section</FONT>   
+ 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The
+  <FONT color="red"><B><TT>.data</TT></B></FONT>  <B>keyword</B>
+   is another 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>assembler directives</B></FONT></SPAN>
+  (= <FONT color="blue"><B>commands</B></FONT>
+  given to the <FONT color="red"><B>assembler program</B></FONT>)
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue">.data</FONT> assembler directive -
+  <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B><TT>.data</TT></B></FONT> 
+  <FONT color="blue"><B>directive</B></FONT>
+   will <FONT color="red"><B>tell</B></FONT> the
+  <FONT color="blue"><B>assembler</B></FONT> to
+  <FONT color="red"><B>store</B></FONT> the
+   <FONT color="blue"><B>subsequent instructions</B></FONT> in
+   the <FONT color="red"><B>data section</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../../4-intro/FIGS/run-time1c.png" style="width:45%">
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue">.end</FONT> keyword
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+  
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B><TT>.end</TT></B></FONT>: &nbsp;
+   <FONT color="blue"><B>terminates</B></FONT> the
+   <FONT color="red"><B>assembler session</B></FONT>
+ <P>
+  <LI> <FONT color="red"><B>Program text</B></FONT> that
+     <FONT color="blue"><B>follows</B></FONT> the
+     <FONT color="red"><B><TT>.end</TT></B></FONT> keyword
+     is <FONT color="blue"><B><I>ignored</I></B></FONT>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 1.99in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How is the <FONT color="blue">Hello World</FONT> program stored in
+  the computer memory
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Program organization</B></FONT> of the
+   <FONT color="blue"><B>Hello</TT></B></FONT> program:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/hello.gif" style="width:40%">
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  use <FONT color="red"><B>EGTAPI</B></FONT></SPAN> to
+  <FONT color="blue"><B>show</B></FONT> you the 
+  <FONT color="red"><B>organization</B></FONT> in the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>next webpage</B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

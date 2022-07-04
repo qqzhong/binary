@@ -1,0 +1,874 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using <I>recursion</I> to insert node at the 
+  <I>tail</I> of a list
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pay attention to this when you study <I>recursion</I>
+     </B></FONT>
+<P>
+<UL>
+ <LI> The
+      <B>key</B> to
+    <FONT color="blue"><B><I>understanding</I> recursion</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> Figure out <FONT color="blue"><B><I>how</I></B></FONT>
+     to <B>solve</B> the
+     <FONT color="red"><B><I>original</I> problem</B></FONT>
+     <FONT color="blue"><B>using</B></FONT>
+     the <FONT color="red"><B>solution</B></FONT>
+     of a <FONT color="blue"><B>smaller version of the problem</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>After</B> you have
+     <FONT color="blue"><B>figure out</B></FONT> the
+     <FONT color="red"><B>key problem</B></FONT> above,
+      you can <B>then</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Find the <FONT color="blue"><B>base case(s)</B></FONT>
+     (easy to solve problems)
+ <P>
+ <HR>
+ <P>
+ <LI> Find out <FONT color="blue"><B>how to <I>detect</I></B></FONT>
+     the <FONT color="red"><B>base case(s)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>recursive method</B></FONT> must
+    use an <FONT color="red"><B><I>if</I>-statement</B></FONT> to
+    <FONT color="blue"><B>detect</B></FONT> each <B>base case</B>
+    and <FONT color="red"><B><I>return</I></B></FONT> the
+    <B>solution</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Insert a node at the <I>tail</I> of a list using <I>recursion</I>
+     </B></FONT>
+<P>
+ <UL>
+
+<P>
+<LI> <B>How to</B> 
+    solve 
+    the <B>problem</B> of
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Insert a <FONT color="blue"><B>node</B></FONT> at the
+     <FONT color="red"><B>end</B></FONT> of a linked list
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+    <FONT color="blue"><B><I>using</I></B></FONT> the
+     <FONT color="red"><B>solution</B></FONT> of
+      a <FONT color="blue"><B>smaller version</B></FONT> of the 
+      <B>problem</B>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I want to <FONT color="blue"><B>change</B></FONT> this
+      <FONT color="red"><B>state</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list20.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+
+<P>
+ into the <FONT color="blue"><B>following</B></FONT>
+     <FONT color="red"><B>state</B></FONT> (i.e., what the
+     <B>list</B> would look like
+     <FONT color="blue"><B><I>after</I></B></FONT> the node
+     <B><I>e</I></B> has been
+     <FONT color="red"><B>inserted</B></FONT>)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list20a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>by <I>using</I></B></FONT>
+  the <FONT color="blue"><B><I>solution</I></B></FONT> of 
+ a <FONT color="red"><B><I>smaller</I> version</B></FONT> of
+ the <B><I>same</I> problem</B>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Here is a <FONT color="red"><B><I>smaller</I> version</B></FONT> of
+     the  <B><I>same</I> problem</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list21.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+(<FONT color="red"><B>Notice</B></FONT> the
+  <B>list</B> is <FONT color="blue"><B><I>smaller</I></B></FONT> because
+  the <FONT color="blue"><B><I>first</I> node</B></FONT> is missing
+<P>
+ Here is the <FONT color="blue"><B>solution</B></FONT> for
+    the <FONT color="red"><B><I>smaller</I> problem</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list21a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> I obtain
+    the <B>solution</B> of
+   <FONT color="blue"><B><I>original</I> problem</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list20a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+let me draw it <B>differently</B> and
+  <FONT color="red"><B><I>highlight</I></B></FONT>
+  the <FONT color="blue"><B>smaller solution</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list20b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+<FONT color="blue"><B><I>using</I></B></FONT> the
+  <B> solution</B> for the
+  <FONT color="red"><B><I>smaller</I> problem</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list21a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Answer:</B> with <FONT color="red"><B><I>this</I> statement</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   head.next = smallerSol;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is the <FONT color="blue"><B>basis</B></FONT>
+ for the <FONT color="red"><B><I>recusive</I> algorithm</B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Pseudo code</B> for
+     the <FONT color="red"><B><I>recursive</I> algorithm</B></FONT>
+     to <B>insert</B> a node <FONT color="blue"><B><I>e</I></B></FONT>
+     at the <B>tail</B> of a list
+     starting at <FONT color="red"><B><I>head</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Node insert( Node head, Node e)
+   {
+       /* ===========================================
+          Recursive algorithm WITHOUT 
+	  handling of the base case(s)
+	  =========================================== */
+
+       Node smallerSol;
+
+       // Suppose head and e are as follows:
+
+            <IMG SRC="FIGS/list20.gif"></IMG>        
+
+       <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">smallerSol</FONT> = insert( <FONT color="red">head.next</FONT>, e );</SPAN>
+
+       // insert( head.next, e ) is this smaller problem:
+
+            <IMG SRC="FIGS/list21.gif"></IMG>
+
+       // smallerSol will contains this list:
+
+            <IMG SRC="FIGS/list21a.gif"></IMG>
+
+       // Solve the original problem:
+
+       <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">head.next = smallerSol</FONT>;</SPAN>
+
+       // Now we have:
+
+            <IMG SRC="FIGS/list20b.gif"></IMG>
+
+       <FONT color="red">solution = head;</FONT>     // The solution is the list starting at head
+
+       // Return the solution list
+
+       <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">return( solution )</FONT>;</SPAN>
+
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>other</I> important part of recursion: the <I>base case(s)</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="blue"><B>complete</B></FONT> the
+     <FONT color="red"><B>recursive algorithm</B></FONT>,
+     we must
+     <B>find</B>
+     <FONT color="blue"><B><I>easy</I> to solve</B></FONT>
+     cases (<B>base cases</B>) and
+     <FONT color="red"><B>handle</B></FONT>
+     the <FONT color="blue"><B>base cases</B></FONT>
+     <B><I>separately</I></B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Otherwise</I></B>,
+    the <FONT color="blue"><B>recursive method</B></FONT> will
+   <FONT color="red"><B>not terminate</B></FONT>
+   --- it will keep calling itself
+   <FONT color="blue"><B>forever</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Hint:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Base cases</B></FONT> are <B>usually</B>
+      problems where the
+      <FONT color="red"><B><I>input</I> data</B></FONT> is
+      <FONT color="blue"><B><I>small</I> in size</B></FONT>
+ <P>
+ <B>Characteristic</B> of
+  <FONT color="blue"><B>base cases</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Every base case</B></FONT> has the
+    <FONT color="red"><B>property</B></FONT> that
+    you can <FONT color="blue"><B><I>solve</I></B></FONT> the
+    <B>problem</B> using
+    <FONT color="red"><B>a <I>few</I> simple statements</B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Base cases</B> for
+  <FONT color="blue"><B>list</B></FONT> problems are
+   <FONT color="red"><B><I>often</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B>input list</B></FONT> is
+     <FONT color="red"><B><I>empty</I></B></FONT>,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <B><I>and/or</I></B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<HR>
+<P>
+ <LI> When the <FONT color="blue"><B>input list</B></FONT> contains
+     <FONT color="red"><B><I>one</I> node</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The base case for "insert node at the tail of a list"
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Question:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>When</I></B></FONT> is it
+     <FONT color="red"><B><I>extremely</I> easy</B></FONT> to
+     <B>insert</B> a
+     <FONT color="blue"><B>node</B></FONT> at the
+     <FONT color="red"><B>tail</B></FONT> of a <B>list</B> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <B>list</B> has <FONT color="red"><B><I>no</I> nodes</B></FONT>
+     !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Base case:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list22.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>How </B></FONT> do you
+    <FONT color="magenta"><B><I>detect</I></B></FONT> the
+   <FONT color="blue"><B>base case</B></FONT> ?
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( <FONT color="red">head == null</FONT> )               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<P>
+<LI> <B>Solution:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list22a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Java code</B> to <FONT color="blue"><B>detect</B></FONT> and
+    <FONT color="red"><B><I>handle</I></B></FONT> the
+    <B>base case</B> in
+    "insert node at the tail of a list":
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( head == null )                     
+   {
+      e.next = null;
+
+      solution = e;
+
+      return solution;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>complete</I> recursive algorithm...
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>complete</B></FONT> 
+    <FONT color="red"><B><I>recursive</I> algorithm</B></FONT> 
+    in <B>general</B> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">static</font> SolveProblem(  n  )
+    {
+       variables: solution, smallerSol;
+
+       if ( <FONT color="red">base case detected</FONT> )
+       {
+          solution = solve base case;
+
+          return solution;
+       }
+       else
+       {
+           smallerSol =<FONT color="red"> SolveProb( n-1 );   // Recursion !!!</font>
+
+	   solution = find solution using smallerSol;          
+
+	   return solution;
+       }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>Recursive</I> methods</B></FONT> are
+    <FONT color="red"><B><I>almost always</I></B></FONT> 
+    a <B>class method</B> 
+   (i.e.: <FONT color="blue"><B><TT>static</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>recursive</I> insert node at tail of list algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Put</B> the <FONT color="red"><B>code</B></FONT>
+     that we have <FONT color="blue"><B>develop</B></FONT> above
+     into the 
+     <FONT color="red"><B><I>general</I> recursive algorithm</B></FONT> form
+     and we obtain:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    private <FONT color="darkred">static</font> <FONT color="red">Node insert( Node head, Node e )</font>
+    {
+       Node solution, smallerSol;
+
+       /* --------------------------------------------
+	  Base case: insert at the tail of an empty
+	  -------------------------------------------- */
+       if (<FONT color="red"> head == null</font> )
+       {
+          e.next = null;     // Mark e as the last node
+
+	  solution = e;	     //
+
+	  return(solution);  // return the simple solution !
+       }
+       else
+       {<FONT color="magenta">
+          /* ===========================================================
+             Solve the problem USING the solution of a smaller problem
+
+             I know the list is not empty...
+             And "head.next" is a SHORTER list !
+             =========================================================== */</font>
+
+          smallerSol = <FONT color="red">insert( head.next, e )</font>; // Have "someone else" solve
+                                               // in smaller problem
+<FONT color="darkgreen">
+          head.next = smallerSol;  // Find solution using smallerSol</font>
+
+          <FONT color="red">solution = head;</font>
+
+	  return solution;	  // Return the solution
+       }
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>How to</B> use this <FONT color="blue"><B>method</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public static void main( String[] args )
+   {
+      Node head = null;
+      Node e;
+
+      e = new Node(4);
+      <FONT color="red">head = RecursiveList.insert(head, e);  // Pass head and e as parameter  
+                                             // Method returns a new list</FONT>
+      RecursiveList.printList( head );
+
+      e = new Node(1);
+      head = RecursiveList.insert(head, e);
+      RecursiveList.printList( head );
+
+      e = new Node(3);
+      head = RecursiveList.insert(head, e);
+      RecursiveList.printList( head );
+
+      e = new Node(7);
+      head = RecursiveList.insert(head, e);
+      RecursiveList.printList( head );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   [4.0]
+   [4.0 , 1.0]
+   [4.0 , 1.0 , 3.0]
+   [4.0 , 1.0 , 3.0 , 7.0]           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> The <FONT color="red"><B>Recursive List</B></FONT> Prog file:
+       <A HREF="Progs/Tail/1/RecursiveList.java"> click here </A>
+  <LI> The <B>test</B> Prog file:
+       <A HREF="Progs/Tail/1/testProg.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac testProg.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java testProg</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

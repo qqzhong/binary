@@ -1,0 +1,213 @@
+1) Fetch an instruction from memory
+2) Decode the instruction( Is it an ADD, SUB, etc.? )
+3) Execute the instruction
+
+
+Calling Conventions for 64-bit C Code
+The 64-bit calling conventions are a bit more detailed, and they are explained fully in the AMD64 ABI Reference. You can also get info on them at Wikipedia. The most important points are (again, for 64-bit Linux, not Windows):
+
+1)From left to right, pass as many parameters as will fit in registers. The order in which registers are allocated, are:
+a)For integers and pointers, rdi, rsi, rdx, rcx, r8, r9.
+b)For floating-point (float, double), xmm0, xmm1, xmm2, xmm3, xmm4, xmm5, xmm6, xmm7
+2)Additional parameters are pushed on the stack, right to left, and are removed by the caller after the call.
+3)After the parameters are pushed, the call instruction is made, so when the called function gets control, the return address is at (%rsp), the first memory parameter is at 8(%rsp), etc.
+4)THE STACK POINTER %RSP MUST BE ALIGNED TO A 16-BYTE BOUNDARY BEFORE MAKING A CALL. Fine, but the process of making a call pushes the return address (8 bytes) on the stack, so when a function gets control, %rsp is not aligned. You have to make that extra space yourself, by pushing something or subtracting 8 from %rsp.
+5)The only registers that the called function is required to preserve (the calle-save registers) are: rbp, rbx, r12, r13, r14, r15. All others are free to be changed by the called function.
+6)The callee is also supposed to save the control bits of the XMCSR and the x87 control word, but x87 instructions are rare in 64-bit code so you probably don't have to worry about this.
+7)Integers are returned in rax or rdx:rax, and floating point values are returned in xmm0 or xmm1:xmm0.
+
+
+SIMD Parallelism
+The XMM registers can do arithmetic on floating point values one opeation at a time or multiple operations at a time. The operations have the form:
+
+operation  xmmregister_or_memorylocation, xmmregister
+For floating point addition, the instructions are:
+
+addpd — do 2 double-precision additions
+addps — do just one double-precision addition, using the low 64-bits of the register
+addsd — do 4 single-precision additions
+addss — do just one single-precision addition, using the low 32-bits of the register
+
+
+Saturated Arithmetic
+The XMM registers can also do arithmetic on integers. The instructions have the form:
+
+operation  xmmregister_or_memorylocation, xmmregister
+For integer addition, the instructions are:
+
+paddb — do 16 byte additions
+paddw — do 8 word additions
+paddd — do 4 dword additions
+paddq — do 2 qword additions
+paddsb — do 16 byte additions with signed saturation (80..7F)
+paddsw — do 8 word additions with unsigned saturation (8000..7FFF)
+paddusb — do 16 byte additions with unsigned saturation (00..FF)
+paddusw — do 8 word additions with unsigned saturation (00..FFFF)
+
+　1、Enter的作用相当==push ebp和mov ebp,esp
+　2、Leave的作用相当==mov esp,ebp和pop ebp
+
+Some calling convention highlights on 64-bit Linux:
+1) Integer/pointer parameters are placed, in order, in rdi, rsi, rdx, rcx, r8, and r9
+2) Floating-point arguments go to the xmm registers
+3) Variable-argument subroutines require a value in raxfor the number of vector registers used
+4) Registers rbp, rbx, and r12 through r15 are "caller-owned"
+ -- the called function must preserve them (either don't touch them, or save-and-restore via the stack or other mechanism)
+5) Integer/pointer return values are placed in rax or possibly rdx; floating point goes in xmm0 or xmm1
+
+
+https://syscalls.w3challs.com/
+
+Parameter #  Register
+Parameter 1  EBX
+Parameter 2  ECX
+Parameter 3  EDX
+Parameter 4  ESI
+Parameter 5  EDI
+Parameter 6  EBP
+
++------------------------------+------------------------------------+
+|       Intel Code             |      AT&T Code                     |
++------------------------------+------------------------------------+
+| mov     eax,1                |  movl    $1,%eax                   |
+| mov     ebx,0ffh             |  movl    $0xff,%ebx                |
+| int     80h                  |  int     $0x80                     |
+| mov     ebx, eax             |  movl    %eax, %ebx                |
+| mov     eax,[ecx]            |  movl    (%ecx),%eax               |
+| mov     eax,[ebx+3]          |  movl    3(%ebx),%eax              |
+| mov     eax,[ebx+20h]        |  movl    0x20(%ebx),%eax           |
+| add     eax,[ebx+ecx*2h]     |  addl    (%ebx,%ecx,0x2),%eax      |
+| lea     eax,[ebx+ecx]        |  leal    (%ebx,%ecx),%eax          |
+| sub     eax,[ebx+ecx*4h-20h] |  subl    -0x20(%ebx,%ecx,0x4),%eax |
++------------------------------+------------------------------------+
+
++---+--------------------+
+| r |    Register(s)     |
++---+--------------------+
+| a |   %eax, %ax, %al   |
+| b |   %ebx, %bx, %bl   |
+| c |   %ecx, %cx, %cl   |
+| d |   %edx, %dx, %dl   |
+| S |   %esi, %si        |
+| D |   %edi, %di        |
++---+--------------------+
+
+GNU syntax
+The .section directive instructs the assembler to assemble a new code or data section.
+Flags provide information about the section. Available section flags include the following:
+
+a specifies that the section is allocatable.
+x specifies that the section is executable.
+w specifies that the section is writable.
+S specifies that the section contains null-terminated strings.
+
+
+
+kernel/include/linux/module.h:#define __INIT_OR_MODULE  .text
+kernel/include/linux/module.h:#define __INITDATA_OR_MODULE  .data
+kernel/include/linux/module.h:#define __INITRODATA_OR_MODULE  .section ".rodata","a",%progbits
+kernel/include/linux/module.h:#define __INIT_OR_MODULE __INIT
+kernel/include/linux/module.h:#define __INITDATA_OR_MODULE __INITDATA
+kernel/include/linux/module.h:#define __INITRODATA_OR_MODULE __INITRODATA
+kernel/include/linux/init.h:#define __INIT    .section  ".init.text","ax"
+kernel/include/linux/init.h:#define __INITDATA  .section  ".init.data","aw",%progbits
+kernel/include/linux/init.h:#define __INITRODATA  .section  ".init.rodata","a",%progbits
+
+
+
+// arch/x86/include/asm/asm.h
+#ifndef __x86_64__
+/* 32 bit */
+
+#define _ASM_ARG1  _ASM_AX
+#define _ASM_ARG2  _ASM_DX
+#define _ASM_ARG3  _ASM_CX
+
+#define _ASM_ARG1L  eax
+#define _ASM_ARG2L  edx
+#define _ASM_ARG3L  ecx
+
+#define _ASM_ARG1W  ax
+#define _ASM_ARG2W  dx
+#define _ASM_ARG3W  cx
+
+#define _ASM_ARG1B  al
+#define _ASM_ARG2B  dl
+#define _ASM_ARG3B  cl
+
+#else
+/* 64 bit */
+
+#define _ASM_ARG1  _ASM_DI
+#define _ASM_ARG2  _ASM_SI
+#define _ASM_ARG3  _ASM_DX
+#define _ASM_ARG4  _ASM_CX
+#define _ASM_ARG5  r8
+#define _ASM_ARG6  r9
+
+#define _ASM_ARG1Q  rdi
+#define _ASM_ARG2Q  rsi
+#define _ASM_ARG3Q  rdx
+#define _ASM_ARG4Q  rcx
+#define _ASM_ARG5Q  r8
+#define _ASM_ARG6Q  r9
+
+#define _ASM_ARG1L  edi
+#define _ASM_ARG2L  esi
+#define _ASM_ARG3L  edx
+#define _ASM_ARG4L  ecx
+#define _ASM_ARG5L  r8d
+#define _ASM_ARG6L  r9d
+
+#define _ASM_ARG1W  di
+#define _ASM_ARG2W  si
+#define _ASM_ARG3W  dx
+#define _ASM_ARG4W  cx
+#define _ASM_ARG5W  r8w
+#define _ASM_ARG6W  r9w
+
+#define _ASM_ARG1B  dil
+#define _ASM_ARG2B  sil
+#define _ASM_ARG3B  dl
+#define _ASM_ARG4B  cl
+#define _ASM_ARG5B  r8b
+#define _ASM_ARG6B  r9b
+
+#endif
+
+
+// /data/sto/vendor/kernel/msm-5.4/arch/x86/xen/xen-asm.S
+ENTRY(check_events)
+  FRAME_BEGIN
+#ifdef CONFIG_X86_32
+  push %eax
+  push %ecx
+  push %edx
+  call xen_force_evtchn_callback
+  pop %edx
+  pop %ecx
+  pop %eax
+#else
+  push %rax
+  push %rcx
+  push %rdx
+  push %rsi
+  push %rdi
+  push %r8
+  push %r9
+  push %r10
+  push %r11
+  call xen_force_evtchn_callback
+  pop %r11
+  pop %r10
+  pop %r9
+  pop %r8
+  pop %rdi
+  pop %rsi
+  pop %rdx
+  pop %rcx
+  pop %rax
+#endif
+  FRAME_END
+  ret
+ENDPROC(check_events)

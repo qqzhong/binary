@@ -1,0 +1,133 @@
+/**
+ *
+ * ############################################################################
+ * 
+ *                          版权声明（中文版）
+ *
+ * ############################################################################
+ * 
+ * 版权所有 2015-2017 Reion Chan
+ * 
+ * 本程序遵照GPLv3，在你以任何方式使用本程序时，请务必署名此程序作者（Reion Chan）。
+ * 本程序为自由软件：你可以在遵照GNU GPLv3（及后续版本）条款的前提下，转发、修改本程序。
+ * 尝试在你的计算机要素的课程中盗用本程序的源代码将被诅咒会一生只写漏洞百出的程序。
+ * 本程序旨在学习、交流，对本程序不承担任何担保责任，详细参见GPLv3许可。
+ * 本程序包含一个GUN 通用公共授权。如果没有，请访问<http://www.gnu.org/licenses/>
+ *
+ *
+ *
+ * ############################################################################
+ * 
+ *                          Copyright （English Edition）
+ *
+ * ############################################################################
+ *
+ * Copyright 2015-2017 Reion Chan.
+ *
+ * You are required to give attribution to the author (Reion Chan) for any
+ * use of this program (GPLv3 Section 7b).
+ * 
+ * Trying to pass off my code as your own in your Elements of Computing classes
+ * will result in a cursed life of forever buggy software.
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+class Ball6 {
+	field Array bitMap;
+
+	constructor Ball6 new() {
+		let bitMap = Array.new(300);
+
+		do fillBitMap(0, 0, 0, 0, 0, 0);
+		do fillBitMap(1, 0, 0, -16336, 3, 0);
+		do fillBitMap(2, 0, 0, -1538, 7, 0);
+		do fillBitMap(3, 0, -32767-1, -3585, 67, 0);
+		do fillBitMap(4, 0, -8192, -32641, 385, 0);
+		do fillBitMap(5, 0, -4096, 31, 768, 0);
+		do fillBitMap(6, 0, -1024, 15, 1807, 0);
+		do fillBitMap(7, 0, -448, 7, 3967, 0);
+		do fillBitMap(8, 0, -800, -32765, 8191, 0);
+		do fillBitMap(9, 0, -8080, -32767, 12799, 0);
+		do fillBitMap(10, 0, 56, -16384, 511, 0);
+		do fillBitMap(11, 0, 28, -16381, -32257, 1);
+		do fillBitMap(12, 0, -32756, -8161, 511, 3);
+		do fillBitMap(13, 0, -16378, -7937, 511, 7);
+		do fillBitMap(14, 0, -8185, -3073, 511, 6);
+		do fillBitMap(15, 0, -8189, -4097, 511, 14);
+		do fillBitMap(16, -32767-1, -4093, 2047, 511, 30);
+		do fillBitMap(17, -32767-1, -4095, 2047, 504, 28);
+		do fillBitMap(18, -16384, -2047, 1023, 448, 60);
+		do fillBitMap(19, -16384, -2048, 1023, 0, 60);
+		do fillBitMap(20, 0, -1024, 511, 1792, 60);
+		do fillBitMap(21, 0, -1021, 511, 16128, 124);
+		do fillBitMap(22, -32767-1, -481, 511, -256, 120);
+		do fillBitMap(23, -32767-1, -257, 255, -256, 127);
+		do fillBitMap(24, -32767-1, -1793, 255, -256, 71);
+		do fillBitMap(25, -16384, -7937, 255, -128, 7);
+		do fillBitMap(26, -16384, 255, 127, -128, 7);
+		do fillBitMap(27, -16384, 255, 120, -128, 7);
+		do fillBitMap(28, -16384, 127, 32, -128, 7);
+		do fillBitMap(29, -16384, 127, 192, -64, 3);
+		do fillBitMap(30, -16384, 127, 1984, -64, 3);
+		do fillBitMap(31, -16384, 127, 16352, -64, 3);
+		do fillBitMap(32, -16384, 63, -32, -64, 3);
+		do fillBitMap(33, -16384, 63, -32, -25, 3);
+		do fillBitMap(34, -16384, 63, -16, -33, 3);
+		do fillBitMap(35, -16384, 63, -16, -497, 1);
+		do fillBitMap(36, 8192, 63, -16, -2033, 1);
+		do fillBitMap(37, 8192, 56, -8, -16369, 1);
+		do fillBitMap(38, 24576, 32, -8, 7, 0);
+		do fillBitMap(39, 24576, 192, -8, 7, 15);
+		do fillBitMap(40, 16384, 1984, -8, 3, 63);
+		do fillBitMap(41, -16384, 8128, -4, -32765, 63);
+		do fillBitMap(42, -32767-1, -64, -4, -32767, 31);
+		do fillBitMap(43, -32767-1, -64, -5, -16383, 31);
+		do fillBitMap(44, 0, -63, -63, -16384, 15);
+		do fillBitMap(45, 0, -127, -511, -8192, 15);
+		do fillBitMap(46, 0, -126, 30721, -4096, 7);
+		do fillBitMap(47, 0, -126, 1, -4096, 3);
+		do fillBitMap(48, 0, -124, -16384, -2047, 3);
+		do fillBitMap(49, 0, -256, -8192, -1017, 1);
+		do fillBitMap(50, 0, -160, -4096, -449, 0);
+		do fillBitMap(51, 0, -576, -4096, 32511, 0);
+		do fillBitMap(52, 0, -3712, -2048, 12415, 0);
+		do fillBitMap(53, 0, 768, -1024, 63, 0);
+		do fillBitMap(54, 0, -31232, -509, 31, 0);
+		do fillBitMap(55, 0, -31744, -225, 7, 0);
+		do fillBitMap(56, 0, -32767-1, -193, 1, 0);
+		do fillBitMap(57, 0, -32767-1, 31775, 0, 0);
+		do fillBitMap(58, 0, 0, 4097, 0, 0);
+		do fillBitMap(59, 0, 0, 32640, 0, 0);
+
+
+		return this;
+	}
+
+	method void fillBitMap(int row, int a, int b, int c, int d, int e) {
+		var int index;
+		let index = row * 5;
+		let bitMap[index] = a;
+		let bitMap[index + 1] = b;
+		let bitMap[index + 2] = c;
+		let bitMap[index + 3] = d;
+		let bitMap[index + 4] = e;
+
+		return;
+	}
+
+	method Array getBitMap() {
+		return bitMap;
+	}
+}

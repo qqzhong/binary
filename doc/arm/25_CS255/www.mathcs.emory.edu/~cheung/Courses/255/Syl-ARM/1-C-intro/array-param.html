@@ -1,0 +1,1013 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Functions with array as a parameter variable
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Passing</I> an array as parameter
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax</B> used to
+     <FONT color="red"><B>pass</B></FONT>
+    an <FONT color="blue"><B>array</B></FONT> as a 
+    <B>parameter</B> to
+    a function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     DataType  <FONT color="red">arrayName</FONT> [ SIZE ];    // Defines an array     
+
+
+     FunctionName (  ...., <FONT color="red">arrayName</FONT> ,  ... )  
+             // Pass the array <FONT color="red">arrayName</FONT> as a parameter
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )             
+   {<FONT color="red">
+      double a[10];</FONT>
+      int    i;
+    
+      for ( i = 0; i < 10; i++ )
+   	 a[i] = i;
+    
+      func( <FONT color="red">a</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>  
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining a function with an array as <I>parameter</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax</B> used to <FONT color="red"><B>define</B></FONT>
+     an <FONT color="blue"><B>array</B></FONT> as a
+     <B>parameter</B> of a function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     returnType  functionName (  ....,  <FONT color="red">DataType  arrayName[ ]</FONT> ,  ... )      
+     {
+         // function body
+     }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( <FONT color="red">double x[ ]</FONT> )
+   {
+      int i;
+    
+      for ( i = 0; i < 30; i++ )
+   	 printf( "x[%d] = %lf\n", i, <FONT color="red">x[i]</FONT> );          
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-param1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-param1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Alternative syntax to define an array parameter
+     </B></FONT>
+<P>
+<UL>
+<LI> You guessed it, <B>any text</B>
+     that appears inside the
+     <FONT color="red"><B><I>first</I></B></FONT> bracket in an
+     <B>array parameter variable</B> is
+     <FONT color="blue"><B>ignored</B></FONT>.
+<P>
+<HR>
+<P>
+<LI> So you can define an
+   <FONT color="blue"><B>array parameter variable</B></FONT>
+   more <FONT color="red"><B>nicer</B></FONT> with this syntax:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( double x[<FONT color="red">10</FONT>] )              
+   {
+      int i;
+    
+      for ( i = 0; i < 10; i++ )
+   	 printf( "x[%d] = %lf\n", i, x[i] );          
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Advanced note
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>actual way</B></FONT> to define
+     an <FONT color="blue"><B>array parameter</B></FONT> in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>parameter definition</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    double a[ ]             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>looks a lot like</B> the
+ <FONT color="red"><B>declaration</B></FONT> of an
+ <B>array variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    <FONT color="blue">extern</FONT>  double a[ ]         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Looks</B></FONT> can be
+    <FONT color="blue"><B>deceiving</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> <B>In fact</B>,  the <B><I>definition</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    double a[ ]             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is a <FONT color="red"><B>"convenient way"</B></FONT> to write the following
+ <B>definition</B> of a
+ <FONT color="blue"><B><I>pointer</I> variable</B></FONT>
+ (that will be discussed later):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    double* a                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>So</B> the <FONT color="blue"><B>proper way</B></FONT> (without
+    using the "convenient notation") to write the function
+    that uses an <FONT color="red"><B>array variable</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( <FONT color="red">double* x</FONT> )
+   {
+      int i;
+    
+      for ( i = 0; i < 10; i++ )
+   	 printf( "x[%d] = %lf\n", i, x[i] );              
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-param1a.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-param1a.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"> <B>
+        <I>How</I> arrays are passed  to a function
+        </B></FONT>
+  <P>
+  <P>
+  <UL>
+ <P>
+  <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Most programming languages</B></FONT>
+      will <FONT color="red"><B><I>not</I> pass</B></FONT> an 
+   <B>array</B>
+      <FONT color="blue"><B>by value (= make a copy)</B></FONT> because:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Copying</B></FONT> an
+    <FONT color="red"><B><I>entire</I> array</B></FONT>
+    can be <FONT color="blue"><B>very computationally expensive</B></FONT>
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B>Therefore</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>common practice</B></font> in
+     <B>programming languages</B> is to
+     <B>pass an array</B>
+        <FONT color="blue"><B>by reference</B></FONT>
+ <P>
+ <LI> I.e.: we <FONT color="blue"><B>copy</B></FONT> the
+    <FONT color="red"><B><I>base address</I></B></FONT> of
+    an <B>array</B> into
+    the <FONT color="blue"><B>parameter variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+  <P>
+ <LI> <B>Example</B> showing
+       <FONT color="red"><B><I>how</I></B></FONT>
+      an <FONT color="blue"><B>array</B></FONT> is passed in
+      <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Initially:</B> the
+    <B>C program</B> starts execution in the
+    <FONT color="blue"><B><TT>main()</TT></B></FONT> funcion
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array12a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When the <FONT color="blue"><B>array <TT>a[10]</TT></B></FONT> is
+     <FONT color="red"><B>defined</B></FONT>, some
+   <B>memory cells</B> are <FONT color="blue"><B>reserved</B></FONT> and
+   the <B>C compiler</B> will
+   <B><I>also</I></B> 
+   <FONT color="red"><B>remember the location</B></FONT>
+   of the array:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array12b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> The <B>function call</B>
+   <FONT color="blue"><B><TT>func(a)</TT></B></FONT> will
+   <B><I>create</I></B> a
+   <FONT color="red"><B>parameter variable <TT>x</TT></B></FONT>
+   (on the stack) and
+   then
+   <FONT color="blue"><B>passes (= copies)</B></FONT>
+   the <FONT color="red"><B>address of the array (= 9000)</B></FONT>
+   into the
+   <B>parameter variable</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array12c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>parameter variable</B></FONT>
+      <FONT color="blue"><B><TT>x</TT></B></FONT> contains an
+      <FONT color="red"><B><I>address</I></B></FONT>
+      (of a <B><TT>double</TT></B> typed variable) !!!
+ <P>
+  That's why <FONT color="blue"><B><I>officially</I></B></FONT>, the
+   <FONT color="red"><B>data type</B></FONT> of the
+   <B><I>parameter variable</I> <TT>x</TT></B> is
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">double*</FONT> x        (<FONT color="red">double*</FONT>  mean: pointer or reference to a double)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+The <B>execution</B> will now proceed
+ inside the <B>function</B>
+ <FONT color="blue"><B><TT>func()</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> When the function
+   <FONT color="blue"><B><TT>func()</TT></B></FONT>
+   uses the 
+   <FONT color="red"><B>variable <TT>x[i]</TT></B></FONT>,
+   it will obtain the
+   <B>double</B> value stored at
+   the <FONT color="red"><B>address (9000 + i&times;8)</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/array12d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The address <FONT color="red"><B>(9000 + i&times;8)</B></FONT> is the
+ address of the variable
+ <FONT color="blue"><B><TT>a[i]</TT></B></FONT> !!!
+<P>
+<B>In other words:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Inside</I></B> the function
+     <FONT color="blue"><B><TT>func()</TT></B></FONT>, the
+     name <FONT color="red"><B><TT>x[i]</TT></B></FONT> is
+     an <B><I>alias</I></B> for the name
+     <FONT color="blue"><B><TT>a[i]</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Demonstrating that an array is <I>passed-by-reference</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> that 
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="blue"><B>variable</B></FONT>
+    is <FONT color="red"><B>passed-by-reference</B></FONT>,
+    the <B>function</B> can
+    <FONT color="blue"><B>change (modify, update)</B></FONT> the
+    <FONT color="red"><B><I>original</I> copy</B></FONT> of the variable
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you need <FONT color="blue"><B>more details</B></FONT> on
+ this phenomenon, please study this <B>CS170</B> webpage:
+ <A HREF=
+"http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/08/parameter3.html"> click here </A>
+<P>
+<HR>
+<P>
+<LI> The following program will 
+   <FONT color="blue"><B>demonstrate</B></FONT> that an <B>array</B>
+   is <FONT color="red"><B>passed by <I>reference</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( double <FONT color="red">x[ ]</FONT> )
+   {<FONT color="red">
+       x[0] = 4444;      // WIll change the ORIGINAL !!!
+       x[5] = 4444;</FONT>
+   }
+    
+    
+   int main( int argc, char* argv[] )
+   {
+      double a[10];
+      int    i;
+    
+      for ( i = 0; i < 10; i++ )
+   	 a[i] = i;
+    
+      printf( "Array before the function call:\n");
+      for ( i = 0; i < 10; i++ )
+   	 printf( "a[%d] = %lf\n", i, a[i] );
+    <FONT color="red">
+      func( a );    // Pass array</FONT>
+    
+      printf( "\nArray AFTER the function call:\n");             
+      for ( i = 0; i < 10; i++ )
+   	 printf( "a[%d] = %lf\n", i, a[i] );
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Array before the function call:
+  a[0] = 0.000000
+  a[1] = 1.000000
+  a[2] = 2.000000
+  a[3] = 3.000000
+  a[4] = 4.000000
+  a[5] = 5.000000
+  a[6] = 6.000000
+  a[7] = 7.000000
+  a[8] = 8.000000
+  a[9] = 9.000000
+  		 
+  Array AFTER the function call:               
+  <FONT color="red">a[0] = 4444.000000</FONT>
+  a[1] = 1.000000
+  a[2] = 2.000000
+  a[3] = 3.000000
+  a[4] = 4.000000
+  <FONT color="red">a[5] = 4444.000000</FONT>
+  a[6] = 6.000000
+  a[7] = 7.000000
+  a[8] = 8.000000
+  a[9] = 9.000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-param2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-param2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Functions with a <I>2-dimensional</I> array as parameter
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Functions</B> that has a
+     <FONT color="blue"><B>2-dimensional array</B></FONT> 
+     as <FONT color="red"><B>parameter</B></FONT> are
+     defined as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    returnType   functionName (  ...,   <FONT color="red">dataType arrayName [ ] [ SIZE ]</FONT> , ... )     
+    {
+        // function body
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( <FONT color="red">double x[ ][5]</FONT> )
+   {
+      int i, j;
+    
+      for ( i = 0; i < 3; i++ )
+      {
+   	 for ( j = 0; j < 5; j++ )
+   	    printf( "x[%d][%d] = %lf  ", i, j, x[i][j] );            
+    
+   	 putchar('\n');
+      }
+   }
+    
+    
+   int main( int argc, char* argv[] )
+   {
+      double a[3][5];
+      int    i, j;
+    
+      for ( i = 0; i < 3; i++ )
+   	 for ( j = 0; j < 5; j++ )
+   	    a[i][j] = i + j;
+    
+      func( <FONT color="red">a</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array-param3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array-param3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Since the <B>text</B> in the
+     <FONT color="red"><B>first dimension</B></FONT> of an
+     <FONT color="blue"><B>array parameter variable</B></FONT> is
+     <FONT color="red"><B>ignored</B></FONT> by the
+     <B>C compiler</B>, 
+     the <FONT color="blue"><B>common practice </B></FONT> is to
+     include the <B>first dimension</B> in the
+     <FONT color="red"><B>parameter variable definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( <FONT color="red">double x[<FONT color="magenta">3</FONT>][5]</FONT> )
+   {
+      int i, j;
+    
+      for ( i = 0; i < 3; i++ )
+      {
+   	 for ( j = 0; j < 5; j++ )
+   	    printf( "x[%d][%d] = %lf  ", i, j, x[i][j] );            
+    
+   	 putchar('\n');
+      }
+   }
+    
+    
+   int main( int argc, char* argv[] )
+   {
+      double a[3][5];
+      int    i, j;
+    
+      for ( i = 0; i < 3; i++ )
+   	 for ( j = 0; j < 5; j++ )
+   	    a[i][j] = i + j;
+    
+      func( <FONT color="red">a</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

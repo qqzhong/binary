@@ -1,0 +1,383 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Priority and Assiciativity of <I>C</I>'s operators
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Table of priority and associativity of <I>C</I>'s operators
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Priority</B> and <B>Associativity</B> of
+      the operators of <FONT color="blue"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Operators
+</TH> 
+<TH>
+Associativity
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+( ) &nbsp; [ ] &nbsp; 
+     <SPAN style="BACKGROUND-COLOR: orange"><FONT color="red">. 
+       <FONT color="darkred">(member)</font></font></SPAN> &nbsp; 
+    <FONT color="red">->  <FONT color="darkred">(pointer member)</font></font> 
+&nbsp;
+ ++ (post)
+&nbsp;
+ -- (post)
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR bgcolor="#FFEEEE"> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+(Unary) + &nbsp; (Unary) - &nbsp; ! &nbsp; ~ &nbsp; ++ (pre) &nbsp; -- (pre)
+ &nbsp; <FONT color="red">& <FONT color="darkred">(referenec)</font></font>
+ &nbsp;
+ <SPAN style="BACKGROUND-COLOR: orange">
+  <FONT color="red">* <FONT color="darkred">(de-reference)</font></font> 
+</SPAN>
+ &nbsp; (typecast) &nbsp; sizeof(..)
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; <FONT color="red">right to left</FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+* &nbsp; / &nbsp; %
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
++ &nbsp; - 
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+>> &nbsp; << 
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+< &nbsp; <= &nbsp; > &nbsp; >=
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+== &nbsp; != 
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR bgcolor="lightcyan"> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+&
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR  bgcolor="lightcyan"> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+^
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR  bgcolor="lightcyan"> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+|
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+&&
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+|| 
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+<TR bgcolor="#FFEEEE"> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+?: 
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; <FONT color="red">right to left</FONT>
+</TD> 
+</TR>
+
+<TR bgcolor="#FFEEEE"> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+= &nbsp; += &nbsp; -= &nbsp; *= &nbsp; /= &nbsp; %= &nbsp;
+ >>= &nbsp; <<= &nbsp; &= &nbsp; ^= &nbsp; |=
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; <FONT color="red">right to left</FONT>
+</TD> 
+</TR>
+
+
+
+<TR> 
+<TD align="center">
+<FONT color="blue"><B><TT>
+&nbsp;
+,
+&nbsp;
+</TT></B></FONT>
+</TD> 
+<TD align="left">
+&nbsp; left to right
+</TD> 
+</TR>
+
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Advice
+     </B></FONT>
+<P>
+<UL>
+<LI> I don't memorize the <FONT color="red"><B>exact order</B></FONT>
+<P>
+<HR>
+<P>
+<LI> I <B>do</B> memorize the <FONT color="blue"><B>most commonly
+      used</B></FONT> combinations:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <B><I>Relative</I> priorities</B> of 
+ <FONT color="blue"><B>arithmetic operators</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Unary</B> operation always first: &nbsp;
+     <FONT color="red"><B><TT>+  &nbsp; -</TT></B></FONT> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> &nbsp; <FONT color="red"><B><TT>* &nbsp; / &nbsp; %</B></FONT>
+   &nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> &nbsp; <FONT color="red"><B>+ &nbsp; -</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI>  <B><I>Relative</I> priorities</B> of 
+ <FONT color="blue"><B>compare and logic operators</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Unary</B> operation always first:
+     <FONT color="red"><B><TT>!</TT></B></FONT>
+ <LI> Compare operations <B>first</B>:
+     <FONT color="red"><B><TT>< &nbsp; <= &nbsp; > &nbsp; >=</TT></B></FONT>
+   &nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <FONT color="red"><B><TT>== &nbsp; !=</TT></B></FONT>
+ <P>
+ <LI> <B>And</B> is like multiply: 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <FONT color="red"><B><TT>&&</TT></B></FONT>
+ <LI> <B>Or</B> is like add:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <FONT color="red"><B><TT>||</TT></B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>assignment operators</B></FONT>
+    have the <FONT color="red"><B>lowest priotity</B></FONT>
+    (I don't use  the 
+    <FONT color="blue"><B>comma operator</B></FONT> much - except
+   in the <B>for-statement</B> to initailize multiple variables) 
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  I use <FONT color="blue"><B>brackets</B></FONT> in cases where
+ I am <FONT color="red"><B>not certain</B></FONT>
+   which operator has a higher priority...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

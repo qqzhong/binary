@@ -1,0 +1,741 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Tower of Hanoi in ARM assembler
+<HR>
+</H3>
+
+<UL>
+<P>
+<LI> <B>Introduction:</B>
+ <P>
+ <UL>
+ <LI> Hands on "Tower of Hanoi":
+  <A HREF="http://www.cut-the-knot.org/recurrence/hanoi.shtml" target="blank_">
+   click here </A>
+   or
+  <A HREF="http://www.mathsisfun.com/games/towerofhanoi.html" target="blank_">
+   click here </A>
+ </UL>
+<P>
+<HR>
+<P>
+
+<LI> Again, I want to show you more than just implementing the recursive
+	solution for Hanoi in assembler.
+<P>
+    Here is my CS170 webpage that explain the important of
+    <B>pre-conditioning</B> in the Tower of Hanoi problem:
+    <A HREF="../../../170/Syllabus/Recursion/hanoi.html"> click here </A>
+<P>
+
+<LI> <B>The TowerOfHanoi function</B>
+ <P>
+ <UL>
+ <LI> The TowerOfHanoi function can be written explicitly as follows:
+<PRE>
+ void hanoi(int ndisks, int fromPeg, int toPeg)
+ { 
+    int helpPeg;
+    if (ndisks == 1) then
+       WriteLn "move disk from peg " + fromPeg + " to " + " + toPeg
+    else
+    {  
+       helpPeg := 6 - fromPeg - toPeg;
+       hanoi(ndisks-1, fromPeg, helpPeg);
+       WriteLn "move disk from peg " + fromPeg + " to " + " + toPeg
+       hanoi(ndisks-1, helpPeg, toPeg);
+    }
+ }
+</PRE>
+
+<P>
+ <LI> The <B>hanoi</B> function is called with the following statement:
+<PRE>
+   hanoi(n, 1, 3);
+</PRE>
+    to move <B>n</B> disks from peg 1 to peg 3.
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>stack frame structure</B></FONT>
+     for the <FONT color="blue"><B><I>hanoi</I> function</B></FONT>:
+
+ <UL>
+<P>
+ <LI> The stack frame structure created will looks as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)
+   |   use for helpPeg   |
+   +---------------------+ <------------ Frame Pointer (FP)
+   |  old Frame Pointer  |
+   +---------------------+
+   |  Return Address     |
+   +---------------------+
+   | use for ndisks      |
+   +---------------------+
+   | use for fromPeg     |
+   +---------------------+
+   | use for toPeg       |
+   +---------------------+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>main( )</TT></B></FONT> that calls
+     the <FONT color="blue"><B>Hanoi( )</TT></B></FONT> function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        /* -------------------------------------------------------
+           Call Hanoi(4, 1, 3): move 4 disk from peg 1 to peg 3
+           ------------------------------------------------------- */
+        mov     r0, #3
+        push    {r0}            // Pass peg2 = 3
+        mov     r0, #1
+        push    {r0}            // Pass peg1 = 1
+        mov     r0, #4
+        push    {r0}            // Pass ndisks = 4
+
+        /* ----------------------------------------
+           Call Hanoi(4, 1, 3)
+           ---------------------------------------- */            
+        bl      Hanoi
+
+        add     sp, sp, #12     // Pop parameters 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> The <FONT color="red"><B>Hanoi( )</B></FONT> recusive function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* ==========================================================
+   Stack frame:
+
+         SP ----> +------------+
+                  |  helpPeg   |   FP - 4
+         FP ----> +------------+
+                  |  old FP    |
+                  +------------+
+                  | return addr|
+                  +------------+
+                  |   ndisks   |   FP + 8
+                  +------------+
+                  |   fromPeg  |   FP + 12
+                  +------------+
+                  |   toPeg    |   FP + 16
+                  +------------+
+   ========================================================== */
+
+Hanoi:
+        // Prelude
+        push    {lr}            // Save return address
+        push    {fp}            // Save frame pointer
+        mov     fp, sp          // Make base pointer
+        sub     sp, sp, #4      // Local var  helpPeg
+
+        // if (ndisk == 1 )
+        ldr     r0, [fp, #8]    // r0 = ndisks
+        cmp     r0, #1          // Check (ndisks == 1)
+        bne     else
+
+        // printf("Move disk from peg %d to peg %d\n", fromPeg, toPeg)
+        movw    r0, #:lower16:Str
+        movt    r0, #:upper16:Str
+
+        ldr     r1, [fp, #12]   // r1 = fromPeg
+        ldr     r2, [fp, #16]   // r2 = toPeg
+        bl      printf
+
+        b       ifEnd
+
+else:
+        // helpPeg = 6 - fromPeg - toPeg
+        ldr     r0, [fp, #12]   // r0 = fromPeg
+        rsb     r0, r0, #6      // r0 = 6 - fromPeg
+
+        ldr     r1, [fp, #16]   // r1 = toPeg
+        sub     r0, r0, r1      // r0 = 6 - fromPeg - toPeg
+
+        str     r0, [fp, #-4]   // helpPeg = 6 - fromPeg - toPeg
+
+        // Hanoi(ndisk-1, fromPeg, helpPeg)
+        ldr     r0, [fp, #-4]
+        push    {r0}            // Pass helpPeg
+
+        ldr     r0, [fp, #12]
+        push    {r0}            // Pass fromPeg
+
+        ldr     r0, [fp, #8]
+        sub     r0, r0, #1
+        push    {r0}            // Pass ndisk-1
+
+        /* ----------------------------------------
+           Call Hanoi(ndisk-1, fromPeg, helpPeg)
+           ---------------------------------------- */
+        bl      Hanoi
+        add     sp, sp, #12     // Pop parameters
+
+
+        // printf("Move disk from peg %d to peg %d\n", fromPeg, toPeg)
+        movw    r0, #:lower16:Str
+        movt    r0, #:upper16:Str
+
+        ldr     r1, [fp, #12]   // r1 = fromPeg
+        ldr     r2, [fp, #16]   // r2 = toPeg
+        bl      printf
+
+        // Hanoi(ndisk-1, helpPeg, toPeg)
+        ldr     r0, [fp, #16]
+        push    {r0}            // Pass toPeg
+
+        ldr     r0, [fp, #-4]
+        push    {r0}            // Pass helpPeg
+
+        ldr     r0, [fp, #8]
+        sub     r0, r0, #1
+        push    {r0}            // Pass ndisk-1
+
+        /* ----------------------------------------
+           Call Hanoi(ndisk-1, fromPeg, helpPeg)
+           ---------------------------------------- */
+        bl      Hanoi
+        add     sp, sp, #12     // Pop parameters
+
+ifEnd:
+        // Return
+        mov     sp, fp
+        pop     {fp}
+        pop     {pc}
+
+// ************************ Starting variable definition *****************
+        .data
+// ***********************************************************************
+
+Str:    .asciz "Move a disk from peg %d to peg %d\n"
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <LI> I will highlight certain steps in the  program in the
+	remainder of the webpage....
+ 
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Passing parameters from main program to hanoi</B>
+ <P>
+ The main program passes the parameter n to <B>hanoi</B> by pushing
+ 4, 1, and 3 in the reverse order onto the system stack 
+ with the following instructions:
+<PRE>
+        mov     r0, #3
+        push    {r0}            // Pass peg2 = 3
+        mov     r0, #1
+        push    {r0}            // Pass peg1 = 1
+        mov     r0, #4
+        push    {r0}            // Pass ndisks = 4
+</PRE>
+ This will create the following stack structure:
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)
+   |     ndisk = 4       |
+   +---------------------+
+   |     fromPeg = 1     |
+   +---------------------+
+   |     toPeg =   3     |
+   +---------------------+
+</PRE>
+
+
+<P>
+<HR>
+<P>
+<LI> <B>How the main program calls the <I>hanoi</I> function</B>
+ <P>
+ The main program calls the <B>hanoi</B> function with a <B>bl</B> instruction:
+<PRE>
+    pass parameters (see above)
+    <FONT color="red">bl    hanoi</font>
+</PRE>
+ Now the <FONT color="red"><B>Hanoi </B></FONT> function will
+  <FONT color="blue"><B>begin execution</B></FONT>.
+<P>
+ Let's take a look at the
+  <FONT color="red"><B>Hanoi </B></FONT> function
+<P>
+
+
+<P>
+<HR>
+<P>
+<LI> <B>Prelude of the <I>hanoi</I> function:</B>
+  <P>
+  The prelude of the <B>hanoi</B> function consists of these instructions:
+<PRE>
+********************************* PRELUDE
+<FONT color="red"><B>        push    {lr}            // Save return address
+        push    {fp}            // Save frame pointer
+        mov     fp, sp          // Make base pointer
+        sub     sp, sp, #4      // Local var  helpPeg</B></FONT>
+********************************* 
+</PRE>
+  I will explain what each one does below.
+  Make sure that you realise that the structure of the stack frame is
+   <B>always</B>
+   like this when the prelude is  executed:
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)
+   |     parameter N     |
+   +---------------------+
+   |     parameter 1     |
+   +---------------------+
+   |     parameter 3     |
+   +---------------------+
+</PRE>
+
+  <UL>
+   <LI> <FONT color="red"><B><TT>push&nbsp;{lr}</TT></B></FONT>
+ <P>
+    This will save the <FONT color="blue"><B>return address</B></FONT>
+    on the stack, creating this partial
+	stack frame structure:
+<PRE>
+   +---------------------+ <------------ Stack pointer (SP)
+   |     return address  |
+   +---------------------+
+   |     parameter N     |
+   +---------------------+
+   |     parameter 1     |
+   +---------------------+
+   |     parameter 3     |
+   +---------------------+
+</PRE>
+
+  <LI> <FONT color="red"><B><TT>push&nbsp;{fp}</TT></B></FONT>
+   <P>
+   This will save the frame pointer on the stack, creating this partial
+	stack frame structure:
+<PRE>
+   +---------------------+ <------------ Stack pointer (FP)
+   |     saved FP        |
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |     parameter N     |
+   +---------------------+
+   |     parameter 1     |
+   +---------------------+
+   |     parameter 3     |
+   +---------------------+
+</PRE>
+
+  <LI> <FONT color="red"><B><TT>mov&nbsp;fp,sp</TT></B></FONT> 
+   <P>
+   This will make the frame pointer <FONT color="red"><B><TT>FP</TT></B></FONT>
+       points to the stack frame that
+	is now being built:
+<PRE>
+   +---------------------+ <---- Frame pointer <FONT color="red"><B>FP</B></FONT> & Stack pointer (<FONT color="red"><B>SP</B></FONT>)
+   |     saved FP        |       point to the same location....
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |     parameter N     |
+   +---------------------+
+   |     parameter 1     |
+   +---------------------+
+   |     parameter 3     |
+   +---------------------+
+</PRE>
+
+  <LI> <FONT color="red"><B><TT>sub&nbsp;sp,sp,#4</TT></B></FONT>
+   <P>
+   This will push the stack pointer <FONT color="red"><B><TT>SP</TT></B></FONT>
+         4 bytes up, allocating <FONT color="blue"><B>1 integer local
+	variable</B></FONT>
+      <P>
+	This variable will be used is for 
+   <FONT color="red"><B><TT>helpPeg</TT></B></FONT>.
+<PRE>
+   +---------------------+ <---- Stack pointer (SP)
+   |     helpPeg         |
+   +---------------------+ <---- Frame pointer (FP)
+   |     saved FP        |
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |     parameter N     |
+   +---------------------+
+   |     parameter 1     |
+   +---------------------+
+   |     parameter 3     |
+   +---------------------+
+</PRE>
+
+ <LI> When the prelude is finish, the stack frame is complete and
+	the actual function can begin.
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>How to access the parameter and the local variables in <I>Hanoi</I>:</B>
+ <P>
+ <UL>
+ <LI> From the <FONT color="blue"><B>stack</B></FONT> strcuture:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE><FONT color="red">
+            +---------------------+ <---- Stack pointer (SP)        
+   FP - 4   |     helpPeg         |
+            +---------------------+ <---- Frame pointer (FP)
+            |     saved a6        |
+            +---------------------+
+            |     return address  |
+            +---------------------+
+   FP + 8   |     param ndisks    |
+            +---------------------+
+   FP + 12  |     param fromPeg   |
+            +---------------------+
+   FP + 16  |     param toPeg     |
+            +---------------------+</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <LI> Parameter ndisks is located 8 bytes <B>below</B> starting 
+	from the address contained in the frame pointer 
+	<FONT color="blue"><B><TT>FP</TT></B></FONT>.
+    <P>
+     So the address mode that will let you get to this variable is
+	<FONT color="red"><B><TT>[fp, #8]</TT></B></FONT>
+   <P>
+ <LI> Parameter fromPeg is located 12 bytes <B>below</B> starting 
+	from the address contained in the frame pointer 
+	<FONT color="blue"><B><TT>FP</TT></B></FONT>.
+    <P>
+     So the address mode that will let you get to this variable is
+	<FONT color="red"><B><TT>[fp, #12]</TT></B></FONT>
+   <P>
+ <LI> Parameter toPeg is located 16 bytes <B>below</B> starting 
+	from the address contained in the frame pointer 
+	<FONT color="blue"><B><TT>FP</TT></B></FONT>.
+    <P>
+     So the address mode that will let you get to this variable is
+	<FONT color="red"><B><TT>[fp, #16]</TT></B></FONT>
+   <P>
+  <LI> Local variable helpPeg is located 4 bytes <B>above</B> starting 
+	from the address contained in the frame pointer 
+	<FONT color="blue"><B><TT>FP</TT></B></FONT>.
+    <P>
+     So the address mode that will let you get to this variable is
+	<FONT color="red"><B><TT>[fp, #-4]</TT></B></FONT>
+  <P>
+  <LI> Use the above way to gain access to the
+      <FONT color="blue"><B> private copy of parameters
+	and local variables</B></FONT> of 
+         <FONT color="red"><B>each function invocation</B></FONT>....
+  </UL>
+<P>
+<HR>
+<P>
+<LI> <B>How <I>Hanoi</I> calls itself:</B>
+  <P>
+  It is no different from how the main program calls the Hanoi function.
+  Simply push the parameter <B>in the proper order</B> on the stack, 
+  and call Hanoi.
+  <P>
+  But <B>make sure</B> you <B>pop the parameter</B> from the stack after
+	Hanoi returns - because the parameter has not been cleaned up.
+  <P>
+  The following is the program fragment where Hanoi calls 
+	hanoi(ndisks-1, fromPeg, helpPeg):
+ <PRE>
+        // Hanoi(ndisk-1, fromPeg, helpPeg)
+        ldr     r0, [fp, #-4]
+        push    {r0}            // Pass helpPeg
+
+        ldr     r0, [fp, #12]
+        push    {r0}            // Pass fromPeg
+
+        ldr     r0, [fp, #8]
+        sub     r0, r0, #1
+        push    {r0}            // Pass ndisk-1
+
+  </PRE>
+
+  <P>
+  Hanoi will call itself a second time with 
+    hanoi(ndisks-1, thirdPeg, toPeg);
+  The following is the program fragment where Hanoi calls 
+    hanoi(ndisks-1, thirdPeg, toPeg):
+ <PRE>
+        // Hanoi(ndisk-1, helpPeg, toPeg)
+        ldr     r0, [fp, #16]
+        push    {r0}            // Pass toPeg
+
+        ldr     r0, [fp, #-4]
+        push    {r0}            // Pass helpPeg
+
+        ldr     r0, [fp, #8]
+        sub     r0, r0, #1
+        push    {r0}            // Pass ndisk-1
+
+        /* ----------------------------------------
+           Call Hanoi(ndisk-1, fromPeg, helpPeg)
+           ---------------------------------------- */
+        bl      Hanoi
+        add     sp, sp, #12     // Pop parameters
+
+  </PRE>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Printing out messages: printf</B>
+ <P>
+ <UL>
+ <LI> In the Hanoi subroutine, we need to print out a string, e.g.:
+<PRE>
+   <FONT color="red">WriteLn</font> "move disk from peg " + fromPeg + " to " + " + toPeg
+</PRE>
+ <P>
+ <LI> I am using
+  <FONT color="red"><B>C's library's</B></FONT>
+  <FONT color="blue"><B><TT>printf( )</TT></B></FONT> function to
+  print out messages
+  <P>
+ <LI> How to use
+    <FONT color="red"><B>C's library's</B></FONT>
+  <FONT color="blue"><B><TT>printf( )</TT></B></FONT> function
+      in assembler:
+  <P>
+  <UL>
+
+   <LI> Use <FONT color="red"><B>bl&nbsp;printf</B></font>
+    to  call the <FONT color="blue"><B><TT>printf( )</TT></B></FONT>
+     library subroutine.
+   </UL>
+ <P>
+ <LI> Beside this, you need to know 
+    <FONT color="blue"><B>WHAT and WHERE to PASS parameters </B></FONT>
+     to <B>printf</B>
+<P>
+	The parameters of
+	 <FONT color="blue"><B><TT>printf( )</TT></B></FONT> are:
+	
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ 
+   <LI> r0 = starting address of the string
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <LI> r1 = the "from Peg" integer value
+   <LI> r2 = the "to Peg" integer value
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Sample call:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        // printf("Move disk from peg %d to peg %d\n", fromPeg, toPeg)
+        movw    r0, #:lower16:Str
+        movt    r0, #:upper16:Str
+
+        ldr     r1, [fp, #12]   // r1 = fromPeg
+        ldr     r2, [fp, #16]   // r2 = toPeg
+        bl      printf
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cheung/demo/no-sim/hanoi.s
+       </TT></B></FONT>
+       on
+       <FONT color="blue"><B>cs255host1</B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>SSH</B></FONT> to
+    <FONT color="blue"><B><TT>cs255@cs255host1</TT></B></FONT>
+ <P>
+    Passwd:  <FONT color="red"><B>abc123</B></FONT>
+ <P>
+ <LI> To compile: 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cp   /home/cheung/demo/no-sim/hanoi.s  ~/cs255/tmp          
+
+    cd    cs255/tmp
+    as    -o  hanoi.o   hanoi.s
+    gcc   -o  hanoi     hanoi.o                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>hanoi</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B> (4 disks)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Move a disk from peg 1 to peg 2
+Move a disk from peg 1 to peg 3
+Move a disk from peg 2 to peg 3
+Move a disk from peg 1 to peg 2
+Move a disk from peg 3 to peg 1
+Move a disk from peg 3 to peg 2
+Move a disk from peg 1 to peg 2
+Move a disk from peg 1 to peg 3
+Move a disk from peg 2 to peg 3
+Move a disk from peg 2 to peg 1
+Move a disk from peg 3 to peg 1
+Move a disk from peg 2 to peg 3
+Move a disk from peg 1 to peg 2
+Move a disk from peg 1 to peg 3
+Move a disk from peg 2 to peg 3               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+ 
+ </UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

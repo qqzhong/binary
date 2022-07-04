@@ -1,0 +1,861 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting between integer and float data representations
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Numerical values and numerical representations
+     </B></FONT>
+<P>
+ <UL>
+ <LI> As you may have noticed,
+        the <FONT color="red"><B>same</B></FONT>
+	<FONT color="blue"><B>numerical <I>value</I></B></FONT>
+	has
+	<FONT color="red"><B>different</B></FONT>
+	<FONT color="blue"><B>representations</B></FONT>
+	in
+	<FONT color="red"><B>different codes</B></FONT>
+ <P>
+ <HR>
+<P>
+ <LI> <B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>2's complement code</B></FONT>
+     for the <FONT color="blue"><B>value 5 (five)</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    00000000000000000000000000000101      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>IEEE 754 code</B></FONT>
+     for the <B>same</B>
+    <FONT color="blue"><B>value 5 (five)</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    01000000101000000000000000000000         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Because:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Meaning of each bit according to the IEEE 754 format:            
+
+         S EEEEEEEE MMMMMMMMMMMMMMMMMMMMMMM   
+         0 10000001 01000000000000000000000
+
+<HR>
+ Sign:            + (positive)
+ Mantissa:        1.01000000000000000000000
+
+ Exponent:   10000001  =  129<sub>(10)</sub>
+                       =  127<sub>(10)</sub> + 2<sub>10</sub>
+              
+ The value represented is:
+
+                   1.01000000000000000000000 &times; 2<sup>2</sup>
+		 = 101.000000000000000000000
+		 = 101
+		 = 5<sub>(10)</sub> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting between
+     <FONT color="red">2's complement (integer) representation</FONT>
+     and <FONT color="red">IEEE 754 (float) representation</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> When you use <FONT color="red"><B><TT>int</TT></B></FONT>
+      and <FONT color="red"><B><TT>float</TT></B></FONT> data types
+      in your <FONT color="blue"><B>high level language program
+      (e.g. Java)</B></FONT> and
+      you use the following
+      <FONT color="red"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int   i;
+    float f;
+
+    i = (int) f;    // Assign a float representation to an int type variable
+    f = (float) i;  // Assign an int representation to an float type variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>assignment statement</B></FONT> must
+ <FONT color="blue"><B>first</B></FONT> convert
+ one <FONT color="red"><B>representation</B></FONT> into
+ another <FONT color="blue"><B>representation</B></FONT> before
+ doing the <FONT color="blue"><B>assignment</B></FONT> !
+<P>
+<HR>
+<P>
+<LI> For example, the statement
+    <FONT color="red"><B><TT>i = (int) f;</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int   i;
+    float f;
+
+    <FONT color="red">i = (int) f;</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+in the <FONT color="blue"><B>above code fragment</B></FONT> must
+ perform the following steps:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (1) <FONT color="red">convert</FONT> the <FONT color="red">float (IEEE 754) representation</FONT> stored in <FONT color="red">f</FONT> into 
+       the <FONT color="red">int (2's complement) representation</FONT> for the same value
+
+   (2) <FONT color="red">Store</FONT> the<FONT color="red"> int (2's complement) representation</FONT> in the variable <FONT color="red">i</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<P>
+<LI> Another example: the statement
+    <FONT color="red"><B><TT>f = (float) i;</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int   i;
+    float f;
+
+    <FONT color="red">i = (int) f;</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+in the <FONT color="blue"><B>above code fragment</B></FONT> must
+ perform the following steps:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (1) <FONT color="red">convert</FONT> the <FONT color="red">int (2's complement) representation</FONT> stored in <FONT color="red">i</FONT> into 
+       the <FONT color="red">float (IEEE 754) representation</FONT> for the same value
+
+   (2) <FONT color="red">Store</FONT> the<FONT color="red"> float (IEEE 754) representation</FONT> in the variable <FONT color="red">f</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> Just like there is a
+   <FONT color="red"><B>conversion procedure</B></FONT> 
+  to <FONT color="blue"><B>convert</B></FONT> between:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     binary number system  <--->  2's complement code         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+there is a <FONT color="red"><B>conversion procedure</B></FONT> 
+ to <FONT color="blue"><B>convert</B></FONT> between:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      2's complement representation <---> IEEE 754 (float) representation     
+        (integer)                             (float)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+But the
+ <FONT color="red"><B><TT>int <--> float</TT> conversion</B></FONT>
+  procedure is 
+  <FONT color="blue"><B>much more complex</B></FONT>.
+<P>
+The conversion algorithms use
+ <FONT color="red"><B>bit manipulation operations</B></FONT> that
+ you have <FONT color="blue"><B>not had before</B></FONT>.
+<P>
+So I will <FONT color="red"><B>not give the complete algorithms</B></FONT>,
+ but describe the algorithms only at a high level 
+  (mainly to sastify students' curiocity)....
+<P>
+</UL>
+<A NAME="algorithm"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pseudo code of the <TT>int --> float</TT> conversion
+     </B></FONT>
+<P>
+<UL>
+<LI> Before delving into the algorithm, you need to realize that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  An <FONT color="blue"><B><TT>int</TT> typed value</B></FONT> is
+     expressed in
+     the <FONT color="red"><B>2's complement code </B></FONT>
+ <LI>  A <FONT color="blue"><B><TT>float</TT> typed value</B></FONT> is
+     expressed in
+     the <FONT color="red"><B>IEEE 754 code </B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>algorithm</B></FONT> to
+    <FONT color="blue"><B>convert</B></FONT> from
+    an <FONT color="red"><B><TT>int</TT></B></FONT> representation
+    to a <FONT color="blue"><B><TT>float</TT></B></FONT> representation
+    is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. Convert the <FONT color="red">int</FONT> representation into a <FONT color="red">sign</FONT> and a <FONT color="red">positive binary number</FONT>      
+      
+   2. Convert the <FONT color="red">positive binary number</FONT> to a <FONT color="red">fixed point representation</FONT>
+      where the integral part = <FONT color="red">1.xxxxx</FONT>
+
+     (This step uses <FONT color="red">shift operations</FONT> - you shift the decimal point to the left
+      until you find the most significant 1 bit in the binary number)
+
+      Let M be the mantissa with the leading 1 bit omitted
+
+      Let E be the exponent of the fixed point representation
+
+   3. Express the <FONT color="red">exponent E</FONT> in  <FONT color="red">excess 127  code</FONT>
+
+   4. Assemble:
+
+          Sign Exponent Mantissa     into  a IEEE 754 respresentation 
+ 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Let's convert the value <FONT color="red">-5</FONT>  from the <FONT color="red">int</FONT> representation to the <FONT color="red">float</FONT> representation.
+
+  Let me show you the representation of -5 first:
+
+    -5 in the int   representation is: 11111111111111111111111111111011
+    -5 in the float representation is: <FONT color="magenta">11000000101000000000000000000000</FONT> (See: <A HREF="https://www.h-schmidt.net/FloatConverter/IEEE754.html">click here</A>)
+
+  The question is: how do you go from
+
+            11111111111111111111111111111011  --> <FONT color="magenta">11000000101000000000000000000000</FONT>
+
+<HR>
+  Here's how to convert from int representation to float representation:
+
+   1. Convert 11111111111111111111111111111011 into a sign and a positive binary number:
+
+       Sign = negative
+       Positive binary number = 00000000000000000000000000000101  (flip the bits and add 1 !!!)
+                              = 101 (ignore leading zero's for simplicity)
+
+   2. Convert  101  into a fixed point representation where the integral part = 1.xxxxx:
+
+      The step is done by shifting:
+
+         initially:                 101 = 101.000..00  exponent 0
+         shift decimal point left:        10.1000..00  exponent 1
+         shift decimal point left again:  1.01000..00  exponent 2
+
+      Done:
+              1.<font color="red">01000000..00</font>   with exponent 2
+
+      So M = <font color="red">01000...00</font> (omitting the leading "1" bit !!!)
+         E = 2
+
+   3. Express exponent E in  excess 127  code:
+
+         2 expressed in exceess 127 is:  10000001  (= 01111111 + 00000010)
+
+   4. Assemble:
+
+        Sign  Exponent  Mantissa  
+         1    10000001  01000000000000000000000
+
+      Remove the spaces between the bits and you get the answer:
+
+          <FONT color="magenta">11000000101000000000000000000000</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+<LI> It is <FONT color="red"><B>possible</B></FONT> to
+   <FONT color="blue"><B>write</B></FONT>
+    a <FONT color="red"><B>function</B></FONT> 
+    in a <FONT color="blue"><B>high level programming language</B></FONT>
+    to
+   <FONT color="red"><B>convert</B></FONT> between
+   <FONT color="blue"><B><TT>int</TT></B></FONT> and
+   <FONT color="red"><B><TT>float</TT></B></FONT>.
+ <P>
+  Because you have not had
+  <FONT color="red"><B>shift operation</B></FONT> before,
+  I won't discuss the algorithm in code form....
+
+<P>
+<LI> <FONT color="blue"><B>Furthermore</B></FONT>,
+      because 
+     <FONT color="red"><B>integer <--> floating point conversion</B></FONT>
+    occurs  <FONT color="blue"><B>very frequently</B></FONT> in
+   <FONT color="red"><B>computer programs</B></FONT>,
+   e,g,:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int radius;
+    double area;
+
+    area = 3.14 * radius * radius;   // Can you detect the int --> float conversion ?     
+                                     // int radius needs to be converted to float
+				     // before it can be used in the computation !!! 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    most <FONT color="red"><B>CPU's</B></FONT> provide
+    <FONT color="blue"><B>machine instructions</B></FONT>
+    that perform the
+    <FONT color="red"><B><TT>int</TT> <--> 
+   <TT>float</TT> conversions</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> I will omit the
+     <FONT color="red"><B><TT>float ---> int</TT> conversion algorithm
+   </B></FONT> ---
+   it's similar to the algorithm above and 
+    also uses <FONT color="blue"><B>shift operations</B></FONT>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Illustrating the <TT>int <--> float</TT> conversion using the
+     machine instructions of a real CPU (ARM) 
+     </B></FONT>
+<P>
+<UL>
+<LI> I know you have not discussed
+   <FONT color="red"><B>assembler programming</B></FONT> yet,
+   but I like to show you 
+   the <FONT color="red"><B>effect</B></FONT> of
+   the <FONT color="blue"><B>conversion instructions</B></FONT>
+  (i.e.: I like to show you that the <FONT color="red"><B>computer</B></FONT>
+  has <FONT color="blue"><B>instructions</B></FONT> that
+  can perform the <FONT color="red"><B>conversion</B></FONT>)
+<P>
+<LI> Here is the source code of
+     a <FONT color="red"><B>C program</B></FONT> where
+     we assign an <FONT color="blue"><B><TT>int</TT> variable</B></FONT>
+     to a <FONT color="red"><B><TT>float</TT> variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   // <FONT color="red">file: /home/cs255/cs255/c-asm/int2float.c</FONT> on host <FONT color="red">cs255host1</FONT>     
+   // ssh -X cs255@cs255host1,  User: cs255, passwd: abc123
+
+   int x;
+   float f;
+    
+   int main()
+   {
+      x = 4;
+      <FONT color="red">f = x;</FONT>    // Assign int var to a float var ---><FONT color="red"> will convert int to float !</FONT>     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> We can get the translated
+      <FONT color="red"><B>assembler code</B></FONT> 
+     of ths <FONT color="blue"><B>C program</B></FONT> using
+     the following <FONT color="red"><B>command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc -S  int2float.c           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This will generate the <FONT color="red"><B>assembler program file</B></FONT>
+ <FONT color="blue"><B><TT>int2float.s</TT></B></FONT>.
+<P>
+Look inside the 
+  <FONT color="blue"><B><TT>int2float.s</TT></B></FONT> file and
+ you will see these instructions:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        ...
+        <FONT color="red">vcvt.f32.s32    s15, s15</FONT>     // This instr converts an int repr to a float repr !!     
+	....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Specifically: the <B>instruction</B>
+ <FONT color="red"><B><TT>vcvt.f32.s32</TT></B></FONT>
+ is the <FONT color="blue"><B>ARM processor's instruction</B></FONT> to
+ <FONT color="red"><B>convert</B></FONT>
+ an <FONT color="blue"><B>integer representation</B></FONT> to
+ a <FONT color="red"><B>float representation</B></FONT>
+<P>
+ (It must be done using an <FONT color="red"><B>"s" register</B></FONT>)
+<P>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> We have a
+  <FONT color="red"><B>Raspberry Pi</B></FONT> in the department
+   (<FONT color="blue"><B>cs255host1</B></FONT>)
+	where I can show you the
+     <FONT color="red"><B>ARM instruction <TT>vcvt.f32.s32</TT></B></FONT>
+   to convert an
+	<FONT color="blue"><B>integer representation</B></FONT>
+   to the equivalent <FONT color="red"><B>float representation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+	<FONT color="red">// Program: /home/cs255/cs255/int2float.s   on  cs255host1</FONT>
+
+        mov             r0, #-5		// Convert int -5 
+
+        vmov            s15, r0         // Move r0 to float processor
+        <FONT color="red">vcvt.f32.s32    s15, s15        // Convert int code to float code</FONT>        
+        vmov            r1, s15         // Move float code to r1
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+The <FONT color="red"><B><TT>vcvt.f32.s32</TT></B></FONT>
+ is the
+  <FONT color="blue"><B>ARM processor's instruction</B></FONT> to
+   <FONT color="red"><B>convert</B></FONT>
+ an <FONT color="blue"><B>integer representation</B></FONT> to
+ a <FONT color="red"><B>float representation</B></FONT>
+<P>
+When you run the program, you will see this result in the
+ <FONT color="red"><B>registers</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/int2float01.jpg" width=400 height=80></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>register R0</B></FONT> contains 
+  the <FONT color="blue"><B>2s complement representation</B></FONT> for the
+ <FONT color="red"><B>value 5</B></FONT>
+<P>
+The <FONT color="red"><B>register R0</B></FONT> contains 
+  the <FONT color="blue"><B>IEEE 754 representation</B></FONT> for the
+ <FONT color="red"><B>value 5.0</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255/cs255/int2float.s
+       </TT></B></FONT>
+       on <B>host</B>
+       <FONT color="blue"><B><TT>cs255host1</TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+
+ <LI> To run the program: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Download <FONT color="red"><B>EGTAPI</B></FONT> from:
+       <A HREF="http://www.cs.emory.edu/~egtapi/download.html">
+      <FONT color="blue"><B><TT>
+      http://www.cs.emory.edu/~egtapi/download.html
+      </TT></B></FONT></A>
+ <LI> After installation, run 
+    <FONT color="red"><B>EGTAPI</B></FONT> on your laptop
+ <LI> <FONT color="red"><B>Login</B></FONT> on 
+ <FONT color="blue"><B>EGTAPI</B></FONT>
+ <LI> Select the <FONT color="red"><B><TT>cs255host1</TT></B></FONT>
+    (it's the <FONT color="blue"><B>last name</B></FONT> of the
+    list of machine to select from)
+ <LI> Use username: <FONT color="red"><B>cs255</B></FONT>
+ <LI> Use passwdord: <FONT color="blue"><B>abc123</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Conclusion:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>All modern CPU's</B></FONT> has
+    <FONT color="blue"><B>machine instructions</B></FONT> that
+    can perform <FONT color="red"><B>conversions</B></FONT> between
+    
+    <FONT color="blue"><B><TT>int <---> float</TT> representations</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+Comment: 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+<LI> I only showed the
+  <FONT color="red"><B><TT>int --> float</TT></B></FONT> conversion
+   machine instructions for the
+   <FONT color="blue"><B>Intel</B></FONT> and the
+   <FONT color="red"><B>ARM processors</B></FONT> in the examples
+   above.
+<P>
+<LI> There is a corresponding
+   <FONT color="red"><B><TT>float --> int</TT></B></FONT>
+   conversion instruction:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  ARM assembler code:      vcvt.s32.f32        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

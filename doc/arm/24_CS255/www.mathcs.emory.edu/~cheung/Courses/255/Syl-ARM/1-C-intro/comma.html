@@ -1,0 +1,188 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The comma (,) operator
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The comma operator
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>C</B> (and <B>Java</B>) has a
+      <FONT color="blue"><B>comma operator</B></FONT> that can
+      <FONT color="red"><B>glue</B></FONT>
+      <B><I>multiple</I> expressions</B> into
+      <FONT color="blue"><B><I>one</I> single expression</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <B>Syntax:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    expr1 <FONT color="red">,</FONT> expr2 <FONT color="red">,</FONT> ... <FONT color="red">,</FONT> exprN        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Meaning:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Treat these <FONT color="red"><B><I>N</I></B></FONT> expressions
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    expr1 <FONT color="red">,</FONT> expr2 <FONT color="red">,</FONT> ... <FONT color="red">,</FONT> exprN        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>syntactically</B> as
+ <FONT color="red"><B>one expression</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>Recall</B> that an <B><I>expression</I></B> will
+      <FONT color="blue"><B>always</B></FONT> evaluate
+      to a <FONT color="red"><B>value</B></FONT>
+<P>
+ The <B>value</B> of:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    expr1 <FONT color="red">,</FONT> expr2 <FONT color="red">,</FONT> ... <FONT color="red">,</FONT> exprN        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is equal to the 
+ <B>value</B> of the
+ <FONT color="red"><B><I>last</I> expression
+  <TT>exprN</TT></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Common usage of the <I>comma</I> operator
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B><I>most</I> common usage</B></FONT>
+   of the <FONT color="red"><B>comma operator</B></FONT> is
+   in the <FONT color="blue"><B>for-statement</B></FONT>
+   where you need to 
+    <FONT color="red"><B>initialize <I>multiple</I> variables</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Copy the 10 array elements 
+    <FONT color="blue"><B><TT>A[0], A[1], ..., A[9]</TT></B></FONT>
+    of array <B>A</B> 
+    into the array elements
+    <FONT color="blue"><B><TT>B[10], B[11], ..., B[19]</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   for ( <FONT color="red">i = 0, j = 10</FONT>;  i < 10;  <FONT color="red">i++, j++</FONT> )      
+      B[j] = A[i];
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

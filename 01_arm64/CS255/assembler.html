@@ -1,0 +1,166 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The assembler used in CS255 ARM assembler programming
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The assembler used in CS255
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B>assembler</B></FONT> is the
+   <FONT color="blue"><B>compiler (= translator)</B></FONT> for
+    <FONT color="red"><B>assembler programs</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>assembler</B></FONT> reads in
+        an <FONT color="blue"><B>assembler program (text)</B></FONT> and
+	outputs 
+	the <FONT color="red"><B>machine codes (binary codes)</B></FONT>
+	for that program.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> There are <FONT color="red"><B>many different assemblers</B></FONT>
+     available for any
+     <FONT color="blue"><B>procesor</B></FONT>
+ <P>
+   <FONT color="red"><B>Different assemblers</B></FONT> can have
+   <FONT color="blue"><B>different assembler <I>syntax</I></B></FONT>
+<P>
+ For writting <FONT color="blue"><B>ARM assembler programs</B></FONT>,
+   you can use
+ the <FONT color="red"><B>ARM assembler</B></FONT> or the
+  <FONT color="blue"><B>GNU assembler</B></FONT> - each have a
+  different syntax.
+<P>
+ Here's what an
+ <FONT color="red"><B>ARM assembler program</B></FONT> looks like
+  (you don't need to understand the code, just observe the
+  <FONT color="blue"><B>difference</B></FONT> between the
+  <FONT color="red"><B>way things are expressed</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+; Simple <FONT color="red">ARM syntax example</FONT>
+;
+; Iterate round a loop 10 times, adding 1 to a register each time.
+
+        AREA ||.text||, CODE, READONLY, ALIGN=2
+
+main PROC
+        MOV      w5,#0x64      ; W5 = 100
+        MOV      w4,#0         ; W4 = 0
+        B        test_loop     ; branch to test_loop
+loop
+        ADD      w5,w5,#1      ; Add 1 to W5
+        ADD      w4,w4,#1      ; Add 1 to W4
+test_loop
+        CMP      w4,#0xa       ; if W4 < 10, branch back to loop       
+        BLT      loop
+        ENDP
+
+        END
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is how the <FONT color="blue"><B>same assembler program</B></FONT> looks
+ like in
+ <FONT color="red"><B>GNU assembler syntax</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// Simple <FONT color="red">GNU syntax example</FONT>                          
+// 
+// Iterate round a loop 10 times, adding 1 to a register each time.
+
+        .section .text,"x"                          
+        .balign 4                               
+
+main:                                        
+        MOV      w5,#0x64      // W5 = 100                  
+        MOV      w4,#0         // W4 = 0
+        B        test_loop     // branch to test_loop 
+loop:
+        ADD      w5,w5,#1      // Add 1 to W5
+        ADD      w4,w4,#1      // Add 1 to W4
+test_loop:
+        CMP      w4,#0xa       // if W4 < 10, branch back to loop
+        BLT      loop
+        .end      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The programs <FONT color="red"><B>looks similar</B></FONT>,
+ but the <FONT color="blue"><B>difference in <I>comment</I> syntax</B></FONT>
+ will prevent the program to be compiled using a
+ <FONT color="red"><B><I>different</I> assembler</B></FONT> !!!
+<P>
+ (Yes, it's a pain)
+ <P>
+ <HR>
+ <HR>
+ <HR>
+ <P>
+ <LI> In <B>CS255</B>, 
+      we will be using the <FONT color="red"><B>GNU ARM assembler</B></FONT>
+  because it's <FONT color="blue"><B>widely available</B></FONT>
+  (and uses <FONT color="red"><B>Java comments</B></FONT> !!!)
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

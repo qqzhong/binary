@@ -1,0 +1,189 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using the 
+  <FONT color="red">non-leaf function technique</FONT>
+  to implement <FONT color="red">leaf functions</FONT>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Comment on the "saving return address on the stack" approach
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>technique</B></FONT> that we
+    used to <FONT color="blue"><B>implement</B></FONT>
+    <FONT color="red"><B>non-leaf methods</B></FONT>
+    can
+    <FONT color="blue"><B><I>also</I></B></FONT> be used
+    to implement 
+    <FONT color="red"><B><I>leaf</I> methods</B></FONT>
+ <P>
+  (Because <FONT color="red"><B>saving</B></FONT> the
+   <FONT color="blue"><B>return address</B></FONT> on the
+   <FONT color="red"><B>stack</B></FONT> will
+   <FONT color="blue"><B>preserve</B></FONT> the
+   <FONT color="red"><B>return address</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public static void main(String[] args)
+   {
+      A( );
+   }
+
+   public static void<FONT color="red"> A( )</FONT>
+   {
+      ...
+      <FONT color="red">B( )</FONT>;   // Calls B( )
+      ...
+   }
+
+   public static void <FONT color="red">B( )</FONT>
+   {
+      ...     // Does not call any method/function     
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Although <FONT color="red"><B><TT>B( )</TT></B></FONT> is
+ a <FONT color="blue"><B>leaf method</B></FONT>, we can
+  use the
+  <FONT color="red"><B><I>non-leaf</I> method</B></FONT> implementation:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">main:</FONT>
+        mov     r0, #4
+        mov     r1, #4
+        <FONT color="red">bl      A</FONT>
+        mov     r2, #4
+        mov     r3, #4
+
+Stop:
+
+<FONT color="red">A:</FONT>
+        <FONT color="red">push    {lr}            // Save return address</FONT>
+
+        mov     r0, #44
+        mov     r1, #44
+        <FONT color="red">bl      B               // Overwrites lr, it's OK, we saved it !!!</FONT>
+        mov     r2, #44
+        mov     r3, #44
+
+       <FONT color="red"> pop     {pc}            // A returns to main !!!</FONT>
+
+
+<FONT color="red">B:</FONT>
+        <FONT color="red">push    {lr}            // Save return address</FONT>
+
+        mov     r0, #4444
+        mov     r1, #4444
+
+       <FONT color="red"> pop     {pc}            // B returns to A !!!</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/bl+pop2.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 bl+pop2</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

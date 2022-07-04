@@ -1,0 +1,375 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Floating point round off error
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     floating point "round off" error
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Most values</B></FONT> can
+    <FONT color="blue"><B>not</B></FONT> be
+    represented <FONT color="red"><B>exactly</B></FONT> using
+    the <FONT color="blue"><B>IEEE 754 (floating point)
+     representation</B></FONT>
+<P>
+<B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>floating point representation</B></FONT>
+      has a <FONT color="blue"><B>round off error</B></FONT>
+      (for most of the values)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> <B>Example:</B>
+     find the <FONT color="red"><B>IEEE 754 code</B></FONT> for
+     the value <FONT color="blue"><B>0.2</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   0.2 = 0.<FONT color="red">0011</FONT>0011<FONT color="red">0011</FONT>0011<FONT color="red">0011</FONT>0011...      
+
+         Because:  
+                          0.2
+                     *2 ------- 0
+                          0.4
+                     *2 ------- 0
+                          0.8
+                     *2 ------- <FONT color="red">1</FONT>
+		          1.6 --> 0.6                 
+                     *2 ------- <FONT color="red">1</FONT>
+		          1.2 --> 0.2
+                     *2 ------- 0
+                          0.4
+                     *2 ------- 0
+                          0.8
+                     *2 ------- <FONT color="red">1</FONT>
+		          1.6 --> 0.6                 
+                     *2 ------- <FONT color="red">1</FONT>
+		          1.2 --> 0.2
+	                and so on (repeats !)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You will need an <FONT color="red"><B>infinite number of bits</B></FONT>
+    to represent <FONT color="blue"><B>0.2</B></FONT>
+   <FONT color="red"><B>exactly</B></FONT> in
+   <FONT color="blue"><B>binary</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because the <FONT color="red"><B>IEEE 754 representation</B></FONT>
+ uses a <FONT color="blue"><B><I>finite</I> number of bits</B></FONT>,
+ the <FONT color="red"><B>representation</B></FONT> is
+  <FONT color="blue"><B>truncated</B></FONT>
+  which results in a
+  <FONT color="red"><B>round off error</B></FONT> !!
+<P>
+<HR>
+<P>
+<LI>
+This <FONT color="red"><B>phenomenon</B></FONT> is
+ <B>also</B> present in the
+  <FONT color="red"><B>decimal number system</B></FONT>.
+ <P>
+ To represent <FONT color="red"><B>1/3</B></FONT> in
+  <FONT color="blue"><B>decimal</B></FONT>, you will need
+ an <FONT color="red"><B>infinite number of (decimal) digits</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1/3  =  0.3333333333333333...              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you <FONT color="red"><B>truncate</B></FONT> the
+  <FONT color="blue"><B>representation</B></FONT>
+  to a <FONT color="red"><B>finite number of digits</B></FONT>,
+  you will have a <FONT color="blue"><B>round off error</B></FONT> also.
+<P>
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Caveat when working with floating point numbers
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider this <FONT color="red"><B>Java code segment</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">// /home/cs255001/demo/java/FloatError.java</FONT> 
+
+      float f1, f2;
+
+      f1 = 0.2f + 0.2f + 0.2f + 0.2f + 0.2f + 0.2f + 0.2f + 0.2f + 0.2f + 0.2f;
+      f2 = 2.0f; 
+ 
+      if (<FONT color="red">f1 == f2</FONT>)
+      {
+         System.out.println ("f1 == f2");
+      }
+      else
+      {
+         System.out.println ("f1 != f2");
+      }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    f1 = 0.2 + 0.2 + .... + 0.2  (10 times)
+    f2 = 2.0
+
+  They should be equal to each other !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+But due to <FONT color="red"><B>round off errors</B></FONT>,
+if you run this program, you will get:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">f1 != f2 </FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The reason is: when you
+  <FONT color="red"><B>print</B></FONT> the
+ values <FONT color="blue"><B><TT>f1</TT></B></FONT> and
+  <FONT color="blue"><B><TT>f2</TT></B></FONT> out, you will
+ get:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+f1 = <FONT color="red">2.000002</FONT>           
+f2 = 2.0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Programming advice
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Law on working with floating point numbers:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Never</B></FONT> use
+     <FONT color="blue"><B><TT>==</TT></B></FONT> and
+      <FONT color="blue"><B><TT>!=</TT></B></FONT> to
+      compare
+      <FONT color="red"><B>floating point numbers</B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> If you want to check if the 
+  <FONT color="blue"><B>floating point values</B></FONT>
+   <FONT color="red"><B><TT>x</TT></B></FONT> and
+   <FONT color="red"><B><TT>y</TT></B></FONT> are 
+   equal to each other, use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    if ( <FONT color="red">Math.abs(x - y)</FONT> < EPSILON )           
+    {
+          ....
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+where <FONT color="blue"><B><TT>EPSILON</TT></B></FONT> is
+ a <FONT color="red"><B>small fraction</B></FONT>,
+  e.g.: 
+ <FONT color="red"><B><TT>EPSILON = 0.0001</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/java/FloatRoundErr.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac FloatRoundErr.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	&nbsp; <FONT color="red"><B><TT>java FloatRoundErr</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

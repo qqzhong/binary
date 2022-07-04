@@ -1,0 +1,1552 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Solving the <I>Tower of Hanoi</I> using recursion
+<HR>
+</H3>
+
+
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+	The Tower of Hanoi problem
+	</B></FONT>
+ <P>
+ <UL>
+ <LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="blue"><B>3 pegs</B></FONT>  
+ <P>
+ <LI> There are <FONT color="blue"><B>N disks</B></FONT>
+     stacked <FONT color="red"><B>on the first peg</B></FONT>.
+      (The disks has  a hole in the center).
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/Tower-of-Hanoi.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>     <B><I>Each disk</I></B> has a 
+     <FONT color="blue"><B>different diameter</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+ <P>
+ <LI> <B><I>Initially</I> situation:</B>
+<P>
+<UL>
+<TABLE BORDER="0">
+
+<TR> <TD>
+<IMG SRC="FIGS/hanoi-1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT COLOR="blue"><B>Problem <I>Hanoi(N)</I>:</B></FONT>
+ <P>
+ <UL>
+ <LI> <B>Move</B> the
+   <FONT color="red"><B><I> N</I> disks</B></FONT>
+  from  <FONT color="blue"><B>peg 1</B></FONT>
+    to   <FONT color="red"><B>peg 3</B></FONT>
+ <LI> You must <FONT color="blue"><B> obey</B></FONT>
+   a <FONT color="red"><B>set of  rules</B></FONT>.
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Tower of Hanoi Rules:</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can only 
+      <FONT color="blue"><B>move <I>one disk</I> at a time</B></FONT>
+	 (from any peg to any other peg), and
+ <P>
+ <LI> You may <FONT color="red"><B><I>not</I></B></FONT> stack a 
+      <FONT color="blue"><B><I>smaller</I> disk</B></FONT> 
+     <FONT color="red"><B>on top</B></FONT> of a 
+     <FONT color="blue"><B><I>larger</I> disk</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+        <I>Hands on</I> experiment with the Tower of Hanoi
+        </B></FONT>
+ <P>
+ <UL>
+ <LI> See how a <B>Tower of Hanoi</B> of
+    <FONT color="blue"><B>4 disks</B></FONT>
+    is solved:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/Tower_of_Hanoi_4.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+  <LI> Here is a web site with a nice 
+    <B>Tower of Hanoi applet</B>
+     for you to try:
+   <A HREF="http://www.cut-the-knot.com/recurrence/hanoi.shtml"
+	target="blank"> 
+   <FONT color="red"><B>click here</B></FONT></A>
+ <P>
+ <LI> I have a local Hanoi applet if the above one fails to work:
+   <A HREF="HanoiApplet1/index.html" target="blank"> 
+   <FONT color="red"><B>click here</B></FONT></A>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Formulating the <I>Tower of Hanoi</I> algorithm - step 1:
+     &nbsp;&nbsp;&nbsp; input and output
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Write a <FONT color="blue"><B>method</B></FONT> to
+      obtain the <B><I>steps</I></B> to
+      solve <FONT color="red"><B>Tower of Hanoi problem</B></FONT>
+      of 
+      moving <FONT color="blue"><B><I>n</I> disks</B></FONT>
+      from <FONT color="magenta"><B>peg 1</B></FONT> to
+      <FONT color="magenta"><B>peg 3</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hanoi03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+</UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Problem:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  Move <FONT color="blue"><B><I>3</I> disks</B></FONT>
+      from <FONT color="magenta"><B>peg 1</B></FONT> to
+      <FONT color="magenta"><B>peg 3</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Move 1 disk:
+
+             1 -> 3                  
+             1 -> 2
+             3 -> 2
+             1 -> 3
+             2 -> 1
+             2 -> 3
+             1 -> 3                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Try out the moves with this
+ <B>applet</B>:
+ <A HREF="http://www.cut-the-knot.com/recurrence/hanoi.shtml"
+  target="blank_"> 
+  <FONT color="red"><B>click here</B></FONT></A>
+<P>
+<HR>
+<P>
+<LI> We will <FONT color="blue"><B>first</B></FONT> 
+  <B>figure out</B> the following:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="blue"><B><I>input</I> information</B></FONT> does the
+      <B>algorithm</B> need to 
+   <FONT color="red"><B>solve the problem</B></FONT>.
+ <P>
+ <LI> What <FONT color="blue"><B><I>output</I> information</B></FONT> does the
+      <B>algorithm</B> need to 
+    <FONT color="red"><B>return to the user</B></FONT>.
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What are the <FONT color="blue"><B><I>input</I> parameters</B></FONT> ?
+ <LI> What is the <FONT color="blue"><B>return <I>type</I></B></FONT> ?
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<P>
+<LI> <B>Input</B> and <B>output</B>
+    <FONT color="blue"><B>information</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> We may as well <FONT color="blue"><B>select</B></FONT>
+    an (appropriate) <FONT color="red"><B><I>method</I> name</B></FONT>
+   to go with the <B>input</B> and <B>output</B>...
+ <P>
+   (Together, they will form
+   the <FONT color="red"><B><I>header</I></B></FONT> of the
+   <FONT color="blue"><B>Java method</B></FONT>)
+ <P>
+ Let's pick this name:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+     hanoi               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> What <FONT color="blue"><B>information</B></FONT> does the 
+    <B>method</B> need to
+    <FONT color="red"><B>perform the task</B></FONT> -
+    i.e: what are its <FONT color="darkmagenta"><B><I>input</I>
+   parameters</B></FONT> ?
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>nDisks</TT></B></FONT> =
+     the <B>number</B> of disks that need to be
+     <FONT color="blue"><B>moved</B></FONT>
+ <LI> <FONT color="red"><B><TT>fromPeg</TT></B></FONT> =
+     the <B>identifier (index)</B> of the peg where the
+     disks <FONT color="red"><B>originate</B></FONT>
+ <LI> <FONT color="red"><B><TT>toPeg</TT></B></FONT> =
+     the <B>identifier (index)</B> of the peg where the
+     disks  are <FONT color="red"><B>moved to</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> how to express some <B>Tower of Hanoi</B> problems
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     hanoi( <FONT color="red">10</FONT>, 1, 3 )        move <FONT color="red">10</FONT> disks from peg 1 to peg 3         
+     hanoi( <FONT color="red">15</FONT>, 1, 3 )        move <FONT color="red">15</FONT> disks from peg 1 to peg 3
+     hanoi( <FONT color="red">15</FONT>, 1, 2 )        move <FONT color="red">15</FONT> disks from peg 1 to peg 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Finally</B>, what is the
+   <FONT color="red"><B><I>type</I></B></FONT> of
+   the <FONT color="blue"><B>information</B></FONT> do
+     you want to <FONT color="red"><B>obtain</B></FONT> from
+     the method --- 
+     i.e. what is the <FONT color="magenta"><B>return 
+   <I>type</I></B></FONT> ?
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We want to know 
+   <FONT color="blue"><B>how to </B></FONT>
+   <FONT color="red"><B>move the disks</B></FONT>
+ <P>
+ <LI> Example: how to move <FONT color="blue"><B>3 disks</B></FONT>
+     from <B>peg 1</B> to <B>peg 3</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1 -> 3                  
+   1 -> 2
+   3 -> 2
+   1 -> 3
+   2 -> 1
+   2 -> 3
+   1 -> 3               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+What is the <FONT color="blue"><B>type</B></FONT> of this
+ <FONT color="red"><B>information</B></FONT> ???
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Answer:</I></B> <FONT color="red"><B><TT>String</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>return type</B></FONT> is
+    <FONT color="red"><B><TT>String</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Header</I></B></FONT> of the
+    <B>method</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    public static <FONT color="red">String</FONT> hanoi( <FONT color="red">int nDisks, int fromPeg, int toPeg</FONT> )       
+    {
+        ....
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>meaning</B> of the
+  <FONT color="blue"><B>input parameters</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>nDisks</TT></B></FONT> =
+     <B>number of disks</B> to move
+ <P>
+ <LI> <FONT color="red"><B><TT>fromPeg</TT></B></FONT> =
+      the <FONT color="blue"><B><I>starting</I> peg number</B></FONT>
+      where the <B><I>nDisks</I></B> disks are moved
+ <P>
+ <LI> <FONT color="red"><B><TT>toPeg</TT></B></FONT> =
+      the <FONT color="blue"><B><I>destination</I> peg number</B></FONT>
+      where the <B><I>nDisks</I></B> disks are moved
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Formulating the <I>Tower of Hanoi</I> algorithm  - step 2:
+      &nbsp;&nbsp;&nbsp; develop the <I>solution</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Solution method:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because this lecture is on <FONT color="blue"><B>recursive
+      algorithm</B></FONT>, you can kinda guess that the
+      <B>solution</B> will be
+      a <FONT color="red"><B><I>recursive</I> algorithm</B></FONT>.
+ <P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Because the <B>Tower of Hanoi</B> problem is
+    <FONT color="blue"><B>more complicated</B></FONT> than
+    <B>factorial</B> or <B>fibonacci</B>,
+     I will follow the <FONT color="blue"><B>steps</B></FONT> given in the
+ <FONT color="red"><B>general procedure</B></FONT>
+ more carefully to help you see how the solution is put together.
+<P>
+Here are the <FONT color="blue"><B>general step</B></FONT> to
+ write a <FONT color="red"><B><I>recursive</I> algorithm</B></FONT> -
+ summarized for your convenience:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Find out <B><I>which</I></B>
+     <FONT color="blue"><B><I> smaller</I> Tower of Hanoi</B></FONT>
+     problems you need to use to
+       <B>solve</B> the 
+   <FONT color="red"><B><I>original</I> Tower of Hanoi</B></FONT>
+      problem
+
+ <LI> Find out <FONT color="blue"><B>how to use</B></FONT>
+    the <B><I>solutions</I></B> of the 
+   <FONT color="blue"><B><I>smaller</I> Tower of Hanoi</B></FONT> problems
+     to <B><I>solve</I></B>
+   the <FONT color="red"><B><I>original</I> Tower of Hanoi</B></FONT>
+    problem. 
+ <LI> Find the 
+    <B>solutions</B> for a 
+    <FONT color="blue"><B>sufficient number</B></FONT>
+     of the <FONT color="red"><B>base cases</B></FONT>.
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B><I>Step 1:</I></B>
+    <FONT color="blue"><B>Identifying </B></FONT> a
+     <FONT color="red"><B><I>smaller</I> Tower of Hanoi</B></FONT>
+     problem within the
+     <B>Tower of Hanoi problem</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>original</B> <FONT color="red"><B>Tower of Hanoi</B></FONT>
+    problem: <FONT color="blue"><B>move <I>N</I> disks</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hanoi01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> A <B><I>smaller</I></B> <FONT color="red"><B>Tower of Hanoi</B></FONT>
+    problem: <FONT color="blue"><B>move <I>N-1</I> disks</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hanoi02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B><I>Step 2:</I></B> figure out
+     <FONT color="blue"><B><I>how</I></B></FONT>
+     to use the <FONT color="red"><B>solution</B></FONT> of
+     the <B><I>smaller</I> Tower of Hanoi (<I>N&minus;1</I> disks)</B> problem
+     to <FONT color="darkmagenta"><B>solve</B></FONT> the
+     <FONT color="blue"><B><I>original</I>
+     Tower of Hanoi (<I>N</I>&nbsp;disks)</B></FONT> problem.
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>original</I>
+     Tower of Hanoi (<I>N</I>&nbsp;disks)</B></FONT> problem:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hanoi03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B><I>effect</I></B></FONT> of the 
+    <FONT color="red"><B>solution</B></FONT> of
+    the <B><I>smaller</I> Tower of Hanoi (<I>N&minus;1</I> disks)</B> problem
+    is:
+<P>
+<FONT color="red"><B>Case 1:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Before
+</TH> 
+<TH>
+After
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04a.gif"></IMG>
+</TD> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04b.gif"></IMG>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+
+<P>
+<FONT color="red"><B>Case 2:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Before
+</TH> 
+<TH>
+After
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04c.gif"></IMG>
+</TD> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04d.gif"></IMG>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Think a little bit....</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>How</I></B></FONT> can use
+     <FONT color="darkred"><B><I>use</I></B></FONT> the
+     <B>solution</B> of
+      <FONT color="red"><B>case 1</B></FONT> or
+      <FONT color="red"><B>case 2</B></FONT> to
+      <FONT color="blue"><B><I>solve</I></B></FONT> the
+      <FONT color="darkmagenta"><B><I>original</I> 
+    Tower of Hanoi problem</B></FONT> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> <B><I>Answer</I></B>:
+     How to <FONT color="red"><B><I>use</I></B></FONT> the
+     <FONT color="blue"><B>solution</B></FONT>
+      the <B><I>smaller</I> Tower of Hanoi (<I>N&minus;1</I> disks)</B> problem
+     to <FONT color="darkmagenta"><B>solve</B></FONT> the
+     <FONT color="blue"><B><I>original</I>
+     Tower of Hanoi (<I>N</I>&nbsp;disks)</B></FONT> problem:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="darkmagenta"><B><I>First</I></B></FONT>,
+    solve <FONT color="red"><B><I>this</I></B></FONT>
+     <B><I>smaller</I> Tower of Hanoi 
+   <FONT color="blue">(<I>N&minus;1</I> disks)</FONT></B> problem:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#FFEEEE"> 
+<TH>
+Before
+</TH> 
+<TH>
+After
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04c.gif"></IMG>
+</TD> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04d.gif"></IMG>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="darkmagenta"><B><I>Next:</I></B></FONT>
+      move <FONT color="blue"><B>one disk</B></FONT> from
+      <B>peg 1</B> to <B>peg 3</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Before
+</TH> 
+<TH>
+After
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04e.gif"></IMG>
+</TD> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04f.gif"></IMG>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="darkmagenta"><B><I>Finally</I></B></FONT>:
+    solve <FONT color="red"><B><I>this</I></B></FONT>
+     <B><I>smaller</I> Tower of Hanoi 
+   <FONT color="blue">(<I>N&minus;1</I> disks)</FONT></B> problem:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#FFEEEE"> 
+<TH>
+Before
+</TH> 
+<TH>
+After
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04g.gif"></IMG>
+</TD> 
+<TD align="center">
+<IMG SRC="FIGS/hanoi04h.gif"></IMG>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B><I>Step 3:</I></B>
+     find <FONT color="red"><B><I>base cases</I></B></FONT>
+     (we need <FONT color="blue"><B>one</B></FONT> 
+     <B>base case</B> -
+     because the <B><I>smaller</I> problem</B> has the size
+     <FONT color="darkmagenta"><B><I>N&minus;1</I></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move <FONT color="blue"><B>stack of disks</B></FONT>
+   that has <FONT color="darkmagenta"><B>1 disk</B></FONT> is 
+    <FONT color="red"><B>very easy</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hanoi04i.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+      The recursive solution for the Tower of Hanoi problem
+        </B></FONT>
+ <P>
+ <UL>
+ 
+<P>
+<LI> <B>Terminology:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>from</I> peg</B></FONT> =
+    the <FONT color="blue"><B>source peg</B></FONT> in a 
+   <B>Tower of Hanoi</B> problem.
+<P>
+ <LI> <FONT color="red"><B><I>to</I> peg</B></FONT> =
+    the <FONT color="blue"><B>destination peg</B></FONT> in a 
+   <B>Tower of Hanoi</B> problem.
+<P>
+ <LI> <FONT color="red"><B><I>help</I> peg</B></FONT> =
+    the <FONT color="blue"><B>peg</B></FONT> in a 
+   <B>Tower of Hanoi</B> problem that is
+   <FONT color="red"><B><I>not</I></B></FONT>
+    a <B><I>source</I> or <I>destination</I> peg</B>.
+<P>
+<HR>
+<P>
+
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>hanoi(n, 1, 3)</B></FONT>
+     means the
+     <B>Tower of Hanoi</B> problem of moving
+     <FONT color="blue"><B>n disks</B></FONT>
+     <B>from</B> <FONT color="red"><B>peg 1</B></FONT>
+     <B>to</B> <FONT color="red"><B>peg 3</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B><I>from</I> peg</B></FONT> = 1
+ <LI> The <FONT color="red"><B><I>to</I> peg</B></FONT> = 3
+ <LI> The <FONT color="red"><B><I>help</I> peg</B></FONT> = 2
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Pseudo code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   String <FONT color="red">hanoi( int nDisks, int fromPeg, int toPeg )</FONT>
+   {
+
+       int helpPeg;
+
+       if ( <FONT color="red">nDisks == 1</FONT> )
+       {<FONT color="darkred">
+          /* ------------------------------------------------------
+	     Solving a trivial (base case) Tower of Hanoi problem:
+                 <IMG SRC="FIGS/hanoi05a.gif"></IMG>
+	     ------------------------------------------------------ */</FONT>
+	  return( "Do this move: <FONT color="red">fromPeg --> toPeg</FONT>" );
+       }
+       else
+       {<FONT color="magenta">
+          /* ------------------------------------------------
+	     Solving a non-trivial Tower of Hanoi problem:
+                  <IMG SRC="FIGS/hanoi05b.gif"></IMG>
+             ------------------------------------------------ */</FONT>
+
+          /* ------------------------------------------------
+             Determine the helpPeg
+	     ------------------------------------------------ */
+          <FONT color="red">helpPeg</FONT> = peg index that is not equal to fromPeg and toPeg;
+<FONT color="darkgreen">
+          /* ---------------------------------------------------
+	     First: solve this smaller Tower of Hanoi problem:
+                  <IMG SRC="FIGS/hanoi05c.gif"></IMG>
+             ---------------------------------------------------- */</FONT>                     
+          <FONT color="red">sol1 = hanoi( nDisks-1, fromPeg, <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="blue">helpPeg</FONT></span> );  // Sol1 looks like: 1 -> 3, 1 -> 2, ...</FONT>
+
+          /* ---------------------------------------------------
+	     Next: do this move
+                  <IMG SRC="FIGS/hanoi05d.gif"></IMG>
+             ---------------------------------------------------- */
+          <SPAN style="BACKGROUND-COLOR: yellow">myStep = "Do this move: fromPeg --> toPeg";</span>
+<FONT color="darkgreen">
+          /* ---------------------------------------------------
+	     Finally: solve this smaller Tower of Hanoi problem:
+                  <IMG SRC="FIGS/hanoi05e.gif"></IMG>
+             ---------------------------------------------------- */</FONT>
+          <FONT color="red">sol2 = hanoi( nDisks-1, <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="blue">helpPeg</FONT></span>, toPeg );    // Sol2 looks like: 1 -> 3, 1 -> 2, ...</FONT>
+
+          /* ===============================================
+	     How to use the solutions sol1 and sol2 to
+             solve hanoi(nDisks, fromPeg, toPeg):
+	        1. first making the moves in sol1
+		2. then do myStep
+		3. finally, do the moves in sol2
+             =============================================== */
+          <FONT color="red">mySol = so1l + myStep + sol2;    // mySol looks like: 1 -> 3, 1 -> 2, ...</FONT>
+
+	  return ( mySol );
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+<HR>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Java Program:</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Recurse3
+   {
+      public static String <FONT color="red">hanoi(int nDisks, int fromPeg, int toPeg)</FONT>
+      {
+   	 int helpPeg;
+   	 <FONT color="darkred">String Sol1, Sol2, MyStep, mySol;   // Contains moves</FONT>
+    
+   	 if ( nDisks == 1 )
+	 {
+   	    return <FONT color="red">fromPeg + " -> " + toPeg</FONT> + "\n";
+	 }
+   	 else
+   	  {<FONT color="darkmagenta">
+   	    helpPeg = 6 - fromPeg - toPeg;    // Because fromPeg + helpPeg + toPeg = 6</FONT>    
+<SPAN style="BACKGROUND-COLOR: yellow">
+   	    Sol1 = hanoi(nDisks-1, fromPeg, helpPeg);    
+                                                         
+   	    MyStep = fromPeg + " -> " + toPeg + "\n";    
+                                                         
+   	    Sol2 = hanoi(nDisks-1, helpPeg, toPeg);      
+</SPAN>
+	    <FONT color="red">mySol = Sol1 + MyStep + Sol2;     // + = String concatenation !</FONT>
+    
+   	    return mySol;;
+   	  }
+      }
+
+<HR>
+<HR>
+      public static void main (String[] args)
+      {
+   	 int n = 3;
+    
+   	 String StepsToSolution;
+    
+   	 StepsToSolution = <FONT color="red">hanoi(n, 1, 3);</FONT>
+    
+   	 System.out.println(StepsToSolution);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB> 
+     <IMG SRC="../../../Common/Example.jpg"></IMG>
+     </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+    <A HREF="Progs/Recurse3.java"> click here</A>
+   </UL>
+
+
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Recurse3.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Recurse3</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Understanding the recursive Hanoi algorithm using a concrete example
+     </B></FONT>
+<P>
+<UL>
+<LI> If the above is a bit <FONT color="blue"><B>abstract</B></FONT>,
+    hopefully, the following <FONT color="red"><B>concrete example</B></FONT>
+    will help you understand the
+    <FONT color="darkmagenta"><B><TT>Hanoi()</TT></B></FONT> method
+    better,
+ <P>
+<HR>
+<P>
+<LI> Let's consider the
+   <FONT color="blue"><B>statements</B></FONT> executed by
+   the invocation:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">hanoi( 4, 1, 3 )</FONT>   --- move 4 disks from peg 1 &rArr; peg 3      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+According to the <FONT color="blue"><B><TT>hanoi()</TT> method</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      public static String <FONT color="red">hanoi(int nDisks, int fromPeg, int toPeg)</FONT>
+      {
+   	 int helpPeg;
+   	 <FONT color="darkred">String Sol1, Sol2, MyStep, mySol;   // Contains moves</FONT>
+    
+   	 if ( nDisks == 1 )
+	 {
+   	    return <FONT color="red">fromPeg + " -> " + toPeg</FONT> + "\n";
+	 }
+   	 else
+   	  {<FONT color="darkmagenta">
+   	    helpPeg = 6 - fromPeg - toPeg;    // Because fromPeg + helpPeg + toPeg = 6</FONT>    
+<SPAN style="BACKGROUND-COLOR: yellow">
+   	    Sol1 = hanoi(nDisks-1, fromPeg, helpPeg);    
+                                                         
+   	    MyStep = fromPeg + " -> " + toPeg + "\n";    
+                                                         
+   	    Sol2 = hanoi(nDisks-1, helpPeg, toPeg);      
+</SPAN>
+	    <FONT color="red">mySol = Sol1 + MyStep + Sol2;     // + = String concatenation !</FONT>
+    
+   	    return mySol;;
+   	  }
+      }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the invocation will execute 
+ <FONT color="blue"><B>these statements</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">helpPeg</FONT> = 6 - 1 - 3 = <FONT color="red">2</FONT>;
+<FONT color="darkred">
+   Sol1 = hanoi( 3, 1, 2 );</FONT>   // Move 3 disks from peg 1 &rArr; peg 2      
+<FONT color="red">
+   MyStep = "1 -> 3";</FONT>
+<FONT color="darkred">
+   Sol2 = hanoi( 3, 2, 3 );</FONT>   // Move 3 disks from peg 2 &rArr; peg 3
+
+   mySol = Sol1 + MyStep + Sol2;
+
+   return mySol;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Now</B></FONT>, let us 
+    run the <FONT color="blue"><B>program</B></FONT> for
+     <FONT color="red"><B><TT>hanoi(4, 1, 3)</TT></B></FONT> and see
+   what is the <B>output</B>:
+<P>
+
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Output of hanoi(4,1,3):          
+<FONT color="red">
+      1 -> 2
+      1 -> 3
+      2 -> 3
+      1 -> 2      (These are steps in Sol1 !!!)     
+      3 -> 1
+      3 -> 2
+      1 -> 2</FONT>
+      1 -> 3      (this is MyStep !!!)<FONT color="darkred">    
+      2 -> 3
+      2 -> 1
+      3 -> 1
+      2 -> 3      (These are steps in Sol2 !!!)
+      1 -> 2
+      1 -> 3
+      2 -> 3</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Now <FONT color="blue"><B>perform</B></FONT> the <B>steps</B>
+     using this <FONT color="red"><B>web page</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <A HREF="http://www.cut-the-knot.org/recurrence/hanoi.shtml">
+       <FONT color="red"><B>Tower of Hanoi</B></FONT></A>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Notice the <FONT color="red"><B>progress of the solution</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Start</B> of <FONT color="red"><B><TT>hanoi(4, 1, 3)</TT></B></FONT>
+ <P>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Moves <FONT color="blue"><B>4</B></FONT> disks from
+ <FONT color="red"><B>peg 1 &rArr; peg 3</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/hanoi01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>After</B> the steps:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      1 -> 2
+      1 -> 3
+      2 -> 3
+      1 -> 2      (These are steps in Sol1 !!!)       
+      3 -> 1
+      3 -> 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We get:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/hanoi02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Notice that this is the <FONT color="blue"><B>solution</B></FONT>
+ of <FONT color="red"><B><TT>hanoi( 3, 1, 2)</TT></B></FONT> !!!
+<P>
+The <B>solution</B> was used to <FONT color="blue"><B>move 3 disks</B></FONT>
+  from
+ <FONT color="red"><B>peg 1 &rArr; peg 2</B></FONT> !
+<p>
+<HR>
+<P>
+<LI> <B>After</B> the steps:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    1 -> 3      (this is MyStep !!!)     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We get:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/hanoi03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Notice that this is the 
+<FONT color="red"><B><TT>MyStep = "1 -> 3";</TT></B></FONT>
+ statement !!!
+<p>
+<HR>
+<P>
+<LI> <B>After</B> the steps:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      2 -> 3
+      2 -> 1
+      3 -> 1
+      2 -> 3      (These are steps in Sol2 !!!)      
+      1 -> 2
+      1 -> 3
+      2 -> 3
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We get:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/hanoi04.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Notice that this is the <FONT color="blue"><B>solution</B></FONT>
+ of <FONT color="red"><B><TT>hanoi( 3, 2, 3)</TT></B></FONT> !!!
+<P>
+The <B>solution</B> was used to <FONT color="blue"><B>move 3 disks</B></FONT>
+  from
+ <FONT color="red"><B>peg 2 &rArr; peg 3</B></FONT> !
+<p>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

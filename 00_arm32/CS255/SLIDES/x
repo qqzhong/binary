@@ -1,0 +1,169 @@
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Important pre-knowledge to understand variable definitions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   I want you to be
+  <FONT color="red"><B>aware</B></FONT> of these
+  <FONT color="blue"><B>facts</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B><I>All</I> memory cells</B></FONT>
+        are <FONT color="blue"><B>identical</B></FONT>: &nbsp;
+        <FONT color="red"><B>each memory byte</B></FONT> stores
+	<FONT color="blue"><B>8 bits (binary digits)</B></FONT>
+ <P>
+  <LI> <FONT color="blue"><B>That means:</B></FONT>
+   &nbsp; to <FONT color="red"><B>define</B></FONT> a
+       <FONT color="blue"><B><TT>byte</TT> typed variable</B></FONT>,
+       we can <FONT color="red"><B>reserve 1 byte</B></FONT>
+       <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="blue"><B><I>anywhere</I></B></FONT></SPAN> in memory
+   <P>
+     (Because <FONT color="red"><B><I>all</I> memory cells</B></FONT> are
+     <FONT color="blue"><B>identical</B></FONT> !)
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+   Then <FONT color="red"><B>how</B></FONT> do you
+   <FONT color="blue"><B>distinguish</B></FONT>
+   an <FONT color="red"><B><TT>int</TT> value</B></FONT> from
+   a <FONT color="blue"><B><TT>float</TT> value </B></FONT> ???</SPAN>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> You must <FONT color="red"><B>use <I>different</I>
+       computer <I>oprations</I></B></FONT> - the 
+   <FONT color="blue"><B>computer</B></FONT> provides
+    <FONT color="red"><B><TT>int-add</TT></B></FONT> and
+    <FONT color="red"><B><TT>float-add</TT></B></FONT> operations !
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Important pre-knowledge to understand variable definitions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>How</B></FONT> the
+   <FONT color="blue"><B>computer</B></FONT>
+   <FONT color="red"><B>distinguish</B></FONT>
+    <FONT color="blue"><B>binary numbers</B></FONT> representing
+    <FONT color="red"><B><I>different</I> data types</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">int</FONT> data type: use <FONT color="red">int-typed operations</FONT> on data.
+
+  Example:
+                   00000000000000000000000000000010
+          <FONT color="red">int-add</FONT>  11111111111111111111111111111111
+        -------------------------------------------    
+                   00000000000000000000000000000001
+</PRE>
+</B>
+</FONT>
+</FONT>
+</TD> </TR>
+</TABLE>
+
+   </center>
+<P>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   Use a <FONT color="red"><B><TT>float-add</TT></B></FONT> 
+    operation if you want to
+    <FONT color="blue"><B>add</B></FONT>
+    <FONT color="red"><B>floating point (IEEE 754)</B></FONT>
+    representations.
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   Every
+     <FONT color="red"><B>CPU</B></FONT> has
+   <FONT color="blue"><B><I>type-specific</I> arithmetic operations</B></FONT>
+   !!!
+   <BR>
+    <A HREF="https://docs.oracle.com/cd/E18752_01/html/817-5477/ennbz.html#eoizh">
+   Intel Integer instructions
+   </A>
+   <B>and</B>
+   <A HREF="https://docs.oracle.com/cd/E18752_01/html/817-5477/eoizy.html">
+   Intel Floating Point instructions
+   </A>
+   </font>
+   </p>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+

@@ -1,0 +1,832 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Making 
+<FONT color="red">global variables</FONT>
+   accessible in <FONT color="red">all</FONT> functions in 
+   multi-files C programs through
+<FONT color="red">declaration</FONT> 
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to make globals variables accessible to (all) functions in
+     all program files
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>What</B></FONT> you need to do to
+    make
+     <FONT color="blue"><B>global variables</B></FONT>
+     <FONT color="red"><B>accessible</B></FONT> to
+     (all)
+     <FONT color="blue"><B>functions</B></FONT> in
+     <FONT color="red"><B><I>all</I> program files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When  <FONT color="red"><B>global variables</B></FONT> are
+      <FONT color="blue"><B>defined</B></FONT> in
+      <FONT color="red"><B><I>some</I> program file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> All the <FONT color="red"><B>global variables</B></FONT>
+      must be  <FONT color="blue"><B><I>declared</I></B></FONT>
+      (at the <FONT color="red"><B>top</B></FONT>) in
+      <FONT color="red"><B><I>all</I> other program files</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Suppose</B></FONT> a
+   <FONT color="blue"><B>C program</B></FONT> consists of
+   <FONT color="red"><B>3 program files
+   <TT>p1.c</TT>, <TT>p2.c</TT> and <TT>p3.c</TT></B></FONT>
+   and has
+   <FONT color="blue"><B>2 globals variables
+   <TT>x</TT> and <TT>y</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Then we must <FONT color="red"><B>declare</B></FONT> them
+    in <FONT color="blue"><B><I>other</I> program files</B></FONT>
+     as <FONT color="red"><B>follows</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+In this <FONT color="red"><B>example</B></FONT>,
+  we <FONT color="blue"><B><I>selectively</I></B></FONT> 
+  <FONT color="red"><B>declare</B></FONT>
+  the <FONT color="blue"><B>global variables</B></FONT> that
+  are <B>defined</B> in
+  <FONT color="red"><B><I>another</I> C program file</B></FONT>.
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Problem:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B><I>Selective</I> declaration</B></FONT> is
+    <FONT color="blue"><B>hard</B></FONT> !!!</SPAN>
+ <P>
+   We need to <FONT color="red"><B>know</B></FONT>
+  <FONT color="blue"><B><I>which</I> global variables</B></FONT>
+  were
+   <FONT color="red"><B><I>not</I> defined</B></FONT> in
+    a  <FONT color="blue"><B>C program file</B></FONT> !!!
+ <P>
+ Need to determine this <FONT color="red"><B>per C program file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<FONT color="blue"><B>Good news</B></FONT>:
+there is an <FONT color="red"><B>easier way</B></FONT> to
+ <FONT color="blue"><B>declare global variables</B></FONT> which I will
+<FONT color="red"><B>dicuss next</B></FONT>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Non-selective</FONT>
+        declaration of global variables
+     </B></FONT>
+<P>
+<UL>
+ 
+<LI> Because you can <FONT color="red"><B>declare</B></FONT>
+    a <FONT color="blue"><B>variable</B></FONT>
+    as long as the
+    <FONT color="red"><B>declaration</B></FONT> does 
+    <FONT color="blue"><B>not conflict</B></FONT> with
+    its <FONT color="red"><B>definition</B></FONT>,
+    it is <FONT color="blue"><B>easier</B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Declare <I>all</I> global variable</B></FONT>
+        in <FONT color="blue"><B><I>all</I> program files</B></FONT>,
+	 <FONT color="red"><B>even</B></FONT> when
+	 a <FONT color="blue"><B>global variable</B></FONT> 
+      
+	 <FONT color="red"><B>has been defined </B></FONT> in that
+	 <FONT color="blue"><B>program file</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Suppose</B></FONT> a
+   <FONT color="blue"><B>C program</B></FONT> consists of
+   <FONT color="red"><B>3 program files
+   <TT>p1.c</TT>, <TT>p2.c</TT> and <TT>p3.c</TT></B></FONT>
+   and has
+   <FONT color="blue"><B>2 globals variables
+   <TT>x</TT> and <TT>y</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Then we simply <FONT color="red"><B>declare</B></FONT> 
+      <FONT color="blue"><B><I>all</I> global variables</B></FONT>
+      inside
+      <FONT color="red"><B><I>all</I> program files</B></FONT>
+     as <FONT color="blue"><B>follows</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Even though the
+ <FONT color="red"><B>global variable <TT>x</TT></B></FONT> is
+ <FONT color="blue"><B><I>defined</I> and
+  <I>declared</I></B></FONT> in the
+  <FONT color="red"><B>program file <TT>p1.c</TT></B></FONT>,
+ there is <FONT color="blue"><B>no error</B></FONT> as
+  long as the <FONT color="red"><B>declaration and definition</B></FONT>
+  do <FONT color="blue"><B>not conflict</B></FONT>.
+<P>
+The same is <FONT color="blue"><B>true</B></FONT> for the 
+  <FONT color="red"><B>global variable <TT>y</TT></B></FONT>
+   in the
+  <FONT color="blue"><B>program file <TT>p2.c</TT></B></FONT>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+<FONT color="red"><B>Better organization</B></FONT>:
+
+     using <FONT color="red">header files</FONT> to
+     <FONT color="red">declare</FONT> global variables
+     defined inside a program file
+     </B></FONT>
+<P>
+<UL>
+<LI> <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="red"><B>Previously</B></FONT>,</SPAN>
+    we saw this
+  <FONT color="blue"><B>common practice</B></FONT> in
+  <FONT color="red"><B>C programming</B></FONT> to
+   <FONT color="blue"><B><I>declare</I> functions</B></FONT>
+   contained in a <FONT color="red"><B>C program file</B></FONT> with
+   a <FONT color="blue"><B><I>header</I> file</B></FONT>:
+  (<A HREF="common-prac1.html">
+  <FONT color="blue"><B>click here</B></FONT></A>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="blue"><B>Write</B></FONT>
+      a <FONT color="red"><B>header file
+        <TT>prog.h</TT></B></FONT> for
+      <FONT color="blue"><B><I>each</I> (library) 
+       C source program file <TT>prog.c</TT>
+      </B></FONT>
+<P>
+ The <FONT color="blue"><B>header file
+    <TT>prog.h</TT></B></FONT> will <B>contain</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The 
+      <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B><I>declarations</I></B></FONT> of
+        <B>all</B> <FONT color="blue"><B>functions</B></FONT></SPAN>
+	 that are
+	<B>defined</B> in the <FONT color="red"><B>C program file</B></FONT>
+ <P>
+ <LI>  <SPAN style="BACKGROUND-COLOR: yellow">
+     Some <FONT color="red"><B>other stuff</B></FONT>
+    (now it's time to tell you about the "other stuff")
+    </SPAN> that
+    will be discussed <FONT color="blue"><B>later</B></FONT>
+    (specifically:
+    <A HREF="../2-C-adv-data/struct1.html">
+     <FONT color="red"><B>user-defined types</B></FONT></A> and
+  <SPAN style="BACKGROUND-COLOR: yellow">
+ <A HREF="cprep2a.html">
+     <FONT color="red"><B>global variables</B></FONT></A></SPAN>
+     )
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT color="red"><B>Include</B></FONT> the
+      <FONT color="blue"><B>header file
+      <TT>prog.h</TT></B></FONT> in
+      <FONT color="red"><B><I>every</I> C program file</B></FONT> that
+      <B>calls</B>
+      one or more <FONT color="blue"><B>functions</B></FONT> defined
+      in the <B>C program file</B>
+      <FONT color="red"><B><TT>prog.c</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is done to
+    <FONT color="red"><B><I>declare</I></B></FONT> the
+    <FONT color="blue"><B>functions</B></FONT> so the
+    <B>C compiler</B> will
+    <FONT color="red"><B>not</B></FONT> use
+    <FONT color="blue"><B><I>implicit</I> function prototyping</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT>
+     easily declare the 
+     <FONT color="blue"><B>global variables</B></FONT> defined
+     in a <FONT color="red"><B>C program file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Suppose</B></FONT> a
+   <FONT color="blue"><B>C program</B></FONT> consists of
+   <FONT color="red"><B>3 program files
+   <TT>p1.c</TT>, <TT>p2.c</TT> and <TT>p3.c</TT></B></FONT>
+   and has
+   <FONT color="blue"><B>2 globals variables
+   <TT>x</TT> and <TT>y</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We <FONT color="red"><B>create</B></FONT> a
+   <FONT color="blue"><B>header file</B></FONT> that contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Data type definitions</B></FONT>
+   (<FONT color="blue"><B>if any</B></FONT>)
+<P>
+ <LI> <FONT color="red"><B>Function declarations</B></FONT> of 
+   the <FONT color="blue"><B>functions</B></FONT> defined in the
+     <FONT color="red"><B>C program file</B></FONT>
+ <LI> <FONT color="red"><B>Variables declarations</B></FONT> of 
+   the <FONT color="blue"><B>global variables</B></FONT> defined in the
+     <FONT color="red"><B>C program file</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> Then we simply <FONT color="red"><B>include</B></FONT> 
+      <FONT color="blue"><B><I>all</I> header files</B></FONT>
+      inside
+      <FONT color="red"><B><I>all</I> program files</B></FONT>
+     as <FONT color="blue"><B>follows</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/globals-org01e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+<!------------------------------------------------------------
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Accessible  <FONT color="red">global variables</FONT> 
+     defined in a <FONT color="red">different</FONT> file
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Suppose</B> we have 
+    <FONT color="red"><B>defined</B></FONT> the
+    following <FONT color="blue"><B>global variables</B></FONT>
+    in file
+    <FONT color="red"><B><TT>glob2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">glob2.c</FONT>:
+
+        int a, b;
+        float c, d;  
+
+        void print()
+        {
+      	   printf( "print( )>>> a = %d, b = %d\n", a, b);
+           printf( "print( )>>> c = %f, d = %f\n", c, d);
+        }   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We like to <FONT color="blue"><B>use</B></FONT> these
+    <FONT color="red"><B>global variables</B></FONT> in
+    <FONT color="blue"><B>another program file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">glob1.c:</FONT>
+
+      int main( int argc, char *argv[] )                
+      {
+   	 <FONT color="red">a</FONT> = 2;
+   	 <FONT color="red">b</FONT> = 3;
+       
+   	 printf( "a = %d, b = %d\n", a, b);
+       
+   	 <FONT color="red">c</FONT> = 2.0;
+   	 <FONT color="red">d</FONT> = 3.0;
+       
+   	 printf( "c = %f, d = %f\n", c, d);
+
+         print( ); // Calls print( ) in glob2.c
+      }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Then:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We must <FONT color="blue"><B><I>first</I></B></FONT>
+      <FONT color="red"><B>declare</B></FONT> the
+     <FONT color="blue"><B>global variables</B></FONT> in the
+     <FONT color="red"><B>program file</B></FONT> where they are
+     <FONT color="blue"><B><I>used</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>variable declaration</B></FONT> is used
+      to <FONT color="blue"><B><I>inform</I></B></FONT> the
+      <FONT color="red"><B>C compiler</B></FONT> of the
+      <FONT color="blue"><B>data type</B></FONT> of the
+      <FONT color="red"><B>global variables</B></FONT>
+ <P>
+ (So the <FONT color="blue"><B>C compiler</B></FONT> can perform
+ <FONT color="red"><B><I>type conversion</I></B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will study <FONT color="red"><B>how</B></FONT> to
+ <FONT color="blue"><B>declare</B></FONT> global variables 
+ <B>next</B>....
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Declaring</FONT> global variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Syntax</B> to <FONT color="red"><B>declare</B></FONT> a
+      <FONT color="blue"><B>global variable</B></FONT> in
+      <FONT color="red"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">extern</FONT>  DataType   <FONT color="red">varName</FONT>  ;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+File: <FONT color="red"><B><TT>glob1.c</TT></B></FONT>
+</TH> 
+<TH>
+File: <FONT color="red"><B><TT>glob2.c</TT></B></FONT>
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">extern</FONT>  int   a, b;
+   <FONT color="red">extern</FONT>  float c, d;
+
+   int main( int argc, char *argv[] )    
+   {
+       a = 2;
+       b = 3;
+       
+       printf( "a = %d, b = %d\n", a, b);
+       
+       c = 2.0;
+       d = 3.0;
+       
+       printf( "c = %f, d = %f\n", c, d);
+
+       print( ); // Calls print( ) in glob2.c
+   }
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+    int   a, b;                 
+    float c, d;
+
+    void print()
+    {
+       printf( "print( )> a = %d, b = %d\n", a, b);
+       printf( "print( )> c = %f, d = %f\n", c, d);
+    }
+
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>   
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Demo:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cd  <FONT color="red">/home/cs255000/demo/c/multiple-files</FONT>       
+
+   gcc -c glob1.c
+   gcc -c glob2.c
+   gcc glob1.o glob2.o
+   a.out
+
+      a = 2, b = 3			      	 
+      c = 2.000000, d = 3.000000	      	 
+      print( )>>> a = 2, b = 3	      	 
+      print( )>>> c = 2.000000, d = 3.000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Global variables</B></FONT>
+     in <FONT color="blue"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>global variable</B></FONT> can be
+       <FONT color="red"><B>defined</B></FONT> in
+       <FONT color="blue"><B><I>any</I> C program file</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Functions</B></FONT> in the
+   <FONT color="blue"><B><I>same</I> file</B></FONT> as the
+   <FONT color="red"><B>global variable</B></FONT> can
+   <FONT color="blue"><B>access</B></FONT> the <B>variable</B>
+   !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> If you want to <FONT color="blue"><B>access</B></FONT> the
+   <FONT color="red"><B>global variable</B></FONT> in a
+   <FONT color="blue"><B><I>different</I> file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must <I>declare</I></B></FONT> the
+   <FONT color="blue"><B>global variable</B></FONT> in
+   that <B>C program file</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> This <FONT color="blue"><B>sounds</B></FONT>
+    <FONT color="red"><B><I>tedious</I></B></FONT>...
+<P>
+ But we have a <FONT color="red"><B>C-preprocessor trick</B></FONT>
+ to <FONT color="blue"><B>make thing easy</B></FONT> !!!!!
+
+
+</UL>
+
+----------------------------------------------------------------->
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,196 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Parameter passing methods
+<HR>
+<UL>
+<P>
+<LI> Most programming languages provides
+     <B>two common</B> way to pass parameters to a function/method.
+ <P>
+     Java however, provides only one: pass-by-value....
+ <P>
+     So we have to resort to C++ to illustrate this concept.
+
+<P>
+<LI> If a programming language does provide more than 1 way
+	to pass parameters, then the language will specify
+	a way to allow the programmer to specify his <B>choice</B> 
+
+  <P>
+     In some language (like in C++), the spefication can be
+	using <B>a very minor symbol</B>...
+ <P>
+     But the <B>meaning</B> is significantly changed and
+	you will see a <B>dramatic</B> change in
+	the <B>assembler program</B>
+
+<P>
+<LI> The <B>two most common</B> way to pass parameters are:
+ <P>
+ <UL>
+ <LI> <FONT COLOR="RED"><B>Pass-by-value</B></FONT>: 
+	the <B>value</B> of the actual parameter
+	is copied to the parameter variable.
+ <LI> <FONT COLOR="RED"><B>Pass-by-reference</B></FONT>: 
+	the <B>reference</B> (<B>address</B>)
+	of the actual parameter is copied to the parameter variable.
+ </UL>
+
+<P>
+<LI> NOTE:
+ <P>
+ <UL>
+ <LI> The mechanism for passing parameters <B>has not</B> change.
+ <LI> In other words: the caller and callee functions will still
+	have to agree on the <B>location</B> to pass the parameter
+ <LI> In addition, the caller and callee function must also
+	agree on <B>how</B> the parameter is passed - 
+	pass-by-value or pass-by-reference
+ </UL>
+
+</UL>
+<HR>
+Pass-by-value
+<HR>
+<P>
+<UL>
+<LI> The caller must copy the <B>value</B> of the actual parameter
+	to the agreed location for the parameter
+<P> 
+<LI> The callee must use the parameter <B>assuming</B> that
+	the parameter contains a <B>value</B>
+
+<P>
+<LI> Example of pass-by-value in C++:
+     <A HREF="../demo/call-by-value.C"> click here</A>
+ <P>
+ <B>NOTE:</B> get a copy, compile it and <B>run</B> it to see the effect !
+ <BR>
+ The variable <B>i</B> in main() <B>does NOT</B>  get incremented !
+<P>
+<LI> Here is what happens in pass-by-value exposed in Assembler code:
+ <PRE>
+<B>
+   Assume the following agreement: parameter passed in D0
+				   parameter passed by value
+</B>
+   C++ code:                             Assembler code:
+   ---------                             --------------
+
+   main()                           main: 
+   {					  MOVE.L  i, D0    // pass value
+      int i;						   // of var i
+
+      func(i);  // pass value		  BSR     func ------+
+		// of var i		  ....		     |
+   }							     |
+							     |
+   void func( int x )      	    func: ADD.L   #1, D0 <---+
+   {							    // Assume value
+      x = x + 1;					    // is pass
+   }					  RTS
+</PRE>
+
+<P>
+<LI> You can clearly see in the assembler code why the variable <B>i</B>
+     in main() did not get incremented.
+<P>
+ (My personal experience has been that after I learned
+  assembler programming, I understood the concepts in
+  high level programming languages much better....)
+
+
+<P>
+<LI> When passing parameters, always pass a parameter by value,
+     unless you want the function to <B>update</B> the variable...
+
+<P> 
+<LI> Example of a useful pass-by-value case: sum of squares
+ <P>
+ <PRE>
+    // func(x,y) computes x^2 + y^2
+    int func(int x, int y)
+    {<FONT color="red">
+        x = x + 1;
+	y = y + 1;</font>
+        return(x*x + y*y);
+    }
+
+    main()
+    {
+       int a, b, c;
+       int i, j, k;
+
+       c = func(a,b);
+       k = func(i,j);
+    }
+ </PRE>
+ <P>
+ <UL>
+ <LI> First agree on where to pass the parameters:
+   <UL>
+   <LI> param 1: in D0
+   <LI> param 2: in D1
+   </UL>
+ <LI> Next agree on where to pass the return value back:
+   <UL>
+   <LI> return value: in D7
+   </UL>
+ <LI> Now we can write the program...
+ <PRE>
+      main:
+	    MOVE.L a, D0     // Pass param 1
+	    MOVE.L b, D1     // Pass param 2
+	    BSR    func
+
+	    MOVE.L D7, c     // c = func(a,b)
+
+	    MOVE.L i, D0     // Pass param 1
+	    MOVE.L j, D1     // Pass param 2
+	    BSR    func
+
+	    MOVE.L D7, k     // k = func(i,j)
+	    ....
+	    ....
+
+      func: <FONT color="red">
+            ADD.L  #1, D0    // x = x + 1 (because D0 contains the value of x)
+	    ADD.L  #1, D1    // y = y + 1 (because D1 contains the value of y)</font>
+
+            MULS   D0, D0    // x*x
+            MULS   D1, D1    // y*y
+	    ADD.L  D1, D0    // x*x + y*y
+
+	    MOVE.L D0, D7    // Put return value
+			     // in the agreed location
+	    RTS
+ </PRE>
+ <P>
+ <LI> Here is the code that you can run:
+	<A HREF="../../demo/sub-pass-by-value.s"> click here</A>
+
+ <P>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Here is my CS170 lecture notes on
+ <B>Pass-by-value</B> if you want to review:
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/08/parameter2.html">
+ click here </A>
+ </UL>
+
+<HR>
+<HR>
+ 
+</UL>

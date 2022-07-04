@@ -1,0 +1,631 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Behavior of parameter variables and local variables
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pre-requisite: from cs170/cs171
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Lifetime of <I>Parameter</I> variable:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>parameter variable</B></FONT>
+    is <FONT color="red"><B>created</B></FONT>
+    (i.e., <FONT color="darkred"><B>reserve memory space</B></FONT>
+    for the <FONT color="blue"><B>paramter variable</B></FONT>)
+    at the <FONT color="magenta"><B><I>beginning</I></B></FONT>
+     of
+    the <FONT color="red"><B>execution of the method invocation
+     (call)</B></FONT>
+ <P>
+ <LI> A <FONT color="blue"><B>parameter variable</B></FONT>
+    is <FONT color="red"><B>destroyed</B></FONT>
+    (i.e., <FONT color="darkred"><B>reserved memory space</B></FONT>
+    for the <FONT color="blue"><B>paramter variable</B></FONT>
+    is <FONT color="red"><B>unreserved (freed)</B></FONT>)
+    at the <FONT color="magenta"><B><I>end (termination)</I></B></FONT> of
+    the 
+  <FONT color="red"><B>execution of the method invocation (call)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   void f(int <FONT color="red">a</FONT>)<FONT color="darkred">
+   {  <FONT color="red"><--- variable a exists because f(a) has created a</FONT>                
+
+      .....   location where variable a exists ....
+
+   }</FONT>       <FONT color="red">&lt;--- variable a is "destroyed"</FONT>
+
+   void main(String[] args)
+   {
+
+       ....
+
+       f(<FONT color="red">a</FONT>);     <FONT color="red"><---- variable a is created and then f() is invoked</FONT>
+
+       ....
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> <B>Lifetime of <I>Local</I> variable:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>local variable</B></FONT>
+    is <FONT color="red"><B>created</B></FONT>
+    (i.e., <FONT color="darkred"><B>reserve memory space</B></FONT>
+    for the <FONT color="blue"><B>local variable</B></FONT>)
+    at the <FONT color="magenta"><B><I>place</I> of definition</B></FONT>
+     of
+    the <FONT color="red"><B>local variable
+    </B></FONT>
+ <P>
+ <LI> A <FONT color="blue"><B>local variable</B></FONT>
+    is <FONT color="red"><B>destroyed</B></FONT>
+    (i.e., <FONT color="darkred"><B>reserved memory space</B></FONT>
+    for the <FONT color="blue"><B>local variable</B></FONT>
+    is <FONT color="red"><B>unreserved (freed)</B></FONT>)
+    at the <FONT color="magenta"><B><I>end (termination)</I></B></FONT> of
+    the 
+  <FONT color="red"><B>execution of the method invocation (call)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   void f(....)
+   {<FONT color="red">
+      int x;        // variable x begins to exist</FONT>
+
+      x = 1;
+<FONT color="red">
+      int y;        // variable y begins to exist</FONT>
+
+      y = 2;
+   }           <FONT color="red"> <----- variables x and y are destroyed</FONT>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="darkmagenta"><B>lifetime</B></FONT> of
+     a  <FONT color="blue"><B>parameter variable</B></FONT>
+     is   <FONT color="magenta"><B>identical</B></FONT>
+      to a <FONT color="red"><B>local variable</B></FONT> that
+      is <B>defined</B> 
+      <FONT color="magenta"><B>at the <I>beginning</I> (start)</B></FONT>
+      of a <B>method</B>
+ <P>
+ <LI> <B>Difference:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="darkmagenta"><B>parameter variables</B></FONT>
+      are <FONT color="red"><B>initialized</B></FONT> by the 
+      <B>caller method</B>
+   <P>
+  <LI>   <FONT color="blue"><B>Local variables</B></FONT> 
+     <FONT color="red"><B><I>cannot</I> be initialized</B></FONT> by the
+     <B>caller method</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+     
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Further pre-requisite from cs170/171
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Important fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Parameter variables</B></FONT> and
+     <FONT color="blue"><B>local variables</B></FONT> are
+     <FONT color="red"><B><I>private</I></B></FONT> to
+     <FONT color="darkmagenta"><B><I>each</I>
+     method <I>invocation</I></B></FONT>
+ <P>
+ <LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Every time</B></FONT> a <B>method</B>
+    is <FONT color="darkmagenta"><B>invoked (called)</B></FONT>,
+    a <FONT color="red"><B><I>new</I> set</B></FONT> of
+    <FONT color="blue"><B>parameter variables</B></FONT> 
+    <B><I>and</I></B> 
+    <FONT color="blue"><B>local variables</B></FONT>
+    are
+    <FONT color="red"><B>created (reserve memory)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   public class Behavior
+   {
+      public static int count = 0;
+    
+      public static void f(<FONT color="red">int a</FONT>)
+      {<FONT color="red">
+   	 int b;               // Local variable</FONT>
+    
+   	 b = a + 100;
+    
+   	 if ( a == 0 )
+   	    return;
+   	 else<FONT color="red">
+   	    f(a-1);</FONT>
+    
+   	 System.out.println(" a = " + a + "    b = " + b);      
+      }
+      
+      public static void main(String[] args)
+      {
+   	 f(3);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   a = 1    b = 101
+   a = 2    b = 102
+   a = 3    b = 103                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>How is the program executed:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   main:      +-->  f(<FONT color="red">a = 3</FONT>)      +--> f(<FONT color="red">a = 2</FONT>)      +--> f(<FONT color="red">a = 1</FONT>)      +--> f(<FONT color="red">a = 0</FONT>)      
+             /                   /                  /                  /         |
+       f(3) -       <FONT color="red">b = 100 + 3</FONT> /      <FONT color="red">b = 100 + 2</FONT> /      <FONT color="red">b = 100 + 1</FONT> /          | (return)
+                               /                  /                  /           |
+                    f(a-1) ----        f(a-1) ----        f(a-1) ----            |
+                                                                                 |
+                                                          <FONT color="darkred">print(a,b) (1, 101)</FONT> <--+
+                                                              |
+                                       <FONT color="darkred">print(a,b) (2, 102)</FONT> <--+
+                                           |
+                    <FONT color="darkred">print(a,b) (3, 103)</FONT> <--+
+                       |
+       <---------------+
+<HR>
+                        ^                   ^                 ^
+			|		    |		      |<FONT color="red">
+  Parameter var:      a = 3               a = 2             a = 1
+  Local variable:     b = 103		  b = 102	    b = 101</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="../demo/Behavior.java"> click here </A>
+  </UL>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Non-recursive methods
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Non-recursive method:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>non-recursive method</B></FONT>
+     is a <B>method</B> that
+     will <FONT color="magenta"><B><I>not</I> be invoked</B></FONT>
+     if it is <FONT color="red"><B>currently <I>active</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+   void f( ... )
+   {
+
+
+   }</FONT>
+
+   void main( .... )
+   {
+  
+      ....
+
+      f( ... );   <FONT color="red">// f is invoked and becomes active</FONT>
+<FONT color="magenta">     
+            During the entire time that f() is ACTIVE
+	    the method f() will not be invoked again !</FONT>         
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Local (and parameters if you are careful)
+    variables for <I>non-recursive</I> methods:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT> for
+    <FONT color="darkmagenta"><B>non-recursive method</B></FONT>
+    can be <B>reserved</B> using the
+    <FONT color="red"><B>DS directive</B></FONT>
+ <P>
+    (The <FONT color="darkmagenta"><B>location</B></FONT>
+    of the <FONT color="blue"><B>local variables</B></FONT>
+    is usually <FONT color="red"><B>after the <TT>rts</TT></B></FONT>
+    instruction for the method)
+ <P>
+ <HR>
+ <P>
+ <LI> This is <FONT color="blue"><B>possible</B></FONT> because
+     <FONT color="red"><B>only <I>one</I> invocation</B></FONT>
+     will be <B>active</B>
+ <P>
+     The variables defined by the
+     <FONT color="red"><B>DS directive</B></FONT>
+     is <FONT color="blue"><B>adequate</B></FONT>
+ </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<A NAME="recursion"></A>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Recursive</I> methods
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recursive method:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>recursive method</B></FONT>
+     is a <B>method</B> that
+     <FONT color="magenta"><B><I>will</I> be invoked</B></FONT>
+     when it is <FONT color="red"><B><I>already</I>
+    currently <I>active</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   public class Behavior
+   {
+      public static int count = 0;
+<FONT color="red">    
+      /* ---------------------------------------
+         A recursive method
+	 --------------------------------------- */</FONT>
+      public static void f(<FONT color="red">int a</FONT>)
+      {<FONT color="red">
+   	 int b;               // Local variable</FONT>
+    
+   	 b = a + 100;
+    
+   	 if ( a == 0 )
+   	    return;
+   	 else<FONT color="red">
+   	    f(a-1);</FONT>
+    
+   	 System.out.println(" a = " + a + "    b = " + b);      
+      }
+      
+      public static void main(String[] args)
+      {
+   	 f(3);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Notice that <tt>f()</TT> was invoked while <TT>f()</TT> is active:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   main:      +-->  f(<FONT color="red">a = 3</FONT>)      +--> f(<FONT color="red">a = 2</FONT>)      +--> f(<FONT color="red">a = 1</FONT>)      +--> f(<FONT color="red">a = 0</FONT>)      
+             /                   /                  /                  /         |
+       f(3) -       <FONT color="red">b = 100 + 3</FONT> /      <FONT color="red">b = 100 + 2</FONT> /      <FONT color="red">b = 100 + 1</FONT> /          | (return)
+                               /                  /                  /           |
+                    f(a-1) ----        f(a-1) ----        f(a-1) ----            |
+                                                                                 |
+                                                          <FONT color="darkred">print(a,b) (1, 101)</FONT> <--+
+                                                              |
+                                       <FONT color="darkred">print(a,b) (2, 102)</FONT> <--+
+                                           |
+                    <FONT color="darkred">print(a,b) (3, 103)</FONT> <--+
+                       |
+       <---------------+
+<HR>
+                        ^                   ^                 ^
+			|		    |		      |<FONT color="red">
+  Parameter var:      a = 3               a = 2             a = 1
+  Local variable:     b = 103		  b = 102	    b = 101</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <B>Local variables and parameters 
+    variables for <I>recursive</I> methods:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT> <B><I>and</I></B>
+    <FONT color="blue"><B>parameter variables</B></FONT> for
+    <FONT color="magenta"><B><I>recursive</I> method</B></FONT>
+    <FONT color="red"><B><I>cannot</I></B></FONT>
+     be <B>reserved</B> using the
+    <FONT color="darkred"><B>DS directive</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> This is <FONT color="magenta"><B>impossible</B></FONT> because
+     there are <FONT color="red"><B><I>more than one</I>
+     invocation</B></FONT>
+     will be <B>active</B>
+ <P>
+   <FONT color="blue"><B>Each invocation</B></FONT>
+   <FONT color="red"><B>must</B></FONT> uses a
+   <FONT color="magenta"><B>different set</B></FONT> of
+   <FONT color="blue"><B>local variables</B></FONT> and
+   <FONT color="blue"><B>parameter variables</B></FONT>
+ <P>
+     The 
+     <FONT color="red"><B>DS directive</B></FONT>
+     can <B>only</B>
+     <FONT color="blue"><B>create (reserve space for)</B></FONT>
+     <FONT color="magenta"><B><I>one</I> set of variables</B></FONT>
+ </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

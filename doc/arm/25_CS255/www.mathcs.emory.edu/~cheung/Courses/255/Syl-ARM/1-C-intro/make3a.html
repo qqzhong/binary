@@ -1,0 +1,556 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Structure of "make files"
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Structure of a Makefile
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B> format</B></FONT>
+     of a <FONT color="blue"><B>Makefile</B></FONT>
+     is <B>as follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="darkred"># Comment lines can appear anywhere</FONT>
+     <SPAN style="BACKGROUND-COLOR: yellow">Macros section    (will be <FONT color="red">discussed later if time permits</FONT>)</SPAN>        
+
+     <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">Rules section</FONT>     </SPAN>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Macros section</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Contains <FONT color="blue"><B><I>zero</I> or
+    more</B></FONT>
+   <FONT color="red"><B> <I>macro definition(s)</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will discuss <FONT color="red"><B>macros</B></FONT>
+ <FONT color="blue"><B>later</B></FONT> in this webpage
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Rule section</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Contains <FONT color="red"><B>one or more  <I>make rule(s)</I></B></FONT>
+      used to
+      <FONT color="blue"><B>specify file dependency</B></FONT> and
+      <FONT color="red"><B>how to create</B></FONT>
+      the <FONT color="blue"><B>target file</B></FONT>
+      in the <FONT color="red"><B>dependency</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Rules in a Makefile
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Rules</B></FONT> in a
+   <FONT color="blue"><B>Make file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>rule</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Specify</B></FONT> a
+     <FONT color="blue"><B>target file name</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Speficy</B></FONT> the
+       <FONT color="blue"><B>list of files</B></FONT> that
+       the <FONT color="red"><B>target</B></FONT> 
+       <FONT color="blue"><B>depends on</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Specify</B></FONT>
+ <FONT color="blue"><B><I>how</I></B></FONT> to
+ <FONT color="red"><B>create</B></FONT> the
+ <FONT color="blue"><B>target</B></FONT>
+ (when one or more of the
+    <FONT color="red"><B>dependency files</B></FONT> is
+    <FONT color="blue"><B><I>updated</I></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Syntax</B></FONT>
+     of a <FONT color="blue"><B>Make rule</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">targetName</FONT> :  <FONT color="blue">depend-on-file1  depend-on-file2 ....</FONT>     </SPAN>    
+     &lt;TAB> <FONT color="red">UNIX-command-1</FONT>       # List of commands
+     &lt;TAB> <FONT color="red">UNIX-command-2</FONT>       # used to create the
+     ...                        # target file
+     &lt;TAB> <FONT color="red">UNIX-command-N</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The
+   <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B>first line</B></FONT> of
+    a <B>make rule</B>
+     is the <FONT color="blue"><B>dependeny line</B></FONT></SPAN>
+      and
+    it <FONT color="red"><B>specifies</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>target file name</B></FONT>
+       <FONT color="red"><B><TT>targetName</TT></B></FONT>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>and</B>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+ <LI>  The <FONT color="red"><B>list of files</B></FONT> that
+   the <FONT color="blue"><B>target file</B></FONT> <B>depends on</B>:
+    
+      <FONT color="red"><B><TT>depend-on-file1</TT></B></FONT>,
+      <FONT color="red"><B><TT>depend-on-file2</TT></B></FONT>, ...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>list of UNIX commands</B></FONT>
+     that are used to
+   <FONT color="blue"><B>create</B></FONT> the
+   <FONT color="red"><B>target file</B></FONT> when
+   <FONT color="blue"><B>one or more</B></FONT> of the
+     <FONT color="red"><B>depend-on files</B></FONT>
+   have be <FONT color="blue"><B>updated</B></FONT>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>UNIX command</B></FONT> 
+    <FONT color="blue"><B>must</B></FONT> be
+     <FONT color="red"><B>preceeded</B></FONT> by
+     a <FONT color="red"><B><TT>&lt;TAB></TT> character</B></FONT> 
+ <P>
+ <LI> If a <FONT color="red"><B>line</B></FONT> does
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue"><B>not start</B></FONT> with a
+    <FONT color="red"><B><TT>&lt;TAB></TT> character</B></FONT></SPAN>,
+    then <FONT color="blue"><B>Make</B></FONT> will
+    consider this to be the
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>end</B></FONT> of the
+    <FONT color="blue"><B>make rule</B></FONT></SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>You</B></FONT> are
+     <B><I>responsible</I></B> for  
+      <FONT color="blue"><B>composing (= writing)</B></FONT>
+  the commands
+  <FONT color="red"><B><TT>UNIX-command-1</TT></B></FONT>,
+      <FONT color="red"><B><TT>UNIX-command-2</TT></B></FONT>, ...
+      <FONT color="red"><B><TT>UNIX-command-N</TT></B></FONT> that
+      will <FONT color="blue"><B><I>correctly</I></B></FONT>
+      create the <B>target</B>
+      <FONT color="red"><B><TT>targetName</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <B>Example</B>  of a <FONT color="red"><B>make rule</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">hello.o: hello.c</FONT>         # Meaning: target<FONT color="red"> hello.o</FONT> depends of <FONT color="red">hello.c</FONT>   
+   <FONT color="red">&lt;TAB> gcc -c  hello.c</FONT>    # Command to keep the target up to date
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Line 1</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">hello.o: hello.c</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>specifies</B></FONT> that
+ the <B>target file</B> <FONT color="blue"><B><TT>hello.o</TT></B></FONT>
+   <FONT color="red"><B>depends on</B></FONT>
+      the file
+   <FONT color="blue"><B><TT>hello.c</TT></B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Line 2</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">&lt;TAB> gcc -c  hello.c</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+tells the <FONT color="red"><B>Make application</B></FONT> to
+ use the <FONT color="blue"><B>UNIX command</B></FONT>
+  <FONT color="red"><B><TT>"gcc -c hello.c"</TT></B></FONT> to
+ <FONT color="blue"><B>create</B></FONT> the
+  the 
+ <FONT color="red"><B>target file <TT>hello</TT></B></FONT>
+ <B>when</B> the
+  file <FONT color="blue"><B><TT>hello.c</TT></B></FONT> is
+ <FONT color="red"><B>updated</B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A simple <I>Make</I> file
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Consider</B></FONT>
+     the <FONT color="blue"><B>C program</B></FONT> that
+     consists of <FONT color="red"><B>one single program file</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">File: "hello.c"</FONT>
+
+   #include &lt;stdio.h>
+
+   int main( int argc, char* argv[] )
+   {
+      printf( "Hello World !\n" );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>
+          file dependencies</B></FONT> and
+  <FONT color="blue"><B>maintenance commands</B></FONT> were as
+ <FONT color="red"><B>follows</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">Command: gcc -c hello.c</FONT>
+
+      Result:   hello.c  ---->   hello.o
+
+  <FONT color="red">Command: gcc -o hello hello.o </FONT>
+
+      Result:   hello.o  ---->  hello  (executable command in UNIX)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><I>Make</I>
+     file</B></FONT> that
+  <FONT color="blue"><B>represent (= describe)</B></FONT> the above
+    <FONT color="red"><B>dependencies</B></FONT> and the
+  <FONT color="blue"><B>actions used</B></FONT> to
+  <FONT color="red"><B>update</B></FONT> the
+  <FONT color="blue"><B>targets</B></FONT> is
+   <B>as follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">hello</FONT>: hello.o                # Meaning: <FONT color="red">target hello</FONT> depends of hello.o   
+  <FONT color="red">&lt;TAB></FONT>  gcc -o hello hello.o   # Command to <FONT color="red">update</FONT> the target <FONT color="red">hello</FONT>
+
+
+  <FONT color="red">hello.o</FONT>: hello.c              # Meaning: <FONT color="red">target hello.o</FONT> depends of hello.c
+  <FONT color="red">&lt;TAB></FONT>  gcc -c hello.c         # Command to <FONT color="red">update</FONT> the target <FONT color="red">hello.o</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Comment:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>create</B></FONT> 
+  a <FONT color="blue"><B>Make file</B></FONT> using
+  an <FONT color="red"><B>editor</B></FONT>
+ (e.g.: <FONT color="blue"><B><TT>gedit</TT></B></FONT>)
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+The <FONT color="red"><B>Make file</B></FONT> must be
+  <FONT color="blue"><B>stored</B></FONT> in
+ the <FONT color="red"><B>directory</B></FONT> where you 
+  <FONT color="blue"><B>store</B></FONT> your
+  <FONT color="red"><B>C program files</B></FONT> and
+  <FONT color="blue"><B>header files</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> I will <FONT color="red"><B>now </B></FONT> show you how to use the
+   <FONT color="blue"><B><TT>make</TT></B></FONT> 
+  <B>UNIX application program</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>uses</B></FONT> the
+       <FONT color="blue"><B>dependencies</B></FONT> specified
+       in a <FONT color="red"><B>Make file</B></FONT> to
+       <FONT color="blue"><B>automatically maintain</B></FONT>
+      a <FONT color="red"><B>C programming project</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The lecture notes in on the <FONT color="red"><B>next webpage</B></FONT>.....
+<P>
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

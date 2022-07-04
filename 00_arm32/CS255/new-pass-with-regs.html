@@ -1,0 +1,715 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Passing parameters to called function and passing return values using
+  <FONT color="red"> CPU registers</FONT>
+<HR>
+</H3>
+<UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Subroutine and <FONT color="red">registers</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important Facts:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Registers</B></FONT> can be used
+       by
+       <FONT color="blue"><B><I>any</I> instruction</B></FONT> in the
+       <FONT color="red"><B>computer program</B></FONT>
+ <P>
+ <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Any register</B></FONT> can be
+      used by <FONT color="blue"><B><I>any</I> subroutine</B></FONT> !!!
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Subroutines</B></FONT> can
+       be <FONT color="blue"><B>written</B></FONT>
+       by <FONT color="red"><B><I>different</I> programmers (people)</B></FONT>
+ <P>
+ Case in point:
+  you use <FONT color="red"><B>library methods</B></FONT> in the
+  <FONT color="blue"><B>Java library</B></FONT> that
+  was written by <FONT color="red"><B><I>someone else</I></B></FONT> !!!
+ <P>
+ <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="red"><B><I>no coordination</I></B></FONT> between
+      <FONT color="blue"><B><I>different</I> subroutines</B></FONT>
+      on <FONT color="red"><B>register assignments</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>general practice </B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Every subroutine</B></FONT> will
+    <FONT color="blue"><B>assume</B></FONT> that
+    it can use
+    <FONT color="red"><B><I>any</I> register</B></FONT> in
+    the <FONT color="blue"><B>CPU</B></FONT> in its
+    execution
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pre-condition to using registers to store parameters and
+   local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Safety condition:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>subroutine</B></FONT> must be
+     a <FONT color="blue"><B><I>leaf</I> function</B></FONT>
+     (that does not call any function)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If the <FONT color="red"><B>subroutine</B></FONT> is
+  <FONT color="blue"><B>not</B></FONT> a
+  <FONT color="red"><B>leaf function</B></FONT>, then
+  its values in
+  <FONT color="blue"><B>all or any register</B></FONT> can
+  be <FONT color="red"><B>lost</B></FONT> when it invokes
+  another subroutine !!
+<P>
+But if the <FONT color="red"><B>subroutine</B></FONT> does
+  <FONT color="blue"><B>not</B></FONT> call any subroutine, it can
+  <FONT color="red"><B>safely</B></FONT> use
+  <FONT color="blue"><B>all register</B></FONT>
+  to store the parameters and local variable.
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Principle in using registers to 
+  <FONT color="red">pass parameters</FONT>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Assumption:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  A <FONT color="blue"><B>method</B></FONT> assumes
+       that <FONT color="red"><B>all registers</B></FONT>
+       are <FONT color="blue"><B>available for its own use</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+   <FONT color="red"><B>Reason</B></FONT>: See above !!!
+ <P>
+ Because different methods may be written by
+   <B>different programmers</B>, you cannot know which registers
+   will be used and updated by a method that is not written by
+   yourself. So you can never
+   leave any important value in a register when you call another 
+   method --- because when the call returns, values in any register
+   may/could have been changed (and you will lose the value) !!!
+
+<P>
+ So when you write a subroutine, you will assume that
+ the caller has <b>saved</B> all the important values in the registers and
+ no register contains any value that will be needed.
+I.e.: you can use all general purpose registers.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>   
+  
+<HR>
+<P>
+<LI> What happens when you use
+     a <FONT color="red"><B>register</B></FONT> to
+  <FONT color="blue"><B>pass</B></FONT> a
+   <FONT color="red"><B>parameter</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ <LI> The <FONT color="red"><B>called method (= the "callee")</B></FONT>
+       will <FONT color="blue"><B><I>reserve</I> some registers</B></FONT>
+       to store <FONT color="red"><B>parameters</B></FONT>
+<P>
+ <LI> The <FONT color="red"><B>caller method
+       (= the "caller")</B></FONT> must
+      <FONT color="blue"><B>copy</B></FONT> the
+      <FONT color="red"><B>parameter value(s)</B></FONT> into
+      the <FONT color="blue"><B><I>reserved</I> register(s)</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>called method
+     (= the "callee")</B></FONT>
+      <B>must</B>
+      use the  <FONT color="blue"><B><I>reserved</I> register(s)</B></FONT>
+      as the <FONT color="red"><B>specific parameter</B></FONT> of
+      the <B>method</B>
+      
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     <SPAN style="BACKGROUND-COLOR: yellow">
+     Returning the value of a methd/function
+     </SPAN>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> As you well know from CS170, Java methods can return values.
+ <P>
+<B>Example:</B> a method that returns
+   an <FONT color="red"><B><TT>int</TT></B></FONT> typed value
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     public <FONT color="red">int</FONT> sum(int x, int y)            
+     {
+        ...
+
+        <FONT color="red">return (return_value);</FONT>
+     }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B>Java</B></FONT>,
+        the <FONT color="red"><B> value</B></FONT> returned by
+      a <FONT color="blue"><B>method</B></FONT> is
+      <B>always</B> a
+      <FONT color="red"><B>data type</B></FONT> that can be stored
+      in a <FONT color="blue"><B>register</B></FONT>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>fundamental data types</B></FONT>
+     (<FONT color="blue"><B><TT>int, short, byte, float, char</TT></B></FONT>)
+     are equal to or less than <FONT color="red"><B>4 bytes</B></FONT>
+     and can be stored in a 
+     <FONT color="blue"><B>register</B></FONT>
+ <P>
+   (A <FONT color="red"><B><TT>double</TT></B></FONT> can also be stored
+   in a <FONT color="blue"><B>floating point register</B></FONT>
+   of the <B>ARM processor</B> --- we did not discuss
+   these registers for brevity
+<P>
+<HR>
+<P>
+<LI> When a <FONT color="blue"><B>method</B></FONT> returns
+      an <FONT color="red"><B>object</B></FONT>, it 
+      <B>actually</B> returns
+      the <FONT color="blue"><B><I>address</I></B></FONT> of
+      an <FONT color="red"><B>object</B></FONT>
+ <P>
+     <FONT color="red"><B>Addresses</B></FONT> can be stored in
+     a <FONT color="blue"><B>register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Therefore</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Return values</B></FONT> of
+     <FONT color="blue"><B>methods</B></FONT> can
+     <FONT color="red"><B>always</B></FONT> be
+     stored in a <FONT color="blue"><B>register</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> What happens when you use
+     a <FONT color="red"><B>register</B></FONT> to
+  <FONT color="blue"><B>return</B></FONT> a
+   <FONT color="red"><B>function value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>called method
+     (= the "callee")</B></FONT>
+      <B>must</B>
+      put the
+      <FONT color="blue"><B>return value</B></FONT> in 
+      the  <FONT color="red"><B>agreed register</B></FONT>
+      <FONT color="blue"><B>before</B></FONT> the
+      <FONT color="red"><B>called method
+     (= the "callee")</B></FONT>
+     <B>returns</B>
+<P>
+ <LI> The <FONT color="red"><B>caller method
+       (= the "caller")</B></FONT> must
+      <FONT color="blue"><B>use/copy</B></FONT> the
+      <FONT color="red"><B>value</B></FONT> from
+      the <FONT color="blue"><B>agreed register</B></FONT>
+      in <FONT color="red"><B>expressions</B></FONT> that
+      use the <FONT color="blue"><B>function call</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>agreed register</B></FONT>
+      is <FONT color="blue"><B>usually</B></FONT>
+      the <FONT color="red"><B>register <TT>r0</TT></B></FONT>
+      of the <FONT color="blue"><B>ARM processor</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ (But <B>in principle</B>, you can use 
+  <FONT color="red"><B>any general purpose register</B></FONT>
+  to return the
+  <FONT color="blue"><B>function value</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: passing parameters and return values using register
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following 
+  <FONT color="red"><B>function invocation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="magenta">/* ----------------------------------------------
+      sumSquares(a,b):  returns  (a*a + b*b)
+      ---------------------------------------------- */  </FONT>       
+   <FONT color="red">int sumSquares( int a, int b )</FONT>           
+   {
+      return (<FONT color="red">a*a + b*b</FONT>);
+   }
+
+   void main( )
+   {
+      int x, y, z;
+
+      <FONT color="red">z = sumSquares(x, y)</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We will <FONT color="red"><B>pass the parameters</B></FONT>
+     and <FONT color="blue"><B>pass the return value</B></FONT> as follows
+    <FONT color="red"><B>using register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <IMG SRC="FIGS/pass-param01a.gif"></IMG>
+
+  sumSquares assumes that all register are <FONT color="red">"free" (unused)</FONT>
+
+     <FONT color="red">sumSquares</FONT> reserves <FONT color="red">r0</FONT> to store parameter <FONT color="red">x</FONT> and <FONT color="red">r1</FONT> to store parameter <FONT color="red">y</FONT>
+
+     <FONT color="red">main</FONT> passes the parameter <FONT color="red">x</FONT> in the register <FONT color="red">r0</FONT>
+     <FONT color="red">main</FONT> passes the parameter <FONT color="red">y</FONT> in the register <FONT color="red">r1</FONT>
+
+     <FONT color="red">sumSquares</FONT> passes the <FONT color="red">return value</FONT> back in the register <FONT color="red">r0</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>main( )</TT> method</B></FONT>
+    will pass the
+    <FONT color="blue"><B>parameters <TT>x</TT> and <TT>y</TT></B></FONT>
+    and
+    <FONT color="red"><B>use the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red"> /* -------------------------------------------------
+           Pass parameter x by copying its value in reg r0
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x
+        ldr     r0, [r0]
+
+        <FONT color="red">/* -------------------------------------------------
+           Pass parameter y by copying its value in reg r1
+           ------------------------------------------------- */</FONT>
+        movw    r1, #:lower16:y
+        movt    r1, #:upper16:y
+        ldr     r1, [r1]
+<FONT color="magenta">
+        /* ----------------------------------------------------------------
+           call z = sumSquares(x,y):
+                agreed inputs:  r0 = x, r1 = y
+
+           <IMG SRC="FIGS/pass-param01b.gif"></IMG>
+           ---------------------------------------------------------------- */</FONT>      
+        bl      sumSquares          // Call sumSquares 
+
+        <FONT color="red">/* -----------------------------------------------------------------
+           <FONT color="magenta">Agreed return location:  r0 = return value</FONT>
+
+           <IMG SRC="FIGS/pass-param01c.gif"></IMG>
+
+           Save return value (in r0) to variable z (z = sumSquares(..))
+           ----------------------------------------------------------------- */</FONT>
+        movw    r1, #:lower16:z    // Do NOT use r0 !!!
+        movt    r1, #:upper16:z    // (Because r0 contains the return value)
+
+        str     <FONT color="red">r0</font>, [r1]           // This will store return value in z
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>sumSquares( )</TT> method</B></FONT>
+    will get the
+    <FONT color="blue"><B>parameters <TT>a</TT> and <TT>b</TT></B></FONT>
+    and
+    <FONT color="red"><B>pass the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">/* ----------------------------------------------------------------
+   Function sumSquares(a,b):
+        agreed inputs:  r0 = a, r1 = b
+        agreed return:  r0 = return value
+   ---------------------------------------------------------------- */</FONT>
+
+sumSquares:
+
+        <FONT color="red">// When  sumSquares begin, we will have: r0 = a, r1 = b</FONT>
+
+        <IMG SRC="FIGS/pass-param01b.gif"></IMG>
+        mul     r2, <FONT color="red">r0, r0</FONT>      // r2 = a*a (use r0 as var a)
+        mul     r3, <FONT color="red">r1, r1</FONT>      // r3 = b*b (use r1 as var b)
+
+
+        <IMG SRC="FIGS/pass-param01c.gif"></IMG>
+        add     <FONT color="red">r0</FONT>, r2, r3      // r0 = a*a + b*b
+                                // The return value is now in r0
+
+        mov     pc, lr          // Return to the caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/reg-param1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 reg-param1</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+</UL>
+
+<P>
+<UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

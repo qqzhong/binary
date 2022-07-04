@@ -1,0 +1,78 @@
+table.tooltip {
+	z-index: 1;
+	position: absolute;
+	visibility: hidden; }
+	
+td.tooltip-text {
+	background-color: #BBDDFF; }
+	
+td.tooltip-inner-text {
+	line-height: 140%;
+	vertical-align: top; }
+	
+td.tooltip-inner-close {
+	padding-left: 5px;
+	vertical-align: top; }
+
+td.tooltip-border-11 {
+	background-image: url(./images/popup-bg-11.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	width: 15px;
+	height: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-12 {
+	background-image: url(./images/popup-bg-12.gif);
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+	height: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-13 {
+	background-image: url(./images/popup-bg-13.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	width: 15px;
+	height: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-21 {
+	background-image: url(./images/popup-bg-21.gif);
+	background-repeat: repeat-y;
+	background-position: 0px 0px;
+	width: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-23 {
+	background-image: url(./images/popup-bg-23.gif);
+	background-repeat: repeat-y;
+	background-position: 0px 0px;
+	width: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-31 {
+	background-image: url(./images/popup-bg-31.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	width: 15px;
+	height: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-32 {
+	background-image: url(./images/popup-bg-32.gif);
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+	height: 15px;
+	overflow: hidden; }
+
+td.tooltip-border-33 {
+	background-image: url(./images/popup-bg-33.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	width: 15px;
+	height: 15px;
+	overflow: hidden; }
+
+td.tooltip-inner-close img {
+	cursor: pointer; }

@@ -1,0 +1,484 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Intro: how the C compiler works
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The C compiler
+     </B></FONT>
+<P>
+ <UL>
+
+ <LI> The <FONT color="red"><B>C compiler</B></FONT> <B>actually</B>
+  consists of
+   <FONT color="blue"><B>2 independent programs</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> A <FONT color="red"><B>syntax analyser</B></FONT> and
+      <FONT color="blue"><B>code generator</B></FONT> 
+      <B>program</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>program</B></FONT> 
+     <B>first</B> checks the
+     <FONT color="blue"><B>syntactic correctness</B></FONT> and
+     <FONT color="red"><B>variable/function type correctness
+     (definition and declaration conflicts)</B></FONT> of
+     the <FONT color="blue"><B>C program</B></FONT>
+<P>
+ <LI> When there are <FONT color="red"><B>no syntax error</B></FONT>,
+        the <FONT color="blue"><B>code generator</B></FONT> will
+	<FONT color="red"><B>translate</B></FONT> the
+	<FONT color="blue"><B>C constructs</B></FONT> into
+	<FONT color="red"><B>assembler  code</B></FONT>
+    <P>
+   The <FONT color="blue"><B>code generator</B></FONT> will
+ <B>also</B> run the <FONT color="red"><B>assembler </B></FONT> on the
+ <FONT color="blue"><B>assembler code</B></FONT> to produce
+ <FONT color="red"><B><I>object</I> (= machine) code</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<FONT color="red"><B>Note:</B></FONT></B></FONT>
+ </SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>C programmer</B></FONT> says that 
+  he/she
+  has <FONT color="blue"><B>compiled a program</B></FONT>,
+  he/she <B>could mean</B> 
+  <FONT color="red"><B>one of the following</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> If <FONT color="red"><B>"program"</B></FONT> is
+      used to mean
+        <FONT color="blue"><B><I>one</I> of the C program files</B></FONT> 
+	that make up the 
+        <FONT color="red"><B><I>multi</I>-file program</B></FONT>, then
+	he/she has
+	<FONT color="blue"><B><I>only</I> performed</B></FONT>
+       the <FONT color="red"><B>above step</B></FONT> on
+	that <FONT color="blue"><B>C program file</B></FONT>
+ <P>
+ <LI> If <FONT color="red"><B>"program"</B></FONT> is
+     used to mean the <FONT color="blue"><B>entire project</B></FONT>,
+     he/she has
+     <FONT color="red"><B>compiled <I>all</I> source files</B></FONT> 
+    <B>and</B> perform the
+     <FONT color="blue"><B>linkage step (see the next step)</B></FONT> on
+     <FONT color="red"><B><I>all</I> object files</B></FONT> to produce
+     the
+       <FONT color="blue"><B>executable program</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B>"linking loader" <B>program</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>"linking loader"</B></FONT> <B>program</B>
+      <FONT color="blue"><B>combines</B></FONT> the
+      <FONT color="red"><B>machine code</B></FONT> stored in
+      <FONT color="blue"><B><I>multiple</I> files</B></FONT> to
+      produce an
+      <FONT color="red"><B><I>executable</I> program</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>main task</B></FONT> performed by
+     the <FONT color="blue"><B>"linking loader"</B></FONT> is to
+     <FONT color="red"><B>resolve</B></FONT> the
+     <FONT color="blue"><B>variable and function <I>reference</I></B></FONT>
+     from <FONT color="red"><B>one program file</B></FONT> to
+     <FONT color="blue"><B><I>another</I> program file</B></FONT>
+<P>
+<B>E.g.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>global variable <TT>x</TT></B></FONT> is
+      <FONT color="blue"><B><I>defined</I> in program <TT>p1.c</TT></B></FONT>
+      and the
+      <FONT color="red"><B>variable <TT>x</TT></B></FONT> is
+      <FONT color="blue"><B>used (accessed)</B></FONT> in
+      <FONT color="red"><B><I>another</I> program <TT>p2.c</TT></B></FONT>,
+      the <FONT color="blue"><B>"linking loader"</B></FONT> must
+      <FONT color="red"><B>find the <I>memory address</I></B></FONT> used
+       by the <FONT color="blue"><B>variable <TT>x</TT></B></FONT> and
+       <FONT color="red"><B>"link" this address</B></FONT> to
+       the
+      <FONT color="blue"><B>instructions in program <TT>p2.c</TT></B></FONT>
+    that <FONT color="red"><B>refers to variable <TT>x</TT></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Compiling a <I>multi</I>-files  C program
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>How to</B></FONT>
+    <FONT color="blue"><B>compile</B></FONT> a
+     <FONT color="red"><B><I>multi</I>-files C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Compile</B></FONT>
+      <FONT color="blue"><B>each source file</B></FONT> of the
+      <FONT color="red"><B><I>multi</I>-files C program</B></FONT>
+      <B>individually</I>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Link</B></FONT> all the
+    <FONT color="blue"><B>object files</B></FONT> into
+    an <FONT color="red"><B>executable program</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important fact</B></FONT> about the
+    <FONT color="blue"><B>C compiler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT>
+        <FONT color="blue"><B>translates</B></FONT>
+	<FONT color="red"><B><I>each</I> C program file</B></FONT>
+	at a time -
+	<FONT color="blue"><B><I>independently</I> from
+	each other</B></FONT>
+<P>
+
+<B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow"> 
+      <FONT color="red"><B><I>All</I> information</B></FONT>
+      </SPAN>
+      on the <FONT color="blue"><B>variables (types)</B></FONT> and
+      <FONT color="red"><B>functions (prototypes)</B></FONT>
+       gathered
+      in the <FONT color="blue"><B>translation process</B></FONT> of
+      <B>one</B>  <FONT color="red"><B>C program file</B></FONT> is
+      <SPAN style="BACKGROUND-COLOR: yellow"> 
+      <FONT color="blue"><B><I>discarded</I></B></FONT>
+      </SPAN>
+      when the
+      <FONT color="red"><B>program translation process <I>ends</I></B></FONT>
+      on <FONT color="blue"><B><I>one</I> input C program file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-compiler1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>final step</B></FONT> is to
+     <FONT color="red"><B><I>link</I> (= "merge")</B></FONT> the
+     <FONT color="blue"><B>compiled code
+    (= program in machine instructions)</B></FONT>
+    into one single
+    <FONT color="red"><B>executable program</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>linkage step</B></FONT> 
+     <FONT color="blue"><B>checks</B></FONT> for
+     <FONT color="red"><B><I>missing</I> items</B></FONT>
+     (e.g.: some <FONT color="blue"><B>variable(s)</B></FONT> or
+      <FONT color="blue"><B>function(s)</B></FONT>  were
+     <FONT color="red"><B><I>not</I> defined</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> The <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue"><B>linkage step</B></FONT></SPAN>
+      does
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>not</B></FONT> perform
+    any <FONT color="blue"><B>checks</B></FONT></SPAN> on
+    <FONT color="red"><B><I>data types</I></B></FONT> !!!
+ <P>
+ (<FONT color="blue"><B>Data type checks</B></FONT> are
+   <B>done</B> in the
+   <FONT color="red"><B><I>compile</I> (= translate) step</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Important facts</FONT>
+      that you <FONT color="red">must remember</FONT> about the  
+       <FONT color="red">C compiler</FONT>
+     </B></FONT>
+<P>
+<UL>
+
+
+ <LI> <FONT color="red"><B>Recall:</B></FONT>
+        the
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue"><B>C compiler</B></FONT> is
+     a <FONT color="red"><B><I>one</I>-pass compiler</B></FONT>.
+   </SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B>C program</B></FONT> consists
+      of <FONT color="blue"><B>multiple program files</B></FONT>,
+      the <FONT color="red"><B>compile command</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       gcc  -c   <FONT color="red">programFile.c </FONT>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will 
+ <FONT color="red"><B>compile (= translate)</B></FONT>
+ the <FONT color="blue"><B>program file </B></FONT> &nbsp;
+ <FONT color="red"><B><TT>programFile.c</TT></B></FONT> &nbsp;
+  <FONT color="blue"><B><I>individually</I></B></FONT>
+ (= <FONT color="red"><B>without consulting</B></FONT>
+    any <FONT color="blue"><B><I>other</I>
+  program files</B></FONT> !!!) 
+<P>
+The <FONT color="red"><B>C compiler</B></FONT> will
+  <FONT color="blue"><B>read </B></FONT> <B>each</B>
+  program file
+        <FONT color="red"><B><I>once</I></B></FONT>
+ (= one-pass !!!)
+<P>
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important recall:</B></FONT>
+     <FONT color="blue"><B><I>implicit</I>
+   function prototype assumption</B></FONT>
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>While translating</B></FONT> 
+      <B>each</B>
+       <FONT color="red"><B>C program file</B></FONT>
+         (in a multi-files C program),
+       the
+   <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B>C compiler</B></FONT> will
+     make <FONT color="red"><B><I>implicit</I> function
+     prototype assumptions</B></FONT> for
+     <FONT color="blue"><B><I>undefined</I> and <I>undeclared</I></B></FONT>
+     functions
+     </SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+It is <B>therefore</B> <FONT color="red"><B>very important</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You 
+     <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>declare</B></FONT> <B>all</B>
+      <FONT color="blue"><B>functions</B></FONT></SPAN>
+       that you use inside
+      <FONT color="red"><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <I>every</I></SPAN>
+    C program source file</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,853 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>Instruction Execution Cycle</I> of the CPU (Central Processing Unit)
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Keep this in mind...
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Compute</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compute</B></FONT> =
+      <FONT color="blue"><B>calculate</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Computer</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Computer</B></FONT> =
+      a <FONT color="blue"><B>machine</B></FONT> that
+      performs a <FONT color="red"><B>series of <I>computing</I> 
+      instructions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I.e.: a <FONT color="blue"><B>computer</B></FONT> can
+      <FONT color="red"><B>execute</B></FONT> the
+      <FONT color="blue"><B>kind of instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Arithmetic operations</B></FONT>
+      on <FONT color="blue"><B>2 <I>numerical</I> values</B></FONT>
+      (e.g.: <FONT color="red"><B>+, &minus;, &times;, /</B></FONT>)
+ <LI> <FONT color="red"><B>Compare</B></FONT>
+       <FONT color="blue"><B>2 numerical values</B></FONT>
+        (e.g., <FONT color="red"><B> >, &ge;, <, &le;, ==, !=
+       </B></FONT>)
+ <LI> <FONT color="red"><B>Logical operations on
+      <FONT color="blue"><B>2 <I>boolean</I> values</B></FONT>
+      (e.g.: <FONT color="red"><B>AND, OR, NOT</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How machines work
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>All machines</B></FONT> that have been 
+    <FONT color="blue"><B>invented by humans</B></FONT>
+    have
+   <FONT color="red"><B>one principle property</B></FONT> in
+     common:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>machine</B></FONT> 
+    <FONT color="red"><B>always</B></FONT> repeats
+    the <FONT color="blue"><B><I>same</I> steps</B></FONT>
+    over and over again
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> the
+      <FONT color="red"><B>4 stroke engine</B></FONT>
+        (<FONT color="blue"><B>machine !!!</B></FONT>)
+	in  <FONT color="red"><B>automobiles</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/engine.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>4 stroke engine</B></FONT> repeats
+ these <FONT color="blue"><B>4 steps</B></FONT>
+ over and over again:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Intake step</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="blue"><B>piston</B></FONT> moves 
+       <FONT color="red"><B>downward</B></FONT> while the
+       <FONT color="blue"><B>in-take valve</B></FONT> is 
+       <FONT color="red"><B>opened</B></FONT> to
+       <FONT color="blue"><B>suck in</B></FONT>
+       a mixture of
+       <FONT color="red"><B>gasoline and air</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Compression step</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>piston</B></FONT> moves 
+       <FONT color="red"><B>upward</B></FONT> while 
+       <B>both</B>
+       <FONT color="blue"><B>valves</B></FONT> are
+       <FONT color="red"><B>closed</B></FONT> to
+       <FONT color="blue"><B>compress</B></FONT>
+       a mixture of
+       <FONT color="red"><B>gasoline and air</B></FONT>
+       (higher pressure allows better 
+       <FONT color="blue"><B>ignition</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+    
+ <LI> <FONT color="red"><B>Ignition step (see the spark !)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B>spark plug</B></FONT> ignites
+     the <FONT color="blue"><B>compressed  fuel mixture</B></FONT>
+     and the <FONT color="red"><B>hot burning gas</B></FONT> will
+     <FONT color="blue"><B>push</B></FONT> the
+       the <FONT color="piston"><B>piston</B></FONT> downward
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+    <P>
+ <LI> <FONT color="red"><B>Expell step</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>piston</B></FONT> moves 
+       <FONT color="red"><B>upward</B></FONT> while the
+       <FONT color="blue"><B>in-take valve</B></FONT> is 
+       <FONT color="red"><B>opened</B></FONT> to
+       <FONT color="blue"><B>suck in</B></FONT>
+       a mixture of
+       <FONT color="red"><B>gasoline and air</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>After expelling the burned gas mixture</B></FONT>,
+   the <FONT color="blue"><B>engine</B></FONT> is
+  <FONT color="red"><B>back </B></FONT> to its
+  <FONT color="blue"><B>original (starting</B></FONT> state</B></FONT> and
+  is <FONT color="red"><B>ready to repeat</B></FONT> the
+  <FONT color="blue"><B>cycle of steps</B></FONT>
+  all over again !!!
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>ignition step</B></FONT> of the
+ <FONT color="blue"><B>4 phase engine</B></FONT> produce a lot of
+ <FONT color="red"><B>energy</B></FONT> (due to the
+ <FONT color="blue"><B>(controlled) explosion</B></FONT> inside the
+ <FONT color="red"><B>combustion chamber</B></FONT> of the engine.
+<P>
+The <FONT color="red"><B>energy</B></FONT> is then 
+ <FONT color="blue"><B>transferred</B></FONT> to the
+  <FONT color="red"><B>car's axil and wheels</B></FONT> to make
+ the car move....
+<P>
+I know few of the students are "mechanical engineers" and I don't expect
+ you to understand the engine.
+<P>
+All I want you to see in this example is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>All machines</B></FONT> invented by
+       mankind operate by
+   <FONT color="blue"><B>repeating</B></FONT>
+   a <FONT color="red"><B>fixed number of steps</B></FONT> 
+   <FONT color="blue"><B>over and over again</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The Instruction Execution Cycle of the CPU
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>CPU</B></FONT> is
+       a
+       <FONT color="red"><B>machine</B></FONT> 
+       (it's an <FONT color="blue"><B>electrical machine</B></FONT>) !
+       
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>task</B></FONT> that a 
+    <FONT color="blue"><B>CPU</B></FONT> must perform is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Execute</B></FONT> a
+     <FONT color="blue"><B>computer instruction</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Like</B></FONT> any 
+  <FONT color="blue"><B>machine</B></FONT>,
+   a <FONT color="red"><B>CPU</B></FONT> will
+      <FONT color="blue"><B>repeatedly</B></FONT> performs
+      a (fixed) <FONT color="red"><B> number of "steps"</B></FONT>
+      of <FONT color="blue"><B>phases</B></FONT> 
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>steps/phases</B></FONT> that
+     a <FONT color="blue"><B>CPU</B></FONT> go through will
+     <FONT color="red"><B>execute the <I>next</I> instruction</B></FONT>
+     in the <FONT color="blue"><B>computer program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> So the <FONT color="red"><B>CPU</B></FONT> inside a computer
+     goes through
+     a <FONT color="blue"><B>fixed series of steps</B></FONT>
+     over and over again.
+ <P>
+   The <FONT color="red"><B>steps</B></FONT> that
+       are performed
+   by the <FONT color="blue"><B>CPU</B></FONT>  are
+    <B>collectively</B>  called:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>CPU's instruction
+      execution cycle</B></FONT> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>Instruction Execution Cycle</B></FONT> of
+       the <FONT color="blue"><B>CPU</B></FONT> consists of
+       the following <FONT color="red"><B>4 steps</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>instruction fetch</B></FONT> step/phase
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> During this phase,
+      the <FONT color="blue"><B>CPU</B></FONT> will
+      <FONT color="red"><B>fetch</B></FONT> the
+      <FONT color="blue"><B><I>next</I> instruction</B></FONT> from
+      memory and store it in the 
+      <FONT color="red"><B>Instruction Register (IR)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>instruction decode</B></FONT> step/phase
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> During this phase, the
+   <FONT color="blue"><B>CPU</B></FONT> decode the
+    <FONT color="red"><B>instruction (a binary number !)</B></FONT> in
+    the <FONT color="blue"><B>Instruction Register (IR)</B></FONT> and
+    determine all the <FONT color="red"><B>operands</B></FONT> that
+    it needs to <FONT color="blue"><B>execute</B></FONT>
+    the instruction
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>operand fetch</B></FONT> step/phase
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> During this phase, the
+  <FONT color="blue"><B>CPU</B></FONT> fetches
+  the <FONT color="red"><B>operands</B></FONT> from the
+  <FONT color="blue"><B>registers</B></FONT> to the
+  <FONT color="red"><B>inputs</B></FONT> of the
+  <FONT color="blue"><B>Arithmetic/Logic Unit (ALU)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>instruction execute </B></FONT> step/phase
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this phase, the
+   <FONT color="blue"><B>CPU</B></FONT> performs the
+   <FONT color="red"><B>arithmetic/logic operation</B></FONT> and
+   <FONT color="blue"><B>save</B></FONT> the
+   <FONT color="red"><B>result</B></FONT> in some
+   <FONT color="blue"><B>register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    A detailed look at the
+    instruction execution cycle
+     </B></FONT>
+<P>
+<UL>
+<LI>
+Here is a <FONT color="red"><B>detailed explanation</B></FONT> on
+ <FONT color="blue"><B>what happens</B></FONT> in
+ each of the
+  <FONT color="red"><B>4 phases</B></FONT> of the
+  <FONT color="blue"><B>instruction execution cycle</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>instruction fetch</B></FONT> step:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this step, the <FONT color="red"><B>CPU</B></FONT> will
+      <FONT color="blue"><B>fetch</B></FONT> the
+      <FONT color="red"><B> instruction</B></FONT>
+        from the
+      <FONT color="blue"><B>memory</B></FONT> that is
+     stored at the <FONT color="red"><B>memory address</B></FONT> given by
+     the value inside the
+     <FONT color="blue"><B>Program Counter (PC)</B></FONT> into
+      the <FONT color="red"><B>Instruction Register</B></FONT> of the
+      <FONT color="blue"><B>CPU</B></FONT>
+<P>
+Recall that the
+  <FONT color="red"><B>Program Counter (special register)</B></FONT>
+ contains the
+  <FONT color="blue"><B>address (= location in memory)</B></FONT> of
+ the <FONT color="red"><B><I>next</I> instruction</B></FONT>.
+<P>
+So in this step, the <FONT color="blue"><B>CPU</B></FONT> will
+  <FONT color="red"><B>fetch a copy the <I>next</I> instruction</B></FONT> 
+ from the <B>memory</B> into
+ its <FONT color="blue"><B>Instruction register</B></FONT>.
+<P>
+After fetching the instruction from memory, the
+ <FONT color="red"><B>CPU</B></FONT> will
+  <FONT color="blue"><B>update (= increase)</B></FONT> the
+  <FONT color="red"><B>Program Counter</B></FONT> so it will
+  contain the
+  <FONT color="blue"><B>address</B></FONT> of the
+  <FONT color="red"><B><I>subsequent</I> instruction</B></FONT>.
+<P>
+  When this step is completed:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI>  The Instruction Register inside the
+  CPU will contain the next instruction that the CPU must execute
+<P>
+<HR>
+<P>
+ <LI> The CPU prepared itself to
+       fetch a <FONT color="red"><B><I>new</I> next instruction</B></FONT>
+    (= which is the instruction that
+    <FONT color="blue"><B>physically follows</B></FONT> the
+    fetched instruction)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is just like the 
+  <FONT color="red"><B>mechanical piano</B></FONT> where the
+  <FONT color="blue"><B>paper tape</B></FONT> will
+  <FONT color="red"><B>move forward one row</B></FONT>
+  after the piano has finish playing the
+  notes on the <FONT color="blue"><B>current row</B></FONT> !!!
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="170/FIGS/0/mechanical-piano.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+(So the piano does not play the
+ <FONT color="red"><B>same notes</B></FONT> over and over again !!!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+So this preparation will ingeniously enable the
+   <FONT color="red"><B>repetition</B></FONT> of
+  the <FONT color="blue"><B>same steps</B></FONT> to fetch
+  (and <B>execute</B>) a
+   <FONT color="red"><B><I>different</I> instruction</B></FONT>  !
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ The remaining 3 steps of the Instruction Execution Cycle are
+ responsible to execute this instruction.
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>instruction decode</B></FONT> step
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>instruction</B></FONT> is
+   represented by a
+   <FONT color="red"><B>binary pattern</B></FONT>
+  (because the computer memory can only store binary patterns)
+<P>
+ <LI> Each <FONT color="red"><B>binary pattern</B></FONT> will
+     <FONT color="blue"><B>represent</B></FONT> a certain
+     <FONT color="red"><B>computer operation</B></FONT>
+<P>
+ <LI> Before the CPU
+        can <FONT color="red"><B>perform an instruction</B></FONT>,
+      the CPU must <FONT color="blue"><B>find out</B></FONT> what is
+      the <FONT color="red"><B>instruction</B></FONT> that is
+      represented (= <B>encoded</B>) by the
+      <FONT color="blue"><B>binary pattern</B></FONT>
+<P>
+ <LI> The CPU contains <FONT color="red"><B>circuitry</B></FONT> to
+      <FONT color="blue"><B>decode</B></FONT> the
+      instruction's binary pattern - you will learn more about these
+      circuits in <FONT color="red"><B>CS 355</B></FONT>
+<P>
+ <LI> For <FONT color="red"><B>CS255</B></FONT>, you only need to know
+       that
+      in the <FONT color="blue"><B>instruction decode</B></FONT> step,
+      the CPU will find out:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="red"><B>operation</B></FONT> the CPU needs to
+       perform (e.g.: add, subtract, multiply, divide, negate,
+       logical AND, logical OR, logical NOT, etc.)
+ <LI> Which <FONT color="red"><B>operands</B></FONT> the CPU needs to
+     use in the <FONT color="blue"><B>operation</B></FONT> and
+     where to <FONT color="red"><B>store</B></FONT> the
+     <FONT color="blue"><B>result</B></FONT>
+     (e.g.: if the instruction was "add", then which 
+        input values should "add" use, and where
+        to store the sum)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>operand fetch</B></FONT> step
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> After <FONT color="red"><B>identifying</B></FONT> the
+    <FONT color="blue"><B>input operands</B></FONT> in
+    the <FONT color="red"><B><TT>instruction decode</TT></B></FONT> step,
+    the <FONT color="blue"><B><TT>operand fetch</TT></B></FONT> step
+    will <FONT color="red"><B>obtain (= fetch)</B></FONT> the
+    <FONT color="blue"><B>input values (= operands)</B></FONT> for
+    the <FONT color="red"><B>instruction</B></FONT>
+<P>
+ <LI> The <FONT color="blue"><B>values</B></FONT> are
+        transported <FONT color="red"><B>electronically</B></FONT>
+	through <FONT color="red"><B>wires</B></FONT> inside the
+	<FONT color="blue"><B>CPU</B></FONT>
+	to the <FONT color="red"><B>Arithmetic/Logic Unit (ALU)</B></FONT>
+	where the <FONT color="blue"><B>operation </B></FONT> take place
+	<P>
+   (The <FONT color="red"><B>ALU</B></FONT> contains
+   <FONT color="blue"><B>circuitry</B></FONT> to perform
+   the <FONT color="red"><B>calculations</B></FONT>)
+<P>
+<LI> When this step is <FONT color="red"><B>complete</B></FONT>, the
+    <FONT color="blue"><B>CPU</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> Have <FONT color="red"><B>determined</B></FONT> the
+       <FONT color="blue"><B>operation</B></FONT> to
+       perform
+ <LI> Obtained the
+    <FONT color="red"><B>operands</B></FONT> needed to
+    perform the
+    <FONT color="blue"><B>operation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The CPU is now ready for the
+ <FONT color="red"><B>final step</B></FONT> of the
+ <FONT color="blue"><B>Instruction Execution Cycle</B></FONT> !
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>instruction executing </B></FONT> step
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this <FONT color="red"><B>final step</B></FONT>, the
+  <FONT color="blue"><B>CPU</B></FONT> will 
+    perform the <FONT color="red"><B>operation</B></FONT> specified by
+    the <FONT color="blue"><B>instruction code</B></FONT> on the
+    <FONT color="red"><B>fetched operands</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>After</B></FONT> performing the
+    <FONT color="blue"><B>operation</B></FONT>, the
+    <FONT color="red"><B><I>result</I></B></FONT> of the
+    <FONT color="blue"><B>operation</B></FONT> will
+    be <FONT color="red"><B>saved</B></FONT> in the
+    <FONT color="blue"><B>designated register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+After the <FONT color="red"><B>instruction execution </B></FONT> step,
+ the <FONT color="blue"><B>operation</B></FONT> specified in the
+  <FONT color="red"><B>instruction</B></FONT>
+ (that was fetched in <FONT color="blue"><B>step 1</B></FONT> of the
+   <B>Instruction Execution Cycle</B>) is
+   <FONT color="red"><B>complete</B></FONT> !!
+<P>
+The <SPAN style="BACKGROUND-COLOR: yellow">
+  <FONT color="blue"><B>CPU</B></FONT> can
+  <FONT color="red"><B>discard</B></FONT> the
+  <FONT color="blue"><B>instruction</B></FONT> in the
+   <FONT color="red"><B>Instruction Register</B></FONT></SPAN>
+<P>
+  (You don't need to keep the instruction or save it back in memory, because
+  the instruction in the <B>Instruction Register</B> is
+  a <FONT color="red"><B>copy</B></FONT> transfered from memory.
+<P>
+ So just like you can <FONT color="blue"><B>discard</B></FONT> an
+   <FONT color="red"><B>meal order</B></FONT> at
+   <B>McDonalds</B> or some
+  <B>restaurant</B>   
+   <FONT color="blue"><B>after fulfilling</B></FONT> the order,
+   the <FONT color="red"><B>CPU</B></FONT> can
+   <FONT color="blue"><B>discard</B></FONT> the
+   instruction after executing (= "fulfilling") the operation !)
+<P>
+Notice that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>CPU</B></FONT>  has
+      <FONT color="blue"><B>prepared</B></FONT> itself
+      to <FONT color="red"><B>fetch</B></FONT> a
+     <FONT color="blue"><B><I>new</I> "next instruction"</B></FONT>
+   (= the instruction that follows the fetched instruction) in
+      <FONT color="red"><B>Step 1</B></FONT> of the
+      <B>Instruction Execution Cycle</B></FONT>
+ <P>
+ (This is just like the 
+  <FONT color="red"><B>mechanical piano</B></FONT> where the
+  <FONT color="blue"><B>paper tape</B></FONT> will
+  <FONT color="red"><B>move forward one row</B></FONT>
+  after the piana has finish playing the
+  notes on the <FONT color="blue"><B>current row</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>CPU</B></FONT> can now
+  <FONT color="blue"><B>repeat</B></FONT> the
+  <FONT color="red"><B>Instruction Execution Cycle</B></FONT>
+  again !!!
+<P>
+When the CPU repeats the <B>Instruction Execution Cycle</B>,
+ it will fecth a
+  <FONT color="red"><B><I>different</I> instruction</B></FONT>
+  (because the CPU has made the necessary preparation in
+   <FONT color="blue"><B>Step 1</B></FONT> !!!)
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In the <FONT color="red"><B>next webpage</B></FONT>,
+ I will illustrate the operations in
+ <FONT color="blue"><B>Instruction Execution Cycle</B></FONT> using
+ diagrams to show you how 
+ the <FONT color="red"><B>computer system</B></FONT> 
+ make this possible (so you can understand better how a
+  computer operates).
+</UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

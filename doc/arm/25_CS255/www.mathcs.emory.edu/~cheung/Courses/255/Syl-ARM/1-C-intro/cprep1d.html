@@ -1,0 +1,672 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Conditional</I> compilation
+<HR>
+</H3>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Conditionals</I> in the C pre-processor
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Conditional clause</B> of
+  the <FONT color="blue"><B>C pre-processor</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C pre-processor</B></FONT> has a
+     <FONT color="red"><B>conditional clause</B></FONT> that
+     tells the <B>C processor</B> whether it should
+     <FONT color="blue"><B><I>skip</I></B></FONT> the 
+     <B>processing</B>
+     of a <FONT color="red"><B>portion of the C program file</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <B>C pre-processor</B> has the following 
+    <FONT color="blue"><B>3 conditional </B></FONT> clauses:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>#if</TT></B></FONT>
+ <LI> <FONT color="red"><B><TT>#ifdef</TT></B></FONT>
+ <LI> <FONT color="red"><B><TT>#ifndef</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The clause <FONT color="red"><B>#if</B></font> clause
+   is <FONT color="blue"><B><I>rarely</I> used</B></FONT>....
+<P>
+I will skip it.
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red"><TT>#ifdef</TT></FONT> conditional
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <B>Syntax</B> of the <FONT color="red"><B><TT>#ifdef</TT></B></FONT>
+     conditional:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+
+<TR bgcolor="#FFEEEE"> 
+<TH>
+Syntax
+</TH> 
+<TH>
+Meaning
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  #ifdef  <FONT color="red">MACRO-NAME</FONT>
+<FONT color="darkred">
+     text segment         
+</FONT>
+  #endif
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+
+<TD align="left">
+<UL>
+<LI> If the <FONT color="red"><B><TT>MACRO-NAME</TT></B></FONT> is
+      <FONT color="blue"><B><I>defined</I></B></FONT>, then the
+     <FONT color="darkred"><B><TT>text segment</TT></B></FONT> will
+     be <FONT color="red"><B>kept (<I>not</I> removed)</B></FONT>
+     by the <B>C pre-processor</B>
+<P>
+<LI> <FONT color="blue"><B>Otherwise</B></FONT>,
+    (the <FONT color="red"><B><TT>MACRO-NAME</TT></B></FONT> is
+     <FONT color="blue"><B><I>not</I> defined</B></FONT>), then the
+     <FONT color="darkred"><B><TT>text segment</TT></B></FONT> will
+     be <FONT color="red"><B>omitted (removed)</B></FONT>
+     by the <B>C pre-processor</B>
+</UL>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  #ifdef  <FONT color="red">MACRO-NAME</FONT>
+<FONT color="darkred">
+     text segment 1        
+</FONT>
+  #else
+<FONT color="darkred">
+     text segment 2        
+</FONT>
+  #endif
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<UL>
+<LI> If the <FONT color="red"><B><TT>MACRO-NAME</TT></B></FONT> is
+     <FONT color="blue"><B><I>defined</I></B></FONT>, then the
+     <FONT color="darkred"><B><TT>text segment 1</TT></B></FONT> will
+     be <FONT color="red"><B>kept (<I>not</I> removed)</B></FONT>
+     <B><I>and</I></B>
+     the
+     <FONT color="darkred"><B><TT>text segment 2</TT></B></FONT> will
+     be <FONT color="red"><B>omitted (removed)</B></FONT>
+     by the <B>C pre-processor</B>
+<P>
+<LI> <FONT color="blue"><B>Otherwise</B></FONT>,
+    (the <FONT color="red"><B><TT>MACRO-NAME</TT></B></FONT> is
+     <FONT color="blue"><B><I>not</I> defined</B></FONT>), then the
+     <FONT color="darkred"><B><TT>text segment 2</TT></B></FONT> will
+     be <FONT color="red"><B>kept (<I>not</I> removed)</B></FONT>
+     <B><I>and</I></B>
+     the
+     <FONT color="darkred"><B><TT>text segment 1</TT></B></FONT> will
+     be <FONT color="red"><B>omitted (removed)</B></FONT>
+     by the <B>C pre-processor</B>
+</UL>
+</TD> 
+</TR>
+
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+  #ifdef  <FONT color="red">MACRO-NAME-1</FONT>
+<FONT color="darkred">
+     text segment 1        
+</FONT>
+  #elif  <FONT color="red">MACRO-NAME-2</FONT>
+<FONT color="darkred">
+     text segment 2        
+</FONT>
+ [#else
+<FONT color="darkred">
+     text segment 3</FONT>]
+
+  #endif
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+<TD align="left">
+<UL>
+<LI> If the <FONT color="red"><B><TT>MACRO-NAME-1</TT></B></FONT> is
+     <FONT color="blue"><B><I>defined</I></B></FONT>, then the
+     <FONT color="darkred"><B><TT>text segment 1</TT></B></FONT> will
+     be <FONT color="red"><B>kept (<I>not</I> removed)</B></FONT>
+     <B><I>and</I></B>
+     all other
+     <FONT color="darkred"><B><TT>text segments</TT></B></FONT> will
+     be <FONT color="red"><B>omitted (removed)</B></FONT>
+     by the <B>C pre-processor</B>
+<P>
+<LI> <FONT color="blue"><B>Otherwise</B></FONT>,
+    if the <FONT color="red"><B><TT>MACRO-NAME-2</TT></B></FONT> is
+     <FONT color="blue"><B><I>not</I> defined</B></FONT>, then the
+     <FONT color="darkred"><B><TT>text segment 2</TT></B></FONT> will
+     be <FONT color="red"><B>kept (<I>not</I> removed)</B></FONT>
+     <B><I>and</I></B>
+     all other
+     <FONT color="darkred"><B><TT>text segments</TT></B></FONT> will
+     be <FONT color="red"><B>omitted (removed)</B></FONT>
+     by the <B>C pre-processor</B>
+<P>
+<LI> <FONT color="blue"><B>And so on</B></FONT>.
+</UL>
+</TD> 
+</TR>
+
+
+
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  #define <FONT color="red">DEBUG  </FONT> <FONT color="magenta">(This defines DEBUG to be the empty string !)</FONT>
+
+   int main( )
+   {
+      int x, y;
+
+      x = 3;
+      y = 4;
+
+
+      #ifdef  <FONT color="red">DEBUG</FONT>
+      printf("x = %d\n", x);  // Print variable x for debugging    
+      printf("y = %d\n", y);  // Print variable x for debugging
+      #endif
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output</B> of the <FONT color="red"><B>C pre-processor</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( )
+{
+   int x, y;
+
+   x = 3;
+   y = 4;
+
+
+   printf("x = %d\n", x);
+   printf("y = %d\n", y);                  
+
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/ifdef1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="darkred"><B><TT>gcc <FONT color="red">-E</FONT> 
+    ifdef1.c</TT></B></FONT>
+ <P>
+ (The <FONT color="red"><B>-E</B></FONT> option tells the
+ <B>C compiler</B> to <FONT color="blue"><B>quit</B></FONT> after
+ running the <FONT color="red"><B>C pre-processor</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Experiment:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Change</B></FONT> the 
+     <FONT color="blue"><B><TT>#define</TT></B></FONT> line to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   #define  NODEBUG                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>"Re-compile"</B> the program file with:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc -E ifdef1.c            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You will <FONT color="red"><B>now</B></FONT> get
+       a <FONT color="blue"><B>program </B></FONT> 
+       <FONT color="red"><B>without</B></FONT> the
+       <FONT color="blue"><B>print statements</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+     
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining symbol using the C-compiler option
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>C-compiler</B></FONT> has
+      an <FONT color="red"><B>option</B></FONT> to
+      <FONT color="blue"><B><I>define</I></B></FONT>
+      a <B>symbol</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc   <FONT color="red">-D<FONT color="darkred">macro[=defn]</FONT></FONT>   ......                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Illustrative example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Program:</B> <FONT color="red"><B><TT>ifdef2.c</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( )
+{
+   int x, y;
+
+   x = 3;
+   y = 4;
+<FONT color="red">
+   #ifdef DEBUG
+   printf("x = %d\n", x);  // Print variable x for debugging     
+   printf("y = %d\n", y);  // Print variable x for debugging
+   #endif</FONT>
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Output</B> of
+     <FONT color="red"><B><TT>gcc -E ifdef2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( )
+{
+   int x, y;                      
+
+   x = 3;
+   y = 4;
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>because</B> the
+ <FONT color="blue"><B>symbol</B></FONT>
+ <FONT color="red"><B><TT>DEBUG</TT></B></FONT> was
+ <FONT color="blue"><B><I>not</I> defined</B></FONT> 
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>However</B></FONT>,
+    the <B>output</B> of
+     <FONT color="blue"><B><TT>gcc -E <FONT color="red">-D<FONT color="darkred">DEBUG</FONT></FONT> ifdef2.c</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( )
+{
+   int x, y;
+
+   x = 3;
+   y = 4;
+<FONT color="red">
+   printf("x = %d\n", x);
+   printf("y = %d\n", y);</FONT>                  
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>because</B> the
+ <FONT color="blue"><B>symbol</B></FONT>
+ <FONT color="red"><B><TT>DEBUG</TT></B></FONT> was
+ <FONT color="blue"><B><I>defined</I></B></FONT> 
+ by the <B>compiler option</B>
+ <FONT color="red"><B><TT>-D<FONT color="darkred">DEBUG</FONT></TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/c/Cprep/ifdef2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile:
+      <B>see above</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red">#ifndef</FONT> conditional
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B><TT>#ifndef</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>#ifndef</TT></B></FONT>
+      <B>conditional</B> is <FONT color="blue"><B>similar</B></FONT> to
+      the <FONT color="red"><B><TT>#ifdef</TT></B></FONT>, except
+      the <FONT color="blue"><B>meaning</B></FONT> is
+      <B><I>reversed</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #ifndef  <FONT color="red">MACRO-NAME</FONT>                 
+<FONT color="darkred">
+        text segment
+</FONT>
+   #endif
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B><TT>text segment</TT></B></FONT> is
+ <B>kept</B> when the
+ macro name <FONT color="red"><B><TT>MACR-NAME</TT></B></FONT>
+ is <FONT color="blue"><B><I>not</I> defined</B></FONT>
+<P>
+The <FONT color="red"><B><TT>text segment</TT></B></FONT> is
+ <B>omitted</B> <FONT color="magenta"><B>otherwise</B></FONT>
+  (when the
+ macro name <FONT color="red"><B><TT>MACR-NAME</TT></B></FONT>
+ is <FONT color="blue"><B>defined</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

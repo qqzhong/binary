@@ -1,0 +1,474 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction: parameter passing techniques
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review:</FONT> parameter passing techniques
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Hopefull</B></FONT>, you have 
+       learned the
+       <FONT color="blue"><B>2 most common</B></FONT>
+       <FONT color="red"><B>parameter passing techniques</B></FONT>
+       in <FONT color="blue"><B>CS170/CS171</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Pass-by-value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>value</I></B></FONT> of the
+   <FONT color="blue"><B>parameter variable</B></FONT> is
+   <FONT color="red"><B>passed (= copied)</B></FONT> to
+   the <FONT color="blue"><B>method/function</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Pass-by-reference</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>address</I> (= reference)</B></FONT> of the
+   <FONT color="blue"><B>parameter variable</B></FONT> is
+   <FONT color="red"><B>passed (= copied)</B></FONT> to
+   the <FONT color="blue"><B>method/function</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I said <FONT color="red"><B>hopefully</B></FONT>, because 
+ <FONT color="blue"><B>CS170/CS171</B></FONT> uses
+ <FONT color="red"><B>Java</B></FONT> and:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Java</B></FONT> 
+    can  <FONT color="blue"><B>only</B></FONT> pass
+     parameters
+     <FONT color="red"><B>by <I>value</I></B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Anyway, I like to 
+ <FONT color="red"><B>show</B></FONT> you the
+  <FONT color="blue"><B>effect</B></FONT>
+  of these
+  <FONT color="red"><B>dufferent ways</B></FONT>
+  to  <FONT color="blue"><B>pass parameters</B></FONT>
+  in <FONT color="red"><B>C++</B></FONT>
+<P>
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The effect of passing a parameter by value
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Pass-by-value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>parameter variable</B></FONT> is
+    <FONT color="blue"><B>passed</B></FONT> by
+     <FONT color="red"><B>value</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>program</B></FONT> make
+      a <FONT color="blue"><B>copy</B></FONT> of the
+      <FONT color="red"><B>(parameter) variable</B></FONT>
+      and give it to the <FONT color="blue"><B>function</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>function</B></FONT> can only
+     <FONT color="blue"><B>update</B></FONT> the
+     <FONT color="red"><B>copy</B></FONT> 
+ <P>
+  The <FONT color="red"><B><I>original</I> variable</B></FONT> 
+  <FONT color="blue"><B>cannot</B></FONT> be
+  <FONT color="red"><B>updated</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example</B> of
+   <FONT color="red"><B>pass-bu-value</B></FONT> in
+   <FONT color="blue"><B>C++</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int <FONT color="red">a</FONT>)				// Var a is passed by value
+    {
+       <FONT color="red">a = a + 1</FONT>;
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+     
+       cout << "before f( ): " << k << endl;    // Prints: 7
+     
+       f(k);
+     
+       cout << "after  f( ): " << k << endl;    // Prints: 7 (k unchanged !)   
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In this program, the
+ <FONT color="blue"><B>function <TT>f(a)</TT></B></FONT> updates
+ the <FONT color="red"><B>parameter variable <TT>a</TT></B></FONT>.
+<P>
+<FONT color="red"><B>Due to the fact</B></FONT> that
+ the <FONT color="blue"><B>parameter <TT>a</TT></B></FONT> is
+ <FONT color="red"><B>passed-by-value</B></FONT>,
+ the <FONT color="blue"><B>effect</B></FONT> of this
+  <FONT color="red"><B>update</B></FONT> will be:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>copy</B></FONT>
+ (= the <FONT color="blue"><B>parameter variable</B></FONT> in
+   <FONT color="red"><B><TT>f( )</TT></B></FONT>) is
+     <FONT color="blue"><B>updated</B></FONT>
+ <LI> The <FONT color="red"><B>original variable </B></FONT>
+   (= the <FONT color="blue"><B> variable</B></FONT> in
+   <FONT color="red"><B><TT>main( )</TT></B></FONT>) is
+     <FONT color="blue"><B><I>not</I> updated</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/A-pass-by-ref/pass-by-value.C
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>g++  -o pass-by-value
+      pass-by-value.C</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>pass-by-value</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The effect of passing a parameter by <FONT color="red">reference</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Pass-by-reference</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When a <FONT color="red"><B>parameter variable</B></FONT> is
+    <FONT color="blue"><B>passed</B></FONT> by
+     <FONT color="red"><B>reference</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>program</B></FONT> make
+      a <FONT color="blue"><B>copy</B></FONT> of the
+      <FONT color="red"><B><I>address</I> of the (parameter)
+        variable</B></FONT>
+      and give it to the <FONT color="blue"><B>function</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>function</B></FONT> will 
+     <FONT color="blue"><B>use the <I>address</I>
+     of the variable</B></FONT> to
+     <FONT color="red"><B>access</B></FONT> and
+     <FONT color="blue"><B>update</B></FONT> the
+     <FONT color="red"><B><I>original</I> variable</B></FONT> 
+ <P>
+  The <FONT color="red"><B><I>original</I> variable</B></FONT> 
+  <FONT color="blue"><B>can</B></FONT> be
+  <FONT color="red"><B>updated</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example</B> of
+   <FONT color="red"><B>pass-by-reference</B></FONT> in
+   <FONT color="blue"><B>C++</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    #include &lt;iostream>
+     
+    using  namespace  std;
+     
+    /* ====================================================
+       Function with a parameter that is passed by value
+       ==================================================== */
+    void  f(int <FONT color="red">& a</FONT>)				// Var a is passed by reference
+    {
+       <FONT color="red">a = a + 1</FONT>;
+    }
+     
+    int main(int argc, char *argv[])
+    {
+       int k = 7;
+     
+       cout << "before f( ): " << k << endl;    // Prints: 7
+     
+       f(k);
+     
+       cout << "after  f( ): " << k << endl;    //<FONT color="red"> Prints: 8 (k changed !) </FONT>  
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In this program, the
+ <FONT color="blue"><B>function <TT>f(a)</TT></B></FONT> updates
+ the <FONT color="red"><B>parameter variable <TT>a</TT></B></FONT>.
+<P>
+<FONT color="red"><B>Due to the fact</B></FONT> that
+ the <FONT color="blue"><B>parameter <TT>a</TT></B></FONT> is
+ <FONT color="red"><B>passed-by-reference</B></FONT>,
+ the <FONT color="blue"><B>effect</B></FONT> of this
+  <FONT color="red"><B>update</B></FONT> will be:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> The <FONT color="red"><B>original variable </B></FONT>
+   (= the <FONT color="blue"><B> variable</B></FONT> in
+   <FONT color="red"><B><TT>main( )</TT></B></FONT>) is
+     <FONT color="blue"><B><I>updated</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/A-pass-by-ref/pass-by-ref.C
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>g++  -o pass-by-ref
+      pass-by-ref.C</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>pass-by-ref</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

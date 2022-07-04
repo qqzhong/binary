@@ -1,0 +1,348 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Storing</I> the 
+result of reference (&) operator in reference data typed variables
+<HR>
+</H3>
+
+
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assigning a <I>reference</I> value to a reference variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>reference <I>operator</I>
+     &</B></FONT>
+      <B>"computes" (returns)</B> the
+      <FONT color="red"><B><I>address</I> of a variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int a = 7;
+
+    <FONT color="red">&a</FONT>     returns: the <FONT color="red">address</FONT> of the variable a        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Because</B> the <FONT color="blue"><B>variable <TT>a</TT></B></FONT>
+   is of the type <B><TT>int</TT></B>, the 
+   <FONT color="red"><B>address <TT>&a</TT></B></FONT>
+   is an <B>address</B> of an
+   <FONT color="blue"><B><TT>int</TT> typed variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> We have <B>just</B> learned how to
+    <B>define</B> a <FONT color="blue"><B>variable</B></FONT> where you can
+    store an
+    <FONT color="red"><B>address </B></FONT>
+  of an
+   <FONT color="blue"><B><TT>int</TT> typed variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int  *</FONT>p ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> So now it should <FONT color="red"><B>obvious</B></FONT>
+     that you can
+     <FONT color="blue"><B>assign</B></FONT> a 
+     <FONT color="red"><B>reference value</B></FONT> to a
+     <FONT color="blue"><B>reference <I>typed</I> variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int a = 7;  // an <FONT color="red">int typed</FONT> variable
+               //<FONT color="red"> &a</FONT>  = the <FONT color="red">address</FONT> of a int typed variable
+
+   <FONT color="red">int *</FONT>p;     // p can hold an <FONT color="red">address</FONT> of an <FONT color="red">int typed</FONT> variable
+               // Therefore: p can store &a !!!
+
+
+   <FONT color="red">p = &a;</FONT>     // Store the address of the int type variable a in p    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>result</B></FONT> of the
+   <FONT color="blue"><B>assignment statement</B></FONT>
+  <FONT color="red"><B><TT>p = &a</TT></B></FONT> is
+   graphically depicted in the following
+  <FONT color="blue"><B>diagram</B></FONT>
+  (assuming the the
+  <FONT color="red"><B>variable <TT>a</TT></B></FONT> is
+  stored at  address 4000</B></FONT> in memory):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>statement</B></FONT>
+     <FONT color="blue"><B><TT>p = &a</TT></B></FONT> will
+    make the <FONT color="red"><B>reference variable <TT>p</TT></B></FONT>
+    <FONT color="blue"><B>point</B></FONT> to the
+    <FONT color="red"><B><TT>int</TT> typed variable <TT>a</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+We will learn to
+ <FONT color="red"><B>use</B></FONT> a
+ <FONT color="blue"><B>reference variable</B></FONT> in
+ the <FONT color="red"><B>next webpage</B></FONT>
+<P>
+Before we do this, I need to
+ show you an
+  <FONT color="red"><B>important fact</B></FONT> about
+ <FONT color="blue"><B>reference variables</B></FONT> first - see below.
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important: reference variable <FONT color="red">must</FONT> 
+     point to the same type of variables as themselves 
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Very important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int   *</FONT>p;     // <FONT color="red">p</FONT> can only point to an <FONT color="red">int   typed</FONT> variable
+
+   <FONT color="red">float *</FONT>q;     // <FONT color="red">q</FONT> can only point to a  <FONT color="red">float typed</FONT> variable   
+
+   etc !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> this
+ <FONT color="red"><B>assignment </B></FONT> will
+  cause an <FONT color="blue"><B>compile error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int   x = 4;
+    float y = 88;
+
+    int   *p;
+    float *q;   
+
+    p = &x;      // int   ref p points to int   variable x - OK 
+    q = &y;      // float ref q points to float variable y - OK 
+
+    p = &y;      // int   ref p points to float variable y - <FONT color="red">Error</FONT>
+    q = &x;      // float ref q points to int   variable x - <FONT color="red">Error</FONT>       
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Compiler messages:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5555)> gcc ref-var3.c
+
+ref-var3.c:15:7: warning: assignment from <FONT color="red">incompatible pointer type</FONT> [-Wincompatible-pointer-types]
+     p = &y;      // int   ref p points to float variable y - Error
+       ^
+ref-var3.c:16:7: warning: assignment from <FONT color="red">incompatible pointer type</FONT> [-Wincompatible-pointer-types]
+     q = &x;      // float ref q points to int   variable x - Error     
+       ^ 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/ref-var3.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-var3.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Check error messages
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

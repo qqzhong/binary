@@ -1,0 +1,305 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting a 1 digit decimal number to ASCII representation 
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The simple case of
+     converting  ASCII representation -> 2's complement representation
+     </B></FONT>
+<P>
+<UL>
+<LI> Let's first study the following problem:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose we want to <FONT color="blue"><B>print</B></FONT> a
+      <FONT color="red"><B>(binary) number</B></FONT>
+      that is <FONT color="blue"><B>between 0 and 9</B></FONT>
+    (i.e.: a <FONT color="red"><B>single digit decimal number</B></FONT>).
+ <P>
+   I.e.: we <FONT color="red"><B>only</B></FONT> want to
+    print  one of the following
+    <FONT color="blue"><B>binary numbers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      00000000  00000001  00000010  00000011  00000100  
+      00000101  00000110  00000111  00001000  00001001             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These <FONT color="red"><B>2's complement codes</B></FONT> represents
+ the values <FONT color="blue"><B>
+  zero, one, two, ..., nine</B></FONT>
+<P>
+ <LI> Write a <FONT color="blue"><B>Java program</B></FONT> that
+      converts <B>any</B> of these
+      <FONT color="red"><B>10 values</B></FONT> into
+      their corresponding
+      <FONT color="blue"><B>ASCII character codes</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+
+ <P>
+<LI>  We must perform the following
+     <FONT color="red"><B>10 conversions</B></FONT>:
+<P>
+
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        <FONT color="red">Input</FONT>                             <FONT color="red">Output</FONT>
+    2's complement (int) code          ASCII character code
+   ---------------------------     -------------------------------------     
+       00000000  (zero)        -->  00110000<sub>(2)</sub> = 48<sub>(10)</sub> (character '0')
+       00000001  (one)         -->  00110001<sub>(2)</sub> = 49<sub>(10)</sub> (character '1')
+       00000010  (two)         -->  00110010<sub>(2)</sub> = 50<sub>(10)</sub> (character '2')
+       00000011  (three)       -->  00110011<sub>(2)</sub> = 51<sub>(10)</sub> (character '3')
+       00000100  (four)        -->  00110100<sub>(2)</sub> = 52<sub>(10)</sub> (character '4')
+       00000101  (five)        -->  00110101<sub>(2)</sub> = 53<sub>(10)</sub> (character '5')
+       00000110  (six)         -->  00110110<sub>(2)</sub> = 54<sub>(10)</sub> (character '6')
+       00000111  (seven)       -->  00110111<sub>(2)</sub> = 55<sub>(10)</sub> (character '7')
+       00001000  (eight)       -->  00111000<sub>(2)</sub> = 56<sub>(10)</sub> (character '8')
+       00001001  (nine)        -->  00111001<sub>(2)</sub> = 57<sub>(10)</sub> (character '9')
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>output</B></FONT> of the
+ <FONT color="blue"><B>conversion</B></FONT> can
+ be accomplished by the following
+ <FONT color="red"><B>mapping operation</B></FONT>
+ (because the ASCII codes are consecutive):
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       <FONT color="red">ASCII code = 2's complement code + 48</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+
+Here is a <FONT color="red"><B>Java program</B></FONT>
+ uses the above
+  <FONT color="red"><B>mapping function</B></FONT> to convert
+  an <FONT color="blue"><B><TT>int</TT> (2's complement code)</B></FONT>
+    to a
+ <FONT color="red"><B>String</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// File:  /home/cs255001/demo/atoi/JavaOutput_2.java
+//
+// Converting a binary number between 0 and 9 to a String
+//
+
+public class JavaOutput_2
+{
+   public static void main(String[] args)  throws Exception
+   {
+      int i;
+      char[] c = new char[1];         // char array of size 1
+                                      // (because we only have 1 character)
+
+      <FONT color="red">i = 4;                  // *** Change to any value between 0 and 9</FONT>
+
+      c[0] = (char) <FONT color="red">(i + 48)</FONT>;  // c is equal to ASCII code for the number !
+
+      /* ---------------------------------------------
+         Make a string out of the character(s)
+         ---------------------------------------------- */
+      String s = new String(c);
+
+      System.out.println(">>> " + s);
+<FONT color="red">
+      /* ---------------------------------------------
+         Prove to students that s is a string
+         ---------------------------------------------- */
+      s = s + " - hello, this is a string !";
+      System.out.println(">>> " + s);</FONT>
+
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+ 
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Get a copy from:
+    <FONT color="red"><B><TT>/home/cs255001/demo/atoi/JavaOutput_2.java
+   </TT></B></FONT>
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac JavaOutput_2.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java JavaOutput_2</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can <FONT color="red"><B>change</B></FONT> the
+  statement 
+  <FONT color="blue"><B><TT>i = 4;</TT></B></FONT> to
+  any value between 0 and 9.
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Quiz</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>can</B></FONT> give 
+  <FONT color="blue"><B><TT>i</TT></B></FONT> a
+ value 
+ <FONT color="red"><B>larger than 9</B></FONT>, but you will get
+ some strange.
+<P>
+Try to figure out why for
+  <FONT color="red"><B><TT>i = 10;</TT></B></FONT>,
+  the program will print
+  <FONT color="blue"><B>: (colon)</B></FONT>.
+<P>
+Hint: look in the <FONT color="red"><B>ASCII table</B></FONT>...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Answer:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When <FONT color="red"><B><TT>i = 10</TT></B></FONT>, the
+      program will print the
+    <FONT color="blue"><B>character</B></FONT> that 
+    <FONT color="red"><B>corresponds</B></FONT> to
+    the <FONT color="blue"><B>ASCII code value 10 + 48 = 58</B></FONT>
+ <P>
+ According to the
+  <FONT color="red"><B>ASCII table</B></FONT>,
+   the <FONT color="blue"><B>ASCII code 58</B></FONT> 
+   <FONT color="red"><B>represents</B></FONT> the
+   <FONT color="blue"><B>character :</B></FONT>
+ <P>
+ That's why you see <FONT color="red"><B>:</B></FONT> printed
+  by the program.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

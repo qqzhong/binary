@@ -1,0 +1,1673 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Assembler programming examples of accessing array
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> We now have learned everything neccessary to
+     write <FONT color="red"><B>ARM assembler program codes</B></FONT> to
+     <FONT color="blue"><B>access and update</B></FONT>
+     <FONT color="red"><B>array elements</B></FONT>
+<P>
+I will show you  <FONT color="red"><B>4 different
+ assembler programs programs</B></FONT>.
+<P>
+These <FONT color="red"><B>demo programs</B></FONT> are found in the
+ <FONT color="blue"><B>demo directory</B></FONT>
+ <FONT color="red"><B><TT>/home/cs255001/demo/asm/3-array</TT></B></FONT>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Demo program <FONT color="red"><TT>array-ldr1.s</TT></FONT>:
+      moving array elements into a register (for later computation)
+	- constant array index
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="blue"><B>demo program</B></FONT> 
+       <FONT color="red"><B><TT>array-ldr1.s</TT></B></FONT>
+       show you
+       the <FONT color="blue"><B>assembler coding techniques</B></FONT>
+       to
+       move <FONT color="red"><B>array elements</B></FONT> of
+       different data types in a
+       <FONT color="blue"><B>register</B></FONT>
+       (so you can use the value in the array element
+       in further computation)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I have <FONT color="red"><B>define</B></FONT> the following
+    <FONT color="blue"><B>arrays</B></FONT> in this assembler program:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   byte  A[5] = {11, 12, 13, 14, 15};           // byte  typed array with 5 elements   
+   short B[5] = {111, 112, 113, 114, 115};      // short typed array with 5 elements
+   int   C[5] = {1111, 1112, 1113, 1114, 1115}; // int   typed array with 5 elements
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> I wrote <FONT color="red"><B>assembler code</B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move the <FONT color="red"><B><TT>byte</TT> value
+     <TT>A[3]</TT></B></FONT> into
+     the <FONT color="blue"><B>register <TT>r2</TT></B></FONT>
+ <LI> Move the <FONT color="red"><B><TT>short</TT> value
+     <TT>B[3]</TT></B></FONT> into
+     the <FONT color="blue"><B>register <TT>r3</TT></B></FONT>
+ <LI> Move the <FONT color="red"><B><TT>int</TT> value
+     <TT>C[3]</TT></B></FONT> into
+     the <FONT color="blue"><B>register <TT>r4</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>array-ldr1.s</TT></B></FONT> program
+   is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ // The .text segment
+        .text
+main:
+// ============================================================ A[3]
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = base address of array A
+
+                                        // Address of A[3] = base addr + 3*1
+        ldrsb   r2, [r0, #3]            // Load A[3] into r2
+
+// ============================================================ B[3]
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B         // r0 = base address of array B
+
+                                        // Address of B[3] = base addr + 3*2
+        ldrsh   r3, [r0, #6]            // Load B[3] into r3
+
+// ============================================================ C[3]
+        movw    r0, #:lower16:C
+        movt    r0, #:upper16:C         // r0 = base address of array C
+
+                                        // Address of C[3] = base addr + 3*4
+        ldr     r4, [r0, #12]           // Load C[3] into r4
+
+
+// **********************************************************************
+// The .data segment
+// **********************************************************************
+        .data
+<FONT color="red">A:</FONT>      .byte   11, 12, 13, 14, 15     // byte typed initialzied array A
+
+        .align 1
+<FONT color="red">B:</FONT>      .2byte  111, 112, 113, 114, 115 // short typed initialzied array B
+
+        .align 2
+<FONT color="red">C: </FONT>     .4byte  1111, 1112, 1113, 1114, 1115 // int typed initialzied array C
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> How to move the 
+     <FONT color="red"><B><TT>byte</TT> value <TT>A[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r2</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>A</TT></B></FONT>
+      into some <B>free</B> register 
+     (I used <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:A
+  movt    r0, #:upper16:A         // r0 = base address of array A
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>constant (= 3)</B></FONT>, we can
+    <FONT color="red"><B>pre-compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of A[3] = 3 * size(one array element)         
+                    = 3 * 1
+		    = 3
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+So this instruction will
+ move the 
+     <FONT color="red"><B><TT>byte</TT> value <TT>A[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r2</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ldrsb   r2, [r0, #3]            // Load A[3] into r2   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+
+ <LI> How to move the 
+     <FONT color="red"><B><TT>short</TT> value <TT>B[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r3</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>B</TT></B></FONT>
+      into some <B>free</B> register 
+     (I <B>re-used</B> <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:B
+  movt    r0, #:upper16:B         // r0 = base address of array B
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>constant (= 3)</B></FONT>, we can
+    <FONT color="red"><B>pre-compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of B[3] = 3 * size(one array element)    // short is 2 bytes     
+                    = 3 * <FONT color="red">2</FONT>
+		    = <FONT color="red">6</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So this instruction will
+ move the  
+     <FONT color="red"><B><TT>short</TT> value <TT>B[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r3</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">ldrsh</FONT>   r3, [r0, <FONT color="red">#6</FONT>]            // Load B[3] into r3   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+
+ <LI> How to move the 
+     <FONT color="red"><B><TT>int</TT> value <TT>C[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r4</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>C</TT></B></FONT>
+      into some <B>free</B> register 
+     (I <B>re-used</B> <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:C
+  movt    r0, #:upper16:C         // r0 = base address of array C
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>constant (= 3)</B></FONT>, we can
+    <FONT color="red"><B>pre-compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of B[3] = 3 * size(one array element)    // int is 4 bytes     
+                    = 3 * <FONT color="red">4</FONT>
+		    = <FONT color="red">12</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So this instruction will
+ move the  
+     <FONT color="red"><B><TT>int</TT> value <TT>C[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r4</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">ldr</FONT>   r4, [r0, <FONT color="red">#12</FONT>]            // Load C[3] into r4   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will show you the <FONT color="red"><B>demo</B></FONT>
+ in class.....
+
+<P>
+
+
+
+
+ </UL>
+
+
+
+
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Demo program <FONT color="red"><TT>array-str1.s</TT></FONT>:
+      updating array elements with a value in a register 
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="blue"><B>demo program</B></FONT> 
+       <FONT color="red"><B><TT>array-str1.s</TT></B></FONT>
+       show you
+       the <FONT color="blue"><B>assembler coding techniques</B></FONT>
+       to
+       update <FONT color="red"><B>array elements</B></FONT> of
+       different data types using a value stored in a
+       <FONT color="blue"><B>register</B></FONT>
+       (i.e.: saving the computaion result in memory)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I have <FONT color="red"><B>define</B></FONT> the following
+    <FONT color="blue"><B>arrays</B></FONT> in this assembler program:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   byte  A[5] = {11, 12, 13, 14, 15};           // byte  typed array with 5 elements   
+   short B[5] = {111, 112, 113, 114, 115};      // short typed array with 5 elements
+   int   C[5] = {1111, 1112, 1113, 1114, 1115}; // int   typed array with 5 elements
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> I wrote <FONT color="red"><B>assembler code</B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Update</B> the <FONT color="red"><B><TT>byte</TT> value
+     <TT>A[3]</TT></B></FONT> with the value in
+     the <FONT color="blue"><B>register <TT>r1</TT></B></FONT>
+ <LI> <B>Update</B> the <FONT color="red"><B><TT>short</TT> value
+     <TT>B[3]</TT></B></FONT> with the value in
+     the <FONT color="blue"><B>register <TT>r1</TT></B></FONT>
+ <LI> <B>Update</B> the <FONT color="red"><B><TT>int</TT> value
+     <TT>C[3]</TT></B></FONT> with the value in
+     the <FONT color="blue"><B>register <TT>r1</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>array-str1.s</TT></B></FONT> program
+   is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ // The .text segment
+	.text
+main:
+// ==================== I put an arbitrary value in reg r1 
+        mov     r1, #44         // Value to be stored
+
+// ============================================================ A[3]
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = base address of array A
+
+                                        // Address of A[3] = base addr + 3*1
+        strb    r1, [r0, #3]            // Store r1 into A[3] (byte)
+
+// ============================================================ B[3]
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B         // r0 = base address of array B
+
+                                        // Address of B[3] = base addr + 3*2
+        strh    r1, [r0, #6]            // Store r1 into B[3] (short)
+
+// ============================================================ C[3]
+        movw    r0, #:lower16:C
+        movt    r0, #:upper16:C         // r0 = base address of array C
+
+                                        // Address of C[3] = base addr + 3*4
+        str     r1, [r0, #12]           // Store r1 into C[3] (int)
+
+
+// **********************************************************************
+// The .data segment
+// **********************************************************************
+        .data
+<FONT color="red">A:</FONT>      .byte   11, 12, 13, 14, 15     // byte typed initialzied array A
+
+        .align 1
+<FONT color="red">B:</FONT>      .2byte  111, 112, 113, 114, 115 // short typed initialzied array B
+
+        .align 2
+<FONT color="red">C: </FONT>     .4byte  1111, 1112, 1113, 1114, 1115 // int typed initialzied array C
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> How to <B>update</B> the 
+     <FONT color="red"><B><TT>byte</TT> value <TT>A[3]</TT> </B></FONT>
+    with the value in <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>A</TT></B></FONT>
+      into some <B>free</B> register 
+     (I used <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:A
+  movt    r0, #:upper16:A         // r0 = base address of array A
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>constant (= 3)</B></FONT>, we can
+    <FONT color="red"><B>pre-compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of A[3] = 3 * size(one array element)         
+                    = 3 * 1
+		    = 3
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So this instruction will
+ <B>update</B> the 
+     <FONT color="red"><B><TT>byte</TT> value <TT>A[3]</TT> </B></FONT>
+    with the value in <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    strb   r1, [r0, #3]            // Store r1 into A[3] (byte)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+
+ <LI> How to <B>update</B> the 
+     <FONT color="red"><B><TT>short</TT> value <TT>B[3]</TT> </B></FONT>
+    with the value in <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>B</TT></B></FONT>
+      into some <B>free</B> register 
+     (I <B>re-used</B> <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:B
+  movt    r0, #:upper16:B         // r0 = base address of array B
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>constant (= 3)</B></FONT>, we can
+    <FONT color="red"><B>pre-compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of B[3] = 3 * size(one array element)    // short is 2 bytes     
+                    = 3 * <FONT color="red">2</FONT>
+		    = <FONT color="red">6</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So this instruction will
+ <B>update</B> the 
+     <FONT color="red"><B><TT>short</TT> value <TT>B[3]</TT> </B></FONT>
+    with the value in <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    strh   r1, [r0, <FONT color="red">#6</font>]            // Store r1 into A[3] (byte)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+
+ <LI> How to <B>update</B> the 
+     <FONT color="red"><B><TT>int</TT> value <TT>C[3]</TT> </B></FONT>
+    with the value in <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>C</TT></B></FONT>
+      into some <B>free</B> register 
+     (I <B>re-used</B> <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:C
+  movt    r0, #:upper16:C         // r0 = base address of array C
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>constant (= 3)</B></FONT>, we can
+    <FONT color="red"><B>pre-compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of B[3] = 3 * size(one array element)    // int is 4 bytes     
+                    = 3 * <FONT color="red">4</FONT>
+		    = <FONT color="red">12</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So this instruction will
+ <B>update</B> the 
+     <FONT color="red"><B><TT>int</TT> value <TT>C[3]</TT> </B></FONT>
+    with the value in <FONT color="blue"><B>register <TT>r1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">str</FONT>   r1, [r0, <FONT color="red">#12</FONT>]            // Load C[3] into r4   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+I will show you the <FONT color="red"><B>demo</B></FONT>
+ in class.....
+ </UL>
+
+
+
+
+
+
+
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Demo program <FONT color="red"><TT>array-ldr2.s</TT></FONT>:
+      moving array elements into a register (for later computation)
+	- <I>variable</I> array index
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="blue"><B>demo program</B></FONT> 
+       <FONT color="red"><B><TT>array-ldr2.s</TT></B></FONT>
+       show you
+       the <FONT color="blue"><B>assembler coding techniques</B></FONT>
+       to
+       move <FONT color="red"><B>array elements</B></FONT> of
+       different data types in a
+       <FONT color="blue"><B>register</B></FONT>
+       (so you can use the value in the array element
+       in further computation)
+ <P>
+ This program uses a variable as array index.
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I have <FONT color="red"><B>define</B></FONT> the <B>same</B>
+    <FONT color="blue"><B>arrays</B></FONT> in this assembler program:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   byte  A[5] = {11, 12, 13, 14, 15};           // byte  typed array with 5 elements   
+   short B[5] = {111, 112, 113, 114, 115};      // short typed array with 5 elements
+   int   C[5] = {1111, 1112, 1113, 1114, 1115}; // int   typed array with 5 elements
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> I wrote <FONT color="red"><B>assembler code</B></FONT> to:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Move the <FONT color="red"><B><TT>byte</TT> value
+     <TT>A[k]</TT></B></FONT> into
+     the <FONT color="blue"><B>register <TT>r2</TT></B></FONT>
+ <LI> Move the <FONT color="red"><B><TT>short</TT> value
+     <TT>B[k]</TT></B></FONT> into
+     the <FONT color="blue"><B>register <TT>r3</TT></B></FONT>
+ <LI> Move the <FONT color="red"><B><TT>int</TT> value
+     <TT>C[k]</TT></B></FONT> into
+     the <FONT color="blue"><B>register <TT>r4</TT></B></FONT>
+ <P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ The variable 
+ <FONT color="red"><B><TT>int k</TT></B></FONT>
+ is initialized with some 
+ <FONT color="blue"><B>arbitrary value</B></FONT>.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><TT>array-ldr2.s</TT></B></FONT> program
+   is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ // The .text segment
+	.text
+main:
+// ============================================================ A[3]
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = base address of array A
+
+        movw    r1, #:lower16:k
+        movt    r1, #:upper16:k         // r1 = address of k
+        ldr     r1, [r1]                // r1 = value in variable k
+                                        // Comment: use ldrsh if k is short !
+                                        //          use ldrsb if k is byte !
+
+                                        // Address of A[3] = base addr + k*1
+        ldrsb   r2, [r0, r1]            // Load A[k] into r2
+
+// ============================================================ B[3]
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B         // r0 = base address of array B
+
+        movw    r1, #:lower16:k
+        movt    r1, #:upper16:k         // r1 = address of k
+        ldr     r1, [r1]                // r1 = value in variable k
+                                        // Comment: use ldrsh if k is short !
+                                        //          use ldrsb if k is byte !
+
+                                        // Address of B[3] = base addr + k*2
+        add     r1, r1, r1              // r1 = k+k = 2*k
+        ldrsh   r3, [r0, r1]            // Load B[3] into r3
+
+// ============================================================ C[3]
+        movw    r0, #:lower16:C
+        movt    r0, #:upper16:C         // r0 = base address of array C
+
+        movw    r1, #:lower16:k
+        movt    r1, #:upper16:k         // r1 = address of k
+        ldr     r1, [r1]                // r1 = value in variable k
+                                        // Comment: use ldrsh if k is short !
+                                        //          use ldrsb if k is byte !
+
+                                        // Address of C[3] = base addr + k*4
+        add     r1, r1, r1              // r1 = k+k = 2*k
+        add     r1, r1, r1              // r1 = 2*k + 2*k = 4*k
+        ldr     r4, [r0, #12]           // Load C[3] into r4
+
+
+// **********************************************************************
+// The .data segment
+// **********************************************************************
+        .data
+<FONT color="red">A:</FONT>      .byte   11, 12, 13, 14, 15     // byte typed initialzied array A
+
+        .align 1
+<FONT color="red">B:</FONT>      .2byte  111, 112, 113, 114, 115 // short typed initialzied array B
+
+        .align 2
+<FONT color="red">C: </FONT>     .4byte  1111, 1112, 1113, 1114, 1115 // int typed initialzied array C
+
+<FONT color="red">k:</font>      .4byte  3	<FONT color="red">// This value is arbitrary</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> How to move the 
+     <FONT color="red"><B><TT>byte</TT> value <TT>A[k]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r2</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>A</TT></B></FONT>
+      into some <B>free</B> register 
+     (I used <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:A
+  movt    r0, #:upper16:A         // r0 = base address of array A
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>variable (<TT>k</TT>)</B></FONT>, so we must
+    <FONT color="red"><B>compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT> with the
+	value stored in the
+	 <FONT color="red"><B>variable <TT>k</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of A[k] = k * size(one array element)         
+                    = k * 1
+		    = k
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We first <FONT color="red"><B>read</B></FONT> the
+  <FONT color="blue"><B>value</B></FONT> stored in the
+ <FONT color="red"><B>variable <TT>k</TT></B></FONT> into
+ <B>another</B> register (I used <FONT color="blue"><B><TT>r1</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r1, #:lower16:k
+  movt    r1, #:upper16:k         // r1 = address of k
+  ldr     r1, [r1]                // r1 = value in variable k
+                                  // Comment: use ldrsh if k is short !     
+                                  //          use ldrsb if k is byte !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We should <FONT color="red"><B>multiply with the
+  <TT>size(byte) = 1</TT></B></FONT>; but
+ since multiplying with <FONT color="blue"><B>1</B></FONT> will
+ not change the result, we have found the offset.
+<P>
+
+Then this instruction will
+ move the 
+     <FONT color="red"><B><TT>byte</TT> value <TT>A[k]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r2</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ldrsb   r2, [r0, r1]            // Load A[k] into r2   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+
+ <LI> How to move the 
+     <FONT color="red"><B><TT>short</TT> value <TT>B[k]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r3</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>B</TT></B></FONT>
+      into some <B>free</B> register 
+     (I <B>re-used</B> <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:B
+  movt    r0, #:upper16:B         // r0 = base address of array B
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>variable (<TT>k</TT>)</B></FONT>, so we must
+    <FONT color="red"><B>compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT> with the
+	value stored in the
+	 <FONT color="red"><B>variable <TT>k</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of B[k] = k * size(one array element)         
+                    = k * 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We first <FONT color="red"><B>read</B></FONT> the
+  <FONT color="blue"><B>value</B></FONT> stored in the
+ <FONT color="red"><B>variable <TT>k</TT></B></FONT> into
+ <B>another</B> register (I used <FONT color="blue"><B><TT>r1</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r1, #:lower16:k
+  movt    r1, #:upper16:k         // r1 = address of k
+  ldr     r1, [r1]                // r1 = value in variable k
+                                  // Comment: use ldrsh if k is short !     
+                                  //          use ldrsb if k is byte !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Then compute the
+ <FONT color="blue"><B>offset</B></FONT> 
+ <FONT color="red"><B><TT>k*2</TT></B></FONT>...
+ we can use an <FONT color="blue"><B>addition operation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   add     r1, r1, r1              // r1 = k+k = 2*k        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+<P>
+Then this instruction will
+ move  the 
+     <FONT color="red"><B><TT>short</TT> value <TT>B[k]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r3</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">ldrsh</FONT>   r3, [r0, <FONT color="red">r1</FONT>]            // Load B[k] into r3   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+
+ <LI> How to move the 
+     <FONT color="red"><B><TT>int</TT> value <TT>C[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r4</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> We first move the
+      <FONT color="red"><B>base address </B></FONT> of
+      the <FONT color="blue"><B>array <TT>C</TT></B></FONT>
+      into some <B>free</B> register 
+     (I <B>re-used</B> <FONT color="red"><B><TT>r0</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r0, #:lower16:C
+  movt    r0, #:upper16:C         // r0 = base address of array C
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<LI> Because the <FONT color="red"><B>index</B></FONT> is
+    a <FONT color="blue"><B>variable (<TT>k</TT>)</B></FONT>, so we must
+    <FONT color="red"><B>compute</B></FONT> the
+    <FONT color="blue"><B>offset</B></FONT> with the
+	value stored in the
+	 <FONT color="red"><B>variable <TT>k</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="white" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Offset of B[k] = k * size(one array element) // int is 4 bytes long    
+                    = k * 4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We first <FONT color="red"><B>read</B></FONT> the
+  <FONT color="blue"><B>value</B></FONT> stored in the
+ <FONT color="red"><B>variable <TT>k</TT></B></FONT> into
+ <B>another</B> register (I used <FONT color="blue"><B><TT>r1</TT></B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  movw    r1, #:lower16:k
+  movt    r1, #:upper16:k         // r1 = address of k
+  ldr     r1, [r1]                // r1 = value in variable k
+                                  // Comment: use ldrsh if k is short !     
+                                  //          use ldrsb if k is byte !
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Then compute the
+ <FONT color="blue"><B>offset</B></FONT> 
+ <FONT color="red"><B><TT>k*2</TT></B></FONT>...
+ we can use  <FONT color="blue"><B>2 addition operations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   add     r1, r1, r1              // r1 = k+k = 2*k  
+   add     r1, r1, r1              // r1 = 2*k + 2*k = 4*k      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+<P>
+Then this instruction will
+ move  the 
+     <FONT color="red"><B><TT>int</TT> value <TT>C[3]</TT> </B></FONT>
+    into <FONT color="blue"><B>register <TT>r4</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">str</FONT>   r4, [r0, <FONT color="red">r1</FONT>]            // Load C[3] into r4   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+I will show you the <FONT color="red"><B>demo</B></FONT>
+ in class.....
+
+
+ </UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    Demo program <FONT color="red"><TT>array-str2.s</TT></FONT>: 
+   updating array elements with a value in a register 
+ - <I>variable</I> array index 
+     </B></FONT>
+<P>
+<UL>
+<LI> This is the same as
+     <FONT color="red"><B><TT>array-str1.s</TT></B></FONT>,
+     instead of updating
+     <FONT color="blue"><B><TT>A[3], B[3] and C[3]</TT></B></FONT>,
+     I update
+     <FONT color="red"><B><TT>A[k], B[k] and C[k]</TT></B></FONT>
+<P>
+ The technique used is the same as
+  <FONT color="red"><B><TT>array-ldr2.s</TT></B></FONT>
+ so I won't write the whole explaning again.
+ <P>
+ I will <B>only</B> show you the code:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .text
+main:
+        mov     r10, #44                // Value to be stored
+
+// ============================================================ A[3]
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = base address of array A
+
+        movw    r1, #:lower16:k
+        movt    r1, #:upper16:k         // r1 = address of k
+        ldr     r1, [r1]                // r1 = value in variable k
+                                        // Comment: use ldrsh if k is short !
+                                        //          use ldrsb if k is byte !
+
+                                        // Address of A[3] = base addr + k*1
+        strb    r10, [r0, r1]           // Store r10 in A[k] (byte)
+
+// ============================================================ B[3]
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B         // r0 = base address of array B
+
+        movw    r1, #:lower16:k
+        movt    r1, #:upper16:k         // r1 = address of k
+        ldr     r1, [r1]                // r1 = value in variable k
+                                        // Comment: use ldrsh if k is short !
+                                        //          use ldrsb if k is byte !
+
+                                        // Address of B[3] = base addr + k*2
+        add     r1, r1, r1              // r1 = k+k = 2*k
+        strh    r10, [r0, r1]           // Store r10 in B[3] (short)
+
+// ============================================================ C[3]
+        movw    r0, #:lower16:C
+        movt    r0, #:upper16:C         // r0 = base address of array C
+
+        movw    r1, #:lower16:k
+        movt    r1, #:upper16:k         // r1 = address of k
+        ldr     r1, [r1]                // r1 = value in variable k
+                                        // Comment: use ldrsh if k is short !
+                                        //          use ldrsb if k is byte !
+
+                                        // Address of C[3] = base addr + k*4
+        add     r1, r1, r1              // r1 = k+k = 2*k
+        add     r1, r1, r1              // r1 = 2*k + 2*k = 4*k
+        str     r10, [r0, #12]          // Store r10 in C[3] (int)
+
+// ******************************************************************
+// Data section
+// ******************************************************************
+        .data
+A:      .byte   11, 12, 13, 14, 15     // byte typed initialzied array A
+
+        .align 1
+B:      .2byte  111, 112, 113, 114, 115 // short typed initialzied array B
+
+        .align 2
+C:      .4byte  1111, 1112, 1113, 1114, 1115 // int typed initialzied array C
+
+k:      .4byte  3       // Arbitrary value
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

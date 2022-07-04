@@ -1,0 +1,116 @@
+General Purpose registers
+
+The x86 general purpose registers are not really 
+as general purpose as their name implies. 
+
+That is because these general purpose registers 
+have some highly specialized tasks that can often 
+only be done by using only one or two specific registers. 
+
+(In other architectures, any general purpose register 
+can be used for any purpose.)
+
+The x86 general purpose registers further subdivide 
+into registers specializing in data and others 
+specializing in addressing.
+
+A lot of operations can be done either inside a register 
+or directly inside RAM without requiring the data to be 
+loaded into a register first. The 1970s heritage of 
+this architecture shows through by this behaviour.
+
+Note: with the advent of the 64-bit extensions to x86 
+in AMD64, this odd behaviour has now been cleaned up 
+in 64-bit mode. General purpose registers are now truly 
+general purpose and they can be used interchangeably.
+
+=========================================================
+
+
+8-bit and 16-bit register subsets
+
+
+8-bit and 16-bit subsets of these registers are 
+also accessible. (For backward compatibility) 
+
+For example, the lower 16-bits of the 32-bit EAX registers 
+can be accessed by calling it the AX register. 
+
+Some of the 16-bit registers can be further subdivided into 
+8-bit subsets too; 
+
+   for example, 
+
+      the upper 8-bit half of AX is called AH, and
+      the lower half is called AL. 
+
+Similarly, EBX is subdivided into BX (16-bit), 
+which in turn is divided into BH and BL (8-bit).
+
+=====================================
+
+General data registers
+
+
+All of the four following registers may be used as 
+general purpose registers. 
+
+However each has some specialized purpose as well. 
+
+Each of these registers also have 16-bit or 8-bit subset names.
+
+   EAX 
+       Dedicated accumulator which is used for all major calculations.
+       Many arithmetic operations will use EAX/AX as source and
+       also store result in this register.
+ 
+   ECX 
+       The universal loop counter which has a special interpretation 
+       for loops. 
+       (You can put a value in this register and a special
+        "decrement and branch" will decrement the counter and
+	branch (loop) when not zero...)
+
+   EDX 
+       The data register, which is an extension to the accumulator, 
+       stores data relevant to the operation applied to 
+       the accumulator.
+ 
+   EBX 
+       The Base Register - used like M68000 address register to
+       store the base of an array.
+
+================================================
+
+General address registers
+
+Used only for address pointing. They have 16-bit subset names, 
+but no 8-bit subsets.
+
+   ESP 
+       Stack pointer. Is used to hold the top address of the stack.
+ 
+   EBP 
+       Base pointer. Is used to hold the address of 
+       the current ***stack frame***. 
+       It is also sometimes used as free storage. 
+
+   ESI 
+       Source index. 
+       Commonly used for string operations. 
+       It has a one-byte opcode for loading data from memory 
+       to the accumulator. 
+
+   EDI 
+       Destination index. 
+       Commonly used for string operations. 
+       Has a one-byte STOS instruction to write data out of 
+       the accumulator.
+ 
+	You can use ESI and DSI and the count register to copy string 
+	in a very tight loop !
+
+   EIP 
+       Instruction pointer. 
+       Holds the current instruction address. 
+

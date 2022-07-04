@@ -1,0 +1,697 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Let's try to implement (= realize) 
+   <FONT color="blue">function call + return</FONT>
+   using known assembler instructions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Function call + return</B></FONT> is
+   the <FONT color="blue"><B>program flow</B></FONT> of
+   a <FONT color="red"><B>function call + return from the
+   called function</B></FONT>
+   
+   </font>
+   </p>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   The <FONT color="red"><B>function call + return</B></FONT>
+   <FONT color="blue"><B>program flow</B></FONT> is
+   <FONT color="red"><B>as follows</B></FONT>
+   (CS170 material):
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   function f1( )               function f2( )
+   {                   +------->{         
+       ...             |            ...  |
+       ...             |            ...  |
+       ...       call  |            ...  |
+       f2( ) ----------+            ...  |
+       ...   <--------------+       ...  |
+       ...                  |       ...  V 
+       ...                  +------ return;
+   }                             }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Let's try to implement (= realize) 
+   <FONT color="blue">function call + return</FONT>
+   using known assembler instructions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+   <FONT color="blue"><B>function call</B></FONT>:
+   </font>
+   </p>
+
+  
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   main( )            A( )
+   {                  {
+      ...                ...
+      A( );              ...
+      ...                ...
+   }                  }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 1.4in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Let's try to implement (= realize) 
+   <FONT color="blue">function call + return</FONT>
+   using known assembler instructions
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Consider</B></FONT> the following
+   <FONT color="blue"><B>function call</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   main( )            A( )
+   {                  {
+      ...                ...
+      A( );              ...
+      ...                ...
+   }                  } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+1"><PRE>
+ main:
+        ....
+        ....
+	b  A
+   <FONT color="red">Ret:</FONT> ...
+        ...
+
+
+    A:  ....
+        ....
+	....
+       <FONT color="red"> b  Ret </FONT>  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Why the "branch always" instruction 
+  <FONT color="blue">cannot</FONT>
+  be used to implement
+   <FONT color="blue">function call + return</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Example</B></FONT> where
+  you <FONT color="blue"><B>cannot use</B></FONT> the
+   <FONT color="red"><B><TT>b</TT> instruction</B></FONT>
+   to
+   <FONT color="blue"><B>implement</B></FONT> the
+   <FONT color="red"><B>function call + return</B></FONT> flow:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   main( )
+   {
+      ...
+      A( );          
+      ...   <---- return location of fist call
+      ...
+      A( );   
+      ...   <---- return location of second call
+   }
+
+   A( )
+   {
+      ...
+      ...  <FONT color="red"><-- Using <SPAN style="BACKGROUND-COLOR: #ffff00">"b label"</SPAN> (label is a fixed location)
+               A( ) can only return to <SPAN style="BACKGROUND-COLOR: #ffff00">one specific location</SPAN> !</FONT> 
+   }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Requirement:</B></FONT>
+   the <FONT color="blue"><B>subroutine call instruction</B></FONT> 
+   must
+   <FONT color="red"><B>record</B></FONT> the
+   <FONT color="blue"><B><I>return</I> location</B></FONT> !!!
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue"> Lessons</FONT>
+  learned from these <FONT color="blue">function call + return</FONT> examples
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+  
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>  <FONT color="red"><B>Calling</B></FONT> a
+   <FONT color="blue"><B>subroutine</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The 
+  <SPAN style="BACKGROUND-COLOR: #ffeeee">
+  <FONT color="red"><B><TT>call-subroutine</TT> instruction</B></FONT></SPAN>
+       (that <FONT color="blue"><B>jumps</B></FONT> to the
+       <FONT color="red"><B>start </B></FONT> of a
+       <FONT color="blue"><B>subroutine</B></FONT>)
+       <B>must also</B>
+       <SPAN style="BACKGROUND-COLOR: #ffff00">
+      <FONT color="red"><B>save</B></FONT></SPAN> the
+       <SPAN style="BACKGROUND-COLOR: #ffdd00">
+     <FONT color="blue"><B><I>return location</I>
+    (= address)</B></FONT></SPAN>
+    (which is the <FONT color="red"><B>location</B></FONT>
+       <FONT color="blue"><B>right after</B></FONT> the
+       <FONT color="red"><B>subroutine call instruction</B></FONT></SPAN>)
+<PRE><FONT color="blue"><B>    <FONT color="red">call</FONT>   subroutineName
+    next-instruction    <--- <FONT color="red">return location</FONT></PRE>  
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <P>
+  This <FONT color="red"><B>return location</B></FONT> is called:
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>return address</B></FONT></SPAN>
+ <P>
+ <P>
+<LI> <FONT color="red"><B>How</B></FONT> a
+   <FONT color="blue"><B>subroutine</B></FONT>
+  <FONT color="red"><B>returns</B></FONT> to its
+  <FONT color="blue"><B>caller</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> The  <SPAN style="BACKGROUND-COLOR: #ffeeee">
+  <FONT color="red"><B><TT>subroutine-return</TT>
+  instruction</B></FONT></SPAN>
+    <B>must</B> <FONT color="blue"><B>jump</B></FONT> to 
+      the <FONT color="red"><B>return address</B></FONT>
+    <FONT color="blue"><B>saved</B></FONT> by the (lastest)
+   <FONT color="red"><B><TT>call-subroutine</TT> instruction</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Analogy of the
+   <FONT color="blue">function call + return</FONT> 
+   program flow
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+ <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI>    The 
+      <SPAN style="BACKGROUND-COLOR: #ffeeee">
+    <FONT color="red"><B><TT>call-subroutin</TT> instruction</B></FONT></SPAN>
+    must
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>"leave a bread crump"</B></FONT> 
+   </SPAN>
+   to <FONT color="red"><B>indicate</B></FONT>
+   <FONT color="blue"><B>where to return</B></FONT>
+ <P>
+ <LI>   The 
+    <SPAN style="BACKGROUND-COLOR: #ffeeee">
+    <FONT color="red"><B><TT>subroutine-return</TT> instruction</B></FONT></SPAN>
+   must
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>"consume the (lastest) bread crump"</B></FONT>
+  </SPAN> 
+   to <FONT color="red"><B>jump</B></FONT> to the
+   <FONT color="blue"><B>(lastest) return location</B></FONT>
+<P>
+  <center>
+   <img src="../FIGS/0/hansel+gretel.jpg" style="width:70%">
+   </center>
+ 
+ </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+
+
+ 
+ 
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Caption
+  </SPAN>
+  </B></FONT>
+  </div>
+
+&nbsp;
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <center>
+  <img src="picX.png" style="width:80%">
+  </center>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <font size="+2">
+  <UL>
+  <LI>
+  </UL>
+  </font>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.2in">
+  </p>
+</div>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

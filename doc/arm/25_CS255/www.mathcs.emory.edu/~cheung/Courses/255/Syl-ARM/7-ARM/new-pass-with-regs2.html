@@ -1,0 +1,449 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Sequencing of events in function call + return
+  with parameters and return values
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    <FONT color="red"> Review:</FONT> how to call a leaf-function
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Now that we have <FONT color="red"><B>established</B></FONT>
+   that
+   we can <FONT color="blue"><B>only</B></FONT> use
+   <FONT color="red"><B>registers </B></FONT> to
+   pass parameters and return values in
+    a <FONT color="blue"><B>leaf function</B></FONT>,
+    let's <FONT color="red"><B>recall</B></FONT> how we
+    <FONT color="blue"><B>call</B></FONT>
+    a <FONT color="blue"><B>leaf function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+       ....
+       ....
+       bl    A         // Call leaf function A             
+
+       ....
+       ....
+
+Stop:
+
+/* ===============================
+   Leaf function
+   =============================== */
+A:
+       ....
+       ....
+
+       mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">When</FONT> do we pass the parameters ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>parameters</B></FONT>
+ <FONT color="blue"><B>must </B></FONT> be
+   <FONT color="red"><B>passed</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>By</B></FONT> the
+   <FONT color="blue"><B>caller method</B></FONT>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>and</B>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><I>Before</I></B></FONT> the <B>caller</B>
+     <FONT color="blue"><B>executes</B></FONT> the
+     <FONT color="red"><B><TT>bl </TT></B></FONT> instruction !!!
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+       ....
+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">pass parameters here</FONT></SPAN>
+       bl    A         // Call leaf function A             
+
+       ....
+       ....
+
+Stop:
+
+/* ===============================
+   Leaf function
+   =============================== */
+A:
+       ....
+       ....
+
+       mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">When</FONT> do we return a value to the caller ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>return value</B></FONT>
+ <FONT color="blue"><B>must </B></FONT> be
+   <FONT color="red"><B>returned (= saved)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>By</B></FONT> the
+   <FONT color="blue"><B>callee method</B></FONT>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>and</B>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><I>Before</I></B></FONT> the <B>callee</B>
+     <FONT color="blue"><B>executes</B></FONT> the
+     <FONT color="red"><B><TT>function return </TT></B></FONT> instruction
+   (<FONT color="blue"><B><TT>mov pc, lr</TT></B></FONT> or
+   <FONT color="blue"><B><TT>pop {pc}</TT></B></FONT>) !!!
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#ccffcc" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+       ....
+       <FONT color="red">pass parameters here</FONT>
+       bl    A         // Call leaf function A             
+
+       ....
+       ....
+
+Stop:
+
+/* ===============================
+   Leaf function
+   =============================== */
+A:
+       ....
+       ....
+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">store return value in register here</FONT></SPAN>
+       mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">When</FONT> do we
+     <FONT color="red">use</FONT> the return value in the caller ?
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>return value</B></FONT>
+ <FONT color="blue"><B>must </B></FONT> be
+   <FONT color="red"><B>used</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>By</B></FONT> the
+   <FONT color="blue"><B>caller method</B></FONT>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>and</B>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><I>As soon as possible</I></B></FONT> 
+    after the <FONT color="blue"><B>callee has returned</B></FONT>
+    to the <FONT color="red"><B>caller</B></FONT> !!
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#ffeeee" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+       ....
+       <FONT color="red">pass parameters here</FONT>
+       bl    A         // Call leaf function A             
+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">use the return value here</FONT></SPAN>
+       ....
+       ....
+
+Stop:
+
+/* ===============================
+   Leaf function
+   =============================== */
+A:
+       ....
+       ....
+       <FONT color="red">store return value in register here</FONT>
+       mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Skeletal example (empty functions) on how to pass
+     parameters and return values with registers
+  (interactive demo in class)
+     </B></FONT>
+<P>
+<UL>
+<LI> The following <FONT color="red"><B>example</B></FONT>
+  shows <FONT color="blue"><B>how</B></FONT> to
+  <FONT color="red"><B>pass parameters</B></FONT> and
+  <FONT color="blue"><B>return values</B></FONT>
+  using
+  <FONT color="red"><B>empty functions </B></FONT>
+  (functions with 
+  <FONT color="blue"><B>no statements</B></FONT>).
+<P>
+<LI> I will pass:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Pass <FONT color="red"><B>value 1111</B></FONT>
+      as the <FONT color="blue"><B>first parameter</B></FONT>
+      in <FONT color="red"><B>register <TT>r0</TT></B></FONT>
+ <LI> Pass <FONT color="red"><B>value 2222</B></FONT>
+      as the <FONT color="blue"><B>first parameter</B></FONT>
+      in <FONT color="red"><B>register <TT>r1</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<HR>
+<P>
+ <LI> Pass <FONT color="red"><B>return value 9999</B></FONT>
+      in <FONT color="blue"><B><TT>register <TT>r0</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+       mov   r0, #1111    // Pass 1111 as parameter 1 in r0
+       mov   r1, #2222    // Pass 2222 as parameter 2 in r1        
+
+       bl    A            // Call leaf function A             
+
+       // When A returns, you will see the return value in r0 = 9999      
+       nop      
+       nop
+
+Stop:
+       nop
+
+/* ===============================
+   Leaf function
+   =============================== */
+A:
+       // When run in EGTAPI - you will see r0 = 1111 and r1 = 2222
+
+       nop
+       nop
+
+       mov   r0, #9999      // Pass return value in register r0  
+       mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/skel-reg-param.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 skel-reg-param</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

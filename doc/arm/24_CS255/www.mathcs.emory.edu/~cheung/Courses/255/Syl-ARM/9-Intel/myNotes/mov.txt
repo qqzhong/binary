@@ -1,0 +1,213 @@
+===================================================
+Copying Data (MOV)
+===================================================
+
+The primary instructions for moving data from operand 
+to operand and loading them into registers are 
+
+	MOV (Move), 
+	XCHG (Exchange), 
+	CWD (Convert Word to Double), and 
+	CBW (Convert Byte to Word).
+
+I will only cover MOV...
+
+=========================================================
+Moving Data
+=========================================================
+
+The most common method of moving data, the MOV instruction, 
+is essentially a copy instruction, since it always copies 
+the source operand to the destination operand without 
+affecting the source. 
+
+After a MOV instruction, the source and destination 
+operands contain the same value.
+
+
+===============================================
+SYNTAX SUMMARY:
+
+	MOV DEST, SRC
+
+DESC is de-referenced AUTOMATICALLY !!!
+
+Addressing mode:
+
+    *  number   	 	= immediate
+    *  program_label		= direct (memory)
+    *  [program_label]     	= same as program_label
+    *  m[n]	 		= m+n
+
+Size of operand:
+
+ ** Assembler know the size when a register name is used:
+
+	EAX = 32 bits
+	AX  = 16 bits
+	AH  = 8 bits
+
+ ** Assembler also know the size from the data type defined at a label.
+
+    label:  WORD   1234
+
+ ** If you need to use a different TYPE than the one defined, use:
+
+       SIZE PTR [n] 
+
+    example:
+
+       BYTE PTR label
+
+===============================================
+
+The following example illustrates the MOV instruction. 
+
+NOTE: you cannot move a value from one location in memory 
+      to another memory location in a single operation. !!!
+
+
+=============================================
+; Immediate value moves (M68000: #7)
+=============================================
+
+   mov ax, 7			; "move #7, ax"
+
+   mov ax, OFFSET label		; "move #label, ax"
+
+NOTE:
+
+   mov ax, 7			; move number 7 to ax
+
+   mov ax, label		; move CONTENT at label to ax
+				; Assembler is too smart, thinks you want
+				; to access memory if you use a label
+				; Need OFFSET if you want address !!!
+
+   mov label, ax		; move ax to memory at label
+
+Assembler is too darn smart... can tell the difference between
+a number and a label... very confusing at first...
+
+=============================================
+; Register moves
+=============================================
+
+   mov bx, ax 			; "move ax, bx"  (bx := ax)
+
+
+=============================================
+; Direct memory moves
+=============================================
+
+   mov mem, ax 			; "move ax, mem" (mem def. tells type)
+
+   mov WORD PTR mem, ax		; force WORD size if mem has a diff
+				; type
+				; Only necessary if mem does not
+				; have WORD data
+
+  NOTE: source and dest must have same size !!!
+
+=============================================
+; Indirect memory moves
+=============================================
+
+   mov ax, mem[bx] 		; Memory indirect to register
+
+	Note: x1[x2] == x1 + x2, similar to M68000
+
+ 
+
+**************************************************************
+The following example shows several common types of moves 
+that require TWO instructions.
+**************************************************************
+
+=============================================
+; Move immediate to segment register
+=============================================
+
+   mov ax, DGROUP 		; Load AX with immediate value
+				; DGROUP is a constant...
+   mov ds, ax 			; Copy AX to segment register
+
+		(because: mov ds, DGROUP      is not allowed)
+
+=============================================
+; Move memory to memory
+=============================================
+
+   mov ax, mem1			; Load AX with memory value
+   mov mem2, ax 		; Copy AX to other memory
+
+		(because: mov mem2, mem1     is not allowed)
+
+=============================================
+; Move segment register to segment register
+=============================================
+
+   mov ax, ds 			; Load AX with segment register
+   mov es, ax 			; Copy AX to segment register
+
+
+
+
+
+
+===============================================================
+Instruction Sign-extend 
+===============================================================
+
+
+    CBW (Convert Byte to Word) AL to AX 
+
+    CWD (Convert Word to Doubleword) AX to DX:AX 
+
+        * Don't use this when programmong with 80386 or higher
+        * Use CWDE instead !
+
+    CWDE (Convert Word to Doubleword extended) AX to EAX 
+
+        * Requires an extended register and applies only 
+          to 80386 or higher processors.
+
+    CDQ (Convert Doubleword to Quadword) EAX to EDX:EAX 
+
+        * Requires an extended register and applies only 
+          to 80386 or higher processors.
+
+
+On the 80386/486 processors, the CWDE instruction converts 
+a signed 16-bit value in AX to a signed 32-bit value in EAX. 
+
+The CDQ instruction converts a signed 32-bit value in EAX 
+to a signed 64-bit value in the EDX:EAX register pair.
+
+
+-------------------------------------------------
+
+Examples:
+
+	.DATA
+	mem8 SBYTE -5
+	mem16 SWORD +5
+	mem32 SDWORD -5
+	.CODE
+	.
+	.
+	.
+	mov al, mem8		; Load 8-bit -5 (FBh)
+
+	cbw 			; Convert to 16-bit -5 (FFFBh) 
+				; in AX
+
+
+
+	mov ax, mem16		; Load 16-bit +5
+
+	cwde 			; Convert to 32-bit +5 (00000005h) 
+				; in EAX
+
+
+

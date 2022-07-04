@@ -1,0 +1,687 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>.text</TT> section of the assembler program
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red"><B><TT>.text</TT> section</B></FONT>
+      of an assembler program
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B><TT>.text</TT> assembler directive</B></FONT>
+      tells the <FONT color="blue"><B>ARM assembler</B></FONT> to
+      <FONT color="red"><B>start assembling</B></FONT>
+      the line <FONT color="blue"><B>after the directive</B></FONT> into
+      the <FONT color="red"><B><TT>.text</TT> section</B></FONT> of the
+      <B>computer program</B>
+<P>
+ <LI> The  <FONT color="red"><B><TT>.text</TT> section</B></FONT>
+    of a <FONT color="blue"><B>computer  program</B></FONT> contains
+    <FONT color="red"><B>computer <I>instructions</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/text01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+That means:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>After</B></FONT> the
+    <FONT color="red"><B><TT>.text</TT> directive</B></FONT>
+    in an <B>assembler program</B>,
+    we can write
+    <FONT color="blue"><B>assembler instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> the
+   <FONT color="red"><B><TT>Hello World</TT></B></FONT> program
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .global main
+<FONT color="red">
+// ************************ Starting variable definition *****************    
+        .data
+// ***********************************************************************</FONT>
+
+HelloStr:                               // Label marking this location in memory
+        .asciz "<FONT color="red">Hello World\n</FONT>"          // ASCII codes for the string
+<SPAN style="BACKGROUND-COLOR: yellow">
+<FONT color="red">
+// ************************ Starting computer instruction ****************     
+        .text                                                                  
+// ***********************************************************************</FONT>     
+main:                                                                          
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the frame pointer on the stack 
+                                        // Explained later in CS255            
+                                                                               
+        /* ----------------------------------------                            
+           Pass the string to printf function                                  
+           ---------------------------------------- */                         
+        movw    r0, #:lower16:HelloStr                                         
+        movt    r0, #:upper16:HelloStr                                         
+                                                                               
+        /* ----------------------------------------                            
+           Call the printf function                                            
+           ---------------------------------------- */                         
+        <FONT color="red">bl      printf                  // Call printf function</FONT>                
+                                                                               
+        pop     {fp}                    // Pop the frame pointer               
+        pop     {lr}                    // Pop the return address              
+                                        // Explained later in CS255            
+       <FONT color="red"> .end</FONT></SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<FONT color="blue"><B>After</B></FONT> processing the
+  <FONT color="red"><B><TT>.text</TT> directive</B></FONT>,
+ the <FONT color="red"><B>assembler</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Translate
+     <FONT color="blue"><B>assembler instruction (nmemonics)</B></FONT>
+      (the section highlighted in yellow)
+  into thier <FONT color="red"><B>(binary) machine codes</B></FONT>
+  (see:
+  <A HREF="../6-CPU/ARM-instr.html"> ARM assembler code </A>) and
+ <P>
+ <LI> Store the <FONT color="blue"><B>binary machine code</B></FONT> in the
+  <FONT color="red"><B><TT>.text</TT> section</B></FONT> of the program:
+<P>
+<UL>
+<IMG SRC="FIGS/text01.gif"></IMG>
+</UL>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Humans do not read <FONT color="red"><B>binary machine code</B></FONT>
+      easily
+ <LI> For this reason, I usually
+      put the <FONT color="red"><B>assembler nmenonics</B></FONT>
+    (such as
+   <FONT color="blue"><B><TT>movw r0,#:lower16:HelloStr</TT></B></FONT>
+    in the content)
+ <LI> I have <B>emphasized</B> enough that the
+   <FONT color="blue"><B>computer memory</B></FONT> 
+   <B><I>always</I></B> store
+   <FONT color="red"><B>binary numbers</B></FONT> that you should know that
+    <FONT color="blue"><B><TT>movw r0,#:lower16:HelloStr</TT></B></FONT> 
+   represents its
+   <FONT color="red"><B>binary machine code</B></FONT>
+   (see:
+    <A HREF="../6-CPU/ARM-instr.html"> ARM assembler code </A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>assembler </B></FONT> will keep doing this
+  <B>until</B> it encounters
+  a <FONT color="blue"><B><TT>.data</TT> dirctive</B></FONT>
+<P>
+So you can <FONT color="red"><B>switch</B></FONT> between
+ <FONT color="blue"><B><TT>.text</TT></B></FONT> and
+ <FONT color="blue"><B><TT>.data</TT></B></FONT> section 
+ as often as you wish in an
+ <B>assembler program</B>
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We will learn about the
+   <FONT color="red"><B>assembler instruction</B></FONT> that you write
+   in the <FONT color="blue"><B><TT>.text</TT> section</B></FONT>
+   <FONT color="red"><B>later</B></FONT> in the course
+  (very soon).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Identifying the location of an instruction with a label
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Computer programs</B></FONT> consists of
+     <FONT color="red"><B>functions</B></FONT> which are
+   <FONT color="blue"><B>logical units</B></FONT> of
+   <FONT color="red"><B>computer instructions</B></FONT> that
+   <B>collectively</B> perform a
+   <FONT color="blue"><B>well-defined task</B></FONT>
+<P>
+   <FONT color="red"><B>Each function</B></FONT> has a
+    <FONT color="blue"><B>starting point</B></FONT> where the
+    <FONT color="red"><B><I>first</I> instruction</B></FONT> of
+    the <FONT color="blue"><B>function</B></FONT> is located.
+<P>
+<B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>assembler program </B></FONT> will
+        <FONT color="blue"><B>start running</B></FONT>
+	in the
+	<FONT color="red"><B><TT>main( )</TT></B></FONT> function
+ <P>
+<P>
+<UL>
+<IMG SRC="FIGS/text02.gif"></IMG>
+</UL>
+<P>
+
+
+
+   That means we need to <FONT color="red"><B>know</B></FONT>
+   <FONT color="blue"><B><I>where</I></B></FONT> the
+   <FONT color="red"><B><I>first</I> instruction</B></FONT> of
+   the <FONT color="blue"><B><TT>main( )</TT></B></FONT> function
+   is <FONT color="red"><B>found in memory</B></FONT>
+ <P>
+   (We can find the <FONT color="red"><B>other instructions</B></FONT>
+   of the <FONT color="blue"><B><TT>main( )</TT></B></FONT> function
+   when we found the
+   <FONT color="red"><B><I>first</I> instruction</B></FONT>, because
+   the <FONT color="blue"><B>other instructions</B></FONT> are
+   found <FONT color="red"><B><I>after</I></B></FONT> the
+   <FONT color="blue"><B><I>first</I> instruction</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Later in the course</B></FONT>,
+  you will learn that
+  the <FONT color="blue"><B><TT>if-statement</TT></B></FONT> and
+  the <FONT color="red"><B><TT>while-statement</TT></B></FONT> also
+  have some
+   <FONT color="blue"><B><I>special</I> locations</B></FONT> that we
+  need to <FONT color="red"><B>know</B></FONT>.
+<P>
+So there are a <FONT color="red"><B>number of
+   <I>important</I> memory locations</B></FONT> in a
+  <FONT color="blue"><B>computer program</B></FONT> 
+  we need to
+  <FONT color="red"><B>remember</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We need to <FONT color="red"><B>remember</B></FONT> these locations
+    because we need to 
+  <FONT color="blue"><B>"go to" (= jump to) them</B></FONT>
+   during the <FONT color="red"><B>program execution</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ For example, when a <FONT color="blue"><B>method </B></FONT>
+  (such as <FONT color="red"><B><TT>main( )</TT></B></FONT> is
+  <FONT color="blue"><B><I>called</I></B></FONT>, the
+  <FONT color="red"><B>program execution</B></FONT> will
+  <FONT color="blue"><B><I>go to</I> (= jump to)</B></FONT> the
+  <FONT color="red"><B><I>first</I> instruction</B></FONT> of the
+  <FONT color="blue"><B>method</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>$64,000 question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> do we 
+     <FONT color="blue"><B>find out</B></FONT>
+     the <FONT color="red"><B>memory location</B></FONT> 
+     where a <FONT color="blue"><B>method (function)</B></FONT>
+     is <FONT color="red"><B>stored</B></FONT> ???
+ <P>
+ I.e.: how do we find the
+   location of the <FONT color="red"><B><I>first</I> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>assembler</B></FONT> provides
+       a <FONT color="blue"><B>mechanism</B></FONT>
+       to <FONT color="red"><B>"mark"</B></FONT> a
+       <FONT color="blue"><B>memory location</B></FONT> that has
+       a <FONT color="red"><B>special significance</B></FONT>.
+ <P>
+   This <FONT color="red"><B>mechanism</B></FONT> is
+   called a <FONT color="blue"><B><I>label</I></B></FONT>
+   (see: <A HREF="directives.html#label"> click here </A>)
+ <P>
+ <B>For example:</B>
+  in the <FONT color="red"><B><TT>Hello World</TT></B></FONT> program
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<FONT color="red">main:         // <----- This is a label !!!</FONT>                                    
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the frame pointer on the stack 
+                                        // Explained later in CS255            
+                                                                               
+        /* ----------------------------------------                            
+           Pass the string to printf function                                  
+           ---------------------------------------- */                         
+        movw    r0, #:lower16:HelloStr                                         
+        movt    r0, #:upper16:HelloStr                                         
+                                                                               
+        /* ----------------------------------------                            
+           Call the printf function                                            
+           ---------------------------------------- */                         
+        <FONT color="red">bl      printf                  // Call printf function</FONT>                
+                                                                               
+        pop     {fp}                    // Pop the frame pointer               
+        pop     {lr}                    // Pop the return address              
+                                        // Explained later in CS255            
+       <FONT color="red"> .end</FONT></SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>label</B></FONT> consists of:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>    An <FONT color="blue"><B>identifier</B></FONT> 
+      <B>followed</B> by a
+      <FONT color="red"><B>colon (:)</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <P>
+ <B>Example:</B>
+  <FONT color="red"><B><TT>main:</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   
+ <P>
+ <LI> A <FONT color="red"><B>label</B></FONT> can be
+    <FONT color="blue"><B>added</B></FONT> before
+    <FONT color="red"><B><I>any</I> instruction</B></FONT> in the
+    <B>assembler program</B>
+ <P>
+<B>But:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  You should <FONT color="red"><B>not</B></FONT>
+   add a <FONT color="blue"><B>label</B></FONT> to
+   an <FONT color="red"><B>instruction</B></FONT> if the
+   <FONT color="blue"><B>location of that instruction</B></FONT>
+   has <FONT color="red"><B><I>no</I> special significance</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> 
+It is <FONT color="red"><B>important</B></FONT> that you
+ realize that the
+ <FONT color="blue"><B>assembler (= translation program)</B></FONT>
+ will <FONT color="red"><B>keep track</B></FONT> of the
+ <FONT color="blue"><B>memory locations</B></FONT>
+ that it uses to store
+ the translated <FONT color="red"><B>machine code</B></FONT> in
+ <FONT color="blue"><B>memory</B></FONT>.
+<P>
+<B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>assembler</B></FONT> knows
+   the <FONT color="blue"><B>exact memory location</B></FONT> that the
+   <FONT color="red"><B>next translated item</B></FONT> will
+   go in the <FONT color="blue"><B>computer memory</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+When the <FONT color="red"><B>assembler</B></FONT> finds a
+ <FONT color="blue"><B>label</B></FONT>
+ (such as <FONT color="red"><B><TT>main:</TT></B></FONT>)
+  in the <B>assembler program</B>, the
+ <FONT color="blue"><B>assembler</B></FONT> will
+ <FONT color="red"><B><I>equate</I> </B></FONT> 
+ the <FONT color="red"><B>label</B></FONT> to
+ the <FONT color="blue"><B>memory address</B></FONT> where
+ it will put the
+ <FONT color="red"><B><I>next</I> translated item</B></FONT>
+<P>
+To show you that
+ the <FONT color="red"><B>assembler</B></FONT> records
+ the <FONT color="blue"><B>memory locations</B></FONT> using
+ <FONT color="red"><B>labels</B></FONT>, I have
+ <FONT color="blue"><B>added</B></FONT> more
+ <FONT color="red"><B>labels</B></FONT> into the
+ <FONT color="blue"><B><TT>Hello World</TT></B></FONT> assembler
+ program:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .global <FONT color="red">L1, L2, L3</FONT>        // Make identifier externally accessible
+
+        ..... (this part is unchanged and omitted for brevity)
+
+main:
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the return address on the stack
+                                        // Explained later in CS255
+
+        /* ----------------------------------------
+           Pass the string to printf function
+           ---------------------------------------- */
+        movw    r0, #:lower16:HelloStr
+<FONT color="red">L1:</FONT>
+        movt    r0, #:upper16:HelloStr  // L1 marks this memory location
+
+        /* ----------------------------------------
+           Call the printf function
+           ---------------------------------------- */
+<FONT color="red">L2:</FONT>
+        bl      printf                  // L2 marks this memory location
+
+<FONT color="red">L3:     nop</FONT>                             // L3 marks this memory location
+
+        pop     {fp}                    // Pop the frame pointer
+        pop     {lr}                    // Pop the return address
+                                        // Explained later in CS255
+Stop:
+CodeEnd:
+        nop
+
+	.end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice that we need to
+ <FONT color="red"><B>declare</B></FONT> the
+ <FONT color="blue"><B>labels</B></FONT>
+ (= identifiers used to identify memory locations)
+ as <FONT color="red"><B><TT>.global</TT></B></FONT> so these
+ <B>identifiers</B> can be
+ <FONT color="blue"><B>accessed</B></FONT> by
+ <FONT color="red"><B>EGTAPI</B></FONT>/
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cheung/demo/no-sim/labels.s</TT></B></FONT>
+       on <FONT color="blue"><B>cs255host1</B></FONT>
+  </UL>
+<P>
+
+
+How to <FONT color="red"><B>see</B></FONT> the
+ <FONT color="blue"><B>address locaton</B></FONT> marked by
+ the <FONT color="red"><B>labels <TT>L1, L2, L3</TT></B></FONT>:
+ (you can't do it for this program, I will demo this in class - 
+  this feature is available when you run your assembler projects)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Run the program in <FONT color="red"><B>EGTAPI</B></FONT>
+ <LI> <FONT color="blue"><B>Add</B></FONT> the labels/identifiers
+      <FONT color="red"><B>L1, L2, L3</B></FONT> as
+      <FONT color="blue"><B>breakpoints</B></FONT> 
+ <LI> Then <FONT color="red"><B>click</B></FONT> on the
+      <FONT color="blue"><B>labels/identifier</B></FONT> to
+      see their
+      <FONT color="red"><B>corresponding memory address</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using labels to jump to the marked location
+     </B></FONT>
+<P>
+<UL>
+<LI> Sometimes, the <FONT color="red"><B>program execution</B></FONT>
+    needs to
+    <FONT color="blue"><B>"go to" (or jump to)</B></FONT> a
+    specific <FONT color="red"><B>program location</B></FONT> to proceed.
+ <P>
+<LI> <B>For example</B>, <FONT color="red"><B>labels</B></FONT> are used
+    to <FONT color="blue"><B>implement</B></FONT> a
+  <FONT color="red"><B><TT>while</TT>-loop</B></FONT> in
+  <FONT color="blue"><B>assembler programming</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ....
+    while ( x > 10 )
+    {
+       ...
+       ...
+       ...            <FONT color="red"><--- After execution reaches the END of the while loop,   
+                           the execution must REPEAT from the START</FONT>
+    }
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will learn <FONT color="red"><B>later</B></FONT> in the
+ <FONT color="blue"><B>CS255 course</B></FONT> how to
+ <FONT color="red"><B>"jump to"</B></FONT> a
+  <FONT color="blue"><B>specific location</B></FONT> in
+  a <B>computer program</B>
+<P>
+<HR>
+<HR>
+<P>
+(This is how the
+  <FONT color="blue"><B>high-level programming construct</B></FONT>
+ of a
+ <FONT color="red"><B><TT>while</TT>-loop</B></FONT>
+ is <FONT color="blue"><B>implemented</B></FONT> 
+ inside the <FONT color="red"><B>computer</B></FONT> !!!.
+<P>
+That's why we need 
+ <FONT color="red"><B>assembler programming</B></FONT> to
+ <FONT color="blue"><B>reveal</B></FONT> these
+  <FONT color="red"><B>high-level programming construct</B></FONT> to
+  you, so you can
+  <FONT color="blue"><B>understand</B></FONT> what is
+ going on inside a computer....)
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

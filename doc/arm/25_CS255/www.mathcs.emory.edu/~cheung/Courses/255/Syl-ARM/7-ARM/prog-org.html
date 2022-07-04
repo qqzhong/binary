@@ -1,0 +1,438 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Program organization illustrated using the "Hello World" assembler program
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     EGTAPI label markers
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B>EGTAPI </B></FONT>
+     tool requires the
+   <FONT color="blue"><B>assembler program</B></FONT> to
+   provide
+   <FONT color="red"><B>5 location markers (= labels)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main</TT></B></FONT>:
+       this is the <FONT color="blue"><B>location</B></FONT> where the
+       <FONT color="red"><B>program</B></FONT> <B>starts</B>
+       its <FONT color="blue"><B>execution</B></FONT>
+ <LI>  <FONT color="red"><B><TT>Stop</TT></B></FONT>:
+       this is the <FONT color="blue"><B>location</B></FONT> where the
+       <FONT color="red"><B>program</B></FONT> <B>ends</B>
+       its <FONT color="blue"><B>execution</B></FONT>
+ <LI>  <FONT color="red"><B><TT>CodeEnd</TT></B></FONT>:
+       this is the <FONT color="blue"><B>location</B></FONT> of the
+       <FONT color="red"><B><I>last</I> program instruction</B></FONT> 
+<P>
+<HR>
+<P>
+ <LI>  <FONT color="red"><B><TT>DataStart</TT></B></FONT>:
+       this is the <FONT color="blue"><B>location</B></FONT> of the
+       <FONT color="red"><B><I>first</I> constant/variable</B></FONT> 
+       defined in the assembler program
+ <LI>  <FONT color="red"><B><TT>DataEnd</TT></B></FONT>:
+       this is the <FONT color="blue"><B>location</B></FONT> of the
+       <FONT color="red"><B><I>last</I> constant/variable</B></FONT> 
+       defined in the assembler program
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The "Hello World" assembler program adapted for EGTAPI
+     </B></FONT>
+<P>
+<UL>
+<LI> The following is the
+   <FONT color="red"><B>Hello World</B></FONT> assembler program
+   where I have <FONT color="blue"><B>add</B></FONT>
+   the <FONT color="red"><B>EGTAPUI program markers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+//
+// hello-egtapi.s: hello world in ARM assembler for EGTAPI
+//
+// How to compile:
+//
+//     as    -o  hello-egtapi.o     hello-egtapi.s
+//     gcc   -o  hello-egtapi.arm   hello-egtapi.o
+//
+
+        .global main
+        .global Stop, CodeEnd, DataStart, DataEnd
+
+// ************************ Starting computer instruction ****************
+        .text
+// ***********************************************************************
+main:
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the return address on the stack
+                                        // Explained later in CS255
+
+        /* ----------------------------------------
+           Pass the string to printf function
+           ---------------------------------------- */
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+
+        /* ----------------------------------------
+           Call the printf function
+           ---------------------------------------- */
+        bl      printf
+
+
+        pop     {fp}                    // Pop the frame pointer
+        pop     {pc}                    // Pop the return address
+                                        // Explained later in CS255
+<FONT color="red">Stop:
+CodeEnd:
+        nop</FONT>
+
+// ************************ Starting variable definition *****************
+        .data
+// ***********************************************************************
+
+<FONT color="red">DataStart:</FONT>
+HelloStr:                               // Label marking this location in memory
+        .asciz "Hello World\n"          // ASCII codes for the string
+
+<FONT color="red">DataEnd:</FONT>
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I need to add a <FONT color="red"><B><TT>nop</TT> 
+ (no operation)</B></FONT> instruction
+ <FONT color="blue"><B>so that</B></FONT> the 
+ <FONT color="red"><B>markers <TT>Stop</TT> and <TT>CodeEnd</TT></B></FONT>
+ can be recognized by the assembler.
+<P>
+<HR>
+
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255/cs255/hello/hello-egtapi.s</TT></B></FONT>
+       on host <FONT color="blue"><B><TT>cs255host1</TT></B></FONT>
+  </UL>
+<P>
+ <B>How to compile the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    LabMachine>>  /home/cs255001/bin/egtapi               
+
+      1. Login in as:  cs255001  or  use your own NetID)
+      2. Select host "cs255host1"  at the end of machine list         
+      3. Login: cs255,   pw: abc123
+      4. File Browser, go to "hello" directory
+      5. Select  hello-egtapi.arm  and  click COMPILE
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This version of the 
+ <FONT color="red"><B>"Hello World" program</B></FONT>
+ can be shown
+ with the <FONT color="blue"><B>EGTAPI tool</B></FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Installing EGTAPI on your laptop
+     </B></FONT>
+<P>
+<UL>
+<LI> You can download a copy of the
+      <FONT color="red"><B>EGTAPI tool</B></FONT> on your laptop
+      at this <FONT color="blue"><B>URL</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   http://www.cs.emory.edu/~egtapi            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+make sure you download the
+ <FONT color="red"><B>correct version</B></FONT> for your
+ laptop (there are version for
+ <FONT color="blue"><B>Linux 64 bits (x64)</B></FONT>,
+ <FONT color="blue"><B>Linux 32 bits (x86)</B></FONT>,
+ <FONT color="blue"><B>Mac</B></FONT>,
+ <FONT color="blue"><B>Windows 64 bits (x64)</B></FONT> and
+ <FONT color="blue"><B>Windows 32 bits (x86)</B></FONT>)
+<P>
+You will download a <FONT color="blue"><B>zip file</B></FONT>
+<P>
+<FONT color="red"><B>Unzip</B></FONT> the
+ <FONT color="blue"><B>zip file</B></FONT> and
+ you will find the
+ <FONT color="red"><B>EGTAPI tool</B></FONT> inside.
+<P>
+Click on the icon to run it.
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Running "Hello World" with EGTAPI
+     </B></FONT>
+<P>
+<UL>
+<LI> If you're working on the <FONT color="blue"><B>workstation</B></FONT>
+    in the
+    <FONT color="red"><B>CS lab</B></FONT>,
+   you can <FONT color="blue"><B>run EGTAPI</B></FONT> 
+  by typing  the following command in
+  a <FONT color="red"><B>terminal window</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    LabMachine>>  /home/cs255001/bin/egtapi               
+
+    Instruction to run Hello World on cs255host1:
+
+      1. Login in as:  cs255001  or  use your own NetID)
+      2. Select host "cs255host1"  at the end of machine list         
+      3. Login: cs255,   pw: abc123
+      4. File Browser, go to "hello" directory
+      5. Select  hello-egtapi.arm  and  click LOAD
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will demo the 
+ <FONT color="red"><B>EGTAPI tool</B></FONT> using
+ the <FONT color="blue"><B><TT>hello-egtapi.arm</TT></B></FONT>
+ program.
+<P>
+In the demo, you will see the following 
+ <FONT color="red"><B>screen</B></FONT> in the
+ <FONT color="blue"><B>memory area</B></FONT> in the
+ <FONT color="red"><B>EGTAPI tool</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/egtapi01.jpg" width=500 height=300></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+This picture shows you that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>program instructions</B></FONT> of the
+    <B>program</B> are stored
+      <FONT color="blue"><B>starting</B></FONT> at the
+      <FONT color="red"><B>memory address
+      <TT>10408 Hex</TT></B></FONT>
+<P>
+ <LI> The <FONT color="red"><B>constants and variables</B></FONT>
+        of the
+    <B>program</B> are stored
+      <FONT color="blue"><B>starting</B></FONT> at the
+      <FONT color="red"><B>memory address
+      <TT>21028 Hex</TT></B></FONT> -
+      which is
+      <FONT color="blue"><B><I>below</I></B></FONT> the
+      <FONT color="red"><B>program instructions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So you can <FONT color="red"><B>see for yourself</B></FONT> that
+ this is <FONT color="blue"><B>true</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hello.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Quiz</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Can you see the <FONT color="red"><B>string "Hello World\n\0"</B></FONT>
+    in the <FONT color="blue"><B>Data segment</B></FONT> in this
+   picture:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/egtapi01.jpg" width=500 height=300></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>&nbsp;
+<P>
+&nbsp;
+<P>
+<FONT color="blue"><B>Answer:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   48 hex = ASCII code for 'H'
+   65 hex = ASCII code for 'e'
+   6c hex = ASCII code for 'l'
+   6c hex = ASCII code for 'l'
+   6f hex = ASCII code for 'o'
+   20 hex = ASCII code for ' '   (space)      
+   57 hex = ASCII code for 'W'
+   6f hex = ASCII code for 'o'
+   72 hex = ASCII code for 'r'
+   6c hex = ASCII code for 'l'
+   64 hex = ASCII code for 'd'
+   0a hex = ASCII code for '\n'  (newline)          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

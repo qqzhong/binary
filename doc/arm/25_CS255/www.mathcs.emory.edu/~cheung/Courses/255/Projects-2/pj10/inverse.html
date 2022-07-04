@@ -1,0 +1,936 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+CS255 C programming project
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Preparation
+     </B></FONT>
+<P>
+<UL>
+<LI>  To do this project, you must obtain a copy of the prepared files 
+      using EGTAPI (use project code pj10) 
+      - you have done this enough times that I don't need to give more 
+      detailed instructions. 
+<P>
+The alternative method to get the prepared files is to enter these commands 
+ in the EGTAPI terminal: 
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    (1)  mkdir  ~/cs255/pj10
+
+    (2)  cp /home/cs255001/Handouts/pj10/*  ~/cs255/pj10       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assignment
+     </B></FONT>
+<P>
+<UL>
+<LI> In this assignment, you will write a
+     <FONT color="red"><B>C function</B></FONT> that
+     implements the
+     <B>Gauss-Jordan elimination algorithm</B> to
+     compute the <FONT color="blue"><B>inverse</B></FONT> of a
+     <FONT color="red"><B>NxN matrix</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Write the <FONT color="red"><B>Gauss-Jordan algorithm</B></FONT> in
+      the <FONT color="blue"><B>project file</B></FONT>
+   <FONT color="red"><B> <TT>inverse.c</TT></B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ The <B>Gauss-Jordan algorithm</B> was discussed in
+ <FONT color="red"><B>Math 221 (Linear Algebra)</B></FONT>
+ - click
+  on this link and see the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <B>example 2.4.4</B> on <B>page 84</B> 
+  of the <FONT color="blue"><B>Math 221 text book</B></FONT></SPAN>:
+  <A HREF="https://math.emory.edu/~lchen41/teaching/2020_Fall/Section_2-4.pdf">
+  <FONT color="red"><B>click here</B></FONT></A>
+<P>
+ To help you do this project, I have provided:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Extensive review</B></FONT> on the
+      <FONT color="blue"><B>Gauss-Jordan elimination algorithm</B></FONT> from
+      <FONT color="red"><B>Math221 (Linear Algebra)</B></FONT> to
+      refresh your knowledge on
+      <FONT color="blue"><B>matrix inversion</B></FONT>
+ <P>
+     The review material is in these <FONT color="red"><B>two sections</B></FONT>
+       in this handout <FONT color="blue"><B>below</B></FONT>
+   - <A HREF="#Math221">
+  <FONT color="red"><B>click here to go to the review section</B></FONT></A>
+<P>
+<HR>
+<P>
+ <LI>  <FONT color="red"><B>Several</B></FONT>
+    <FONT color="blue"><B> test programs</B></FONT> to help you 
+   <FONT color="red"><B>debug your code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>test1.c</TT></B></FONT> that
+      invert the <B>first</B> 
+    <FONT color="blue"><B>sample matrix</B></FONT> discussed
+      in the <FONT color="red"><B>review section</B></FONT> below.
+ <P>
+  (Therefore, you can use printf statements in you code to print the partial result computed by your algorithm out to check if your algorithm is performing the steps correctly !) 
+ <P>
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>Note:</B></FONT>
+  remove the printf statements from your code before you turn the
+  project in !!!
+  </SPAN>
+ <P>
+ <LI> <FONT color="red"><B><TT>test2.c</TT></B></FONT> that
+      invert the <B>second</B> 
+    <FONT color="blue"><B>sample matrix</B></FONT> discussed
+      in the <FONT color="red"><B>review section</B></FONT> below.
+ <P>
+(Therefore, you can use printf statements in you code to print the partial result computed by your algorithm out to check if your algorithm is performing the steps correctly !) 
+<P>
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>Note:</B></FONT>
+  remove the printf statements from your code before you turn the
+  project in !!!
+  </SPAN>
+
+<P>
+<LI> <FONT color="red"><B><TT>test3.c</TT></B></FONT> that
+      invert the
+    <FONT color="blue"><B>7x7 matrix</B></FONT> to test your algorithm more
+   rigorously.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have provide <FONT color="red"><B>detailed instructions</B></FONT> on
+ <FONT color="blue"><B>how to compile and run</B></FONT>
+  <FONT color="red"><B>each</B></FONT>
+  <FONT color="blue"><B>test program</B></FONT> in this write up and
+  in the file
+  <FONT color="red"><B><TT>reverse.c</TT></B></FONT>.
+<P>
+These test programs have been copied by the preparation step.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What you need to do for this project
+     </B></FONT>
+<P>
+<UL>
+
+<LI> 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Edit the file
+     <FONT color="red"><B><TT>inverse.c</TT></B></FONT> and
+     <FONT color="blue"><B>write</B></FONT> the
+     <FONT color="red"><B><TT>inverse(C, A)</TT></B></FONT>
+   function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* =======================================================================
+   <FONT color="red">TODO: write the invertMatrix(C, A) function that
+         implements the Gauss-Jordan algorithm  to
+         invert the NxN input matrix A.
+
+         The inverse matrix is stored in the NxN matrix C</FONT>
+
+   invertMatrix(double C[N][N], double A[N][N]):
+
+      input:  A = an NxN matrix that you need to find the inverse
+                  (You can change A if you like)
+
+              C = Output matrix
+                  When the invertMatrix( ) function completes, 
+		  the matrix C will contains the inverse of A
+
+      (N = #row and # columns in A and C)
+   ======================================================================== */
+void invertMatrix(double C[N][N], double A[N][N])
+{
+   // Write the Gauss-Jordan algorithm here
+}
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to compile and run the project
+     </B></FONT>
+<P>
+<UL>
+<LI> You can use <FONT color="red"><B>EGTAPI</B></FONT>'s
+     <FONT color="blue"><B>editor</B></FONT> to
+      <FONT color="red"><B>edit</B></FONT> the
+     <FONT color="blue"><B>project file</B></FONT>
+     <FONT color="red"><B><TT>inverse.c</TT></B></FONT>
+ <P>
+<LI> You can use <FONT color="red"><B>EGTAPI</B></FONT>'s
+      terminal to compile the project
+<P>
+<HR>
+<HR>
+<P>
+<LI>  There are 3 <FONT color="red"><B>test programs</B></FONT> that
+  will <FONT color="blue"><B>call</B></FONT> the
+  <FONT color="red"><B><TT>invertMatrix( )</TT></B></FONT> function:
+   <FONT color="blue"><B><TT>test1.c</TT></B></FONT>,
+  <FONT color="blue"><B><TT>test2.c</TT></B></FONT> and
+  <FONT color="blue"><B><TT>test3.c</TT></B></FONT>
+<P>
+
+<P>
+<LI> To 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>compile and run</B></FONT>
+    the <FONT color="blue"><B>test1</B></FONT> program</SPAN>,
+   enter the following <FONT color="red"><B>2 commands</B></FONT>
+   into <B>EGTAPI's</B> <FONT color="blue"><B>terminal</B></FONT>: 
+ 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cd ~/cs255/pj10
+   gcc -o test1 -DN=3 test1.c  helper.c inverse.c     
+   test1          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> To 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>compile and run</B></FONT>
+    the <FONT color="blue"><B>test2</B></FONT> program</SPAN>,
+   enter the following <FONT color="red"><B>2 commands</B></FONT>
+   into <B>EGTAPI's</B> <FONT color="blue"><B>terminal</B></FONT>: 
+ 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cd ~/cs255/pj10
+   gcc -o test2 -DN=3 test2.c  helper.c inverse.c     
+   test2          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> To 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>compile and run</B></FONT>
+    the <FONT color="blue"><B>test3</B></FONT> program</SPAN>,
+   enter the following <FONT color="red"><B>2 commands</B></FONT>
+   into <B>EGTAPI's</B> <FONT color="blue"><B>terminal</B></FONT>: 
+ 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cd ~/cs255/pj10
+   gcc -o test3 -DN=<SPAN style="BACKGROUND-COLOR: #ffdd00"><FONT color="red">7</FONT></SPAN> test3.c  helper.c inverse.c     
+   test3          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<A NAME="Math221"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: Inverse of a matrix (from Math221 - Linear Algebra)
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Inverse</B></FONT> of a
+      <FONT color="blue"><B>matrix</B></FONT> (Linear Algebra):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Given matrix A
+
+   A<sup>-1</sup> is the inverse of matrix A if and only if: 
+
+         <FONT color="red">  A*A<sup>-1</sup> = I</FONT>
+
+   where I = the identity matrix
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      +-          -+
+      |  7   2   1 |
+  A = |  0   3  -1 |
+      | -3   4  -2 |
+      +-          -+
+
+<HR>
+  The <FONT color="red">inverse</FONT> of A is:
+
+      +-          -+
+      | -2   8  -5 |
+  B = |  3 -11   7 |
+      |  9 -34  21 |
+      +-          -+
+
+ Because:
+
+         +-          -+   +-          -+
+         |  7   2   1 |   | -2   8  -5 |
+   A*B = |  0   3  -1 | * |  3 -11   7 |
+         | -3   4  -2 |   |  9 -34  21 |
+         +-          -+   +-          -+
+
+         +-                                             -+
+         | -7*2+2*3+1*9    7*8-2*11-1*34   -7*5+2*7+1*21 |    
+       = | -0*2+3*3-1*9    0*8-3*11+1*34   -0*5+3*7-1*21 |
+         |  3*2+4*3-2*9   -3*8-4*11+2*34    3*5+4*7-2*21 |
+         +-                                             -+
+
+         +-       -+
+         | 1  0  0 |
+       = | 0  1  0 |   <--- identify matrix
+         | 0  0  1 |
+         +-       -+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: the Gauss-Jordan elimination algorithm to find the inverse of a matrix
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> In <FONT color="red"><B>Math221</B></FONT>, you have learned the
+    following <FONT color="blue"><B>Gauss-Jordan algorithm</B></FONT> to
+    find the <FONT color="red"><B>inverse</B></FONT> of
+    a <FONT color="blue"><B>NxN matrix</B></FONT>:
+<P>
+<!--------------------------------------------------------------------
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Setup a pair of matrix: A | I
+
+   for ( i = 0; i < N; i++ )
+   {
+      Multiply <FONT color="red">row<sub>i</sub></FONT> by <FONT color="red">1/A[i][i]</FONT>;   // Normalize row i of matrix;   
+
+      // Use row i to create a column of 0 in column i
+      for ( j = 0; j < N; j++ )
+      {
+         if ( j != i )
+            Add <FONT color="red">-A[j][i]*row<sub>i</sub></FONT> to <FONT color="red">row<sub>j</sub></FONT>;
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+------------------------------------------------------------->
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Gauss-Jordan Method</B> to find the
+     <FONT color="red"><B>inverse</B></FONT> of:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      +-          -+
+      |  7   2   1 |
+  A = |  0   3  -1 |
+      | -3   4  -2 |
+      +-          -+           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We first setup the <FONT color="red"><B>matrix A,I</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          +-          -+ +-          -+
+          |  7   2   1 | |  1   0   0 |
+  A , I = |  0   3  -1 | |  0   1   0 |
+          | -3   4  -2 | |  0   0   1 |
+          +-          -+ +-          -+        
+
+  Simplified representation:
+
+     7.000   2.000   1.000  |  1.000   0.000   0.000 
+     0.000   3.000  -1.000  |  0.000   1.000   0.000 
+    -3.000   4.000  -2.000  |  0.000   0.000   1.000      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Row 0</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Multiply <FONT color="red">row<sub>0</sub></FONT> by <FONT color="red">1/A[0][0]</FONT>;   // Normalize row 0 of matrix;  
+
+        A[0][0] = 7	--> divide row 0 by 7
+
+  Result:
+
+     <FONT color="red">1.000</FONT>   0.286   0.143  |  0.143   0.000   0.000  <--- Updated row 0    
+     0.000   3.000  -1.000  |  0.000   1.000   0.000 
+    -3.000   4.000  -2.000  |  0.000   0.000   1.000 
+
+        
+<HR>
+  // Use row 0 to create a column of 0 values in column 0
+
+  <FONT color="red">What you will be doing</FONT> are:
+
+         add <FONT color="red"> 0x row 0</FONT> to row 1  // "Reduce" row 1
+         add <FONT color="red">+3x row 0</FONT> to row 2  // "Reduce" row 2
+
+     1.000   0.286   0.143   |    0.143   0.000   0.000---+     
+     <FONT color="red">0.000</FONT>   3.000  -1.000   |    0.000   1.000   0.000<--+ <FONT color="red">-0x</FONT> row 0   
+    <FONT color="red">-3.000</FONT>   4.000  -2.000   |    0.000   0.000   1.000
+
+   After reducing row 1:				       
+     1.000   0.286   0.143   |    0.143   0.000   0.000---+ 
+     0.000   3.000  -1.000   |    0.000   1.000   0.000   |
+    -3.000   4.000  -2.000   |    0.000   0.000   1.000<--+ <FONT color="red">+3x</FONT> row 0
+ 							
+   After reducing row 2:				       
+     1.000   0.286   0.143   |    0.143   0.000   0.000 
+     0.000   3.000  -1.000   |    0.000   1.000   0.000 
+     0.000   4.857  -1.571   |    0.429   0.000   1.000 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Row 1</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Multiply <FONT color="red">row<sub>1</sub></FONT> by <FONT color="red">1/A[1][1]</FONT>;   // Normalize row 1 of matrix;  
+
+        A[1][1] = 3	--> divide row 1 by 3
+
+  Result:
+
+     1.000   0.286   0.143   |    0.143   0.000   0.000 
+     0.000   <FONT color="red">1.000</FONT>  -0.333   |    0.000   0.333   0.000  <--- Updated row 1  
+     0.000   4.857  -1.571   |    0.429   0.000   1.000 
+
+<HR>
+  // Use row 1 to create a column of 0 values in column 1
+
+  <FONT color="red">What you will be doing</FONT> are:
+
+         add <FONT color="red">-0.286x row 1</FONT> to row 0  // "Reduce" row 0
+         add <FONT color="red">-4.857x row 1</FONT> to row 2  // "Reduce" row 2
+
+     1.000   <FONT color="red">0.286</FONT>   0.143   |    0.143   0.000   0.000<--+ <FONT color="red">-0.286x</FONT> row 1
+     0.000   1.000  -0.333   |    0.000   0.333   0.000---+  
+     0.000   <FONT color="red">4.857</FONT>  -1.571   |    0.429   0.000   1.000
+
+   After reducing row 0:				     
+     1.000   0.000   0.238   |    0.143  -0.095   0.000 
+     0.000   1.000  -0.333   |    0.000   0.333   0.000---+
+     0.000   4.857  -1.571   |    0.429   0.000   1.000<--+ <FONT color="red">-4.857x</FONT> row 1
+   							
+   After reducing row 2:				     
+     1.000   0.000   0.238   |    0.143  -0.095   0.000 
+     0.000   1.000  -0.333   |    0.000   0.333   0.000 
+     0.000   0.000   0.048   |    0.429  -1.619   1.000 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Row 2</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Multiply <FONT color="red">row<sub>2</sub></FONT> by <FONT color="red">1/A[2][2]</FONT>;   // Normalize row 2 of matrix;  
+
+        A[2][2] = 0.048		--> Divide row 2 by 0.048
+
+  Result:
+
+     1.000   0.000   0.238   |    0.143  -0.095   0.000 
+     0.000   1.000  -0.333   |    0.000   0.333   0.000 
+     0.000   0.000   <FONT color="red">1.000</FONT>   |    9.000 -34.000  21.000  <--- Updated row 2   
+
+<HR>
+  // Use row 2 to create a column of 0 values in column 2
+
+  <FONT color="red">What you will be doing</FONT> are:
+
+         add -0.238x row 2 to row 0  // "Reduce" row 0
+         add +0.333x row 2 to row 1  // "Reduce" row 1
+
+     1.000   0.000   0.238   |    0.143  -0.095   0.000<--+<FONT color="red"> -0.238x</FONT> row 2
+     0.000   1.000  -0.333   |    0.000   0.333   0.000   |
+     0.000   0.000   1.000   |    9.000 -34.000  21.000---+
+
+   After reducing row 0:				     
+     1.000   0.000   0.000   |   -2.000   8.000  -5.000
+     0.000   1.000  -0.333   |    0.000   0.333   0.000<--+<FONT color="red"> +0.333x</FONT> row 2
+     0.000   0.000   1.000   |    9.000 -34.000  21.000---+
+   							
+   After reducing row 1:				     
+     1.000   0.000   0.000   |   -2.000   8.000  -5.000 
+     0.000   1.000   0.000   |    3.000 -11.000   7.000 
+     0.000   0.000   1.000   |    9.000 -34.000  21.000 
+     ^^^^^^^^^^^^^^^^^^^^^        ^^^^^^^^^^^^^^^^^^^^^
+ DONE:  Identity matrix               Inverse matrix
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Result:</B></FONT> inverse matrix is
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    -2.00   8.00  -5.00 
+     3.00 -11.00   7.00 
+     9.00 -34.00  21.00              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+The <FONT color="red"><B>test program <TT>test1.c</TT></B></FONT>
+ will invert the <FONT color="blue"><B>above matrix</B></FONT>.
+<BR>
+I.e.: <FONT color="red"><B>your code</B></FONT>
+   will perform these steps in the
+ <FONT color="blue"><B>matrix inversing operation</B></FONT> !
+<P>
+ (Therefore, you can use
+  <B>printf</B> statements in you code
+  to print the partial result computed by
+  your algorithm out to check if your algorithm is
+  performing the steps correctly !)
+<P>
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>Note:</B></FONT>
+  <B>if</B> you used <B>printf</B> calls, then you
+  <B>must</B> remove the printf statements from your code before you turn the
+  project in !!!
+  </SPAN>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+Here is another example:
+<P>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<IMG SRC="matrix-inverse.jpg" width=600></IMG>
+<P>
+The <FONT color="red"><B>test program <TT>test2.c</TT></B></FONT>
+ will invert the <FONT color="blue"><B>above matrix</B></FONT>.
+<BR>
+I.e.: <FONT color="red"><B>your code</B></FONT>
+   will perform these steps in the
+ <FONT color="blue"><B>matrix inversing operation</B></FONT> !
+
+<P>
+ (Therefore, you can use
+  <B>printf</B> statements in you code
+  to print the partial result computed by
+  your algorithm out to check if your algorithm is
+  performing the steps correctly !)
+<P>
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>Note:</B></FONT>
+  <B>if</B> you used <B>printf</B> calls, then you
+  <B>must</B> remove the printf statements from your code before you turn the
+  project in !!!
+  </SPAN>
+
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Turn in
+     </B></FONT>
+<P>
+<UL>
+Turn in your program using project code
+   <FONT color="red"><B> pj10</B></FONT>
+   using <B>EGTAPI</B>
+<P>
+   (In EGTAPI, select: File Browser, Turnin,
+   click on the file <B>inverse.c</B>
+   use the turn in code: <B>pj10</B>)
+<P>
+<HR>
+<P>
+You can also use
+the
+  <FONT color="blue"><B><TT>turnin</TT> </B></FONT>
+command (executed while you're in your cs255 directory)
+<P>
+ Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ these command:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cd  ~/cs255/pj10
+
+
+
+    /home/cs255001/turnin  inverse.c  pj10  // If you're in section 1
+
+ or
+
+    /home/cs255002/turnin  inverse.c  pj10  // If you're in section 2   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> To request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj10</B></FONT>, you must
+      <FONT color="red"><B>execute</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      <FONT color="red"><B><I>before</I></B></FONT> the
+      <FONT color="blue"><B>deadline</B></FONT> of the
+      <FONT color="red"><B>homework</B></FONT>
+<P>
+Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ this command to request an extenstion for pj10:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj10</FONT>   // If you're in section 1
+
+ or
+
+    /home/cs255002/req-ext    <FONT color="red">pj10</FONT>   // If you're in section 2   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

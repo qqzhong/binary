@@ -1,0 +1,373 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>if-else</TT> statement (with a simple condition)
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>if-else</TT> statement in a high level programming language
+     </B></FONT>
+<P>
+ <UL>
+<LI> <FONT color="red"><B>Syntax:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( condition )
+      statement1;
+   else
+      statement2;                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Meaning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="blue"><B><TT>condition</TT></B></FONT> is
+      <FONT color="red"><B>true</B></FONT>, then
+      <FONT color="blue"><B>program control</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Execute <FONT color="blue"><B><TT>statement1</TT></B></FONT>
+ <LI> <FONT color="red"><B>Continue</B></FONT> with the
+      <FONT color="blue"><B>statement</B></FONT> following
+      the <FONT color="red"><B><TT>if-else</TT></B></FONT> statement
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> If <FONT color="blue"><B><TT>condition</TT></B></FONT> is
+      <FONT color="red"><B>false</B></FONT>, then
+      <FONT color="blue"><B>program control</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Execute <FONT color="blue"><B><TT>statement2</TT></B></FONT>
+ <LI> <FONT color="red"><B>Continue</B></FONT> with the
+      <FONT color="blue"><B>statement</B></FONT> following
+      the <FONT color="red"><B><TT>if-else</TT></B></FONT> statement
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>program control</B></FONT> given
+     of the <FONT color="blue"><B><TT>if-else</TT> statement</B></FONT>
+     as a <FONT color="red"><B>flow chart</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                              <FONT color="red"> Flow chart of the if-else statement</FONT>          
+   if ( condition )   ---->            |
+      statement1;                      V
+   else				+--------------+    <FONT color="red">FALSE</FONT>
+      statement2;		|  condition   |--------+
+				+--------------+	|
+				       |		|
+				       | <FONT color="red">TRUE</FONT>		|
+				       |		|
+				       V		|
+				   statement1		|
+				       |		|
+			     +---------+		|
+			     |	        		|
+			     |	       +<---------------+
+			     |	       |
+			     |	       V
+			     |	   statement2
+			     |	       |
+			     |	       |
+			     +-------->+
+				       |
+				       |
+				       V
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Realizing the <TT>if-else</TT> statement construct in 
+     assembler code
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B>assembler construct</B></FONT>
+      that <FONT color="blue"><B>realizes (= implements)</B></FONT>
+     the <FONT color="red"><B>program control flow</B></FONT>
+     of the <FONT color="blue"><B><TT>if-else</TT> statement</B></FONT> is
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      Evaluate "condition" (with <FONT color="red">cmp</FONT>)
+							       <FONT color="red">FALSE</FONT>       
+      Branch on the FALSE outcome of "condition" to label A:  ----+
+		|						  |
+		| <FONT color="red">(TRUE)</FONT>					  |
+		|						  |
+		V						  |
+           "statement1" assembler code		  		  |
+		 						  |
+	Branch (always) to label B: --------+			  |
+					    |			  |
+					    |			  |
+  A:       "statement2" assembler code <--------------------------+
+		|			    |
+		|			    |
+  B:		+<--------------------------+
+		|
+		V
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>if-else</TT> statement in assembler code - example
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example:</B> find the maximum of 2 integers
+<P>
+The following program fragment will store
+ the <FONT color="red"><B>larger value</B></FONT> of
+ <FONT color="blue"><B><TT>x</TT></B></FONT> and
+ <FONT color="blue"><B><TT>y</TT></B></FONT> in the
+ <B>variable</B> 
+ <FONT color="red"><B><TT>max</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   int y;
+   int max;
+
+   if ( x >= y )
+      max = x;
+   else
+      max = y;                         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+The <FONT color="red"><B>flow chart</B></FONT> of the
+ <B>above program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/if-else1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>assembler code</B></FONT> that 
+  <FONT color="blue"><B>implements</B></FONT> this
+ <FONT color="red"><B>high level program</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* --------------------------------------------------
+   if ( x >= y )
+      max = x;
+   else
+      max = y;
+   -------------------------------------------------- */
+        .text
+main:
+
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+        ldr     r0, [r0]                // r0 = x
+
+        movw    r1, #:lower16:y
+        movt    r1, #:upper16:y         // r1 = addr(y)
+        ldr     r1, [r1]                // r1 = y
+
+        <FONT color="red">cmp     r0, r1                  // compare x ? y</FONT>
+        <FONT color="red">blt     else </FONT>                   // Branch to "else" if  x < y
+
+        // x >= y ---> max = x
+        movw    r2, #:lower16:max
+        movt    r2, #:upper16:max       // r2 = addr(max)
+        str     r0, [r2]                // max = x
+
+        <FONT color="red">b       ifEnd</FONT>                   // Skip over the else part !!!
+
+else:
+        // x < y ---> max = y
+        movw    r2, #:lower16:max
+        movt    r2, #:upper16:max       // r2 = addr(max)
+        str     r1, [r2]                // max = y
+
+ifEnd:
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+x:      .4byte  7      // Try a value > y
+y:      .4byte  10
+max:    .4byte  0
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/6-if/if-else1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 if-else1</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+   use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+

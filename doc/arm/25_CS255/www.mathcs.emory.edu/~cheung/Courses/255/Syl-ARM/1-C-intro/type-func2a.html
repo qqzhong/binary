@@ -1,0 +1,295 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Calling a function with <I>mismatched</I> data types
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Mismatched data types in a function call
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Conversion rule:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If a <FONT color="blue"><B>function call</B></FONT> uses
+       <FONT color="red"><B><I>mismatched</I> data types</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float</FONT> f(<FONT color="red">float</FONT> x)
+   {
+      return x*x;
+   }
+
+   main( )
+   {
+      <FONT color="red">int</FONT> a, b;
+
+      b = <FONT color="red">f(a)</FONT>;  // (1) a is <FONT color="red">int</FONT>, but f(<FONT color="red">float ..</FONT>) uses a <FONT color="red">float</FONT> parameter !!!  
+                 // (2) b is <FONT color="red">int</FONT>, but <FONT color="red">float</FONT> f( .. ) returns a <FONT color="red">float</FONT> value
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ then:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>input</I> parameters</B></FONT> 
+      <B><I>must</I></B> 
+     be <FONT color="red"><B>converted</B></FONT>
+      to the
+      <FONT color="blue"><B>data type</B></FONT> of the
+      <B>parameter variable</B> of the
+      <FONT color="red"><B>function</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B><I>return</I> value</B></FONT> 
+ <B><I> must</I></B> be
+ <FONT color="red"><B>converted</B></FONT> to the
+  <FONT color="blue"><B>data type</B></FONT> of the
+      <B><I>receiving</I> variable</B> of the
+      <FONT color="red"><B>function call</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <B>Consider</B> the following 
+   <FONT color="blue"><B>function call</B></FONT> to 
+   <FONT color="red"><B><TT>float f(float x)</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float</FONT> f(<FONT color="red">float</FONT> x)
+   {
+      return x*x;
+   }
+
+   int main()
+   {
+      <FONT color="red">int</FONT> a, b;
+
+      <FONT color="red">a = 2;    // repr: 00000000 00000000 00000000 00000010</FONT>
+
+      b = <FONT color="red">f(a)</FONT>;  // a is int, but <FONT color="red">f( )</FONT> uses a <FONT color="red">float</FONT> parameter !!!    
+                 // Also: f( ) <FONT color="red">returns</FONT> a <FONT color="red">float</FONT> value, b is an int !!!
+   }        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> The <B>following</B>
+   <FONT color="red"><B>data type <I>conversions</I></B></FONT>
+   <FONT color="blue"><B>will</B></FONT> occur
+   <FONT color="red"><B>automatically</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/blackbox3a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Program</B></FONT> that makes
+    the <FONT color="red"><B>conversion</B></FONT>
+    <FONT color="blue"><B><I>explicit</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float</FONT> f( <FONT color="red">float</FONT> x)
+   {
+      printBitFloat(x);
+    
+      float r;
+    
+      r = x*x;
+    
+      printBitFloat(r);
+    
+      return(r);
+   }
+    
+   int main(int argc, char *argv[] )                             
+   {
+      <FONT color="red">int</FONT> a, b;
+    
+      a = 2;
+    
+      printBitInt(a);
+    
+     <SPAN style="BACKGROUND-COLOR: yellow"> b = <FONT color="red">f(a)</FONT>;
+</SPAN>    
+      printBitInt(b);
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output</B> of the <FONT color="blue"><B>program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+a = 2 , repr in bits: <FONT color="darkred">00000000000000000000000000000010</FONT>
+
+   Inp param  x = 2.000000 , repr in bits: <FONT color="red">01000000000000000000000000000000</FONT>
+   Return value = 4.000000 , repr in bits: <FONT color="red">01000000100000000000000000000000</FONT>
+
+b = 4 , repr in bits: <FONT color="red">00000000000000000000000000000100</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/func-call-conv1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc func-call-conv1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

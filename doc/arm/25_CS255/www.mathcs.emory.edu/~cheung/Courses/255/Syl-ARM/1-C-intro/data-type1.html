@@ -1,0 +1,157 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>Overview of the primitive data types of C</B></FONT>
+<HR>
+
+<UL>
+
+<P>
+<LI> <FONT color="darkmagenta"><B>
+      C's built-in data types that are similar to ones in <I>Java</I>
+	</B></FONT>
+<P>
+ <UL>
+   <TABLE BGCOLOR="lightcyan" Border=5>
+   <TR bgcolor="lightgreen">
+   <TH width=100>Syntax</TH> <TH width=200>Name</TH> 
+   <TH><FONT color="red">Java's counterpart</FONT></TH> <TH>use</TH>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>char</TT></B></FONT></TD>
+       <TD>character</TD> 
+        <TD><FONT color="red"><B><TT>byte</TT></B></FONT></TD>
+	<TD>Stores an ASCII code (character) or it can
+	also store a very short integer (&minus;128..127)</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>short</TT></B></FONT></TD>
+         <TD>short integer</TD>
+	 <TD><FONT color="red"><B><TT> short</TT></B></FONT></TD>
+	<TD>uses 2 byte memory, value between &minus;32768 and 32767
+	</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>int</TT></B></FONT></TD> 
+         <TD>ordinary integer</TD> 
+	 <TD><FONT color="red"><B><TT> int</TT></B></FONT></TD>
+	<TD>uses 4 byte memory, value between &minus;2147483648 and 2147483647
+	</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>long</TT></B></FONT></TD>
+        <TD>long integer </TD>
+	<TD><FONT color="red"><B><TT>long </TT></B></FONT></TD>
+	<TD>uses 8 bytes memory, value
+	between &minus;9223372036854775808 and 9223372036854775807
+	</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>float</TT></B></FONT></TD>
+	<TD>single precision float</TD>
+	<TD><FONT color="red"><B><TT> float</TT></B></FONT></TD>
+	<TD>
+	uses 4 byte memory, absolute value between 1.4E&minus;45 and 3.4E38
+	</TD>
+   </TR>
+   <TR>
+   <TD> <FONT color="blue"><B><TT>double</TT></B></FONT></TD> 
+	<TD>double precision float</TD>
+	<TD><FONT color="red"><B><TT>double </TT></B></FONT></TD>
+	<TD>
+	uses 8 byte memory, absolute value between 4.9E&minus;324 and 1.8E308
+	</TD>
+    </TR>
+   <TR>
+   <TD> <FONT color="blue"><B><TT>_Bool</TT></B></FONT></TD>
+	<TD>boolean</TD>
+	<TD><FONT color="red"><B><TT>boolean </TT></B></FONT></TD>
+	<TD>
+	true (1) or false (0)
+	</TD>
+    </TR>
+ </TABLE>
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<P>
+<LI> <FONT color="darkmagenta"><B>
+      C's built-in data types that do <FONT color="red">not</FONT>
+      have an equivalent  in <I>Java</I>
+	</B></FONT>
+<P>
+ <UL>
+   <TABLE BGCOLOR="lightyellow" Border=5>
+   <TR bgcolor="lightgreen">
+   <TH width=150>Syntax</TH> <TH width=200>Name</TH> 
+    <TH>use</TH>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>unsigned char</TT></B></FONT></TD>
+       <TD>Unsigned character</TD> 
+	<TD>Very short positive integer (0..255)</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>unsigned short</TT></B></FONT></TD>
+         <TD>Unsigned short integer</TD>
+
+	<TD>uses 2 byte memory, value between 0 and 65535
+	</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>unsigned int</TT></B></FONT></TD> 
+         <TD>Unsigned ordinary integer</TD> 
+
+	<TD>uses 4 byte memory, value between 0 and
+         4294967295 
+	</TD>
+   </TR>
+
+   <TR>
+   <TD> <FONT color="blue"><B><TT>unsigned long</TT></B></FONT></TD>
+        <TD>Unsigned long integer </TD>
+
+	<TD>uses 8 bytes memory, value
+	between 0 and 18446744073709551615
+	</TD>
+   </TR> 
+
+   <TR bgcolor="#FFEEEE">
+   <TD> <FONT color="red"><B><TT>* </TT></B></FONT></TD>
+        <TD><FONT color="red"><B><I>Reference type</I></B></FONT> </TD>
+
+	<TD>Contains a memory address (usually 4 bytes, but 64 bits machines
+	will use 8 bytes)
+	</TD>
+   </TR> 
+ </TABLE>
+ </UL>
+<P>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

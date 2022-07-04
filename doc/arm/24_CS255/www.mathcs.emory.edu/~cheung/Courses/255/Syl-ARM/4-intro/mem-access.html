@@ -1,0 +1,1122 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Data transfer between CPU and memory
+<HR>
+</H3>
+<P>
+<UL> 
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Operations that can be performed on the memory
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>Each</B></FONT>
+        <FONT color="blue"><B> memory byte</B></FONT> can perform
+    <FONT color="red"><B>2 <I>basic</I> operations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Each <FONT color="blue"><B>memory byte</B></FONT> can
+       <FONT color="red"><B>store</B></FONT> 
+     (= <FONT color="red"><B>remember</B></FONT>)
+      <FONT color="blue"><B>8 binary digits</B></FONT>
+     
+ <LI> Each <FONT color="blue"><B>memory byte</B></FONT> can
+       <FONT color="red"><B>retrieve</B></FONT>
+       (= <FONT color="red"><B>recall</B></FONT>) the
+      <FONT color="blue"><B>8 binary digits</B></FONT>
+      that is stored in the byte
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Analogy:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> 
+      The <FONT color="blue"><B>memory</B></FONT> of
+      a <FONT color="red"><B>$1 calculator</B></FONT> can also
+      perform 2 <B>basic operations</B>:
+     <FONT color="blue"><B>store (= write)</B></FONT> and
+     <FONT color="red"><B>recall (= read)</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="170/FIGS/0/dtcalc.gif" width=250 height=350></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>difference</B></FONT> between 
+ <FONT color="blue"><B>computer memory</B></FONT> and
+ the <B>memory</B> of a
+ <FONT color="red"><B>$1 calculator</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>computer memory</B></FONT>
+      has <FONT color="red"><B>many different
+   (2<sup>N</sup>) memory bytes</B></FONT>
+ <P>
+ <LI> You must <FONT color="red"><B>specify</B></FONT>
+    <FONT color="blue"><B><I>which</I> memory byte or bytes</B></FONT>
+    that you want to <FONT color="red"><B>use</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>M+</B></FONT> function is
+       <FONT color="blue"><B>not</B></FONT> a
+       <FONT color="red"><B><I>basic</I> (= irreplacable)
+       function</B></FONT>
+<P>
+  The <FONT color="red"><B>M+</B></FONT> function conists of 
+  a <FONT color="blue"><B>sequence</B></FONT> of 
+  <FONT color="red"><B>(irreplacable) basic functions</B></FONT>,
+  namely: the
+  <FONT color="blue"><B> "recall, add, store" operation</B></FONT>
+<P>
+ It's 
+ provided by the calculator for your convenience...
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Terminilogy: read memory and write memory
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Read</B></FONT> and 
+   <FONT color="red"><B>write operation</B></FONT> to
+   <FONT color="blue"><B>(computer) memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <B>Computer Science</B>, the
+    term <FONT color="red"><B>"read memory"</B></FONT> or
+   <FONT color="red"><B>read operation</B></FONT> means:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recall (and receive)</B></FONT> the
+      <FONT color="blue"><B>value</B></FONT> stored in
+      <B>memory</B> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> In <B>Computer Science</B>, the
+    term <FONT color="red"><B>"write memory"</B></FONT>  or
+   <FONT color="red"><B>write operation</B></FONT>  means:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Store </B></FONT> a
+      <FONT color="blue"><B>value</B></FONT> to
+      <B>memory</B> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+<LI> The <FONT color="blue"><B>device (= agent inside the computer)</B></FONT>
+     that <B>performs</B>
+     <FONT color="red"><B>read/write operations</B></FONT>
+     is <B>usually</B>
+	the <FONT color="blue"><B>CPU</B></FONT>.
+ <P>
+ (The <FONT color="red"><B>other device</B></FONT> that
+  <FONT color="blue"><B>can</B></FONT> perform
+  <FONT color="red"><B>read/write operations</B></FONT> is the
+  <FONT color="blue"><B>DMA (Direct Memory Access)</B></FONT> -
+ you will learn about this in <FONT color="red"><B>CS355</B></FONT>.
+ <P>
+ In <FONT color="red"><B>CS255</B></FONT>, the
+  <FONT color="blue"><B>only device</B></FONT> that performs
+   <FONT color="red"><B>read/write operation</B></FONT>
+     will be 
+	the <FONT color="blue"><B>CPU</B></FONT>.)
+</UL>
+<P>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Transfering (binary) data between CPU and memory
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Data transfer </B></FONT> between
+   <FONT color="blue"><B>CPU</B></FONT> and 
+   <FONT color="red"><B>memory</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> The <FONT color="red"><B>CPU</B></FONT> can
+       <FONT color="blue"><B>read (= obtain or recall) data</B></FONT>
+       that is stored in the <FONT color="red"><B>memory</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>CPU</B></FONT> can
+       <FONT color="blue"><B>write (= store) data</B></FONT>
+        into some
+     <FONT color="red"><B>cells</B></FONT>
+     in the <FONT color="blue"><B>memory</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<FONT color="red"><B>Questions:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> do the
+   <FONT color="blue"><B>CPU</B></FONT> 
+      <FONT color="red"><B>specify</B></FONT> the
+      <FONT color="blue"><B>operation (read or write)</B></FONT> ??
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>How</B></FONT> do the
+      <FONT color="blue"><B>CPU</B></FONT> 
+       <FONT color="red"><B>specify</B></FONT>
+       <FONT color="blue"><B><I>which</I> memory location</B></FONT>
+       the <FONT color="red"><B>read/write operation</B></FONT> will
+       be <FONT color="blue"><B>performed on</B></FONT> ???
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>address</B></FONT> will
+  <FONT color="blue"><B>specify</B></FONT>
+  <FONT color="red"><B><I>which</I> memory cells</B></FONT> the
+  <FONT color="blue"><B>requested operation</B></FONT> will be
+  <FONT color="red"><B>performed</B></FONT> !!!
+<P>
+<HR>
+<P>
+
+
+<LI> <FONT color="blue"><B>Recall</B></FONT>   that
+    the <FONT color="red"><B>memory</B></FONT> consists of
+     <FONT color="blue"><B>many bytes</B></FONT> and
+     <FONT color="red"><B>each byte</B></FONT> is
+     <FONT color="blue"><B>identified</B></FONT> by
+     an <FONT color="red"><B>address</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/memory01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Recall</B></FONT> that the
+     <FONT color="blue"><B>CPU</B></FONT> and 
+     <FONT color="red"><B>memory</B></FONT> are
+    <FONT color="blue"><B>connected</B></FONT> by
+    <FONT color="red"><B>3 set of wires (address, data and
+     system buses)</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+  <IMG SRC="FIGS/comp-arch.gif" withd=500 height=400> </IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Each (electrical) wire</B></FONT> in the <B>buses</B>
+  can carry a <FONT color="blue"><B>electrical <I>signal</I></B></FONT>
+  that can be:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Low voltage</B></FONT> 
+   ( &equiv; represents the <FONT color="blue"><B>binary number 0</B></FONT>)
+ <LI> <FONT color="red"><B>High voltage</B></FONT> 
+   ( &equiv; represents the <FONT color="blue"><B>binary number 1</B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>CPU</B></FONT> will
+ use <FONT color="blue"><B>high/low voltage signals</B></FONT>
+ conveyed through the <FONT color="red"><B>wires</B></FONT> to
+ <FONT color="blue"><B>specify</B></FONT> 
+  </FONT><FONT color="red"><B>what operation</B></FONT> that the
+  CPU wants to 
+ perform  !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>voltage signals</B></FONT>
+     carried through the <FONT color="blue"><B>wires</B></FONT> 
+      of the <FONT color="red"><B>address bus</B></FONT> 
+    represents the
+    <FONT color="blue"><B>binary number</B></FONT> of
+    the <FONT color="red"><B><I>address</I> of the memory</B></FONT>
+    that the <FONT color="blue"><B>CPU</B></FONT> wants to
+    <FONT color="red"><B>access (= read or write)</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>voltage signals</B></FONT>
+     carried through the <FONT color="blue"><B>wires</B></FONT> 
+      of the <FONT color="red"><B>data bus</B></FONT> 
+    represents the
+    <FONT color="blue"><B>binary data</B></FONT> 
+    <B>transferred</B> between
+    the <FONT color="red"><B>CPU</B></FONT> and 
+    the <FONT color="blue"><B> memory</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>voltage signals</B></FONT>
+     carried through the <FONT color="blue"><B>wires</B></FONT> 
+      of the <FONT color="red"><B>control bus</B></FONT> 
+    contains 
+    <FONT color="blue"><B><I>command</I> indications</B></FONT> 
+    made by the <FONT color="red"><B>CPU</B></FONT>
+  <P>
+ (<FONT color="red"><B>Each wire</B></FONT> in the
+   <FONT color="blue"><B>control bus</B></FONT> is associated
+   with a 
+  <FONT color="red"><B>specific <I>operation</I> (= command)</B></FONT>)
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the <FONT color="red"><B>CPU</B></FONT> wants to
+     <FONT color="blue"><B>store</B></FONT> the
+     <FONT color="red"><B>binary number
+     <TT>1010101010101010</TT></B></FONT>
+     into the <FONT color="blue"><B>memory location 4</B></FONT>
+<P>
+  Then the <FONT color="red"><B>CPU</B></FONT> will
+   <FONT color="blue"><B>emits</B></FONT> the following
+   <FONT color="red"><B>electrical signals</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     0000000000000100  (= 4 in binary) on the <FONT color="red">address bus</FONT>
+     1010101010101010  (= the data) on the <FONT color="red">data bus</FONT>
+     0                 (= code for the write command) on the <FONT color="red">R/W wire</FONT> of the <FONT color="red">control bus</FONT>    
+
+
+      Note: one bit is carried on one wire of a bus !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When the <FONT color="red"><B>memory </B></FONT> receives
+ these <FONT color="blue"><B>signals</B></FONT>,
+ the <FONT color="red"><B>memory</B></FONT> will
+  <FONT color="blue"><B>know</B></FONT> that it needs to
+  <FONT color="red"><B>store</B></FONT> the
+ <FONT color="blue"><B>binary data</B></FONT> on the
+  <FONT color="red"><B>data bus wires</B></FONT> into
+  its <FONT color="blue"><B>memory location 4</B></FONT>
+<P>
+
+<HR>
+<P>
+In <FONT color="red"><B>CS355</B></FONT> you will learn about the
+ <FONT color="blue"><B>different wires/signals</B></FONT> on the
+ <FONT color="red"><B>control bus</B></FONT>.
+<P>
+ For <FONT color="red"><B>CS255</B></FONT>, all you need to know is there is
+  a <FONT color="blue"><B>R/W signal (= wire)</B></FONT> in the
+  <FONT color="red"><B>control bus</B></FONT> where:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red"> 0</FONT>   means: the CPU issues a<FONT color="red"> WRITE command</FONT> to the memory        
+  <FONT color="red"> 1</FONT>   means: the CPU issues a <FONT color="red">READ  command</FONT> to the memory
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will give a little more detail on how the CPU reads/writes data from/to
+ memory to help you understand the operation of the computer.
+<P>
+For a <FONT color="red"><B>full discussion</B></FONT>, you will
+ need to take <FONT color="blue"><B>CS355</B></FONT>....
+<P>
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How the CPU read data from the memory
+     </B></FONT>
+<P>
+<UL>
+
+Recall also that the <FONT color="red"><B>CPU</B></FONT> and
+  <FONT color="blue"><B>Memory</B></FONT> are
+   <FONT color="red"><B>inter-connected</B></FONT> by
+  <FONT color="blue"><B>3 "buses" (sets of wires)</B></FONT> that
+   can transmit electrical signals to each other:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/comp-arch.gif" width=500 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The
+       <FONT color="red"><B>memory <I>read</I> operation:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="red"><B>CPU</B></FONT> 
+    <FONT color="blue"><B>"reads" the memory</B></FONT>,
+   the <FONT color="red"><B>CPU</B></FONT> must
+   <FONT color="blue"><B>specify</B></FONT> the
+   <FONT color="red"><B><I>address</I></B></FONT>
+   of the <FONT color="blue"><B>memory cells</B></FONT>
+   that it wants to read
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>(memory) read operation</B></FONT> will
+       <FONT color="blue"><B>transfer a copy</B></FONT> of
+       the <FONT color="red"><B>data</B></FONT> stored in the
+       <FONT color="blue"><B>memory</B></FONT> <B>to</B>
+       the <FONT color="red"><B>CPU</B></FONT>
+ <P>
+  (The <FONT color="red"><B><I>original</I> value</B></FONT> stored in the
+  <FONT color="blue"><B>memory</B></FONT> is
+  <FONT color="red"><B>unchanged</B></FONT> 
+ <P>
+  The <FONT color="red"><B>CPU</B></FONT> will
+   receive a <FONT color="blue"><B>copy</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+    What happens 
+   <FONT color="red"><B>inside the computer</B></FONT> when
+   the <FONT color="blue"><B>CPU</B></FONT> 
+   <FONT color="blue"><B>reads</B></FONT> the
+   <FONT color="red"><B>memory</B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> <B>first</B>
+        sends the
+      <FONT color="blue"><B>address</B></FONT> of the <B>memory</B> that
+      it wants to <FONT color="red"><B>read</B></FONT> on the
+      <FONT color="blue"><B>address bus</B></FONT>
+ <LI> Then, the <FONT color="red"><B>CPU</B></FONT> sends the
+     <FONT color="blue"><B>"read" command</B></FONT> to the
+     <FONT color="red"><B>memory</B></FONT> on the
+     <FONT color="blue"><B>control bus</B></FONT>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> will then
+    <FONT color="blue"><B><I>wait</I></B></FONT> for the
+    <FONT color="red"><B>memory </B></FONT> to
+    <FONT color="blue"><B>respond</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> Upon receiving the above <FONT color="red"><B>signals</B></FONT>,
+    the <FONT color="blue"><B>memory</B></FONT> will
+    send the <FONT color="red"><B>content </B></FONT> of the
+    <FONT color="blue"><B>specified memory address</B></FONT> on the
+    <FONT color="red"><B>data bus</B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>CPU</B></FONT> can now
+      <FONT color="blue"><B>copy</B></FONT> the
+      data on the <FONT color="red"><B>data bus</B></FONT> into
+      an <FONT color="blue"><B>internal memory</B></FONT> 
+        (located inside the CPU)
+      for further processing
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These <FONT color="blue"><B>steps (= events)</B></FONT> must proceed
+ in the above <FONT color="red"><B>order</B></FONT> and
+ it is called a <FONT color="blue"><B>read <I>protocol</I></B></FONT>
+<P>
+For a detail discussion of the
+ <FONT color="red"><B>memory read protocol</B></FONT>, you must take
+ <FONT color="blue"><B>CS355</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The following <FONT color="red"><B>sequence of diagrams</B></FONT>
+     shows  an example of
+     the <FONT color="blue"><B>read operation</B></FONT> where the CPU 
+      <FONT color="red"><B>reads data</B></FONT>
+       from
+	<FONT color="blue"><B>memory location "4"</B></FONT> using a
+      <FONT color="red"><B>16 bit</B></FONT>
+      <FONT color="blue"><B>data bus</B></FONT>
+      (= a data bus that consists of 16 wires - each wire can transmit
+      one bit (0 or 1)):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose we have the following 
+    <FONT color="red"><B>memory content</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> When the <FONT color="red"><B>CPU</B></FONT> wants to
+      <FONT color="blue"><B>read</B></FONT> the
+      <FONT color="red"><B>value</B></FONT> stored in
+      <FONT color="blue"><B>memory address 4</B></FONT>,
+      the <FONT color="red"><B>CPU</B></FONT> sends
+      the following <FONT color="blue"><B>signals</B></FONT>
+      onto the <FONT color="red"><B>system bus</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>address 4 </B></FONT>
+      (in <FONT color="blue"><B>binary - discussed later</B></FONT>)
+      on the <FONT color="red"><B>address bus</B></FONT>
+ <LI> A <FONT color="red"><B>"Read" command</B></FONT>
+    on the <FONT color="blue"><B>control bus</B></FONT>
+   -- the <FONT color="red"><B>read command </B></FONT> can be
+   represented by the value <FONT color="blue"><B>"1"</B></FONT> on
+   the <FONT color="red"><B>Read/write (R/W) signal wire</B></FONT> of the
+   control bus (see figure</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically explained:</B>
+      
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01b.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When the <FONT color="red"><B>memory</B></FONT> receives these
+    <FONT color="blue"><B>signals</B></FONT>, it will
+      <FONT color="red"><B>send out</B></FONT> the
+      <FONT color="blue"><B>data stored at the requested address</B></FONT>
+      onto the <FONT color="red"><B>data bus (wires)</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01c.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>CPU</B></FONT> will 
+ <FONT color="blue"><B>receive</B></FONT> the data and it can
+  <FONT color="red"><B>use</B></FONT> it in
+ <FONT color="blue"><B>subsequent operations</B></FONT>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that
+ the <FONT color="blue"><B>value</B></FONT> in
+ <FONT color="red"><B>memory location 4</B></FONT> is
+ <FONT color="blue"><B><I>unchanged</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How the CPU write (store) data to the memory
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B>system bus
+    (= address, data and control buses)</B></FONT>
+    are also used to carry signals to perform
+     <FONT color="blue"><B>write operations</B></FONT> to the memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/comp-arch.gif" width=500 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>CPU</B></FONT> transfer
+ <FONT color="blue"><B>data</B></FONT> from
+  <FONT color="red"><B>itself (= CPU)</B></FONT> to the
+ <FONT color="blue"><B>memory</B></FONT> as follows:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> sends the
+      <FONT color="blue"><B>address</B></FONT> of the <B>memory</B> that
+      it wants to <FONT color="red"><B>read</B></FONT> on the
+      <FONT color="blue"><B>address bus</B></FONT>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> sends the
+      <FONT color="blue"><B>data</B></FONT> that it wish to
+      <FONT color="red"><B>write</B></FONT> to  the <B>memory</B>  on the
+      <FONT color="blue"><B>data bus</B></FONT>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> sends the
+     <FONT color="blue"><B>"write" command</B></FONT> to the
+     <FONT color="red"><B>memory</B></FONT> on the
+     <FONT color="blue"><B>control bus</B></FONT>
+ <LI> The <FONT color="red"><B>CPU</B></FONT> will then
+    <FONT color="blue"><B><I>wait</I></B></FONT> for the
+    <FONT color="red"><B>memory </B></FONT> to
+    <FONT color="blue"><B>respond</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> Upon receiving the above <FONT color="red"><B>signals</B></FONT>,
+    the <FONT color="blue"><B>memory</B></FONT> will
+    copy the <FONT color="red"><B>content </B></FONT> on
+   the <FONT color="blue"><B>data bus</B></FONT> to  the
+    <FONT color="red"><B>specified memory location</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These <FONT color="blue"><B>steps (= events)</B></FONT> must <B>also</B> 
+  proceed
+ in the above <FONT color="red"><B>order</B></FONT> and
+ it is called a <FONT color="blue"><B>write <I>protocol</I></B></FONT>
+<P>
+Also, for a detail discussion of the
+ <FONT color="red"><B>memory write  protocol</B></FONT>, you must take
+ <FONT color="blue"><B>CS355</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The following is an example where the CPU 
+      <FONT color="red"><B>writes "1010101010101010"</B></FONT>
+      to the
+	<FONT color="blue"><B>memory location "4"</B></FONT> using a
+      <FONT color="red"><B>16 bit</B></FONT>
+      <FONT color="blue"><B>data bus</B></FONT>
+      (= a data bus that consists of 16 wires - each wire can transmit
+      one bit (0 or 1)):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose we have the following 
+    <FONT color="red"><B>memory content</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+ <LI> When the <FONT color="red"><B>CPU</B></FONT> wants to
+      <FONT color="blue"><B>write (= update)</B></FONT> the
+      <FONT color="red"><B>value <TT>1010101010101010</TT></B></FONT> to
+      <FONT color="blue"><B>memory address 4</B></FONT>,
+      the <FONT color="red"><B>CPU</B></FONT> sends
+      the following <FONT color="blue"><B>signals</B></FONT>
+      onto the <FONT color="red"><B>system bus</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>address 4 </B></FONT>
+      (in <FONT color="blue"><B>binary - discussed later</B></FONT>)
+      on the <FONT color="red"><B>address bus</B></FONT>
+ <LI> The <FONT color="red"><B>value <TT>1010101010101010</TT></B></FONT>
+      on the <FONT color="blue"><B>data bus</B></FONT>
+ <LI> A <FONT color="red"><B>"Write" command</B></FONT>
+    on the <FONT color="blue"><B>control bus</B></FONT>
+   -- the <FONT color="red"><B>write command </B></FONT> can be
+   represented by the value <FONT color="blue"><B>"0"</B></FONT> on
+   the <FONT color="red"><B>Read/write (R/W) signal wire</B></FONT> of the
+   control bus (see figure</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Graphically explained:</B>
+      
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01d.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When the <FONT color="red"><B>memory</B></FONT> receives these
+    <FONT color="blue"><B>signals</B></FONT>, it will
+      <FONT color="red"><B>store</B></FONT> the
+      <FONT color="blue"><B>data in the memory bytes</B></FONT>
+       at the <FONT color="red"><B>requested address location</B></FONT>:
+ 
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01e.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>memory bytes</B></FONT> will
+ <FONT color="blue"><B>retain</B></FONT> these value
+ until it get <FONT color="red"><B>written (updated)</B></FONT> with
+ <FONT color="blue"><B><I>other</I> values</B></FONT>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</UL>
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>memory</B></FONT> is used to 
+      <FONT color="blue"><B>store</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Instructions</B></FONT> of
+       a <FONT color="blue"><B>computer program</B></FONT>
+ <LI> <FONT color="red"><B>Variables</B></FONT> used by
+    the <FONT color="blue"><B>computer program</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+In <FONT color="red"><B>CS170 and CS171</B></FONT>, you
+  have learned that <FONT color="blue"><B>variables</B></FONT>
+ can be <FONT color="red"><B>organized</B></FONT> into
+ <FONT color="blue"><B>(different kinds of)
+ data structures</B></FONT>: 
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Simple variables</B></FONT> 
+    ("stand-alone" variables, not organized into any structure):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  x;
+    float y;               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Array variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int   x[10];
+     float y[3000];                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Linked list variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List head;                                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> <FONT color="blue"><B>Later in the course</B></FONT>, we will learn:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> How to <FONT color="red"><B>reserve memory cells (space)</B></FONT>
+        for <FONT color="blue"><B> variables</B></FONT>
+ <P>
+ <LI> How to <FONT color="red"><B>access</B></FONT> the
+   <FONT color="blue"><B><I>different structures</I></B></FONT> of
+   <FONT color="red"><B>variables</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In order to
+     <FONT color="red"><B>access</B></FONT> a
+    <FONT color="blue"><B>data structure</B></FONT>,
+   You will need to learn
+  <FONT color="red"><B><I>how</I></B></FONT> the computer
+  <FONT color="blue"><B><I>organize</I></B></FONT> the
+  <FONT color="red"><B>data structures</B></FONT> inside the
+  <FONT color="blue"><B>memory</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

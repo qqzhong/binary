@@ -1,0 +1,888 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Defining vs <I>declaring</I> a variable
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Prelude: information required for a compiler to do its job
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> from
+     the <FONT color="blue"><B>assembler programming lectures</B></FONT>
+     where:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="red"><B>access</B></FONT> an
+       <FONT color="blue"><B><TT>int</TT> type</B></FONT>
+     <FONT color="red"><B> variable <TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      x:  .4byte    777           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we <FONT color="red"><B>must </B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">ldr</FONT>   ...   // access an <FONT color="red">int</FONT> type variable     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> To <FONT color="red"><B>access</B></FONT> an
+       <FONT color="blue"><B><TT>short</TT> type</B></FONT>
+     <FONT color="red"><B> variable <TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      x:  .2byte    777           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we <FONT color="red"><B>must </B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">ldrsh</FONT>   ...   // access an <FONT color="red">short</FONT> type variable     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<P>
+
+
+ <LI> To <FONT color="red"><B>access</B></FONT> an
+       <FONT color="blue"><B><TT>byte</TT> type</B></FONT>
+     <FONT color="red"><B> variable <TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      x:  byte    77           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we <FONT color="red"><B>must </B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">ldrsb</FONT>   ...   // access an <FONT color="red">byte</FONT> type variable     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Conclussion:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compiler</B></FONT>
+    <FONT color="blue"><B>must</B></FONT> know
+    the <FONT color="red"><B>data type</B></FONT> of
+    a <FONT color="blue"><B>variable</B></FONT> in order
+    to <FONT color="red"><B>generate the <I>correct</I> 
+	assembler instruction</B></FONT>
+    to <FONT color="blue"><B>access</B></FONT>
+    the <FONT color="red"><B>variable</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     What is exactly <FONT color="red">defining</FONT> a variable ?
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Defining</B></FONT> a
+       <FONT color="blue"><B>variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Defining</B></FONT> a
+    <FONT color="blue"><B>variable</B></FONT> consists
+    of these <FONT color="red"><B>actions</B></FONT> by the
+    <FONT color="blue"><B>C compiler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recording</B></FONT> the
+   <FONT color="blue"><B>name</B></FONT> of the
+    <FONT color="red"><B>variable</B></FONT>
+ <LI> <FONT color="red"><B>Recording</B></FONT> the
+   <FONT color="blue"><B>data type</B></FONT> of the
+    <FONT color="red"><B>variable</B></FONT>
+ <P>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>Reserving memory space</B></FONT> used
+      to <FONT color="blue"><B>store</B></FONT>
+      the <FONT color="red"><B>value</B></FONT> of the
+      <FONT color="blue"><B>variable</B></FONT>
+      </SPAN>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<A NAME="declare"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Intro to <FONT color="red">declaring</FONT> a variable
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following
+  <FONT color="red"><B>example</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int main( int argc, char *argv[] )						  
+    {										  
+       printf("x = %d\n", <FONT color="red">x</FONT>);							  
+    }										  
+    										      
+    <FONT color="red">int x = 4;           /* Definition of global var x */</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you <FONT color="red"><B>compile</B></FONT> this program, you
+ will get
+ this <FONT color="blue"><B>error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+declare1.c: In function 'main':
+declare1.c:7:23: error: 'x' <FONT color="red">undeclared</FONT> (first use in this function)
+    printf("x = %d\n", x);
+                       ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/declare1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc declare1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<FONT color="red"><B>Reason:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>global variable <TT>x</TT></B></FONT>
+      was <FONT color="blue"><B>define <I>after</I></B></FONT>
+      it was <FONT color="red"><B>used in <TT>main( )</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>behavior</B></FONT> is
+     <FONT color="blue"><B>different</B></FONT> than
+     <FONT color="red"><B>Java</B></FONT> because:
+<P>
+ This <B>similar</B> <FONT color="red"><B>Java program</B></FONT> will  
+  <FONT color="blue"><B>compile correctly</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class declare1
+{
+
+   public static void main( String[] argv )
+   {
+      System.out.printf("x = %d\n", x);
+   }
+
+   static<FONT color="red"> int x = 4; </FONT>          /* Definition of global var x */
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>because:</B></FONT>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Java compiler</B></FONT> is
+      a <FONT color="blue"><B>2-pass compiler</B></FONT>
+ <P>
+    The <FONT color="red"><B>Java compiler</B></FONT> will
+   <FONT color="blue"><B>read the input Java program</B></FONT>
+   <FONT color="red"><B><I>twice</I></B></FONT>
+ <P>
+  The <FONT color="red"><B>first time</B></FONT> is used to
+  <FONT color="blue"><B>collect</B></FONT> all the
+  <FONT color="red"><B>(variable) definitions</B></FONT>
+ <P>
+ The <FONT color="red"><B>second pass</B></FONT> is used to
+ <FONT color="blue"><B>translate</B></FONT> the
+ <FONT color="red"><B>statements</B></FONT>
+ <FONT color="blue"><B><I>using</I></B></FONT> the
+ <FONT color="red"><B>definitions</B></FONT> gathered in
+ <FONT color="blue"><B>pass 1</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>C compiler</B></FONT> is
+     a <FONT color="blue"><B>1-pass compiler</B></FONT>
+  (which works <FONT color="red"><B>faster</B></FONT> than
+  a <FONT color="blue"><B>2-pass compiler</B></FONT> !!!)
+ <P>
+   In a <FONT color="blue"><B>1-pass compiler</B></FONT>,
+   at the <FONT color="red"><B>time </B></FONT> the
+   <FONT color="blue"><B>compiler </B></FONT> processes
+   a <FONT color="red"><B>variable name</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>data type</B></FONT> of the
+   <FONT color="blue"><B>variable</B></FONT> must be
+   <FONT color="red"><B>known</B></FONT> to
+   the <FONT color="blue"><B>compiler</B></FONT>
+   or else, the <FONT color="red"><B>compiler</B></FONT>
+   will signal an <FONT color="blue"><B>error</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<A NAME="declare"></A>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Declaring</FONT> a variable
+     </B></FONT>
+<P>
+<UL>
+
+ <LI> <FONT color="red"><B>Declaring</B></FONT> a
+       <FONT color="blue"><B>variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Declaring</B></FONT> a
+    <FONT color="blue"><B>variable</B></FONT> consists
+    of these <FONT color="red"><B>actions</B></FONT> by the
+    <FONT color="blue"><B>C compiler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Recording</B></FONT> the
+   <FONT color="blue"><B>name</B></FONT> of the
+    <FONT color="red"><B>variable</B></FONT>
+ <LI> <FONT color="red"><B>Recording</B></FONT> the
+   <FONT color="blue"><B>data type</B></FONT> of the
+    <FONT color="red"><B>variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>declaration</B></FONT> of
+       a <FONT color="blue"><B>variable</B></FONT> will
+        tell the
+	<FONT color="red"><B>compiler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the <FONT color="red"><B>name</B></FONT> of the 
+    <FONT color="blue"><B>variable</B></FONT>
+ <LI> the <FONT color="red"><B>data type</B></FONT> of the
+   <FONT color="blue"><B>variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+It will <FONT color="red"><B>not</B></FONT> 
+  <FONT color="blue"><B><I>create</I> the variable</B></FONT> 
+ (= <FONT color="red"><B>reserver memory space</B></FONT>
+ for the <FONT color="blue"><B>variable</B></FONT>) !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B>only</B></FONT>
+  <FONT color="blue"><B>declare</B></FONT>
+  <FONT color="red"><B>global variables</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Syntax</B></FONT> to
+  <FONT color="blue"><B>declare</B></FONT> a
+  <FONT color="red"><B>variable</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">extern</FONT>   dataType  varName ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">extern</FONT>  int x;                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+<P>
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to use a <FONT color="red">declaration</FONT> to
+    fix the <FONT color="red">above example</FONT> ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Previously</B></FONT>,
+        I showed you a <FONT color="blue"><B>program</B></FONT>
+	that contains
+	an <FONT color="red"><B>error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int main( int argc, char *argv[] )						  
+    {										  
+       printf("x = %d\n", <FONT color="red">x</FONT>);							  
+    }										  
+    										      
+    <FONT color="red">int x = 4;           /* Definition of global var x */</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can <FONT color="red"><B>fix</B></FONT> this
+  <FONT color="blue"><B>error</B></FONT>
+  (without moving the definition of the variable <B><TT>x</TT></B>)
+ using a <FONT color="red"><B>declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">extern int x;     // Declare x</FONT>
+
+    int main( int argc, char *argv[] )						  
+    {										  
+       printf("x = %d\n", <FONT color="red">x</FONT>);							  
+    }										  
+    										      
+    <FONT color="red">int x = 4;           /* Definition of global var x */</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I'll show you that it fixes the problem in class by
+ <FONT color="red"><B>compiling</B></FONT> the
+ <FONT color="blue"><B>updated program</B></FONT>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     C programming rules concerning variables usage
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Rules</B></FONT> 
+  in <FONT color="blue"><B>C</B></FONT> concerning
+    <FONT color="red"><B>usage</B></FONT> of
+     a <FONT color="blue"><B>variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>variable</B></FONT>
+    <FONT color="blue"><B><I>must</I></B></FONT> be
+    <FONT color="red"><B>defined</B></FONT> <B>or</B>
+    <FONT color="blue"><B><I>declared</I></B></FONT>
+    before the <FONT color="red"><B>variable</B></FONT> is
+    <FONT color="blue"><B>used</B></FONT> in a
+    <B>statement</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">// define x</FONT>
+    float x;
+
+    <FONT color="red">// or declare x;</FONT>
+    extern float x;
+
+    // Before you can use the variable <FONT color="red">x</FONT> in statements            
+    <FONT color="red">x</FONT> = <FONT color="red">x</FONT> + y; 
+
+    sin(<FONT color="red">x); 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> You can <FONT color="red"><B>define</B></FONT>
+       a <FONT color="blue"><B>variable</B></FONT>
+       <FONT color="red"><B>only <I>once</I></B></FONT>
+ <P>
+  (Because you <FONT color="red"><B>create</B></FONT> the
+ <FONT color="blue"><B>variable</B></FONT> when you
+ <FONT color="red"><B>define</B></FONT> it !!!)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<HR>
+<P>
+<LI> You can <FONT color="red"><B>declare</B></FONT>
+       a <FONT color="blue"><B>variable</B></FONT>
+       <FONT color="red"><B>as <I>often</I> as you want</B></FONT>
+ <P>
+  (But you <FONT color="red"><B>cannot</B></FONT> have
+ <FONT color="blue"><B>contradicting declarations</B></FONT>  !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">extern int x;     // Declare x</FONT>
+    <FONT color="red">extern int x;     // Declare x again</FONT>
+    <FONT color="red">extern int x;     // Declare x and again</FONT>
+
+    int main( int argc, char *argv[] )						  
+    {										  
+       printf("x = %d\n", <FONT color="red">x</FONT>);	// Use x in a statement	 					  
+    }										  
+    										      
+    <FONT color="red">int x = 4;           /* Definition of global var x */</FONT>    
+    // Cannot have 2 definitions of x !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Postlude:</FONT>
+      common use of variable declaration
+     </B></FONT>
+<P>
+<UL>
+<LI> I have <FONT color="red"><B>introduced</B></FONT> the
+     <FONT color="blue"><B>concept</B></FONT> of
+     <FONT color="red"><B>variable <I>declaration</I></B></FONT> by
+     <FONT color="blue"><B>defining</B></FONT> a 
+     <FONT color="red"><B>variable</B></FONT> at the
+     <FONT color="blue"><B><I>end</I></B></FONT> of a
+     program.
+<P>
+ The <FONT color="red"><B>variable declaration</B></FONT> 
+ is <FONT color="blue"><B>typically used</B></FONT> when:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>variable</B></FONT> is
+     <FONT color="blue"><B><I>defined</I></B></FONT> in
+     <FONT color="red"><B><I>some</I> C program file</B></FONT>
+ <P>
+ <LI> And the <FONT color="red"><B>variable</B></FONT> is
+    <FONT color="blue"><B><I>used</I></B></FONT> in
+    (a <B>function</B> in)
+    <FONT color="red"><B><I>another</I> C program file</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will <FONT color="red"><B>postpone</B></FONT> the
+ <FONT color="blue"><B>discussion</B></FONT> of
+ <FONT color="red"><B><I>multi</I>-file C programs</B></FONT>
+ for a <FONT color="blue"><B>later time</B></FONT>
+<P>
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

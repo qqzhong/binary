@@ -1,0 +1,457 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Leaf</FONT> subroutine
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Leaf subroutine (leaf function)</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>  <FONT color="red"><B>Leaf subroutine/function</B></FONT> =
+        a <FONT color="blue"><B>subroutine/function</B></FONT> that     
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  does <FONT color="red"><B>not</B></FONT> contain
+      a <FONT color="blue"><B>subroutine/function call</B></FONT></SPAN>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Example:</B>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    public class myClass
+    {
+       // <FONT color="red">square( )</FONT> is a <FONT color="red">leaf function</FONT>    
+       public int <FONT color="red">square</FONT>(int x)     
+       {
+          return x * x;  // <FONT color="red">No function calls</FONT>
+                         // in function body
+       }
+
+       ...
+    }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue">Non-leaf</FONT> subroutine
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Non-leaf subroutine (leaf function)</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Non-leaf subroutine/function</B></FONT> =
+        a <FONT color="blue"><B>subroutine/function</B></FONT> that
+        <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>contains</B></FONT> one or more
+       <FONT color="blue"><B>subroutine/function calls</B></FONT></SPAM>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <B>Example:</B>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    public class myClass
+    {
+       public int square(int x) {
+          return x * x;
+       }
+
+       // <FONT color="red">sumOfSquare( )</FONT> is a <FONT color="red">non-leaf function</FONT>    
+       public int <FONT color="red">sumOfSquare</FONT>(int x, int y) {
+          return <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">square(x)</FONT></SPAN> +  square(y);
+       }
+    }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Why I make this distinction between 
+   <FONT color="blue">leaf</FONT> and
+   <FONT color="blue">non-leaf</FONT> subroutines ?
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Why</B></FONT> I 
+  <FONT color="blue"><B>distinguish</B></FONT>
+  <FONT color="red"><B>leaf</B></FONT> and
+  <FONT color="blue"><B>non-leaf</B></FONT>
+  <B>functions</B>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Some <I>modern</I> processors</B></FONT> 
+     (like the <FONT color="blue"><B>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ARM</SPAN>
+   processor</B></FONT>) provide
+     a
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>very efficient</B></FONT>
+    <FONT color="blue"><B>subroutine call <I>instruction</I></B></FONT>
+   </SPAN>
+  that <FONT color="red"><B>saves</B></FONT> the
+   <FONT color="blue"><B>return address</B></FONT> in
+   a 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00"> 
+   <FONT color="red"><B>(special purpose) register</B></FONT></SPAN>
+<P>
+ <LI> <B>This</B> <FONT color="red"><B>fact</B></FONT> will
+   <FONT color="blue"><B>require</B></FONT> the
+      <FONT color="red"><B>assembler programmer 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">(= you)</SPAN></B></FONT> to
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>push</B></FONT> the
+     <FONT color="red"><B>return address</B></FONT></SPAN>
+     on the <FONT color="blue"><B>stack</B></FONT>
+   <FONT color="red"><B>explicitly (= do it yourself)</B></FONT>
+  </UL>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Comment:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>   <FONT color="red"><B>Older processors</B></FONT>
+ (like the <FONT color="blue"><B>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">INTEL</SPAN>
+   x86 and Core Dual</B></FONT>)
+  has a
+  <FONT color="red"><B>subroutine call <I>instruction</I></B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa"> that
+  <FONT color="blue"><B>saves (= pushes)</B></FONT> the
+  <FONT color="red"><B>return address</B></FONT></SPAN> on
+   the 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B>stack</B></FONT></SPAN>
+ <P>
+ <LI>  In <FONT color="red"><B>this kind</B></FONT> of
+   <FONT color="blue"><B>computers</B></FONT>, we don't need to
+   <FONT color="red"><B>distinguish</B></FONT>
+     <FONT color="blue"><B>leaf subroutines</B></FONT> 
+     <B><I>and</I></B>
+    <FONT color="red"><B>non-leaf subroutines</B></FONT>. 
+   
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

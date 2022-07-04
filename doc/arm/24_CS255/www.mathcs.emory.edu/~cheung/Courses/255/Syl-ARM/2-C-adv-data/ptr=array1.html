@@ -1,0 +1,618 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The [ ] operator 
+<HR>
+</H3>
+<UL>
+<P>
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Another syntactical sugar in C
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> the
+    <FONT color="blue"><B>very nicely looking</B></FONT>
+    <B>operator</B>
+   <FONT color="red"><B><TT>-></TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   If  <FONT color="red">p</FONT>  points to a <FONT color="red">struct</FONT>  typed variable, then:
+
+        <FONT color="red">p-></FONT>member    &equiv;    <FONT color="red">(*p).</FONT>member         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+that we learned in 
+ this webpage:
+ <A HREF="struct-pointer2.html">
+  <FONT color="red"><B>click here</B></FONT></A>
+<P>
+<HR>
+<P>
+<LI> We will <FONT color="blue"><B>now</B></FONT> learned
+   an <FONT color="red"><B>even <I>more</I> nicely looking</B></FONT>
+   <B>operator</B></FONT> 
+   used to
+   <FONT color="red"><B>simplify</B></FONT>
+   <FONT color="blue"><B>pointer arithmetic</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> And the <FONT color="red"><B>result</B></FONT> will
+       <FONT color="blue"><B><I>shock</I></B></FONT> you.....
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The [ ] (array selection/subscripting) operator
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>[ ]</B></FONT> is an
+     <FONT color="red"><B>operator</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ The <FONT color="red"><B><TT>[  ]</TT> operator</B></FONT>
+   is  called the
+  <FONT color="blue"><B>array selection/subscripting</B></FONT> operator
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Evidence</B> that <FONT color="blue"><B>[ ]</B></FONT> is
+  an <FONT color="red"><B>operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Take a look at <FONT color="blue"><B>any table</B></FONT>
+      that list the
+      <FONT color="red"><B>precedence</B></FONT> of
+      <B>operators</B> in
+      <FONT color="blue"><B>C/C++</B></FONT>
+<P>
+ Example:
+  <A HREF="http://www.swansontec.com/sopc.html">
+  <FONT color="blue"><B>click here</B></FONT>
+  </A>
+<P>
+<HR>
+<P>
+<LI> You will find that
+   <FONT color="blue"><B>[ ]</B></FONT> is among the
+     <FONT color="red"><B>higher priority</B></FONT> operators
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> As I have said so many times:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>operator</B></FONT> (in any programming language)
+    will <FONT color="blue"><B>return</B></FONT> 
+    <FONT color="red"><B><I>something</I></B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+  (It can be an <FONT color="red"><B>value</B></FONT> 
+   (e.g.: <FONT color="blue"><B>3 + 4</B></FONT>) and it can be
+  a <FONT color="red"><B><I>variable</I></B></FONT>
+  (e.g.: <FONT color="blue"><B>*p</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>effect</I> of the
+      [ ] operator
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B>[ &nbsp; ]</B></FONT>
+    <FONT color="blue"><B>operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>[ &nbsp; ]</B></FONT> 
+     <FONT color="blue"><B>operator</B></FONT> is
+     a <FONT color="red"><B><I>binary</I> operator</B></FONT>
+<P>
+<B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>[ &nbsp; ] </B></FONT> has
+   <FONT color="blue"><B>2 operands </B></FONT>
+ <P>
+  (Let's call these
+   <FONT color="red"><B>2 operands</B></FONT>:
+   <FONT color="blue"><B> <TT>p</TT></B></FONT> and
+      <FONT color="blue"><B><TT>i</TT></B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> The
+     <FONT color="red"><B>[ &nbsp; ]</B></FONT>
+    <FONT color="blue"><B>operator</B></FONT> must
+    be 
+    <FONT color="red"><B>applied</B></FONT> as
+    <B>follows</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     p <FONT color="red">[</font> i <FONT color="red">]</font>        
+
+   where:
+
+      p is a  <FONT color="red">reference</FONT> typed expression/variable             
+      i is an <FONT color="red">integer</FONT>   typed expression/variable
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The 
+<FONT color="red"><B>meaning</B></FONT> of the
+  <FONT color="blue"><B>[ ]</B></FONT> operator expression is
+  a <FONT color="blue"><B>short hand</B></FONT>
+ (or <FONT color="red"><B>syntactical sugar</B></FONT>) for:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    p <FONT color="red">[</font> i <FONT color="red">]</font>  <===>    <FONT color="red">*</font>(p <FONT color="red">+</FONT> i)             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You have already learned/seen about 
+ <FONT color="red"><B>pointer arithmentic</B></FONT>, so
+ you <FONT color="blue"><B>should know</B></FONT> what
+   <FONT color="red"><B><TT>*(p + i)</TT></B></FONT> mean !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>[ ]</B></FONT> operator can work with
+      a <FONT color="red"><B>constant</B></FONT> of
+      a <FONT color="blue"><B>reference type</B></FONT>.
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double x[10];         // Defines an array
+
+   x   ==   &x[0]        // x is a constant reference (address)
+
+   x[i]  ==   *(x + i)   // x[i] selects the i-th element in array x      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>[ ]</B></FONT> operator can 
+    <B><I>also</I></B> be applied to a
+     <FONT color="red"><B><I>reference</I> typed variable <TT>p</TT></B></FONT>
+    !!!
+ <P>
+     The
+     <B>C compiler</B> will
+     <FONT color="blue"><B><I>translate</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                translates to
+    p[ <FONT color="red">index</FONT> ]      ====>       *(p + <FONT color="red">index</FONT>)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double x[10];         // Defines an array
+   double *p;            // p is a reference variable
+
+   p   ==   &x[<FONT color="red">2</font>]        // p is a variable of a reference (address) type
+
+   p[i]  ==   *(p + i)   // x[i] selects the <FONT color="red">(i+2)-th</font> element in array x !!   
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Common use</B></FONT> of the
+     <FONT color="blue"><B>[ ] operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Instead</B> of using
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+     (*p + i)           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to <B><I>access</I></B> the
+  <FONT color="blue"><B><I>i<sup>th</sup></I></B></FONT>
+  <B>array element</B> in a
+  <FONT color="red"><B> array</B></FONT>, we can 
+  <B><I>now</I></B> use:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    p[i]          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(This looks a whole lot <FONT color="red"><B><I>nicer</I></B></FONT>
+  and a lot more like an
+  <FONT color="blue"><B><I>ordinary</I> array access</B></FONT> !!!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Array access using pointer arithment <FONT color="red">revisted</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> that
+      <FONT color="blue"><B>previously</B></FONT>, we
+     used
+         the <B>ugly</B>
+	 <FONT color="red"><B><TT>*(p + i)</TT></B></FONT>
+	 to 
+    <FONT color="blue"><B>access</B></FONT>
+    <FONT color="red"><B>array elements</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+    int* p;
+
+   <FONT color="red"> p = &a[0]</FONT>;                      // p points to variable a[0]
+
+    printf("*(p + 0) = %d, a[0] = %d\n", <FONT color="red">*(p+0)</FONT>, a[0] );
+    printf("*(p + 1) = %d, a[1] = %d\n", <FONT color="red">*(p+1)</FONT>, a[1] );
+    printf("*(p + 2) = %d, a[2] = %d\n", <FONT color="red">*(p+2)</FONT>, a[2] );
+    printf("*(p + 3) = %d, a[3] = %d\n", <FONT color="red">*(p+3)</FONT>, a[3] );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We can now <FONT color="red"><B>re-write</B></FONT> the
+     <FONT color="blue"><B>same program</B></FONT> using the
+     <FONT color="red"><B>nicer looking [&nbsp;] operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int a[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 777 };
+    int* p;
+
+    <FONT color="red">p = &a[0]</FONT>;                      // p points to variable a[0]
+
+    printf("p[0] = %d, a[0] = %d\n", <FONT color="red">p[0]</FONT>, a[0] );
+    printf("p[1] = %d, a[1] = %d\n", <FONT color="red">p[1]</FONT>, a[1] );
+    printf("p[2] = %d, a[2] = %d\n", <FONT color="red">p[2]</FONT>, a[2] );
+    printf("p[3] = %d, a[3] = %d\n", <FONT color="red">p[3]</FONT>, a[3] );
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/pointer-arithm2a.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc  pointer-arithm2a.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL> 
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

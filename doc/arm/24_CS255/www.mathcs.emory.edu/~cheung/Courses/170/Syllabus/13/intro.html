@@ -1,0 +1,1090 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction to <I>Recursion</I>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Previously discussed: the <I>divide</I> and 
+     <I>conquer</I> problem solving technique
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Divide and conquer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Divide</B></FONT> the
+    <B>original problem</B> into
+    a number of
+    <FONT color="red"><B>(smaller and easier) <I>sub-problems</I></B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="blue"><B>Solve</B></FONT> 
+     <FONT color="red"><B><I>each</I> sub-problem</B></FONT>
+     with an <B>algorithm</B>
+     (i.e., write an
+     <FONT color="darkmagenta"><B>algorithm</B></FONT> for
+     <FONT color="red"><B>each sub-problem</B></FONT>)
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Illustration:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/recurs01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In fact, we have just 
+    <FONT color="blue"><B>applied</B></FONT> this
+   technique to the
+    <FONT color="red"><B>Text formatting problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  We <FONT color="red"><B><I>divided</I></B></FONT>
+   the <B>Text Formatting</B> problem into
+   <FONT color="blue"><B>3 different <I>sub-problems</I></B></FONT>
+  and
+ <P>
+ <LI> We <FONT color="red"><B><I>conquered</I></B></FONT> each
+   <B>sub-problem</B> with one
+   <FONT color="blue"><B>(small) algorithm (written as a method)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The recursive property
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B><I>Some</I> problems</B></FONT> 
+     (especially in <FONT color="red"><B>Mathematics</B></FONT>)
+     are <B>defined</B> in terms
+     of <FONT color="blue"><B>itself</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Recursive</I> problem</B></FONT> = a
+    <B>problem</B> that is defined
+    with <FONT color="blue"><B>one or more <I>smaller</I>
+    problems</B></FONT>
+     of the <FONT color="red"><B><I>same</I> kind</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> the <FONT color="red"><B>factorial</B></FONT> of the
+   number <B>n</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">n!</FONT> = n &times; <FONT color="red">(n &minus; 1)!</FONT>           
+
+  where:
+
+      0! = 1
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Notice</B> that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The problem of computing <FONT color="red"><B><I>n!</I></B></FONT>
+      contains a
+      <FONT color="blue"><B><I>another</I> smaller problem</B></FONT>
+   (<B><I>(n&minus;1)!</I></B>)
+      of the <FONT color="red"><B><I>same</I> nature</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">n!</FONT> = n &times; <FONT color="red">(n &minus; 1)!</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> It's like a <FONT color="blue"><B>russian doll</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/russian-doll.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Illustration:</B>
+   compute <FONT color="red"><B>factorial of 10</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     10!  =  10 &times;  9!        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+To compute <FONT color="blue"><B>10!</B></FONT>,
+  we need to 
+  <FONT color="red"><B>value of 9!</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ 
+
+ <UL>
+ <LI> We must <FONT color="red"><B>solve</B></FONT> 
+   <B><I>another</I></B> 
+   <FONT color="blue"><B>(smaller)</B></FONT>
+   <FONT color="red"><B>factorial problem</B></FONT>
+ </UL>
+
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Now</B>, 
+  <FONT color="red"><B><I>suppose</I></B></FONT>
+  that you
+  <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue"><B><I>know</I></B></FONT></span>
+ (e.g., someone told you)
+   that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    9! = <FONT color="red">362880 </FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+Then, we can solve the <B>original problem</B>
+ (<FONT color="red"><B>10!</B></FONT>)
+  <FONT color="blue"><B><I>very</I> easily</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     10!  =  10 &times; <FONT color="red">362880</FONT>               
+          =  <FONT color="red">3628800</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B><I>recursive</I> property</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Let <B>problem <I>X(<FONT color="red">n</FONT>)</I></B> denote a 
+     certain problem
+      of a given size <FONT color="red"><B><I>n</I></B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> A <B>problem <I>X(n)</I></B> has the
+       <FONT color="red"><B>recursive property</B></FONT> if
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> The <B>problem <I>X(n)</I></B> can be
+    <FONT color="blue"><B>solved</B></FONT>
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="magenta"><B><I>using</I></B></FONT>
+    </span>
+     the
+    <FONT color="red"><B>solution</B></FONT> of
+    <B><I>one or more</I></B>
+    <FONT color="blue"><B><I>smaller</I> problems</B></FONT>
+    <B><I>X(n&minus;1)</I></B>,
+     <B><I>X(n&minus;2)</I></B>, ...
+ <P>
+<HR>
+<P>
+ <LI> A <FONT color="blue"><B><I>sufficient</I> number</B></FONT> of
+    <FONT color="red"><B>base (simple) cases</B></FONT> of the
+    <B>problem</B> can be 
+    <FONT color="magenta"><B>solved <I>readily</I></B></FONT>.
+  <P>
+  (The <B>number</B> of
+   <FONT color="red"><B>base case solutions</B></FONT> needed
+   depends on <FONT color="blue"><B><I>how</I> many</B></FONT> 
+   smaller problems
+    <B><I>X(n&minus;1)</I></B>,
+     <B><I>X(n&minus;2)</I></B>, ... are used
+   to solve the 
+   <FONT color="red"><B><I>original</I> problem <I>X(n)</I></B></FONT>)
+   
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<B>Example:</B> the
+   <FONT color="blue"><B><I>factorial(n)</I></B></FONT> problem has the
+   <FONT color="red"><B><I>recursive</I> property</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>problem <I>factorial(n)</I></B> can be
+    <FONT color="blue"><B>solved</B></FONT>
+    <B><I>using</I></B> the
+    <FONT color="red"><B>solution</B></FONT> of
+    <B><I>one </I></B>
+    <FONT color="blue"><B><I>smaller</I> problem</B></FONT>
+    &nbsp; <B><I>factorial(n&minus;1)</I></B>
+
+ <P>
+<HR>
+<P>
+ <LI> Because <FONT color="blue"><B><I>one</I> smaller problem</B></FONT>
+    is used to solve <FONT color="red"><B>factorial(n)</B></FONT>,
+    we need <FONT color="blue"><B><I>one</I> base case</B></FONT>
+ <P>
+   The
+    <FONT color="red"><B>base (simple) case <I>n = 0</I></B></FONT> of the
+    <B>factorial problem</B> can be 
+    <FONT color="magenta"><B>solved <I>readily</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     factorial(0) = 1          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+
+<P>
+<LI> The <FONT color="blue"><B><I>number</I></B></FONT> of
+   <B> base cases (already solved)</B> needed:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>In general</B>, if we use
+    the <FONT color="blue"><B>solution</B></FONT>
+    for <FONT color="red"><B>Problem(n&minus;k)</B></FONT> 
+    to formulate the solution for
+    the <FONT color="blue"><B><I>original</I> problem
+    Problem(n)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Problem(n) = ....... Problem(n &minus; <FONT color="red">k</FONT>)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+then we need <B>solutions</B> for
+ <FONT color="red"><B><I>k</I> base case</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Recursion: a special <I>divide</I> and <I>conquer</I>
+     problem solving technique
+     </B></FONT>
+<P>
+<UL>
+<LI> Because there a <FONT color="blue"><B><I>smaller</I> problem</B></FONT>
+     of the <FONT color="red"><B><I>same</I> kind</B></FONT>
+     embedded inside a
+     <FONT color="blue"><B>recursion problem</B></FONT>,
+     there is 
+     <FONT color="red"><B>special <I>divide</I> and <I>conquer</I>
+     solution procedure</B></FONT> 
+     for <B>recursive problem</B>
+<P>
+   I like to <B>describe</B> this
+   <FONT color="blue"><B>recursive solution procedure</B></FONT> as:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>     the <FONT color="red"><B>"<I>lazy</I> man's method</B></FONT> to
+     <B>solve a problem</B>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> An <B><I>un-scientific</I></B> (hopefully 
+   <FONT color="blue"><B>more understandable</B></FONT>) way to
+   describe the
+   <FONT color="red"><B>recursive solution method</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you want to solve a
+     <B>problem</B> of <FONT color="red"><B>size <I>n</I></B></FONT>
+     that has the
+     <FONT color="blue"><B>recursive property</B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Hire</B></FONT> 
+    (or <FONT color="blue"><B><I>delegate</I></B></FONT>)
+   <B><I>someone else</I></B> to solve
+      the <B>problem</B> of
+    <FONT color="red"><B>size <I>n &minus; 1</I></B></FONT>,
+     <FONT color="red"><B>size <I>n &minus; 2</I></B></FONT>, etc...
+ <P>
+  (You would then <FONT color="blue"><B>wait</B></FONT> for that
+   person to come back and
+   <FONT color="red"><B>give you the solution</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> When you <B>receive</B> the
+    <FONT color="blue"><B>solution</B></FONT> for
+    the <B>problem</B> of
+    <FONT color="red"><B>size <I>n &minus; 1</I></B></FONT>,
+   <FONT color="red"><B>size <I>n &minus; 2</I></B></FONT>, etc...,
+    you will then
+    <FONT color="darkmagenta"><B><I>use</I></B></FONT> these
+    <FONT color="blue"><B>solutions</B></FONT> to 
+    <FONT color="red"><B>solve the <I>original</I> probem</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B><I>un-scientific</I></B> way to look at 
+      <FONT color="blue"><B>recursion</B></FONT> 
+      <FONT color="red"><B>illustrated</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Problem</B>: compute <FONT color="red"><B><I>10!</I></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B>Solution plan</B>: 
+   <FONT color="red"><B><I>10! = 10 &times; 9!</I></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+I will need <FONT color="red"><B><I>9!</I></B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <B>Delegate the problem</B>: 
+   <FONT color="blue"><B>hire</B></FONT> someone to 
+   solve the <FONT color="red"><B>smaller problem</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B>Wait</B>: 
+    in the mean time, I will wait for his answer....
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion04.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>hired hand</B></FONT> 
+      finds the answer:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion05.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> I get back the <FONT color="red"><B>answer</B></FONT> from 
+    the <FONT color="blue"><B>hired hand</B></FONT></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion06.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> I can now find the <FONT color="red"><B>answer</B></FONT>
+    to my problem:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/recursion07.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The general form of the <I>recursive</I> problem solving algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>recursive algorithm technique</B></FONT>
+     can be <B>expressed <I>in general</I></B> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   ReturnType <FONT color="magenta">solveProblem</FONT>( <FONT color="red">n</FONT> )
+   {
+      if ( <FONT color="red">n</FONT> is one of the <FONT color="red">base cases</FONT> )
+      {
+         return ( the <FONT color="darkred">readily available solution</FONT> for that base case );     
+      }
+      else
+      {<FONT color="red">
+	 /* -----------------------------------------------------------
+	    Delegate the problem: 
+               hire someone to solve a (one or more) smaller problems
+	    ------------------------------------------------------------ */ </FONT>   
+	 sol<sub>1</sub> = <FONT color="magenta">solveProblem</FONT> ( <FONT color="red">n&minus;1</FONT> );    // n&minus;1 &lt; n    
+	 sol<sub>2</sub> = <FONT color="magenta">solveProblem</FONT> ( <FONT color="red">n&minus;2</FONT> );    // n&minus;2 &lt; n
+	 ...
+<FONT color="darkmagenta">
+         /* -----------------------------------------------------------
+            Use the solutions of the smaller problems n&minus;1, n&minus;2, ...
+	    to solve my problem:
+	    ------------------------------------------------------------ */</FONT><FONT color="darkgreen">
+	 mySol = Solve "problem(n)" using sol<sub>1</sub>, sol<sub>1</sub>, ... </FONT>
+
+         return ( mySol );
+       }
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Where</B></FONT> can you <B>use</B>
+      the <FONT color="blue"><B>recursive algorithm technique</B></FONT> ?
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>recursive algorithm technique</B></FONT>
+     can be used to <B>solve problems</B>
+     that have the
+     <FONT color="red"><B>recursive property</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Notes:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> I can <B>only</B> give you the
+    <FONT color="blue"><B>general <I>form</I></B></FONT> of the
+    <FONT color="red"><B>recusive algorithm technique</B></FONT>...
+    because
+ <P>
+ <LI> <FONT color="blue"><B>Each  problem</B></FONT> with the
+ <FONT color="red"><B>recursive property</B></FONT> is
+ <B>solved <I>differently</I></B>...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Recursive</I> methods
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the above <FONT color="blue"><B>algorithm</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   ReturnType <FONT color="red">solveProblem( n )</FONT>
+   {
+      if ( n is one of the base cases )
+      {
+         return ( the readily available solution for that base case );     
+      }
+      else
+      {
+	 /* -----------------------------------------------------------
+	    Delegate the problem: 
+               hire someone to solve a (one or more) smaller problems
+	    ------------------------------------------------------------ */    
+	 sol1 = <FONT color="red">solveProblem ( n&minus;1 )</FONT>;    // n&minus;1 < n    
+	 sol2 = <FONT color="red">solveProblem ( n&minus;2 )</FONT>;    // n&minus;2 < n
+	 ...
+
+         /* -----------------------------------------------------------
+            Use the solutions of the smaller problems n&minus;1, n&minus;2, ...
+	    to solve my problem:
+	    ------------------------------------------------------------ */
+	 mySol = Solve "problem(n)" using sol1, sol1, ... 
+
+         return ( mySol );
+       }
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Notable fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you <FONT color="blue"><B>implement</B></FONT> the 
+   <B>algorithm</B> as a
+   <FONT color="red"><B>Java method</B></FONT>,
+   the resulting method will
+   <FONT color="darkmagenta"><B>invoke <I>itself</I></B></FONT> !!!
+ <P>
+ <LI> We call these kind of <B>methods</B>:
+    <FONT color="red"><B><I>recursive</I> methods</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Definition:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Recursive</I> method</B></FONT> =
+    a <B> method</B> that 
+   <FONT color="blue"><B>invokes <I>itself</I></B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will see some <FONT color="blue"><B>recursive methods</B></FONT>
+ in the next few webpages.
+</UL>
+
+
+<P>
+<A NAME="gen-proc"></A>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Procedure to develop a <I>recursive</I> problem solving algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>General procedure</B> to <FONT color="blue"><B>develop</B></FONT>
+     a 
+     <FONT color="red"><B><I>recursive</I> problem solving algorithm
+     </B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+<P>
+  <FONT color="blue"><B>Make sure</B></FONT> that the
+    <B>problem</B> has the
+    <FONT color="red"><B><I>recursive</I> property</B></FONT>
+    (if the problem <FONT color="darkmagenta"><B>does <I>not</I> </B></FONT>
+    have the <B><I>recursive</I> property</B>, then
+    you <FONT color="red"><B>can<I>not</I></B></FONT> use
+    <FONT color="blue"><B>recursion</B></FONT> !!!)
+ <P>
+<HR>
+<HR>
+<P>
+ <LI> Find out <FONT color="blue"><B><I>which</I></B></FONT> 
+    <B>smaller problems</B> you need to use
+    to solve the <FONT color="red"><B><I>original</I> problem</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     factorial(<FONT color="red">n</FONT>):      smaller problem used = factorial(<FONT color="red">n-1</FONT>)           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> Find out <FONT color="blue"><B><I>how</I></B></FONT> to
+    <B>use</B> the <FONT color="red"><B>solutions</B></FONT> of
+     the <B>smaller problems</B> to
+     <FONT color="blue"><B>solve the <I>original</I> problem</B></FONT>.
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Depending on the <B>problem</B>, this step
+    can be <FONT color="red"><B>quite challenging</B></FONT>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Find the <FONT color="red"><B>solutions</B></FONT> for
+     a <B><I>sufficient</I> number</B> of
+      the <FONT color="blue"><B>base cases</B></FONT>.
+ <P>
+  <B>Rule:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  If you used a <B>smaller problem</B>
+  <FONT color="blue"><B><TT>Problem(<FONT color="red">n&minus;k</FONT>)
+ </TT></B></FONT> to solve the
+  <B><I>original</I> problem</B>
+  <FONT color="blue"><B><TT>Problem(<FONT color="red">n</FONT>)
+ </TT></B></FONT>,
+ then you will <FONT color="red"><B>need to find</B></FONT>
+   <B>solutions</B> for
+    <FONT color="red"><B><I>k</I> base cases</B></FONT>
+ <P>
+ <B>Example</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B><TT>factorial(<FONT color="red">n</FONT>)
+  </TT></B></FONT> uses
+   <FONT color="darkred"><B><TT>factorial(<FONT color="red">n-1</FONT>)
+  </TT></B></FONT>, 
+  so you will
+  need the <B>solution</B> for
+  <FONT color="red"><B>1 base case</B></FONT>
+ <P>
+<LI> We usually use the <FONT color="red"><B>base case</B></FONT>:
+  <FONT color="blue"><B><TT>factorial(0) = 1</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<P>
+We will now look at some
+ <FONT color="blue"><B>examples</B></FONT> of
+ the <FONT color="red"><B>recursive algorithm technique</B></FONT>.
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

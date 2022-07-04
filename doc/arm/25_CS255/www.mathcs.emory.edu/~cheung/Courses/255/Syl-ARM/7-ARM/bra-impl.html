@@ -1,0 +1,203 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Implementing the branch instruction
+<HR>
+<UL>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How is the <TT>branch</TT> instruction
+	implemented ?
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    b    LABEL              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+in cause the <FONT color="red"><B>CPU</B></FONT> to
+ <B>"branch"</B> to the
+ <FONT color="blue"><B>program instruction</B></FONT> stored
+ at the <FONT color="red"><B>label <TT>LABEL</TT></B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In <B>other words</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>next</I> instruction</B></FONT> that is
+     <B>fetched</B> (and executed) by the
+     <FONT color="blue"><B>CPU</B></FONT> is at the
+     <FONT color="red"><B>address <TT>LABEL</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This will <FONT color="blue"><B>happen</B></FONT> when we
+  <B>update</B> the
+ <FONT color="red"><B>Program Counter</B></FONT> in the <B>CPU</B>
+ with the <FONT color="blue"><B>address value</B></FONT> of
+ <FONT color="red"><B><TT>LABEL</TT></B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> So the  
+  <B>instruction</B> &nbsp;
+  <FONT color="blue"><B><TT>
+ "b<span style="font-size: 1em;">&nbsp;</span>LABEL"
+  </TT></B></FONT> 
+ &nbsp;
+  is 
+  <FONT color="red"><B>implemented</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Store the <FONT color="blue"><B>value</B></FONT> of
+     the <FONT color="red"><B>address <TT>LABEL</TT></B></FONT> into
+     the <FONT color="blue"><B>Program Counter</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Because the <FONT color="red"><B>Program Counter</B></FONT> is
+ set equal to the <B>address</B>
+ <FONT color="blue"><B><TT>LABEL</TT></B></FONT>,
+  the
+ <FONT color="red"><B><I>next</I> instruction execution cycle</B></FONT>
+  (see:  
+  <A HREF="../4-intro/instr-exec-cycle.html">
+  <FONT color="blue"><B>click here</B></FONT></A>)
+ will <FONT color="red"><B>fetch</B></FONT> the
+ <FONT color="blue"><B>next instruction</B></FONT> at the
+ <B>memory address</B>
+ <FONT color="red"><B><TT>LABEL</TT></B></FONT> !!!
+<P>
+<HR>
+<HR>
+<P>
+<LI> BTW,  we can <FONT color="blue"><B>update</B></FONT>
+    the <FONT color="red"><B>Program Counter</B></FONT> with
+    a <FONT color="blue"><B>move</B></FONT> instruction in <B>ARM</B> !!!
+<P>
+   Here is a program that shows that you cab
+ <FONT color="red"><B>branch</B></FONT> with a
+ <FONT color="blue"><B><TT>mov</TT></B></FONT> instruction:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+
+        movw    r0, #:lower16:there
+        movt    r0, #:upper16:there     // <FONT color="red">r0 = addr(there)</FONT>
+
+        <FONT color="red">mov     pc, r0                  // pc = addr(there)
+                                        // The CPU will branch to "there" !!!</FONT>
+
+        mov     r1, #4444               // These instructions are SKIPPED over !
+        mov     r2, #4444
+        mov     r3, #4444
+
+there:
+        mov     r4, #4444
+        mov     r5, #4444
+        mov     r6, #4444
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/6-if/impl-branch.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255  impl-branch</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

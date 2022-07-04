@@ -1,0 +1,190 @@
+=============================================
+Adding and Subtracting Integers
+=============================================
+
+You can use the ADD, ADC, INC, SUB, SBB, and DEC 
+instructions for adding, incrementing, subtracting, 
+and decrementing values in single registers. 
+
+      Nmemonic		Meaning
+      ===============================
+	ADD 		Add 
+	ADC		Add, include carry flag
+	INC		++
+	SUB		Subtract
+	SBB		Subtract, include carry (borrow)
+	DEC		--
+
+
+You can use ADC/SBB to handle larger values 
+that require two registers for storage.
+
+=============================================
+
+
+The next example shows 8-bit signed and unsigned 
+addition and subtraction.
+
+	.DATA
+	mem8 BYTE 39
+
+	.CODE
+
+				; Addition
+				; signed unsigned
+	mov al, 26 		; Start with register 26
+	inc al 			; Increment 1 -> 27
+	add al, 76 		; Add immediate 76 -> 27 + 76 = 103
+				; ---- ----
+				; 103 103
+
+	add al, mem8 		; Add memory 39 ->  103 + 39 = 142
+				; ---- ----
+
+	mov ah, al 		; Copy to AH -> 142
+
+				; +overflow
+	add al, ah 		; Add register 142
+				; ----
+				; 28+carry
+
+				; Subtraction
+				; signed unsigned
+	mov al, 95 		; Load register 95 95
+	dec al 			; Decrement -1 -1
+	sub al, 23 		; Subtract immediate -23 -23
+				; ---- ----
+				; 71 71
+	sub al, mem8 		; Subtract memory -122 -122
+				; ---- ----
+				; -51 205+sign
+
+	mov ah, 119 		; Load register 119
+	sub al, ah 		; and subtract -51
+				; ----
+				; 86+overflow
+
+
+================================================================
+Multiplication Instructions
+================================================================
+
+The MUL instruction multiplies unsigned numbers. 
+IMUL multiplies signed numbers. 
+
+For both instructions, one factor MUST be in 
+the accumulator register 
+
+   AL for 8-bit numbers, 
+   AX for 16-bit numbers, 
+   EAX for 32-bit numbers. 
+
+The other factor can be in any single register or memory operand. 
+The result overwrites the contents of the accumulator register.
+
+Multiplying two 8-bit numbers produces a 16-bit result in AX. 
+Multiplying two 16-bit operands yields a 32-bit result in DX:AX. 
+The 80386/486 processor handles 64-bit products in the same way 
+in the EDX:EAX pair.
+
+This example illustrates multiplication of signed 16- 
+and 32-bit integers.
+
+	.DATA
+	mem16 SWORD -30000		; Signed word (16 bits)
+	.CODE
+	.
+	.
+	.
+					; 8-bit unsigned multiply
+	mov al, 23 			; Load AL 23
+	mov bl, 24 			; Load BL 24
+	mul bl 				; Multiply BL:  AX = AL * BL
+					;  (BL determines the size)
+					; Product in AX 552
+					; overflow and carry set
+
+					; 16-bit signed multiply
+	mov ax, 50 			; Load AX 50
+					; -30000
+	imul mem16 			; Multiply memory -----
+					; Default is 16 bits
+					; Product in DX:AX -1500000
+					; overflow and carry set
+
+
+================================================================
+Division Instructions
+================================================================
+
+The DIV instruction divides unsigned numbers, and 
+IDIV divides signed numbers. 
+
+Both return a quotient and a remainder.
+
+Table 4.1 summarizes the division operations. 
+The dividend is the number to be divided, and 
+the divisor is the number to divide by. 
+The quotient is the result. 
+
+The divisor can be in any register or memory location 
+except the registers where the quotient and remainder are returned.
+
+Table 4.1 Division Operations
+
+-----------------+-----------------+-------------+---------+---------
+                 |Must use this    |             |         |
+Size of Operand  |Dividend Register| Size Divisor| Quotient|Remainder 
+-----------------+-----------------+-------------+---------+---------
+16 bits          |  AX             |  8 bits     |    AL   |   AH 
+-----------------+-----------------+-------------+---------+---------
+32 bits          |  DX:AX          |  16 bits    |    AX   |   DX 
+-----------------+-----------------+-------------+---------+---------
+64 bits          |  EDX:EAX        |  32 bits    |    EAX  |  EDX 
+(80386 and 80486)|                 |             |         |
+-----------------+-----------------+-------------+---------+---------
+
+
+------
+
+
+The following examples illustrate signed division, 
+which can be more complex.
+
+	.DATA
+	mem16 SWORD -2000
+	mem32 SDWORD 500000
+	.CODE
+	.
+	.
+	.
+				; Divide 16-bit unsigned by 8-bit
+	mov ax, 700 		; Load dividend 700
+	mov bl, 36 		; Load divisor DIV 36
+	div bl 			; Divide BL ------
+				; Quotient in AL 19
+				; Remainder in AH 16
+
+				; Divide 32-bit signed by 16-bit
+	mov ax, WORD PTR mem32[0] ; Load lower half in AX
+	mov dx, WORD PTR mem32[2] ; load upper half in DX
+				; Now DX:AX = 500000
+				; NOTE: mem32 type is SDWORD
+				;       We need type override...
+				;
+	idiv mem16 		; DIV -2000
+				; Divide memory ------
+				; Quotient in AX -250
+				; Remainder in DX 0
+
+				; Divide 16-bit signed by 16-bit
+	mov ax, WORD PTR mem16 	; Load into AX -2000
+				; Is WORD PTR necessary ???...
+	cwd 			; Extend to DX:AX
+	mov bx,-421 		; DIV -421
+	idiv bx 		; Divide by BX -----
+				; Quotient in AX 4
+				; Remainder in DX -316
+
+
+

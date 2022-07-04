@@ -1,0 +1,272 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+No <I>overloaded</I> functions in C !!!
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Non-Object Oriented Programming Languages
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>C </B></FONT> is
+      <FONT color="blue"><B>not</B></FONT> 
+      an <FONT color="red"><B>Object-Oriented Programming Language</B></FONT>
+ <P>
+<B>Consequently</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFCCCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Functions</B></FONT> in
+   <FONT color="blue"><B>C</B></FONT> are
+   <FONT color="red"><B><I>uniquely</I> identified</B></FONT>
+   by their
+   <FONT color="blue"><B>function <I>name</I></B></FONT>
+   <B>only</B> !!!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ <B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>parameters</B></FONT>
+   are <FONT color="blue"><B>not taken into consideration</B></FONT>
+   to <FONT color="red"><B>identify</B></FONT> a
+   <FONT color="blue"><B>function</B></FONT>
+   in <FONT color="red"><B>C</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+/* -------------------------------
+   Definition of function f
+   ------------------------------- */
+int <FONT color="red">f</FONT>( int x)   // definition 1
+{
+   return(x * x );
+}
+
+
+/* ------------------------------------------
+   <FONT color="red">Duplicate definition</FONT> of function f !!!
+   ------------------------------------------ */             
+float <FONT color="red">f</FONT>( float x)  // definition 2
+{
+   return(x * x );
+}
+
+int main(int argc, char *argv[] )
+{
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="blue"><B>result</B></FONT> in
+ <FONT color="red"><B>compile error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (4822)> gcc overload1.c
+overload1.c:16:7: error: <FONT color="red">conflicting types for f</FONT>
+ float f( float x)   // definition 2
+       ^
+overload1.c:7:5: note: previous definition of f was here
+ int f( int x)       // definition 1
+     ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/overload1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc overload1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>won't compile, can't run it !!</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>In contrast</B></FONT>,
+  <FONT color="blue"><B>Java</B></FONT> has
+  <FONT color="red"><B>overloaded functions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class overload1
+{
+   /* -------------------------------
+      Definition of function f
+      ------------------------------- */
+   public static int <FONT color="red">f( int x)</FONT>      // definition 1             
+   {
+      return(x * x );
+   }
+
+
+   /* ------------------------------------------
+      Overloaded definition of function f !!!
+      ------------------------------------------ */
+   public static float <FONT color="red">f( float x)</FONT>   // definition 2
+   {
+      return(x * x );
+   }
+
+   public static void main(String[] argv)
+   {
+
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>No errors</B></FONT> when you compile
+ this <FONT color="blue"><B>Java program</B></FONT> !!!
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/overload1.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac overload1.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

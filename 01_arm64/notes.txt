@@ -1,0 +1,1046 @@
+// example001.S
+// CS255/abc.html
+Data type        Load instruction     Store instruction
+-------------    ------------------   -------------------
+int                ldr                 str
+short              ldrsh               strh
+byte               ldrsb               strb
+
+
+// example002.S
+// CS255/access-linked-list.html
+address(value field) = base address(list element) + 0
+address(next field)  = base address(list element) + 4
+
+
+// example003.S
+// CS255/access-list-field.html
+// File: /home/cs255001/demo/asm/4-linked-list/List.java
+
+public class List
+{
+int  value;   // int typed variable takes up 4 bytes
+List next;    // reference variable contains an address, also 4 bytes
+
+// instance methods omitted - not relevant for discussion
+}
+To access the value field in a list object, we use the offset 0 (zero) from the base address of the list element:
+   address(value field) = base address(list element) + 0
+To access the next field in a list object, we use the offset 4 from the base address of the list element:
+   address(next field) = base address(list element) + 4
+
+public class List
+{
+int   value1;   // int typed variable takes up 4 bytes
+short value2;   // short typed variable takes up 2 bytes
+short value3;   // short typed variable takes up 2 bytes
+List next;      // reference variable contains an address, also 4 bytes
+
+// instance methods omitted - not relevant for discussion
+}
+To access the value1 field in a list object, we use the offset 0 (zero) from the base address of the list element:
+   address(value1 field) = base address(list element) + 0
+To access the value2 field in a list object, we use the offset 4 from the base address of the list element:
+   address(value2 field) = base address(list element) + 4
+To access the value3 field in a list object, we use the offset 6 (4+2) from the base address of the list element:
+   address(value3 field) = base address(list element) + 6
+To access the next field in a list object, we use the offset 8 (4 + 2 + 2) from the base address of the list element:
+   address(next field) = base address(list element) + 8
+
+
+// example004.S
+// CS255/adv-pass-with-stack.html
+/*
+Property of a stack:
+1) A stack will grow when things are pushed on the stack
+(That is as long as there are available memory space left)
+2) The new things pushed on the stack will not overwrite the old things inside the stack !!!
+*/
+
+/*****************************************
+*           |                            |
+*           | caller's stack frame       |
+*           |                            |
+*  sp       +----------------------------+
+*           | local var 1                |
+*           +----------------------------+
+*           | local var 2                |
+*           +----------------------------+
+*           | local var 3                |
+* A's FP    +----------------------------+
+*           | FP(A)                      |
+*           +----------------------------+
+*           | LR(RetAddr)                |
+*           +----------------------------+
+*           | parameter 1                |
+*           +----------------------------+
+*           | parameter 2                |
+*           +----------------------------+
+*           | FP(x29)                    | main
+*           +----------------------------+
+*           | LR(x30)                    | main
+*           +----------------------------+
+*           | stack bottom               |
+*           +----------------------------+
+******************************************/
+
+
+// example005.S
+// CS255/align.html
+.align  n        // If the current memory address is divisible by 2^n,
+// this directive is ignored
+// Otherwise, the assembler will skip forward to
+// the next memory address that is divisible by 2^n
+
+
+// example006.S
+// CS255/arithm.html
+Assembler instruction       Effect of the assembler instruction
+------------------------    --------------------------------------
+add  r0, r1, r2    r0 = r1 + r2
+add  r0, r0, r0    r0 = r0 + r0 = 2×r0
+add  r0, r0, #1    r0 = r0 + 1
+
+sub  r0, r1, r2    r0 = r1 - r2
+rsb  r0, r1, r2    r0 = r2 - r1
+rsb  r0, r0, #0    r0 =  0 - r1 = -r0  (negation !!)
+
+mul  r0, r1, r2    r0 = r1 * r2
+mul  r1, r0, r0    r1 = r0 * r0 = r0^2
+
+neg  rn, rm     <--->   rsb  rn, rm, #0
+
+
+// example007.S
+// CS255/array-asm.html
+
+
+// example008.S
+// CS255/array-define.html
+A: .byte   11, 12, 13, 14, 15     // byte typed initialzied array A
+B: .2byte  111, 112, 113, 114, 115     // short typed initialzied array B
+C: .4byte   1111, 1112, 1113, 1114, 1115     // int typed initialzied array C
+
+a: .skip   10*1    // byte  typed UNinitialized array a (10 elements)
+b: .skip   10*2    // short  typed UNinitialized array b (10 elements)
+c: .skip   10*4    // short  typed UNinitialized array c (10 elements)
+
+
+// example009.S
+// CS255/array-ld+st.html
+Syntax               Meaning of the instruction
+----------------     --------------------------------------------------
+ldr  rN, [rM]        Load 4 bytes from memory at the address given in rM into the (destination) register rN
+The 4 bytes are stored in the register as follows:
+
+
+ldrsh rN, [rM]       Load 2 bytes from memory at the address given in rM into the (destination) register rN
+AND fill the left half of register with the sign bit
+
+The 2 bytes are stored at the right and then sign extended to 32 bits:
+
+ldrsb rN, [rM]       Load 1 byte  from memory at the address given in rM into the (destination) register rN
+AND fill the left 3/4 of register with the sign bit
+
+The byte is stored at the right and then sign extended to 32 bits:
+
+
+Syntax               Meaning of the instruction
+----------------     --------------------------------------------------
+str  rN, [rM]        Store 4 bytes from register rN to memory (consecutively) at the address given in register rM
+The 4 bytes are taken from the register as follows:
+
+
+strh rN, [rM]        Store 2 bytes from register rN to memory (consecutively) at the address given in register rM
+The 2 bytes are taken from the register as follows:
+
+
+strb rN, [rM]        Store 1 byte  from register rN to memory (consecutively) at the address given in register rM
+The byte is taken from the register as follows:
+
+
+Syntax               Meaning of the instruction
+----------------     --------------------------------------------------
+ldr  rN, [rM,off]     Load 4 bytes from memory at the address given by rM+off into the (destination) register rN
+The 4 bytes are stored in the register as follows:
+
+
+ldrsh rN, [rM,off]    Load 2 bytes from memory at the address given by rM+off into the (destination) register rN
+AND fill the left half of register with the sign bit
+
+The 2 bytes are stored at the right and then sign extended to 32 bits:
+
+
+ldrsb rN, [rM,off]    Load 1 byte  from memory at the address given by rM+off into the (destination) register rN
+AND fill the left 3/4 of register with the sign bit
+
+The byte is stored at the right and then sign extended to 32 bits:
+
+
+Syntax               Meaning of the instruction
+----------------     --------------------------------------------------
+str  rN, [rM,off]     Store 4 bytes from register rN to memory (consecutively) at the address given by the sum rM+off
+The 4 bytes are taken from the register as follows:
+
+
+strh rN, [rM,off]     Store 2 bytes from register rN to memory (consecutively) at the address given by the sum rM+off
+The 2 bytes are taken from the register as follows:
+
+
+strb rN, [rM,off]     Store 1 byte  from register rN to memory (consecutively) at the address given by the sum rM+off
+The byte is taken from the register as follows:
+
+
+// example010.S
+// CS255/array-store.html
+A byte (typed) array uses 1 byte to store each of its array element
+A short (typed) array uses 2 bytes to store each of its array element
+A int (typed) array uses 4 bytes to store each of its array element
+
+
+// example011.S
+// CS255/array-theory.html
+In summary, the starting location (= address) of the array element A[i] (with index i) can be computed as:
+start address of array element A[i] =  base address of array  + i × size(one array element)
+
+
+// example012.S
+// CS255/asm-prog-struct.html
+
+
+// example013.S
+// CS255/assembler.html
+
+
+// example014.S
+// CS255/behavior.html
+
+Lifetime of Parameter variable:
+A parameter variable is created (i.e., reserve memory space for the paramter variable) at the beginning of the execution of the method invocation (call)
+A parameter variable is destroyed (i.e., reserved memory space for the paramter variable is unreserved (freed)) at the end (termination) of the execution of the method invocation (call)
+
+Lifetime of Local variable:
+A local variable is created (i.e., reserve memory space for the local variable) at the place of definition of the local variable
+A local variable is destroyed (i.e., reserved memory space for the local variable is unreserved (freed)) at the end (termination) of the execution of the method invocation (call)
+
+
+// example015.S
+// CS255/bl.html
+Modern computer typically provides 2 assembler instructions that user can use to implement methods:
+An assembler instruction that is used by the caller to invoke a method
+An assembler instruction that is used by the callee (= the called method) to return to its caller
+
+bl  label
+Effect:
+(1) Save the Program Counter (PC) in the Link Register (LR)
+(2) Branch to memory location marked by the label "label"
+
+
+// example016.S
+// CS255/bl+rts.html
+Modern computer typically provides 2 assembler instructions that user can use to implement methods:
+An assembler instruction that is used by the caller to invoke a method
+An assembler instruction that is used by the callee (= the called method) to return to its caller
+
+bl  label
+Effect:
+(1) Save the Program Counter (PC) in the Link Register (LR)
+(2) Branch to memory location marked by the label "label"
+
+mov   pc, lr
+Effect:
+Copy the return address saved by the bl instruction
+into the Program Counter (PC)
+
+
+// example017.S
+// CS255/bra-impl.html
+main:
+  movw    r0, #:lower16:there
+  movt    r0, #:upper16:there     // r0 = addr(there)
+
+  mov     pc, r0      // pc = addr(there)
+          // The CPU will branch to "there" !!!
+
+  mov     r1, #4444         // These instructions are SKIPPED over !
+  mov     r2, #4444
+  mov     r3, #4444
+
+there:
+  mov     r4, #4444
+  mov     r5, #4444
+  mov     r6, #4444
+
+
+// example018.S
+// CS255/branch.html
+
+
+// example019.S
+// CS255/bra-sub2.html
+Recall: Leaf methods/non-leaf method
+Leaf method/function:  A leaf method/function = a method/function that does not call any other method/function
+Non-leaf method/function:  A non-leaf method/function = a method/function that calls some method/function
+
+The stack is the most efficient way to store return addresses because it matches the call/return ordering of methods/function
+
+
+// example020.S
+// CS255/bra-sub.html
+
+
+// example021.S
+// CS255/bsr+rts.html
+Modern computer typically provides 2 assembler instructions that user can use to implement methods:
+An assembler instruction that is used by the caller to invoke a method
+An assembler instruction that is used by the callee (= the called method) to return to its caller
+
+
+The branch and link (bl instruction in the ARM processor is used to invoke (= call) a method.
+Syntax of the branch and link instruction:
+bl  label
+Effect:
+(1) Save the Program Counter (PC) in the Link Register (LR)
+(2) Branch to memory location marked by the label "label"
+
+The Return from Subroutine in the ARM processor can be achieved using a mov instruction
+mov   pc, lr
+Effect:
+Copy the return address saved by the bl instruction
+into the Program Counter (PC)
+
+
+// example022.S
+// CS255/cmp+bra.html
+The Compare Instruction of the ARM processor has the following syntax:
+cmp  srcReg, op  Computes the difference srcReg and op
+and sets the status flags (N,Z,V,C) according
+to the outcome of the subtraction
+
+You can use as op:
+
+1. a register
+2. a small constant (between -1000 and 1000)
+
+The effect of a subtraction is to compare the value in
+register srcReg against the value specified
+by op
+
+The register srcReg is NOT updated by the compare instruction !
+Only the N,Z,V,C flags are updated
+
+
+
+beq       - branch on equal                 condition
+bne  - branch on not equal             condition
+bgt  - branch on greater than          condition
+blt  - branch on less than             condition
+bge  - branch on greater than or equal condition
+ble  - branch on less than or equal    condition
+
+
+// example023.S
+// CS255/comp-program.html
+
+
+// example024.S
+// CS255/copy.html
+
+
+// example025.S
+// CS255/cpu1.html
+
+
+// example026.S
+// CS255/cpu2.html
+
+
+// example027.S
+// CS255/cpu3.html
+
+
+// example028.S
+// CS255/cpu.html
+The ARM processor has the following special purpose registers with the following register names:
+
+R12 or the Intra Procedure (IP) Call register
+The IP register is used as temporary (sratch) register.
+We won't need to use this register in CS255.
+
+R13 or the Stack Pointer (IP) register
+The stack pointer (SP) register contains the address of the top of the system stack
+We will learn to use the SP register when we discuss how to write function calls in assembler programming
+
+R14 or the Link Register (LR)
+The Link Register (SP) contains the return address of the calling program
+We will learn to use the LR register when we discuss how to write function calls in assembler programming
+
+R15 or the Program Counter (PC)
+The Program Counter (PC) contains the address of the next program instruction
+We have explained the use of the Program Counter in this webpage (lecture): click here)
+
+CPSR (= Current Program Status Register)
+
+
+ARM register        Commonly used register name in assembler programming
+---------------     ------------------------------------------------------
+R0                r0  or R0
+R1                r1  or R1
+R2                r2  or R2
+R3                r3  or R3
+R4                r4  or R4
+R5                r5  or R5
+R6                r6  or R6
+R7                r7  or R7
+R8                r8  or R8
+R9                r9  or R9
+R10               r10 or R10
+R11               fp  (frame pointer)
+R12               ip  (intra procedure)
+R13               sp  (stack pointer)
+R14               lr  (link register)
+R15               pc  (program counter)
+
+
+// example029.S
+// CS255/data-section.html
+The .data section of an assembler program
+The .data assembler directive tells the ARM assembler to start assembling the line after the directive into the .data section of the computer program
+The .data section of a computer program contains permanent constants and variables used in computer program.
+
+.byte Value    - defines an 1 byte  2's complementary binary code the represents Value
+
+.2byte Value   - defines a  2 bytes 2's complementary binary code the represents Value
+
+.4byte Value   - defines a  4 bytes 2's complementary binary code the represents Value
+
+.float Value   - defines a  4 bytes IEEE 754 binary code the represents Value
+
+.double Value  - defines an 8 bytes IEEE 754 binary code the represents Value
+
+.asciz "..."   - defines a series ASCII binary code the represents string "..."
+
+
+// example030.S
+// CS255/directives.html
+
+
+// example031.S
+// CS255/do.html
+do
+{
+  statement(s)
+} while ( condition )
+
+Any do-while statement can be re-written as follows with a while statement:
+
+statement(s)
+while ( condition )
+{
+  statement(s)
+}
+
+
+// example032.S
+// CS255/endian.html
+Big endian ordering where the most-significant byte is stored first:
+address   bytes
+N         byte 1
+N+1       byte 2
+N+2       byte 3
+N+3       byte 4
+
+Little endian ordering where the least-significant byte is stored first:
+address   bytes
+N         byte 4
+N+1       byte 3
+N+2       byte 2
+N+3       byte 1
+
+
+// example033.S
+// CS255/fac.html
+
+
+// example034.S
+// CS255/fib2.html
+
+
+// example035.S
+// CS255/fib-ARM.html
+
+
+// example036.S
+// CS255/for.html
+
+
+// example037.S
+// CS255/general.html
+
+
+// example038.S
+// CS255/hanoi.html
+
+
+// example039.S
+// CS255/head.html
+
+
+// example040.S
+// CS255/hello.html
+
+
+// example041.S
+// CS255/if-and.html
+
+
+// example042.S
+// CS255/if-else.html
+
+
+// example043.S
+// CS255/if.html
+
+
+// example044.S
+// CS255/if-or.html
+
+
+// example045.S
+// CS255/implement-passing-tech.html
+
+Summary:
+In pass-by-value:
+The value of the variable is passed (= copied) to the function
+The function will access/update the copy
+
+
+// example046.S
+// CS255/impl-stack.html
+
+A stack is a data structure with two operation:
+void Push(int x): put the value "x" in the stack. The value "x" is put "at the top" of the stack.
+int Pop(): remove the top value off the stack. The value removed is returned.
+Example:
+
+     (1) Initially:      +----------+  (empty stack)
+
+
+     (2) After Push(4):  +----------+
+       |    4     |
+                         +----------+
+
+
+     (3) After Push(9):  +----------+
+       |    9     |    (new value get put ON TOP)
+                         +----------+
+       |    4     |
+                         +----------+
+
+
+     (4) After Push(1):  +----------+
+       |    1     |    (new value get put ON TOP again)
+                         +----------+
+       |    9     |
+                         +----------+
+       |    4     |
+                         +----------+
+
+
+  Suppose we have 3 variables "a", "b" and "c" defined....
+
+     (5) After a = Pop():  +----------+
+         |    9     |  (top value is REMOVED !)
+                           +----------+
+         |    4     |
+                           +----------+
+     and  a = 1
+
+
+     (6) After b = Pop():  +----------+
+         |    4     |  (top value is REMOVED again !)
+                           +----------+
+     and  b = 9
+
+
+     (7) After c = Pop():  +----------+  (Stack is empty)
+
+     and  c = 4
+
+
+// example047.S
+// CS255/impl-sub2.html
+
+
+// example048.S
+// CS255/impl-sub.html
+leafMethod:....
+.... (instructions in the method)
+....
+/* -------------------------------------------
+End of method, we need to return to caller
+------------------------------------------- */
+mov   pc, lr
+
+
+nonLeafMethod:
+push {lr}            // Save return address on stack
+.... (instructions in the method)
+
+/* -------------------------------------------
+End of method, we need to return to caller
+------------------------------------------- */
+pop   {lr}               // Restore return address
+mov   pc, lr             // Return to caller
+
+
+a better solution is:
+nonLeafMethod:
+push {lr}            // Save return address on stack
+.... (instructions in the method)
+/* -------------------------------------------
+End of method, we need to return to caller
+------------------------------------------- */
+pop   {pc}          // Return to caller !!!
+
+
+// example049.S
+// CS255/index.html
+
+
+// example050.S
+// CS255/insert-head-list.html
+
+
+// example051.S
+// CS255/interrupted-computation.html
+
+
+// example052.S
+// CS255/intro.html
+
+
+// example053.S
+// CS255/intro-if.html
+The if-statement
+The if-else-statement
+The while-statement
+The for-statement
+The do-while-statement
+
+
+// example054.S
+// CS255/intro-pass-param.html
+Pass-by-value: The value of the parameter variable is passed (= copied) to the method/function
+Pass-by-reference: The address (= reference) of the parameter variable is passed (= copied) to the method/function
+
+
+// example055.S
+// CS255/intro-recursion.html
+A recursive method/function F( ) is a method/function that contains a call (= invocation) of the method/function F( )
+
+Implementing recursive methods/functions is very simple:
+Because a recursive method/function always contains a call/invocation of another method/function (that happens to have the same method/function name):
+A recursive method/function is always a non-leaf method/function
+Therefore:
+We cannot keep the parameters and local variables in registers
+(Because the values of the parameters and local variables kept in registers of F(n) will be destroyed by F(n-1) !!!)
+
+Conclussion:
+Recursive methods/functions must use the program stack to store parameters and local variables !!!
+
+We must store the parameters and local variables of recursive methods/functions on the program stack !!!
+That means:
+The caller (of the recursive method must push the parameters onto the program stack
+The recursive method must allocate its local variables on the program stack
+
+
+// example056.S
+// CS255/intro-sub.html
+In CS170, you have learned that:
+
+Parameter variables are created when a subroutine starts its execution
+Local variables are created when a subroutine starts its execution
+Parameter variables are destroyed when a subroutine finishes its execution
+Local variables are destroyed when a subroutine finishes its execution
+When you write a subroutine in assembler:
+
+You are the one that need to create the parameter variables and the local variables when a subroutine starts
+You are also the one that need to destroy the parameter variables and the local variables when a subroutine finishes.
+
+
+// example057.S
+// CS255/juicy-example.html
+
+int   x[100];
+short y[100];
+byte  z[100];
+
+int   i;
+short j;
+byte  k;
+
+class List
+{
+int   value1;
+short value2;
+short value3;
+List next
+}
+
+List head;   (head contains the start of a linked list,
+assume the linked list has been created and is
+not empty)
+
+
+// example058.S
+// CS255/ldr.html
+
+
+// example059.S
+// CS255/leaf-return.html
+
+
+// example060.S
+// CS255/leaf-sub.html
+Leaf subroutine/function = a subroutine/function that does not contain a subroutine/function call
+Non-leaf subroutine/function = a subroutine/function that contains one or more subroutine/function calls
+
+
+// example061.S
+// CS255/linked-list.html
+
+
+// example062.S
+// CS255/linked-list-OLD.html
+
+
+// example063.S
+// CS255/ll-insert-at-start.html
+
+
+// example064.S
+// CS255/ll-insert-at-tail1.html
+
+
+// example065.S
+// CS255/ll-insert-at-tail2.html
+
+
+// example066.S
+// CS255/ll-insert-at-tail-ARM.html
+
+
+// example067.S
+// CS255/ll-insert-at-tail.html
+
+
+// example068.S
+// CS255/ll-search-ARM.html
+
+
+// example069.S
+// CS255/ll-search.html
+
+
+// example070.S
+// CS255/motivation.html
+
+
+// example071.S
+// CS255/mov-1a.html
+
+
+// example072.S
+// CS255/mov-1.html
+
+
+// example073.S
+// CS255/mov-2.html
+
+
+// example074.S
+// CS255/mov-3.html
+
+
+// example075.S
+// CS255/nested-if.html
+
+
+// example076.S
+// CS255/new-how-to.html
+Here a summary of what you have learned about subroutine call/return:
+
+The caller uses bl to call a subroutine
+The bl instruction will store the return address in the Link Register lr.
+A non-leaf subroutine must use:
+push {lr} to save its return address on the system stack
+pop {pc} to return to the caller
+A leaf subroutine may use:
+push {lr} to save its return address on the system stack
+pop {pc} to return to the caller
+or:
+
+Don't save the return address (in lr)
+Use mov pc,lr to return to the caller
+
+
+// example077.S
+// CS255/new-local-with-regs.html
+
+
+// example078.S
+// CS255/new-local-with-stack.html
+
+
+// example079.S
+// CS255/new-pass-with-regs1.html
+
+
+// example080.S
+// CS255/new-pass-with-regs2.html
+
+
+// example081.S
+// CS255/new-pass-with-regs3.html
+
+
+// example082.S
+// CS255/new-pass-with-regs.html
+
+
+// example083.S
+// CS255/new-pass-with-stack2.html
+
+
+// example084.S
+// CS255/new-pass-with-stack.html
+
+Recall that a non-leaf function must save its return address on the program stack.
+The structure of a non-leaf function was as follows:
+    f:    push  {lr}          // Save return address on STACK !!!
+
+          ....
+
+          pop   {pc}          // Use return address on stack to return.
+So when a non-leaf function begins execution, it must first push its return address on the program stack !!!
+
+
+// example085.S
+// CS255/new-problem-with-regs.html
+
+
+// example086.S
+// CS255/note.html
+
+You can combine any of these 2 orthogonal features:
+You can pass a parameter by value using a register (provided the method is a leaf function) by:
+Putting the value of a variable in a register
+You can pass a parameter by reference using a register (provided the method is a leaf function) by:
+Putting the address of a variable in a register
+You can pass a parameter by value using the program stack by:
+Pushing the value of a variable on the stack
+You can pass a parameter by reference using the program stack by:
+Pushing the address of a variable on the stack
+
+
+// example087.S
+// CS255/object.html
+public class myClass1
+{
+int x;        <--- First component always has offset = 0
+int y;        <--- Offset(y) = 4 because x is an int (4 bytes)
+int z;        <--- Offset(z) = 8 because there are 2 ints preceeding z
+
+// Methods omitted because they are not relevant
+// in memory need computation....
+}
+Offset for the x component of the object = 0 (because there are no components preceeding x)
+Offset for the y component of the object = 4 (because int x (4 bytes) preceeds y)
+Offset for the z component of the object = 8 (because int x, y (4+4 bytes) preceed z)
+
+
+// example088.S
+// CS255/OLD:asm-prog-struct.html
+
+
+// example089.S
+// CS255/organization.html
+
+
+// example090.S
+// CS255/param-on-stack-1.html
+
+
+// example091.S
+// CS255/param-on-stack-3.html
+
+
+// example092.S
+// CS255/param-on-stack-4.html
+
+
+// example093.S
+// CS255/pass-by-reference.html
+
+
+// example094.S
+// CS255/pass-by-value.html
+
+
+// example095.S
+// CS255/pass-param.html
+
+
+// example096.S
+// CS255/prog-org.html
+
+
+// example097.S
+// CS255/push-pop-stack.html
+
+
+// example098.S
+// CS255/recur-list.html
+
+
+// example099.S
+// CS255/recurse.html
+
+
+// example100.S
+// CS255/skel-pass-with-stack.html
+   /* ---------------------------------
+      Prelude code: build stack frame
+      --------------------------------- */
+   push {lr}            // Save return address
+   push {fp}            // Save old FP
+   mov  fp, sp          // Initial function's own FP
+   sub  sp, sp, #N      // Allocate N bytes on stack for local vars
+
+
+   /* -------------------------------------------
+      Postlude code: break down the stack frame
+                     and return to caller
+      ------------------------------------------- */
+   mov  sp, fp          // De-allocate stack space of local vars
+   pop  {fp}            // Restore old FP
+   pop  {pc}            // Return to the caller
+
+
+// example101.S
+// CS255/str.html
+The reverse conversion (from int representation to byte representation) is simply:
+
+Discard the left-most 24 bites and
+Use (= store) the last 8 bits in the int representation
+Example:
+
+   Value         int (32 bits 2s compl code)     byte (8 bits 2s compl code)
+  -------   ----------------------------------  ----------------------------
+   127       00000000000000000000000001111111     01111111
+   ...        ...                                  ...
+     3       00000000000000000000000000000011     00000011
+     2       00000000000000000000000000000010    00000010
+     1       00000000000000000000000000000001    00000001
+     0       00000000000000000000000000000000    00000000
+    -1       11111111111111111111111111111111    11111111
+    -2       11111111111111111111111111111110    11111110
+    -3       11111111111111111111111111111101    11111101
+   ...        ...                                  ...
+  -128       11111111111111111111111110000000     10000000
+
+
+The reverse conversion (from int representation to short representation) is simply:
+
+Discard the left-most 16 bites and
+Use (= store) the last 16 bits in the int representation
+Example:
+
+   Value         int (32 bits 2s compl code)     short (16 bits 2s compl code)
+  -------   ----------------------------------  ----------------------------
+   32767     00000000000000000111111111111111    0111111111111111
+
+   ...        ...                                  ...
+     3       00000000000000000000000000000011    0000000000000011
+     2       00000000000000000000000000000010   0000000000000010
+     1       00000000000000000000000000000001   0000000000000001
+     0       00000000000000000000000000000000   0000000000000000
+    -1       11111111111111111111111111111111   1111111111111111
+    -2       11111111111111111111111111111110   1111111111111110
+    -3       11111111111111111111111111111101   1111111111111101
+   ...        ...                                  ...
+  -32768     11111111111111111000000000000000    1000000000000000
+
+
+// example102.S
+// CS255/sub+local-var.html
+
+
+// example103.S
+// CS255/summary-pass-with-stack.html
+The calling method will push the parameters on the stack and the call the method
+Example:
+
+     load  parameter 3 into r0
+     push  {r0}
+     load  parameter 2 into r0
+     push  {r0}
+     load  parameter 1 into r0
+     push  {r0}
+
+     bl    Method/Function
+
+
+When the called function returns, the pushed parameters will still be on the stack !!!
+The calling function must de-allocate the pushed parameters from the stack
+
+Example:
+
+        add   sp, sp,  #12       // De-allocate 12 bytes from the stack
+
+
+
+When the called method/function starts running, the stack will only contain the parameters:
+
+The called method/function must first use this specific sequence of assembler instruction to build/complete the stack frame (activation record) structure :
+
+     push    {lr}         // Save the shared LR reg (contains return addr)
+     push    {fp}    // Save the shared FP reg (contains the base addr of stack frame)
+     mov     fp, sp    // Establish the base address in the FP register
+     sub     sp, sp, #N   // Allocate N bytes for local variables
+
+
+When the method/function want to return (to its caller), the method/function must use this specific sequence of assembler instructions to break down the stack frame and return:
+      put the return value in the return location (usually r0)
+
+      mov    sp, fp        // De-allocates the local variables
+      pop    {fp}     // Restore the old FP value
+      pop    {pc}     // Return to the caller
+This sequence of instruction is called the postlude of a method
+
+
+// example104.S
+// CS255/teardown-frame.html
+
+
+// example105.S
+// CS255/text-section.html
+
+
+// example106.S
+// CS255/traverse-lists.html
+
+
+// example107.S
+// CS255/var-directives.html
+
+
+// example108.S
+// CS255/while.html
+
+
+// example109.S
+// CS255/wrong-instr.html
+
+

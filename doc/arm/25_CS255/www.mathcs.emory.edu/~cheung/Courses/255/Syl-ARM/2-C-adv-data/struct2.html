@@ -1,0 +1,548 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Declaring <TT>struct</TT> variables
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Declaring</I> structure variables
+     </B></FONT>
+<P>
+<UL>
+<LI> 
+<P>
+<LI> <B><I>Declaring</I></B> 
+     (global) <FONT color="blue"><B>structure
+      variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>structure typed (global) variable</B></FONT>
+    is <B><I>declared</I></B> just like a 
+     <FONT color="blue"><B>built-in type variable</B></FONT>,
+  using the 
+  <FONT color="red"><B>keyword <TT>extern</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> to <FONT color="blue"><B>declare</B></FONT>
+     a <FONT color="red"><B>structure variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">extern</FONT>  struct  StructName   varName ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<FONT color="red"><B>Important caveat:</B></FONT>
+</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must</B></FONT> 
+      <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="blue"><B>define</B></FONT>
+       the <FONT color="red"><B><TT>struct</TT> (data type)</B></FONT>
+</SPAN>
+      <FONT color="blue"><B><I>before</I></B></FONT> you 
+      <FONT color="red"><B>define or <I>declare</I></B></FONT>
+      any
+    <FONT color="blue"><B>variable</B></FONT> of that
+      specific <FONT color="red"><B><TT>struct</TT></B></FONT> !!!
+<P>
+ (<FONT color="red"><B>Otherwise</B></FONT> you will get
+  a <FONT color="blue"><B>data type <I>undefined</I></B></FONT>
+   <FONT color="red"><B>error</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ main program file (defines a)
+</TH> 
+<TH>
+ help program file (<I>declares</I> a)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">/* ---------------------------
+   <SPAN style="BACKGROUND-COLOR: yellow">Define the structure FIRST</SPAN>
+   ---------------------------- */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};</FONT>
+<FONT color="red">
+/* ------------------------------------
+   <SPAN style="BACKGROUND-COLOR: yellow">THEN you can define a struct variable</SPAN>
+   ------------------------------------ */
+struct BankAccount a;</FONT>
+
+int main(int argc, char *argv[])
+{
+   a.accNum  = 123;
+   a.balance = 1000.0;
+
+   print(); // Invoke print() defined 
+            // inside a different file   
+}
+</PRE>
+</B>
+</FONT>
+
+
+</TD> 
+<TD align="left" bgcolor="lightcyan">
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="magenta">/* --------------------------
+   <SPAN style="BACKGROUND-COLOR: yellow">Define the structure FIRST</SPAN>
+   -------------------------- */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};</FONT>
+<FONT color="red">
+/* ----------------------------
+   <SPAN style="BACKGROUND-COLOR: yellow">THEN you can declare variable</SPAN>
+   ---------------------------- */
+extern struct BankAccount a;
+    // Declare structure variable a
+    // that is defined ELSEWHERE</FONT>
+
+void print()
+{
+   printf("a.accNum = %d  a.balance = %f\n",
+           a.accNum, a.balance);
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> <FONT color="red"><B><TT>
+	  /home/cs255001/demo/C/set2/struct2a.c
+	  </TT></B></FONT>
+  <LI> <FONT color="red"><B><TT>
+	  /home/cs255001/demo/C/set2/struct2b.c
+	  </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   gcc -c  struct2a.c
+   gcc -c  struct2b.c
+   gcc struct2a.o struct2b.o        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Further experiment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Comment out</B></FONT> the
+      <FONT color="blue"><B><TT>struct BankAccount</TT></B></FONT>
+      <B>definition </B> and
+     <FONT color="red"><B>recompile</B></FONT>.
+<P>
+ You will get this <FONT color="red"><B>compile error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5415)> gcc -c struct2a.c
+struct2a.c: In function `main':
+struct2a.c:21:5: error: invalid use of <FONT color="red">undefined type `struct BankAccount'</FONT>   
+    a.accNum  = 123;
+     ^
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A <I>better</I> organization:
+   use <FONT color="red">header file</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> As you can see in this program,
+     we must
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>repeat</B></FONT> the
+     <FONT color="blue"><B>definition</B></FONT> of
+     the <FONT color="red"><B><TT>struct BankAccount</TT></B></FONT>
+     </SPAN>
+     <B>definition</B>
+     in <FONT color="blue"><B><I>all</I> C program files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ main program file (defines a)
+</TH> 
+<TH>
+ help program file (<I>declares</I> a)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">/* ---------------------------
+   Define the structure FIRST
+   ---------------------------- */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};</FONT>
+<FONT color="red">
+/* ------------------------------------
+   Now you can define a struct variable
+   ------------------------------------ */
+struct BankAccount a;</FONT>
+
+int main(int argc, char *argv[])
+{
+   a.accNum  = 123;
+   a.balance = 1000.0;
+
+   print(); // Invoke print() defined 
+            // inside a different file   
+}
+</PRE>
+</B>
+</FONT>
+
+
+</TD> 
+<TD align="left" bgcolor="lightcyan">
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="magenta"><FONT color="darkgreen">/* --------------------------
+   REPEAT the definition !!!
+   -------------------------- */</FONT>
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};</FONT>
+<FONT color="red">
+/* ----------------------
+   Now you can declare a
+   ---------------------- */
+extern struct BankAccount a;
+    // Declare structure variable a
+    // that is defined ELSEWHERE</FONT>
+
+void print()
+{
+   printf("a.accNum = %d  a.balance = %f\n",
+           a.accNum, a.balance);
+}
+
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+ <FONT color="red"><B>Repeating a definition</B></FONT></SPAN>
+  (e.g., by <FONT color="blue"><B>cut and paste</B></FONT>)
+   can 
+ <SPAN style="BACKGROUND-COLOR: yellow">result in
+ <FONT color="red"><B>errors</B></FONT></SPAN> caused by 
+  <FONT color="blue"><B>typos or "paste accidents"</B></FONT>...
+<HR>
+<P>
+<LI> <B>Better organization:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It is <FONT color="red"><B>common practice</B></FONT> to
+     <SPAN style="BACKGROUND-COLOR: yellow">
+    put the <FONT color="blue"> <B> <TT>struct</TT> and
+  <TT>typedef</TT>
+     definition(s)</B></FONT></SPAN> inside a
+     <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>header file</B></FONT>:</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">/* -------------------
+      my-types.h
+      ------------------- */</FONT>        
+   struct BankAccount
+   { 
+      int    accNum;
+      double balance;
+   };
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> The <B>header file(s)</B> are then
+      <FONT color="blue"><B>inserted</B></FONT> at the
+      <FONT color="red"><B>start</B></FONT> of each
+      <B>C program file</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+ main program file (defines a)
+</TH> 
+<TH>
+ help program file (<I>declares</I> a)
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="magenta">#include "my-types.h"</FONT>
+
+<FONT color="red">
+struct BankAccount a;</FONT>
+
+int main(int argc, char *argv[])
+{
+   a.accNum  = 123;
+   a.balance = 1000.0;
+
+   print(); // Invoke print() defined 
+            // inside a different file   
+}
+</PRE>
+</B>
+</FONT>
+
+
+</TD> 
+<TD align="left" bgcolor="lightcyan">
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="magenta">#include "my-types.h"</FONT>
+
+<FONT color="red">
+extern struct BankAccount a;
+    // Declare structure variable a
+    // that is defined ELSEWHERE</FONT>
+
+void print()
+{
+   printf("a.accNum = %d  a.balance = %f\n",
+           a.accNum, a.balance);
+}
+
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

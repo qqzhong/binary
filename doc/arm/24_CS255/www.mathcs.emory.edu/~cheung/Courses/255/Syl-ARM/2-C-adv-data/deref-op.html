@@ -1,0 +1,997 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Using <I>reference</I> variables: the <I>dereference</I> operator  (*)
+<HR>
+</H3>
+<UL>
+<LI> <FONT COLOR="darkmagenta"> <B>
+        Operators...
+        </B></FONT>
+ <UL>
+ <P>
+ <LI> <B>Recall</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT COLOR="red"><B>Operators</B></FONT>
+	<B>operates</B> on 
+	<FONT color="blue"><B>one or more <I>operands</I> (values)</B></FONT>
+	and 
+	<FONT color="red"><B>return</B></FONT> another <B>value</B>
+	(kind of like a function)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> We will look at <B>another</B>
+   <FONT color="red"><B><I>very</I> unusual operators</B></FONT>
+    in the <B>C/C++ programming
+	language</B> that is not usually found in 
+    <B>most other</B> high level
+	programming languages...
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"> <B>
+        The <I>dereference</I> Operator *
+        </B></FONT>
+ <UL>
+ <P>
+ <LI> The <B>dereference</B> operator <FONT color="red"><B>*</B></FONT>: 
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT COLOR="red"> <B> <I>dereference</I> operator * </B></FONT>
+        operates on an 
+       <FONT COLOR="blue"> <B><I>reference</I> variable</B></FONT>
+	&nbsp; &nbsp; &nbsp; <B>and </B>
+	&nbsp; &nbsp; &nbsp; 
+ <P>
+ <LI> It <FONT color="red"><B>returns</B></FONT> the
+       <FONT COLOR="blue"> <B><I>variable</I> </B></FONT>
+        <B>pointed to</B> by the
+	<FONT COLOR="red"> <B><I>reference</I> variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Relationship between the & and * operators
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>&</B></FONT> and
+      <FONT color="red"><B>*</B></FONT> operators and
+      each other's
+      <FONT color="blue"><B>reverse operators</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ For any variable <FONT color="red">x</FONT>:
+
+     <FONT color="red">*(&x)</FONT>  &equiv;  <FONT color="red">x</FONT>          !!!       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+
+int main(int argc, char *argv[])
+{
+    int i = 4;
+
+    printf("&i = %u\n", &i ); // I SHOULD use %p, but I like %u 
+			      // I can live with a warning...
+
+    printf(" i = %d\n", i );  // %d = signed integer
+
+    <FONT color="red">*(&i) = 9999;             // * and &  are each other's reverse !
+                              // This statement is same as: i = 9999;    </FONT>
+
+    printf(" i = %d\n", i );  // %d = signed integer
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255-1@aruba (5777)> a.out         
+&i = 2717581396
+ i = 4
+ <FONT color="red">i = 9999</FONT>                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+	     /home/cs255001/demo/C/set2/ref-var0.c
+	     </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-var0.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using the de-reference operator "*"
+     with <FONT color="red">reference variables</FONT>
+     </B></FONT>
+<P>
+<UL>
+<P>
+<LI> <B>Applying</B>
+    the <FONT color="blue"><B>de-reference <I>oprator</I> *</B></FONT>
+     on a <FONT color="red"><B><I>reference</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="blue"><B><TT>p</TT></B></FONT> is
+      a <FONT color="red"><B>reference variable</B></FONT>
+      defined as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int *</FONT>p ;   // p contains an address of an int    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Then</B> the <B><I>expression</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    *p   // You must read this as:
+         //    The <FONT color="red">operator *</FONT> applied to the variable p          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <B>return</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>variable</B></FONT> at the
+   <FONT color="red"><B>address</B></FONT> given by the
+   <FONT color="magenta"><B><I>reference</I> (= <I>pointer</I>)
+	 variable <TT>p</TT></B></FONT>
+ <P>
+ <LI> <B><I>Also</I></B>, the <FONT color="red"><B>type</B></FONT>
+    of this <B>variable</B>
+    is <FONT color="blue"><B><TT>int</TT></B></FONT>
+    because  <FONT color="magenta"><B>variable <TT>p</TT></B></FONT>
+     points to
+    an <FONT color="red"><B><TT>int</TT> typed variable</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Illustrated:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-var4.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <B>Example C program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[])
+{ 
+    int i1 = 4, i2 = 88;
+  
+    int *p;
+  
+    printf("Address of i1 = %u\n", &i1 );  // %u = unsigned integer
+    printf("Address of i2 = %u\n\n", &i2 );
+  
+    <FONT color="red">p = &i1;                               // p points to variable i1 </FONT>   
+    printf("Value of p  = %u\n", p );
+    printf("Value of *p = %d\n\n", <FONT color="red">*p</FONT> );   <FONT color="red">// *p is (now) alias for i1</FONT>
+  
+  <FONT color="red">
+    p = &i2;                               // p points to variable i2</FONT>
+    printf("Value of p  = %u\n", p );
+    printf("Value of *p = %d\n\n", <FONT color="red">*p</FONT> );   <FONT color="red">// *p is (now) alias for i2</FONT>
+  
+}   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Address of i1 = <FONT color="red">4290768712</FONT>
+   Address of i2 = 4290768708
+   		   
+   Value of p  = <FONT color="red">4290768712</FONT>
+   Value of *p = <FONT color="red">4	</FONT>
+   		   
+   Value of p  = 4290768708
+   Value of *p = 88
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/ref-var1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-var1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The expression "<FONT color="red">*p</FONT>" used on the Left Hand Side
+     of the <I>assignment operator</I></B></FONT>
+<P>
+<UL>
+<P>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>
+     <FONT color="red"><B><TT>*p</TT></B></FONT> can be used
+      <FONT color="blue"><B><I>anywhere</I></B></FONT> in the place of 
+      an <FONT color="red"><B>(ordinary) <I>variable</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Illustration:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  i1;
+     int  i2;
+     int  *<FONT color="red">p</FONT>;
+
+
+     <FONT color="red">p = &i1</FONT>;         // p points to variable i1
+     <FONT color="red">*p = 1234</FONT>;       // Stores the value 1234 in the variable                 
+                      //   pointed to by p (= i1)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])
+   {
+       int i1 = 4, i2 = 88;
+    
+       int *p;
+    
+    
+       printf("Value of i1 = %d\n", i1 );
+    <FONT color="red">
+       p = &i1;                               // p points to variable i1
+       *p = 1234;                             // Store 1234 in i1 !!!</FONT>
+       printf("Value of i1 = %d\n", i1 );
+    
+       printf("Value of i2 = %d\n", i2 );
+    <FONT color="red">
+       p = &i2;                               // p points to variable i2
+       *p = 9999;                             // Store 9999 in i2 !!!</FONT>
+       printf("Value of i2 = %d\n", i2 );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value of i1 = 4	<FONT color="red">  
+   Value of i1 = 1234    (i1 is changed !!!)</FONT>
+   Value of i2 = 88  <FONT color="red">
+   Value of i2 = 9999    (i2 is changed !!!)</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/ref-var2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc ref-var2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Alias: a <I>different name</I> for
+     the <I>same variable</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Jargon: <I>Alias</I></B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Alias</B></FONT> =
+      a <FONT color="blue"><B><I>different</I> name</B></FONT> to refer
+      to the
+      <FONT color="red"><B><I>same</I> variable
+      (memory location)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You <B></B>should</B> have seen this
+   <FONT color="blue"><B>phenomenon</B></FONT> in
+   <FONT color="red"><B>Java</B></FONT> before...
+ <P>
+  <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     BankAccount  x = new BankAccount();
+
+     BankAccount  y;
+
+    <FONT color="red"> y = x; </FONT>             // y is now an alias for x         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> You have  <B>just</B> seen how to
+     <FONT color="blue"><B>make an alias</B></FONT> in
+     <FONT color="red"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  i1;
+
+     int  *p;
+<FONT color="red">
+     p = &i1;</FONT>            // <FONT color="red"> *p</FONT> is now an alias for <FONT color="red">i1</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     An <FONT color="red">ARM assembler</FONT> analogy
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>reference variable</B></FONT>
+       contains an <FONT color="red"><B>address</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Some times, a
+   <FONT color="red"><B>ARM register</B></FONT> contains
+     the <FONT color="blue"><B>address</B></FONT> of
+     a <FONT color="red"><B>variable</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+  So you <FONT color="red"><B>have used</B></FONT>
+  <FONT color="blue"><B>reference variables</B></FONT>
+  <B>before</B> in
+  <FONT color="red"><B>ARM assembler programming</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     movw   r0, #:lower16:<FONT color="red">x</FONT>
+     movt   r0, #:upper16:<FONT color="red">x</FONT>      // r0 = address of variable x    
+
+     ldr    r1. <FONT color="red">[r0]</FONT>             // <FONT color="red">r0</FONT> acts <FONT color="red">like</FONT> a <FONT color="red">reference variable</FONT> !!!    
+
+
+     .data
+<FONT color="red">x:</FONT>   .skip 4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Suppose</B></FONT>
+     the <FONT color="blue"><B>variable <TT>x</TT></B></FONT>
+     is <FONT color="red"><B>located at address 5000</B></FONT>
+<P>
+    The <FONT color="red"><B>C reference variable</B></FONT>
+    <FONT color="blue"><B><TT>p</TT></B></FONT> contains
+   the <FONT color="red"><B>address 
+   of <TT>x</TT> (= 5000)</B></FONT>
+<P>
+    The <FONT color="red"><B>ARM register</B></FONT>
+     <FONT color="blue"><B> <TT>r0</TT></B></FONT>
+    contains the <FONT color="red"><B>address of <TT>x</TT> (= 5000)</B></FONT>
+ <P>
+  <B>Then:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     C expression              Similar to ARM 
+   ---------------------------------------------------               
+      p                         r0      (= value in reg r0)
+     *p                        [r0]     (= value in memory location at addr r0)  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>operator</B> <FONT color="red"><B>&</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>&var</TT></B></FONT> = 
+     the <FONT color="blue"><B>address</B></FONT> of the
+     variable <FONT color="red"><B><TT>var</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The value of <FONT color="red"><B><TT>&var</TT></B></FONT> is 
+    </B>also</B> known as
+    a <FONT color="blue"><B><I>reference</I></B></FONT>
+    or a <FONT color="blue"><B><I>pointer</I></B></FONT>
+    to the
+      variable <FONT color="red"><B><TT>var</TT></B></FONT>
+   <P>
+      (because it "points like an index finger" to the
+      variable <FONT color="blue"><B><TT>var</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <B>operator</B> <FONT color="red"><B>*</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>operator</B> <FONT color="blue"><B>*</B></FONT> can
+     <FONT color="red"><B><I>only</I></B></FONT> be
+      used on a <FONT color="blue"><B>reference variable</B></FONT>
+ (that contains an <FONT color="red"><B>address</B></FONT> !!!)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>      A <FONT color="red"><B>reference variable</B></FONT> contains the 
+      <FONT color="blue"><B>address</B></FONT> of a
+      variable <FONT color="red"><B><TT>var</TT></B></FONT>
+      (= <FONT color="red"><B><TT>&var</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="blue"><B>Effect</B></FONT> of
+     the <FONT color="red"><B>de-reference operator *</B></FONT>:
+ <P>
+       <FONT color="blue"><B>Suppose</B></FONT>
+     a <B><I>reference variable</I></B> 
+    <FONT color="red"><B><TT>p</TT></B></FONT>
+    is currently <B>pointing</B> to 
+    some variable.
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    datatype *<FONT color="red">p</FONT>;  // <FONT color="red">p<FONT color="blue"> is pointing
+                  // to some variable of type <FONT color="red">datatype</FONT>
+
+ Then:
+
+       <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">*p</FONT> = the <FONT color="red">variable</FONT> (of type <FONT color="red">datatype</FONT>) that <FONT color="red">p</FONT> is pointing to</SPAN>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+</UL>
+
+
+
+
+
+
+
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

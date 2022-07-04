@@ -1,0 +1,749 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Converting between
+  the integer datatypes 
+  (<TT>int</TT>,  <TT>short</TT>, and <TT>byte</TT>)
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <SPAN style="BACKGROUND-COLOR: yellow">
+     Converting between 2s complement codes of
+    <FONT color="red">different lengths</FONT>
+     </SPAN>
+     </B></FONT>
+<P>
+<UL>
+<FONT color="red"><B>Quiz:</B></FONT>
+
+
+ Can you tell <FONT color="red"><B>which line or lines</B></FONT> 
+  in this <FONT color="blue"><B>Java program</B></FONT> will
+ cause a <FONT color="red"><B>compiler error</B></FONT>:
+<P>
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">File: /home/cs255001/demo/java/JavaExprEval.java</FONT>
+
+public class JavaExprEval
+{
+   public static void main(String[] arg)
+   {
+      <FONT color="red">byte</FONT>  b1 = 44, b2 = 22;
+      <FONT color="red">short</FONT> s;
+
+      <FONT color="red">s = b1;</FONT>    // Will this statement cause an error ?      
+      <FONT color="red">s = b1+b2;</FONT> // Will this statement cause an error ?
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The answer is below...
+<P>
+&nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; <P>
+&nbsp; <P> &nbsp; <P> &nbsp; <P> &nbsp; <P>
+<HR>
+<HR>
+<P>
+<LI> When you use
+     <FONT color="red"><B>different</B></FONT> data types
+     in an <FONT color="blue"><B>operation</B></FONT>,
+     the <FONT color="red"><B>computer</B></FONT> must
+     perform
+     <FONT color="blue"><B>conversion</B></FONT> to
+     make the types <FONT color="red"><B>equal</B></FONT>
+    <P>
+  In other words: one <FONT color="red"><B>code (= representation)
+    </B></FONT> must be
+  <FONT color="blue"><B>converted</B></FONT> into
+  <FONT color="red"><B>another code (= representation)</B></FONT>
+  before the <FONT color="blue"><B>operation</B></FONT> can
+  take place.
+<P>
+<LI> In <FONT color="red"><B>CS170/CS171</B></FONT>, you may have 
+     <FONT color="blue"><B>remember</B></FONT>
+    (I'm sure the professor mentioned it) the following
+  (partial) <FONT color="red"><B>safe conversion</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Java's <FONT color="red">safe conversions</FONT>:
+
+       <FONT color="red">byte  --->  short  --->  int </FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<A NAME="int-op"></A>
+<P>
+You may <FONT color="red"><B>also remember</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B>Java</B></FONT>,
+     <FONT color="red"><B>all (integer) operations</B></FONT> </B></FONT>
+       performed on
+       <FONT color="blue"><B>integer values</B></FONT> are done
+   <SPAN style="BACKGROUND-COLOR: yellow">
+       using the <FONT color="red"><B><TT>int</TT> data type</B></FONT>
+       </SPAN>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+That <FONT color="red"><B>means</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you use a <FONT color="red"><B><TT>byte</TT> typed
+ (8 bits 2s complement code)</B></FONT>
+  of <FONT color="blue"><B><TT>short</TT> typed 
+   (16 bits 2s complement code)</B></FONT> value
+  in some <B>expression</B>,
+  the <FONT color="red"><B>Java compiler</B></FONT> will
+  <FONT color="blue"><B><I>first</I></B></FONT> convert it
+  (= the code used)
+  into the
+  corresponding
+  <FONT color="red"><B><TT>int</TT> typed </B></FONT> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+See if you can 
+ <FONT color="red"><B>apply</B></FONT> this
+ <FONT color="blue"><B>Java rule</B></FONT> and figure out
+ what's going on in this
+  program.
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">File: /home/cs255001/demo/java/JavaExprEval.java</FONT>
+
+public class JavaExprEval
+{
+   public static void main(String[] arg)
+   {
+      <FONT color="red">byte</FONT>  b1 = 44, b2 = 22;
+      <FONT color="red">short</FONT> s;
+
+      <FONT color="red">s = b1;</FONT>    // Will this statement cause an error ?      
+      <FONT color="red">s = b1+b2;</FONT> // Will this statement cause an error ?
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+&nbsp;
+<P>
+&nbsp;
+<P>
+&nbsp;
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@aruba> javac JavaExprEval.java
+JavaExprEval.java:12: error: incompatible types: possible lossy conversion from int to short
+      s = <FONT color="red">b1+b2</FONT>; // Error, because Java converts byte to int before adding
+            ^
+
+<HR>
+<FONT color="red">Explanation:</FONT>
+
+   s = b1;   // Is OK. Because: there is <FONT color="red">no operation</FONT> performed.
+             // The <FONT color="red">byte b1</FONT> can be <FONT color="red">converted safely to a short</FONT> and assigned to s
+
+   s = b1+b2  // Error. Because: there is a + operation !
+              // So the byte b1 is converted to int representation, and
+              //    the byte b2 is converted to int representation, then
+	      //    the int values (representations) are added
+	      // The final result is int (32 bits)
+	      // But an <FONT color="red">int cannot be safely converted to a short (s)</FONT> !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+
+
+<A NAME="casting"></A>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to convert (cast) a <TT>byte</TT>  representation
+     to an <TT>int</TT> representation
+     </B></FONT>
+<P>
+<UL>
+<LI> It is very easy to convert a
+    <FONT color="red"><B><TT>byte</TT> (8 bit 2s complement code)</B></FONT>
+    to an <FONT color="red"><B><TT>int
+    (32 bits 2s complement code(</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To convert a
+      <FONT color="red"><B><TT>byte</TT> (8 bit 2s complement code)</B></FONT>
+    to an <FONT color="red"><B><TT>int
+    (32 bits 2s complement code(</TT></B></FONT>,
+    you <FONT color="red"><B>extend</B></FONT> the
+    <FONT color="blue"><B><I>sign bit</I></B></FONT> of the
+    <FONT color="red"><B><TT>byte</TT></B></FONT> 
+<P>
+ The <FONT color="blue"><B><I>sign</I> bit</B></FONT> is the
+ <FONT color="red"><B>left-most bit</B></FONT> in the
+ <FONT color="blue"><B><TT>byte</TT> representation</B></FONT>
+ <P>
+ We call this <FONT color="blue"><B>operation</B></FONT>:
+  <FONT color="red"><B>sign extension</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value      byte (8 bits 2s compl code)    int (32 bits 2s compl code)
+  -------    ----------------------------   ----------------------------------     
+   127             <FONT color="red">0</FONT>1111111                  000000000000000000000000<FONT color="red">0</FONT>1111111
+   ...
+     3             <FONT color="red">0</FONT>0000011                  000000000000000000000000<FONT color="red">0</FONT>0000011
+     2             <FONT color="red">0</FONT>0000010		     000000000000000000000000<FONT color="red">0</FONT>0000010
+     1		   <FONT color="red">0</FONT>0000001		     000000000000000000000000<FONT color="red">0</FONT>0000001
+     0		   <FONT color="red">0</FONT>0000000		     000000000000000000000000<FONT color="red">0</FONT>0000000
+    -1		   <FONT color="red">1</FONT>1111111		     111111111111111111111111<FONT color="red">1</FONT>1111111
+    -2		   <FONT color="red">1</FONT>1111110		     111111111111111111111111<FONT color="red">1</FONT>1111110
+    -3		   <FONT color="red">1</FONT>1111101		     111111111111111111111111<FONT color="red">1</FONT>1111101
+   ...
+  -128             <FONT color="red">1</FONT>0000000                  111111111111111111111111<FONT color="red">1</FONT>0000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>lower 8 bits</B></FONT>
+       in the <FONT color="blue"><B><TT>int</TT> representation</B></FONT>
+       is <FONT color="red"><B><I>equal</I></B></FONT> to
+       the <FONT color="blue"><B><I>original</I> <TT>byte</TT>
+       representation</B></FONT> !!!
+<P>
+<B>That means:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can obtain the
+   <FONT color="red"><B><TT>byte</TT> representation</B></FONT>
+   from an <FONT color="blue"><B><TT>int</TT> representation</B></FONT>
+   by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Discarding</B></FONT> the
+     <FONT color="blue"><B>left-most 24 bits</B></FONT> in the
+     <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In fact, this is
+ <FONT color="red"><B>how</B></FONT>
+ <FONT color="blue"><B><TT>int</TT> --> <TT>byte</TT> casting</B></FONT>
+ works !!!
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT>
+        <B>convert (cast)</B>
+      <FONT color="blue"><B><TT>int</TT> --> <TT>byte</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Discard</B></FONT> the
+    <FONT color="blue"><B>left-most 24 bits</B></FONT> in
+    the <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<FONT color="red"><B>Quiz</B></FONT> on
+     <FONT color="blue"><B><TT>int</TT> --> <TT>byte</TT> casting</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Given that:
+     <FONT color="red"><B>4100 (decimal)</B></FONT>
+     is represented by
+     the <FONT color="blue"><B>2s complement code
+   <TT>00000000000000000001000000000100</TT></B></FONT>.
+ <P>
+ What is the <FONT color="red"><B>value</B></FONT> of the
+  <FONT color="blue"><B><TT>byte</TT> variable <TT>b</TT></B></FONT>
+  in this <FONT color="red"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      int i = 4100;
+      byte b;
+
+      b = (byte) i;                                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   b = (byte) i    will assign  00000100  to b                
+
+   00000100  represents the value <FONT color="red">4</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+To <FONT color="red"><B>show</B></FONT> you that
+ this is the <FONT color="blue"><B>correct answer</B></FONT>,
+ I have written this
+ <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /home/cs255001/demo/java/JavaByteIntCast.java          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will compile and run it in class.
+You can try it out yourself if you did not attend class....
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to convert (cast) a <TT>byte</TT>  representation
+     to an <TT>int</TT> representation
+     </B></FONT>
+<P>
+<UL>
+<LI> It is <FONT color="blue"><B>also</B></FONT> very easy to convert a
+    <FONT color="red"><B><TT>short</TT> (16 bit 2s complement code)</B></FONT>
+    to an <FONT color="red"><B><TT>int
+    (32 bits 2s complement code(</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To convert a
+      <FONT color="red"><B><TT>short</TT> (16
+     bit 2s complement code)</B></FONT>
+    to an <FONT color="red"><B><TT>int
+    (32 bits 2s complement code(</TT></B></FONT>,
+    you <FONT color="red"><B>extend</B></FONT> the
+    <FONT color="blue"><B><I>sign bit</I></B></FONT> of the
+    <FONT color="red"><B><TT>byte</TT></B></FONT> 
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Value      short (16 bits 2s compl code)   int (32 bits 2s compl code)
+  -------    ----------------------------   ----------------------------------     
+   32767        <FONT color="red">0</FONT>111111111111111             0000000000000000<FONT color="red">0</FONT>111111111111111
+   ...
+     3          <FONT color="red">0</FONT>000000000000011             0000000000000000<FONT color="red">0</FONT>000000000000011
+     2          <FONT color="red">0</FONT>000000000000010	     0000000000000000<FONT color="red">0</FONT>000000000000010
+     1	        <FONT color="red">0</FONT>000000000000001	     0000000000000000<FONT color="red">0</FONT>000000000000001
+     0	        <FONT color="red">0</FONT>000000000000000	     0000000000000000<FONT color="red">0</FONT>000000000000000
+    -1	        <FONT color="red">1</FONT>111111111111111	     1111111111111111<FONT color="red">1</FONT>111111111111111
+    -2	        <FONT color="red">1</FONT>111111111111110	     1111111111111111<FONT color="red">1</FONT>111111111111110
+    -3	        <FONT color="red">1</FONT>111111111111101	     1111111111111111<FONT color="red">1</FONT>111111111111101
+   ...
+  -32768        <FONT color="red">1</FONT>000000000000000             1111111111111111<FONT color="red">1</FONT>000000000000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>lower 16 bits</B></FONT>
+       in the <FONT color="blue"><B><TT>int</TT> representation</B></FONT>
+       is <FONT color="red"><B><I>equal</I></B></FONT> to
+       the <FONT color="blue"><B><I>original</I> <TT>short</TT>
+       representation</B></FONT> !!!
+<P>
+<B>That means:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can obtain the
+   <FONT color="red"><B><TT>short</TT> representation</B></FONT>
+   from an <FONT color="blue"><B><TT>int</TT> representation</B></FONT>
+   by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Discarding</B></FONT> the
+     <FONT color="blue"><B>left-most 16 bits</B></FONT> in the
+     <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In fact, this is
+ <FONT color="red"><B>how</B></FONT>
+ <FONT color="blue"><B><TT>int</TT> --> <TT>short</TT> casting</B></FONT>
+ works !!!
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT>
+        <B>convert (cast)</B>
+      <FONT color="blue"><B><TT>int</TT> --> <TT>short</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Discard</B></FONT> the
+    <FONT color="blue"><B>left-most 16 bits</B></FONT> in
+    the <FONT color="red"><B><TT>int</TT> representation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<FONT color="red"><B>Quiz</B></FONT> on
+     <FONT color="blue"><B><TT>int</TT> --> <TT>short</TT> casting</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Given that:
+     <FONT color="red"><B>262150 (decimal)</B></FONT>
+     is represented by
+     the <FONT color="blue"><B>2s complement code
+   <TT>00000000000001000000000000000110</TT></B></FONT>.
+ <P>
+ What is the <FONT color="red"><B>value</B></FONT> of the
+  <FONT color="blue"><B><TT>short</TT> variable <TT>b</TT></B></FONT>
+  in this <FONT color="red"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      int i = 262150;
+      short s;
+
+      s = (short) i;                                                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   s = (byte) i    will assign  0000000000000110  to s                
+
+   0000000000000110  represents the value <FONT color="red">6</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+To <FONT color="red"><B>show</B></FONT> you that
+ this is the <FONT color="blue"><B>correct answer</B></FONT>,
+ I have written this
+ <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /home/cs255001/demo/java/JavaShortIntCast.java          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will compile and run it in class.
+You can try it out yourself if you did not attend class....
+
+
+
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

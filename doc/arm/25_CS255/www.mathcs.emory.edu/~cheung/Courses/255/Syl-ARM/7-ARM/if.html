@@ -1,0 +1,582 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>if</TT>-statement construct in assembler code
+<HR>
+</H3>
+
+<UL>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>if</TT>-statement
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>High level programming languages</B></FONT> 
+    provides the <FONT color="red"><B>if-statement </B></FONT> construct
+    that has the following <FONT color="blue"><B>form</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( condition )
+      statement                    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>body</B></FONT> of the
+     <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+     contains
+     <FONT color="red"><B><I>only</I></B></FONT>
+     <FONT color="blue"><B>one (1) statement</B></FONT>
+ <P>
+ <LI> If you need <FONT color="red"><B><I>multiple</I> statements</B></FONT>
+      in the <FONT color="blue"><B>body</B></FONT>, you can use
+      <FONT color="red"><B>curly braces { ... }</B></FONT> to enclose
+      the <FONT color="blue"><B>statements</B></FONT>
+ <P>
+   The <FONT color="red"><B>compiler</B></FONT> will
+  <FONT color="blue"><B>treat (= consider)</B></FONT> this construct:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">{</FONT>
+      statement1;              
+      statement2;
+      ...
+   <FONT color="red">}</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+as <FONT color="red"><B><I>one</I> statement</B></FONT> !!!
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <FONT color="red"><B>Program control control</B></FONT>
+      of the <FONT color="blue"><B><TT>if</TT>-statement</B></FONT>
+    given in a
+  <FONT color="red"><B>flow chart</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                                 <FONT color="red">Flow chart of the if-statement</FONT>       
+
+   if ( condition )   ---->            |
+      statement                        |
+				+--------------+  <FONT color="red">FALSE</FONT>
+				|  condition   |--------+        
+				+--------------+	|
+				       |		|
+				       | <FONT color="red">TRUE</FONT>		|
+				       |		|
+				       V		|
+				   statement(s)		|
+				       |		|
+				       |		|
+				       V		|
+				       +<---------------+
+				       |
+				       V
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the <FONT color="blue"><B>condition</B></FONT> is
+       <FONT color="red"><B>true</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="blue"><B><TT>statement</TT></B></FONT>
+       is <FONT color="red"><B>execute</B></FONT> and
+  <LI>   The <FONT color="blue"><B>program continues</B></FONT>
+       with the <FONT color="red"><B>next statement</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> If the <FONT color="blue"><B>condition</B></FONT> is
+       <FONT color="red"><B>false</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+  <LI>   The <FONT color="blue"><B>program continues</B></FONT>
+       with the <FONT color="red"><B>next statement</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler code construct to <FONT color="red">realize</FONT>
+     the <TT>if</TT>-statement construct
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B>assembler code construct</B></FONT>
+      that <FONT color="blue"><B>realizes</B></FONT>
+      the <FONT color="red"><B>program control flow</B></FONT>
+     of the 
+     <FONT color="blue"><B><TT>if</TT>-statement</B></FONT> is
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      Assembler code to evaluate "condition" (use <FONT color="red">cmp</FONT> instruction)
+                |
+		V					        <FONT color="red">FALSE</FONT>     
+      <FONT color="red">Branch</FONT> on the <FONT color="red">FALSE outcome</FONT> of "condition" to label<FONT color="red"> A:</FONT>  ----+
+		|						  |
+		| don't branch on the TRUE outcome of condition	  |
+		|						  |
+		V						  |
+      Assembler code to execute "statement"      		  |
+		|						  |
+		|						  |
+		V						  |
+    A:		+<------------------------------------------------+
+		|
+		V
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>illustrate </B></FONT> the
+ <FONT color="blue"><B>assembler coding technique</B></FONT> with
+ <FONT color="red"><B>2 examples</B></FONT> in this webpage
+<P>
+In class - due to time limitations - I will
+ <FONT color="red"><B>explain</B></FONT> the
+ <FONT color="blue"><B>example 1</B></FONT>.
+<P>
+Come to class if you want to see 
+ <FONT color="red"><B>how</B></FONT> I 
+ <FONT color="blue"><B>develop</B></FONT> the code for this
+ <FONT color="blue"><B>example</B></FONT>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>if</TT>-statement - Example 1
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>Example 1:</B>
+          find the <FONT color="red"><B>absolute value</B></FONT>
+          of the <FONT color="blue"><B>value</B></FONT> in the
+	  <FONT color="red"><B>variable <TT>x</TT></B></FONT>
+<P>
+ The <FONT color="red"><B>high level programming language </B></FONT> statement
+  is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+
+   if ( x < 0 )
+     x = -x;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+The <FONT color="blue"><B>flow chart</B></FONT> of the
+ <B>program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/if1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>ARM assembler code</B></FONT> for the
+  <FONT color="blue"><B>high level program</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+
+        ldr     r1, [r0]                // r1 = x
+
+        cmp     r1, #0                  // Compare x ? 0
+        <FONT color="red">bge     IfEnd </FONT>                  // Branch to "isPos" if  x<FONT color="red"> >=</FONT> 0
+
+        neg     r1, r1                  // r1 = 0 - r1 (negate)
+
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+
+        str     r1, [r0]                // Update x with -x
+                                        // NOTE: if you OMIT this instruction,
+                                        //       the variable x will NOT be
+                                        //       updated !!!
+
+<FONT color="red">IfEnd:</FONT>
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+x:      .4byte  -4        // x = -4   --<FONT color="red"> try changing the sign and run the prog</FONT>
+        .end
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/6-if/if1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 if1</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+   use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     If-statement in assembler code - exmaple 2
+     </B></FONT>
+<P>
+<UL>
+
+<LI> Given  2 values in
+   <FONT color="red"><B><TT>x</TT></B></FONT> and
+   <FONT color="red"><B><TT>y</TT></B></FONT>
+<P>
+   Make sure that <FONT color="red"><B><TT>y</TT></B></FONT> has
+   the <FONT color="blue"><B>largest value</B></FONT>
+ <P>
+  <B>I.e.:</B>
+   <FONT color="red"><B>swap</B></FONT> the values in
+     <FONT color="red"><B><TT>x</TT></B></FONT> and
+   <FONT color="red"><B><TT>y</TT></B></FONT> if
+   <FONT color="blue"><B><TT>x > y</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>high level program</B></FONT>
+     is as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+   int y;
+   int help;
+
+   if ( x > y )                 
+   {
+      help = x;
+      x = y;
+      y = help;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+The <FONT color="blue"><B>flow chart</B></FONT> of the
+ <B>program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/if2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In a <FONT color="red"><B>high level language</B></FONT>,
+     we must use a <FONT color="blue"><B><I>help</I> variable</B></FONT>
+     to perform the <FONT color="red"><B>swap</B></FONT> operation
+ <P>
+ <LI> Because <FONT color="red"><B>registers</B></FONT> can
+       store <FONT color="blue"><B>variable values</B></FONT>,
+       we <FONT color="red"><B><I>don't </I></B></FONT> need
+       an <FONT color="blue"><B>extra help variable</B></FONT> to
+       to perform the <FONT color="red"><B>swap</B></FONT> operation in
+       <FONT color="blue"><B>assembler code</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>ARM assembler code</B></FONT> for the above
+ <FONT color="blue"><B>if-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+        ldr     r1, [r0]                // r1 = x (I save <FONT color="red">r0</FONT> because I need it later !)
+
+        movw    r2, #:lower16:y
+        movt    r2, #:upper16:y         // r2 = addr(y)
+        ldr     r3, [r2]                // r3 = y (I save <FONT color="red">r2</FONT> because I need it later !)
+
+        cmp     r1, r3                  // Compare x ? y
+        ble     ifEnd                   // Branch if  x <= y to ifEnd
+
+        <FONT color="red">// x > y: swap x and</FONT>
+        str     r1, [<FONT color="red">r2</FONT>]                // Store the x-copy in y (in memory):<FONT color="red"> y = x in r1</FONT>     
+        str     r3, [<FONT color="red">r0</FONT>]                // Store the y-copy in x (in memory):<FONT color="red"> x = y in r3</FONT>
+
+ifEnd:
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+x:      .4byte   9        // x = 9   -- try a value smaller that 4
+y:      .4byte   4        // y = 4
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/6-if/if2.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 if2</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+ us
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+</UL>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

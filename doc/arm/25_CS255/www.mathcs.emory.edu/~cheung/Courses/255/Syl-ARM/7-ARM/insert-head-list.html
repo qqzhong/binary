@@ -1,0 +1,346 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Inserting a list element at the start of a linked list
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review:</FONT>
+     Java statements to insert at the start of a linked list
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Suppose we have an
+    <FONT color="red"><B>existing </B></FONT>
+   <FONT color="blue"><B>linked list</B></FONT> at
+   <FONT color="red"><B><TT>head</TT></B></FONT> and
+   a  <FONT color="blue"><B>list element</B></FONT> at
+   <FONT color="red"><B><TT>ptr</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Java statements</B></FONT> 
+ (that you learned in <FONT color="blue"><B>CS171</B></FONT>) to
+ insert the
+ <FONT color="red"><B>list element</B></FONT> at the
+ <FONT color="blue"><B>start</B></FONT> of the list are:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      /* ========================================================
+         Statements to insert list element "ptr" at start of list
+         ======================================================== */
+      <FONT color="red">ptr.next = head; </FONT>         // Make ptr.next points to first element of list   
+      <FONT color="red">head = ptr; </FONT>              // Make head points to the new list element
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>result</B></FONT> of these
+ <FONT color="darkmagenta"><B>statements</B></FONT> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/ListInsert.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac ListInsert.java</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ListInsert</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler code to insert a list element at the start of a list
+     </B></FONT>
+<P>
+<UL>
+<LI> When you write the
+   <FONT color="red"><B>Java statements</B></FONT> in
+   <FONT color="blue"><B>(ARM) assembler</B></FONT>,
+   you will see <B>clearly</B> how an
+   <FONT color="red"><B>list element</B></FONT> is
+   <FONT color="blue"><B>inserted</B></FONT> in a list:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>references (= addresses)</B></FONT>
+      in certian field are
+      <FONT color="blue"><B>updated</B></FONT> to
+      make the <FONT color="red"><B>new order chaining</B></FONT> of
+      <FONT color="blue"><B>list elements</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will show you the 
+ <FONT color="red"><B>assembler program </B></FONT> below.
+<P>
+But before I do so, I want to make sure that you realize:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you write an <FONT color="red"><B>assembler program</B></FONT>,
+     you will make <FONT color="blue"><B>copies</B></FONT>
+     of a <FONT color="red"><B>variable</B></FONT> in
+     the <FONT color="blue"><B>registers</B></FONT> in the
+     <FONT color="red"><B>CPU</B></FONT>
+ <P>
+ <FONT color="red"><B>Warning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We you <FONT color="red"><B>update</B></FONT> a
+    <FONT color="blue"><B>register</B></FONT>, you
+    <FONT color="red"><B>will <I>not</I></B></FONT> update the
+    <FONT color="blue"><B>memory variable </B></FONT> !!!
+ <P>
+  (You only update a copy, not the original !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> You <FONT color="red"><B>must</B></FONT> update
+      the <FONT color="blue"><B>program variables</B></FONT> that
+      are stored in the <FONT color="red"><B>memory</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> I will skip the linked list definition, because I explained that already.
+ <P>
+ I will assume that the list has been defined and  I will only show you
+ the assembler code to insert a new list element into an existing list.
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>assembler program</B></FONT> that
+   <FONT color="blue"><B>accomplishes</B></FONT> the statements:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      ptr.next = head;       
+      head = ptr;   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+is as follows:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        <FONT color="red">/* -------------------------------------
+           ptr.next = head;
+           -------------------------------------- */</FONT>
+        // Get the <FONT color="red">value</FONT> in the <FONT color="red">RHS</FONT>
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r0 = addr(head)
+        ldr     r0, [r0]                // <FONT color="red">r0 = head</FONT>
+
+        // Get the <FONT color="red">ADDRESS</FONT> of the <FONT color="red">LHS</FONT>
+        movw    r1, #:lower16:ptr
+        movt    r1, #:upper16:ptr       // r1 = addr(ptr)
+        ldr     r1, [r1]                // r1 = ptr
+                                        // <FONT color="red">Note: Addr(ptr.next) = r1+4, use base+offset mode !!</FONT>
+
+        // Store the RHS in the addr of LHS
+        str     r0, [r1, <FONT color="red">#4</FONT>]            // Update variable in memory !!
+
+
+        <FONT color="red">/* -------------------------------------
+           head = ptr;
+           -------------------------------------- */</FONT>
+        // Get the <FONT color="red">value</FONT> in the <FONT color="red">RHS</FONT>
+        movw    r0, #:lower16:ptr
+        movt    r0, #:upper16:ptr       // r0 = addr(ptr)
+        ldr     r0, [r0]                // <FONT color="red">r0 = ptr</FONT>
+
+        // Get the <FONT color="red">ADDRESS</FONT> of the <FONT color="red">LHS</FONT>
+        movw    r1, #:lower16:head
+        movt    r1, #:upper16:head      // r1 = addr(head)
+
+        // Store the RHS in the addr of LHS
+        str     r0, [r1]                // Update variable in memory !!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/list-insert.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 list-insert</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+    use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

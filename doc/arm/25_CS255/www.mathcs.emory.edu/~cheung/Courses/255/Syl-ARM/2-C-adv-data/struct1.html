@@ -1,0 +1,1220 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Structures: user-defined types
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Defining</I> structures
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Structure:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>structure</B></FONT> in <B>C</B> is
+      a <FONT color="red"><B>group of <I>related</I> variables</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> The 
+     <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>structure</B></FONT> construct</SPAN>  is
+    the 
+    <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue"><B>user-defined data type</B></FONT></SPAN>
+    in the
+    <FONT color="red"><B>C programming language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <FONT color="red"><B>Comparable concept</B></FONT>
+     in <FONT color="blue"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>structure</B></FONT> in <B>C</B> is like
+      a <FONT color="red"><B>class</B></FONT> in <B>Java</B>
+      containing:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Only</B></FONT>
+     <FONT color="red"><B> <I>public</I> variables</B></FONT>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <B>and</B>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="blue"><B><I>without</I> </B></FONT> any 
+       <FONT color="red"><B>methods</B></FONT>
+       defined inside the class
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Defining</I></B></FONT>
+    a <FONT color="blue"><B>structure
+    (= user-defined data type)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Defining</B></FONT> a <B>structure</B></FONT> =
+     <FONT color="red"><B>tell (convey)</B></FONT> to the
+    <FONT color="blue"><B>C compiler</B></FONT> the 
+    <FONT color="red"><B>make up (components)</B></FONT>
+    of the <FONT color="blue"><B>structure (= user-defined data type)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <FONT color="blue"><B>Syntax</B></FONT> to 
+     <FONT color="red"><B>define</B></FONT>
+    a <FONT color="blue"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    struct  <FONT color="red">StructName</FONT>             
+    {
+       dataType1  member1Name ;
+       dataType2  member2Name ;
+       ...
+    };
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">/* ------------------------
+      Structure definition
+      ------------------------ */</FONT>                 
+   struct <FONT color="red">BankAccount</FONT>
+   {
+      int    accNum;
+      double balance;
+   };
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>structure definition</B></FONT>
+     <FONT color="red"><B>must</B></FONT> appear
+     <B><I>outside</I></B> 
+     <FONT color="blue"><B>every function</B></FONT>
+ <P>
+  (I.e., a <B>structure</B> is a
+   <FONT color="red"><B>global</B></FONT> 
+  <FONT color="blue"><B>C programming language construct</B></FONT>
+    -
+   it <FONT color="red"><B><I>cannot</I> appear</B></FONT> 
+ <FONT color="blue"><B>inside</B></FONT>
+   a <FONT color="red"><B>function definition</B></FONT>)
+<P>
+<HR>
+ <P>
+ <LI> A <FONT color="red"><B>structure definition</B></FONT> is
+   <FONT color="blue"><B>similar</B></FONT> to
+   a <FONT color="red"><B><TT>class</TT> definition</B></FONT>
+   in <FONT color="blue"><B>Java</B></FONT> that
+   <FONT color="red"><B>does not contain</B></FONT> any
+   <FONT color="blue"><B>methods</B></FONT>
+<P>
+<FONT color="red"><B>Futhermore</B></FONT>:
+  <FONT color="blue"><B><I>all</I> member variables</B></FONT> are
+  <FONT color="red"><B><TT>public</TT></B></FONT>
+<P>
+So an <FONT color="red"><B><I>semi</I>-equivalent construct</B></FONT> in
+  <FONT color="blue"><B>Java</B></FONT> for the
+  above <FONT color="red"><B><TT>struct</TT> definition</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class <FONT color="red">BankAccount</FONT>      
+{
+   public int    accNum;
+   public double balance;
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+
+<HR>
+<HR>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining structure <I>variables</I>
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>After</B> 
+    <FONT color="red"><B>defining</B></FONT>
+   a <FONT color="blue"><B>structure</B></FONT>,
+     you can <FONT color="red"><B>define</B></FONT> 
+     <FONT color="blue"><B>program variables</B></FONT>
+     of that <FONT color="red"><B>specific structure
+  (= user-defined data type)</B></FONT>.
+ <P>
+<FONT color="red"><B>Important note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>structure (data type) <I>definition</I>
+    </B></FONT>
+  must <FONT color="blue"><B>preceed</B></FONT> 
+   any <FONT color="red"><B>variable definition</B></FONT> of
+   that <FONT color="blue"><B>structure data type</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+<B>Syntax</B> to <FONT color="red"><B>define structure variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    (The <FONT color="red">structure</FONT> must have been<FONT color="red"> define beforehand</FONT> !!!)
+
+    <FONT color="red">struct StructName</FONT>  varName1  [, varName2, ...] ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">/* ---------------------------------------------
+      Structure definition 
+      <SPAN style="BACKGROUND-COLOR: yellow">This MUST preceed any variable definition of this data type !!!</SPAN>
+      --------------------------------------------------------------- */    </FONT>
+   struct <FONT color="red">BankAccount</FONT>
+   {
+      int    accNum;
+      double balance;
+   };
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">struct BankAccount a;</FONT>     // Defines a global structure variables </SPAN>
+
+   int main(int argc, char *argv[])
+   {
+      <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">struct BankAccount b;</FONT>     // Defines a local structure variables </SPAN> 
+
+      ....
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <B>Result</B> of a
+     <FONT color="blue"><B>structure variable</B></FONT>
+     <FONT color="red"><B>definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The following <B>figure</B>
+     shows the <FONT color="red"><B>effect</B></FONT> of the
+     <FONT color="blue"><B>structure variable definition</B></FONT>
+  in the <FONT color="red"><B>example</B></FONT>:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-struct.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>structure variable <I>definition</I></B></FONT>
+    will <B>allocate (= reserve memory space)</B>
+    <FONT color="red"><B>all components (variables)</B></FONT> 
+    that was <B>specified</B>  in the
+    <FONT color="blue"><B>structure definition</B></FONT> clause.
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>variable <I>names</I>
+   (<TT>a</TT> and <TT>b</TT>)</B></FONT> will
+      be <FONT color="blue"><B><I>associated</I></B></FONT>
+    with the
+      <FONT color="red"><B>starting location</B></FONT> of the
+      <FONT color="blue"><B>allocated (= reserved) memory cells</B></FONT>
+ <P>
+  <B>For example</B>, in the above <FONT color="blue"><B>figure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> The <FONT color="red"><B>identifier <TT>b</TT></B></FONT>
+      (actually: the <B>expression</B>
+    <FONT color="blue"><B><TT>&b</TT></B></FONT>)
+       is equated to the 
+      value <FONT color="red"><B>5000</B></FONT>
+      (= starting address of the <B>components</B> in
+      the structure <FONT color="blue"><B><TT>b</TT></B></FONT>)
+
+ <LI> The <FONT color="red"><B>identifier <TT>a</TT></B></FONT>
+      (actually: the <B>expression</B>
+    <FONT color="blue"><B><TT>&a</TT></B></FONT>)
+       is equated to the 
+      value <FONT color="red"><B>5016</B></FONT>
+      (= starting address of the <B>components</B> in
+      the structure <FONT color="blue"><B><TT>a</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A note on the difference between <FONT color="red">C</FONT> and 
+	<FONT color="red">Java</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>C</B></FONT> is 
+      <FONT color="blue"><B>very "manual"</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>programmer</B></FONT> must
+     <FONT color="blue"><B>make sure</B></FONT> that
+     the <FONT color="red"><B>type information</B></FONT>
+     (such as the <FONT color="blue"><B><TT>struct BankAccount</TT>
+     definition</B></FONT> is
+     <FONT color="red"><B>available</B></FONT>
+     <B>before</B> the
+     <FONT color="blue"><B>definition</B></FONT> of
+     variables of that
+     <FONT color="red"><B>given data type</B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Consequently, a <FONT color="blue"><B>good C programmer</B></FONT> must
+  <FONT color="red"><B>understand</B></FONT>
+ <FONT color="blue"><B>how a compiler works</B></FONT>
+<P>
+(That's why I have injected information on how the
+ C compiler works in the lecture material)
+<P>
+<HR>
+<P>
+<LI> In contrast,
+     <FONT color="red"><B>Java</B></FONT> tries very hard
+     to <FONT color="blue"><B>make the programmer's life <I>easy</I></B></FONT>
+     by doing thing for him/her....
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If <FONT color="red"><B>Java </B></FONT> detected that
+      a <FONT color="blue"><B>unknown </B></FONT>
+   <FONT color="red"><B>data type</B></FONT> is used,
+   the <FONT color="blue"><B>Java compiler</B></FONT> will
+   try to
+   <FONT color="red"><B>find the Java program file</B></FONT>
+   that contains the <FONT color="blue"><B>definition</B></FONT>
+   and <FONT color="red"><B>include the information</B></FONT>
+   <FONT color="blue"><B><I>automatically</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> This <FONT color="red"><B>Java program</B></FONT>
+        illustrate this
+  <FONT color="blue"><B>automatic search</B></FONT>
+ <P>
+ I will do the demo in class
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+	     /home/cs255001/demo/C/Java/main.java + BankAccount.java
+	     </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ 
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac main.java</TT></B></FONT>
+ <LI> You will see that the
+   Java compiler has also compiler 
+    <FONT color="red"><B><TT>BankAccount.java</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+
+<HR>
+<HR>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using (accessing) structure variables
+     </B></FONT>
+<P>
+<UL>
+
+    
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Using</I></B> <FONT color="blue"><B>structure variables</B></FONT>
+     in <B>C</B> is 
+     <FONT color="red"><B>very similar</B></FONT> to
+     <B><I>using</I></B>
+     <FONT color="blue"><B>object variables</B></FONT> in
+     <B>Java</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> to <FONT color="blue"><B>use (= access)</B></FONT>
+     a <FONT color="red"><B>specific component</B></FONT> of
+     a <B>structure variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">structVarName.componentName</FONT>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+
+   <FONT color="red">/* ------------------------
+      Structure definition
+      ------------------------ */
+   struct BankAccount
+   {
+      int    accNum;
+      double balance;
+   };</FONT>
+
+   <FONT color="red">struct BankAccount  a;   // Global variable </FONT>
+
+   int main(int argc, char *argv[])
+   {
+      <FONT color="red">struct BankAccount  b;    // Local variable</FONT>
+
+      <FONT color="red">a.accNum</FONT>  = 123;          // Access member fields
+      <FONT color="red">a.balance</FONT> = 1000.0;
+
+      <FONT color="red">b.accNum</FONT>  = 444;
+      <FONT color="red">b.balance</FONT> = 3000.0;
+
+
+      printf("a.accNum = %d  a.balance = %f\n", <FONT color="red">a.accNum, a.balance</FONT>);
+      printf("b.accNum = %d  b.balance = %f\n", <FONT color="red">b.accNum, b.balance</FONT>);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set2/struct1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc struct1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red"><B>Important difference</B></FONT>:
+        copying <TT>struct</TT> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Due to the <FONT color="red"><B>difference</B></FONT> in
+    the <FONT color="blue"><B>meaning</B></FONT> when you 
+    <FONT color="red"><B>define</B></FONT> a
+     <FONT color="blue"><B>structure (= object) variable</B></FONT>,
+     the <FONT color="red"><B>assignment statement</B></FONT> with
+     <FONT color="blue"><B>structure (= object) variable</B></FONT>
+     have <FONT color="red"><B><I>different</I> effects</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>Java</B></FONT>, the
+     <FONT color="blue"><B>variable definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      BankAccount a, b; // Define 2 <FONT color="red">reference</FONT> variables to BankAccount objects       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="red"><B>sill</B></FONT> need to
+ <FONT color="blue"><B>create</B></FONT> the
+ <FONT color="red"><B>BankAccount <I>objects</I></B></FONT> using:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a = new BankAccount( );
+    b = new BankAccount( );          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>diagram</B></FONT> shows a
+  <B>sample</B> 
+  <FONT color="blue"><B>result</B></FONT> when the
+  <FONT color="red"><B>Java program</B></FONT> has
+ <FONT color="blue"><B>executed</B></FONT> the
+ <FONT color="red"><B>above (2) program constructs</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/java-struct.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ The following  <FONT color="red"><B>assignment statement</B></FONT>
+     in <FONT color="blue"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    b = a;   // Copies a <FONT color="red"><B>reference (address)</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will have this
+<FONT color="blue"><B>result:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>b</TT></B></FONT> will
+  <FONT color="blue"><B>reference (= point)</B></FONT> to
+  the <FONT color="red"><B><I>same</I> object</B></FONT> as
+  <FONT color="blue"><B><TT>a</TT></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/java-struct2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+When you <FONT color="red"><B>update</B></FONT>
+ <FONT color="blue"><B><TT>a.balance</TT></B></FONT>,
+ the <FONT color="red"><B>variable
+   <TT>b.balance</TT></B></FONT> will <B>now</B>
+  <FONT color="blue"><B><I>also</I> change</B></FONT>
+  because
+  <FONT color="red"><B><TT>a</TT></B></FONT> and
+  <FONT color="blue"><B><TT>b</TT></B></FONT>
+  points to the
+ <FONT color="red"><B><I>same</I> object</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+<HR>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>In contrast</B></FONT>,
+    in <FONT color="red"><B>C</B></FONT>, the
+     <FONT color="blue"><B>variable definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      struct BankAccount a, b; // Define 2 BankAccount<FONT color="red"> objects !!!</FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>diagram</B></FONT> shows a
+  <B>sample</B> 
+  <FONT color="blue"><B>result</B></FONT> when the
+  <FONT color="red"><B>C program</B></FONT> has
+ <FONT color="blue"><B>executed</B></FONT> the
+ <FONT color="red"><B>above program construct</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-struct.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+
+ <FONT color="blue"><B>In contrast</B></FONT>,
+    the following <FONT color="red"><B>assignment statement</B></FONT>
+     in <FONT color="blue"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    b = a;   // Copies an <FONT color="red"><B>object !!!</FONT>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will have this <FONT color="blue"><B>result:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> 
+We will
+ <FONT color="red"><B>copy</B></FONT>
+ <FONT color="blue"><B><I>all</I> fields</B></FONT> in
+ <FONT color="red"><B>structure (= object) <TT>a</TT></B></FONT> into
+ the <FONT color="blue"><B>structure (= object) <TT>b</TT></B></FONT>
+  
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-struct2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+When you <FONT color="red"><B>update</B></FONT>
+ <FONT color="blue"><B><TT>a.balance</TT></B></FONT>,
+ the <FONT color="red"><B>variable
+   <TT>b.balance</TT></B></FONT> will 
+  <FONT color="blue"><B><I>not</I> change</B></FONT>
+  because
+  <FONT color="red"><B><TT>a</TT></B></FONT> and
+  <FONT color="blue"><B><TT>b</TT></B></FONT>
+ are
+ <FONT color="red"><B><I>different</I> object</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Java and C Programs</B></FONT>
+  to <FONT color="blue"><B>show</B></FONT> the
+ <FONT color="red"><B><I>difference</I></B></FONT> in the above
+ <FONT color="blue"><B>behavior</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+<FONT color="red"><B>struct_copy.java</B></FONT>
+</TH> 
+<TH>
+<FONT color="red"><B>struct-copy.c</B></FONT>
+</TH> 
+</TR>
+
+<TR> 
+
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+class BankAccount
+{
+   int    accNum;
+   double balance;
+};
+
+public class struct_copy
+{
+   public static BankAccount a;
+
+   public static void main(String[] argv)
+   {
+      BankAccount b;
+
+      a = new BankAccount( );  // Create the objects
+      b = new BankAccount( );
+
+      a.accNum  = 123;
+      a.balance = 1000.0;
+
+      b.accNum  = 444;
+      b.balance = 3000.0;
+
+      System.out.printf("a = (%d, %f)\n", a.accNum, a.balance);
+      System.out.printf("b = (%d, %f)\n\n", b.accNum, b.balance);
+
+      /* ========================
+         Copy object <FONT color="red">reference</FONT>
+         ======================== */
+      <FONT color="red">b = a;</FONT>
+
+      System.out.printf("a = (%d, %f)\n", a.accNum, a.balance);
+      System.out.printf("b = (%d, %f)\n\n", b.accNum, b.balance);
+<FONT color="red">
+      /* ============================================
+         Proof that a and b are the SAME object
+         ============================================ */
+      a.balance = 999999.0;</FONT>
+
+      System.out.printf("a = (%d, %f)\n", a.accNum, a.balance);
+      System.out.printf("b = (%d, %f)\n\n", b.accNum, b.balance);
+   }
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+
+
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+/* ------------------------
+   Structure definition
+   ------------------------ */
+struct BankAccount
+{
+   int    accNum;
+   double balance;
+};
+
+struct BankAccount a;
+
+int main(int argc, char *argv[])
+{
+   struct BankAccount b;
+
+   a.accNum  = 123;
+   a.balance = 1000.0;
+
+   b.accNum  = 444;
+   b.balance = 3000.0;
+
+   printf("a = (%d, %f)\n", a.accNum, a.balance);   
+   printf("b = (%d, %f)\n\n", b.accNum, b.balance);
+
+   /* ========================
+      Copy struct
+      ======================== */
+   <FONT color="red">b = a;</FONT>
+
+   printf("a = (%d, %f)\n", a.accNum, a.balance);   
+   printf("b = (%d, %f)\n\n", b.accNum, b.balance);
+<FONT color="red">
+   /* ============================================
+      Proof that a and b are different objects
+      ============================================ */
+   a.balance = 999999.0;</FONT>
+
+   printf("a = (%d, %f)\n", a.accNum, a.balance);   
+   printf("b = (%d, %f)\n\n", b.accNum, b.balance);
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+
+
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+The <FONT color="red"><B>output</B></FONT> of
+ the <FONT color="blue"><B>Java program
+  <TT>struct_copy.java</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+a = (123, 1000.000000)
+b = (444, 3000.000000)
+
+a = (123, 1000.000000)
+b = (123, 1000.000000)
+
+<FONT color="red">After we update  a.balance = 999999.000000:</FONT>
+
+a = (123, 999999.000000)
+b = (123, <FONT color="red">999999.000000</FONT>)   // b.balance is <FONT color="red">also</FONT> changed !!    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This shows that
+ <FONT color="red"><B><TT>a</TT></B></FONT> and
+ <FONT color="red"><B><TT>b</TT></B></FONT> points to
+ the <FONT color="blue"><B><I>same</I> object</B></FONT>
+
+<P>
+<HR>
+<P>
+
+The <FONT color="red"><B>output</B></FONT> of
+ the <FONT color="blue"><B>C program
+  <TT>struct-copy.c</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+a = (123, 1000.000000)
+b = (444, 3000.000000)
+
+a = (123, 1000.000000)
+b = (123, 1000.000000)
+
+<FONT color="red">After we update  a.balance = 999999.000000:</FONT>
+
+a = (123, 999999.000000)
+b = (123, <FONT color="red">1000.000000</FONT>)   // b.balance is <FONT color="red">unchanged</FONT>  !!    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This shows that
+ <FONT color="red"><B><TT>a</TT></B></FONT> and
+ <FONT color="red"><B><TT>b</TT></B></FONT> are 
+  <FONT color="blue"><B><I>different</I> objects</B></FONT>
+
+</UL>
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

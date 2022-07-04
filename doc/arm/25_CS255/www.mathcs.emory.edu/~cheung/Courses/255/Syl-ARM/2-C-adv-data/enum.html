@@ -1,0 +1,998 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>enum</TT> data type
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Enumeration
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Enumeration:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>enumeration</B></FONT>
+      consists of a <B>set</B> of 
+      <FONT color="blue"><B><I>named</I> integer constants</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>Sunday</TT></B></FONT> = 0
+ <LI> <FONT color="blue"><B><TT>Monday</TT></B></FONT> = 1
+ <LI> <FONT color="blue"><B><TT>Tuesday</TT></B></FONT> = 2
+ <LI> <FONT color="blue"><B><TT>Wednesday</TT></B></FONT> = 3
+ <LI> <FONT color="blue"><B><TT>Thursday</TT></B></FONT> = 4
+ <LI> <FONT color="blue"><B><TT>Friday</TT></B></FONT> = 5
+ <LI> <FONT color="blue"><B><TT>Saturday</TT></B></FONT> = 6
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Enumeration <I>data type</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  An <FONT color="red"><B>enumeration type declaration</B></FONT>
+     specifies:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> the (optional) <FONT color="blue"><B>enumeration set name</B></FONT>
+ <LI> a <B>list</B>
+       of <FONT color="red"><B>named integer identifiers</B></FONT>
+       (called the "enumeration set," "enumerator constants,"
+     "enumerators," or "members")
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Example:</B> we can <FONT color="red"><B>define</B></FONT> the
+    <B>above <I>enumeration</I></B> using
+    the following
+    <FONT color="blue"><B>enumeration type declaration</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">enum Day</FONT>                  
+   {
+      Sunday,
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday
+   };
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /* ------------------------
+      Emumeration declaration
+      ------------------------ */<FONT color="darkred">
+   enum Day
+   {<FONT color="red">
+      Sunday,
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday</FONT>
+   };</FONT>
+    
+   int main(int argc, char *argv[])
+   {
+      printf("Sunday = %d\n", <FONT color="red">Sunday</FONT> );
+      printf("Monday= %d\n", <FONT color="red">Monday</FONT> );
+      printf("Tuesday = %d\n", <FONT color="red">Tuesday</FONT> );
+      printf("Wednesday = %d\n", <FONT color="red">Wednesday</FONT> );               
+      printf("Thursday = %d\n", <FONT color="red">Thursday</FONT> ); 
+      printf("Friday = %d\n", <FONT color="red">Friday</FONT> );
+      printf("Saturday = %d\n", <FONT color="red">Saturday</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Sunday = 0  
+   Monday= 1   
+   Tuesday = 2 
+   Wednesday = 3             
+   Thursday = 4
+   Friday = 5  
+   Saturday = 6
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Enumeration with a <I>non-zero</I> starting value
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Facts</B> about the
+    <FONT color="blue"><B>enumeration data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>By <I>default</I></B>, the
+     <FONT color="blue"><B>first <I>identifier</I></B></FONT> in
+     the <B>enumeration list</B> is assigned with the
+     <FONT color="red"><B><I>value</I> 0 (ZERO)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <B><I>override</I></B> the <FONT color="blue"><B>default
+    value</B></FONT> by specifiying a 
+    <FONT color="red"><B>specific value</B></FONT> with the syntax:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    identifier = value        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Each <I>subsequent</I> identifier</B> is
+     <FONT color="blue"><B>assigned</B></FONT> with the
+     <B>value</B> equal to
+     <FONT color="red"><B>1 greater than the <I>previous</I> value</B></FONT>,
+     <P>
+   <FONT color="red"><B>unless</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> you specify a
+   <FONT color="blue"><B>specific value</B></FONT> for that 
+   <B>identifier</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example 1:</B> starting with a
+     <FONT color="red"><B><I>non-zero</I> initial value</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Test program</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   enum Day
+   {<FONT color="red">
+      Sunday = -1,    // initial value</FONT>
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday
+   };
+    
+   int main(int argc, char *argv[])
+   {
+      printf("Sunday = %d\n", Sunday );
+      printf("Monday= %d\n", Monday );
+      printf("Tuesday = %d\n", Tuesday );
+      printf("Wednesday = %d\n", Wednesday );                
+      printf("Thursday = %d\n", Thursday );
+      printf("Friday = %d\n", Friday );
+      printf("Saturday = %d\n", Saturday );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Sunday = <FONT color="red">-1</FONT> 
+   Monday= 0   
+   Tuesday = 1 
+   Wednesday = 2      <FONT color="red">(Values increases by 1) </FONT>               
+   Thursday = 3
+   Friday = 4  
+   Saturday = 5
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example 2:</B> 
+     <FONT color="red"><B><I>repeating</I> values</B></FONT> are
+     <FONT color="blue"><B>possible</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Test program</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   enum Day
+   {
+      Sunday,        // Default 0
+      Monday,        // 1
+      Tuesday,       // 2
+      <FONT color="red">Wednesday = 0, // Forced to 0</FONT>
+      Thursday,      // 1 again !!
+      Friday,        // 2
+      Saturday       // 3
+   };
+    
+   int main(int argc, char *argv[])
+   {
+      printf("Sunday = %d\n", Sunday );
+      printf("Monday= %d\n", Monday );
+      printf("Tuesday = %d\n", Tuesday );
+      printf("Wednesday = %d\n", Wednesday );                
+      printf("Thursday = %d\n", Thursday );
+      printf("Friday = %d\n", Friday );
+      printf("Saturday = %d\n", Saturday );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Sunday = 0  
+   Monday= 1   
+   Tuesday = 2 <FONT color="red">
+   Wednesday = 0                      
+   Thursday = 1
+   Friday = 2  
+   Saturday = 3</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/enum3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc enum3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Variables</I> of an enumeration type
+     </B></FONT>
+<P>
+<UL>
+<LI> <B><TT>enum</TT> typed variables:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>variable</B> of an
+   <FONT color="blue"><B> enumeration type</B></FONT>
+    stores <FONT color="red"><B>one of the values</B></FONT>
+   of the <FONT color="blue"><B>enumeration set</B></FONT>
+    defined by the 
+    <B>enumeration type</B>.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> to define a
+    <FONT color="red"><B>variable</B></FONT> of an
+    <FONT color="blue"><B>enumeration data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">enum EnumTypeName</FONT>   varName ;         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT> use
+      <B>variables</B> of
+       an <FONT color="blue"><B>enumeration data type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Simple rule:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can use a <B>variable</B> of
+       an <FONT color="blue"><B>enumeration data type</B></FONT>
+       <FONT color="red"><B><I>anywhere</I></B></FONT> you can use
+       an <FONT color="blue"><B>integer value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> <B>Examples</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Value</B></FONT> and
+     <FONT color="blue"><B>variables</B></FONT>
+      of <FONT color="red"><B>enum type</B></FONT> can be used in:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>indexing expressions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     double a[10];                
+
+     a[Sunday] 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>operands</B></FONT> of 
+   <FONT color="blue"><B><I>all</I> arithmetic
+   and relational operators</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Monday - Sunday         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">enum Day</FONT><FONT color="darkred">
+   {
+      Sunday,
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday
+   };</FONT>
+    
+   int main(int argc, char *argv[])
+   {<FONT color="red">
+      enum Day today;          // Define an enum typed variable</FONT>
+    <FONT color="magenta">
+      today = Wednesday;</FONT>
+    
+      printf("sizeof(today) = %d\n", sizeof(today) ); <FONT color="red">// Size = 4 (is an int variable !)</FONT>
+      printf("today = %d\n", today );
+    
+     <FONT color="magenta">
+      /* ================================
+   	 Note: no range check !!!
+   	 ================================ */</FONT>
+      <FONT color="red">today = 1000;    // And out of range value, no error !</FONT>
+      printf("an out of range value for today = %d\n", today );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">sizeof(today) = 4</FONT>                 
+   today = 3   
+   today = 1000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/enum4.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc enum4.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Notable fact: an <TT>enum</TT> type is the <I>same</I> as
+     <TT>int</TT>
+     </B></FONT>
+<P>
+<UL>
+ <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="blue"><B>enumeration type</B></FONT> is
+       just an <FONT color="red"><B>integer type</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Evidence:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   enum Day
+   {
+      Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+   };
+
+   enum boolean
+   {
+      false, true
+   };
+
+   int main(int argc, char *argv[])
+   {
+      enum Day x;
+      enum boolean y = 44;
+      int z = 444;
+
+      x = 1;  
+      x = Monday;                <FONT color="red"> // No errors in all statements !!!</font>    
+      x = true;
+      x = y;
+      x = z;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/type3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc type3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Some <TT>enum</TT> types that you want to define
+     </B></FONT>
+<P>
+<UL>
+<LI> You can <FONT color="blue"><B>enhance</B></FONT> the
+    <B>C programming language</B> with the following
+    <FONT color="red"><B>emueration data types</B></FONT> to
+    make it more
+    <B><I>user-friendly</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Boolean</B> type
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">enum BOOLEAN</FONT>  /* Declares an enumeration data type called BOOLEAN */
+   {  
+       false,     /* false = 0, true = 1 */
+       true 
+   }; 
+
+<FONT color="magenta">
+   enum BOOLEAN  done; </FONT>  <FONT color="red">// Boolean variable</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary
+     </B></FONT>
+<P>
+<UL>
+
+
+<P>
+<LI> <B>Morale of the <TT>enum</TT> story:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B>Enumerations</B></FONT>
+     is <B>equivaluent</B> to
+     using a <B>lot</B> of <FONT color="red"><B><TT>#define</TT></B></FONT>
+    <B> preprocessor directives</B> to define the
+    <FONT color="blue"><B>symbolic constants</B></FONT>.
+ <P>
+ <LI> It has the <FONT color="blue"><B>advantage</B></FONT>
+      that the values can be 
+    <FONT color="red"><B>generated automatically</B></FONT>
+    (and with some care,
+    each value will also be <FONT color="blue"><B>unique</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> An <FONT color="blue"><B>enumeration typed <I>variable</I></B></FONT> is
+     nothing more than an <FONT color="red"><B><TT>int</TT></B></FONT>
+     variable !
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

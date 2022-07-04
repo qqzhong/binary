@@ -1,0 +1,1322 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Array of Srings --- the command line argument
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>main</TT> function
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B>arguments</B></FONT> of
+     the <FONT color="red"><B><TT>main()</TT></B></FONT> function is
+     as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int main( int <FONT color="red">argc</FONT>, char *<FONT color="red">argv</FONT>[] )      
+    {
+       ....
+
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>data type</B></FONT> of the
+      <FONT color="blue"><B>arguments</B></FONT> are:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>argc</TT></B></FONT> is an
+     <FONT color="blue"><B>integer</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B><TT>argv</TT></B></FONT> is
+      an <FONT color="darkred"><B>array of Strings</B></FONT> !!!!
+   (explained next)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Explanation:</B> <FONT color="blue"><B><I>how to</I></B></FONT>
+        read the
+      definition <FONT color="red"><B><TT>char *x[ ]</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">char *x[ ]</FONT>    is the <FONT color="red">declaration</FONT> of a variable that was <FONT color="red">defined</FONT> as:  <FONT color="red">char *x[ N ]</FONT>          
+<FONT color="darkred">
+     Let's analyze this definition step by step:</FONT>
+
+   	<FONT color="red">char x</FONT> ;        //      x is a <FONT color="red">char variable	</FONT>		    
+   									       
+   	<FONT color="red">char *x</FONT>;        //     *x is a char variable			    
+   			// ==>  x is a <FONT color="red">reference to a char variable</FONT>	    
+			//      (<FONT color="darkred">"char *"</FONT> is also the type of a <FONT color="red">string</FONT> !)
+   									       
+   	<FONT color="red">char *x[10]</FONT>;    //      x is an array of 10 reference variables	    
+   			//      -- each variable x[i] is a ref. to a char var.    
+			// ==>  x is an <FONT color="red">array of strings</FONT> !!!
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example using the arguments in <TT>main</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example 1:</B> printing out the
+     <FONT color="blue"><B>arguments</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+    
+   int main(int argc, char *argv[])
+   {
+      int i;
+    
+      for ( i = 0; i < <FONT color="red">argc</FONT>; i++ )
+   	 printf("argv[%d] = <FONT color="red">%s</FONT>\n", i, <FONT color="red">argv[i]</FONT> );         
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">a.out lkls  kdlask l daskldsa</FONT>           
+   		     
+   argv[0] = a.out	  
+   argv[1] = lkls	  
+   argv[2] = kdlask  
+   argv[3] = l	  
+   argv[4] = daskldsa
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/args1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc args1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example 2:</B> <FONT color="red"><B><I>sum</I></B></FONT> the
+     <FONT color="blue"><B>(integer) arguments</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+    
+   int main(int argc, char *argv[])
+   {
+      int i, s, n;
+    
+      s = 0;
+    
+      for ( i = <FONT color="red">1</FONT>; i < argc; i++ )
+      {
+   	 n = <FONT color="red">atoi( argv[i] )</FONT> ;     // convert string (ASCII code) to int code     
+   	 s = s + n;
+   	 printf("s = %d\n", s);
+      }
+    
+      printf("\nFinal s = %d\n", s);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">a.out  1 2 3 4 5 6</FONT>                 
+   	       
+   s = 1	    
+   s = 3	    
+   s = 6	    
+   s = 10	    
+   s = 15	    
+   s = 21	    
+   	       
+   Final s = 21
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/args1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc args1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A very obnoxious way to write
+     <FONT color="red"><TT>char *argv[ ]</TT></FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In the <B>definition</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   double  a[10];           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>data type</B></FONT> of the
+ <B>variable</B> <FONT color="blue"><B><TT>a</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">double *</FONT>a ;       // a is equal to <FONT color="red">&a[0]</FONT>          
+                       // and &a[0] is a "double *"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In the <B>definition</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char  a[10];           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>data type</B></FONT> of the
+ <B>variable</B> <FONT color="blue"><B><TT>a</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">char *</FONT>a ;       // a is equal to <FONT color="red">&a[0]</FONT>          
+                     // and &a[0] is a "char *"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Previously</B> (first part of this webpage), we saw that an
+     <FONT color="blue"><B>array of string</B></FONT> is defined as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     char *s[10] ;      // s = array of 10 pointers to string variables      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Using</B> the
+  <FONT color="red"><B>notation</B></FONT> explained above, we have:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In the <B>definition</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char  *a[10];           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>data type</B></FONT> of the
+ <B>variable</B> <FONT color="blue"><B><TT>a</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">char **</FONT>a ;  // !!!!!             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example 1 <I>revisited</I>:</B> printing out the
+     <FONT color="blue"><B>arguments</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+    
+   int main(int argc, <FONT color="red">char **argv</FONT> )
+   {
+      int i;
+    
+      for ( i = 0; i < <FONT color="red">argc</FONT>; i++ )
+   	 printf("argv[%d] = <FONT color="red">%s</FONT>\n", i, <FONT color="red">argv[i]</FONT> );         
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">a.out lkls  kdlask l daskldsa</FONT>           
+   		     
+   argv[0] = a.out	  
+   argv[1] = lkls	  
+   argv[2] = kdlask  
+   argv[3] = l	  
+   argv[4] = daskldsa
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/args3.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc args3.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to read a definition like: <TT>double **a[10]</TT>
+     </B></FONT>
+<P>
+<UL>
+<LI> How to read it:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>
+      <FONT color="red"><B><TT>**a</TT></B></FONT> is
+      a <FONT color="blue"><B>double typed variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var1a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Therefore,
+     the <B>expression</B>
+      <FONT color="red"><B><TT>*a</TT></B></FONT> is
+      a <FONT color="blue"><B><I>pointer</I> (reference) variable</B></FONT>
+      to <FONT color="red"><B>double typed variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var1b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <B><I>Furthermore</I></B>, we can <FONT color="blue"><B>apply</B></FONT>
+    <FONT color="red"><B>pointer arithmetic</B></FONT>
+    on <FONT color="blue"><B><TT>*a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     * ( <FONT color="red">*a</FONT> + 0 )                 
+     * ( <FONT color="red">*a</FONT> + 1 )
+     ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to access <FONT color="blue"><B>consecutive</B></FONT>
+   <FONT color="red"><B><TT>double</TT> typed</B></FONT> variables
+   starting at <FONT color="blue"><B><TT>*a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Finally</B>,
+    the <B>expression</B>
+      <FONT color="red"><B><TT>a</TT></B></FONT> is
+      a <B><I>pointer</I> (reference)</B> to
+      a <FONT color="blue"><B><I>pointer</I> (reference) variable</B></FONT>
+      to <FONT color="red"><B>double typed variable</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <B><I>Furthermore</I></B>, we can <FONT color="blue"><B>apply</B></FONT>
+    <FONT color="red"><B>pointer arithmetic</B></FONT>
+    on <FONT color="blue"><B><TT>a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     * ( <FONT color="red">a</FONT> + 0 )                 
+     * ( <FONT color="red">a</FONT> + 1 )
+     ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+to access <FONT color="blue"><B>consecutive</B></FONT>
+   <FONT color="red"><B><TT>double *</TT> typed</B></FONT> variables
+   starting at <FONT color="blue"><B><TT>a</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var4.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Each</B></FONT> of the
+   variable
+   <FONT color="red"><B><TT>*(a + i)</TT></B></FONT> points to
+   an <FONT color="blue"><B>array of <TT>double</TT></B></FONT> variables:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var4b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: char **argv[]
+     </B></FONT>
+<P>
+<UL>
+<LI> If we <FONT color="blue"><B>replace</B></FONT>
+    the <FONT color="red"><B><TT>double</TT></B></FONT> type in
+    the above example, we will get the
+    <B>data type</B> of
+    the <FONT color="blue"><B>array of string</B></FONT>
+    argument in
+    <FONT color="red"><B><TT>main()</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/ref-ref-var5.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char **a )
+   {
+      printf("First 4 chars of arg 0: ");                 
+      putchar(<FONT color="red"> * ( <FONT color="darkgreen">*(a + 0)</FONT> + 0 )</FONT> );
+      putchar( * ( *(a + 0) + 1 ) );
+      putchar( * ( *(a + 0) + 2 ) );
+      putchar( * ( *(a + 0) + 3 ) );
+      putchar( '\n' );
+    
+      printf("First 4 chars of arg 1: ");
+      putchar( <FONT color="red">* ( <FONT color="darkgreen">*(a + 1)</FONT> + 0 )</FONT> );
+      putchar( * ( *(a + 1) + 1 ) );
+      putchar( * ( *(a + 1) + 2 ) );
+      putchar( * ( *(a + 1) + 3 ) );
+      putchar( '\n' );
+    
+      printf("First 4 chars of arg 2: ");
+      putchar( <FONT color="red">* ( <FONT color="darkgreen">*(a + 2)</FONT> + 0 )</FONT> );
+      putchar( * ( *(a + 2) + 1 ) );
+      putchar( * ( *(a + 2) + 2 ) );
+      putchar( * ( *(a + 2) + 3 ) );
+      putchar( '\n' );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B><P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">a.out  Hello World</FONT>	    
+   			       
+   First 4 chars of arg 0: a.ou        
+   First 4 chars of arg 1: Hell
+   First 4 chars of arg 2: Worl
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/args4.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc args4.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Simplifying the pointer expression
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    *( <FONT color="blue">p</font> + i )   &equiv;   <FONT color="blue">p</font>[i]               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Simplify:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        * ( <FONT color="red">*(<FONT color="darkgreen">a</font> + i)</font> + j )   
+
+    &equiv;   * ( <FONT color="red">a[i]</font>  + j )          // Look at <FONT color="red">a[i]</font> as ONE SINGLE variable    
+
+    &equiv;   <FONT color="red">a[i]</font>[j]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main(int argc, char **a )
+{
+   if ( argc < 3 )
+   {
+      printf("Needs 2 arguments !\n");                 
+      exit(1);
+   }
+
+   printf("First 4 chars of arg 0: ");
+   putchar(<FONT color="red"> * ( a[0] + 0 )</font> );
+   putchar( * ( a[0] + 1 ) );
+   putchar( * ( a[0] + 2 ) );
+   putchar( * ( a[0] + 3 ) );
+   putchar( '\n' );
+
+   printf("First 4 chars of arg 0: ");
+   putchar( <FONT color="red">a[0][0]</font> );
+   putchar( a[0][1] );
+   putchar( a[0][2] );
+   putchar( a[0][3] );
+   putchar( '\n' );
+
+   printf("First 4 chars of arg 1: ");
+   putchar( <FONT color="red">a[1][0]</font> );
+   putchar( a[1][1] );
+   putchar( a[1][2] );
+   putchar( a[1][3] );
+   putchar( '\n' );
+
+   ....
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/args5.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc args5.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Warning: 2 expressions with different meaning in C
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Caveat:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You have <B><I>now</I></B>
+    <FONT color="blue"><B>seen</B></FONT> on
+         <FONT color="red"><B><I>2 occasions</I></B></FONT>
+	 the following
+	 <B>expression</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     a[i][j]          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT> will
+      <B><I>translate</I></B> the following
+      <FONT color="red"><B>expression</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">a[i][j]</font>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><I>differently</I></B></FONT> depending on the
+ <FONT color="blue"><B>way</B></FONT> the <B>variable</B>
+ <FONT color="red"><B><TT>a</TT></B></FONT> is defined:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+         DataType  a[M][N];                    
+    or:  
+
+         DataType  **a;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> If <FONT color="blue"><B><TT>a</TT></B></FONT> is
+    <B>defined</B> as
+    <FONT color="red"><B><TT>DataType a[M][N]</TT></B></FONT>,
+    the <B><I>expression</I></B>
+    <FONT color="blue"><B><TT>a[i][j]</TT></B></FONT> will
+    access the
+    <B>memory location</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    a + <FONT color="red">(i*N + j)*sizeof(DataType)</font>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> If <FONT color="blue"><B><TT>a</TT></B></FONT> is
+    <B>defined</B> as
+    <FONT color="red"><B><TT>DataType a[M][N]</TT></B></FONT>,
+    the <B><I>expression</I></B>
+    <FONT color="blue"><B><TT>DataType **a</TT></B></FONT> will
+    access the
+    <B>*a[i]</B> first
+    using the follow
+    <FONT color="red"><B><I>address</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    help = a + <FONT color="red">i*sizeof(address)</font>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Then access <B>*help[j]</B> using the follow
+  <FONT color="red"><B><I>address</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    help + <FONT color="red">i*sizeof(DataType)</font>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   char a[3][4];
+   char **b;
+
+   int main(int argc, char **argv )                       
+   {
+      a[2][3] = 'a';
+      b[2][3] = 'a';
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Compile with:
+  <FONT color="red"><B><TT>gcc -S args6.s</TT></B></FONT> and
+ <B>examine</B> the
+  <FONT color="blue"><B>assembler output</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   (%rip is the Intel register that points to the data segment)
+
+   a[2][3] = 'a':
+
+        movb    $97, a+11(%rip)           // 'a' = ASCII 97
+                                          // Access the addres a + 11
+                                          // Notice: 11 = 2*4 + 3
+					  // I.e.: a[2][3] = 97 ('a')
+
+   b[2][3] = 'a':
+
+        movq    b(%rip), %rax
+        addq    $16, %rax              // b + 2*8  (64 bit machine)
+        movq    (%rax), %rax           // %rax = *b[2] (what I called help)        
+
+        addq    $3, %rax               // Address help + 3
+        movb    $97, (%rax)            // *help[3] = 'a'
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/args6.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -S args.c</TT></B></FONT>
+ <LI> Examine output file
+     <FONT color="blue"><B>args6.s</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

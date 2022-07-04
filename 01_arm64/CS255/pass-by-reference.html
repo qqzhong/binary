@@ -1,0 +1,187 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Pass-by-reference
+<HR>
+<P>
+<UL>
+<LI> The caller must copy the <B>reference</B> (i.e., address)
+     of the actual parameter to the agreed location for the parameter
+<P> 
+<LI> The callee must use the parameter <B>assuming</B> that
+	the parameter contains an <B>address</B> of a variable
+
+<P>
+<LI> Example of pass-by-value in C++:
+     <A HREF="../demo/call-by-reference.C"> click here</A>
+ <P>
+ <B>Remark:</B> 
+   <UL>
+   <LI> did you see the difference in the <B>language</B>
+	on how to specify "pass-by-value" and "pass-by-reference" ?
+   <LI> Just in case that you did not notice:
+	find the (rather insignificant in size) "&" in
+   <PRE>
+    void func(int& x)
+   </PRE>
+   <LI> You will see that this little "&" will have a dramatic impact
+	on the result because the <B>address</B> is passed !
+   </UL>
+ <P>
+ <B>NOTE:</B> get a copy, compile it and <B>run</B> it to see the effect !
+ <BR>
+ The variable <B>i</B> in main() <B>is incremented</B> when func() returns !
+<P>
+<LI> Here is what happens in pass-by-reference exposed in Assembler code:
+ <PRE>
+<B>
+   Assume the following agreement: parameter passed in D0
+				   parameter passed by reference
+</B>
+   C++ code:                             Assembler code:
+   ---------                             --------------
+
+   main()                        main: 
+   {					<B>MOVE.L  #i, D0   // pass addr</B>
+      int i;						   <B>// of var i</B>
+
+      func(i);  // pass addr		BSR     func ------+
+		// of var i		....		   |
+   }							   |
+							   |
+   void func( int& x )      	 func:               <-----+
+   {					// Assume addr is passed
+      x = x + 1;			// So D0 = address of param
+   }					// We have to go get the value...
+<B>
+					MOVE.L  D0, A0
+					MOVE.L  (A0), D1  // Now D1 = x</B>
+
+					ADD.L  #1, D1     // D1 = x + 1
+
+					// Don't stop yet...
+					// Program says: put x+1 in x !
+
+					MOVE.L  D1, (A0)  // Update !!!
+
+					RTS
+</PRE>
+
+<P>
+<LI> You can clearly see in the assembler code why the variable <B>i</B>
+     in main() <B>WILL BE</B> incremented !
+
+<P>
+     Assembler programming can help you understand "mysterious" concepts
+	in computer science...
+
+<P>
+<LI> So: if you pass a parameter by reference,
+	the callee function will <B>know</B> the location
+	of the variable and can <B>update</B> the variable
+	if it sees fit (depends on what the callee function will do)...
+
+<P> 
+<LI> Example of pass-by-value: sum of squares again...
+ <P>
+ <PRE>
+    // func(x,y) computes x^2 + y^2
+    int func(int& x, int y)   <---- x is passed by reference, y by value
+    { <font color="red">
+	x = x + 1;
+	y = y + 1;</font>
+
+        return(x*x + y*y);
+    }
+
+    main()
+    {
+       int a, b, c;
+       int i, j, k;
+
+       c = func(a,b);
+       k = func(i,j);
+    }
+ </PRE>
+ <P>
+ <UL>
+ <LI> First agree on where to pass the parameters:
+   <UL>
+   <LI> param 1: in D0, <B>by reference</B>
+   <LI> param 2: in D1, by value
+   </UL>
+ <LI> Next agree on where to pass the return value back:
+   <UL>
+   <LI> return value: in D7
+   </UL>
+ <LI> Now we can write the program...
+ <PRE>
+      main:
+	    MOVE.L #a, D0    // Pass param 1 by ref
+	    MOVE.L b, D1     // Pass param 2 by value
+	    BSR    func
+
+	    MOVE.L D7, c     // c = func(a,b)
+
+	    MOVE.L #i, D0    // Pass param 1 by ref
+	    MOVE.L j, D1     // Pass param 2 by value
+	    BSR    func
+
+	    MOVE.L D7, k     // k = func(i,j)
+	    ....
+	    ....
+
+      func: 
+            MOVEA.L D0, A0    // D0 = address of variable x
+            MOVE.L  (A0), D2  // Now D2 = value of variable x
+            ADD.L   #1, D2    // Computed x+1
+            MOVE.L  D2, (A0)  // Stores: x = x + 1
+
+            MOVEA.L D1, A0    // D1 = address of variable y
+            MOVE.L  (A0), D2  // Now D2 = value of variable y
+            ADD.L   #1, D2    // Computed y+1
+            MOVE.L  D2, (A0)  // Stores: y = y + 1
+
+            MOVEA.L D0, A0    // D0 = address of variable x
+            MOVE.L  (A0), D2  // Now D2 = value of variable x
+            MULS    D2, D2    // D2 = x*x
+
+            MOVEA.L D1, A0    // D0 = address of variable y
+            MOVE.L  (A0), D3  // Now D3 = value of variable y
+            MULS    D3, D3    // D2 = y*y
+
+            ADD.L   D3, D2     // x*x + y*y
+
+            MOVE.L  D2, D7     // Put return value in the agreed location
+
+	    RTS
+ </PRE>
+ <P>
+ <LI> Here is the code that you can run:
+	<A HREF="../../demo/sub-pass-by-ref.s"> click here</A>
+
+ </UL>
+
+<P>
+<HR>
+<P>
+<LI> Here is my CS170 lecture notes on
+ <B>Pass-by-reference</B> if you want to review:
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/08/parameter3.html">
+ click here </A>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+ 
+</UL>

@@ -1,0 +1,991 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <I>Bisection</I> Method
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Introduction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Bisection Method:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Bisection Method</B></FONT> =
+      a <FONT color="red"><B>numerical method</B></FONT> in
+  <B>Mathematics</B> to
+   find a <FONT color="blue"><B>root</B></FONT>
+  of a given <B><I>function</I></B>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B><I>Root</I> of a function:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Root of a function <I>f(x)</I></B></FONT> =
+     a <FONT color="red"><B>value <I>a</I></B></FONT> such that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="darkred"><B><I>f(a) = 0</I></B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Function:    <FONT color="red">f(x) = x<sup>2</sup> - 4 </FONT>           
+
+   Roots:       <FONT color="red">x = -2,  x = 2</FONT>
+
+   Because:
+                f(-2) = (-2)<sup>2</sup> - 4 = 4 - 4 = 0       
+	        f(2)  =  (2)<sup>2</sup> - 4 = 4 - 4 = 0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A Mathematical Property
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Well-known Mathematical Property:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If a <FONT color="blue"><B>function <I>f(x)</I></B></FONT> is
+      <FONT color="red"><B>continuous</B></FONT> on
+      the <B>interval [<I>a</I>..<I>b</I>]</B> and
+     <FONT color="red"><B>sign of <I>f(a)</I>
+     &ne;
+      sign of <I>f(b)</I></B></FONT>, then:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is a value 
+    <FONT color="blue"><B><I>c</I> &isin; [<I>a</I>..<I>b</I>]</B></FONT>
+   such that:
+   <FONT color="red"><B><I>f(c) = 0</I></B></FONT>
+ <P>
+ I.e., there is a <FONT color="blue"><B>root <I>c</I></B></FONT> in the
+    <B>interval [<I>a</I>..<I>b</I>]</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Bisection</I> Method
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>Bisection Method</B></FONT> is a
+     <FONT color="darkred"><B><I>successive</I> approximation method</B></FONT>
+     that <FONT color="blue"><B>narrows down </B></FONT> an
+     <B>interval</B> that contains
+     a <FONT color="red"><B>root of the function <I>f(x)</I></B></FONT>
+<P>
+<LI> The  <FONT color="blue"><B>Bisection Method</B></FONT> is
+   <B><I>given</I></B> an
+   <FONT color="red"><B>initial interval [<I>a</I>..<I>b</I>]</B></FONT>
+   that <FONT color="blue"><B>contains a root</B></FONT>
+ <P>
+  (We can use the <B>property</B>
+   <FONT color="blue"><B>sign of <I>f(a)</I> &ne;
+    sign of <I>f(b)</I> </B></FONT> to
+    find such an
+    <FONT color="red"><B>initial interval</B></FONT>)
+<P>
+<LI> The  <FONT color="blue"><B>Bisection Method</B></FONT> will
+     <B><I>cut the interval</I></B> into
+    <FONT color="red"><B>2 halves</B></FONT> and
+    check <FONT color="blue"><B>which half interval</B></FONT> contains
+    a <FONT color="red"><B>root of the function</B></FONT>
+<P>
+<LI> The  <FONT color="blue"><B>Bisection Method</B></FONT> will
+    keep <B><I>cut the interval</I></B> in halves
+    until the <FONT color="red"><B>resulting interval</B></FONT> is
+    <FONT color="blue"><B>extremely small</B></FONT>
+ <P>
+  The <FONT color="red"><B>root</B></FONT> is
+  then <B><I>approximately equal</I></B> to
+  <FONT color="blue"><B><I>any  value</I></B></FONT>
+  in the <FONT color="red"><B>final (very small) interval</B></FONT>.
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose the 
+    <FONT color="red"><B>interval [<I>a</I>..<I>b</I>]</B></FONT>
+   is as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection02a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We <FONT color="blue"><B>cut</B></FONT> the
+    <FONT color="red"><B>interval [<I>a</I>..<I>b</I>]</B></FONT>
+    in the <FONT color="blue"><B>middle</B></FONT>:
+    <FONT color="darkred"><B><I>m = (a+b)/2</I></B></FONT><P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Because 
+   <FONT color="blue"><B>sign of <I>f(m)</I> &ne; sign of <I>f(a)</I>
+  </B></FONT>, we
+  <B><I>proceed</I></B> with the
+  <FONT color="darkred"><B>search</B></FONT> in the
+  <FONT color="red"><B><I>new</I> interval
+  [<I>a</I>..<I>b</I>]</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection02c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+We can use <FONT color="blue"><B>this statement</B></FONT> 
+  to change to the <FONT color="red"><B>new interval</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   b = m;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In the above example, we have
+    <FONT color="blue"><B>changed the end point <I>b</I></B></FONT>
+    to obtain a <FONT color="red"><B>smaller interval</B></FONT>
+    that still contains a <FONT color="blue"><B>root</B></FONT>
+ <P>
+    In other cases, we may need to 
+    <FONT color="blue"><B>changed the end point <I>b</I></B></FONT>
+    to obtain a <FONT color="red"><B>smaller interval</B></FONT>
+    that still contains a <FONT color="blue"><B>root</B></FONT>
+<P>
+ Here is an
+  example where you have to
+ change the <FONT color="red"><B>end point <I>a</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Initial <FONT color="blue"><B>interval [<I>a</I>..<I>b</I>]</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection02d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<LI> After <FONT color="blue"><B>cutting the interval</B></FONT> in
+     <FONT color="red"><B>half</B></FONT>, the
+     <FONT color="blue"><B>root</B></FONT> is contained in the
+     <FONT color="darkred"><B>right-half</B></FONT>, so
+     we have to 
+     change the <FONT color="red"><B>end point <I>a</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection02e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Example:</B>  find the root of
+  <B><I>f(x) = <FONT color="red">x<sup>2</sup> &minus; 5</FONT></I></B>
+  between <FONT color="blue"><B>[0, 4]</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  There is a root between [0,4] because::
+
+    f(0) = 0<sup>2</sup> &minus; 5 = <FONT color="red">&minus;5</FONT>
+    f(4) = 4<sup>2</sup> &minus; 5 = <FONT color="red">11</FONT>
+<FONT color="red">
+  Start:</FONT>
+
+      a = 0;    f(a) = -5
+      b = 4;    f(b) = 11
+<FONT color="red">
+  Iteration 1:</FONT>
+
+      m = (a + b)/2 = 2
+
+      f(m) = 2<sup>2</sup> &minus; 5 = -1
+
+      Because <FONT color="red">f(m) < 0</FONT>, we <FONT color="red">replace a</FONT> with m                           
+
+      a = 2;    f(a) = -1
+      b = 4;    f(b) = 11
+<FONT color="red">
+  Iteration 2:</FONT>
+
+      m = (a + b)/2 = 3
+
+      f(m) = 3<sup>2</sup> &minus; 5 = 4
+
+      Because <FONT color="red">f(m) > 0</FONT>, we <FONT color="red">replace b</FONT> with m 
+
+      a = 2;    f(a) = -1
+      b = 3;    f(b) = 4
+<FONT color="red">
+  Iteration 3:</FONT>
+
+      m = (a + b)/2 = 2.5
+
+      f(m) = 2.5<sup>2</sup> &minus; 5 = 1.25
+
+      Because <FONT color="red">f(m) > 0</FONT>, we <FONT color="red">replace b</FONT> with m 
+
+      a = 2;      f(a) = -1
+      b = 2.5;    f(b) = 1.25
+<FONT color="red">
+  And so on....</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+<HR>
+<P>
+<LI> <B>Rough description (pseudo code) of the Bisection Method:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Given: interval [a..b] such that: sign of f(a) &ne; sign of f(b)     
+
+<HR>
+   repeat (<FONT color="red">until the interval [a..b] is "very small"</FONT>)
+   {<FONT color="darkred">
+           a+b
+      m = -----;      // m = midpoint of interval [a..b]
+            2
+</FONT>
+      if ( <FONT color="red">sign of f(m) &ne; sign of f(b)</FONT> )
+      {
+         use interval <FONT color="red">[m..b]</FONT>  in the next iteration
+	 (i.e.: replace a with m)
+      }
+      else
+      {
+         use interval <FONT color="red">[a..m]</FONT>  in the next iteration
+	 (i.e.: replace b with m)
+      }
+   }
+
+   Approximate root = <FONT color="red">(a+b)/2</FONT>;    (any point between [a..b] will do
+                                   because the interval [a..b] is very small)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Re-writing</B></FONT> the <B>pseudo code</B></FONT>
+ in term of a <FONT color="blue"><B><I>while</I>-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Given: interval [a..b] such that: sign of f(a) &ne; sign of f(b)     
+
+<HR>
+   while (<FONT color="red">interval [a..b] is <I>NOT</I> "very small"</FONT>)
+   {<FONT color="darkred">
+           a+b
+      m = -----;      // m = midpoint of interval [a..b]
+            2
+</FONT>
+      if ( <FONT color="red">sign of f(m) &ne; sign of f(b)</FONT> )
+      {
+         use interval <FONT color="red">[m..b]</FONT>  in the next iteration
+	 (i.e.: replace a with m)
+      }
+      else
+      {
+         use interval <FONT color="red">[a..m]</FONT>  in the next iteration
+	 (i.e.: replace b with m)
+      }
+   }
+
+   Approximate root = <FONT color="red">(a+b)/2</FONT>;    (any point between [a..b] will do
+                                   because the interval [a..b] is very small)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Structure Diagram of the Bisection Algorithm:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example execution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We will use a <FONT color="blue"><B>simple function</B></FONT>
+      to <B>illustrate</B> the
+      <FONT color="red"><B><I>execution</I> of the 
+      Bisection Method</B></FONT>
+ <P>
+ <LI> Function used:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    f(x) = x<sup>2</sup> - 3         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Roots: <FONT color="blue"><B>&radic;3 = 1.7320508...</B></FONT> and
+       <FONT color="blue"><B>&minus;&radic;3 = &minus;1.7320508...</B></FONT>
+<P>
+<HR>
+<P>
+<LI> We will use the
+   <FONT color="blue"><B>starting interval [0..4]</B></FONT> since:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>f(0) = 0<sup>2</sup> &minus; 3
+      = &minus;3</I></B></FONT>
+ <LI> <FONT color="red"><B><I>f(4) = 4<sup>2</sup> &minus; 3
+      = 13</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The  <FONT color="blue"><B>interval [0..4]</B></FONT> contains
+  a <FONT color="darkred"><B>root</B></FONT> because:
+  <FONT color="red"><B>sign of <I>f(0)</I> &ne;
+   sign of <I>f(4)</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Steps taken by the <I>Bisection Method</I>:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Iteration 1:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection03a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B><I>New</I> interval</B></FONT>:
+  <FONT color="red"><B>[0..2]</B></FONT>
+  (it contains <FONT color="blue"><B>&radic;3 = 1.7320508..</B></FONT> !!!)
+ 
+<P>
+<HR>
+<P>
+ <LI> <B>Iteration 2:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B><I>New</I> interval</B></FONT>:
+  <FONT color="red"><B>[1..2]</B></FONT>
+  (it contains <FONT color="blue"><B>&radic;3 = 1.7320508..</B></FONT> !!!)
+<P>
+<HR>
+<P>
+ <LI> <B>Iteration 3:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bisection03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B><I>New</I> interval</B></FONT>:
+  <FONT color="red"><B>[1.5 .. 2]</B></FONT>
+  (it contains <FONT color="blue"><B>&radic;3 = 1.7320508..</B></FONT> !!!)
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>And so on !!</B></FONT>
+ <P>
+ <B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>interval</B></FONT> gets 
+     <FONT color="red"><B>smaller and smaller</B></FONT>
+ <P>
+ <LI> But it will <B><I>always</I></B> contain the
+     <FONT color="blue"><B>root &radic;3</B></FONT>
+ <P>
+ <LI> When the interval is <FONT color="blue"><B>smaller</B></FONT> than
+    <FONT color="red"><B>0.000001</B></FONT>,
+     the <FONT color="blue"><B><TT>while</TT>-loop</B></FONT> will
+     <FONT color="red"><B>exit</B></FONT>
+  <P>
+  At that moment, the
+  <FONT color="blue"><B>end points</B></FONT> of the interval
+   will be
+  <FONT color="red"><B><I>very</I> close</B></FONT> to
+  <FONT color="blue"><B>root &radic;3</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Java program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   // Bisection Method - Solves: x^2 - 3 = 0
+    
+   public class Bisection01
+   {
+      public static void main(String[] args)
+      {
+   	 final double epsilon = 0.00001;
+   	 double a, b, m, y_m, y_a;
+    
+   	 a = 0;  b = 4;
+    
+   	 while ( <FONT color="red">(b-a) > epsilon</FONT> )
+   	 {<FONT color="red">
+   	    m = (a+b)/2;           // Mid point</FONT>
+    
+   	    y_m = m*m - 3.0;       // y_m = f(m)
+   	    y_a = a*a - 3.0;       // y_a = f(a)
+    
+   	    if ( <FONT color="red">(y_m > 0 && y_a < 0)</FONT> || <FONT color="red">(y_m < 0 && y_a > 0)</FONT> )
+   	    {  <FONT color="darkred">// f(a) and f(m) have different signs: move b
+   	       b = m;</FONT>
+   	    }
+   	    else
+   	    {  <FONT color="darkred">// f(a) and f(m) have same signs: move a
+   	       a = m;</FONT>
+   	    }<FONT color="darkmagenta">
+            System.out.println("New interval: [" + a + " .. " + b + "]");   
+                                           // Print progress  </FONT>
+   	 }
+    
+   	 System.out.println("Approximate solution = " + (a+b)/2 );
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+   <PRE>					 
+   Initial interval: [0.0 .. 4.0]	<FONT color="red">	 
+   New interval: [0.0 .. 2.0]	(We did the first 3 by hand above)	 
+   New interval: [1.0 .. 2.0]		 
+   New interval: [1.5 .. 2.0]	</FONT>	 
+   New interval: [1.5 .. 1.75]		 
+   New interval: [1.625 .. 1.75]		 
+   New interval: [1.6875 .. 1.75]		 
+   New interval: [1.71875 .. 1.75]		 
+   New interval: [1.71875 .. 1.734375]	 
+   New interval: [1.7265625 .. 1.734375]	 
+   New interval: [1.73046875 .. 1.734375]	 
+   New interval: [1.73046875 .. 1.732421875]
+   New interval: [1.7314453125 .. 1.732421875]
+   New interval: [1.73193359375 .. 1.732421875]
+   New interval: [1.73193359375 .. 1.732177734375]
+   New interval: [1.73193359375 .. 1.7320556640625]
+   New interval: [1.73199462890625 .. 1.7320556640625]
+   New interval: [1.732025146484375 .. 1.7320556640625]
+   New interval: [1.7320404052734375 .. 1.7320556640625]
+   New interval: [1.7320480346679688 .. 1.7320556640625]       
+   Approximate solution = 1.7320518493652344
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Bisection01.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Bisection01.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Bisection01</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Finding the roots of a <I>different</I> function
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Suppose</B> we want to find the <FONT color="red"><B>root</B></FONT>
+     of
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    f(x) = x<sup>3</sup> + x - 3        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+in the <B>interval [0..4]</B>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Changes</B></FONT> to the 
+   <B>Java program</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   // Solves: x^3 + x - 3 = 0
+    
+   public class Bisection02
+   {
+      public static void main(String[] args)
+      {
+   	 final double epsilon = 0.00001;
+   	 double a, b, m, y_m, y_a;
+    
+   	 a = 0;  b = 4;
+    
+   	 while ( (b-a) > epsilon )
+   	 {
+   	    m = (a+b)/2;           // Mid point
+    
+   	    y_m = <FONT color="red">m*m*m + m - 3.0;       // y_m = f(m)</FONT>
+   	    y_a = <FONT color="red">a*a*a + a - 3.0;       // y_a = f(a)</FONT>
+    
+   	    if ( (y_m > 0 && y_a < 0) || (y_m < 0 && y_a > 0) )
+   	    {  // f(a) and f(m) have different signs: move b
+   	       b = m;
+   	    }
+   	    else
+   	    {  // f(a) and f(m) have same signs: move a
+   	       a = m;
+   	    }
+   	    System.out.println("New interval: [" + a + " .. " + b + "]");
+   	 }
+    
+   	 System.out.println("Approximate solution = " + (a+b)/2 );
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Bisection02.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Bisection02.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Bisection02</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We <FONT color="blue"><B>had to change</B></FONT> the
+     <FONT color="red"><B>body of the Java program</B></FONT> to
+     find the <B>root</B> of
+     a <FONT color="darkred"><B><I>different</I> function</B></FONT>
+ <P>
+     This is <FONT color="red"><B>very inconvenient</B></FONT>
+<P>
+<HR>
+<P>
+<LI> It would be <FONT color="blue"><B>more convenient</B></FONT>
+    to if we can write:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   y_m = <FONT color="red">f(m)</FONT>;
+   y_a = <FONT color="red">f(a)</FONT>;              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When we solve a <FONT color="blue"><B><I>different</I> function</B></FONT>,
+ we make changes to the
+ <FONT color="red"><B>function definition <TT>f()</TT></B></FONT>
+
+<P>
+This is <FONT color="blue"><B>indeed possible</B></FONT> in <B>Java</B>...
+<P>
+However, we have not study 
+ <FONT color="red"><B><I>user-defined</I> methods</B></FONT> yet.
+<P>
+But we will <FONT color="blue"><B>get there very soon</B></FONT>.
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

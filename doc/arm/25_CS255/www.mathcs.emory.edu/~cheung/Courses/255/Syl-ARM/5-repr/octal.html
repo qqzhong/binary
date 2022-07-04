@@ -1,0 +1,121 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Octal Numbers
+<HR>
+<UL>
+<LI> <B>Octal number system</B>: number system based on number 8
+  <P>
+  <UL>
+  <LI> Has <B>8</B> digits: 0, 1, 2, 3, 4, 5, 6, 7
+  <LI> Value of digits increase by  <B>8</B> for each position
+  </UL>
+<PRE>
+   Example:
+
+      153<SUB>(8)</SUB> = 1 x 8<SUP>2</SUP> + 5 x 8<SUP>1</SUP> + 3 x 8<SUP>0</SUP>
+	     = 64 + 40 + 3 = 107
+</PRE>
+<P>
+<LI> Finding the representation of a value in the octal number system:
+  <P>
+  <UL>
+  <LI> Divide the value repeated by 8
+  <LI> Collect the remainders in the reverse order
+  </UL>
+  <P>
+  (The procedure is exactly the same as the one to find the
+	representation for a value in the binary number system,
+	except you need to divide by 8 instead of 2)
+ <PRE>
+ Example:
+
+     value = 23
+
+ Find the representation in the octal number system:
+
+        23
+    8 ------ 7
+	 2
+    8 ------ 2
+	 0
+
+    representation is ----> 27<sub>(8)</sub>
+ </PRE>
+
+<LI> Octal numbers are mainly used to show binary code
+     because octal number can be converted easily to binary numbers
+     and vice versa.
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Converting octal numbers to
+     binary numbers:</B></FONT>
+ <P>
+ <UL>
+ <LI> Convert each octal digit to 3 binary digits using:
+<PRE>
+      Octal digit       Binary digits
+      -----------       -------------
+            0      -->         000
+            1      -->         001
+            2      -->         010
+            3      -->         011
+            4      -->         100
+            5      -->         101
+            6      -->         110
+            7      -->         111
+
+   Example:
+
+      1<FONT color="blue">5</font><FONT color="red">3</font><SUB>(8)</SUB> = 01<FONT color="blue">101</font><FONT color="red">011</font><SUB>(2)</SUB>
+</PRE>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Converting binary numbers to octal numbers:</B></font>
+ <P>
+ <UL>
+ <LI> Convert (starting from the right) each <FONT color="red"><B>group</B></FONT> of <FONT color="blue"><B>3 binary digits</B></FONT> into
+      <FONT color="red"><B>one octal digit</B></FONT> using:
+<PRE>
+      Binary digits     Octal digit
+      -------------     -----------
+          000       -->      0
+          001       -->      1
+          010       -->      2
+          011       -->      3
+          100       -->      4
+          101       -->      5
+          110       -->      6
+          111       -->      7
+
+   Example:
+
+      <B>11<FONT color="red">111</FONT><FONT color="blue">101</FONT><sub>(2)</sub> = 3<FONT color="red">7</FONT><FONT color="blue">5</FONT><sub>(8)</sub></B>
+</PRE>
+</UL>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>

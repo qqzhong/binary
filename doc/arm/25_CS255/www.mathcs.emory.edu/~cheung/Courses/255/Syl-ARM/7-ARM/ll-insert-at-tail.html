@@ -1,0 +1,571 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Designing a recursive "insert at tail of list" algorithm
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>List</TT> structure used in the 
+	"insert at tail of list" algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> To make the material more <FONT color="red"><B>concrete</B></FONT>,
+   I will use this <FONT color="blue"><B>List structure</B></FONT> to
+   illustrate the <FONT color="red"><B>"insert at tail of list" 
+	algorithm</B></FONT>
+   on
+   <FONT color="blue"><B>linked lists</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List
+   {
+      int value;
+      List next;       // This is a "reference" (= address) variable !!   
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="red"><B>List object</B></FONT> has the following
+ <FONT color="blue"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>value</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>0</B></FONT>
+<BR>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>next</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>4</B></FONT>
+</UL>
+<P>
+<B>Sample list:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Inserting a (new) list element at the tail of a list
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Given a <FONT color="red"><B>linked list</B></FONT>
+    (with list element of the above structure) pointed to
+    by the variable <FONT color="blue"><B><TT>head</TT></B></FONT>
+ <P>
+ <LI> Given a <B>new</B> <FONT color="red"><B>list element</B></FONT>
+    (with the above structure) 
+     pointed to
+    by the variable <FONT color="blue"><B><TT>ptr</TT></B></FONT>
+<P>
+ <LI> Write a <FONT color="blue"><B>recursive</B></FONT> function
+  <FONT color="red"><B><TT>List Insert(List h, List ptr)</TT></B></FONT>
+  that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Inserts</B></FONT>
+    the <B>new</B>
+     <FONT color="blue"><B>list element</B></FONT> at
+     <FONT color="red"><B><TT>ptr</TT></B></FONT> as
+     the <FONT color="blue"><B><I>last</I> element</B></FONT>
+     in the list staring at <FONT color="red"><B><TT>h</TT></B></FONT>
+<P>
+ <LI> <FONT color="blue"><B>Return</B></FONT> the
+    <FONT color="red"><B>reference</B></FONT> of the
+    <FONT color="blue"><B>first element</B></FONT> of 
+    the <B>new</B> <FONT color="red"><B>list</B></FONT> 
+    that contain the newly inserted element.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If we call
+   <FONT color="red"><B><TT>Insert(head, ptr)</TT></B></FONT> where
+    <FONT color="blue"><B><TT>head</TT></B></FONT> and
+  <FONT color="blue"><B><TT>ptr</TT></B></FONT> are
+  as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>Insert(head, ptr)</TT></B></FONT>
+  call will
+  <FONT color="blue"><B>construct</B></FONT> the following list:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05k.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+And <FONT color="red"><B>return</B></FONT> the
+ <FONT color="blue"><B>pointer</B></FONT> to the
+ <FONT color="red"><B><I>first</I> element</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05j.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> Now we will <FONT color="red"><B>develop</B></FONT> the
+    <FONT color="blue"><B>recursive </B></FONT> function
+   <FONT color="red"><B><TT>
+    List Insert(List h, List ptr)
+   </TT></B></FONT>
+ <P>
+   To understand how you can come up with
+   a <FONT color="red"><B>recursive algorithm</B></FONT>, you must
+  <B>again</B> use
+   the <FONT color="blue"><B>recursive nature</B></FONT> of
+   a <FONT color="red"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Due to the
+ <FONT color="red"><B>recusive nature</B></FONT> of
+ a <FONT color="blue"><B>linked list</B></FONT>, we can use
+   <FONT color="red"><B>divide and conquer</B></FONT> to
+   <FONT color="blue"><B>solve</B></FONT> the
+   <FONT color="red"><B>original problem</B></FONT> 
+   <B>using</B> the
+   <FONT color="blue"><B>solution</B></FONT> of a
+   <FONT color="red"><B><I>smaller</I> problem</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05l.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+(You should <FONT color="red"><B>recognize</B></FONT> that
+ inserting a list element in the
+  <FONT color="blue"><B>original list</B></FONT> and
+  inserting a list element in the
+  <FONT color="blue"><B>sub-list</B></FONT>
+  is the <FONT color="red"><B>same <I>kind</I> of problem</B></FONT>
+  and can be <FONT color="blue"><B>solved</B></FONT> with
+  the <FONT color="red"><B><I>same</I> algorithm</B></FONT> !!!)
+<P>
+When we write the <FONT color="blue"><B>recursive</B></FONT>
+  <FONT color="red"><B>"insert at the tail" algorithm</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List Insert( <FONT color="red">List h</FONT>, <FONT color="red">List ptr</FONT> )
+   {
+       // We are developing this algorith right now...     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>input parameter <TT>h</TT></B></FONT> 
+  will <FONT color="blue"><B>represent</B></FONT> the
+  <FONT color="red"><B><I>original</I> list</B></FONT> and
+ the
+  <FONT color="red"><B>input parameter <TT>ptr</TT></B></FONT> 
+  will <FONT color="blue"><B>represent</B></FONT> the
+  <FONT color="red"><B>insert list element</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05c2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In order to insert
+     the list element <FONT color="red"><B><TT>ptr</TT></B></FONT> in the
+     <FONT color="blue"><B>list starting at <TT>h</TT></B></FONT>,
+     we must find the
+    <FONT color="red"><B>last element</B></FONT> in the list
+   (and insert behind it).
+ <P>
+ So the <FONT color="red"><B><TT>Lookup( )</TT></B></FONT> method will
+  be like this:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List Insert( List h, List ptr )
+   {
+      if ( <FONT color="red">list h is empty</FONT> )
+      {
+         return the list with element ptr;  
+      }      
+      else if ( <FONT color="red">first element is the last element</FONT> )
+      {
+         (1) insert ptr after the first element
+         (2) return h
+      }
+      else <SPAN style="BACKGROUND-COLOR: yellow">if ( <FONT color="red">2nd element is the last element</FONT> )            
+      {                                                        
+         (1) insert ptr after the 2nd element                    
+         (2) return h                                    
+      }                                                          
+      else if ( <FONT color="red">3rd element is the last element</FONT> )            
+      {                                                            
+         (1) insert ptr after the 3rd element                        
+         (2) return h                                            
+      }                                                       
+      and so on....</SPAN>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that the
+ <FONT color="blue"><B>work</B></FONT> done in the
+  <FONT color="red"><B>highlighted area</B></FONT> is the
+  <FONT color="blue"><B>task</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Insert</B></FONT> the element
+    <FONT color="blue"><B><TT>ptr</TT></B></FONT>
+    at the  <B>tail</B> of this
+     <FONT color="red"><B><I>sub</I>-list</B></FONT>
+  of the <FONT color="blue"><B>original list</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05l.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we can
+  <FONT color="red"><B>replace</B></FONT> this code using 
+  a <FONT color="blue"><B><TT>Insert( )</TT></B></FONT> call to
+  insert in that <FONT color="red"><B>sublist</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List Insert( List h, List ptr )
+   {
+      if ( list h is empty )
+      {
+         return the list with element ptr;  
+      }      
+      else if ( first element is the last element )            
+      {
+         (1) insert ptr after the first element
+         (2) return h
+      }
+      else 
+         <SPAN style="BACKGROUND-COLOR: yellow">return <FONT color="red">Insert( h.next, ptr )</FONT>;</SPAN>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The recursive Lookup algorithm
+     </B></FONT>
+<P>
+<UL>
+<LI> Using the <FONT color="red"><B>design</B></FONT> above,
+     we can now <FONT color="blue"><B>flesh out</B></FONT> the
+     <FONT color="red"><B>recursive </B></FONT> 
+     <FONT color="blue"><B><TT>Lookup( )</TT></B></FONT> algorithm in
+     <FONT color="red"><B>Java syntax</B></FONT>:
+ <P>
+ (You just need to use <FONT color="red"><B>Java expressions</B></FONT>
+ to replace the <FONT color="blue"><B>pseudo code</B></FONT>
+ in the <FONT color="red"><B>description</B></FONT>)
+<P>
+The <FONT color="red"><B>Lookup</B></FONT> method in
+ <FONT color="blue"><B>Java</B></FONT>
+  (without the class, we can add that later) is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">static</FONT> int  Lookup( List h, int searchKey )
+   {
+      if (<FONT color="red"> h == null</FONT> )
+         return 0;             // Not found is represented by 0     
+      else if ( <FONT color="red">h.key == searchKey</FONT> )
+         return (h.value);
+      else 
+         return <FONT color="red">Lookup( h.next, searchKey )</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In <FONT color="red"><B>CS170 or CS171</B></FONT>, you would have learn that
+ the cases
+ <FONT color="blue"><B><TT>h == null</TT></B></FONT> and
+ <FONT color="blue"><B><TT>h.key == searchKey</TT></B></FONT> are
+ called the <FONT color="red"><B>base cases</B></FONT>.
+<P>
+I hope with this approach, you get a 
+ <FONT color="red"><B>feel</B></FONT> on
+ <FONT color="blue"><B>how</B></FONT> the
+ <FONT color="red"><B>recursion</B></FONT> was 
+ <FONT color="blue"><B>introduced</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <B>first</B> <FONT color="red"><B>solve</B></FONT> the
+      <FONT color="blue"><B>problem</B></FONT> without
+      <FONT color="red"><B>recursion </B></FONT>
+ <P>
+ <LI> <B>Then</B> we <FONT color="red"><B>recognize</B></FONT> that
+      <FONT color="blue"><B>all the work</B></FONT> done
+      by <FONT color="red"><B>some part</B></FONT> of the
+      <FONT color="blue"><B>algorithm</B></FONT> is the
+      <FONT color="red"><B>same</B></FONT> as the
+      <FONT color="blue"><B>solution</B></FONT> of
+      a <FONT color="red"><B><I>smaller</I> problem</B></FONT>
+ <P>
+ <HR>
+<P>
+ <LI> We <FONT color="red"><B>replace</B></FONT> that part
+      with a <FONT color="blue"><B>recursive call</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="red"><B>remaining part</B></FONT> that are
+   <FONT color="blue"><B>not covered</B></FONT> will become
+   the <FONT color="red"><B><I>bases cases</I></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/9-list-recurison/Lookup.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Lookup.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	
+  <FONT color="red"><B><TT>java Lookup</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

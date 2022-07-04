@@ -1,0 +1,828 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How to access a field in a (specific) list element
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review:</FONT>
+     How to access a field in a specific list element in Java
+     </B></FONT>
+<P>
+ <UL>
+ <LI> To make the <FONT color="red"><B>material</B></FONT> more
+    <FONT color="blue"><B>concrete</B></FONT> to explain,
+    I will use the following
+    (simple)
+    <FONT color="red"><B>List object</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">// File: /home/cs255001/demo/asm/4-linked-list/List.java
+</FONT>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // int typed variable takes up 4 bytes
+      <FONT color="red">List next;</FONT>    // reference variable contains an address, also 4 bytes   
+
+      // instance methods omitted - not relevant for discussion
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>assume</B></FONT> that
+ a <FONT color="blue"><B>linked list</B></FONT> has been
+ <FONT color="red"><B>created</B></FONT> and
+ the <FONT color="blue"><B><I>head</I> element</B></FONT> of
+ the list is stored in this <B>variable</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List <FONT color="red"> head</FONT>;             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> <FONT color="red"><B>Recall</B></FONT> that
+      this is the <FONT color="blue"><B>loop</B></FONT> you 
+      used in <FONT color="red"><B>CS171</B></FONT> to
+      <FONT color="blue"><B>access</B></FONT> all the
+      <FONT color="red"><B>List elements</B></FONT> and
+      <FONT color="blue"><B>print</B></FONT> the
+      <FONT color="red"><B><TT>value</TT></B></FONT> in
+      each <FONT color="blue"><B>list element</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   List ptr;
+
+   ptr = head;
+
+   while ( ptr != null )
+   {
+      System.out.println( ptr.value );             
+
+      ptr = ptr.next;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/ListMain.java</TT></B></FONT>
+
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac ListMain.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ListMain</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   cheung@aruba> java ListMain            
+   11
+   22
+   33
+   44
+   55
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Observe</B></FONT>
+    <FONT color="blue"><B><I>how</I></B></FONT> 
+    a <FONT color="red"><B>high level language program</B></FONT>
+    process a <FONT color="blue"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>program</B></FONT> uses
+      a <FONT color="red"><B><TT>List</TT> typed</B></FONT> variable
+    <FONT color="blue"><B><TT>ptr</TT></B></FONT> to
+    <FONT color="red"><B>reference</B></FONT> (= point)
+    to the
+    <FONT color="blue"><B><I>current</I> <TT>List</TT> object</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>initialization</B>
+      <FONT color="red"><B>ptr = head</TT></B></FONT> will make
+      <FONT color="blue"><B><TT>ptr</TT></B></FONT> point to
+      the <FONT color="red"><B><I>first</I> list element</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list03a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <B>assignment</B></FONT>
+    <FONT color="red"><B><TT>ptr = ptr.next</TT></B></FONT> will
+    make <FONT color="blue"><B><TT>ptr</TT></B></FONT> point to
+    the <FONT color="red"><B>list element</B></FONT> that
+    <FONT color="blue"><B><I>follows</I></B></FONT> the
+    <FONT color="red"><B>currently pointed element</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Or:</B> (after cleaning up the above figure):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> For the <FONT color="red"><B>Java program</B></FONT> and the
+   <FONT color="blue"><B>explanation</B></FONT> on what the
+   <FONT color="red"><B>Java statements</B></FONT> do, you can see that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Some <FONT color="red"><B><I>current</I> list element</B></FONT>
+    is <FONT color="blue"><B>pointed</B></FONT> to
+    by a <FONT color="red"><B><I>reference </I> variable</B></FONT>
+    (in our program, the variable is
+    <FONT color="blue"><B><TT>ptr</TT></B></FONT>)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list03a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> The <FONT color="blue"><B>program statements</B></FONT> uses  this
+    <FONT color="red"><B><I>reference</I> variable (<TT>ptr</TT>)</B></FONT>
+    to <FONT color="blue"><B>access</B></FONT> the
+    <FONT color="red"><B>fields</B></FONT> in
+    <FONT color="blue"><B><I>that</I> specific list element</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="red">ptr.</FONT>value      accesses the <FONT color="red">field "value"</FONT> in the list element pointed to by <FONT color="red">ptr</FONT>
+
+ <FONT color="red">ptr.</FONT>next       accesses the <FONT color="red">field "next"</FONT>  in the list element pointed to by <FONT color="red">ptr</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+      
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to access a field in a (specific) list element
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Information</B></FONT> given to you
+     to <FONT color="blue"><B>access</B></FONT> a
+     <B>specific</B>
+     <FONT color="red"><B>linked list element (= object)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You are given the
+      <FONT color="red"><B><I>address</I></B></FONT> of the
+      <FONT color="blue"><B>linked list object</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+  we are <FONT color="red"><B>given</B></FONT> the
+ <FONT color="blue"><B>address <TT>7000</TT></B></FONT> - which is
+  the <FONT color="red"><B>start address</B></FONT> of
+  some <FONT color="blue"><B>list object</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list03d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>start address</I></B></FONT> of
+      a <FONT color="blue"><B>list object</B></FONT> is
+      <B>similar</B> to
+      the <FONT color="red"><B><I>base address</I></B></FONT> of
+      an <FONT color="blue"><B>array</B></FONT>
+ <P>
+  I.e.:
+  the <FONT color="red"><B>fields</B></FONT> in a
+  <FONT color="blue"><B>list object</B></FONT>  <B>always</B> has
+  a <FONT color="red"><B><I>fixed</I> offset</B></FONT> from
+  the <FONT color="blue"><B>base address</B></FONT> of
+  a <FONT color="red"><B>list object</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> To <FONT color="red"><B>access</B></FONT> the
+    <FONT color="blue"><B>fields</B></FONT> in a
+    <FONT color="red"><B>list object</B></FONT>, we can use the
+    <FONT color="blue"><B>base address +
+    offset</B></FONT> approach (that we used
+    to access <B>array elements</B>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+   The <FONT color="red"><B>offsets</B></FONT> used in
+   <FONT color="blue"><B>linked list</B></FONT> will be "computed"
+   <FONT color="red"><B>differently</B></FONT>
+<P>
+ In fact:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>offsets</B></FONT> used
+     to access <FONT color="blue"><B>fields</B></FONT> in
+     a <FONT color="red"><B>list element</B></FONT> will
+     <FONT color="blue"><B>depend</B></FONT> on
+     the <FONT color="red"><B><I>structure</I></B></FONT> of
+     the <FONT color="blue"><B>List object</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>alignment requirements</B></FONT>
+      imposed on
+      <FONT color="blue"><B><TT>int</TT></B></FONT> and
+      <FONT color="blue"><B><TT>short</TT></B></FONT> typed fields
+      in a <FONT color="red"><B>list object</B></FONT> will
+      leave <FONT color="blue"><B>gaps</B></FONT> between
+      <FONT color="red"><B>data fields</B></FONT> in
+       a <FONT color="blue"><B>list structure</B></FONT>
+ <P>
+   <FONT color="red"><B>Gaps</B></FONT> are
+   <FONT color="blue"><B>memory bytes</B></FONT> that
+   are <FONT color="red"><B>not used</B></FONT>...
+ <P>
+  <FONT color="red"><B>Gaps</B></FONT> will  make
+      the <FONT color="blue"><B>offset "computation"</B></FONT>
+      very <FONT color="red"><B>difficult</B></FONT>
+<P>
+ <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  I will therefore use
+  <FONT color="red"><B>internal structures</B></FONT> that
+  can <FONT color="blue"><B>packed tightly (= no gaps)</B></FONT>
+  to <FONT color="red"><B>simplify</B></FONT> the
+  <FONT color="blue"><B>discussion</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will now show you how to
+ <FONT color="red"><B>"compute"</B></FONT> the
+ <FONT color="blue"><B>offsets</B></FONT> to
+ access various
+  <FONT color="red"><B>data fields</B></FONT> defined
+  in a <FONT color="blue"><B>linked list structure</B></FONT>
+ using
+ <FONT color="red"><B>2 different <TT>List</TT> classes</B></FONT>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Accessing fields in a <TT>List</TT> object - example 1
+     </B></FONT>
+<P>
+<UL>
+ <LI> Consider the <FONT color="blue"><B><TT>List</TT> object</B></FONT>
+    in 
+  <FONT color="red"><B>our example above</B></FONT> which is
+  defined as:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">// File: /home/cs255001/demo/asm/4-linked-list/List.java
+</FONT>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // int typed variable takes up 4 bytes
+      <FONT color="red">List next;</FONT>    // reference variable contains an address, also 4 bytes   
+
+      // instance methods omitted - not relevant for discussion
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This picture shows the
+ <FONT color="red"><B>placement</B></FONT> of the
+ <FONT color="blue"><B>data fields</B></FONT>
+ <FONT color="red"><B><TT>value</TT></B></FONT> and
+ <FONT color="red"><B><TT>next</TT></B></FONT> in
+ a <FONT color="blue"><B>list element</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B><TT>value</TT> field</B></FONT> in
+      a <FONT color="blue"><B>list object</B></FONT>, we use the
+      <FONT color="red"><B>offset 0 (zero)</B></FONT> from
+      the <FONT color="blue"><B>base address</B></FONT> of the
+      <B>list element</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">value</FONT> field) = base address(list element) <FONT color="red">+ 0</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> To <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B><TT>next</TT> field</B></FONT> in
+      a <FONT color="blue"><B>list object</B></FONT>, we use the
+      <FONT color="red"><B>offset 4</B></FONT> from
+      the <FONT color="blue"><B>base address</B></FONT> of the
+      <B>list element</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">next</FONT> field) = base address(list element) <FONT color="red">+ 4</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+I will show you an 
+ <FONT color="red"><B>assembler program example</B></FONT>
+ <FONT color="blue"><B>later</B></FONT>....
+<P>
+
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Accessing fields in a <TT>List</TT> object - example 2
+     </B></FONT>
+<P>
+<UL>
+ <LI> Consider the <FONT color="blue"><B><TT>List</TT> object</B></FONT>
+   that is
+  defined as:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List
+   {
+      <FONT color="red">int   value1;</FONT>   // int typed variable takes up 4 bytes
+      <FONT color="red">short value2;</FONT>   // short typed variable takes up 2 bytes
+      <FONT color="red">short value3;</FONT>   // short typed variable takes up 2 bytes
+      <FONT color="red">List next;</FONT>    // reference variable contains an address, also 4 bytes   
+
+      // instance methods omitted - not relevant for discussion
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This picture shows the
+ <FONT color="red"><B>placement</B></FONT> of the
+ <FONT color="blue"><B>data fields</B></FONT>
+ <FONT color="red"><B><TT>value</TT></B></FONT> and
+ <FONT color="red"><B><TT>next</TT></B></FONT> in
+ a <FONT color="blue"><B>list element</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B><TT>value1</TT> field</B></FONT> in
+      a <FONT color="blue"><B>list object</B></FONT>, we use the
+      <FONT color="red"><B>offset 0 (zero)</B></FONT> from
+      the <FONT color="blue"><B>base address</B></FONT> of the
+      <B>list element</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">value1</FONT> field) = base address(list element) <FONT color="red">+ 0</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> To <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B><TT>value2</TT> field</B></FONT> in
+      a <FONT color="blue"><B>list object</B></FONT>, we use the
+      <FONT color="red"><B>offset 4</B></FONT> from
+      the <FONT color="blue"><B>base address</B></FONT> of the
+      <B>list element</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">value2</FONT> field) = base address(list element) <FONT color="red">+ 4</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> To <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B><TT>value3</TT> field</B></FONT> in
+      a <FONT color="blue"><B>list object</B></FONT>, we use the
+      <FONT color="red"><B>offset 6 (4+2)</B></FONT> from
+      the <FONT color="blue"><B>base address</B></FONT> of the
+      <B>list element</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">value3</FONT> field) = base address(list element) <FONT color="red">+ 6</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+
+
+ <LI> To <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B><TT>next</TT> field</B></FONT> in
+      a <FONT color="blue"><B>list object</B></FONT>, we use the
+      <FONT color="red"><B>offset 8 (4 + 2 + 2)</B></FONT> from
+      the <FONT color="blue"><B>base address</B></FONT> of the
+      <B>list element</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">next</FONT> field) = base address(list element) <FONT color="red">+ 8</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+I will show you an 
+ <FONT color="red"><B>assembler program example</B></FONT>
+ <FONT color="blue"><B>later</B></FONT>....
+<P>
+
+
+</UL>
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

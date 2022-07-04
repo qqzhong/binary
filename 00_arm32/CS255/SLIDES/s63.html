@@ -1,0 +1,2078 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   What happens when you 
+   <FONT color="blue">pass parameters</FONT> using the 
+  <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   
+  <FONT color="blue"><B>Initially</B></FONT> the
+  <FONT color="red"><B>runtime stack</B></FONT> is
+  <FONT color="blue"><B>empty</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+ 
+   <img src="../../4-intro/FIGS/run-time1.gif" style="width:45%">
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   What happens when you 
+   <FONT color="blue">pass parameters</FONT> using the 
+  <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="blue"><B>Effect</B></FONT> when
+  the <FONT color="red"><B>function call</B></FONT>
+  <FONT color="blue"><B><TT>f(3.14)</TT></B></FONT> 
+  <FONT color="red"><B>passes</B></FONT> the
+  <FONT color="blue"><B>paramter 3.14</B></FONT>
+  using the <FONT color="red"><B>runtime stack</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <img src="../../4-intro/FIGS/run-time3.gif" style="width:57%">
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+  <FONT color="yellow"><B>Recall that:</B></FONT></SPAN> &nbsp;
+ The <FONT color="red"><B>runtime (program) stack</B></FONT>
+ is <FONT color="blue"><B><I>also</I></B></FONT> used
+ to
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>store</B></FONT>
+  <FONT color="blue"><B>return addresses</B></FONT></SPAN> !!!
+ <BR>
+  We must be <FONT color="red"><B>very careful</B></FONT>
+  and 
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>organize</B></FONT> the
+   <FONT color="red"><B>data</B></FONT> on the
+  <FONT color="blue"><B>runtime (program) stack</B></FONT></SPAN> !!
+  
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<!------------------ old ---------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Things that are stored in the <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+ 
+
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ Let's <FONT color="red"><B>enumerate</B></FONT> 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>all</B></FONT> the
+  <FONT color="red"><B>information</B></FONT></SPAN> that
+  we will be <FONT color="blue"><B>storing</B></FONT> in the
+   <FONT color="red"><B>runtime (program) stack</B></FONT>....
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  You <FONT color="red"><B>have seen</B></FONT> that
+   the <FONT color="blue"><B>runtime stack</B></FONT> was used
+   to <FONT color="red"><B>store (save)</B></FONT>:
+
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+   <LI> The
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>return address</B></FONT> of the
+      <FONT color="blue"><B>caller function</B></FONT></SPAN>
+        (<A HREF="s54.html"> <FONT color="blue"><B>click here</B></FONT></A>)
+ 
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+   <p style="padding: 1.9in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Things that are stored in the <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Example:</B>
+   <FONT color="red"><B>saving</B></FONT> 
+  <FONT color="blue"><B>return address</B></FONT> on the
+   <FONT color="red"><B>runtime stack</B></FONT>
+    </font>
+   </p>
+
+ 
+
+<P>
+<P>
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+main:
+      ...
+      bl  A            
+ RM:  // Return addr to main
+      ...
+
+A:    ...
+      bl  B
+ RA:  // Return addr to A
+      ...
+
+B:    ...
+      bl  C
+ RB:  // Return addr to B
+      ...
+
+C:    ...
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</center>
+
+</TD> 
+
+<TD width=500>
+<IMG SRC="pic027.png"></IMG>
+<BR>
+<IMG SRC="pic028.png"></IMG>
+</TD>
+
+</TR>
+</TABLE>
+</center>
+<P>
+
+
+<P>
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Things that are stored in the <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+    <FONT color="red"><B>Depicted</B></FONT> more
+  <FONT color="blue"><B>clearly</B></FONT> with a
+   <FONT color="red"><B>diagram</B></FONT>:
+    </font>
+   </p>
+
+<P>
+<P>
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+main:
+      ...
+      bl  A            
+ RM:  // Return addr to main
+      ...
+
+A:    ...
+      bl  B
+ RA:  // Return addr to A
+      ...
+
+B:    ...
+      bl  C
+ RB:  // Return addr to B
+      ...
+
+C:    ...
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</center>
+
+</TD> 
+
+<TD width=500>
+<IMG SRC="../FIGS/stack-frame04a.gif"></IMG>
+
+</TD>
+
+</TR>
+</TABLE>
+</center>
+<P>
+
+
+<P>
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------------- new ---------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Things that are stored in the <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+ 
+
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="blue"><B>Now</B></FONT>, we will
+   <FONT color="red"><B><I>also</I> use</B></FONT> the
+   the <FONT color="blue"><B>runtime stack</B></FONT> to
+    <FONT color="red"><B>store</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <OL>
+
+   <LI> The <FONT color="red"><B>return address</B></FONT> of the
+      <FONT color="blue"><B>function</B></FONT>
+     - (this is <FONT color="red"><B>old stuff</B></FONT>:
+        <A HREF="s54.html"> <FONT color="blue"><B>click here</B></FONT></A>)
+ <P>
+   <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+     <FONT color="red"><B>Parameters</B></FONT></SPAN> of the
+     <FONT color="blue"><B>function</B></FONT>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+     <FONT color="red"><B>NEW</B></FONT></SPAN>
+  <LI> <SPAN style="BACKGROUND-COLOR: #aaffaa">
+     <FONT color="red"><B>Local variables</B></FONT></SPAN> of the
+  <FONT color="blue"><B>function</B></FONT>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>NEW</B></FONT></SPAN>
+   </OL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+<P>
+&nbsp;
+<P>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Let's</B></FONT> <B>first</B>
+  <FONT color="blue"><B>figure out</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>when</B></FONT></SPAN>
+     we can
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>reserve space</B></FONT></SPAN>
+   (on the <FONT color="red"><B>runtime stack</B></FONT>) to
+   <FONT color="blue"><B>store</B></FONT>
+   the 
+  <FONT color="red"><B>parameters</B></FONT> and the
+   <FONT color="blue"><B>local variables</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.7in">
+   </p>
+ </div>
+
+
+
+
+<!---------- When can we pass parameters -------------->
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with 
+  <FONT color="blue">parameters</FONT> and 
+  <FONT color="blue">local variables</FONT> 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>When</B></FONT></SPAN> <B>can/do</B> we
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>pass</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT></SPAN>
+  to a <FONT color="blue"><B>function</B></FONT> ?
+    
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            <FONT color="red">push {lr}</FONT>  |
+       ...             |            ...        |
+       ...             |            ...        |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...        |
+       ...   <--------------+       ...        |
+       ...                  |       ...        V 
+       ...                  +------ <FONT color="red">pop {pc}</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   &nbsp;
+   </font>
+   </p>
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with 
+  <FONT color="blue">parameters</FONT> and 
+  <FONT color="blue">local variables</FONT> 
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>When</B></FONT></SPAN> <B>can/do</B> we
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>pass</B></FONT> the
+   <FONT color="red"><B>parameters</B></FONT></SPAN>
+  to a <FONT color="blue"><B>function</B></FONT> ?
+ 
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            <FONT color="red">push {lr}</FONT>  |
+       ...             |            ...        |
+       <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">pass params</FONT></SPAN>     |            ...        |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...        |
+       ...   <--------------+       ...        |
+       ...                  |       ...        V 
+       ...                  +------ <FONT color="red">pop {pc}</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Answer:</B> &nbsp; it
+   <FONT color="red"><B>must</B></FONT> happen
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B><I>before</I></B></FONT>
+   the <FONT color="darkmagenta"><B><TT>bl f2</TT></B></FONT></SPAN>
+  where
+     we
+   <FONT color="red"><B>call</B></FONT> the
+   <FONT color="blue"><B>function</B></FONT> !!!
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   (It's <FONT color="red"><B>too late</B></FONT> to
+  <FONT color="blue"><B>pass parameters</B></FONT> 
+  <FONT color="red"><B>after</B></FONT> the
+   <FONT color="blue"><B><TT>bl f2</TT></B></FONT> 
+  <FONT color="red"><B>instruction</B></FONT> !)
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with 
+  <FONT color="blue">parameters</FONT> and 
+  <FONT color="blue">local variables</FONT> 
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>When</B></FONT></SPAN> <B>can/do</B> we
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>create</B></FONT> the
+   <FONT color="red"><B>local variables</B></FONT></SPAN>
+  for the <FONT color="blue"><B>function <TT>f2</TT></B></FONT> ?
+ 
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            <FONT color="red">push {lr}</FONT>  |
+       ...             |            ...        |
+       <FONT color="red">pass params</FONT>     |            ...        |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...        |
+       ...   <--------------+       ...        |
+       ...                  |       ...        V 
+       ...                  +------ <FONT color="red">pop {pc}</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  &nbsp;
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ &nbsp;
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Sequencing</FONT> of
+   <FONT color="blue">events</FONT> in
+   function call + return with 
+  <FONT color="blue">parameters</FONT> and 
+  <FONT color="blue">local variables</FONT> 
+
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>When</B></FONT></SPAN> <B>can/do</B> we
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>create</B></FONT> the
+   <FONT color="red"><B>local variables</B></FONT></SPAN>
+  for the <FONT color="blue"><B>function <TT>f2</TT></B></FONT> ?
+ 
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ f1:                                           
+                       +---->  f2:           
+       ...             |            <FONT color="red">push {lr}</FONT>  |
+       ...             |            <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">alloc local vars</FONT></SPAN>
+       <FONT color="red">pass params</FONT>     |            ...        |
+       <FONT color="darkmagenta">bl f2</FONT> ----------+            ...        |
+       ...   <--------------+       ...        |
+       ...                  |       ...        V 
+       ...                  +------ <FONT color="red">pop {pc}</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Answer:</B> &nbsp;
+    <FONT color="red"><B>immediately</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>after</B></FONT> we
+   <FONT color="red"><B>saved</B></FONT> the
+   <FONT color="blue"><B>return address</B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  (<FONT color="red"><B>Because</B></FONT> the
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>local variables</B></FONT></SPAN> are
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>created</B></FONT></SPAN> when
+  a <FONT color="blue"><B>function</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B><I>starts</I> executing</B></FONT></SPAN>)
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Things that are stored in the <FONT color="blue">runtime stack</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Due</B></FONT> to the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>ordering</B></FONT></SPAN> of the
+  <FONT color="red"><B>events</B></FONT>,
+    the <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>runtime  stack</B></FONT> will
+   have the following
+   
+   <FONT color="blue"><B>(data) structure</B></FONT>: </SPAN>
+    </font>
+   </p>
+
+<P>
+<P>
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+
+<center>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+main:
+      ...
+      bl  A                     
+ RM:
+      ...
+
+A:    ...
+      bl  B
+ RA:
+      ...
+
+B:    ...
+      bl  C
+ RB:
+      ...
+
+C:    ...
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</center>
+
+</TD> 
+
+<TD>
+<IMG SRC="../FIGS/stack-frame04b.gif"></IMG>
+
+</TD>
+
+</TR>
+</TABLE>
+</center>
+<P>
+
+
+<P>
+
+
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   This
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>(data) structure</B></FONT></SPAN>
+    is
+   <B>called</B>: an <FONT color="blue"><B>(function) </B></FONT>
+   <FONT color="red"><B>
+   <SPAN style="BACKGROUND-COLOR: #ffff00">activation record</SPAN></B></FONT>
+   or <FONT color="blue"><B><SPAN style="BACKGROUND-COLOR: #aaffaa">
+   stack frame</SPAN></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+<!------------------- stack frame --------------------------------------->
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue"> activation record</FONT> or
+    <FONT color="blue">stack frame</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.7in">
+   <font size="+2">
+  <FONT color="red"><B> Activation record</B></FONT> or
+   <FONT color="blue"><B>stack frame</B></FONT>:
+   (<A HREF="https://www.techopedia.com/definition/22304/stack-frame">
+    click here</A>)
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=970>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>Stack frame</B></FONT> is
+  the <FONT color="blue"><B>data structure</B></FONT> that
+  is <FONT color="red"><B>created</B></FONT> in the
+  <FONT color="blue"><B>runtime stack</B></FONT> that contains
+  (in 
+   <FONT color="red"><B>order of insertion/creation</B></FONT> -
+  <FONT color="blue"><B>remember</B></FONT> the
+  <FONT color="red"><B>stack order</B></FONT> is
+  <FONT color="blue"><B>FILO</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <OL>
+ <LI> The <FONT color="red"><B>parameters</B></FONT> of the
+    <FONT color="blue"><B>function</B></FONT>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="red"><B>return address</B></FONT> of the
+    <FONT color="blue"><B>function</B></FONT>
+ <LI> The 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+    <FONT color="red"><B>FP (frame pointer)
+    register of the caller</B></FONT></SPAN>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> The <FONT color="red"><B>local variables</B></FONT> of the
+    <FONT color="blue"><B>function</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<IMG SRC="../FIGS/stack-frame01a.gif"></IMG>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue"> activation record</FONT> or
+    <FONT color="blue">stack frame</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.7in">
+   <font size="+2">
+  <FONT color="red"><B> Activation record</B></FONT> or
+   <FONT color="blue"><B>stack frame</B></FONT>:
+   (<A HREF="https://www.techopedia.com/definition/22304/stack-frame">
+    click here</A>)
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=970>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+ <IMG SRC="../FIGS/stack-frame01a.gif"></IMG>
+
+
+<P>
+
+<LI> When a <FONT color="red"><B>function</B></FONT>
+    <FONT color="blue"><B>begins to run</B></FONT>,
+    the <FONT color="red"><B>function</B></FONT>
+    first <FONT color="blue"><B>constructs</B></FONT> its
+    <FONT color="red"><B>stack frame</B></FONT>
+<P>
+<LI> The <FONT color="red"><B>stack frame</B></FONT> 
+     <FONT color="blue"><B><I>
+     <SPAN style="BACKGROUND-COLOR: #ffff00">exclusively</SPAN>
+    </I> store</B></FONT> the
+     <FONT color="red"><B>parameters</B></FONT> and the
+     <FONT color="blue"><B>local variable</B></FONT> of 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>one</B></FONT> 
+    <FONT color="blue"><B>function</B></FONT></SPAN> !!
+  <P>
+ <LI>  The <FONT color="red"><B>function</B></FONT> will
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>access</B></FONT></SPAN>
+    its
+   <FONT color="red"><B>stack frame</B></FONT> to
+   access its <B>own</B>
+   <FONT color="blue"><B>parameters</B></FONT> and
+   <FONT color="red"><B>local variables</B></FONT>
+   using the 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>base address</B></FONT></SPAN> stored in
+   the <FONT color="red"><B>Frame Pointer 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">(FP)</SPAN> register</B></FONT></SPAN>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<! ---------------- accessing using FP -------------------->
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Accessing</FONT> the
+   <FONT color="blue">"things" (= parameters and local variables)</FONT>
+   stored in a <FONT color="blue">stack frame</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> A <FONT color="red"><B>stack frame</B></FONT> is
+       a <FONT color="blue"><B>data structure</B></FONT>
+       (<B>just like</B> an
+       <FONT color="red"><B>object</B></FONT>)
+ <P>
+  <LI> <FONT color="red"><B>Data structures</B></FONT> are
+  <FONT color="blue"><B>accessed</B></FONT> using
+  a <FONT color="red"><B><I>base address</I></B></FONT> + an
+   <FONT color="blue"><B>offset</B></FONT>
+  (<A HREF="s29.html"> <FONT color="blue"><B>click here</B></FONT></A>)
+<P>
+<UL>
+<TABLE bgcolor="#ccffcc" BORDER="5">
+<TR> <TD>
+ <font size="+2">
+ <UL>
+ <LI> We use the
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>frame pointer (FP)</B></FONT>
+    <B>register</B></SPAN> to
+    <FONT color="blue"><B>hold</B></FONT> the
+    <FONT color="red"><B>base address</B></FONT> of
+    a <FONT color="blue"><B>stack frame</B></FONT>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <IMG SRC="../FIGS/stack-frame01a.gif"></IMG>
+<P>
+<LI> <FONT color="red"><B>Local variables</B></FONT> are
+   <FONT color="blue"><B>accessed</B></FONT> using
+    <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>negative</B></FONT>
+   <FONT color="blue"><B> offset values</B></FONT></SPAN>
+<LI> <FONT color="red"><B>Parameter variables</B></FONT> are
+   <FONT color="blue"><B>accessed</B></FONT> using
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="red"><B>positive</B></FONT>
+   <FONT color="blue"><B> offset values</B></FONT></SPAN>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Caveat</FONT> in the presentation 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <IMG SRC="../FIGS/stack-frame01a.gif" width=550></IMG>
+
+  <LI> <FONT color="red"><B>Caveat:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+
+ <LI> The 
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>frame pointer (FP)</B></FONT>
+    <B>register</B></SPAN>
+    is 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>shared </B></FONT></SPAN> !!!
+  
+ <P>
+  <B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI>   A <FONT color="red"><B>function</B></FONT> 
+  <FONT color="blue"><B>must</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>perserve (= restore)</B></FONT></SPAN>
+   the
+  <FONT color="blue"><B><I>original</I>
+   value</B></FONT>
+   in the <FONT color="red"><B>FP register</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<! ------------------ Structure of the stack frame ----------------->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  Why</SPAN> does the <FONT color="blue">stack frame</FONT> have
+  the given 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">structure</FONT></SPAN> ??
+  
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>stack frame</B></FONT> is
+    <FONT color="blue"><B>constructed</B></FONT> by
+    a <FONT color="red"><B>function</B></FONT> that
+    <FONT color="blue"><B>starts executing</B></FONT>
+ <P>
+  <LI> The <FONT color="red"><B>structure</B></FONT> of
+     the <FONT color="blue"><B>stack frame</B></FONT> constructed
+     by <FONT color="red"><B>every function</B></FONT> is
+     <FONT color="blue"><B>identical</B></FONT>
+ <P>
+ <LI> The 
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">
+     <FONT color="red"><B>structure</B></FONT></SPAN> of
+     the <FONT color="blue"><B>stack frame</B></FONT> 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>reflects</B></FONT> the
+     <FONT color="blue"><B>order of events</B></FONT></SPAN> in
+    a <FONT color="red"><B>function call</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ f1:                                           
+                       +---->  f2:  <FONT color="red">push {lr}</FONT>     
+       ...             |            <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="magenta">set up FP</FONT></SPAN>
+       ...             |            <FONT color="red">create local variables</FONT>
+       <FONT color="red">pass params</FONT>     |            ...  |
+       <FONT color="red">bl f2</FONT> ----------+            ...  V
+       use return value <---+       save return value
+       ...                  |       in a register
+       ...                  +------ pop {pc}</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We will <FONT color="red"><B>look</B></FONT>
+   at the <FONT color="blue"><B>sequence of events</B></FONT> and
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>how</B></FONT> each
+   <FONT color="blue"><B>event</B></FONT>
+   <FONT color="red"><B>builds</B></FONT>
+   a <FONT color="blue"><B>part</B></FONT> of the
+   <FONT color="red"><B>stack frame</B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<! ------------------- warning --------  a small flaw ------>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Dictatic warning: I will first show you a
+    <FONT color="blue">flawed</FONT> sequence of events
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Dictatic warning</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>sequence</B></FONT> of
+    <FONT color="blue"><B>events</B></FONT> that I
+   will <FONT color="red"><B>show you</B></FONT>
+   contains a 
+   <SPAN style="BACKGROUND-COLOR: orange">
+   <FONT color="blue"><B>(minor) flaw</B></FONT></SPAN>
+  <P>
+   This <FONT color="red"><B>(minor) flaw</B></FONT> can
+   be <FONT color="blue"><B>fixed</B></FONT>
+    <FONT color="red"><B>easily</B></FONT>
+  <P>
+  <LI> In the <FONT color="red"><B>next webpage</B></FONT>,
+    I will show you
+    <FONT color="blue"><B>how to fix</B></FONT> the
+    <FONT color="red"><B>(minor) flaw</B></FONT>
+    <P>
+    The <FONT color="red"><B>resulting </B></FONT>
+   <FONT color="blue"><B>sequence</B></FONT> of 
+   <FONT color="red"><B>events</B></FONT>
+   is used by
+   <FONT color="blue"><B>most modern compilers</B></FONT>
+   to compile
+   a <FONT color="red"><B>function call + return</B></FONT> with
+   <FONT color="blue"><B>parameters and local variables</B></FONT>
+   on the <FONT color="red"><B>runtime stack</B></FONT>
+   (for <FONT color="darkmagenta"><B>non-leaf function</B></FONT>)
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <font size="+2">
+ <UL>
+ <LI> To <FONT color="red"><B>spot</B></FONT> the
+   <FONT color="blue"><B>(minor) flaw</B></FONT>,
+    <FONT color="red"><B>pay attention</B></FONT> to
+    the <FONT color="blue"><B>
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">FP</SPAN> register</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">structure</FONT> of
+    the <FONT color="blue">stack frame</FONT> -
+    build it from scratch
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>(1)</B> <FONT color="red"><B>Right before</B></FONT>
+     we <FONT color="blue"><B>call</B></FONT> a
+     <FONT color="red"><B>function</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05a.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>stack frame</B></FONT> in the
+    <FONT color="blue"><B>system (runtime) stack</B></FONT> is
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B>empty</B></FONT>
+   </SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">structure</FONT> of
+    the <FONT color="blue">stack frame</FONT> -
+    build it from scratch
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>(2)</B> The <FONT color="red"><B>caller</B></FONT>
+  <FONT color="blue"><B>passes the parameters</B></FONT>
+  by <FONT color="red"><B>pushing</B></FONT> them
+  on the <FONT color="blue"><B>stack</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05b.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>stack frame</B></FONT> 
+   <FONT color="blue"><B>first</B></FONT> contains the
+   <FONT color="red"><B>parameters</B></FONT> of the
+   <FONT color="blue"><B>function</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">structure</FONT> of
+    the <FONT color="blue">stack frame</FONT> -
+    build it from scratch
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>(3)</B> The <FONT color="red"><B><TT>bl</TT> instruction</B></FONT>
+  will <FONT color="blue"><B>jump</B></FONT>
+  to the <FONT color="red"><B>function</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05c.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>stack frame</B></FONT> 
+    is <FONT color="blue"><B>unchanged</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">structure</FONT> of
+    the <FONT color="blue">stack frame</FONT> -
+    build it from scratch
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>(4)</B> The <FONT color="red"><B>function <TT>f</TT> </B></FONT>
+  will <FONT color="blue"><B>save</B></FONT> the
+  the <FONT color="red"><B>return address</B></FONT> on the
+  <FONT color="blue"><B>stack</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05d.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>stack frame</B></FONT> 
+    now has <FONT color="blue"><B>parameters + return address</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">structure</FONT> of
+    the <FONT color="blue">stack frame</FONT> -
+    build it from scratch
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>(5)</B> The <FONT color="red"><B>function <TT>f</TT> </B></FONT>
+  will <FONT color="blue"><B>establish</B></FONT>
+  the <FONT color="red"><B>base address</B></FONT> of the
+  <FONT color="blue"><B>stack frame</B></FONT> in the
+  <FONT color="red"><B>FP register</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05e.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>FP</B></FONT> points to the
+   <FONT color="blue"><B>"middle"</B></FONT> of the
+   <FONT color="red"><B>(unfinished) stack frame</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="blue">structure</FONT> of
+    the <FONT color="blue">stack frame</FONT> -
+    build it from scratch
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <B>(6)</B> The <FONT color="red"><B>function <TT>f</TT> </B></FONT>
+  will <FONT color="blue"><B>create</B></FONT>
+  its <FONT color="red"><B>local variables</B></FONT> using the
+  <FONT color="blue"><B>stack</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05f.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>stack frame</B></FONT> 
+    now has <FONT color="blue"><B>parameters + return address + 
+  local variables</B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Houston.... we have a 
+   <FONT color="blue">(minor) problem</FONT>....
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   Can <FONT color="red"><B>you</B></FONT> find
+  the <FONT color="blue"><B>problem</B></FONT> with this
+  <FONT color="red"><B>state</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/pass-param05f.gif" style="width:60%">
+   </center>
+
+  
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Hint:</B></FONT> &nbsp;
+   the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>caller</B></FONT> is <B>also</B>
+   a <FONT color="red"><B>function</B></FONT></SPAN> and
+   has its 
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>own</B></FONT> set</SPAN> of
+   <FONT color="red"><B>parameters</B></FONT> and
+   <FONT color="blue"><B>local variables</B></FONT> !!!
+  </SPAN>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>What register</B></FONT></SPAN> was
+  the <FONT color="blue"><B>caller</B></FONT> using to
+   <FONT color="red"><B>access</B></FONT> 
+   <B>its own</B>
+   <FONT color="blue"><B>parameter variables</B></FONT> and
+   <FONT color="red"><B>local variables</B></FONT> ???
+  
+   </font>
+   </p>
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue">problem</FONT> explained in
+  <FONT color="blue">diagrams</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>Before</B></FONT></SPAN>
+  <FONT color="blue"><B><TT>main</TT></B></FONT>
+  call the <FONT color="red"><B>function</B></FONT>
+  <FONT color="blue"><B><TT>f</TT></B></FONT>,
+  <FONT color="red"><B><TT>main</TT></B></FONT> is 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   using <FONT color="blue"><B><TT>FP</TT></B></FONT></SPAN> to
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>access</B></FONT> its
+  <FONT color="blue"><B>parameters and local variables</B></FONT></SPAN>:
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/pass-param09a.png" style="width:60%">
+  </center>
+
+ 
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  The <FONT color="blue">problem</FONT> explained in
+  <FONT color="blue">diagrams</FONT>
+  </SPAN>
+  </B></FONT>
+  </div>
+
+
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>After</B></FONT></SPAN>
+  <FONT color="blue"><B><TT>main</TT></B></FONT>
+  call the <FONT color="red"><B>function</B></FONT>
+  <FONT color="blue"><B><TT>f</TT></B></FONT>,
+  <FONT color="red"><B><TT>main</TT></B></FONT> will have
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>lost</B></FONT></SPAN> its
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B><TT>FP</TT> register content</B></FONT></SPAN>:
+  </font>
+  </p>
+
+  <center>
+  <img src="../FIGS/pass-param09b.png" style="width:60%">
+  </center>
+
+ 
+  <p style="margin-left: 1.2in">
+  <font size="+2">
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+  <span class="dot" onclick="currentSlide(17)"></span>
+  <span class="dot" onclick="currentSlide(18)"></span>
+  <span class="dot" onclick="currentSlide(19)"></span>
+  <span class="dot" onclick="currentSlide(20)"></span>
+  <span class="dot" onclick="currentSlide(21)"></span>
+  <span class="dot" onclick="currentSlide(22)"></span>
+  <span class="dot" onclick="currentSlide(23)"></span>
+  <span class="dot" onclick="currentSlide(24)"></span>
+  <span class="dot" onclick="currentSlide(25)"></span>
+  <span class="dot" onclick="currentSlide(26)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

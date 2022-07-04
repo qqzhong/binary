@@ -1,0 +1,763 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The "Hello World" program in ARM assembler language
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The famous "Hello World" program
+     </B></FONT>
+<P>
+ <UL>
+ <LI> In <FONT color="red"><B>CS170</B></FONT>, you may have
+     seen the famous
+     <FONT color="blue"><B>"Hello World" program</B></FONT> in
+     <FONT color="red"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Hello
+   {
+
+       public static void main(String[] args)
+       {
+           System.out.println("Hello World");
+       }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Here is the <FONT color="red"><B>Hello World</B></FONT> program
+   written in <FONT color="blue"><B>ARM assembler code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+//
+// hello.s: hello world in ARM assembler
+//
+// How to compile:
+//
+//     as    -o  hello.o   hello.s
+//     gcc   -o  hello     hello.o
+//
+
+        .global main
+<FONT color="red">
+// ************************ Starting variable definition *****************
+        .data
+// ***********************************************************************</FONT>
+
+HelloStr:                               // Label marking this location in memory
+        .asciz "<FONT color="red">Hello World\n</FONT>"          // ASCII codes for the string
+
+<FONT color="red">
+// ************************ Starting computer instruction ****************
+        .text
+// ***********************************************************************</FONT>
+main:
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the frame pointer on the stack
+                                        // Explained later in CS255
+
+        /* ----------------------------------------
+           Pass the string to printf function
+           ---------------------------------------- */
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+
+        /* ----------------------------------------
+           Call the printf function
+           ---------------------------------------- */
+        <FONT color="red">bl      printf                  // Call printf function with input string</FONT>     
+
+        pop     {fp}                    // Pop the frame pointer
+        pop     {pc}                    // Pop the return address into PC
+                                        // Explained later in CS255
+       <FONT color="red"> .end</FONT>
+
+Any text that follws ".end" is ignored (treated as comment)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In order to <FONT color="red"><B>compile</B></FONT> and
+     <FONT color="red"><B>run</B></FONT> this
+    <FONT color="blue"><B>ARM assembler program</B></FONT>, you
+    need a <FONT color="red"><B>computer</B></FONT> with an
+    <FONT color="blue"><B>ARM processor</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We have a machine called 
+      <FONT color="red"><B><TT>cs255host1</TT></B></FONT> in the
+      <FONT color="blue"><B>CS department</B></FONT> that is running
+      on an <FONT color="red"><B>ARM processor</B></FONT>
+      to support this course
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255/cs255/hello/hello.s</TT></B></FONT>
+       on <FONT color="blue"><B><TT>cs255host1</TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    ssh -X  cs255@cs255host1             (passwd: abc123)       
+
+    cd   /home/cs255/cs255/hello              
+
+    as    -o  hello.o   hello.s
+
+    gcc   -o  hello     hello.o
+
+    hello
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cs255@cs255host1(314)> hello                   
+<FONT color="red">Hello World</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Anatomy of an assembler program
+     </B></FONT>
+<P>
+<UL>
+<LI> Recall <FONT color="blue"><B>how</B></FONT> a
+      <B>computer program</B> is
+       <FONT color="red"><B>organized (stored)</B></FONT> inside 
+       the <FONT color="blue"><B>computer memory</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+(See: <A HREF="../4-intro/memory2.html"> click here </A>)
+<P>
+<HR>
+<P>
+<LI> When a <FONT color="red"><B>program begins execution</B></FONT>,
+     the <FONT color="blue"><B>heap and stack area</B></FONT> are
+     <FONT color="red"><B>empty</B></FONT>; and
+     you only find these program parts in the memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice</B></FONT> that the
+ <FONT color="blue"><B>assembler program</B></FONT> contain
+ the <FONT color="red"><B>key words</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">.text</FONT>    - this keyword announces that program instructions will follow
+
+     <FONT color="red">.data</FONT>    - this keyword announces that constant and variables will follow     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>instructions</B></FONT> that follows 
+ the <B>keyword</B>
+ <FONT color="red"><B><TT>.text</TT></B></FONT> will be stored in the
+ <FONT color="blue"><B>program section</B></FONT> (green area)
+<P>
+The <FONT color="blue"><B>data and variable definitions</B></FONT>
+    that follows 
+ the <B>keyword</B>
+ <FONT color="red"><B><TT>.data</TT></B></FONT> will be stored in the
+ <FONT color="blue"><B>class variable section</B></FONT> (yellow area)
+</UL>
+<P>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The program instructions in the "Hello World" program
+     </B></FONT>
+<P>
+<UL>
+<LI> There is only 
+    <FONT color="red"><B>one statement</B></FONT> in the
+     <FONT color="blue"><B>Java "Hello World" program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    System.out.<FONT color="red">println</FONT>("Hello World");        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="blue"><B>statement</B></FONT> is
+  a <FONT color="red"><B>method (function)</B></FONT> call statement</B></FONT>
+  where:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>function</B></FONT> is
+    <FONT color="blue"><B><TT>println</TT></B></FONT>
+ <LI> The <FONT color="red"><B>parameter</B></FONT> of the
+      <B>function</B> is the
+      <FONT color="blue"><B>string <TT>"Hello World"</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>program instruction <I>section</I></B></FONT> in
+    the <FONT color="blue"><B>assembler program</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+// ************************ Starting computer instruction ****************
+        .text
+// ***********************************************************************</FONT>
+main:
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the frame pointer on the stack
+                                        // Explained later in CS255
+
+        /* ----------------------------------------
+           Pass the string to printf function
+           ---------------------------------------- */
+        movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr
+
+        /* ----------------------------------------
+           Call the printf function
+           ---------------------------------------- */
+        <FONT color="red">bl      printf                  // Call printf function with input string</FONT>     
+
+        pop     {fp}                    // Pop the frame pointer
+        pop     {lr}                    // Pop the return address
+                                        // Explained later in CS255
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>skip</B></FONT> the
+ <FONT color="blue"><B><TT>push</TT></B></FONT> and
+ <FONT color="blue"><B><TT>pop</TT></B></FONT> instructions - this is
+  <FONT color="red"><B>advanced material</B></FONT> in
+ <FONT color="blue"><B>assembler programming</B></FONT> that will
+ be <FONT color="red"><B>explained later</B></FONT> in
+ <FONT color="blue"><B>CS255</B></FONT>.
+<P>
+The <FONT color="red"><B><TT>main:</TT></B></FONT> identifier 
+  (called: <B>label</B> in assembler programming) corresponds
+ to the <FONT color="blue"><B>location</B></FONT> of
+ the <FONT color="red"><B>start</B></FONT> of the program.
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Every assembler program</B></FONT> starts
+    <FONT color="blue"><B>executing</B></FONT> at the
+   <FONT color="red"><B><TT>main:</TT></B></FONT> location.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>program instruction</B></FONT> in the
+  <FONT color="blue"><B>Hello World program</B></FONT>
+ consists of the following
+  <FONT color="red"><B>3 (assembler) instructions</B></FONT>
+ (given in red in the diagram below):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        /* ----------------------------------------
+           Pass the string to printf function
+           ---------------------------------------- */
+        <FONT color="red">movw    r0, #:lower16:HelloStr
+        movt    r0, #:upper16:HelloStr</FONT>
+
+        /* ----------------------------------------
+           Call the printf function
+           ---------------------------------------- */
+        <FONT color="red">bl      printf</FONT>                  // Call printf function with input string  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The first <FONT color="blue"><B>2 instruction</B></FONT> passes
+  the <FONT color="red"><B>parameter <TT>HelloStr</TT></B></FONT> to
+  the function (= method)
+<P>
+The <FONT color="red"><B>last instruction</B></FONT> calls
+ the <FONT color="blue"><B>function (method) <TT>printf</TT></B></FONT>
+ (which is the same as <FONT color="blue"><B><TT>println</TT></B></FONT> in
+ <B>java</B>).
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important: <SPAN style="BACKGROUND-COLOR: yellow">
+     assembler programming will need
+      to use <FONT color="red">registers</FONT> in the processor</SPAN>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you write an <FONT color="red"><B>assembler program</B></FONT>,
+      you <FONT color="blue"><B><I>must</I></B></FONT>
+      use the <FONT color="red"><B>registers</B></FONT>
+      in the <B>processor</B>
+<P>
+<B>For example:</B> you can see this 
+  <FONT color="red"><B>assembler instruction</B></FONT> in
+  the <FONT color="blue"><B>"Hello World" program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        movw  <SPAN style="BACKGROUND-COLOR: yellow">  <FONT color="red">r0</FONT></SPAN>, #:lower16:HelloStr          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>notation</B>
+ <FONT color="red"><B><TT>r0</TT></B></FONT> is the
+    <FONT color="blue"><B>name</B></FONT> of a
+  specific
+  <FONT color="red"><B>register</B></FONT> of the
+  <FONT color="blue"><B>ARM processor</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We call <FONT color="red"><B>assembler programming</B></FONT>:
+ <FONT color="blue"><B><I>low level</I> programming</B></FONT> because
+ an <B>assembler programmer</B> must know
+ <FONT color="red"><B><I>every</I> detail</B></FONT> of the
+ <FONT color="blue"><B>computer processor</B></FONT>
+ in order to write the <B>program</B>.
+<P>
+In contrast:
+  <FONT color="red"><B>Java</B></FONT> (and <B>C</B>) is a
+ <FONT color="blue"><B><I>high</I> level programming language</B></FONT>
+  where the programmer does
+  <FONT color="red"><B>not need to know</B></FONT> the
+  <FONT color="blue"><B>details</B></FONT> of the
+  <FONT color="red"><B>computer processor</B></FONT> !!!
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The constants and variables in the "Hello World" program
+     </B></FONT>
+<P>
+<UL>
+<LI> When you look at the
+  <FONT color="blue"><B>Java "Hello World" program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Hello
+   {
+
+       public static void main(String[] args)          
+       {
+           System.out.println("Hello World");
+       }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+you may <FONT color="red"><B>think</B></FONT> that there are
+ no <FONT color="blue"><B>constants</B></FONT> defined in the program.
+<P>
+<FONT color="red"><B>That's wrong</B></FONT>, because:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   "Hello World"    is a <FONT color="red">String constant</FONT> !!!         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Correspondingly, the 
+   <FONT color="red"><B><TT>.data</TT> section</B></FONT>
+    of the <FONT color="blue"><B>assembler program</B></FONT> contains
+    the defining of a
+    <FONT color="red"><B>string constant</B></FONT> expressed
+    as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// ************************ Starting variable definition *****************
+        <FONT color="red">.data</FONT>
+// ***********************************************************************
+
+HelloStr:                               // Label marking this location in memory
+        <FONT color="red">.asciz "Hello World\n"          // ASCII codes for the string</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>string constant</B></FONT> is 
+  <FONT color="blue"><B>defined</B></FONT> using the syntax:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">.asciz</FONT> "Hello World\n"        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>identifier <TT>HelloStr:</TT></B></FONT>
+     (called "label" in assembler programming - later) is
+ used to <FONT color="blue"><B>mark</B></FONT>
+ the <FONT color="red"><B>memory location</B></FONT>
+  where this <FONT color="blue"><B>string constant</B></FONT> is
+  stored.
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Organization of the Hello World Program
+     </B></FONT>
+<P>
+<UL>
+<LI> According to this organization:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>program instructions</B></FONT> and
+ <FONT color="blue"><B>String constant</B></FONT> are
+ <FONT color="red"><B>stored</B></FONT> inside the
+ <FONT color="blue"><B>computer memory</B></FONT> as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/hello.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Without a <FONT color="red"><B>suitable tool</B></FONT>,
+ I cannot show you the
+ <FONT color="blue"><B>internal organization</B></FONT> of the 
+ program
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     EGTAPI: Emory Graphical Tool for Assembler Programming Instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> We have develop a
+   <FONT color="red"><B>special teaching tool</B></FONT> for
+    <FONT color="blue"><B>CS255 assembler instruction</B></FONT> called:
+     <FONT color="red"><B>EGTAPI</B></FONT>
+<P>
+This tool is design to:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Reveal all the secrets</B></FONT> of
+     <FONT color="blue"><B>programming features</B></FONT> 
+      in
+      <FONT color="red"><B>high level languages</B></FONT>
+      (i.e.:  show you
+      <FONT color="blue"><B>how</B></FONT> are these
+      features
+      <FONT color="red"><B>implemented</B></FONT> in
+      <FONT color="blue"><B>assembler</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> Run <FONT color="red"><B>assmbler programs</B></FONT>
+    without using a <FONT color="blue"><B>real computer</B></FONT>
+    <P>
+  (We run the <FONT color="red"><B>assembler program</B></FONT>
+  using an <FONT color="blue"><B>emulator</B></FONT>.
+ <P>
+   This feature will allow the <FONT color="red"><B>CS lab machines</B></FONT>
+   to run <FONT color="blue"><B>ARM assembler programs</B></FONT> --
+   so we don't need another computer lab to support CS255 projects)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will use <FONT color="red"><B>EGTAPI</B></FONT>
+ to show you the
+ <FONT color="blue"><B>program organization</B></FONT>
+in the <FONT color="red"><B>next webpage</B></FONT>
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

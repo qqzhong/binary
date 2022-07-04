@@ -1,0 +1,830 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+<H3>
+<HR>
+The general CPU Architecture
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Executing computer operations/instructions
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>computer</B></FONT> has the
+   <FONT color="red"><B>capability</B></FONT> to perform
+     a <FONT color="blue"><B>(<I>limited</I>) number operations</B></FONT>
+<P>
+<B>Sample</B> instructions:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Add</B></FONT>
+        <FONT color="blue"><B>integer values</B></FONT>
+        (i.e., <B>2's complement codes</B>)
+ <LI> <FONT color="red"><B>Add</B></FONT>
+        <FONT color="blue"><B>floating point values</B></FONT>
+        (i.e., <B>IEEE 754 codes</B>)
+ <LI> <FONT color="red"><B>Subtract</B></FONT>
+        <FONT color="blue"><B>integer values</B></FONT>
+        (i.e., <B>2's complement codes</B>)
+ <LI> <FONT color="red"><B>Subtract</B></FONT>
+        <FONT color="blue"><B>floating point values</B></FONT>
+        (i.e., <B>IEEE 754 codes</B>)
+ <LI> and so on...
+ <LI> <FONT color="red"><B>Compare</B></FONT>
+        <FONT color="blue"><B>integer values</B></FONT>
+        (i.e., <B>2's complement codes</B>)
+ <LI> <FONT color="red"><B>Compare</B></FONT>
+        <FONT color="blue"><B>floating point values</B></FONT>
+        (i.e., <B>IEEE 754 codes</B>)
+<P>
+ <LI> <FONT color="red"><B>"Jump"</B></FONT> to a
+      <FONT color="blue"><B>given memory location</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>type</B></FONT> of
+     <FONT color="red"><B>operations</B></FONT> that a
+     <FONT color="blue"><B>computer</B></FONT> can
+     <B>perform</B> is
+     <FONT color="red"><B>defined</B></FONT> by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>structure</I></B></FONT> of its
+        <FONT color="blue"><B>Central Processing Unit (= CPU)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>All</B></FONT>
+     <FONT color="blue"><B>commercially available</B></FONT>
+     <B>computers</B> have a
+     <FONT color="red"><B><I>similar</I> CPU design</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We will <FONT color="blue"><B>study</B></FONT> this
+     <FONT color="red"><B>commonly used</B></FONT>
+     <FONT color="blue"><B>CPU structure</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Structure of the CPU of a computer
+     </B></FONT>
+<P>
+<UL>
+<LI> This is a <FONT color="blue"><B>detailed picture</B></FONT>
+    of a <FONT color="red"><B>computer system</B></FONT> with
+    <FONT color="blue"><B>details</B></FONT> of the
+   <FONT color="red"><B>CPU</B></FONT> and
+   <FONT color="blue"><B>memory</B></FONT>
+   exposed:
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/connect.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+I will explain the <FONT color="blue"><B>components</B></FONT> in
+ the <FONT color="red"><B>CPU</B></FONT> in more details
+ <FONT color="blue"><B>now</B></FONT>
+<P>
+<HR>
+<HR>
+<P
+<LI> The <FONT color="blue"><B>general</B></FONT> structure
+     of a <FONT color="red"><B>CPU</B></FONT>
+     (found in all existing <FONT color="blue"><B>computers</B></FONT>)
+     is as <B>follows:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+<LI> <FONT color="blue"><B>General Purpose Registers:</B></FONT>
+ <P>
+ <UL>
+ <LI> very fast memory located inside the CPU
+ <LI> is usually 10 to 50 times faster than main memory 
+      (located outside the CPU)
+ <LI> used to store results of calculations
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>ALU (Arithmetic and Logic Unit)</B></FONT>
+ <P>
+ <UL>
+ <LI> performs arithmetic (+, -, *, /, %) and logic (AND, OR, NOT)
+      operations
+ <LI> takes input from general purpose registers and sometimes also from
+      MBR (memory operand)
+ <LI> produce output that will be stored in a general purpose register or
+      sometimes in MBR (result is written to memory)
+ <LI> certain outcome of the operation (negative, zero, overflow and carry)
+      are stored in the condition flags in the PSR (see later)
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Communication unit:</B></FONT>
+ <P>
+ <UL>
+ <LI> performs data transfer functions between CPU and main
+	memory
+ <LI> use <FONT color="red"><B>two special purpose registers</B></FONT>
+    in its task
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>MAR</B></FONT>
+     = Memory Address Register, contains the address of the memory
+	location that the CPU wants to transfer from/to.
+<P>
+ <LI> <FONT color="red"><B>MBR</B></FONT>
+     = Memory Buffer Register, contains the data being transferred
+	(MBR works like a temporally transfer depot)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Control unit:</B></FONT>
+ <P>
+ <UL>
+ <LI> controls the operation of all other components
+ <LI> works like an orchestra conductor
+ <LI> coordinates the registers, ALU and communication unit
+	so that they perform their function at the right moment to
+	achieve the correct functionality.
+ <P>
+ <LI> Uses these <FONT color="red"><B>special purpose registers</B></FONT>
+     to perform its task:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> <FONT color="red"><B>IR</B></FONT> = instruction register
+     (contains the <FONT color="blue"><B>instruction code</B></FONT>
+      of the <FONT color="red"><B>current instruction</B></FONT>
+      (that is being executed by the CPU)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../../../170/Syllabus/01/FIGS/cpu1c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <FONT color="red"><B>PC</B></FONT> = program counter
+      (contains the address of the <FONT color="blue"><B>next</B></FONT>
+      instruction that needs to be fetched)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../../../170/Syllabus/01/FIGS/cpu1d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ <P>
+ <LI> <FONT color="red"><B>PSR</B></FONT> =
+     processor status register
+     (contains the <FONT color="blue"><B>state information</B></FONT> of
+     the processor - in cs255, we only care about the
+     <FONT color="red"><B>N, Z, V, C flags</B></FONT> in this register (later))
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../../../170/Syllabus/01/FIGS/cpu1e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL> 
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     PSR in more detail
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>PSR</B></FONT> consist of a number of
+       <FONT color="red"><B>status indication bits (= flags)</B></FONT>
+       to signal some conditions
+<P>
+<LI> For <FONT color="blue"><B>assembler programmers</B></FONT>, the
+     following <FONT color="red"><B>4 flags (bits)</B></FONT> inside
+     the <B>PSR</B> will be important:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>N</B></FONT> flag/bit =
+      <FONT color="blue"><B>1</B></FONT> means the result of the operation is 
+      <FONT color="red"><B>negative</B></FONT>, 0 means >= 0
+ <P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Consider the following subtraction in <FONT color="red">2's complement</FONT> code:
+
+      00000010  (= 2)            00000001  (= 1)
+   -  00000001  (= 1)         -  00000010  (= 2)
+  -------------             --------------
+      00000001  (= 1)            11111111  (= -1)
+
+ The CPU will set the <FONT color="red">N flag</FONT> as follows after the subtract operation:      
+
+      N = <FONT color="red">0</FONT>                      N = <FONT color="red">1</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>Z</B></FONT> flag/bit =
+      <FONT color="blue"><B>1</B></FONT> means the result of the operation is 
+      <FONT color="red"><B>equal to 0</B></FONT>, 0 means not equal to 0
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Consider the following subtraction in <FONT color="red">2's complement</FONT> code:
+
+      00000010  (= 2)            00000010  (= 2)
+   -  00000001  (= 1)         -  00000010  (= 2)
+  -------------             --------------
+      00000001  (= 1)            00000000  (= 0)
+
+ The CPU will set the <FONT color="red">Z flag</FONT> as follows after the subtract operation:      
+
+      Z = <FONT color="red">0</FONT>                      Z = <FONT color="red">1</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>V</B></FONT> flag/bit =
+      <FONT color="blue"><B>1</B></FONT> means the result of the operation
+      has caused an 
+      <FONT color="red"><B>overflow</B></FONT>, 0 means no overflow
+ <P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Consider the following addition in <FONT color="red">2's complement</FONT> code:
+
+      01111110  (= 126)                  01111111  (= 127)
+   +  00000001  (= 1)                 -  00000001  (= 1)
+  -------------                      --------------
+      01111111  (= 127 (= 126 + 1))      10000000  (= <FONT color="red">-128</FONT> (<FONT color="red">&ne;</FONT> 127 + 1 !!!))
+
+ The CPU will set the <FONT color="red">V flag</FONT> as follows after the subtract operation:      
+
+      V = <FONT color="red">0</FONT>                      V = <FONT color="red">1</FONT> (there was an <FONT color="red">overflow</FONT> 
+                                       - the number was too large)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>C</B></FONT> flag/bit =
+      <FONT color="blue"><B>1</B></FONT> means the result of the operation has
+      generated a  
+      <FONT color="red"><B>carry/borrow</B></FONT>, 0 means no carry/borrow
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Consider the following addition
+  in <FONT color="red">2's complement</FONT> code:
+
+      11111110  (= -2)           11111111  (= -1)
+   +  00000001  (= 1)         +  00000001  (= 1)
+  -------------             --------------
+      11111111  (= -1)           00000000  (= 0)
+                                <FONT color="red">1</FONT> (<FONT color="red">carry</FONT>)
+
+ The CPU will set the <FONT color="red">Z flag</FONT> as follows after the subtract operation:      
+
+      C = <FONT color="red">0</FONT>                      C = <FONT color="red">1</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>How</B></FONT> does the
+ <FONT color="blue"><B>computer</B></FONT> use these
+ <FONT color="red"><B>N,Z,V,C</B></FONT> flags:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When we <FONT color="red"><B>subtract</B></FONT>
+        <FONT color="blue"><B>2 numbers</B></FONT>
+     <FONT color="red"><B><TT>x &minus; y</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>N, Z, V, C</B></FONT> flags
+     will be <FONT color="blue"><B>set</B></FONT> according to
+     <B>result</B> of
+     <FONT color="red"><B><TT>x &minus; y</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> From the <FONT color="blue"><B>values</B></FONT> of the
+       <FONT color="red"><B>N, Z, V, C</B></FONT> flags, we can
+       <FONT color="blue"><B>tell</B></FONT> whether:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>x == y</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      (<FONT color="blue"><B><TT>Z flag = 1</TT></B></FONT> !!!)
+ <LI> <FONT color="red"><B><TT>x &ne; y</TT></B></FONT>
+ <LI> <FONT color="red"><B><TT>x &lt; y</TT></B></FONT>
+ <LI> <FONT color="red"><B><TT>x &le; y</TT></B></FONT>
+ <LI> <FONT color="red"><B><TT>x &gt; y</TT></B></FONT>
+ <LI> <FONT color="red"><B><TT>x &ge; y</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(Exactly how to <B>use</B> the
+  <FONT color="red"><B>flag</B></FONT> to do so
+ is <FONT color="blue"><B>not important</B></FONT> for
+ the <FONT color="red"><B>assembler programmer - like you</B></FONT>.
+<P>
+You just need to know that the <FONT color="red"><B>computer</B></FONT> 
+ <FONT color="blue"><B>can</B></FONT> tell
+ the <FONT color="red"><B>different outcome</B></FONT> apart
+ using these
+ <FONT color="blue"><B>4 flags</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Connections <FONT color="red">inside</FONT> the CPU
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Datapath:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Datapath</B></FONT> =
+        the <FONT color="blue"><B>circuitry</B></FONT>
+	located <FONT color="red"><B><I>inside</I></B></FONT> the
+	<FONT color="blue"><B>CPU</B></FONT> to
+	<B>transfer</B> the
+	<FONT color="red"><B>data (= binary number or <I>bits</I>)</B></FONT>
+	between
+	the <FONT color="blue"><B>CPU components</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example</B> on <FONT color="red"><B>how</B></FONT> the
+    <FONT color="blue"><B>datapath</B></FONT> is
+    <FONT color="red"><B>used</B></FONT> in
+    <FONT color="blue"><B>computation</B></FONT>
+    (<FONT color="red"><B>addition</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="blue"><B>source data</B></FONT> are
+      <FONT color="red"><B>transferred</B></FONT> to
+      the <FONT color="blue"><B>ALU</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu2b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>CPU</B></FONT> can now
+      <B>perform</B> the <FONT color="blue"><B>addition</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu2c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>sum</B></FONT> of the
+   <FONT color="blue"><B>addition</B></FONT> can be
+   <FONT color="red"><B><I>stored</I></B></FONT> in a
+   <FONT color="blue"><B>register</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu2d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>sum</B></FONT> of the
+   <FONT color="blue"><B>addition</B></FONT> can 
+   <B><I>also</I></B> be
+   <FONT color="red"><B><I>stored</I></B></FONT> into
+   <FONT color="blue"><B>memory</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/cpu2e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you want to <FONT color="blue"><B>learn more</B></FONT> about
+ <FONT color="red"><B>exactly <I>how</I></B></FONT> this
+ <FONT color="blue"><B>works</B></FONT>, you need to
+ take <FONT color="red"><B>CS355</B></FONT>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review: Connection between CPU
+    and Memory
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="blue"><B>System bus</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>System bus</B></FONT> =
+      the <FONT color="red"><B>connections</B></FONT> between
+      the <FONT color="blue"><B>CPU</B></FONT> and
+      the <FONT color="red"><B>memory (= RAM)</B></FONT> 
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>System bus</B></FONT> is used to
+      <FONT color="red"><B>transfer</B></FONT> <B>data</B>
+      (= <FONT color="blue"><B>binary numbers or <I>bits</I></B></FONT>)
+      between the <FONT color="red"><B>CPU</B></FONT> and
+      the <FONT color="blue"><B>memory (RAM)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> We have discussed the <FONT color="red"><B>operation</B></FONT>
+  of the <FONT color="blue"><B>system bus</B></FONT> before
+ <P>
+  <B>See:</B>
+   <A HREF="../4-intro/mem-access.html">
+    <FONT color="red"><B>click here</B></FONT></A>
+<P>
+<HR>
+<HR>
+<P>
+<LI> I can show you <FONT color="red"><B>how</B></FONT> the
+     <FONT color="blue"><B>CPU</B></FONT> is 
+     <B>connected</B> to the
+     <FONT color="red"><B>system bus</B></FONT> in
+     <FONT color="blue"><B>more details</B></FONT> now
+     (that you have seen some details of the <B>CPU</B>):
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/connect.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>MAR register</B></FONT>  of the
+     <FONT color="blue"><B>CPU</B></FONT> is
+     <B>connect</B> to the 
+     <FONT color="red"><B><I>address</I> bus</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>CPU</B></FONT> will
+      <FONT color="red"><B>write</B></FONT> the
+      <FONT color="blue"><B>address</B></FONT> into its
+      <FONT color="red"><B>MAR register</B></FONT> to
+      <B>send</B> the
+      <FONT color="blue"><B>address</B></FONT> onto the
+      <FONT color="red"><B>address bus</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>MBR register</B></FONT>  of the
+     <FONT color="blue"><B>CPU</B></FONT> is
+     <B>connect</B> to the 
+     <FONT color="red"><B><I>data</I> bus</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> The <FONT color="blue"><B>CPU</B></FONT> will
+      <FONT color="red"><B>write</B></FONT> the
+      <FONT color="blue"><B>data</B></FONT> into its
+      <FONT color="red"><B>MBR register</B></FONT> to
+      <B>send</B> the
+      <FONT color="blue"><B>data (= binary number or <I>bits</I>)</B></FONT>
+        onto the
+      <FONT color="red"><B>data bus</B></FONT>
+      (which will be <B>written</B>
+     to the <FONT color="blue"><B>memory</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>CPU</B></FONT> can <B><I>also</I></B>
+      <FONT color="red"><B>copy</B></FONT> the
+      <FONT color="blue"><B>data</B></FONT> from
+      the <FONT color="red"><B><I>data</I> bus</B></FONT> <B>into</B> its
+      <FONT color="red"><B>MBR register</B></FONT> 
+<P>
+   In <FONT color="blue"><B>this case</B></FONT>,
+      the <FONT color="red"><B>CPU</B></FONT>
+      will <FONT color="blue"><B>read</B></FONT> the
+      <FONT color="red"><B>data  (= binary number or <I>bits</I></B></FONT>
+      from <FONT color="blue"><B>memory</B></FONT> !!!
+ 
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+If you want to <FONT color="blue"><B>learn more</B></FONT> about
+ <FONT color="red"><B>exactly <I>how</I></B></FONT> this
+ <FONT color="blue"><B>works</B></FONT>, you need to
+ take <FONT color="red"><B>CS355</B></FONT>
+<P>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+
+

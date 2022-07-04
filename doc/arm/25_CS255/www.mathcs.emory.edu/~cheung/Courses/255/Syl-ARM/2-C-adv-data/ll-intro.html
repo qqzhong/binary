@@ -1,0 +1,325 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>
+<I>Review</I>
+  of linked lists and 
+<I>how to</I> implement linked list in C
+</B></FONT>
+<HR>
+
+<UL>
+<LI> <FONT COLOR="darkmagenta"> <B>
+        Linked lists
+        </B></FONT>
+  <P>
+  <UL>
+
+
+<P>
+<LI> A <FONT COLOR="red"><B>linked list</B></FONT> is
+     a <FONT COLOR="blue"><B><I>dynamically growing/shrinking</I></B></FONT>
+     <FONT COLOR="red"><B>"data structure"</B></FONT>
+     used to organize a collection of
+     <FONT COLOR="blue"><B>identical objects</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+<TR> <TD>
+<IMG SRC="FIGS/list.gif"></IMG>
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <B>Note</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The
+	<FONT color="blue"><B> "links" </B></FONT>
+	are
+	<B>formed</B> using
+	<FONT color="red"><B> references (i.e., addresses) </B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> Each <FONT color="blue"><B>linked list element</B></FONT> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>data portion</B></FONT> 
+     (the content is determined by the <B>user</B>)
+ <LI> A <FONT color="red"><B><I>reference</I> (address/pointer)</B></FONT> to
+    the <FONT color="blue"><B><I>next</I> list element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> A <FONT color="red"><B><TT>head</TT></B></FONT> 
+    (<B>reference</B>) variable contains
+    the <FONT color="blue"><B>address (location)</B></FONT> of the
+    <FONT color="red"><B><I>first</I> element</B></FONT> of
+    the <B>linked list</B>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <B>Traversing</B> a <FONT color="blue"><B>linked list</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can <FONT color="blue"><B>find</B></FONT> the
+      <FONT color="red"><B><I>first</I> element</B></FONT> of the
+      <B>linked list</B> through the
+      <FONT color="blue"><B>variable <TT>head</TT></B></FONT>
+ <P>
+ <LI> We can <FONT color="blue"><B>find</B></FONT> the
+      <FONT color="red"><B><I>second</I> element</B></FONT> of the
+      <B>linked list</B> through the
+      <FONT color="blue"><B><I>reference</I> </B></FONT> stored in
+      the 
+      <FONT color="blue"><B><I>first</I> list element</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <HR>
+ <P>
+ <LI> We will first look at the <B><I>how</I></B>
+	to
+	<FONT color="blue"><B> chain elements </B></FONT>
+	into a 
+	<FONT color="red"><B> linked list </B></FONT>...
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"> <B>
+     The <TT>struct</TT> for a linked list
+        </B></FONT>
+  <P>
+  <UL>
+
+
+<P>
+<LI> Consider the
+   following simple <FONT color="blue"><B>linked list element</B></FONT>
+   that contains an
+   <FONT color="red"><B>integer value</B></FONT>:
+<P>
+<P>
+<UL>
+<TABLE BORDER="5">
+<TR> <TD>
+<IMG SRC="FIGS/list1.gif"></IMG>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="blue"><B><TT>struct</TT></B></FONT> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> An <FONT color="red"><B>integer variable</B></FONT>
+ <LI> A <FONT color="red"><B><I>reference</I> variable</B></FONT> to
+      <B><I>another</I></B>
+     <FONT color="blue"><B>linked list element</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Therefore, the <B>linked list element</B>
+      <FONT color="blue"><B><TT>struct</TT></B></FONT> has the
+     folloing <FONT color="red"><B>type definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct  ListElem
+   {
+      int value;               // the integer value stored in the list     
+      <FONT color="red">struct ListElem *</FONT>next;   <FONT color="red">// points to the nextlist element</FONT>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>In general</B>, a
+     <FONT color="blue"><B>linked list</B></FONT> <B><TT>struct</TT></B>
+     type definition looks like this:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   struct  AnyListElem
+   {
+      variable definitions;       // the "information payload"    
+
+      <FONT color="red">struct AnyListElem *</FONT>next;   <FONT color="red">// points to the nextlist element</FONT>     
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>head</I> variable
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the <FONT color="blue"><B><TT>head</TT> variable</B></FONT>
+     of a <B>linked list</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list1a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Observe</B> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><TT>head</TT></B></FONT> variable
+      contains the
+      <FONT color="red"><B><I>address</I></B></FONT> of
+      a <FONT color="blue"><B><TT>struct ListElem</TT></B></FONT>
+      variable
+      (in fact, it is the <B>address</B> of
+      the <FONT color="red"><B><I>first</I> element</B></FONT> in ths
+      list) 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore</B>, the <FONT color="blue"><B><TT>head</TT></B></FONT>
+   variable has the following
+   <FONT color="red"><B>type definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">struct  ListElem  *</FONT>head;   // The head variable of a linked list      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>In general</B>, the
+     <FONT color="blue"><B><TT>head</TT> variable</B></FONT> 
+     of a linked list
+     is defined as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">struct  AnyListElem  *</FONT>head;    // General case....      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+  </UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

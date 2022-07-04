@@ -1,0 +1,457 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Representing alphanumerical data
+<HR>
+</H3>
+
+<UL>
+<LI> <FONT color="red"><B>Text</B></FONT> consists of
+     <FONT color="darkmagenta"><B>characters</B></FONT>, such as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Letters:              A B C D .... 
+                        a b c d ....
+  Numerical characters: 0 1 2 3 4 5 6 7 8 9           
+  Special symbols:      ! @ # $ % ^ & * ...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<FONT color="red"><B>Text</B></FONT> is also
+	represented inside a computer
+     using a <FONT color="blue"><B>code</B></FONT> 
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Every letter, number, special symbol</B></FONT> is
+     <FONT color="blue"><B>represented</B></FONT> by
+     a <FONT color="red"><B>unique binary number</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In theory, you can assign an 
+ <FONT color="red"><B>arbitrary binary number</B></FONT> to
+ a <FONT color="blue"><B>letter, number or special character</B></FONT>
+ - as long as the <FONT color="red"><B>assignment</B></FONT> is
+ <FONT color="blue"><B>unique</B></FONT>
+<P>
+But <FONT color="red"><B>in practice</B></FONT>
+ (for <FONT color="blue"><B>decoding purpose</B></FONT>),
+ it's more <FONT color="red"><B>efficient</B></FONT> to
+ <FONT color="blue"><B>group</B></FONT> similar symbols
+ when you assign values to the symbols.
+<P>
+<HR>
+<HR>
+<P>
+<LI> In the beginning of the computer era, different computer
+	manufacturers would use different codes to represent
+	the same character
+  <P>
+  (Meaning: in one computer, 00000001 can mean 'A" while
+	in another 00000001 would mean 'X')
+  <P>
+  Obviously, this is a nightware when you want to exchange data:
+  <P>
+  <PRE>
+  Original text        Representation      Representation       Received as
+		       in computer A       in computer B
+
+   'A'                  00000001   ------->   00000001              'X'
+  </PRE>
+
+  <P>
+  The text would become scrambled....
+ <P>
+<HR>
+<HR>
+<P>
+<LI> In order to <B>interchange</B> information between computers,
+	all computers must use the <B>same code</B>
+  <P>
+    The <FONT color="red"><B>first</B></FONT>
+   <FONT color="blue"><B>international code standard</B></FONT> to
+   represent the
+   <FONT color="red"><B>English Alphabet</B></FONT> was:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>ASCII code</B></FONT>
+    (= American Standard Code for Information Interchange)
+ <P>
+    ASCII is still being used in today's computers
+   (see: <A HREF="https://en.wikipedia.org/wiki/ASCII">
+   click here </A>)
+ </UL> 
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+
+<LI> The <FONT color="red"><B>code assignment</B></FONT> to
+    the letters, numbers and special symbols in the
+   <FONT color="blue"><B>ASCII code</B></FONT> is as follows:
+<P>
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/ASCII-bin.gif" width=800 height=600></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<FONT color="red"><B>Notice </B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>numerical characters</B></FONT>
+      (0,1,2,3,4,5,6,7,8,9) have
+     <FONT color="blue"><B>seccessive code values</B></FONT>
+     and <FONT color="red"><B>code(0) < code(1) < ... < code(9)</B></FONT>
+     (i.e.: grouped together)
+ <LI> The <FONT color="red"><B>capital letters</B></FONT>
+        (A,B,C,...,Z) have
+     <FONT color="blue"><B>seccessive code values</B></FONT>
+     and <FONT color="red"><B>code(A) < code(B) < ... < code(Z)</B></FONT>
+     (i.e.: <B>also</B> grouped together)
+ <LI> The <FONT color="red"><B>lower case letters</B></FONT>
+        (a,b,c,...,z) have
+     <FONT color="blue"><B>seccessive code values</B></FONT>
+     and <FONT color="red"><B>code(a) < code(b) < ... < code(z)</B></FONT>
+     (i.e.: <B>also</B> grouped together)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+
+
+
+
+
+
+
+
+
+Here's tool by Mathias I found on the web that shows the binary code for each symbol:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5" width=500>
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Enter a symbol:</B>
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea pattern="[\x00-\xFF]*" autofocus cols=40>
+A</textarea>
+<BR>
+<LI><B>Binary ASCII code:<B>
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea cols=40 pattern="(\s*[01]{8}\s*)*">0100100001100101011100100110010100100000011000100110010100100000011100110110010101100011011100100110010101110100001000000110110101100101011100110111001101100001011001110110010101110011001000010010000100110001</textarea>
+<p id=footer>Made by <a href=http://mathiasbynens.be/>@mathias</a>  
+---- <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/binary-ascii>GitHub! source</a></p>
+<script>(function(i,o){var l=o.getElementsByTagName("textarea"),b=l[0],a=l[1],k=o.getElementById("permalink"),j=/\s*[01]{8}\s*/g,e=/[\s\S]/g,f=/^(\s*[01]{8}\s*)*$/,r=/^[\x00-\xff]*$/,p=(function(){var t=new Date,v,s;try{(v=i.localStorage).setItem(t,t);s=v.getItem(t)==t;v.removeItem(t);return s&&v}catch(u){}}()),n=String.fromCharCode;function d(s){return encodeURIComponent(s).replace(/['()_*]/g,function(t){return"%"+t.charCodeAt().toString(16)})}function m(s){return"00000000".slice(String(s).length)+s}function q(s){return s.replace(j,function(t){return n(parseInt(t,2))})}function c(s){return s.replace(e,function(t){return m(t.charCodeAt().toString(2))+' '})}function h(x,v,u,t){var w=x.value,s="";if(v.test(w)){t.value=s=u(w);x.className=t.className=""}else{t.value="ERROR: invalid input";x.className=t.className="invalid"}return x==b?w:s}function g(){var s=this==a?h(a,f,q,b):h(b,r,c,a);k.hash=d(s);p&&(p.ascii=s)}b.onkeyup=a.onkeyup=g;b.oninput=a.oninput=function(){b.onkeyup=a.onkeyup=null;g.call(this)};if(p){p.ascii&&(b.value=p.ascii);g()}i.onhashchange=function(){b.value=decodeURIComponent(location.hash.slice(1));g()};if(location.hash){i.onhashchange()}}(this,document));window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src="//www.google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"))</script>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     ASCII code is a number !!!
+     </B></FONT>
+<P>
+<UL>
+<LI> I want to <FONT color="red"><B>emphasize</B></FONT> that
+     <FONT color="blue"><B>everything</B></FONT> inside the
+     computer are <FONT color="red"><B>numbers</B></FONT>
+ <P>
+ <B>Specifically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Text</B></FONT> encoded 
+      in <FONT color="blue"><B>ASCII code</B></FONT> is
+      <FONT color="red"><B>represented</B></FONT> by
+      a <FONT color="blue"><B>(binary) number</B></FONT>
+ <P>
+   (And as a <FONT color="red"><B>number</B></FONT>, you 
+   <FONT color="blue"><B>can (if you want)</B></FONT>
+   perform
+   <FONT color="red"><B>calculation</B></FONT> on
+   the <FONT color="blue"><B>code number</B></FONT> !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> I have written
+    a <FONT color="red"><B>C program</B></FONT>
+    that <FONT color="blue"><B>illustrates</B></FONT> that
+    <FONT color="red"><B>characters</B></FONT> are
+    stored inside the computer
+    as a <FONT color="blue"><B>binary number</B></FONT>
+ <P>
+   I use <FONT color="red"><B>C</B></FONT> because this
+   programming language does not need
+   <FONT color="blue"><B>character <--> integer</B></FONT> 
+   <FONT color="red"><B>conversion (casting) operations</B></FONT>
+   (Java require a <FONT color="blue"><B>casting operator</B></FONT> when
+   you want to perform
+   <FONT color="red"><B>computation</B></FONT> on
+   a <FONT color="blue"><B>character</B></FONT>)
+<P>
+ Here is the <FONT color="red"><B>C program</B></FONT> - 
+  the <FONT color="blue"><B>syntax</B></FONT> is
+  very similar to <FONT color="red"><B>Java</B></FONT> and
+  you should be able to follow the
+  <FONT color="blue"><B>gist</B></FONT> of the discussion:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// <FONT color="red">file: /home/cs255001/demo/atoi/ascii.c</FONT>
+
+int main()
+{
+   char <font color="red">c</font>;
+
+   while (1)
+   {
+      printf("\n\nEnter a character: ");
+      scanf("%c", &<font color="red">c</font>);        <FONT color="red">  // Read in ASCII code from terminal</FONT>
+      getchar();
+
+      printf("\nYou have enter the character: %c\n\n", <font color="red">c</font>);
+      printf("Internally, this character is stored as the binary number: ");
+      printBits(<font color="red">c</font>);
+      printf("\n");
+      printf("The symbol represented by this code (in ASCII) is: %c\n", <font color="red">c</font>);
+      printf("This is decimal number represent by this code (in 2's compl) is: %hhd\n", <font color="red">c</font>);
+      printf("\nWe can add 1 to this number:\n");
+      printf("                               this number + 1  = %hhd\n", <font color="red">c</font>+1);
+      printf("                     it's binary representation = ");
+      printBits(<font color="red">c</font>+1); printf("\n");
+      printf("The symbol represented by code+1 (in ASCII) is = %c\n", <font color="red">c</font>+1);
+      printf("\n\n");
+
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The program reads in a
+ <FONT color="red"><B>character</B></FONT> (i.e.: an <FONT color="blue"><B>ASCII code</B></FONT>
+ from the terminal and
+ store the <FONT color="red"><B>ASCII code</B></FONT> in the
+ <FONT color="blue"><B>variable <TT>c</TT></B></FONT>.
+<P>
+Afterwards, the program will use print the value in the
+ <FONT color="red"><B>variable <TT>c</TT></B></FONT> 
+ in different <FONT color="blue"><B>formats</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  (1) printf("The symbol represented by this code (in ASCII) is: <FONT color="red">%c</FONT>\n",<FONT color="red"> c</FONT>);
+
+      will print the <FONT color="red">value</FONT> in <FONT color="red">c</FONT> decoded using the <FONT color="red">ASCII code</FONT>
+
+<HR>
+  (2) printf("This is decimal number represent by this code (in 2's compl) is: <FONT color="red">%hhd</FONT>\n", <FONT color="red">c</FONT>);
+
+      will print the <FONT color="red">value</FONT> in <FONT color="red">c</FONT> decoded using the <FONT color="red">2's compl code</FONT>
+
+<HR>
+  (3) printBits(<FONT color="red">c</FONT>);
+
+      will print the <FONT color="red">value</FONT> in <FONT color="red">c</FONT> as a <FONT color="red">binary number</FONT>
+      (I have writted this function and you don't need to understand how it works -
+       I just want to show you the binary number for better/complete understanding
+       of this material)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+
+<HR>
+
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make a copy of the program into your CS255 directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>gcc -o ascii ascii.c</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>ascii</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here is an example output (I entered 'a' and 'b' as input):
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@lab0z> ascii
+
+
+Enter a character: <FONT color="red">a</FONT>
+
+You have enter the character: <FONT color="red">a</FONT>
+
+Internally, this character is stored as the binary number: <FONT color="red">01100001</FONT>         
+The symbol represented by this code (in ASCII) is: <FONT color="red">a</FONT>
+This is decimal number represent by this code (in 2's compl) is: <FONT color="red">97</FONT> <FONT color="darkmagenta">// Can you explain why it's 97 ?</FONT>
+
+We can add 1 to this number:
+                               this number + 1  = <FONT color="red">98</FONT>
+                     it's binary representation =<FONT color="red"> 01100010</FONT>
+The symbol represented by code+1 (in ASCII) is = <FONT color="red">b</FONT> <FONT color="darkmagenta">// Can you explain why it's b ?</FONT>
+
+
+
+
+Enter a character: b
+
+You have enter the character: b
+
+Internally, this character is stored as the binary number: 01100010
+The symbol represented by this code (in ASCII) is: b
+This is decimal number represent by this code (in 2's compl) is: 98
+
+We can add 1 to this number:
+                               this number + 1  = 99
+                     it's binary representation = 01100011
+The symbol represented by code+1 (in ASCII) is = c
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you can explain the output of this program, then
+ you have fully realized that
+ <FONT color="red"><B>ASCII code</B></FONT> is
+ a <FONT color="blue"><B>number</B></FONT> !!!
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+

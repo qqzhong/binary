@@ -1,0 +1,365 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Intro to representation of computer instructions:
+   What instructions can a computer execute ?
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What can a computer do ?
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall my
+ <FONT color="red"><B>mechanical representation</B></FONT> of
+       a <FONT color="blue"><B>(electrical) computer</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/170/FIGS/0/computer01.jpg"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+A <FONT color="red"><B>computer</B></FONT> can
+ <FONT color="blue"><B>only</B></FONT> execute 
+  <FONT color="red"><B>3 categories </B></FONT>
+  (kinds) of <FONT color="blue"><B>instructions</B></FONT>:
+<P>
+
+
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Data copying operations:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Some <FONT color="blue"><B>data</B></FONT> is
+      <FONT color="red"><B>transfered (copied)</B></FONT> from
+      a <FONT color="blue"><B>source location</B></FONT> to
+      a <FONT color="red"><B>destination location</B></FONT>
+<P>
+ There are 
+      <FONT color="red"><B>3 ways</B></FONT> of 
+       <FONT color="blue"><B>data transfer</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Move data</B></FONT>:
+      the data is <FONT color="blue"><B>copied</B></FONT> from
+      a <FONT color="red"><B>register</B></FONT> to
+      another <FONT color="blue"><B>register</B></FONT> inside the <B>CPU</B>
+ <LI> <FONT color="red"><B>Load data</B></FONT>:
+      the data is <FONT color="blue"><B>copied</B></FONT> from
+      a <FONT color="red"><B>memory location</B></FONT> to
+      a <FONT color="blue"><B>register</B></FONT> inside the <B>CPU</B>
+ <LI> <FONT color="red"><B>Store data</B></FONT>:
+      the data is <FONT color="blue"><B>copied</B></FONT> from
+       a <FONT color="red"><B>register</B></FONT> inside the <B>CPU</B> to
+      a <FONT color="blue"><B>memory location</B></FONT>
+     
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Arithmetic/logical operations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>Values</B></FONT> from
+     <FONT color="blue"><B>1 or 2 <I>source</I> (general purpose)
+       registers</B></FONT> 
+     (inside the CPU) are
+     <FONT color="red"><B>combined 
+     (e.g., negation, add, subtract, multiply, etc)</B></FONT>
+     and the <FONT color="blue"><B>result</B></FONT> of
+     <FONT color="red"><B>operation</B></FONT> is
+     stored in a
+     <FONT color="blue"><B>destination (general purpose) 
+   register</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Branch
+      operations:</B></FONT>
+   (with or without linking) 
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Program Counter</B></FONT> is
+       <FONT color="blue"><B>updated</B></FONT> by
+       the <FONT color="red"><B>computer instruction</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because the <FONT color="red"><B>CPU</B></FONT> will
+  <FONT color="blue"><B>fetch</B></FONT> the
+  <FONT color="red"><B><I>next</I> instruction</B></FONT> from
+  <B>memory</B> at the
+  <FONT color="blue"><B>address given by the value
+   in the Program Counter</B></FONT>, 
+   <FONT color="red"><B>updating the Program Counter</B></FONT> will
+   cause the <FONT color="blue"><B>CPU</B></FONT> to
+   <FONT color="red"><B>fetch the <I>next</I> instruction</B></FONT>
+   at a <FONT color="blue"><B><I>new</I> location</B></FONT> !!!
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <LI> A <FONT color="red"><B>branch operation</B></FONT> will
+    <B>therefore</B> make
+      the <FONT color="blue"><B>program</B></FONT>
+      <FONT color="red"><B><I>jump</I></B></FONT> to
+      a <FONT color="blue"><B>different part</B></FONT> of the
+      program and 
+      <FONT color="red"><B>continues</B></FONT> the
+    <B>program execution</B> at the
+      <FONT color="blue"><B>branch address</B></FONT>
+      given in the <FONT color="red"><B>branch instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Comment:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Some <FONT color="blue"><B>computers</B></FONT> has 
+   <FONT color="red"><B>instructions</B></FONT> that
+   <FONT color="blue"><B>combine</B></FONT>
+   <FONT color="red"><B>2 (or more) kinds </B></FONT> of above
+   <FONT color="blue"><B><I>basic</I> instructions</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Intel processors</B></FONT> can
+      execute <FONT color="blue"><B>arithmetic operations</B></FONT>
+      on a <FONT color="red"><B>value</B></FONT> stored in
+      <FONT color="blue"><B>memory</B></FONT>
+<P>
+ This type  of instruction is performed by 
+ combining 3 <B>basic</B> operations:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> First, the CPU transfer the data from memory into a
+       <FONT color="red"><B>scratch register(s)</B></FONT> inside the
+       <FONT color="blue"><B>ALU</B></FONT>
+ <LI> Then, the CPU performs the <FONT color="red"><B>Arithmetic/logic
+     operation</B></FONT>
+     using values in the <FONT color="blue"><B>scratch register(s)</B></FONT>
+     and store the result in (another) register
+ <LI> Finally, the CPU transfer the <FONT color="blue"><B>result</B></FONT>
+     in the register to the memory using another
+     <FONT color="red"><B>data copying operation</B></FONT>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ A  processer
+   provides <FONT color="red"><B>combined operations</B></FONT>
+ (such as the <FONT color="blue"><B>Intel processor</B></FONT>)
+ for the <FONT color="red"><B>convience</B></FONT> of
+ the <FONT color="blue"><B>assembler programmer</B></FONT>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+
+<HR
+<HR>
+<HR>
+<P>
+<LI> A list of all possible 
+    <FONT color="red"><B>instructions</B></FONT>
+    of the <FONT color="blue"><B>ARM processor</B></FONT>
+  (ARM is used in many tablet devices):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>page 1</B></FONT> of this
+   <FONT color="blue"><B>PDF file</B></FONT> contains
+    all the possible <FONT color="red"><B>instruction</B></FONT> of
+    the <FONT color="blue"><B>ARM processor</B></FONT> that
+    we use in <FONT color="red"><B>CS255</B></FONT>:
+    <A HREF="../7-ARM/Docs/armv4t-instruction-set.pdf" target="_blank">
+    click here</A>
+<P>
+<HR>
+<P>
+<LI> If you go through the
+     <FONT color="red"><B>types</B></FONT> of
+    <FONT color="blue"><B>instructions</B></FONT> in
+    <FONT color="red"><B>column 1</B></FONT> of the PDF file,
+    you will see that
+    the <FONT color="blue"><B>ARM processor</B></FONT>
+    (used in most <FONT color="red"><B>tablet devices</B></FONT>)
+    can only execute these 
+    <FONT color="blue"><B>types</B></FONT> of
+    <FONT color="red"><B>instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Move            - this is a copy instruction (item 1 in my list above)
+   Arithmetic      - in my list as item 2
+   Logical	   - in my list as item 2
+   Compare         - in my list as item 2
+   Branch	   - in my list as item 3
+   Load            - this is a copy instruction using a memory cell as data source
+                     and a register as destination (item 1 in my list)
+   Store	   - this is a copy instruction using a register as data source
+                     and a memory cell as destination (item 1 in my list)
+   Load Multiple   - executes multiple Load instructions for user's convenience
+   Store Multiple  - executes multiple Store instructions for user's convenience
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So you see that 
+ <FONT color="red"><B>every instruction</B></FONT> of
+ the <FONT color="blue"><B>very popular</B></FONT>
+ <FONT color="red"><B>ARM processor</B></FONT> (used in
+ many table devices)
+ fall in the <FONT color="blue"><B>3 categorizes</B></FONT> of
+ <FONT color="red"><B> instructions</B></FONT>
+<P>
+</UL>
+<P>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,364 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization/Architecture I <BR>
+Homework 6
+</H2>
+</CENTER>
+<P>
+
+Due date: See Class Webpage
+
+<P>
+Observe the <B> Emory Honor Code </B> when doing this (and all other) homework.
+
+<H2>
+1. Purpose of Assignment
+</H2>
+<P>
+<UL>
+ <UL>
+ <LI> Refresher for linked list manipulation 
+ <LI> Gain insight into linked list through assembler programming
+ <LI> Prepare you for project 4 that uses recursion to manipulate linked lists.
+ <LI> Prepare for midterm
+</UL>
+</UL>
+<P>
+<H2>
+2. The Skeletal File
+</H2>
+<UL>
+Since this assignment is about manipulating linked lists,
+and it takes a lot of computer instructions to just create
+ a linked list, to save the computation effect,
+ I have "hand coded" <B>three</B> linked list in 
+ the skeletal file used for this assignment.
+<P>
+You don't need to know the details how I did it.
+All the information that you need to know in order to work 
+ with the linked list are:
+<P>
+ <UL>
+ <LI>  the structure of the linked list elements
+ <LI>  the head of each of the linked lists.
+ </UL>
+<P>
+First, get a <B>copy</B> of the skeletal file for this homework:
+<P>
+<UL>
+ <LI> Skeletal hw6 project  file: <A HREF="hw6.s"> right click here and
+	save in your CS255 project directory</A>.
+ </UL>
+<P>
+To get a copy of the skeletal program file, 
+ <B>right</B> click on the above hyper link -
+ choose the <B><TT>Save As</TT></B> tab to save a copy.
+Put the copy in your <B>cs255</B> project directory.
+
+</UL>
+<P>
+<H2>
+3. The Linked Lists
+</H2>
+<UL>
+
+<P>
+The linked lists that I hand coded is contained in the variable section
+of the hw6.s file.
+The variable section of the  skeletal program  contains:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+   List list1;		// list1 points to the first list element of list1
+			 (it contains the address of the first element of list 1)
+
+   List list2;		// list2 points to the first list element of list2
+			 (it contains the address of the first element of list 2)
+
+   List list3;		// list3 points to the first list element of list3
+			 (it contains the address of the first element of list 3)  
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+These 3 linked lists have <B><I>already been defined</I></B>
+ so you must have faith in my ability to construct the linked list.
+You just have to traverse and manipulate the lists.
+You do not need to create list elements in this assignment (it will
+ happen later) - just <B><I>manipulate</I></B> the list elements.
+
+<P>
+Each <B><I>objects</I></B> in the linked list
+ has the following structure:
+<PRE>
+        +-------------+
+        | int value   |   (4 bytes)
+        +-------------+
+        | List next   |   (4 bytes)
+        +-------------+
+</PRE>
+In Java, the class definition of the List object would look like this:
+<PRE>
+	public class List
+	{
+	   int  value;
+	   List next;
+	}
+</PRE>
+</UL>
+
+<H2>
+4. Other variables that are already defined in the program
+</H2>
+<P>
+<UL>
+ There are other variables defined in the program that you need to
+ use to complete the assignment.
+<P>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  int answer;           // Used to store the answer
+
+  List elem1;		// Points to a List element 
+			// that you need to insert into List1
+
+  List elem2;		// Points to a List element 
+			// that you need to insert into List2
+
+  List elem3;		// Points to a List element 
+			// that you need to insert into List3    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<H2>
+5. Questions
+</H2>
+<P>
+ <UL>
+<P>
+  The skeletal program has 5 sections, labeled as 
+   <P>
+  <UL>
+  <LI> Q1, 
+  <LI> Q2, 
+  <LI> ..., 
+  <LI> Q5
+  </UL>
+<P>
+ The labels corresponds to questions 1 through 5.
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="red">
+<B>
+  Write the assembler instructions the each answer in the corresponding
+   section of the <TT>hw6.s</TT> file.
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+The assignment is as follows:
+<P>
+<OL>
+<LI> After the label <B>Q1</B>, write 
+	M68000 assembler instructions to do:
+<B>
+<PRE>
+    answer = list1.value ;	
+</PRE>
+</B>
+  The correct answer is:  1234
+<P>
+<LI> After the label <B>Q1</B>, write 
+        M68000 assembler instructions to do:
+<B>
+<PRE>
+    answer = list1.next.next.next.value ;
+</PRE>
+</B>
+<P>
+
+  The correct answer is:  2345
+<P>
+<LI> Insert elem1 at the <B>start</B> of list1
+ <P>
+ <UL>
+ You will see list1 change and the first element is: 
+<B>
+<PRE>
+    (7777, 314) -> ... etc
+</PRE>
+</B>
+ </UL>
+<P>
+<LI> Insert elem2 as the <B>third element</B> in list2
+ <P>
+ <UL>
+ You will see list2 change and the 3rd element is: 
+<B>
+<PRE>
+     ... -> ... -> (8888, 314) -> ... etc
+</PRE>
+</B>
+ </UL>
+<P>
+<LI> Insert elem3 at the <B>tail (end)</B> of list3
+ <UL>
+ You will see list3 change and the <B>last</B> element is: 
+<B>
+<PRE>
+     ... -> ... -> ... -> (9999, 314)
+</PRE>
+</B>
+ </UL>
+<P>
+<P>
+<B>NOTE:</B> You <FONT COLOR="red"><B>must</B></FONT> use
+  a while loop to determine the end of the list in Part 5.
+  Do  <FONT COLOR="red"><B>not</B></FONT>
+	look in the file and <B><I>count</I></B> the number of element
+	in list3.
+  (So do not cheat on yourself by determining the last element 
+ in the list through counting the number of elements....)
+ You will lose out on an opportunity to re-inforce your knowledge of linked list
+ (and I <B>will</B> test your ability to work 
+ with linked lists in the tests, so you will only be cheating on yourself)
+</OL>
+</UL>
+
+<H2>
+6. Running the program
+</H2>
+
+<P>
+
+<OL>
+<LI> First, get a copy of the EGTAPI debug file <TT>egt.hw6</TT>
+    for this project:
+ <P>
+ <UL>
+ <LI> egt.hw6 for homework 5 for a <B>Windows PC</B>:
+     <A HREF="PC/egt.hw6">  click here </A>
+ <LI> egt.hw6 for homework 5 for a <B>Mac/Linux PC</B>:
+     <A HREF="egt.hw6">  click here </A>
+ </UL>
+<P>
+ <B>Right</B> click on the above hyper link; and select "Save As".
+Save it in the <B>same directory</B> as your hw6.s project file !
+ <P>
+<LI> run hw6 in EGTAPI.
+ <P>
+   You will see the <B>Linked List Watch</B> window pop up
+	showing the 3 linked lists and 3 list elements.
+   (list1, elem1, list2, elem2, list3, elem3)
+ <P>
+   You should also see the variable
+   <B>answer</B> in the <B>Variable Watch</B> window.
+ <P>
+   For <B>Q1</B> and <B>Q2</B>, look at the variable
+   <B>answer</B> in the <B>Variable Watch</B> window to see if
+	your program is correct.
+  <P>
+  For <B>Q3</B>, <B>Q4</B> and <B>Q5</B>, look at the
+	<B>Linked List Watch</B> window to check if your program is correct.
+
+ <P>
+<LI> First, run the program using the "Continue" button to quickly
+	see if you have errors.
+	It will run till the next break point and I have already
+	setup the labels
+	Q2, Q3, Q4, Q5 and Stop as breakpoints, so the program should
+	stop each time it completes one question.
+  <P>
+	When EGTAPI stops, look carefully at the results.
+ <P>
+ <LI> For Q1, you should see <B>answer = 1234</B>
+ <P>
+ <LI> For Q2, you should see <B>answer = 2345</B>
+ <P>
+ <LI> For Q3, Q4 and Q5, you should look in the Linked List Watch
+	window to see if the linked list has been modified correctly -
+	i.e., did you inserted the element in the right place.
+ 
+ <P>
+ <LI> The linked lists from questions Q3, Q4 and Q5 will also be printed
+	to the termout0 output file
+	(i.e., a file will be created named "termout").
+    <P>
+	This is mainly used by the grader to simplify grading.
+	You have <B>much better debug information</B> available with <B>EGTAPI</B> 
+	and do not need to concern yourself with the termout0 output
+ <P>
+<LI> When you see <TT>nop</TT> at the <B>Stop</B> label after Q5, 
+     your program is done.
+</OL>
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<H2>
+7. Turn in
+</H2>
+<P>
+ <UL>
+Turn in your program as hw6 using the <TT>/home/cs255000/turnin</TT> 
+command (executed while you're in your cs255 directory):
+<PRE>
+       /home/cs255000/turnin  hw6.s  hw6
+</PRE>
+
+I want the source (so I can read it).
+<B>DO NOT</B> turn in the executable or the object code !
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

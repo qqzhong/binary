@@ -1,0 +1,414 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <FONT color="red">sign-magnitude <I>representation</I></FONT>
+ for
+ <I>signed</I> integer values
+<HR>
+</H3>
+
+<UL>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     How western civilization represents signed integer (whole) values
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>western civilazation</B></FONT>
+     <FONT color="blue"><B>represents</B></FONT> the
+  <FONT color="red"><B>positive integer (whole) values</B></FONT> using
+  the <FONT color="blue"><B>decimal number system</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/values3.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<LI> And
+     <FONT color="blue"><B>represents</B></FONT> the
+  <FONT color="red"><B><I>negative</I> integer (whole) values</B></FONT> 
+  by <FONT color="blue"><B>prepending</B></FONT> a
+  <FONT color="red"><B>negative <I>sign</I></B></FONT> <B>before</B>
+  the <FONT color="blue"><B>decimal number representation</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/values4.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> This <FONT color="red"><B>way</B></FONT> to
+   <FONT color="blue"><B>represent</B></FONT>
+   <FONT color="red"><B><I>sign</I> integer values</B></FONT> is called:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>sign</I>-magnitude 
+     representation</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ (Because the <FONT color="red"><B>representation</B></FONT> consists
+  of a <FONT color="blue"><B><I>sign</I></B></FONT> and
+  a <FONT color="red"><B>magnitude (= absolute value)</B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>mapping</B></FONT> between
+ the <FONT color="blue"><B>sign-magnitude representation</B></FONT>
+ and the <FONT color="red"><B>signed values</B></FONT> is
+ as follows:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ Sign-
+ magnitude                                 0   
+ representation:   ...  -4   -3   -2  -1  -0   1    2    3   ... 
+                 ---------------------------------------------  
+ Value:                <FONT color="red">&bull;&bull;&bull;&bull;  &bull;&bull;&bull;  &bull;&bull;   &bull;</FONT>       &bull;   &bull;&bull;   &bull;&bull;&bull;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Short-comings of the sign-magnitude representation
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="red"><B>2 short-comings</B></FONT>
+   of the
+   <FONT color="blue"><B>sign-magnitude representation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI>  There are
+   <FONT color="red"><B>2 ways</B></FONT> to
+     <FONT color="blue"><B>represent (= write)</B></FONT>
+     the <FONT color="red"><B>value ZERO</B></FONT> in
+       the  <FONT color="blue"><B>sign-magnitude representation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> &nbsp;&nbsp;<FONT color="blue"><B>0</B></FONT>
+ <LI> <FONT color="red"><B>&minus;0</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>meaning</B></FONT> of
+     <FONT color="blue"><B>arithmetic operation</B></FONT> performed
+     <FONT color="red"><B>depends</B></FONT> on
+     the <FONT color="blue"><B>values</B></FONT>
+     in the <FONT color="red"><B>operation</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   When we add:           When we add:
+
+           4                     4
+       +   3                 +  -3
+     ---------            ----------
+           7                     1
+
+   We added 4 and 3       we subtracted 4 and 3 !  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The sign-magnitude representation used in 
+     computers in the <FONT color="red">past</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>In the past</B></FONT>,
+     <FONT color="blue"><B>computers</B></FONT> had used
+     the <FONT color="red"><B>sign-magnitude representation</B></FONT>
+     to <B>store</B>
+     <FONT color="blue"><B>signed values</B></FONT>
+<P>
+<LI> It is <FONT color="red"><B>very straightforward</B></FONT> to
+     <FONT color="blue"><B>represent</B></FONT>
+     <FONT color="red"><B>signed values</B></FONT> in
+     <FONT color="blue"><B>binary</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>left-most bit</B></FONT> in
+      the <FONT color="blue"><B>binary number</B></FONT> represents
+      the <FONT color="red"><B>sign</B></FONT> of the value
+ <P>
+ <LI> The <FONT color="red"><B>remaining bits</B></FONT> in
+     the <FONT color="blue"><B>binary number</B></FONT> are used
+     to <FONT color="red"><B>represent</B></FONT> the
+     <FONT color="blue"><B>magnitude (= absolute value)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+     a <FONT color="red"><B>sign-magnitude representation</B></FONT> using
+    <FONT color="blue"><B>8 bits</B></FONT> in
+    <FONT color="red"><B>binary</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       00000111    represents  7
+       10000111    represents -7           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Same short-comings are found in the
+    sign-magnitude representation in binary
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>same 2 short-comings</B></FONT>
+     is present in the
+    <FONT color="blue"><B>sign-magnitude representation</B></FONT>
+   in <FONT color="red"><B>binary</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The are <FONT color="red"><B>2 representations</B></FONT> for
+   the <FONT color="blue"><B>value ZERO</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>00000000</TT></B></FONT>  and &nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><TT>10000000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>meaning</B></FONT>
+    of <FONT color="blue"><B>arithmentic operations</B></FONT>
+    <FONT color="red"><B>depends</B></FONT> on the 
+    <FONT color="blue"><B>value</B></FONT> of
+     the <FONT color="red"><B>operands</B></FONT>
+ <P>
+   <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  To compute:  <FONT color="red"> 7 + (-7)</FONT>
+
+                  00000111      (+7)
+              +   10000111      (-7)
+           ----------------
+                  00000000
+
+  We would not perform an <FONT color="red">addition</FONT>
+  Instead, we would perform a <FONT color="red">subtraction</TT></B></FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Computers</B></FONT> 
+    (<FONT color="blue"><B>in the past</B></FONT>) that
+    used the
+     <FONT color="red"><B>sign-magnitude representation</B></FONT> for
+     <FONT color="blue"><B><I>signed</I> values</B></FONT>
+     must use 
+     <FONT color="red"><B><I>more complex</I></B></FONT>
+     <FONT color="blue"><B>arithmetic circuits</B></FONT>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Computers <B>nowadays</B> use the
+    <FONT color="red"> <B>two's complement encoding</B></FONT> method
+	to represent <FONT color="blue"><B>signed</B></FONT> integer numbers
+  because of these <FONT color="red"><B>advantages</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is only 1 code representation for the value ZERO
+ <LI> The 2's complement code has a Mathematical property that
+      when we add a negative value (such as + (-7)), we
+      don't need to change the addition operation to a
+      subtraction.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ <UL>
+
+ </UL>
+<P>
+<LI> The best way to understand the two's complement encoding is
+	to consider the decimal analogy: <B>ten's complement encoding</B>
+
+<P>
+ <UL>
+ <LI> We will first discuss the 10s complement encoding
+ <LI> Then we will discuss the 2s complement encoding.
+ </UL>
+<P>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>

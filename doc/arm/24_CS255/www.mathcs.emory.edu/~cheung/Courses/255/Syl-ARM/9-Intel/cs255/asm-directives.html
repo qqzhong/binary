@@ -1,0 +1,430 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H1>
+<HR>
+Assembler Directives
+<HR>
+</H1>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A free Intel Assembler
+     </B></FONT>
+<P>
+<UL>
+<LI> For <FONT color="blue"><B>Windows</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>MAsm32</B></FONT>:
+   <A HREF="http://www.masm32.com/"> click here </A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>How to assemble an Intel assembler program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+     \masm32\bin\ml /c /Zd /coff <FONT color="red">my-prog.asm</FONT>
+     \masm32\bin\link /SUBSYSTEM:CONSOLE <FONT color="red">my-prog.obj</FONT>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     MASM Assembler Program structure
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Program structure:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  <FONT color="red">.486</FONT>				;; Use 32 bit addresses   
+  <FONT color="red">.model flat, stdcall</FONT>		;; Use the Protected mode
+  <FONT color="red">option casemap :none</FONT>		;; Make program case sensitive
+<FONT color="darkmagenta">
+  ;; Include commonly used header files</FONT>
+  include \masm32\include\kernel32.inc
+  include \masm32\include\windows.inc
+  include \masm32\include\masm32.inc
+  include \masm32\include\msvcrt.inc
+
+<FONT color="darkmagenta">
+  ;; Include commonly used libraries</FONT>
+  includelib \masm32\lib\kernel32.lib
+  includelib \masm32\lib\msvcrt.lib
+<font color="red">
+  .data	</FONT>				;; Start data segment
+  [Variable definitions]
+
+   ....
+
+<FONT color="red">
+  .code</FONT>					;; Start code segment
+<FONT color="magenta">
+Start:					;; Segment name</FONT>
+  [Program]
+
+
+  ....
+<FONT color="darkmagenta">
+  invoke ExitProcess, 0			;; ***** Exit to Dos... with exit code 0</FONT>           
+<FONT color="magenta">
+  end Start				;; End program segment</FONT>
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assembler directives
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Commonly used assembler directives:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>equ</B></FONT> = 
+    <FONT color="blue"><B>define symbolic constants</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B>DB</B></FONT> = 
+    <FONT color="blue"><B>define byte size variables</B></FONT>
+ <LI> <FONT color="red"><B>DW</B></FONT> = 
+    <FONT color="blue"><B>define word size (16 bits) variables</B></FONT>
+ <LI> <FONT color="red"><B>DD</B></FONT> = 
+    <FONT color="blue"><B>define <I>double</I> 
+   word size (32 bits) variables</B></FONT>
+ <LI> <FONT color="red"><B>DQ</B></FONT> = 
+    <FONT color="blue"><B>define <I>quad</I>
+   word size (64 bits) variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining constants
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>equ</B> directive:
+  <P>
+  <UL>
+  Used to define symbolic constants
+  </UL>
+ <P>
+ <LI> <B>Example</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+ MAX    equ    10000000    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <P>
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reserving space in memory for variables
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>.data</B></FONT> directive:
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> Used to <FONT color="blue"><B>start</B></FONT> a 
+   <FONT color="red"><B>data segment</B></FONT> 
+   (a <B>memory area</B> that can be
+     <FONT color="darkmagenta"><B>read</B></FONT> and 
+     <FONT color="darkmagenta"><B>written</B></FONT>)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B>DB</B></FONT>  directive: (reserves 1 byte memory)
+  <P>
+  <UL>
+  define byte
+  </UL>
+  <P>
+  <B>Example: <I>un-initialized</I></B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+  Java:                       Intel:
+<FONT color="red">
+       char  c;                  c:  DB ?</FONT>              
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  <B>Example: <I>initialized</I></B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+  Java:                       Intel:
+<FONT color="red">
+       char  c = 45;             c:  DB  45</FONT>              
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  <B>Example: <I>un-initialized</I> char array</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+  Java:                       Intel:
+<FONT color="red">
+       char  c[100];             c:  DB  100 dup (?)</FONT>              
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  <B>Example: <I>initialized</I> char array</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+  Java:                                       Intel:
+<FONT color="red">
+       char  c[100] = {0,0, ..., 0};             c:  DB  100 dup (0)</FONT>              
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+
+ <P>
+ <LI> <B>DW, WORD</B>  directive: (reserve 2 bytes memory)
+  <P>
+  <UL>
+  define word (16 bytes)
+  </UL>
+  <P>
+  <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red"><B>
+  C:
+       short ListOfShortNumbers[] = {1000, 2000, 3000, 4000, 5000};    
+</B></FONT>
+
+  ListOfShortNumbers:  DW       1000, 2000, 3000, 4000, 5000
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <B>DD, DWORD</B>  directive: (reserve 4 bytes memory)
+  <P>
+  <UL>
+  define <B>double</B> word (32 bytes)
+  </UL>
+  <P>
+  <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red"><B>
+  C:
+       int ListOfInttNumbers[] = {100000, 200000, 300000, 400000, 500000};    
+</B></FONT>
+  ListOfIntNumbers:    DD   1000000, 2000000, 3000000, 4000000, 5000000    
+
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <B>DQ, QWORD</B>  directive: (reserve 8 bytes memory)
+  <P>
+  <UL>
+  define <B>quad</B> word (32 bytes)
+  </UL>
+  <P>
+  <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  ListOfLongNumbers:   DQ   1000000, 2000000, 3000000, 4000000, 5000000    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     More Information
+     </B></FONT>
+<P>
+ <UL>
+ <LI> MASM Programmer's Guide - Chapter 4
+        Defining and Using Simple Data Types:
+ <A HREF=
+"http://webster.cs.ucr.edu/Page_TechDocs/MASMDoc/ProgrammersGuide/Chap_04.htm"
+>
+        click here </A>
+ </UL>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+

@@ -1,0 +1,2750 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+<!-------------------- JavaBlink --------------------->
+<SCRIPT type="text/javascript">
+  function JavaBlink() {
+     var blinks = document.getElementsByTagName('JavaBlink');
+     for (var i = blinks.length - 1; i >= 0; i--) {
+        var s = blinks[i];
+        s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
+     }
+     window.setTimeout(JavaBlink, 500);
+  }
+  if (document.addEventListener) document.addEventListener("DOMContentLoaded", JavaBlink, false);
+  else if (window.addEventListener) window.addEventListener("load", JavaBlink, false);
+  else if (window.attachEvent) window.attachEvent("onload", JavaBlink);
+  else window.onload = JavaBlink;
+</SCRIPT>
+<!------------------------ JavaBlink------------------------>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   List object structure used in the teaching example
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   I will use this
+   <FONT color="red"><B><TT>List</TT> object</B></FONT>
+   definition
+   in my
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>example 2</B></FONT></SPAN> on
+   <FONT color="red"><B>how to access</B></FONT>
+   list elements
+  using <FONT color="blue"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List
+   {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+
+      // Other stuff omitted for brevity
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  In order to
+  <FONT color="red"><B>show</B></FONT> you
+  <FONT color="blue"><B>how to access</B></FONT>
+  <FONT color="red"><B>data field</B></FONT> in
+  a <FONT color="blue"><B>linked list</B></FONT>,
+  I will need to
+   <FONT color="red"><B>create</B></FONT> a
+  <FONT color="blue"><B>linked list</B></FONT>...
+  
+   </font>
+   </p>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   In a <FONT color="red"><B>real computer program</B></FONT>,
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B><TT>List</TT> objects</B></FONT>
+  are <FONT color="red"><B>created</B></FONT></SPAN> by
+   the 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B><TT>new</TT> operator</B></FONT></SPAN>
+   </font>
+   </p>
+
+  <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="blue"><B>For brevity sake</B></FONT>,
+   I will
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+    <FONT color="red"><B>create</B></FONT> a
+  <FONT color="blue"><B>linked list</B></FONT> using
+  <FONT color="red"><B><I>assembler directives</I></B></FONT>
+  </SPAN> inside
+  the <FONT color="blue"><B><TT>.data</TT> section</B></FONT>
+  
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Creating a linked list using assembler directives
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   We can 
+  <FONT color="red"><B>create</B></FONT> the
+  <FONT color="blue"><B>fields</B></FONT> in 
+  a <FONT color="red"><B>list object</B></FONT> using
+  <FONT color="blue"><B><TT>.byte, .2byte, .4byte</TT></B></FONT>
+  assembler directives
+   </font>
+   </p>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Example</B></FONT> of
+   a <FONT color="blue"><B>5 elements linked list</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+p0: .4byte  333         // Object [333,23,33,p2]
+    .2byte  23, 33
+    .4byte  p2
+    <FONT color="red">.skip 4             // gap</FONT>
+p1: .4byte  111         // Object [111,21,31,p3]
+    .2byte  21, 31
+    .4byte  p3
+2: .4byte  444         // Object [444,24,34,p4]
+    .2byte  24, 34
+    .4byte  p4
+    <FONT color="red">.skip 4             // gap</FONT>
+p3: .4byte  222         // Object [222,22,32,p0]
+    .2byte  22, 32
+    .4byte  p0
+    <FONT color="red">.skip 4             // gap</FONT>
+p4: .4byte  555         // Object [555,25,35,null]
+    .2byte  25, 35
+    .4byte  0           // <FONT color="red">0 = null</FONT>  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  The <FONT color="red"><B><I>first</I> list element</B></FONT> is
+  <FONT color="blue"><B><TT>p1</TT></B></FONT> !! (Can you see it ?)
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Creating a linked list using assembler directives
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.4in">
+   <font size="+2">
+   The <FONT color="red"><B>assembler directives</B></FONT> 
+  <FONT color="blue"><B>creates</B></FONT> the following
+  <FONT color="red"><B>linked list</B></FONT>:
+   </font>
+   </p>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="blue"><B><TT>
+   [111,21,31,&bull;]&rArr;[222,22,32,&bull;] &rArr;[333,23,33,&bull;]&rArr;[444,24,34,&bull;]&rArr;[555,25,35,null]
+   </TT></B></FONT>
+   </font>
+   </p>
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+p0: .4byte  333         // Object [333,23,33,p2]
+    .2byte  23, 33
+    .4byte  <SPAN style="BACKGROUND-COLOR: #aaffaa">p2</SPAN>
+    <FONT color="red">.skip 4             // gap</FONT>
+<SPAN style="BACKGROUND-COLOR: #ffff00">p1</SPAN>: .4byte  111         // Object [111,21,31,p3]
+    .2byte  21, 31
+    .4byte  <SPAN style="BACKGROUND-COLOR: #aaffaa">p3</SPAN>
+p2: .4byte  444         // Object [444,24,34,p4]
+    .2byte  24, 34
+    .4byte  <SPAN style="BACKGROUND-COLOR: #aaffaa">p4</SPAN>
+    <FONT color="red">.skip 4             // gap</FONT>
+p3: .4byte  222         // Object [222,22,32,p2]
+    .2byte  22, 32
+    .4byte  <SPAN style="BACKGROUND-COLOR: #aaffaa">p0</SPAN>
+    <FONT color="red">.skip 4             // gap</FONT>
+p4: .4byte  555         // Object [555,25,35,null]
+    .2byte  25, 35
+    .4byte  0           // <FONT color="red">0 = null</FONT>  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Defining the <FONT color="blue"><B><TT>head</TT></B></FONT>
+   for the linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   We <FONT color="red"><B>define</B></FONT>
+   a <FONT color="blue"><B>List 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>head</TT></SPAN></B></FONT> that
+   <FONT color="red"><B>contains</B></FONT> the
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>address</I></B></FONT> of the
+   <FONT color="red"><B><I>first</I> list element (= object)</B></FONT></SPAN>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+p0: .4byte  333         // Object [333,23,33,p2]
+    .2byte  23, 33
+    .4byte  p2
+    <FONT color="red">.skip 4             // gap</FONT>
+p1: .4byte  111         // Object [111,21,31,p3]
+    .2byte  21, 31
+    .4byte  p3
+p2: .4byte  444         // Object [444,24,34,p4]
+    .2byte  24, 34
+    .4byte  p4
+    <FONT color="red">.skip 4             // gap</FONT>
+p3: .4byte  222         // Object [222,22,32,p2]
+    .2byte  22, 32
+    .4byte  p0
+    <FONT color="red">.skip 4             // gap</FONT>
+p4: .4byte  555         // Object [555,25,35,null]
+    .2byte  25, 35
+    .4byte  0           // <FONT color="red">0 = null</FONT>  
+
+<SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head: .4byte  <SPAN style="BACKGROUND-COLOR: #ffff00">p1</SPAN>   </FONT> </SPAN></PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  We are <FONT color="red"><B>only</B></FONT>
+  <FONT color="blue"><B>allowed</B></FONT> use
+  the <FONT color="red"><B>variable</B></FONT>
+   <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B><TT>head</TT></B></FONT></SPAN> in
+   our <FONT color="red"><B>code</B></FONT> !!!
+  <BR>
+  <B>I.e.:</B> &nbsp; you are
+   <SPAN style="BACKGROUND-COLOR: #ffdd00">
+    <FONT color="red"><B>not</B></FONT>
+  <FONT color="blue"><B>allowed</B></FONT></SPAN> to
+  <FONT color="red"><B>use</B></FONT>  the
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B>labels
+  <TT>p0</TT>,  <TT>p1</TT>,  <TT>p2</TT>,  <TT>p3</TT>,  <TT>p4</TT> 
+  </B></FONT>
+ </SPAN> !!!
+   </font>
+   </p>
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Storage format and programmer view of our example list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   I have <FONT color="red"><B>copy</B></FONT> the
+   <FONT color="blue"><B>memory locations</B></FONT> of
+   the <FONT color="red"><B>list elements</B></FONT> from
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>EGTAPI</B></FONT>:</SPAN>
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/list07.gif" style="width:70%">
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Review:</FONT> &nbsp;
+  how to <FONT color="blue">calculate</FONT> the
+  <FONT color="blue">offset</FONT> of
+  <FONT color="blue">fields</FONT> in a
+  (list) object
+  - <FONT color="blue">Example 2</font>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Given</B></FONT> the following
+  <FONT color="blue"><B>List (object)</B></FONT>
+  <FONT color="red"><B>definition</B></FONT>:
+
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public class List {
+      <FONT color="red">int   value1;</FONT>   // Data field 1
+      <FONT color="red">short value2;</FONT>   // Data field 2
+      <FONT color="red">short value3;</FONT>   // Data field 3
+      <FONT color="red">List  next;</FONT>     // Link field  
+   }  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  The 
+ <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>offset</B></FONT> of
+  the <FONT color="blue"><B>fields</B></FONT></SPAN> in 
+  <FONT color="red"><B>objects</B></FONT> defined
+  by the
+  <FONT color="blue"><B>above</B></FONT>
+  <FONT color="red"><B>class definition</B></FONT> are:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Offset(value1) = 0
+   Offset(value2) = 4
+   Offset(value3) = 6 (4+2)
+   Offset(next)   = 8 (4+2+2)</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">  
+  We <B>now</B> <FONT color="blue"><B>discuss</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B>how</B></FONT> to
+  <FONT color="blue"><B>access</B></FONT> a
+  <FONT color="red"><B>list element</B></FONT></SPAN> using
+  <FONT color="blue"><B>ARM assembler code</B></FONT>
+ 
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<!-------------------- R1 = head.value1, R2=v2, R3=v3 -------------------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 1</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue">first object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>Assembler code</B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>load (= fetch)</B></FONT></SPAN> &nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><TT>head.value1,2,3</TT></B></FONT></SPAN>
+  &nbsp; into
+  <FONT color="blue"><B>registers <TT>R1</TT>, <TT>R2</TT>,
+  <TT>R3</TT></B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08b.png" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+   // Fetch: head.value1, 2 and 3
+
+  
+ 
+
+  
+
+   
+
+  
+ 
+   
+
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s 
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 1</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue">first object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  The <FONT color="red"><B>variables</B></FONT>
+  <FONT color="blue"><B><TT>value1, 2 and 3</TT></B></FONT> are
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>fetched</B></FONT></SPAN> using
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>load</B></FONT>
+  <FONT color="red"><B>instructions</B></FONT></SPAN> with their
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B>correct</B></FONT>
+  <FONT color="red"><B>offsets</B></FONT>:</SPAN>
+
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08b2x.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+   // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>.value1, 2 and 3
+
+   // <FONT color="red">Preparation:</FONT>
+   //   r0 = <SPAN style="BACKGROUND-COLOR: #aaffaa"><JavaBlink><FONT color="red">base address</FONT></JavaBlink></SPAN>
+
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+  
+  
+
+
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  The 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+ <FONT color="red"><B>preparation</B></FONT></SPAN> 
+  <FONT color="blue"><B>required</B></FONT> is:
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><TT>r0</TT></B></FONT> =
+  <FONT color="blue"><B>base address</B></FONT></SPAN> of
+  the <FONT color="red"><B>first list object</B></FONT>
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 1</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue">first object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+ The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>base address</B></FONT> of the
+  <FONT color="blue"><B>first list object</B></FONT></SPAN> is
+  <FONT color="red"><B>stored</B></FONT> in the
+  <FONT color="blue"><B>variable</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B><TT>head</TT></B></FONT></SPAN>:
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08b2y.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+   // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>.value1, 2 and 3
+
+   // <FONT color="red">Preparation:</FONT>
+   //   r0 = <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>
+
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+  
+  
+
+
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s 
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 1</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue">first object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+ 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+  <FONT color="yellow"><B>Solution:</B></FONT></SPAN> &nbsp;
+  <FONT color="red"><B>How</B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>load (= fetch)</B></FONT></SPAN> &nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><TT>head.value1,2,3</TT></B></FONT></SPAN>
+  &nbsp; into
+  <FONT color="blue"><B>registers <TT>R1</TT>, <TT>R2</TT>,
+  <TT>R3</TT></B></FONT>:
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08b3x.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+   // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head.value1, 2 and 3</FONT></SPAN>
+
+   movw  r0, #:lower16:head
+   movt  r0, #:upper16:head
+   ldr   r0, [r0]    // R0 = <JavaBlink><FONT color="red">head</FONT></JavaBlink>
+
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+   <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+
+
+
+
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s 
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-------------------- R1 = head.next.value1, R2=v2, R3=v3 ------------->
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 2</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue"><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>Assembler code</B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>load (= fetch)</B></FONT></SPAN> &nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><TT>head.next.value1,2,3</TT></B></FONT></SPAN>
+  &nbsp; into
+  <FONT color="blue"><B>registers <TT>R1</TT>, <TT>R2</TT>,
+  <TT>R3</TT></B></FONT>:
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08e.png" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+ // Fetch: head.next.val1, 2 and 3
+
+  
+ 
+
+  
+
+   
+
+  
+ 
+   
+
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s 
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 2</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue"><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  The <FONT color="red"><B>variables</B></FONT>
+  <FONT color="blue"><B><TT>value1, 2 and 3</TT></B></FONT> are
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+ <FONT color="red"><B>fetched</B></FONT></SPAN> using
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="blue"><B>load</B></FONT>
+  <FONT color="red"><B>instructions</B></FONT></SPAN> with their
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B>correct</B></FONT>
+  <FONT color="red"><B>offsets</B></FONT>:</SPAN>
+
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08e2x.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+ // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>.next.val1, 2 and 3
+
+ // <FONT color="red">Preparation:</FONT>
+ //   r0 = <SPAN style="BACKGROUND-COLOR: #aaffaa"><JavaBlink><FONT color="red">base address</FONT></JavaBlink></SPAN>
+
+
+
+
+
+
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+  
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  The 
+ <SPAN style="BACKGROUND-COLOR: #ffdd00">
+ <FONT color="red"><B>preparation</B></FONT></SPAN> 
+  <FONT color="blue"><B>required</B></FONT> is:
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B><TT>r0</TT></B></FONT> =
+  <FONT color="blue"><B>base address</B></FONT></SPAN> of
+  the <FONT color="red"><B><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> list object</B></FONT>
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 2</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue"><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+ The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>base address</B></FONT> of the
+  <FONT color="blue"><B><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> list object</B></FONT></SPAN> is
+  <FONT color="red"><B>stored</B></FONT> in the
+  <FONT color="blue"><B>variable</B></FONT>
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="red"><B><TT>head.next</TT></B></FONT></SPAN>:
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08e2x1.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+ // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>.next.val1, 2 and 3
+
+ // <FONT color="red">Preparation:</FONT>
+ //   r0 = <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head.next</FONT></SPAN>
+
+
+
+
+
+
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+  
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s 
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 2</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue"><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+ We <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="red"><B>must</B></FONT></SPAN> 
+  <FONT color="blue"><B>start</B></FONT> by
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>fetching</B></FONT> 
+  <FONT color="blue"><B><TT>head</TT></B></FONT></SPAN> in
+   <FONT color="red"><B>register <TT>R0</TT></B></FONT>:
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08e3x.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+ // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>.next.val1, 2 and 3
+
+ // <FONT color="red">Preparation:</FONT>
+ //   r0 = <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head.next</FONT></SPAN>
+
+ movw  r0, #:lower16:head
+ movt  r0, #:upper16:head
+ ldr   r0, [r0]    // r0=<SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>
+
+
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+  
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+   <FONT color="red"><B>Next</B></FONT></SPAN>,
+  we  <FONT color="blue"><B>use</B></FONT>
+  <FONT color="red"><B><TT>R0</TT></B></FONT> to
+  <FONT color="blue"><B>fetch</B></FONT>
+  <FONT color="red"><B><TT>head.next</TT></B></FONT> 
+  (<FONT color="blue"><B>offset=8</B></FONT>) into
+  <FONT color="red"><B><TT>R0</TT></B></FONT> !!!
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+
+
+<div class="mySlides">
+  <div class="text">
+  <FONT color="red" size=+2><B>
+  <SPAN style="BACKGROUND-COLOR: yellow">
+  Linked list access <FONT color="blue">example 2</FONT>: &nbsp;
+   load 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue">data fields</FONT></SPAN> in the
+  <FONT color="blue"><SPAN style="BACKGROUND-COLOR: #000000"><FONT color="yellow">2nd</FONT></SPAN> object</FONT> in the
+   list  into
+   <FONT color="blue"><B>registers 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa"><TT>R1, R2, R3</TT></SPAN></B></FONT>
+  &nbsp; 
+ 
+  </SPAN>
+  </B></FONT>
+  </div>
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <SPAN style="BACKGROUND-COLOR: #000000">
+  <FONT color="yellow"><B>Solution:</B></FONT></SPAN> &nbsp;
+  <FONT color="red"><B>How</B></FONT> to
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>load (= fetch)</B></FONT></SPAN> &nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+  <FONT color="red"><B><TT>head.value1,2,3</TT></B></FONT></SPAN>
+  &nbsp; into
+  <FONT color="blue"><B>registers <TT>R1</TT>, <TT>R2</TT>,
+  <TT>R3</TT></B></FONT>:
+
+  </font>
+  </p>
+
+  <center>
+  <TABLE bgcolor="lightcyan" BORDER="5" width=850>
+  <TR> 
+  <TD>
+  <img src="../FIGS/list08e4x.gif" width=570>
+  </TD>
+
+  <TD>
+  <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">ARM assembler instructions:</FONT>       
+
+ // Fetch: <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head.next.val1, 2 and 3</FONT></SPAN>
+
+ // <FONT color="red">Preparation:</FONT>
+ //   r0 = <SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head.next</FONT></SPAN>
+
+ movw  r0, #:lower16:head
+ movt  r0, #:upper16:head
+ ldr   r0, [r0]    // r0=<SPAN style="BACKGROUND-COLOR: #aaffaa"><FONT color="red">head</FONT></SPAN>
+ ldr   r0, [r0,<FONT color="red">#8</FONT>] // r0=<SPAN style="BACKGROUND-COLOR: #aaffaa"><JavaBlink><FONT color="red">head.next</FONT></JavaBlink></SPAN>
+
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldr   r1, [r0, <FONT color="red">#0</FONT>]</SPAN>//Offset(v1)=0
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r2, [r0, <FONT color="red">#4</FONT>]</SPAN>//Offset(v2)=4
+ <SPAN style="BACKGROUND-COLOR: #ffff00">ldrsh r3, [r0, <FONT color="red">#6</FONT>]</SPAN>//Offset(v3)=6
+
+  </PRE></FONT></B></FONT>
+  </TD> </TR>
+  </TABLE>
+  </center>
+
+
+  <p style="margin-left: 0.4in">
+  <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT> &nbsp;
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/asm/4-linked-list/demo2.s 
+  </TT></B></FONT>
+  </font>
+  </p>
+
+  <p style="padding: 0.0in">
+  </p>
+</div>
+
+
+
+
+
+
+<!----------------- Fetch head.next.next.value2 into r1  -------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Linked list example 
+  <FONT color="blue">without</FONT> pictures....
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Fetch</B></FONT> the following
+  <FONT color="blue"><B>variable</B></FONT> into
+  <FONT color="red"><B>register <TT>R1</TT></B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ 
+
+
+  
+ 
+  
+
+  
+ 
+
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Linked list example 
+  <FONT color="blue">without</FONT> pictures....
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Fetch</B></FONT> the following
+  <FONT color="blue"><B>variable</B></FONT> into
+  <FONT color="red"><B>register <TT>R1</TT></B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   <FONT color="red">head</FONT>.next.next.value2  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  movw   r0, #:lower16:head
+  movt   r0, #:upper16:head
+  ldr    r0, [r0]              // r0 = <FONT color="red">head</FONT>
+ 
+  
+
+  
+
+ 
+
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Linked list example 
+  <FONT color="blue">without</FONT> pictures....
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Fetch</B></FONT> the following
+  <FONT color="blue"><B>variable</B></FONT> into
+  <FONT color="red"><B>register <TT>R1</TT></B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   <FONT color="red">head.next</FONT>.next.value2  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  movw   r0, #:lower16:head
+  movt   r0, #:upper16:head
+  ldr    r0, [r0]              // r0 = head
+  ldr    r0, [r0, <FONT color="red">#8</FONT>]          // r0 = <FONT color="red">head.next</FONT>
+
+  
+
+ 
+
+
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Linked list example 
+  <FONT color="blue">without</FONT> pictures....
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Fetch</B></FONT> the following
+  <FONT color="blue"><B>variable</B></FONT> into
+  <FONT color="red"><B>register <TT>R1</TT></B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   <FONT color="red">head.next.next</FONT>.value2  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  movw   r0, #:lower16:head
+  movt   r0, #:upper16:head
+  ldr    r0, [r0]              // r0 = head
+  ldr    r0, [r0, #8]          // r0 = head.next
+  ldr    r0, [r0, <FONT color="red">#8</FONT>]          // r0 = <FONT color="red">head.next.next</FONT>
+  
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">// We now have: <FONT color="red">r0</FONT> = <FONT color="red">base address</FONT> of the required <FONT color="red">list object</FONT></SPAN>
+ 
+
+
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Linked list example 
+  <FONT color="blue">without</FONT> pictures....
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+   <FONT color="red"><B>Fetch</B></FONT> the following
+  <FONT color="blue"><B>variable</B></FONT> into
+  <FONT color="red"><B>register <TT>R1</TT></B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   <FONT color="red">head.next.next.value2</FONT>  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  movw   r0, #:lower16:head
+  movt   r0, #:upper16:head
+  ldr    r0, [r0]              // r0 = head
+  ldr    r0, [r0, #8]          // r0 = head.next
+  ldr    r0, [r0, #8]          // r0 = head.next.next
+
+  ldr<FONT color="red">sh</FONT>  r1, [r0, <FONT color="red">#4</FONT>]          // r1 = <FONT color="red">head.next.next.value2</FONT>
+
+ 
+
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<!----------------- head.next.value2 = 99; -------------->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ 
+
+
+  
+ 
+  
+
+  
+ 
+
+  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get the <FONT color="red">RHS</FONT> first
+   mov    r0, #99                // r0 = 99
+
+ 
+ 
+  
+ 
+ 
+  
+
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get the <FONT color="red">RHS</FONT> first
+   mov    r0, #99                // r0 = 99
+
+   // <FONT color="red">Preparation:</FONT> base address r1 = head.next.next
+ 
+   
+  
+ 
+ 
+
+
+</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get the <FONT color="red">RHS</FONT> first
+   mov    r0, #99                // r0 = 99
+
+   // <FONT color="red">Preparation:</FONT> base address r1 = <FONT color="red">head</FONT>.next.next
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r1 = addr(head)
+   ldr    r1, [r1]                // r1 = <FONT color="red">head</FONT>
+    
+
+
+ </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get the <FONT color="red">RHS</FONT> first
+   mov    r0, #99                // r0 = 99
+
+   // <FONT color="red">Preparation:</FONT> base address r1 = <FONT color="red">head.next</FONT>.next
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r1 = addr(head)
+   ldr    r1, [r1]                // r1 = head
+   ldr    r1, [r1, <FONT color="red">#8</FONT>]            // r1 = <FONT color="red">head.next</FONT>
+
+
+
+</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get the <FONT color="red">RHS</FONT> first
+   mov    r0, #99                // r0 = 99
+
+   // <FONT color="red">Preparation:</FONT> base address r1 = <FONT color="red">head.next.next</FONT> 
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r1 = addr(head)
+   ldr    r1, [r1]                // r1 = <FONT color="red">head</FONT>
+   ldr    r1, [r1, <FONT color="red">#8</FONT>]            // r1 = head.next
+   ldr    r1, [r1, <FONT color="red">#8</FONT>]            // r1 = <FONT color="red">head.next.next</FONT>
+
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">// We now have: <FONT color="red">r0</FONT> = <FONT color="red">base address</FONT> of the required <FONT color="red">list object</FONT></SPAN>
+</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.next.next.value2 = 99;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get the <FONT color="red">RHS</FONT> first
+   mov    r0, #99                // r0 = 99
+
+   // <FONT color="red">Preparation:</FONT> base address r1 = <FONT color="red">head.next.next</FONT> - <SPAN style="BACKGROUND-COLOR: #aaffaa">DONE !</SPAN>
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r1 = addr(head)
+   ldr    r1, [r1]                // r1 = <FONT color="red">head</FONT>
+   ldr    r1, [r1, <FONT color="red">#8</FONT>]            // r1 = head.next
+   ldr    r1, [r1, <FONT color="red">#8</FONT>]            // r1 = <FONT color="red">head.next.next</FONT>
+
+   <FONT color="red">strh</FONT>   r0, [r1, <FONT color="red">#4</FONT>]            // Offset(value2) = <FONT color="red">4</FONT>
+</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+ <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<!------------------------ head.value1 = head.next.next.value3;  ----->
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get head.next.next.value3
+  
+  
+   
+ 
+  
+  
+
+ 
+  
+  
+  
+
+                                  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get <FONT color="red">head</FONT>.next.next.value3
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = <FONT color="red">head</FONT>
+  
+  
+  
+
+ 
+  
+  
+  
+
+                                  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get <FONT color="red">head.next</FONT>.next.value3
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = <FONT color="red">head</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next</FONT>
+  
+  
+
+ 
+  
+  
+  
+
+                                  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get <FONT color="red">head.next.next</FONT>.value3
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = <FONT color="red">head</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next.next</FONT>
+  
+
+ 
+  
+  
+  
+
+                                  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get <FONT color="red">head.next.next.value3</FONT>
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = <FONT color="red">head</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next.next</FONT>
+   ldr<FONT color="red">sh</FONT>  r0, [r0, <FONT color="red">#6</FONT>]            // r0 = <FONT color="red">head.next.next.value3</FONT>
+
+   // Store r0 in head.value1
+  
+  
+  
+
+                                  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get <FONT color="red">head.next.next.value3</FONT>
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = <FONT color="red">head</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next.next</FONT>
+   ldr<FONT color="red">sh</FONT>  r0, [r0, <FONT color="red">#6</FONT>]            // r0 = <FONT color="red">head.next.next.value3</FONT>
+
+   // Store r0 in <FONT color="red">head</FONT>.value1
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r0 = addr(head)
+   ldr    r1, [r1]                // r0 = <FONT color="red">head</FONT>
+  
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Assignment example with linked list
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>Translate</B></FONT> the following
+   <FONT color="blue"><B>assignment statement</B></FONT> into
+   <FONT color="red"><B>ARM assembler</B></FONT>:
+   </font>
+   </p>
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   head.value1 = head.next.next.value3;  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+    <p style="margin-left: 0.8in">
+   <font size="+2">
+   <B>Solution:</B>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=950>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   // Get <FONT color="red">head.next.next.value3</FONT>
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = <FONT color="red">head</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next</FONT>
+   ldr    r0, [r0, #8]            // r0 = <FONT color="red">head.next.next</FONT>
+   ldr<FONT color="red">sh</FONT>  r0, [r0, <FONT color="red">#6</FONT>]            // r0 = <FONT color="red">head.next.next.value3</FONT>
+
+   // Store r0 in <FONT color="red">head.value1</FONT>
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r0 = addr(head)
+   ldr    r1, [r1]                // r0 = <FONT color="red">head</FONT>
+ 
+   <FONT color="red">str</FONT>    r0, [r1, <FONT color="red">#0</FONT>]            // offset(<FONT color="red">value1</FONT>) = <FONT color="red">0</FONT>  (int)   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 0.8in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  &nbsp;
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/asm/4-linked-list/demo2.s
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+  <span class="dot" onclick="currentSlide(17)"></span>
+  <span class="dot" onclick="currentSlide(18)"></span>
+  <span class="dot" onclick="currentSlide(19)"></span>
+  <span class="dot" onclick="currentSlide(20)"></span>
+  <span class="dot" onclick="currentSlide(21)"></span>
+  <span class="dot" onclick="currentSlide(22)"></span>
+  <span class="dot" onclick="currentSlide(23)"></span>
+  <span class="dot" onclick="currentSlide(24)"></span>
+  <span class="dot" onclick="currentSlide(25)"></span>
+  <span class="dot" onclick="currentSlide(26)"></span>
+  <span class="dot" onclick="currentSlide(27)"></span>
+  <span class="dot" onclick="currentSlide(28)"></span>
+  <span class="dot" onclick="currentSlide(29)"></span>
+  <span class="dot" onclick="currentSlide(30)"></span>
+  <span class="dot" onclick="currentSlide(31)"></span>
+  <span class="dot" onclick="currentSlide(32)"></span>
+  <span class="dot" onclick="currentSlide(33)"></span>
+  <span class="dot" onclick="currentSlide(34)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

@@ -1,0 +1,325 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Insert in a linked list at the start
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Insert in a linked list at start in <FONT color="red">Java</FONT>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Here is a <FONT color="red"><B>Java program</B></FONT>
+   that <FONT color="blue"><B>creates a list object</B></FONT> and
+   then <FONT color="red"><B>insert it</B></FONT> into
+   a <FONT color="blue"><B>linked list</B></FONT> at the
+   <FONT color="red"><B>start</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+class <SPAN style="BACKGROUND-COLOR: yellow">List</SPAN>  // I want to use<FONT color="red"> 1 prgram file</FONT> for this example, so I put the List class here...
+{
+   int value;
+   List next;
+}
+
+public class insert
+{
+   <FONT color="magenta">/* =========================================
+      insert(h, e): insert e at start of list h
+                    return new list
+
+      A <SPAN style="BACKGROUND-COLOR: yellow">List</SPAN> variable is a reference variable !!!
+      ========================================= */
+   public static <SPAN style="BACKGROUND-COLOR: yellow">List</SPAN> insert (<SPAN style="BACKGROUND-COLOR: yellow">List</SPAN> h, <SPAN style="BACKGROUND-COLOR: yellow">List</SPAN> e)
+   {
+      e.next = h;
+      return e;         // Return new list that starts at e
+   }</FONT>
+
+   public static void main(String[] args)
+   {
+      List<FONT color="red"> head = null;    // Empty list</FONT>
+      List p;
+
+      /* -------------------------------------------------
+         Create a list element and insert in List at head
+         ------------------------------------------------- */
+      p = new List( );
+      p.value = 1;
+      <FONT color="red">head = insert(head, p);       // Insert p in head</FONT>
+      print(head);
+  
+      /* -------------------------------------------------
+         Create a list element and insert in List at head
+         ------------------------------------------------- */
+      p = new List( );
+      p.value = 2;
+      <FONT color="red">head = insert(head, p);       // Insert p in head again</FONT>           
+      print(head);
+   }
+
+   // Print the list
+   public static void print(List h)
+   {
+      while (h != null)
+      {
+         System.out.printf("%d ", h.value);
+         h = h.next;
+      }
+      System.out.printf("\n\n");
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Linked-list/insert.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac insert.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>java insert</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Insert in a linked list at start in <FONT color="red">C</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> You can <FONT color="red"><B>literally</B></FONT>
+     <FONT color="blue"><B>translate</B></FONT> the
+    <FONT color="red"><B>Java constructs</B></FONT> into the
+     <FONT color="blue"><B>C language constructs</B></FONT>
+     if you
+     <FONT color="red"><B>understand</B></FONT> what
+     <FONT color="blue"><B>each construct</B></FONT>
+     <FONT color="red"><B>do</B></FONT> !!!
+ <P>
+ Here is the <FONT color="red"><B>C program code</B></FONT>
+ for the above <FONT color="blue"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+#include &lt;stdlib.h>
+
+<FONT color="red">struct List       // This is the List class definition in C
+{
+   int          value;
+   struct List *next;
+};</FONT>
+
+/* =========================================
+   insert(h, e): insert e at start of list h
+                 return new list
+
+   The data type <FONT color="red">List</FONT> is <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">struct List *</FONT></SPAN> in <FONT color="red">C</FONT>
+   ========================================= */
+<FONT color="red">struct List *</FONT>insert (<FONT color="red">struct List *</FONT>h, <FONT color="red">struct List *</FONT>e)
+{
+   e->next = h;
+   return e;            // Return new list that starts at e
+}
+
+<FONT color="red">void print(struct List *h);   // We must declare print to avoid compile error</FONT>
+
+void main(int argc, char *argv[])
+{
+   struct List *<FONT color="red">head = NULL</FONT>;   // Nul pointer <FONT color="red">NULL</FONT> instead of <FONT color="red">null</FONT>
+   struct List *p;
+
+   /* -------------------------------------------------
+      Create a list element and insert in List at head
+      ------------------------------------------------- */
+   p = malloc( sizeof(struct List) );
+   p->value = 1;
+   head = insert(head, p);       // Insert p in head
+   print(head);
+
+   /* -------------------------------------------------
+      Create a list element and insert in List at head
+      ------------------------------------------------- */
+   p = <FONT color="red">malloc( sizeof(struct List) )</FONT>;  // This is <FONT color="red">new List( )</FONT>
+   p->value = 2;
+   head = insert(head, p);       // Insert p in head
+   print(head);
+}
+
+// Print the list
+void print(struct List *h)
+{
+   while (h != NULL)
+   {
+      printf("%d ", h->value);
+      h = h->next;
+   }
+   printf("\n\n");
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+It <FONT color="red"><B>literally </B></FONT> took me
+  <FONT color="blue"><B>2 minute</B></FONT> to
+  convert the
+ <FONT color="red"><B>Java code</B></FONT> to
+ <FONT color="blue"><B>C code</B></FONT>....
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Listed-list/insert.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc insert.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Moral</B></FONT> of this
+   <FONT color="blue"><B>example</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Understanding <I>concepts</I></B></FONT>
+     in the <FONT color="blue"><B>most important determinant</B></FONT>
+   in learning to 
+   <FONT color="red"><B>program</B></FONT> in a
+   <FONT color="blue"><B><I>different</I> language</B></FONT>
+ <P>
+  <FONT color="red"><B>All</B></FONT>
+  <FONT color="blue"><B>procedural languages</B></FONT> use
+  the <FONT color="red"><B><I>same</I> set</B></FONT> of
+  <FONT color="blue"><B>concepts</B></FONT>
+ <P>
+ The <FONT color="red"><B>only</B></FONT> <FONT color="blue"><B>difference</B></FONT>
+ in <FONT color="red"><B>how</B></FONT> to
+  <FONT color="blue"><B>express</B></FONT> the
+  <FONT color="red"><B>concept</B></FONT> in
+  the <FONT color="blue"><B>syntax</B></FONT> of
+  the <FONT color="red"><B>programming language</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,405 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Subroutines
+     </B></FONT>
+<P>
+ <UL>
+ <LI> In <FONT color="blue"><B>CS255</B></FONT>
+     (assembler programming),
+     the <B>terms</B> <FONT color="red"><B>subroutines</B></FONT> and
+   <FONT color="red"><B>functions</B></FONT> are
+      <FONT color="blue"><B>synonmous</B></FONT> to
+      <FONT color="red"><B>methods</B></FONT> in
+      <B>Java</B>
+ <P>
+ So whenever, I  use
+  <FONT color="red"><B>subroutine</B></FONT> or
+  <FONT color="blue"><B>function</B></FONT> or
+  <FONT color="red"><B>method</B></FONT>, they mean the 
+  <FONT color="blue"><B>same thing</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Subroutine</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Subroutine</B></FONT> is
+      a <FONT color="blue"><B>program unit</B></FONT> that
+      can be <FONT color="red"><B>called (= invoked)</B></FONT>
+      from anywhere in the computer program
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> As you will see soon, a
+    <FONT color="red"><B>subroutine</B></FONT> will
+  consist of a sequence of 
+    <FONT color="blue"><B>assembler instructions</B></FONT>
+    <FONT color="red"><B>without any special structure</B></FONT>
+  --- just like the
+  <FONT color="blue"><B><TT>main</TT></B></FONT> program that
+  you have been writing so far in assembler....
+<P>
+<LI> The <FONT color="red"><B><I>start</I></B></FONT> 
+    (= the <FONT color="blue"><B><I>first</I> instruction</B></FONT>)
+    of the <FONT color="red"><B>subroutine</B></FONT> is
+    <FONT color="blue"><B>marked</B></FONT> with a
+    <FONT color="red"><B>label</B></FONT> --
+    this label is
+    <FONT color="blue"><B>always</B></FONT>
+    the <FONT color="red"><B>name</B></FONT> of
+    the <FONT color="blue"><B>subroutine</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> When a <FONT color="red"><B>subroutine</B></FONT> is 
+   <FONT color="blue"><B>called (= invoked)</B></FONT>,
+   the <FONT color="red"><B>program execution</B></FONT> is
+   <FONT color="blue"><B>transfered</B></FONT> to
+   the <FONT color="red"><B>instructions</B></FONT> that
+   comprise the <FONT color="blue"><B>subroutine</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Program execution</B></FONT> will
+   <FONT color="blue"><B>continue</B></FONT> in the
+   <FONT color="red"><B>subroutine</B></FONT> until
+   the <FONT color="blue"><B>subroutine</B></FONT>
+   <FONT color="red"><B><I>returns</I></B></FONT>
+ <P>
+ <LI> When the <FONT color="red"><B>subroutine</B></FONT>
+   <FONT color="blue"><B><I>returns</I></B></FONT>,
+   the <FONT color="red"><B>program execution</B></FONT> will
+   <FONT color="blue"><B>continue</B></FONT> 
+    at the <FONT color="red"><B>next statement</B></FONT>
+    <FONT color="blue"><B>after</B></FONT>
+   the <FONT color="red"><B>subroutine call instruction</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Consider the following
+    <FONT color="red"><B>computer program</B></FONT>
+    in <FONT color="blue"><B>"pseudo assembler instructions"</B></FONT>
+   (I don't want to use
+   <FONT color="red"><B>ARM subroutine call and return instructions</B></FONT>
+   yet, I only specify the
+   <FONT color="blue"><B>"high level programming language"
+    instructions</B></FONT>
+   that you are <FONT color="red"><B>familiar</B></FONT>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/sub01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The pseudo instruction
+  <FONT color="blue"><B><TT>call-sub</TT></B></FONT>
+  will <FONT color="red"><B>call a subroutine</B></FONT>
+<P>
+The pseudo instruction
+  <FONT color="blue"><B><TT>sub-return</TT></B></FONT>
+  will <FONT color="red"><B>return to the caller</B></FONT>
+<P>
+The <FONT color="magenta"><B>arrows</B></FONT>
+ show you
+ the <FONT color="blue"><B>program execution order</B></FONT>
+<P>
+I.e.:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The first part of the
+      <FONT color="red"><B><TT>main</TT></B></FONT> function is
+       <FONT color="blue"><B>executed</TT></B></FONT> first
+ <P>
+ <LI> Then the <FONT color="blue"><B>execution</B></FONT> continues
+       in the
+       <FONT color="red"><B>subroutine <TT>sub1</TT></B></FONT>
+  <P>
+      But only the
+      first part of the
+      <FONT color="red"><B><TT>sub1</TT></B></FONT> function is
+       <FONT color="blue"><B>executed</TT></B></FONT>
+ <P>
+ <LI> Then the <FONT color="blue"><B>execution</B></FONT> continues
+       in the
+       <FONT color="red"><B>subroutine <TT>sub2</TT></B></FONT>
+  <P>
+     The complete
+      <FONT color="red"><B><TT>sub2</TT></B></FONT> function is
+       <FONT color="blue"><B>executed</TT></B></FONT> and
+     then the 
+ <FONT color="red"><B>execution</B></FONT> returns back to
+     the instruction
+   <FONT color="blue"><B><TT>sub1-instr3</TT></B></FONT>
+<P>
+ <LI> Then the <FONT color="blue"><B>execution</B></FONT> continues
+       in the <FONT color="red"><B>2nd half</B></FONT> of
+       <FONT color="blue"><B>subroutine <TT>sub1</TT></B></FONT>
+       and <FONT color="red"><B>return</B></FONT> to
+       the instruction
+       <FONT color="blue"><B><TT>main-instr3</TT></B></FONT>
+ <P>
+<LI> Then the <FONT color="blue"><B>execution</B></FONT> continues
+       in the <FONT color="red"><B>2nd half</B></FONT> of
+       the <FONT color="blue"><B><TT>main</TT></B></FONT> function
+  <P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Subroutine implementation in assembler
+     </B></FONT>
+<P>
+<UL>
+<LI> In order to implement <FONT color="red"><B>subroutine</B></FONT>,
+      you will learn 
+    <FONT color="blue"><B>2 new assembler instructions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <B>instruction</B> used by the
+       <FONT color="blue"><B> caller function</B></FONT> to
+      <FONT color="red"><B>call</B></FONT> a 
+      <FONT color="blue"><B>subroutine</B></FONT>
+     (<FONT color="red"><B>branch and link</B></FONT>)
+ <P>
+ <LI> An <B>instruction</B></FONT> used  by the 
+      <FONT color="blue"><B>called subroutine</B></FONT> to
+      <FONT color="red"><B>return</B></FONT> to its
+      <FONT color="blue"><B>caller</B></FONT>
+      (in <B>ARM</B>, this is a
+       <FONT color="red"><B><TT>mov</TT></B></FONT> or
+       a <FONT color="red"><B><TT>pop</TT></B></FONT> instruction
+       - depending where you store the return address (explain later)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>difficult part</B></FONT> of
+     the <FONT color="blue"><B>implementation</B></FONT> of
+    <FONT color="red"><B>subroutines</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Storing </B></FONT> the
+  <FONT color="blue"><B>parameters</B></FONT> of a
+  <B>subroutine</B>
+ <LI> <FONT color="red"><B>Storing </B></FONT> the
+    <FONT color="blue"><B>local variables</B></FONT> of a
+    <B>subroutine</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In <FONT color="red"><B>CS170</B></FONT>, you have learned that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Parameter variables</B></FONT> are
+     <FONT color="red"><B>created</B></FONT> when
+     a <B>subroutine</B> 
+     <FONT color="blue"><B>starts</B></FONT> its
+     <FONT color="red"><B>execution</B></FONT>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT> are
+     <FONT color="red"><B>created</B></FONT> when
+     a <B>subroutine</B> 
+     <FONT color="blue"><B>starts</B></FONT> its
+     <FONT color="red"><B>execution</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Parameter variables</B></FONT> are
+     <FONT color="red"><B>destroyed</B></FONT> when
+     a <B>subroutine</B> 
+     <FONT color="blue"><B>finishes</B></FONT> its
+     <FONT color="red"><B>execution</B></FONT>
+ <LI> <FONT color="blue"><B>Local variables</B></FONT> are
+     <FONT color="red"><B>destroyed</B></FONT> when
+     a <B>subroutine</B> 
+     <FONT color="blue"><B>finishes</B></FONT> its
+     <FONT color="red"><B>execution</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you write a <FONT color="red"><B>subroutine</B></FONT> in
+  <FONT color="blue"><B>assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>You</B></FONT> are the one
+    that need to
+    <FONT color="blue"><B>create</B></FONT> the
+    <FONT color="red"><B>parameter variables</B></FONT> and the
+    <FONT color="red"><B>local variables</B></FONT> when
+    a <FONT color="blue"><B>subroutine</B></FONT> starts
+<P>
+ <LI> <FONT color="red"><B>You</B></FONT> are <B>also</B> the one
+    that need to
+    <FONT color="blue"><B>destroy</B></FONT> the
+    <FONT color="red"><B>parameter variables</B></FONT> and the
+    <FONT color="red"><B>local variables</B></FONT> when
+    a <FONT color="blue"><B>subroutine</B></FONT> finishes.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So we will spend a lot of time
+ learning 
+ <FONT color="red"><B>how to</B></FONT> create variables and
+ destroying variables in the discussion on
+  <FONT color="red"><B>how to implement</B></FONT>
+ <FONT color="blue"><B>subroutines</B></FONT>
+<P>
+<HR>
+<P>
+<LI> But <FONT color="red"><B>first</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We must learn how to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How to</B></FONT>
+    <FONT color="blue"><B>call</B></FONT> a
+   <FONT color="red"><B>subroutine</B></FONT>
+   (with no parameters and local variables)
+<P>
+ <LI> <FONT color="red"><B>How</B></FONT> a
+     <FONT color="blue"><B>subroutine</B></FONT>
+      <FONT color="red"><B>returns</B></FONT> to
+      its <FONT color="blue"><B>caller</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

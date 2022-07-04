@@ -1,0 +1,305 @@
+
+	<!DOCTYPE html>
+    <html class="no-js" lang="en">
+    <head>
+        
+        <title>Department of Math/CS - News</title>
+        
+        <meta charset="utf-8"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="resources/css/main.min.css" rel="stylesheet"/>
+		<link href="resources/css/components.min.css" rel="stylesheet"/>
+        <link href="resources/css/home.min.css" rel="stylesheet"/>
+        <link href="resources/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9 ]>
+		<link rel="stylesheet" href="resources/site_files/ie8.min.css" />
+		<![endif]-->
+		<!--[if lt IE 8 ]>
+		<link rel="stylesheet" href="resources/site_files/ie7.min.css" />
+		<![endif]-->
+        
+	    <script src="resources/js/modernizr-2.6.2.min.js"></script>
+		<script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/bootstrap-dropdown.js"></script>
+
+
+
+        <!-- Google Analytics 
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-79270112-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        <!-- end Google Analytics -->
+
+            <!-- used for smooth scrolling anchor links  -->
+            <script>$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});</script>
+
+                                                        
+    </head>
+	        <div class="wrapper">
+            <!-- header tag added via xslt -->
+            <header class="container blue mobile-logo" id="header" role="banner">
+                <h1 class="container logo-tall-som"><img alt="" class="classic" id="logo" src="resources/site_files/logo2.png">
+                <a href="http://emory.edu/" id="emory-logo">Emory College of Arts and Sciences</a>
+                <a href="http://mathcs.emory.edu/" id="unit-logo">Department of Mathematics and Computer Science</a>
+                    <a href="#" id="">
+                        <img alt="" class="classic" src="resources/site_files/mobil_logo.png"></a></h1>
+                        <div class="toggles container">
+                            <a class="toggle-nav" href="#"> <span class="icon-list"></span> Navigation</a>
+                                <a class="toggle-search" href="#" title="Search"><span class="icon-search"></span> Search</a></div>
+
+                                <nav id="emory-wide">
+                                    <a class="skip" href="#main-content">Skip to Content</a><ul><li class="top"><a>Schools</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Undergraduate</h4>
+                <ul>
+                <li><a href="http://www.college.emory.edu/" target="_blank" title="Emory College">Emory College</a></li>
+                <li><a href="http://oxford.emory.edu/" target="_blank" title="Oxford College">Oxford College</a></li>
+                <li><a href="http://goizueta.emory.edu/" target="_blank" title="Business School">Business School</a></li>
+                <li><a href="http://www.nursing.emory.edu/" target="_blank" title="School of Nursing">School of Nursing</a></li>
+                </ul>
+                <h4>Community</h4>
+                <ul>
+                <li><a href="http://www.ece.emory.edu/" target="_blank" title="Emory Continuing Education">Emory Continuing Education</a></li>
+                <li><a href="http://www.emory.edu/home/academics/continuing-education.html" target="_blank" title="Continuing Professional Education">Professional Education</a></li>
+                <li><a href="http://precollege.emory.edu/" target="_blank" title="Pre-College Program">Pre-College Program</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Graduate</h4>
+                <ul>
+                <li><a href="http://goizueta.emory.edu/" target="_blank" title="Business School">Business School</a></li>
+                <li><a href="http://www.gs.emory.edu/" target="_blank" title="Graduate School">Graduate School</a></li>
+                <li><a href="http://www.law.emory.edu/" target="_blank" title="School of Law">School of Law</a></li>
+                <li><a href="http://www.med.emory.edu/" target="_blank" title="School of Medicine">School of Medicine</a></li>
+                <li><a href="http://www.nursing.emory.edu/" target="_blank" title="School of Nursing">School of Nursing</a></li>
+                <li><a href="http://www.sph.emory.edu/" target="_blank" title="School of Public Health">School of Public Health</a></li>
+                <li><a href="http://www.candler.emory.edu/" target="_blank" title="School of Theology">School of Theology</a></li>
+                </ul>
+                </div>
+                </div></li><li class="top"><a>Libraries</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Libraries</h4>
+                <ul>
+                <li><a href="http://web.library.emory.edu/" target="_blank" title="Robert W. Woodruff">Robert W. Woodruff</a></li>
+                <li><a href="http://business.library.emory.edu/" target="_blank" title="Business">Business</a></li>
+                <li><a href="http://web.library.emory.edu/about/libraries/other-libraries/chemistry-library/" target="_blank" title="Science Commons">Science Commons</a></li>
+                <li><a href="http://health.library.emory.edu/" target="_blank" title="Health Sciences">Health Sciences</a></li>
+                <li><a href="http://library.law.emory.edu/" target="_blank" title="Law">Law</a></li>
+                <li><a href="http://marbl.library.emory.edu/" target="_blank" title="MARBL">MARBL</a></li>
+                <li><a href="http://web.library.emory.edu/about/libraries/woodruff-building/music-media-library.html" target="_blank" title="Music and Media">Music &amp; Media</a></li>
+                <li><a href="http://oxford.library.emory.edu/" target="_blank" title="Oxford College">Oxford College</a></li>
+                <li><a href="http://www.pitts.emory.edu/" target="_blank" title="Theology">Theology</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Library Tools</h4>
+                <ul>
+                <li><a href="https://ereserves.library.emory.edu/reserves2/index.php" target="_blank" title="Course Reserves">Course Reserves</a></li>
+                <li><a href="http://web.library.emory.edu/library-materials/databases-ebooks-ejournals/databases/" target="_blank" title="Databases">Databases</a></li>
+                <li><a href="http://digitalscholarship.emory.edu/" target="_blank" title="Emory Center for Digital Scholarship (ECDS)">Digital Scholarship (ECDS)</a></li>
+                <li><a href="http://discovere.emory.edu/" target="_blank" title="discoverE">discoverE</a></li>
+                <li><a href="http://ejournals.emory.edu/" target="_blank" title="eJournals">eJournals</a></li>
+                <li><a href="https://etd.library.emory.edu/" target="_blank" title="Electronic Dissertations">Electronic Dissertations</a></li>
+                <li><a href="http://findingaids.library.emory.edu/" target="_blank" title="EmoryFindingAids">EmoryFindingAids</a></li>
+                <li><a href="http://www.library.emory.edu/uhtbin/nph-illiad" target="_blank" title="ILLiad">ILLiad</a></li>
+                <li><a href="https://open.library.emory.edu/" target="_blank" title="OpenEmory">OpenEmory</a></li>
+                <li><a href="http://guides.main.library.emory.edu/" target="_blank" title="Research Guides">Research Guides</a></li>
+                </ul>
+                </div>
+                </div></li><li class="top"><a>Resources</a><div class="nav-box">
+                <div class="col col1">
+                <h4>Resources</h4>
+                <ul>
+                <li><a href="http://www.emory.edu/" target="_blank" title="Emory University main site">Emory University main site</a></li>
+                <li><a href="http://www.emory.edu/home/about/administration/index.html" target="_blank" title="Administrative Offices">Administrative Offices</a></li>
+                <li><a href="http://www.emoryhealthcare.org/" target="_blank" title="Emory Healthcare">Emory Healthcare</a></li>
+                <li><a href="http://www.emory.edu/home/giving/index.html" target="_blank" title="Give to Emory">Give to Emory</a></li>
+                <li><a href="http://registrar.emory.edu/Students/Calendars/" target="_blank" title="Academic Calendars">Academic Calendars</a></li>
+                <li><a href="http://www.bookstore.emory.edu/" target="_blank" title="Bookstore">Bookstore</a></li>
+                <li><a href="http://map.emory.edu/" target="_blank" title="Campus Maps">Campus Maps</a></li>
+                <li><a href="http://transportation.emory.edu/" target="_blank" title="Shuttles and Parking">Shuttles and Parking</a></li>
+                <li><a href="http://www.emoryathletics.com/" target="_blank" title="Athletics: Emory Eagles">Athletics: Emory Eagles</a></li>
+                <li><a href="http://www.arts.emory.edu/" target="_blank" title="Arts at Emory">Arts at Emory</a></li>
+                <li><a href="http://news.emory.edu/" target="_blank" title="Emory News Center">Emory News Center</a></li>
+                </ul>
+                </div>
+                <div class="col col2">
+                <h4>Resources</h4>
+                <ul>
+                <li><a href="http://www.emory.edu/home/emergency/index.html" target="_blank" title="Emergency">Emergency</a></li>
+                <li><a href="http://www.it.emory.edu/" target="_blank" title="Information Technology (IT)">Information Technology (IT)</a></li>
+                <li><a href="https://owa.emory.edu/" target="_blank" title="Outlook Web Access">Outlook Web Access</a></li>
+                <li><a href="http://it.emory.edu/student_community/office365/" target="_blank" title="Office 365">Office 365</a></li>
+                <li><a href="https://classes.emory.edu/webapps/portal/frameset.jsp" target="_blank" title="Blackboard">Blackboard</a></li>
+                <li><a href="https://www.opus.emory.edu/" target="_blank" title="OPUS">OPUS</a></li>
+                <li><a href="https://compass-login.emory.edu/" target="_blank" title="PeopleSoft Financials: Compass">PeopleSoft Financials: Compass</a></li>
+                <li><a href="http://www.hr.emory.edu/eu/careers/" target="_blank" title="Careers">Careers</a></li>
+                <li><a href="http://www.hr.emory.edu/eu/" target="_blank" title="Human Resources">Human Resources</a></li>
+                <li><a href="http://news.emory.edu/campus/index.html" target="_blank" title="Emory Report">Emory Report</a></li>
+                </ul>
+                </div>
+    </div></li>
+            <li class="top search">
+                <div class="nav-box search">
+                    <form action="http://search.emory.edu/search" id="form-search" method="get" name="searchForm">
+                        <input name="searchString" type="hidden">
+                        <input name="numgm" value="5" type="hidden">
+                        <input name="client" value="default_frontend" type="hidden">
+                        <input name="output" value="xml_no_dtd" type="hidden">
+                        <input name="proxystylesheet" value="homepage" type="hidden">
+                        <div class="input-append">
+                        <label>
+                            <input autocomplete="off" class="input-medium" id="q" maxlength="2048" name="q" placeholder="Search" type="search">
+                        </label>
+                        <button class="btn" type="submit">
+                            <strong class="label">Search</strong><span class="icon-search"></span>
+                        </button>
+                </div>
+                        <fieldset style="display: none;" class="search-scope">
+                        <!-- <label class="checked"><input checked="checked" id="search-site" name="site" value="default_collection" type="radio"> This Site</label> -->
+                        <label class="checked"><input id="search-emory" name="site" value="default_collection" type="radio"> All Emory Sites</label>
+                        <label><input id="search-directory" name="site" value="directory" type="radio"> People</label>
+                    </fieldset>
+                </form>
+            </div>
+        </li>
+    </ul>
+    </nav>
+    <div class="hdrnote" style="border:dashed 8px;padding:24px;background-color:yellow">
+    <h3 style="color:black">This site is historical. For updated information, please visit:</h3>
+    <h3 style="margin-left:16px"><a href="http://www.cs.emory.edu">Department of Computer Science</a></h3>
+    <h3 style="margin-left:16px"><a href="http://www.math.emory.edu">Department of Mathematics</a></h3>
+    </div>
+</header>    <style>
+        #navbar-li-ele{
+            border-left:none!important;
+        }
+    
+    </style>
+
+    <nav class="container blue" id="main-nav" role="navigation">
+    <ul><li id='navbar-li-ele'><a style=""  href="/site/home/">Home</a></li><li id='navbar-li-ele'><a style=""  href="/site/undergraduate/">Undergraduate</a></li><li id='navbar-li-ele'><a style=""  href="/site/graduate/">Graduate</a></li><li id='navbar-li-ele'><a style=""  href="/site/courses/">Courses</a></li><li id='navbar-li-ele'><a style=""  href="/site/research/">Research</a></li><li id='navbar-li-ele'><a style=""  href="/site/people/">People</a></li><li id='navbar-li-ele'><a style="" class="active" href="/site/events/">Events</a></li><li id='navbar-li-ele'><a style=""  href="/site/about/">About</a></li></ul>
+    </nav>
+    <!-- content - may need subdivs for cols -->
+    <!-- section -->
+    <div class="container"><div class="container" style="background-color:white!important">
+
+    <div class="row col1col2" >
+
+
+        <!-- column 1-->
+        <div class="span3" id="context"  style="background-color:white!important;display:table-header-group!important">
+            
+            <nav class="gold" id="sub-nav"  role="navigation">
+                <ul id="section-nav"><li ><a href='../general-information'  >Seminars</a></li><li class="selected"><a href='../news'  >News</a></li>   </ul>
+            </nav>        </div><!-- end span3 menu -->
+
+
+
+        <!-- column 2-->
+    <div class="span9" id="main-content" style="background-color:white!important"><br>
+                 
+        <h1 id="title-heading">News</h1>
+    
+    <div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news1'></a>Golden State and the Mathematical Magic of Seventy-Three</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2016-04-13<br>What started out as an innocent conversation about basketball and math, Dr. Ken Ono is featured in a New Yorker article discussing the Golden State Warriors and their push for 73 wins.
+Read more about it <a href="http://www.newyorker.com/news/sporting-scene/golden-state-and-the-mathematical-magic-of-seventy-three">here</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news2'></a>Zureick-Brown receives NSF CAREER award</th></tr><tr><td width='90' height='90'  style='border-top: none !important; '> <a href='/site/api/v2/image.php?file=NWS-00203.jpg'><img src='/site/api/v2/image.php?file=NWS-00203.jpg&resize=crop&width=100&height=100' alt='news'></a>  </td><td style='border-top: none !important; '><b>Published Date:</b> 2016-04-11<br>David Zurieck-Brown, Assistant Professor of Mathematics, has received the
+department's second ever NSF CAREER grant for his project "Arithmetic,
+Algebraic, and Non-Archimedean Geometry". The CAREER program offers the
+National Science Foundation's most prestigious awards in support of junior
+faculty who exemplify the role of teacher-scholars through outstanding
+research, excellent education and the integration of education and
+research. Zureick-Brown's work focuses on developing new tools (especially
+p-adic/geometric/cohomological) to study the structure of solutions of
+equations; a description is at <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1555048"> https://www.nsf.gov/awardsearch/showAward?AWD_ID=1555048</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news3'></a>Ethan Alwaise has been awarded a Goldwater scholarship</th></tr><tr><td width='90' height='90'  style='border-top: none !important; '> <a href='/site/api/v2/image.php?file=NWS-00204.jpg'><img src='/site/api/v2/image.php?file=NWS-00204.jpg&resize=crop&width=100&height=100' alt='news'></a>  </td><td style='border-top: none !important; '><b>Published Date:</b> 2016-04-04<br>Ethan Alwaise, an outstanding Emory mathematics undergraduate, has been named one of 252 nationwide recipients of the prestigious Barry Goldwater Scholarship. The scholarship was initiated in 1986 to honor U.S. Senator Barry M. Goldwater, with purpose to "alleviate a critical current and future shortage of highly qualified scientists, mathematicians and engineers." As a Junior, Ethan is taking multiple graduate mathematics courses and independent studies and, in addition to two research articles (one published in Annals of Combinatorics, and one submitted for publication), Ethan will attend University of Minnesota's REU this summer. Ethan plans to pursue a Ph.D. in mathematics with a focus on Number Theory.</br></br>
+Press release: <a href="https://goldwater.scholarsapply.org/yyschrel.php"> https://goldwater.scholarsapply.org/yyschrel.php</a>. </br></br>
+List of recipients: <a href="https://goldwater.scholarsapply.org/sch-2016.php">https://goldwater.scholarsapply.org/sch-2016.php</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news4'></a>Lea Beneish and Blair Rossetti win NSF Graduate Fellowship Awards</th></tr><tr><td width='90' height='90'  style='border-top: none !important; '> <a href='/site/api/v2/image.php?file=NWS-00201.jpg'><img src='/site/api/v2/image.php?file=NWS-00201.jpg&resize=crop&width=100&height=100' alt='news'></a>  </td><td style='border-top: none !important; '><b>Published Date:</b> 2016-04-01<br>PhD students Lea Beneish and Blair Rossetti each won a prestigious 2016 NSF Graduate Fellowship Award. The NSF Fellowship recognizes and supports outstanding graduate students in STEM disciplines who are pursuing research-based doctoral degrees.  This fellowship has a long history of selecting recipients who achieve high levels of success in their professional careers, and who also contribute significantly to scientific innovation.
+</br></br>
+Lea Beneish is a Number Theory PhD student working with Dr. Ken Ono and has already published two research papers on harmonic Maass forms and p-adic modular forms. She was also an active researcher as an undergraduate, participating in several research experiences for undergraduates (REUs). Lea is the 7th Emory Number Theory PhD student to receive an NSF Graduate Fellowship in the last 6 years.
+</br></br>
+Blair Rossetti is a Computer Science PhD student working with Dr. Jun Kong. He has a background in biochemistry and worked as a research assistant for many years developing microscopy techniques for studying microbial communities. Now he is combining his previous work in microscopy with the field of biomedical image informatics in order to build analytical tools for three dimensional microscopy images.
+</br></br>
+Congratulations to Lea and Blair!</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news5'></a>Recent Emory Number Theory PhD Makes World News With Recent Discovery About Prime Numbers</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2016-03-14<br>Robert Lemke Oliver of Stanford University, who earned his PhD at Emory working under Ken Ono in 2013, has made made world news in joint work with
+Kannan Soundararajan also from Stanford. Lemke Oliver and Soundararajan have discovered that prime numbers are not as randomly behaved as had been commonly accepted.
+Read about their work <a href="https://www.quantamagazine.org/20160313-mathematicians-discover-prime-conspiracy/">here</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news6'></a>Emory Report: Li Xiong - Researching the human elements of cybersecurity</th></tr><tr><td width='90' height='90'  style='border-top: none !important; '> <a href='/site/api/v2/image.php?file=NWS-00198.png'><img src='/site/api/v2/image.php?file=NWS-00198.png&resize=crop&width=100&height=100' alt='news'></a>  </td><td style='border-top: none !important; '><b>Published Date:</b> 2016-02-25<br>Dr. Li Xiong was recently featured in the Emory report. The article profiles Dr. Xiong and her research lab, Assured Information Management and Sharing (AIMS), focusing on cybersecurity issues. Read more about it <a href="http://news.emory.edu/stories/2016/02/er_profile_li_xiong/campus.html">here</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news7'></a>Georgia Scientific Computing Symposium</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2016-02-18<br>The Georgia Scientific Computing Symposium (GSCS) is a forum for professors, postdocs, graduate students and other researchers in Georgia to meet in an informal setting, to exchange ideas, and to highlight local scientific computing research. The symposium has been held every year since 2009 and is open to the entire research community. This year, the symposium will be held on Saturday, February 20, 2016, at Emory University. The format of the day-long symposium is a set of invited presentations, poster sessions and a poster blitz, and plenty of time to network with other attendees.</br>
+</br>
+Read more about it <a href="http://www.mathcs.emory.edu/~nagy/GSC2016/index.html">here</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news8'></a>Vigfusson receives NSF CAREER Award</th></tr><tr><td width='90' height='90'  style='border-top: none !important; '> <a href='/site/api/v2/image.php?file=NWS-00196.png'><img src='/site/api/v2/image.php?file=NWS-00196.png&resize=crop&width=100&height=100' alt='news'></a>  </td><td style='border-top: none !important; '><b>Published Date:</b> 2015-12-03<br>Ymir Vigfusson, Assistant Professor of Computer Science, has received the
+department's first ever NSF CAREER grant for his project "SentientCache:
+Rethinking the Cache Abstraction". The CAREER program offers the National
+Science Foundation's most prestigious awards in support of junior faculty who
+exemplify the role of teacher-scholars through outstanding research, excellent
+education and the integration of education and research. Vigfusson's work
+focuses on improving the performance and cost-effectiveness of large-scale
+distributed systems by automatically learning what data should be memorized; a
+description is at <a href="http://www.nsf.gov/awardsearch/showAward?AWD_ID=1553579&HistoricalAwards=false">http://www.nsf.gov/awardsearch/showAward?AWD_ID=1553579&HistoricalAwards=false</a>.</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news9'></a>Emory Math-Physics Theorem Named 50th Top Story of 2015 in Science by Discover Magazine</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2015-12-01<br>Emory Professors John Duncan and Ken Ono, together with Onos former Emory Ph.D. student Michael Griffin (now faculty at Princeton),
+have been recognized for their work on Mathematical Physics. John, Ken and Michael proved the so-called Umbral Moonshine Conjecture,
+a generalization of Monstrous Moonshine which won Richard Borcherds the Fields medal in 1998. Their work was named the 50th top
+story of 2015 in science by Discover magazine.</br>
+</br>
+
+Here is the link to the story (behind paywall):
+</br></br>
+ <a href="http://discovermagazine.com/2016/janfeb/50-drinking-up-maths-moonshine">http://discovermagazine.com/2016/janfeb/50-drinking-up-maths-moonshine</a>. </br></br>
+Here is the text of the story.
+</br></br>
+In the late 1970s, two mathematicians, John Conway and Simon Norton, saw a deep connection between two mathematical objects that should have nothing to do with each other. On one side of the link was a fundamental object in number theory called the j-function. On the other was a mysterious entity that described a new kind of symmetry, but might not even exist. If it did, though, it would be enormous (8x1053 components), so they dubbed it the "monster group." The connection sounded so crazy, Conway and Norton called their theory "monstrous moonshine."
+</br></br>
+In 1992, Richard Borcherds proved monstrous moonshine. He found the link between the monster group (which does exist) and the j-function through string theory, the idea that the universe is made of tiny strings vibrating in high dimensions. But monstrous moonshine, it turns out, was just the beginning.
+</br></br>
+In March, John Duncan, Michael Griffin and Ken Ono proved 23 other moonshine-like correspondences between groups like the monster group and functions like the j-function, a conjecture dubbed "umbral moonshine." It's most likely all of these connections are also made through string theory, which may lead to even bigger game. "The ultimate goad," Duncan says, "is to unify quantum mechanics and Einstein's theory of gravity. That's a very, very big goal for physics, one of the biggest goals for science."</td></tr></table></div><div class="span8"><table class="table table-condensed "><tr><th colspan='2' style='background-color:#94cbff!important'><a name='news10'></a>Ken Ono named the 2017-2018  Distinguished George Polya Lecturer by the Mathematical Association of America</th></tr><tr><td style='border-top: none !important; '><b>Published Date:</b> 2015-11-09<br>The MAA appoints a new Pólya Lecturer every year, whose primary responsibility is presenting talks at MAA section meetings. Each appointee serves a term of two aca- demic years; the first year overlaps with the second year of the previous Pólya Lecturer. 
+
+
+Read more about it <a href="http://www.mathcs.emory.edu/newspdf/polya.pdf">here</a>.</td></tr></table></div><div class="span10"><div class="pagination"><ul class=" quick-links"><li><a href='index.php?PAGE=1'>1...</a></li><li ><a href='index.php?PAGE=2'>2</a></li><li ><a href='index.php?PAGE=3'>3</a></li><li ><a href='index.php?PAGE=4'>4</a></li><li ><a href='index.php?PAGE=5'>5</a></li><li class="active"><a href='#'>6</a></li><li ><a href='index.php?PAGE=7'>7</a></li><li ><a href='index.php?PAGE=8'>8</a></li><li ><a href='index.php?PAGE=9'>9</a></li><li ><a href='index.php?PAGE=10'>10</a></li></ul></div>
+
+
+        </div><!-- end of span9 main-content -->
+                    
+                    
+                    
+                    
+                 
+    </div>
+</div>
+
+
+
+
+
+<footer class="container" id="footer">
+                
+                <ul id="footLinks"><li><a href="http://www.emory.edu/" target="_blank" title="Emory University main website">EMORY HOME</a></li><li><a href="http://www.emory.edu/home/contact-emory/index.html" target="_blank" title="Contacts">CONTACTS</a></li><li><a href="http://www.emory.edu/home/emergency/index.html" target="_blank" title="Emergency">EMERGENCY</a></li><li><a href="http://www.hr.emory.edu/eu/careers/" target="_blank" title="Careers">CAREERS</a></li><li><a href="http://www.emory.edu/home/giving/index.html" target="_blank" title="Give to Emory">GIVE TO EMORY</a></li><li><a href="http://communications.emory.edu/tools/web-guide/about.html" target="_blank" title="About Emory's Web">ABOUT EMORY'S WEB</a></li></ul><p><a href="http://communications.emory.edu/tools/web-guide/copyright-dmca.html" target="_blank" title="Copyright">Copyright</a> © <span id="copyright-date">2016</span> <a href="http://www.emory.edu/" target="_blank" title="Emory Homepage">Emory University</a> - All Rights Reserved <span class="address">| 201 Dowman Drive, Atlanta, Georgia 30322 USA 404.727.6123</span></p>
+                 
+            </footer>
+            <!-- footer -->
+        </div>
+        <!-- /wrapper -->
+        <script src="resources/js/plugins/bootstrap.min.js"></script>
+<script src="resources/js/template/main.min.js"></script>
+<!--[if lt IE 9 ]>
+<script src="resources/js/template/ie8.min.js"></script>
+<![endif]-->
+    
+        <!-- end page js -->
+    
+</body></html>

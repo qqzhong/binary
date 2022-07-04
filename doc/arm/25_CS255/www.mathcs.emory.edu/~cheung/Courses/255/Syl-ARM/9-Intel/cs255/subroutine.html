@@ -1,0 +1,228 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H1>
+<HR>
+Subroutine Call and Return
+<HR>
+</H1>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Stack and frame pointers: ESP and EBP
+     </B></FONT>
+ <P>
+ <UL>
+ <LI> The 32 bit register <B>ESP</B> is the stack pointer
+ <P>
+ <LI> The 32 bit register <B>EBP</B> is typically used as the frame pointer
+ </UL>
+<P>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Push: passing parameters on the stack
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>push</B> instruction pushes a 2-bytes, 4-bytes or 8-bytes
+	value on the stack.
+
+ <P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  push ax		;; pushes 2 bytes
+
+  push eax		;; pushes 4 bytes    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<P>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Pop: passing values off the stack
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>pop</B> instruction pops a 2-bytes, 4-bytes or 8-bytes
+	value on the stack.
+
+ <P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  pop ax		;; pops 2 bytes
+
+  pop eax		;; pops 4 bytes    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <LI> If you just want to <B>discard</B> the values, you can
+	just <B>increase</B> the stack pointer
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  add esp, 2                ;; pops and discard 2 bytes
+
+  add esp, 4                ;; pops and discard 4 bytes  
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Subroutine call: call
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>call</B> instruction is used for subroutine call:
+
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  call Label        
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> It pushes the address of the <B>next instruction</B> on the stack
+	and then <B>jumps</B> to <B>Label</B>
+	(Just like M68000)
+</UL>
+<P>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Subroutine return: ret
+     </B></FONT>
+<P>
+<UL>
+ <LI> The <B>ret</B> instruction is to return from a subroutine call:
+
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  ret      
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> It pops the address value at the <B>top of the stack</B>
+	into <B>EIP</B>
+	(Just like M68000)
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example Programs
+     </B></FONT>
+<P>
+<UL>
+ <P>
+ <LI> <FONT color="#00a000"><B> Factorial: </B></font>
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="Progs/fac.asm"> click here </A>
+   </UL>
+
+ <P>
+ <LI> <FONT color="#00a000"><B> Tower of Hanoi: </B></font>
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="Progs/hanoi.asm"> click here </A>
+   </UL>
+
+<P>
+ </UL>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+

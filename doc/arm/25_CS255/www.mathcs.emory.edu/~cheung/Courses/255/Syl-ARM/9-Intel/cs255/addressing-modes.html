@@ -1,0 +1,919 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Intel 80386 addressing modes
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Real and Protected modes
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B>Intel 80386</B></FONT>
+      can operate in <FONT color="red"><B>2 different modes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> <FONT color="red"><B><I>Real</I> mode</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> No <FONT color="blue"><B>memory address translation</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+  <LI> <FONT color="red"><B><I>Protected</I> mode</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Uses <FONT color="blue"><B>memory address translation</B></FONT>
+   or <FONT color="darkmagenta"><B>virtual memory technique</B></FONT>
+   (explained in <B>cs355</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ <P>
+ <LI> <FONT color="darkmagenta"><B>Nowadays</B></FONT>,
+      <B>programs</B> are only written using the
+	<FONT color="red"><B>"Protected mode"</B></FONT>
+ <P>
+ The <FONT color="blue"><B>real mode</B></FONT> in <B>80386</B> is
+  provided <FONT color="darkmagenta"><B>only</B></FONT> for
+ <FONT color="red"><B>backward compatibility</B></FONT>
+  <P>
+<HR>
+<P>
+ The <FONT color="blue"><B>Protected Mode</B></FONT>
+  <FONT color="red"><B>does <I>not</I></B></FONT> use
+ <FONT color="darkmagenta"><B>segment registers</B></FONT>
+ <P>
+  I will omit this weird form
+	of addressing mode.
+<P>
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Instruction format
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B>instruction format</B></FONT>
+   is <B>similar</B> but
+   <FONT color="red"><B>opposite</B></FONT> to <B>M68000</B>:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+   Opcode   <FONT color="darkred">DESTINATION</FONT>,  <FONT color="red">SOURCE</FONT>    
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Notes:</B>
+ <P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>first operand </B></FONT>
+   is the <FONT color="red"><B>destination</B></FONT>
+  <P>
+   The <FONT color="blue"><B>destination operand</B></FONT>
+   is <B>also</B>
+    the <FONT color="red"><B><I>first</I> source operand</B></FONT>
+    in a <FONT color="darkmagenta"><B>binary operation</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>second operand</B></FONT>
+     is the <FONT color="red"><B>second <I>source</I> operand</B></FONT>
+ </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Size</I> of operands in an Intel assembler instruction 
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Specifying the size of an operand in Intel</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<UL>
+<LI> The <FONT color="blue"><B>size</B></FONT> of the operand
+   (byte, word, double word) is <B>conveyed</B>
+    by the <FONT color="red"><B>operand <I>itself</I></B></FONT>
+ <P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>EAX</B></FONT> means: a
+    <FONT color="blue"><B>32 bit operand</B></FONT>
+ <LI> <FONT color="red"><B>AX</B></FONT> means: a
+    <FONT color="blue"><B>16 bit operand</B></FONT>
+ <LI> <FONT color="red"><B>AL</B></FONT> means: a
+    <FONT color="blue"><B>8 bit operand</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <LI> <FONT color="red"><B> Very important: </B></FONT>
+ <P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> The <FONT color="red"><B>size</B></FONT> of the
+    <FONT color="darkmagenta"><B>source operand</B></FONT> and
+    the <FONT color="blue"><B>destination operand</B></FONT>
+    <B><I>must</I></B>
+    be <FONT color="red"><B>equal</B></FONT>
+ <P>
+ (Otherwise, you will get an 
+  <FONT color="blue"><B>error message</B></FONT>)
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Register Operands
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B><I>name</I> of a register </B></FONT>
+	is used to <FONT color="red"><B>identify</B></FONT>:
+  <P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+  <UL>
+  <LI> The <FONT color="red"><B>register</B></FONT> used as an
+   <B> operand</B> in an operation
+ <P>
+  <LI> The <FONT color="red"><B> size </B></FONT>
+	of the <FONT color="blue"><B>operand</B></FONT>  !!!
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>How the name is used to identify a register as operand:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+   <-----------  EAX ------------></FONT>
+  +-------+-------+-------+-------+
+  |               |  <FONT color="red">AH</FONT>   |   <FONT color="red">AL</FONT>  |
+  +-------+-------+-------+-------+
+		  <FONT color="red"><------ AX -----></FONT>
+
+  <FONT color="red">EAX</FONT>     - 32 bits in register EAX      
+  <FONT color="red">AX</FONT>      - lower 16 bits in register EAX
+            <FONT color="red">(Other parts of the EAX register is unchanged)</font>          
+  <FONT color="red">AH</FONT>      - second last 8 bits in register EAX 
+            <FONT color="red">(Other parts of the EAX register is unchanged)</font>     
+  <FONT color="red">AL</FONT>      - last 8 bits in register EAX      
+            <FONT color="red">(Other parts of the EAX register is unchanged)</font>
+
+<HR>
+  EBX     - 32 bits in register EBX      
+  BX      - lower 16 bits in register EBX      
+  BH      - second last 8 bits in register EBX
+  BL      - last 8 bits in register EBX      
+
+<FONT color="red"> and so on... </FONT>
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <B>Example instructions:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  mov <FONT color="red">EBX, EAX</FONT>     - <FONT color="darkred">copy 32 bits</FONT> in register EAX to EBX  
+   
+  mov <FONT color="red">BX,  AX</FONT>      - <FONT color="darkred">copy 16 bits</FONT> in register EAX to EBX   
+  
+  mov <FONT color="red">BL,  AL</FONT>      - <FONT color="darkred">copy 8  bits</FONT> in register EAX to EBX     
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <P>
+ <LI> <font color="red"><B>Examples with <I>errors</I>:</B></font>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  mov <FONT color="red">EBX, AX</FONT>      - src operand = <FONT color="red">16 bit register AX</FONT>
+                     destinaton operand = <FONT color="red">32 bit register EBX</FONT>     
+
+  mov <FONT color="red">BX,  AL</FONT>      - src operand = <FONT color="red">8 bit register AL</FONT>
+                     destinaton operand = <FONT color="red">16 bit register BX</FONT>     
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Immediate Operands
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Immediate (contant) operands:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>numeric constant</B></FONT> or
+     a <FONT color="darkmagenta"><B>symbolic (numeric) constant</B></FONT>
+     is <B>identified</B> as
+     an <FONT color="red"><B>immediate operand</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> <B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+         mov   eax, <FONT color="red">10</FONT>	;; Effect: eax = 00000000 00000000 00000000 00001010
+
+<HR>
+   <FONT color="red">MAX:  equ  7</FONT>
+         mov   eax, <FONT color="red">MAX</FONT>	;; Effect: eax = 00000000 00000000 00000000 00000111   
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Memory Operand
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax of access memory variable:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+    <FONT color="red">VarName</FONT>:   DD  0             ;; Integer variable named "VarName"</FONT>
+
+
+    mov   EAX,  <FONT color="red">VarName</FONT>          ;; Copy <FONT color="red">value</FONT> store in <FONT color="red">"VarName"</FONT> to register EAX
+
+    mov   EAX,  <FONT color="red">offset VarName</FONT>   ;; Store the <FONT color="red">memory address</FONT> of <FONT color="red">"VarName"</FONT> to register EAX    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+  <P>
+   <B>Example: read the value from variable "sum"</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  int sum;
+
+  sum = 1234;
+
+<HR>
+
+  .data<FONT color="red"><B>
+  sum    dd   ?               ;; Allocate memory space for variable "sum"</B></FONT>
+
+  .code<FONT color="red"><B>
+  mov   sum, 1234              ;; sum = 1234</B></FONT>        
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+ <LI> 
+  <P>
+   <B>Example: get the <I>memory address</I> of variable "sum"</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  int sum;
+
+  eax = address of the variable sum   
+
+<HR>
+<FONT color="red"><B>
+  .data
+  sum    dd   ?                 ;; Defines sum</B></FONT>
+
+  .code<FONT color="red"><B>
+  mov   eax, <FONT color="darkmagenta"><B>offset</B></FONT> sum          ;; eax = address(sum)</B></FONT>      
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Hello World</I> program in Intel Assembler
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Hello World:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkmagenta">
+    ; -------------------------------------------
+    ; Code segment			 
+    ; -------------------------------------------
+    .code</FONT>				 
+    start:				 
+    				     
+    	; invoke functionStdOut with parameter: addr HelloWorld
+    				     
+        mov eax, <FONT color="red">offset HelloWorld</FONT>     ;; eax = address "HelloWorld"          
+        push eax                       ;; <FONT color="darkred">Pass parameter</FONT> to "StdOut"
+    	call <FONT color="red">StdOut</FONT>		       ;; Call "StdOut"
+	<FONT color="magenta">add  esp, 4	               ;; Pop parameter</FONT>
+    				     
+    	; Exit....			 
+<FONT color="red">    				     
+    	invoke ExitProcess, 0	       ;; Return to DOS</FONT>
+ 
+
+<FONT color="darkmagenta">   				     
+    ; -------------------------------------------
+    ; Data segment			 
+    ; -------------------------------------------
+    .data	</FONT>			 
+    <FONT color="red">HelloWorld</FONT>  db <FONT color="darkred">"Hello World !", 0</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using the "Printf" library function in MASM
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Printf:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>printf</B></FONT> function in
+   <B>MASM</B> is structured like the
+   <FONT color="red"><B>printf()</B></FONT> in
+   <FONT color="darkmagenta"><B>C/C++</B></FONT>
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="blue"><B>first parameter</B></FONT> of
+      <B>printf</B> is a
+      <FONT color="red"><B>format string</B></FONT>
+ <P>
+  The <FONT color="blue"><B>format string</B></FONT> can
+   contain <FONT color="red"><B>conversion symbols</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> <B>Commonly used conversion symbols:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>%d</B></FONT> = 
+     print an <FONT color="blue"><B>integer value</B></FONT>
+ <LI> <FONT color="red"><B>%f</B></FONT> =
+     print an <FONT color="blue"><B>floating point value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> The <FONT color="blue"><B>parameters 2, 3, ...</B></FONT>
+    are <FONT color="darkmagenta"><B>values</B></FONT> 
+    that are used with the
+    <FONT color="red"><B>respective conversion symbols</B></FONT>
+    found in the
+    <FONT color="blue"><B>format string (first parameter)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> invoke
+    <FONT color="red"><B>printf("Value = %d", 1234)</B></FONT>
+
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  ; -------------------------------------------
+  ; Code segment
+  ; -------------------------------------------
+  .code
+  start:
+<FONT color="red">
+    mov  eax, 1234 	    ;; eax = 1234 (binary)   
+    push eax                ;; Pass 1234 </FONT>
+<FONT color="darkred">
+    mov  eax, offset Str1   ;; eax = address of Str1          
+    push eax                ;; Pass parameter</FONT>
+
+    call <FONT color="red">crt_printf </FONT>        ;; Call <FONT color="red">"printf"</FONT>
+    <FONT color="magenta">add  esp, 8	               ;; Pop parameter</FONT>
+<FONT color="darkmagenta">
+    ; Exit....
+    invoke ExitProcess, 0</FONT>
+
+  ; -------------------------------------------    
+  ; Data segment
+  ; -------------------------------------------
+  .data
+  Str1  db "Value = %d", 0
+
+  
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="Progs/printf.asm"> click here </A>
+   </UL>
+
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Indirect and Indexed Addressing Mode
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>80386</B> can use a <FONT color="blue"><B>register</B></FONT>
+     to  access <FONT color="darkmagenta"><B>operands in memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+      mov  eax,  offset VarName
+
+      mov  ebx,  <FONT color="red">[eax] </FONT>                 ;; Copy <FONT color="red">value</FONT> stored at     
+                                        ;; <FONT color="red">memory location given by EAX</FONT>    
+					;; into register EBX
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>You can <FONT color="red"><I>add</I></FONT> various 
+  <FONT color="blue">offset expressions</FONT> to the base:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  mov  ..., <FONT color="red">[eax]</FONT>    		;; Memory address given by EAX
+  mov  ..., <FONT color="red">[eax + 4]</FONT>    	;; Memory address (EAX + 4)
+  mov  ..., <FONT color="red">[eax + ebx]</FONT>		;; Memory address (EAX + EBX)
+  mov  ..., <FONT color="red">[eax + 4*ebx]</FONT>	;; Memory address (EAX + 4*EBX) 
+  mov  ..., <FONT color="red">[eax + 4*ebx + 4]</FONT>	;; Memory address (EAX + 4*EBX + 4)              
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<B>Program Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ <FONT color="darkred">   
+    ; -------------------------------------------
+    ; Data segment
+    ; -------------------------------------------
+    .data</FONT>
+    
+    ArrayA  dd   1111, 2222, 3333, 4444
+    i       dd   1
+    Str1  db "Result = %d", 0
+ 
+
+<FONT color="darkred">   
+    ; -------------------------------------------
+    ; Program
+    ; -------------------------------------------
+    .code</FONT>
+    start:
+ <FONT color="red"><B> <FONT color="darkmagenta">  
+;; Access ArrayA[0]</FONT>
+    	mov  ebx, offset ArrayA      ;; ebx = address(ArrayA)
+    	mov  ebx, [ebx]		     ;; ebx = ArrayA[0] = 1111</B></FONT>
+    	push ebx
+    	push offset Str1
+    	call crt_printf
+        <FONT color="magenta">add  esp, 8	               ;; Pop parameter</FONT>
+ <FONT color="red"><B> <FONT color="darkmagenta">
+;; Access ArrayA[1]  </FONT>
+    	mov  ebx, offset ArrayA
+    	mov  ebx, [ebx+4]             ;; ebx = ArrayA[1] = 2222</B></FONT>
+    	push ebx
+    	push offset Str1
+    	call crt_printf
+        <FONT color="magenta">add  esp, 8	               ;; Pop parameter</FONT>
+<FONT color="red"><B> <FONT color="darkmagenta">  
+;; Access ArrayA[i] </FONT>
+    	mov  ebx, offset ArrayA
+    	mov  eax, i
+    	mov  ebx, [ebx + 4*eax]       ;; ebx = ArrayA[ i ] = 2222</B></FONT>
+    	push ebx
+    	push offset Str1
+    	call crt_printf
+        <FONT color="magenta">add  esp, 8	               ;; Pop parameter</FONT>
+<FONT color="red"><B> <FONT color="darkmagenta"> 
+;; Access ArrayA[i+1] </FONT> 
+    	mov  ebx, offset ArrayA
+    	mov  eax, i
+    	mov  ebx, [ebx + 4*eax + 4]    ;; ebx = ArrayA[ i+1 ] = 3333</B></FONT>     
+    	push ebx
+    	push offset Str1
+    	call crt_printf
+        <FONT color="magenta">add  esp, 8	               ;; Pop parameter</FONT>
+ 
+    
+    	; Exit....
+    
+    	invoke ExitProcess, 0
+    
+    
+    
+    end start
+    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+   <P>
+   <UL>
+   <LI> Prog file:
+        <A HREF="Progs/array.asm"> click here </A>
+   </UL>
+
+
+
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting byte -> short -> int -> long -> long long
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>conversion instruction</B></FONT>
+    will <FONT color="red"><B>only work</B></FONT>
+    with the
+    <FONT color="darkmagenta"><B>register EAX (accumulator)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Conversion instructions in 80386:</B>
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<FONT color="blue">
+<B>
+<PRE>
+
+  Byte(8 bits) --> Word(16 bits)
+
+      <FONT color="red">cbw</font>		- convert <FONT color="red">byte</FONT> to <FONT color="red">word</FONT>
+		        - Effect: <FONT color="darkmagenta">sign-extends AL to AX</FONT>
+
+<HR>
+  Word(16 bits) --> Double Word(32 bits)
+
+      <FONT color="red">cwd</font>		- convert <FONT color="red">word</FONT> to <FONT color="red">double word</FONT>
+		        - Effect: <FONT color="darkmagenta">sign extends AX to DX:AX</FONT>
+			- <FONT color="magenta">Note:</FONT> <FONT color="red">Obsolete instruction !</FONT>
+			- This instruction is provide to 
+			- conserve portability with 8086
+
+      <FONT color="red">cwde</font>		- convert <FONT color="red">word</FONT> to <FONT color="red">double word extended</FONT>
+		        - Effect: <FONT color="darkmagenta">sign-extends AX to EAX</FONT>                   
+
+<HR>
+  Double word(32 bits) --> Quad Word(64 bits)
+
+      <FONT color="red">cdq</font>		- convert <FONT color="red">double word</FONT> to <FONT color="red">quad</FONT>
+		        - Effect: <FONT color="darkmagenta">sign-extends EAX to EDX:EAX</FONT>
+</PRE>
+</B>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+</UL>
+<P>
+
+
+<HR>
+
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     More Information
+     </B></FONT>
+<P>
+ <UL>
+ <LI> MASM Programmer's Guide - Chapter 3
+	Using Addresses and Pointers
+ <A HREF=
+"http://webster.cs.ucr.edu/Page_TechDocs/MASMDoc/ProgrammersGuide/Chap_04.htm"
+>
+	click here </A>
+  <P>
+   A note of warning: uses outdated addressing mode with
+	<B>segment registers</B> (I have avoided this)
+ </UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

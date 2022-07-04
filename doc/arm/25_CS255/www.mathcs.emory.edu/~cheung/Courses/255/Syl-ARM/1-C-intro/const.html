@@ -1,0 +1,302 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>const</TT> modifier
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>const</TT> keyword
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B><TT>const</TT></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>keyword <TT>const</TT></B></FONT>
+      is used to
+      <FONT color="blue"><B>specify</B></FONT> that
+      a <B>variable</B> 
+      <FONT color="red"><B><I>cannot</I></B></FONT> be
+      <FONT color="blue"><B>modified</B></FONT>:
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int  a ;           // a is an int variable
+
+    int <FONT color="red">const</FONT> a ;      // a is an int variable that <FONT color="red">cannot be modified</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(It <FONT color="magenta"><B>actually</B></FONT> says that:
+   the <B>expression</B> <FONT color="blue"><B><TT>a</TT></B></FONT>
+   <FONT color="red"><B><I>cannot</I> be modified</B></FONT>)
+ <P>
+ <HR>
+ <P>
+ <LI> A <B>variable</B> defined with the
+     <FONT color="blue"><B><TT>const</TT> keyword</B></FONT> 
+     can <FONT color="red"><B><I>only</I></B></FONT>
+     be given an
+     <FONT color="blue"><B><I>initial</I> value</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>feature</B></FONT> is a
+      <FONT color="red"><B>language construct</B></FONT> 
+      <B><I>built</I> into</B> the
+      <FONT color="blue"><B>C compiler</B></FONT>
+ <P>
+ <LI> In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <B>C compiler</B> detects that
+     the program uses an <FONT color="blue"><B>assignment statement</B></FONT>
+     with a <FONT color="red"><B><TT>const</TT> modified variable</B></FONT>,
+     the <B>C compiler</B> will
+     <FONT color="blue"><B>report an error</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main(int argc, char *argv[])             
+   {
+      int <FONT color="red">const</FONT> a = 4;   <FONT color="red">// Initial value</FONT>
+    
+      printf (" a = %d\n", a);
+    <FONT color="red">
+      a = 1;         // Illegal !!!</FONT>
+    
+      printf (" a = %d\n", a);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+UNIX>> gcc const1.c
+const1.c: In function 'main':
+const1.c:12: error: <FONT color="red">assignment of read-only variable 'a'</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/const1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc const1.c</TT></B></FONT>
+ <P>
+  <FONT color="red"><B>Check out the compile error !</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript: alternate syntax
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Alternate syntax</B> to define a
+     <FONT color="red"><B><I>inmutable</I>  variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">const</FONT>  DataType  varName ;        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">const</FONT>  int  a ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <B>syntax</B> is <FONT color="red"><B>preferred</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    DataType  <FONT color="red">const</FONT>  varName ;          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This will be explained later in this webpage:
+ <A HREF="../2-C-adv-data/reading-syntax.html">
+ <FONT color="red"><B>click here</B></FONT></A>
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

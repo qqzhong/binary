@@ -1,0 +1,1 @@
+wget -c -r --tries=9 http://www.mathcs.emory.edu/~cheung/Courses/255/Syl-ARM/7-ARM

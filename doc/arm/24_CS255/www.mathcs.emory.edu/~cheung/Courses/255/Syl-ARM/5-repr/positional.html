@@ -1,0 +1,87 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+Positional value representation systems
+<HR>
+<UL>
+<LI> Best known positional system is <B>decimal number system</B>
+<P>
+<LI> Value of a digit depends on its position in number:
+  <P>
+  <UL>
+  <LI> There are <B>10</B> digits in use: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+  <LI> Value of digits increase by <B>10</B> for each position
+  <LI> Hence it is called the <B>decimal</B> (10) number system
+  </UL>
+<P>
+<PRE>
+  Example:
+
+               679          
+			6 is in hundreds position (600)
+			7 is in tens position (70)
+			9 is in ones position (9)
+               679
+               ^^^
+	       |||
+	       |||
+	       ||+--- value at   1: 9 x   1 =    9
+	       |+---- value at  10: 7 x  10 =   70
+	       +----- value at 100: 6 x 100 =  600 +
+                                            --------
+			represented value   =  679
+</PRE>
+<P>
+<LI> The computer uses the <B>binary number system</B>:
+<P>
+<LI> Value of a digit depends on its position in number:
+  <P>
+  <UL>
+  <LI> There are <B>2</B> digits in use: 0, 1
+  <LI> Value of digits increase by <B>2</B> for each position
+  <LI> Hence it is called the <B>binary</B> (2) number system
+  </UL>
+<P>
+Example 1:
+<PRE>
+
+               1011          
+               ^^^^
+	       ||||
+	       |||+-- value at 1: 1 x 1 =    1
+	       ||+--- value at 2: 1 x 2 =    2
+	       |+---- value at 4: 0 x 4 =    0
+	       +----- value at 8: 1 x 8 =    8 +
+                                         --------
+		    represented value   =   11  (decimal)
+</PRE>
+<P>
+Example 2:
+<PRE>
+
+              11001          
+              ^^^^^
+	      |||||
+	      ||||+-- value at  1: 1 x  1 =    1
+	      |||+--- value at  2: 0 x  2 =    0
+	      ||+---- value at  4: 0 x  4 =    0
+	      |+----- value at  8: 1 x  8 =    8
+	      +------ value at 16: 1 x 16 =   16 +
+                                           --------
+		      represented value   =   25  (decimal)
+</PRE>
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

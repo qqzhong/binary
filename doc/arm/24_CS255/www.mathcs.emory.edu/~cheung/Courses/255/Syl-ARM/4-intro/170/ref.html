@@ -1,0 +1,261 @@
+
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+In-depth look on the <I>program reference</I> concept
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reference: <I>reference</I> to a location in memory
+     </B></FONT>
+<P>
+<UL>
+<LI> You may or may have been exposed to 
+    the <FONT color="red"><B>reference</B></FONT> concept in
+    CS170 and CS171.
+<P>
+  But in <FONT color="red"><B>CS255</B></FONT>, we will use
+   <FONT color="blue"><B>a lot</B></FONT> of
+   <FONT color="red"><B>references</B></FONT>
+ <P>
+So I want to explain the
+   <FONT color="red"><B>(program) reference</B></FONT> in
+  greater detail before we move on.
+<P>
+<HR>
+<P>
+<LI> <B>Program reference:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A 
+	<FONT color="blue"><B>program reference </B></FONT>
+	(a.k.a. <FONT color="blue"><B>pointer </B></FONT>)
+	is 
+     "something" that <FONT color="red"><B>references (= points)
+	 to somewhere</B></FONT>
+ <P>
+ <B>Examples:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+<TR bgcolor="lightgreen">
+<TH>
+3 pointers or references to different directions
+</TH>
+</TR>
+
+<TR bgcolor="white"> 
+<TD align="center">
+<IMG SRC="FIGS/0/pointer.gif"></IMG>
+</TD> 
+
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> In <B>Computer Science</B>, a
+      <FONT color="blue"><B>reference</B></FONT> always 
+      <B><I>references</I></B> to
+     a <FONT color="red"><B>location in memory</B></FONT>
+ <P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR bgcolor="lightgreen">
+<TH>
+Pointer to memory location 1
+</TH>
+<TH>
+Pointer to memory location 4
+</TH>
+</TR>
+
+<TR> 
+<TD>
+<IMG SRC="FIGS/pointer1a.gif"></IMG>
+</TD> 
+<TD>
+<IMG SRC="FIGS/pointer1b.gif"></IMG>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <B>computer</B> does not have
+     <FONT color="red"><B>"pointing fingers"</B></FONT> that point
+     to some location in memory
+ <P>
+    The <FONT color="blue"><B>reference/pointer</B></FONT> is
+    represented in the <B>computer</B> by
+    the <FONT color="red"><B><I>value</I> of the address (location)</B></FONT>
+    of the memory where the <B>pointer</B>
+    is <FONT color="darkmagenta"><B>pointing at</B></FONT>
+ <P>
+ <B>Examples:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR bgcolor="lightgreen">
+<TH>
+Reference  to the memory location 1
+</TH>
+<TH>
+Reference  to the memory location 4
+</TH>
+</TR>
+
+<TR> 
+<TD>
+<IMG SRC="FIGS/pointer2a.gif"></IMG>
+</TD> 
+<TD>
+<IMG SRC="FIGS/pointer2b.gif"></IMG>
+</TD> 
+</TR>
+
+<TR> 
+<TD bgcolor="lightcyan">
+<UL>
+<LI> <FONT color="red"><B>Storing</B></FONT> the
+   <B>value</B> <FONT color="red"><B>1</B></FONT>
+   in some register/memory cell will
+   remember the <FONT color="darkmagenta"><B>memory location 1</B></FONT>
+<P>
+<LI> The <B><I>value</I> 1</B> in the register/memory cell is
+      <B><I>effectively</I></B>
+     <FONT color="blue"><B>pointing</B></FONT> to the
+     <FONT color="red"><B>memory location 1</B></FONT>
+</UL>
+</TD> 
+<TD bgcolor="lightcyan">
+<UL>
+<LI> <FONT color="red"><B>Storing</B></FONT> the
+   <B>value</B> <FONT color="red"><B>4</B></FONT>
+   in some register/memory cell will
+   remember the <FONT color="darkmagenta"><B>memory location 4</B></FONT>
+<P>
+<LI> The <B><I>value</I> 4</B> in the register/memory cell is
+      <B><I>effectively</I></B>
+     <FONT color="blue"><B>pointing</B></FONT> to the
+     <FONT color="red"><B>memory location 4</B></FONT>
+</UL>
+
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example of a program reference/pointer: the <I>program counter</I> (PC)
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> The <FONT color="blue"><B>program counter (PC)</B></FONT> is
+      <B>in fact</B> a <FONT color="red"><B>reference/pointer</B></FONT>
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When the <FONT color="blue"><B>program counter (PC)</B></FONT>
+    contains the value <FONT color="red"><B>44</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/instr-exec01.gif" width=700 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+    the <FONT color="red"><B>program counter (PC)</B></FONT> is 
+	<B>in fact </B>
+    <FONT color="blue"><B>pointing</B></FONT> to
+    the <FONT color="red"><B>memory location 44</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../FIGS/pointer-cap.jpg" width=700 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+

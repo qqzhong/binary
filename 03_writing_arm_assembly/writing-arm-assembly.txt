@@ -1,0 +1,120 @@
+https://azeria-labs.com/writing-arm-assembly-part-1/
+
+$ as program.s -o program.o
+$ ld program.o -o program
+
+ldr = Load Word
+ldrh = Load unsigned Half Word
+ldrsh = Load signed Half Word
+ldrb = Load unsigned Byte
+ldrsb = Load signed Bytes
+
+str = Store Word
+strh = Store unsigned Half Word
+strsh = Store signed Half Word
+strb = Store unsigned Byte
+strsb = Store signed Byte
+
+
+
+#  Alias  Purpose
+R0  –   General purpose
+R1  –   General purpose
+R2  –   General purpose
+R3  –   General purpose
+R4  –   General purpose
+R5  –   General purpose
+R6  –   General purpose
+R7  –  Holds Syscall Number
+R8  –   General purpose
+R9  –   General purpose
+R10  –   General purpose
+R11  FP  Frame Pointer
+
+Special Purpose Registers
+R12  IP  Intra Procedural Call
+R13  SP  Stack Pointer
+R14  LR  Link Register
+R15  PC  Program Counter
+CPSR  –  Current Program Status Register
+
+
+ARM  Description  x86
+R0  General Purpose  EAX
+R1-R5  General Purpose  EBX, ECX, EDX, ESI, EDI
+R6-R10  General Purpose  –
+R11 (FP)  Frame Pointer  EBP
+R12  Intra Procedural Call  –
+R13 (SP)  Stack Pointer  ESP
+R14 (LR)  Link Register  –
+R15 (PC)  <- Program Counter / Instruction Pointer ->  EIP
+CPSR  Current Program State Register/Flags  EFLAGS
+
+
+Flag  Description
+N(Negative)  Enabled if result of the instruction yields a negative number.
+Z(Zero)  Enabled if result of the instruction yields a zero value.
+C(Carry)  Enabled if result of the instruction yields a value that requires a 33rd bit to be fully represented.
+V(Overflow)  Enabled if result of the instruction yields a value that cannot be represented in 32 bit two’s complement.
+E(Endian-bit)  ARM can operate either in little endian, or big endian. This bit is set to 0 for little endian, or 1 for big endian mode.
+T(Thumb-bit)  This bit is set if you are in Thumb state and is disabled when you are in ARM state.
+M(Mode-bits)  These bits specify the current privilege mode (USR, SVC, etc.).
+J(Jazelle)  Third execution state that allows some ARM processors to execute Java bytecode in hardware.
+
+
+
+Instruction    Description          Instruction    Description
+MOV    Move data                    EOR    Bitwise XOR
+MVN    Move and negate              LDR    Load
+ADD    Addition                     STR    Store
+SUB    Subtraction                  LDM    Load Multiple
+MUL    Multiplication               STM    Store Multiple
+LSL    Logical Shift Left           PUSH    Push on Stack
+LSR    Logical Shift Right          POP    Pop off Stack
+ASR    Arithmetic Shift Right       B    Branch
+ROR    Rotate Right                 BL    Branch with Link
+CMP    Compare                      BX    Branch and eXchange
+AND    Bitwise AND                  BLX    Branch with Link and eXchange
+ORR    Bitwise OR                   SWI/SVC    System Call
+
+
+
+Condition Code Meaning (for cmp or subs)    Status of Flags
+EQ             Equal                        Z==1
+NE             Not Equal                    Z==0
+GT             Signed Greater Than          (Z==0) && (N==V)
+LT             Signed Less Than             N!=V
+GE             Signed Greater Than or Equal N==V
+LE             Signed Less Than or Equal    (Z==1) || (N!=V)
+CS or HS       Unsigned Higher or Same (or Carry Set)    C==1
+CC or LO       Unsigned Lower (or Carry Clear)    C==0
+MI             Negative (or Minus)    N==1
+PL             Positive (or Plus)    N==0
+AL             Always executed     –
+NV             Never executed     –
+VS             Signed Overflow     V==1
+VC             No signed Overflow     V==0
+HI             Unsigned Higher    (C==1) && (Z==0)
+LS             Unsigned Lower or same     (C==0) || (Z==0)
+
+
+
+Condition Code                                      Opposite
+Code         Meaning                                Code    Meaning
+EQ           Equal                                  NE     Not Equal
+HS(or CS)    Unsigned higher or same(or carry set)  LO(or CC)     Unsigned lower(or carry clear)
+MI           Negative                               PL     Positive or Zero
+VS           Signed Overflow                        VC     No Signed Overflow
+HI           Unsigned Higher                        LS     Unsigned Lower or Same
+GE           Signed Greater Than or Equal           LT     Signed Less Than
+GT           Signed Greater Than                    LE     Signed Less Than or Equal
+AL(or omitted)     Always Executed                  There is no opposite to AL
+
+
+
+Stack Type       Store                           Load
+Full descending  STMFD (STMDB, Decrement Before) LDMFD (LDM, Increment after)
+Full ascending   STMFA (STMIB, Increment Before) LDMFA (LDMDA, Decrement After)
+Empty descending STMED (STMDA, Decrement After)  LDMED (LDMIB, Increment Before)
+Empty ascending  STMEA (STM, Increment after)    LDMEA (LDMDB, Decrement Before)
+

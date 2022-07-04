@@ -1,0 +1,1237 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H2>
+CS 255 - Computer Organization and Assembler Programming<BR>
+Project 4
+</H2>
+</CENTER>
+<P>
+
+Due date: See Class Webpage
+
+<P>
+Observe the <B> Emory Honor Code </B> when doing homeworks.
+
+<H3>
+1. Purpose
+</H3>
+
+<UL>
+This is your <B>first</B> assembler programming assignment and
+ it is <B>very easy</B> to do.
+The <B><I>difficulty</I></B> of this assignment is:
+  <FONT color="red"><B>setting up</B></FONT>
+ the 
+  <FONT color="blue"><B>EGTAPI</B></FONT>
+ programming environment - espcially if you want to
+ work <B>from home</B>.
+<P>
+Please start <B>early</B>, because when things don't work;
+ you will need my help to set it up; and I may not be
+ available late at night on the due day.
+<P>
+The purpose of this homework is <B>primarily</B> to allow you
+ <FONT color="red"><B>setting up</B></FONT>
+ and
+to <FONT color="blue"><B>get used to</B></FONT>
+ the 
+<FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+  (Emory Graphical Tool for Assembler Programming Instruction)
+  system before the 
+  <B><I>real project assignments</I></B>
+   are given, and introduce you to the EGTAPI programming
+ environment.
+<P>
+The <B>tutorial</B> of the
+ <FONT color="blue"><B> Emory Graphical Tool for Assembler Programming
+ Instruction (EGTAPI)</B></FONT> can be found here:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Documentation</B></FONT> for
+    <FONT color="blue"><B>Egtapi</B></FONT>:
+    <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/"> click here </A>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+I suggest you print a copy out and have it at hand when you
+ do this assignment.
+<P>
+What is <FONT color="blue"><B>EGTAPI</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Running assembler programs requires the use of
+	a <FONT color="red"><B>debugger</B></FONT> - such as
+	<FONT color="red"><B>gdb</B></FONT>
+<P>
+ <LI>  The <FONT color="blue"><B>gdb</B></FONT> debugger
+      is very hard to use....
+  <P>
+     To make it
+      <FONT color="red"><B>easier</B></FONT> to use for students,
+       we made a
+      <FONT color="blue"><B>Graphical Front end</B></FONT> called
+      <FONT color="red"><B>Egtapi</B></FONT>
+      (Emory Grapical Tool for Assembler Programming Instrcution)
+ <P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="red"><B>must</B></FONT>
+ install 
+ <FONT color="blue"><B>EGTAPI</B></FONT>
+  on your
+<FONT color="red"><B>laptop</B></FONT> first !
+
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+
+<H3>
+2. Install <FONT color="blue"><B>EGTAPI</B></FONT>
+	on your laptop
+</H3>
+
+<UL>
+<LI> Download and install <FONT color="blue"><B>EGTAPI</B></FONT>
+	from the following URL:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <A HREF="http://www.cs.emory.edu/~egtapi/download.html">http://www.cs.emory.edu/~egtapi/download.html</A>         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+After downloading the file, you
+ must
+ <FONT color="red"><B>create</B></FONT> a directory
+ called (say) 
+ <B>cs255</B>
+ and
+<FONT color="red"><B>extract</B></FONT> the downloaded compressed
+ archive into this
+ <B>cs255</B> directory in your laptop.
+<P>
+<LI> After you have extracted the files, open a file browser and
+    go into the <B>cs255</B> folder.
+ <P>
+  Click on the <B>Egtapi</B> icon to start EGTAPI.
+</UL>
+<P>
+<A NAME="sec3"></A>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+3. Working on CS255 assembler assignments
+</H3>
+<UL>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> you can
+   <FONT color="blue"><B>work</B></FONT> on
+   <FONT color="red"><B>CS255 assembler programming assignments</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To work on your
+     <FONT color="red"><B>assembler program</B></FONT>,
+      you <FONT color="blue"><B>must</B></FONT> use
+    the <FONT color="red"><B>EGTAPI tool</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Run <FONT color="red"><B>EGTAPI</B></FONT> on your laptop
+	(and  you can even work from home !)
+ <LI> <FONT color="red"><B>EGTAPI</B></FONT> is 
+      <FONT color="blue"><B>also</B></FONT>
+      available on the <FONT color="red"><B>workstations</B></FONT> in the
+	CS lab
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> There are 
+     <FONT color="red"><B>2  ways</B></FONT>
+    that you can work on your 
+    <FONT color="blue"><B>assembler programming projects</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+
+ <LI> You can
+   <FONT color="red"><B>work from <I>anywhere</I></B></FONT> 
+   with <FONT color="blue"><B>EGTAPI</B></FONT> installed
+   on your <FONT color="red"><B>laptop</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Install EGTAPI on your laptop (see above) and run it
+ <LI> Log in and select a workstation from the list
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Through EGTAPI</B></FONT>,
+   you will be <FONT color="blue"><B>esentially</B></FONT> working
+  on a <FONT color="red"><B>lab machine</B></FONT>; but
+  from  <FONT color="blue"><B>anywhere</B></FONT> !!!
+<P>
+ (We call this <FONT color="red"><B>tele-commuting</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> Use a workstation in
+	the <FONT color="blue"><B>CS Lab</B></FONT> is:
+   (<B>note:</B> this method is
+   <B>unavailable</B> due to
+   <B>Covid-19</B>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Go</B></FONT>
+     to the <FONT color="red"><B>CS lab</B></FONT>
+	on the 3rd floor of the MSC building
+ <LI> Login to some <FONT color="blue"><B>lab machine</B></FONT>
+ <LI> Open a <FONT color="blue"><B>terminal </B></FONT> window
+ <LI> In the <FONT color="blue"><B>terminal window</B></FONT>:
+         <B>run</B> 
+      <FONT color="red"><B>EGTAPI</B></FONT>
+	using this command:
+ <P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /home/cs255001/bin/egtapi            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>
+<H3>
+4. Preparations
+</H3>
+<UL>
+<P>
+<LI> To do this project, you must obtain a copy of the prepared
+   files.
+   Follow the instructions below to obtain a copy of the
+  prepared files - which will be copied into your
+  <FONT color="red"><B>~/cs255/pj4</B></FONT> directory
+  on the <FONT color="blue"><B>MathCS system</B></FONT>
+<P>
+<LI> Start EGTAPI (on a lab machine or on your laptop).
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Login:
+      <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/login.html">
+    click here </A>
+ <P>
+After logging, you can use
+ one of the following 2 methods to obtain the files.
+Method 1 is the easiest.
+<P>
+<HR>
+<P>
+<LI> Obtain the prepared files - <FONT color="red"><B>easy method:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Click on 
+       <FONT color="red"><B>File Browser</B></FONT> 
+      (top menu bar in <B>EGTAPI</B>)
+ <LI> In the <FONT color="red"><B>File Browser</B></FONT> side bar,
+    <FONT color="blue"><B>click</B></FONT> on the
+     <FONT color="red"><B>Prepare</B></FONT> tab.
+ <LI> In the <FONT color="red"><B>Egtapi Prepare</B></FONT> pop up window,
+    select: <FONT color="red"><B>Section Number = 1</B></FONT> if you're in
+    <B>CS255-1</B>
+     and
+    <FONT color="red"><B>Section Number = 2</B></FONT> if you're in
+    <B>CS255-2</B>; and
+    enter <FONT color="blue"><B>pj4</B></FONT> in the 
+   <FONT color="red"><B>Project Code</B></FONT> field.
+<LI> Then clcik the <FONT color="red"><B>Prepare</B></FONT> button
+   (and close the <FONT color="blue"><B>Prepare</B></FONT> window when done)
+<P>
+<LI> The <FONT color="red"><B>verify</B></FONT> that it was successful,
+   click <FONT color="blue"><B>Refresh</B></FONT> in the
+   <FONT color="red"><B>EGTAPI File Browser window</B></FONT> -
+  you should see the
+  <FONT color="blue"><B>pj4</B></FONT> folder.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> Obtain the prepared files - <FONT color="red"><B>alternate method</B></FONT>:
+ <P>
+  Click on: <B>Terminal</B> in <FONT color="blue"><B>EGTAPI</B></FONT>
+       (for details, see:
+     <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/menu.html#terminal">)
+  click here</A>
+ <P>
+ A <B>2-part</B> window will open up at the bottom.
+ The top part is an <B>output</b> window and the bottom part is
+ an <B>input</B> window.
+<P>
+Type in (or cut and paste) the following commands (one at a time) into
+ the <B>bottom (input) window</B>:
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mkdir  ~/cs255/pj4
+
+   For CS255-1 students:
+       cp /home/cs255001/Handouts/pj4/*  ~/cs255/pj4  
+
+   For CS255-2 students:
+       cp /home/cs255002/Handouts/pj4/*  ~/cs255/pj4  
+
+   ls  ~/cs255/pj4   // You should see: pj4.s listed    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+If you see <B>pj4.s</B> listed, you are good to go.
+Otherwise, repeat the above steps.
+If all else fails, seek help (instructor or TA)
+<P>
+When you are good to go, click on
+ <B>Terminal</B> to close the terminal.
+
+
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+5. The Skeleton Project File "pj4.s"
+</H3>
+
+<UL>
+The assignment consists of 10 easy questions given inside
+ the assembler program <FONT color="red"><B>pj4,s</B></FONT>
+ that was copied into your <B>project directory</B>
+ through the
+ <FONT color="blue"><B>preparation step</B></FONT> above.
+ <P>
+You must <FONT color="red"><B>edit</B></FONT> the
+  <FONT color="blue"><B>project file "pj4.s"</B></FONT>
+ and write the
+  <FONT color="red"><B>required assembler instructions</B></FONT>
+ in this program file.
+<P>
+<FONT color="red"><B>How to edit</B></FONT> the project file
+ <FONT color="blue"><B>pj4.s</B></FONT> file:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Read this write up:
+   <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/edit.html">
+    click here </A>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+The skeletal program has 
+   <FONT color="blue"><B>10 sections</B></FONT>, labeled as 
+  <FONT color="red"><B>Q1, Q2, ..., Q10</B></FONT>
+ where you put
+  <FONT color="blue"><B>assembler <I>instructions</I></B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Advice:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Do the  project <FONT color="red"><B>piece meal</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Write the assembler instructions for
+       question 1 at <FONT color="red"><B>label Q1</B></FONT>
+ <LI> Then <FONT color="red"><B>compile</B></FONT> and
+     <FONT color="blue"><B>run</B></FONT> the
+     program <FONT color="red"><B>pj4.s</B></FONT>
+ <P>
+ <LI> When <FONT color="red"><B>Q1</B></FONT> is done,
+      do <FONT color="blue"><B>Q2</B></FONT>, and so on
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When you <FONT color="red"><B>test</B></FONT> the
+   <FONT color="blue"><B>assembler instructions</B></FONT> for
+    a <FONT color="red"><B>question</B></FONT>, use
+   the <FONT color="blue"><B>STEP</B></FONT> button
+  (for explanation of 
+      the <FONT color="red"><B>menu buttons</B></FONT>, see
+  this <FONT color="blue"><B>webpage</B></FONT>:
+   <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/exec.html">
+    click here </A>)
+<P>
+<LI> When you want to <FONT color="red"><B>skip</B></FONT> over
+   an <FONT color="blue"><B>already tested</B></FONT>
+   <FONT color=""><B> section</B></FONT> of the project, use
+   the <FONT color="blue"><B>RUN</B></FONT> button ---
+   it will skip to the code of
+  <FONT color="red"><B>next question</B></FONT>
+  (for explanation of 
+       <FONT color="red"><B>breakpoint</B></FONT>, see
+  this <FONT color="blue"><B>webpage</B></FONT>:
+   <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/exec.html">
+    click here </A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Assignment</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<UL>
+<LI> These <FONT color="blue"><B>instructions</B></FONT> are also given
+    inside <FONT color="red"><B>pj4.s</B></FONT> 
+ <P>
+ <LI> Write the 
+      <FONT color="red"><B>assembler instructions</B></FONT>
+      the each answer in the <FONT color="blue"><B>corresponding
+       section</B></FONT> of 
+       <FONT color="red"><B>Q1, Q2, ..., Q10</B></FONT>
+       in the <FONT color="blue"><B><TT>pj4.s</TT></B></FONT> file.
+<P>
+<UL>
+<TABLE bgcolor="#FFFFEE" BORDER="5">
+<TR> <TD>
+ <UL>
+<FONT color="blue"><B>
+<PRE>
+   Q1:    ans_i = 74;
+   Q2:    ans_s = 39;
+   Q3:    ans_b = -44;
+   Q4:    ans_i = x;
+   Q5:    ans_s = x;
+   Q6:    ans_b = x;
+   Q7:    ans_b = y;    (Can you explain why ans_b != y ?)
+   Q8:    ans_s = y;    (Can you explain why ans_s == y ?)
+   Q9:    ans_s = z;    (Can you explain why ans_s != z ?)
+   Q10:   ans_i = y; 
+  
+<font color="red">Pre-defined variables used by the program:</font>
+
+   ans_b:  byte
+   ans_s:  short
+   ans_i:  int
+
+   x:  -13    (byte  variable) binary: 11110011                            
+   y:  2057   (short variable) binary: 00001000 00001001                  
+   z:  147463 (int   variable) binary: 00000000 00000010 01000000 00000111 
+<PRE>
+</B></FONT>
+ </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</TD>
+</TR>
+</TABLE>
+</UL>
+<P>
+
+<B>Recall</B> from the <FONT color="blue"><B>lecture(s)</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Byte type variables</B></FONT>
+      are <FONT color="red"><B>one byte</B></FONT> in length, 
+ <LI> <FONT color="blue"><B>Short type variables</B></FONT>
+      are <FONT color="red"><B>two bytes</B></FONT>, and
+ <LI> <FONT color="blue"><B>Integer type variables</B></FONT>
+      are <FONT color="red"><B>4 bytes</B></FONT> long.
+  </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Warning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Be very careful and use the 
+     <FONT color="red"><B><I>correct operand size</I></B></FONT> in
+       each <FONT color="blue"><B>assembler instruction</B></FONT>.
+ <P>
+ In other words:
+  be careful when you <FONT color="blue"><B>load</B></FONT>
+  a value, make sure you used
+ the correct <FONT color="red"><B><TT>ldr</TT></B></FONT> instruction:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B><TT>ldrsb</TT></B></FONT> when you
+   load a <FONT color="blue"><B><TT>byte</TT></B></FONT> value
+ <LI> Use <FONT color="red"><B><TT>ldrsh</TT></B></FONT> when you
+   load a <FONT color="blue"><B><TT>short</TT></B></FONT> value
+ <LI> Use <FONT color="red"><B><TT>ldr</TT></B></FONT> when you
+   load a <FONT color="blue"><B><TT>int</TT></B></FONT> value
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+And  be careful when you <FONT color="blue"><B>store</B></FONT>
+ a value, make sure you used
+ the correct <FONT color="red"><B><TT>str</TT></B></FONT> instruction:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B><TT>strb</TT></B></FONT> when you
+   store a <FONT color="blue"><B><TT>byte</TT></B></FONT> value
+ <LI> Use <FONT color="red"><B><TT>strh</TT></B></FONT> when you
+   store a <FONT color="blue"><B><TT>short</TT></B></FONT> value
+ <LI> Use <FONT color="red"><B><TT>str</TT></B></FONT> when you
+   store a <FONT color="blue"><B><TT>int</TT></B></FONT> value
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+There are some more <FONT color="red"><B> helpful hints</B></FONT>
+ on testing your program in the
+   <FONT color="blue"><B> next section</B></FONT> !!!
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<H3>
+6. Running/testing the program
+</H3>
+
+<UL>
+The <B>main</B> purpose of this assignment is to get you <b>familiarized</B>
+ with the <TT>m68000</TT> system.
+So follow the following instruction <B>carefully</B>.
+
+<P>
+This is how you run your program assuming that 
+you called your program file "pj4.s":
+
+<OL>
+<P>
+<LI> Edit your assignment program (<TT>pj4.s</TT>)
+	according to the instructions above... 
+  <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can complete <FONT color="blue"><B>1 question </B></FONT> at a time
+      and <FONT color="red"><B>compile and test</B></FONT> the program.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI>    After you're have finished writting some part
+     of the assembler program, you can run the program
+  as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> <B>First</B>, assembler the program using 
+   <FONT color="red"><B>EGTAPI</B></FONT>.
+<P>
+ Read <FONT color="red"><B>this webpage</B></FONT>
+  on <FONT color="blue"><B>how to assembler</B></FONT>
+  a <FONT color="red"><B>single file project</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/compile.html">http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/compile.html</A> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You need to select <FONT color="red"><B><TT>pj4.s</TT></B></FONT> and
+ click <FONT color="blue"><B><TT>Compile</TT></B></FONT>.
+<P>
+When the compilation is completed successfully,
+	 it will produce a listing in file <TT>pj4.list</TT>
+	 and an executable file in
+	 <FONT color="red"><B><TT>pj4.arm</TT></B></FONT>.
+  <P>
+    The listing file is not used in the execution, but it does contain
+	interesting information about the placement of the variables
+	in the memory (symbol table).
+<P>
+<HR>
+<P>
+<LI> If <FONT color="blue"><B>compilation </B></FONT> is
+      successful,
+	you can execute the <FONT color="red"><B><TT>pj4.arm</TT></B></FONT>
+   in <FONT color="blue"><B>EGTAPI</B></FONT>
+<P>
+  Read this webpage on how to
+  <FONT color="red"><B>run</B></FONT> a
+  <FONT color="blue"><B>compiled program</B></FONT> in
+  <FONT color="red"><B>EGTAPI</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/load.html">http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/load.html</A>   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Basically, you select
+  <FONT color="red"><B><TT>pj4.arm</TT></B></FONT> and
+  click <FONT color="blue"><B>Select</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> If all is well, the program will
+   <FONT color="red"><B>stop</B></FONT> at the
+   <FONT color="blue"><B>breakpoint</B></FONT>
+   <FONT color="red"><B><TT>main</TT></B></FONT>.
+ <P>
+  You will see this in the <FONT color="red"><B>Breakpoint </B></FONT>
+   window:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="main.jpg" width=250 height=270></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The label <FONT color="red"><B><TT>main</TT></B></FONT> is
+  highlighted - indicating the program has
+  <FONT color="blue"><B>stopped</B></FONT> at the
+  label <FONT color="red"><B><TT>main</TT></B></FONT>
+<P>
+You will see the <FONT color="red"><B>first instruction</B></FONT> in
+  <FONT color="blue"><B><I>your</I> program</B></FONT> in
+  the <FONT color="red"><B><TT>Curr. Instr</I></B></FONT> window.
+<P>
+Now you are ready to
+ <FONT color="red"><B>test</B></FONT> your program.
+ 
+</UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ 
+<P>
+<LI> To <FONT color="blue"><B>test your program</B></FONT>,
+      press the <FONT color="red"><B>Step</B></FONT>
+     key (right arrow with a bar).
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="step.jpg" width=300 height=70></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Effect:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="blue"><B>Step</B></FONT>
+     will cause <FONT color="red"><B><TT>EGTAPI</TT></B></FONT> to 
+     <FONT color="blue"><B>execute the <I>current</I>
+	assembler instruction</B></FONT> and 
+	<FONT color="red"><B>stop</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Press <FONT color="red"><B>Step</B></FONT> a few more times to
+ <FONT color="blue"><B>execute all the instructions</B></FONT>
+ that you have written to perform
+  <FONT color="red"><B>Question 1</B></FONT> of the assignment.
+  
+   <P> 
+     <B>If</B> your 
+    <FONT color="blue"><B>program</B></FONT> is 
+    <FONT color="red"><B>correct</B></FONT>, 
+    <FONT color="blue"><B><TT>EGTAPI</TT></B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> show
+   <FONT color="red"><B> <TT>ans_i = 74</TT></B></FONT>
+   in the 
+   <FONT color="blue"><B>"Variable Watch"</B></FONT> window
+ at the
+ <FONT color="blue"><B>top</B></FONT> in the
+ <FONT color="red"><B>right most column</B></FONT> of the
+ <B>EGTAPI window</B>
+
+ 
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+
+<P>
+<LI> <FONT color="red"><B>How to check for errors:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Press the <FONT color="red"><B>Step</B></FONT>
+  button repeatedly (but <B>SLOWLY !</B>) 
+     to check the execution of your program.
+ <P>
+ <LI> 
+    While you are pressing the <FONT color="red"><B>Step</B></FONT> button,
+	look at how the variables 
+   <FONT color="red"><B><TT>ans_b</TT></B></FONT>,
+  <FONT color="red"><B><TT>ans_s</TT></B></FONT>
+  and 
+  <FONT color="red"><B><TT>ans_i</TT></B></FONT>
+  variables - specifically, look for
+  the <FONT color="blue"><B>correct values</B></FONT>
+  moved in these variables in the "Variable Watch" window.
+    <P>
+	 Make sure the values are right (according to the questions
+	 in the project assignment). 
+</UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+     <P>
+ 
+</FONT>
+<P>
+
+<LI> <FONT color="red"><B>Program end</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>EGTAPI</B></FONT> will
+    <FONT color="blue"><B>stop</B></FONT> when it
+    reaches the
+    <B>instruction</B> at the
+    <FONT color="red"><B><TT>Stop</TT></B></FONT> label.
+<P>
+ When <FONT color="red"><B>EGTAPI</B></FONT> reaches the
+  <FONT color="blue"><B><TT>Stop</TT></B></FONT> label,
+   the <FONT color="red"><B><TT>Step</TT></B></FONT> (and
+ other buttons) will
+  <FONT color="blue"><B>no longer work</B></FONT>.
+<P>
+ If you want to <FONT color="red"><B>re-run</B></FONT> the
+ program, you can 
+  <FONT color="blue"><B>click</B></FONT> on
+ <FONT color="red"><B>Reload</B></FONT>.
+<P>
+ If your program is complete and correct,
+  you can turn in the project.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+     </FONT>
+
+<P>
+<LI> If you found an error (i.e.:
+       you detects that the value stored 
+	in some variable is incorrect), then you must correct your
+	error:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>    Edit your <TT>pj4.s</TT> file 
+     (Use <FONT color="red"><B>EGTAPI</B></FONT>,
+     <FONT color="blue"><B>File Browser</B></FONT>,
+   select <FONT color="red"><B><TT>pj4.s</TT></B></FONT> and
+  click <FONT color="blue"><B>Edit</B></FONT>)
+ <P>
+ <LI> <FONT color="red"><B>Compile</B></FONT> the
+    program after you 
+   <FONT color="blue"><B>finish editing</B></FONT>
+   (and <FONT color="red"><B>saving</B></FONT> the file</B></FONT>)
+ <P>
+  (Click <FONT color="blue"><B>File Browser</B></FONT>,
+   select <FONT color="red"><B><TT>pj4.s</TT></B></FONT> and
+  click <FONT color="blue"><B>Compile</B></FONT>)
+ <P>
+ <LI> <FONT color="red"><B>Re-run</B></FONT> the
+      program.
+  <P>
+ (Click <FONT color="red"><B>Reload</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+     If you discover more errors, just repeat the above steps 
+	until your program is error-free.
+</OL>
+
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<H3>
+7. Turn in
+</H3>
+<P>
+<UL>
+<B>Important note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must</B></FONT> 
+      <B>turn in</B> your program to complete the assignment !!!
+ <P>
+  You can turn in your work 
+      using <FONT color="blue"><B>EGTAPI</B></FONT>
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Unlike other classes, in <B>CS255</B>,
+   you must turn in your program <FONT color="blue"><B>pj4.s</B></FONT>
+   (electronically) by using the
+ the following turnin procedure
+  <FONT color="red"><B>before the due date</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Click on <FONT color="red">File Browser</FONT> in <FONT color="red">EGTAPI</FONT>        
+
+  2. Select the <FONT color="red">assembler program file</FONT> that you want to turn in
+
+  3. After selecting the file, click on <FONT color="red">Turnin</FONT> 
+
+     The "Egtapi Turn-in" window will pop up
+
+
+  4. In the "Section Number" drop down tab:
+
+          Select "1" if you are in Section 1
+
+          Select "2" if you are in Section 2
+
+  5. Enter "Project Code":  pj4
+
+  6. Click the "Turn in" button
+
+  7. You will see the turn in result in the right most panel.
+
+     Make sure that your see the message: "Program ... has been successfully turned in..."
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Alternately, you can turn in using <B>EGTAPI</B> Terminal:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter these command in the lower input area of the Terminal panel:
+
+       (a)  cd  ~/cs255/pj4
+
+       (b) /home/cs255001/turnin  pj4.s  pj4  // If you're in section 1            
+  or
+       (b) /home/cs255002/turnin  pj4.s  pj4  // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+If you want to see what you have turned in, then
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  1. Open the EGTAPI Terminal (click on "Terminal")
+
+  2. Enter this command in the lower input area of the Terminal panel:
+
+       /home/cs255001/turnin    // If you're in section 1            
+  or
+       /home/cs255002/turnin    // If you're in section 2
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  8.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj4</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj4</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj4</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj4</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

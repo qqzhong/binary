@@ -1,0 +1,1800 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#0000f0"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The scope of <I>local variables</I> 
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Murphy's</I> Law
+     </B></FONT>
+<P>
+<UL>
+<LI> The famous <FONT color="blue"><B>Murphy's Law</B></FONT> says:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Anything</B> that can 
+     <FONT color="blue"><B><I>possibly</I> go wrong</B></FONT>, 
+     <FONT color="red"><B>does</B></FONT>.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ (Wikipedia page on <B>Murphy's Law</B>
+  <A HREF="http://en.wikipedia.org/wiki/Murphy%27s_law">
+  click here </A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Limiting the damage caused by <I>Murphy's</I> Law
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>What</B> can go <FONT color="blue"><B>wrong</B></FONT> in
+      a <FONT color="red"><B>computer program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can <FONT color="blue"><B>update</B></FONT> the
+      <FONT color="red"><B><I>wrong</I> information/variable</B></FONT>....
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>What</B> can we do to
+    <FONT color="red"><B>reduce</B></FONT> the
+    <FONT color="blue"><B>likelihood</B></FONT> that we
+    <FONT color="red"><B>update a <I>wrong</I> variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Limit</B></FONT> the
+      <FONT color="red"><B>accessibility</B></FONT> of
+      a <B>variable</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to <I>limit</I> the access of variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following
+     <FONT color="red"><B>2 programs</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+
+<TR bgcolor="lightcyan">
+<TH>
+Program "Scope1"
+</TH>
+<TH>
+Program "Scope2"
+</TH>
+</TR>
+
+
+
+<TR>
+<TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ public class <FONT color="red">Scope1</FONT>
+ {
+    public static void main(String[] args) 
+    {
+   
+  	  double r;
+   
+  	  r = 3.14;
+   
+   
+        System.out.println(r);
+    }
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD> 
+
+<TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ public class <FONT color="red">Scope2</FONT>
+ {
+    public static void main(String[] args) 
+    {
+       <FONT color="red">{</FONT>
+  	  double r;
+   
+  	  r = 3.14;
+       <FONT color="red">}</FONT>
+   
+       System.out.println(r);
+    }
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD>
+
+</TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><I>only</I> difference</B></FONT> is
+ we put the
+ <FONT color="blue"><B>definition</B></FONT> of the
+ <B>variable <TT>r</TT></B> inside a
+ <FONT color="red"><B>block</B></FONT>
+  in <B>Program "Scope2"</B>
+<P>
+<HR>
+<P>
+<LI> When we <FONT color="blue"><B>compile</B></FONT> the
+    <FONT color="red"><B>2 programs</B></FONT>, we get
+    <FONT color="darkmagenta"><B>completely different
+   results</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>program "Scope1.java"</B>
+     compiles <FONT color="blue"><B>with <I>no</I> errors</B></FONT>
+ <P>
+ <LI> The <B>program "Scope2.java"</B> results in the following
+    <FONT color="red"><B>error</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Scope2.java:11: <FONT color="red">cannot find symbol</FONT>
+   symbol  : <FONT color="red">variable r</FONT>
+   location: class Scope2
+   	 System.out.println(<FONT color="red">r</FONT>);
+   			    ^
+   1 error
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI>
+The <B>Java compiler</B> is telling us that:
+  there is
+   <FONT color="red"><B><I>no</I> variable <TT>r</TT></B></FONT>
+   <B>defined</B> when it
+   tried to
+   <FONT color="blue"><B>translate</B></FONT> the
+   <B>statement</B>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    System.out.println(<FONT color="red">r</FONT>);           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Look at the program
+ <B>Scope2.java</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ public class Scope2
+ {
+    public static void main(String[] args) 
+    {
+       {<FONT color="red">
+  	  double r;    <---- We DID define a variable r here </FONT>
+   
+  	  r = 3.14;
+       }
+   
+       System.out.println(<FONT color="red">r</FONT>);  <--- How come the Java compiler can't find it ?  
+    }
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Try it out yourself !)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file <B>Scope1.java</B>:
+       <A HREF="Progs/Scope/Scope1.java"> click here </A>
+  <LI> Prog file <B>Scope2.java</B>:
+       <A HREF="Progs/Scope/Scope2.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on the links and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Scope1.java</TT></B></FONT>
+ &nbsp;&nbsp; and &nbsp;&nbsp;
+  <FONT color="red"><B><TT>javac Scope2.java</TT></B></FONT>
+ <P>
+ (No need to run the programs, just look at the error message)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Explanation of this behavior:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>access</B></FONT> of the
+     <FONT color="red"><B>variable <TT>r</TT></B></FONT> was
+    <FONT color="darkmagenta"><B><I>limited</I></B></FONT> to
+    the <FONT color="red"><B>block</B></FONT>
+    in which it was
+    <FONT color="blue"><B><I>defined</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+That is <FONT color="blue"><B>why</B></FONT> the
+ <FONT color="darkmagenta"><B>variable <TT>r</TT></B></FONT> is
+ <FONT color="red"><B><I>not</I> accessible</B></FONT> in
+ program <B>Scope2.java</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+On the other hand, the
+ <FONT color="darkmagenta"><B>variable <TT>r</TT></B></FONT> 
+ <B><I>is</I></B>
+ <FONT color="red"><B> accessible</B></FONT> in
+ program <B>Scope1.java</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Scope</I> of a variable
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Scope</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Scope</B></FONT> of a <B><I>variable</I></B> =
+   the <FONT color="blue"><B>region</B></FONT> in the
+   <B>program</B> where
+   the <B><I>variable</I></B> is
+   <FONT color="red"><B><I>accessible</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Factors</B> that determine the
+    <FONT color="red"><B><I>scope</I> of a variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="blue"><B>When</B></FONT> is the
+     <B><I>variable</I></B>
+     <FONT color="red"><B>created</B></FONT>
+   (a <B>variable</B> must 
+   <FONT color="blue"><B><I>exist</I></B></FONT> before
+   it can be <FONT color="red"><B><I>accessible</I></B></FONT>)
+ <P> 
+ <LI> <FONT color="blue"><B>When</B></FONT> is the
+     <B><I>variable</I></B>
+     <FONT color="red"><B>destroyed</B></FONT>
+   (a <B>variable</B> that has been
+   <FONT color="blue"><B><I>destroyed</I></B></FONT> is
+    <FONT color="red"><B><I>not accessible</I></B></FONT>) 
+ <P>
+ <LI> Between the <FONT color="blue"><B>2 location above</B></FONT>,
+    the <FONT color="darkred"><B>scope</B></FONT> of a <B>variable</B>
+    is <FONT color="red"><B>further limited</B></FONT> by
+    the <FONT color="blue"><B><I>block</I></B></FONT> in which it is
+    <B>defined</B>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example 1:</B> scope of the variable 
+     <FONT color="red"><B><TT>r</TT></B></FONT> in
+     program <B>Scope2.java</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example 2:</B> scope of the variable 
+     <FONT color="red"><B><TT>r</TT></B></FONT> in
+     progtram <B>Scope1.java</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping04.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Exercise in class
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Scope3
+   {
+      public static void main(String[] args)            
+      {
+   	 {<FONT color="red">
+   	    r = 1;            // (1)</FONT>
+    <FONT color="magenta">
+   	    double r;</FONT>
+    <FONT color="red">
+   	    r = r + 5;        // (2)</FONT>
+   	 }
+    <FONT color="red">
+   	 r = r + 2;           // (3)</FONT>
+      }
+    <FONT color="red">
+      r = r + 3;              // (4)</FONT>
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Questions:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Which</B></FONT> of the
+      <B>statements</B> marked
+     <FONT color="red"><B><TT>(1)</TT></B></FONT>,
+     <FONT color="red"><B><TT>(2)</TT></B></FONT>,
+     <FONT color="red"><B><TT>(3)</TT></B></FONT> and
+     <FONT color="red"><B><TT>(4)</TT></B></FONT>
+     will cause an
+     <FONT color="blue"><B>error</B></FONT> ?
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answers:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>(1)</TT></B></FONT> causes 
+     <FONT color="blue"><B>error</B></FONT> because the 
+     variable <FONT color="red"><B><TT>r</TT></B></FONT> has
+     <FONT color="blue"><B>not yet been defined</B></FONT>
+     (i.e., <B>uses</B>
+    the variable <FONT color="red"><B><TT>r</TT></B></FONT> 
+     <B><I>outside</I> its scope</B></FONT>)
+ <LI> <FONT color="red"><B><TT>(2)</TT></B></FONT>
+   --- <FONT color="blue"><B>no error</B></FONT>
+ <LI> <FONT color="red"><B><TT>(3)</TT></B></FONT> causes 
+     <FONT color="blue"><B>error</B></FONT> because the <B>scope</B>
+     of
+     variable <FONT color="red"><B><TT>r</TT></B></FONT> has
+     <FONT color="blue"><B>ended</B></FONT>
+     (i.e., <B>uses</B>
+    the variable <FONT color="red"><B><TT>r</TT></B></FONT> 
+     <B><I>outside</I> its scope</B></FONT>)
+ <LI> <FONT color="red"><B><TT>(4)</TT></B></FONT> causes 
+     <FONT color="blue"><B>error</B></FONT> because the <B>statement</B>
+     is <FONT color="red"><B><I>not</I> contained</B></FONT> inside
+     a <FONT color="blue"><B>method</B></FONT> !
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<A NAME="samename"></A>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Same</I> variable names inside one scope
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall that:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Scope</B></FONT> of a <B><I>variable</I></B> =
+   the <FONT color="blue"><B>region</B></FONT> in the
+   <B>program</B> where
+   the <B><I>variable</I></B> is
+   <FONT color="red"><B><I>accessible</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> To <FONT color="red"><B>avoid confusion</B></FONT>,
+     <B>Java</B> (in fact, every programming language)
+      imposes the follow <FONT color="blue"><B>rule</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B><I>cannot</I></B></FONT> define
+      <B><I>different</I> variables</B> with
+      the <FONT color="red"><B><I>same</I> name</B></FONT> inside
+      the <FONT color="blue"><B><I>same</I> scope</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> this is <FONT color="red"><B><I>not</I> allowed</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Scope7
+   {
+      public static void main(String[] args)
+      {<FONT color="magenta">
+   	 /* -------------------------------------------
+   	    2 variables named r inside the SAME scope
+   	    ------------------------------------------- */ </FONT>    
+   	 double <FONT color="red">r</FONT> = 0.0;
+    
+   	 int <FONT color="red">r</FONT> = 0;         // Error !
+    
+   	 System.out.println(r);
+    
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Scope/Scope7.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Scope07.java</TT></B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Error message:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Scope7.java:10: <FONT color="red">r is already defined</FONT> in main(java.lang.String[])
+   	 int r = 0;
+   	     ^
+   1 error
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Special scope configurations
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>scope</B> are
+      <FONT color="blue"><B>delimited</B></FONT> by
+      a <B>pair</B> of
+      <FONT color="red"><B>(matching) braces { .... }</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B><I>Multiple</I> pairs</B></FONT> of
+  <FONT color="blue"><B>braces</B></FONT> can form
+  <FONT color="red"><B>2 configurations</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <B>Possible configurations</B> of
+    <FONT color="red"><B><I>multiple</I> (matching) pairs
+   of braces { .... }</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Configuration 1:</B>
+    <FONT color="blue"><B><I>non-overlapping</I></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping07a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>order</B></FONT> of the <B>braces</B> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>sequence</B>
+    <FONT color="red"><B>must <I>start</I></B></FONT>  with an
+    <FONT color="blue"><B>open brace</B></FONT> 
+   <FONT color="red"><B>{</B></FONT>
+ <LI> The <FONT color="red"><B>next brace</B></FONT> is
+     a
+    <FONT color="blue"><B>closed brace</B></FONT> 
+   <FONT color="red"><B>}</B></FONT> that
+   <B><I>matches</I></B> the
+   <FONT color="blue"><B><I>first</I> open brace</B></FONT>
+ <P>
+ <LI> Then the  <B>next brace</B>
+    <FONT color="red"><B>must</B></FONT> be an
+    <FONT color="blue"><B>open brace</B></FONT> 
+   <FONT color="red"><B>{</B></FONT>
+ <LI> The <B>sequence</B>
+    <FONT color="red"><B>must <I>end</I></B></FONT>  with an
+    <FONT color="blue"><B>closed brace</B></FONT> 
+   <FONT color="red"><B>}</B></FONT>
+   (<B><I>matching</I></B> the
+   <FONT color="blue"><B><I>second</I> open brace</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<P>
+ <LI> <B>Configuration 2:</B>
+    <FONT color="blue"><B><I>nested</I></B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping07b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>order</B></FONT> of the <B>braces</B> are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>sequence</B>
+    <FONT color="red"><B>must <I>start</I></B></FONT>  with an
+    <FONT color="blue"><B>open brace</B></FONT> 
+   <FONT color="red"><B>{</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>next brace</B></FONT> is
+     <B><I>another</I></B>
+    <FONT color="blue"><B>open brace</B></FONT> 
+   <FONT color="red"><B>{</B></FONT> 
+ <LI> Then the  <B>next brace</B>
+    <FONT color="red"><B>must</B></FONT> be an
+    <FONT color="blue"><B>closed brace</B></FONT> 
+   <FONT color="red"><B>}</B></FONT>
+     which <B><I>matches</I></B> the
+   <FONT color="blue"><B><I>second</I> open brace</B></FONT>
+ <P>
+ <LI> The <B>sequence</B>
+    <FONT color="red"><B>must <I>end</I></B></FONT>  with an
+    <FONT color="blue"><B>closed brace</B></FONT> 
+   <FONT color="red"><B>}</B></FONT>
+   (which now <B><I>matches</I></B> the
+   <FONT color="blue"><B><I>first</I> open brace</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+There are <FONT color="red"><B>no other <I>possible</I>
+ configuration</B></FONT>
+  
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Non-overlapping (or disjoint) scopes
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Disjoint scopes</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Disjoint scopes</B></FONT> =
+    <FONT color="blue"><B>2 or more scopes</B></FONT> that
+    do <FONT color="red"><B><I>not</I> overlap with each other</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> the following <FONT color="blue"><B>2 blocks</B></FONT>
+    create <FONT color="red"><B>disjoint (non-overlapping) scopes</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping05.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<A NAME="disjoint"></A>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Variables with <I>same</I> name in <I>disjoint scopes</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Interesting phenomenon in <I>disjoint scopes</I>:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <B>define</B>
+     <FONT color="blue"><B><I>different</I> variables</B></FONT>
+     with the <FONT color="red"><B><I>same</I> name</B></FONT>
+     in
+     <FONT color="blue"><B><I>disjoint</I> scopes</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping06.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B><I>Proof</I></B> the
+   <FONT color="blue"><B>2 variables named <TT>r</TT></B></FONT>
+   are in fact <FONT color="red"><B>different variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can show this <FONT color="blue"><B>fact</B></FONT> with    
+     the <FONT color="red"><B>effect</B></FONT> of the
+    <FONT color="red"><B>+ operation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>+ operation</B></FONT> performed on
+     a <FONT color="red"><B><TT>double</TT> typed data</B></FONT> will
+     perform an <FONT color="blue"><B><I>add</I> operation</B></FONT>
+ <LI> The <FONT color="blue"><B>+ operation</B></FONT> performed on
+     a <FONT color="red"><B><TT>String</TT> typed data</B></FONT> will
+     perform an <FONT color="blue"><B><I>concatenation</I> operation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Programming proof</B> that the <FONT color="blue"><B>2 variables</B></FONT>
+   with name <FONT color="red"><B><TT>r</TT></B></FONT> are
+   <B><I>different</I> variables</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Scope4
+   {
+      public static void main(String[] args)
+      {
+   	 {<FONT color="darkred">
+   	    double r = 3.14;</FONT>
+    <FONT color="red">
+   	    r = r + 5;             // + = add operation</FONT>          
+   	    System.out.println(r);
+   	 }
+    
+   	 {<FONT color="darkred">
+   	    String r = "3.14";</FONT>
+    <FONT color="red">
+   	    r = r + 5;             // + = concatenation</FONT>
+   	    System.out.println(r);
+   	 }
+    
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output of program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+  8.14       (addition of 3.14 + 5)
+  3.145      (concatenation of "3.14" + "5")           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Scope/Scope4.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Scope4.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Scope4</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Nested Scopes
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Nested scopes</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Nested scopes</B></FONT> =
+    <FONT color="blue"><B>2 or more scopes</B></FONT> where
+    do <FONT color="red"><B>one scope
+   is <I>contained</I> in the other</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> the following <FONT color="blue"><B>2 blocks</B></FONT>
+    create a <FONT color="red"><B><I>nested</I> scopes</B></FONT>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping08.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B><I>enclosing</I> block</B></FONT> forms
+ the <FONT color="red"><B><I>outer</I> scope</B></FONT>
+<P>
+The <FONT color="blue"><B><I>enclosed</I> block</B></FONT> forms
+ the <FONT color="red"><B><I>inner</I> scope</B></FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Scoping rule for <I>nested scope</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Scoping rule for <I>nested scopes</I>:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <B>variable</B> that is
+      <FONT color="blue"><B>defined at
+      location <I>x</I> in an <I>outer scope</I></B></FONT>
+      is 
+    <FONT color="darkred"><B>accessible</B></FONT>
+    in
+    <FONT color="red"><B><I>all inner scopes</I>
+ following location <I>x</I></B></FONT>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping09.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Detailed explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Why</I></B> the 
+    <FONT color="red"><B>variable <TT>r</TT></B></FONT> is
+    <FONT color="blue"><B>accessible</B></FONT> in the
+   <B><I>inner scope</I></B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping09a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B><I>Why</I></B> the 
+    <FONT color="red"><B>variable <TT>t</TT></B></FONT> is
+    <FONT color="blue"><B><I>not</I> accessible</B></FONT> in the
+   <B><I>inner scope</I></B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping09b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Program to illustrate the <I>nested scope rule</I>:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Scope5
+   {
+      public static void main(String[] args)
+      {
+   	 {
+   	    double r = 3.14;
+    
+   	    {<FONT color="red">
+   	       r = 5;    // No error
+   	       t = 5;    // Will cause "undefined variable" error</FONT>     
+   	    }
+    
+   	    double t = 1.0;
+   	 }
+    
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Scope/Scope5.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Scope5.java</TT></B></FONT>
+ <P>
+ (Watch for the <FONT color="blue"><B>error message</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Variables with <I>same</I> name in <I>nested scopes</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following 
+    <FONT color="blue"><B>2 variables definitions</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Scope6
+   {
+      public static void main(String[] args)
+      {
+   	 {  <FONT color="red">// Start of outer scope          
+   	    double r;</FONT>
+    
+   	    {  <FONT color="red">// Start of inner scope
+   	       String r;</FONT>
+    
+               ...
+   	    }
+    
+   	 }
+    
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <B>first definition</B> of the
+  <FONT color="red"><B>variable <TT>r</TT></B></FONT>
+  takes places inside the
+  <FONT color="blue"><B><I>outer scope</I></B></FONT>
+<P>
+The <B>second definition</B> of the
+  <FONT color="red"><B>variable with the <I>same</I> name
+   <TT>r</TT></B></FONT>
+  takes places inside the
+  <FONT color="blue"><B><I>inner scope</I></B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> From what we have learned above,
+    the <FONT color="blue"><B><I>first</I> variable <TT>r</TT></B></FONT>
+    is <FONT color="red"><B><I>also</I> accessible</B></FONT>
+    inside the
+    <B><I>inner scope</I></B>
+ <P>
+ <LI> Therefore, there are
+   <FONT color="blue"><B>2 <I>different</I> variables</B></FONT>
+   with the <FONT color="red"><B><I>same</I> name (<TT>r</TT>)</B></FONT>
+   inside the 
+   <B><I>inner scope</I></B>
+<P>
+<HR>
+<P>
+ Houston, we have a problem...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>$64,000 question:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Is this <FONT color="red"><B>allowed</B></FONT> ?
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>answer</B> to this <FONT color="blue"><B>question</B></FONT> is:
+    <FONT color="red"><B>depends on the <I>choice</I></B></FONT>
+    made by the <B>designer</B> of
+    the <FONT color="blue"><B>programming language</B></FONT>
+ <P>
+<HR>
+<P>
+ <LI> The <B>designer</B> of the
+   <FONT color="blue"><B>Java programming language</B></FONT> believes
+   that this is <FONT color="red"><B>confusing</B></FONT> and
+   <B>has decided</B> that
+  this construct is <FONT color="red"><B>not allowed</B></FONT> in 
+    <B>Java</B>
+ <P>
+ <LI> <FONT color="blue"><B>Other programming languages (C/C++)</B></FONT>
+     allows it (but we will
+   <FONT color="red"><B>not go into the details</B></FONT> in class -
+  if you are interested, send me an email)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="blue"><B>situation</B></FONT> is
+     <FONT color="red"><B><I>not</I> covered</B></FONT> by the
+     rule that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="blue"><B><I>cannot</I></B></FONT> define
+      <B><I>different</I> variables</B> with
+      the <FONT color="red"><B><I>same</I> name</B></FONT> inside
+      the <FONT color="blue"><B><I>same</I> scope</B></FONT>
+  <P>
+  (See: <A HREF="#samename">click here</A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <B>reason</B> is the <B><I>fact</I></B> that
+      the <FONT color="blue"><B><I>inner</I> scope</B></FONT> and
+    the <FONT color="blue"><B><I>outer</I> scope</B></FONT> are
+       <FONT color="red"><B><I>different</I> scopes</B></FONT> 
+  <P>
+   Why ? Well, 
+   the <FONT color="blue"><B><I>inner</I> scope</B></FONT> and
+    the <FONT color="blue"><B><I>outer</I> scope</B></FONT> have
+    <FONT color="red"><B><I>different</I> boundaries</B></FONT> !!!
+   <P>
+ So this situation <FONT color="red"><B>is <I>not</I> covered</B></FONT>
+ by the above rule !
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Exercise in class
+     </B></FONT>
+<P>
+<UL>
+<LI> What will be printed by each of the print statements:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class Exercise1
+   {
+      public static void main(String[] args)            
+      {
+   	 {
+   	    double r = 3.14;
+    
+   	    {
+   	       String s = "1234";
+   	       r = r + 2;
+   	       System.out.println( s + r );
+   	    }
+    
+   	    {
+   	       int s = 1234;
+    
+   	       System.out.println( s + r );
+   	    }
+   	 }
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   12345.14           
+   1239.14
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Scope/Exercise1.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac Exercise1.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java Exercise1</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Quiz for class
+     </B></FONT>
+<P>
+<UL>
+<LI> Does the following program has any errors:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class ScopeX
+   {
+      public static void main(String[] args)            
+      {
+   	 {
+   	    String <FONT color="red">r</FONT> = "abc" ;
+   	    System.out.println(r);
+   	 }
+    
+   	 double <FONT color="red">r</FONT> = 4.0;
+   	 System.out.println(r);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Does it violate the rule:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You cannot define
+    <FONT color="blue"><B>two variables with the same name</B></FONT>
+       <FONT color="red"><B>in the same scope</B></FONT> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>No</B></FONT>, because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>String r</TT></B></FONT> is 
+    <B>allowed</B> because:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class ScopeX
+   {
+      public static void main(String[] args)            
+      {
+   	 {
+   	    String <FONT color="red">r</FONT> = "abc" ;  <FONT color="red"> // There is no variable r defined YET !!!   
+				 // So: only 1 variable named r in scope</FONT>
+   	    System.out.println(r);
+   	 }
+    
+   	 double <FONT color="red">r</FONT> = 4.0;
+   	 System.out.println(r);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>double r</TT></B></FONT> is 
+    <B>allowed</B> because:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class ScopeX
+   {
+      public static void main(String[] args)            
+      {
+   	 {
+   	    String <FONT color="red">r</FONT> = "abc" ;
+   	    System.out.println(r);
+   	 }
+    
+   	 double <FONT color="red">r</FONT> = 4.0; <FONT color="red">// The variable "String r"'s scope has ENDED !     
+                       // So this variable r is the ONLY variable
+		       // by that name</FONT>
+   	 System.out.println(r);
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code - try it out yourself !)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/Scope/ScopeX.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac ScopeX.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java ScopeX</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

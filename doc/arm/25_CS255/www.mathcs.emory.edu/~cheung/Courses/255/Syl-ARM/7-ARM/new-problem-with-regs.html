@@ -1,0 +1,656 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Problem with using registers to pass parameters and to store local variables
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The problem with registers
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Limitations</B></FONT> of
+   <FONT color="blue"><B>CPU registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>number </B></FONT> of
+    <FONT color="blue"><B>CPU registers</B></FONT> is
+    <FONT color="red"><B><I>limited</I></B></FONT>
+ <P>
+ <B>Consequences:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You can <FONT color="red"><B>only</B></FONT> pass
+      a <FONT color="blue"><B><I>limited</I> number</B></FONT>
+      of <FONT color="red"><B>parameters</B></FONT>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <B>and</B>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> You can
+      <FONT color="red"><B>only</B></FONT> have 
+      a <FONT color="blue"><B><I>limited</I> number</B></FONT>
+      of <FONT color="red"><B>local variables</B></FONT>
+      in a <FONT color="blue"><B>method</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> The 
+    <FONT color="blue"><B>CPU registers</B></FONT> are
+    <FONT color="red"><B><I>shared</I> resources</B></FONT>
+    where
+    <FONT color="blue"><B><I>different</I> methods</B></FONT>
+    do not
+    <FONT color="red"><B>know each others reservations</B></FONT>
+ <P>
+ <B>Consequences:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="red"><B>Only</B></FONT> a
+    <FONT color="blue"><B><I>leaf</I> function/method</B></FONT>
+    (that does not call <FONT color="red"><B>other methods</B></FONT>
+    can <FONT color="red"><B>claim <I>exclusive</I> use</B></FONT> of the
+    <FONT color="blue"><B>registers</B></FONT></SPAN>
+<P>
+ (Because a
+     <FONT color="red"><B>leaf method</B></FONT> does not
+     call <FONT color="blue"><B>other methods</B></FONT>,
+     it can <FONT color="red"><B>claim</B></FONT>
+     the <FONT color="blue"><B>use</B></FONT> of the
+     <FONT color="red"><B>registers</B></FONT> without having to worry that
+     <FONT color="blue"><B>other methods</B></FONT> will
+     destroy the value in the registers.
+ <P>
+ A <FONT color="red"><B>non-leaf method</B></FONT> will/can
+  <FONT color="blue"><B>not claim/use</B></FONT>
+  any <FONT color="red"><B>register</B></FONT>
+  for <FONT color="blue"><B>parameter</B></FONT> or
+  <FONT color="blue"><B>local variable</B></FONT> because
+  when it <FONT color="red"><B>calls</B></FONT>
+  <FONT color="blue"><B><I>another</I> method</B></FONT>,
+  <FONT color="red"><B><I>that</I> method</B></FONT> can
+  <FONT color="blue"><B>use any registers</B></FONT>  !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>illustrate</B></FONT>
+ this <FONT color="blue"><B>important fact</B></FONT> with an 
+  <FONT color="red"><B>example</B></FONT> next
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What can go wrong if you have an
+   <FONT color="red"><B>important value in a register</B></FONT> and
+   calls a method
+     </B></FONT>
+<P>
+<UL>
+<LI> Suppose I have a <FONT color="red"><B>method</B></FONT> 
+    called <FONT color="blue"><B><TT>square</TT></B></FONT> that
+    computes the
+    <FONT color="red"><B>square</B></FONT> of
+    a <FONT color="blue"><B>value</B></FONT> passed in
+    <FONT color="red"><B>register <TT>r0</TT></B></FONT>
+ <P>
+  The <FONT color="blue"><B><TT>square</TT></B></FONT> returns
+  the <FONT color="red"><B>square</B></FONT> in
+  <FONT color="blue"><B>register <TT>r0</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> Suppose we write the following program in assembler:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     result = square(3);           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The assembler code is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        //  result = square(3)
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(3)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #3
+        bl      square
+<FONT color="red">
+        /* -------------------------------------------------
+           Store in result
+           ------------------------------------------------- */</FONT>      
+        movw    r1, #:lower16:result
+        movt    r1, #:upper16:result
+
+        str     r0, [r1]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can see for yourself in this demo that it works.
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/reg-problem.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 reg-problem</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<A NAME="problem"></A>
+<HR color="red">
+<HR color="red">
+<HR color="red">
+
+<P>
+<LI> <FONT color="red"><B>Now</B></FONT>, suppose we want to
+     write the following <FONT color="blue"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    result = square(3) <FONT color="red">+ square(4)</FONT>;         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Can you tell <FONT color="red"><B>what's wrong</B></FONT> with this
+ <FONT color="blue"><B>naive code</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        //  result = square(3)
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(3)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #3
+        bl      square
+
+	mov	r1, r0           // Save 3<sup>2</sup> in r1
+
+<FONT color="red">
+        /* -------------------------------------------------
+           Call square(4)
+           ------------------------------------------------- */</FONT>
+        mov     r0, #4
+        bl      square
+
+	add	r0, r0, r1       // Computes 3<sup>2</sup>+ 4<sup>2</sup>
+<FONT color="red">
+        /* -------------------------------------------------
+           Store in result
+           ------------------------------------------------- */</FONT>      
+        movw    r1, #:lower16:result
+        movt    r1, #:upper16:result
+
+        str     r0, [r1]
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>naive code</B></FONT>
+       <FONT color="blue"><B>assumes</B></FONT> that
+       the <FONT color="red"><B><TT>square</TT></B></FONT> subroutine
+       will <FONT color="blue"><B><I>preserve</I></B></FONT> the
+       <FONT color="red"><B>saved value in register <TT>r1</TT></B></FONT> !!!
+ <P>
+ <FONT color="red"><B>Consequently:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This code will <FONT color="red"><B>not work</B></FONT> 
+       <FONT color="blue"><B>if</B></FONT>
+       the <FONT color="red"><B><TT>square</TT></B></FONT> subroutine
+       <FONT color="blue"><B>uses register <TT>r1</TT></B></FONT> in
+       its <FONT color="red"><B>computation</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In fact, I have written 
+ the <FONT color="red"><B><TT>square</TT></B></FONT> subroutine
+ that it will <FONT color="blue"><B>zero out</B></FONT>
+ <FONT color="red"><B><I>every</I> register</B></FONT> in
+ <B>ARM</B>.
+<P>
+I will change the <FONT color="red"><B><TT>reg-problem.s</TT></B></FONT> 
+  <B>in class</B> and run this demo to show you that this program
+  <FONT color="blue"><B>does not compute
+  3<sup>2</sup>+ 4<sup>2</sup> </B></FONT>
+<P> 
+<hr> 
+<P> 
+We <FONT color="red"><B>cannot solve this problem right now</B></FONT>....
+ you have not learn enough techniques to do so.
+<P> 
+I will <FONT color="blue"><B>revisit</B></font> 
+   this problem <B>after</B> I have discussed
+ how to use the 
+ <FONT color="red"><B>program stack</B></font> to store
+  <FONT color="blue"><B>parameters</B></FONT> and
+  <FONT color="blue"><B>local variables</B></FONT>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Interrupted computations
+     </B></FONT>
+<P>
+<UL>
+<LI> So <FONT color="red"><B>when</B></FONT> do you
+     find that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You hold an <FONT color="red"><B>important value</B></FONT> in
+     some <FONT color="blue"><B>register</B></FONT>
+ <LI> And you must make a <FONT color="red"><B>call</B></FONT>
+     to a <FONT color="blue"><B>function</B></FONT> ???
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is <FONT color="red"><B>always</B></FONT> the case
+  when you perform a <FONT color="blue"><B>computation</B></FONT> that
+  contain
+  <FONT color="red"><B><I>multiple</I> function calls</B></FONT>.
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you  perform a <FONT color="blue"><B>computation</B></FONT> that
+  contain
+  <FONT color="red"><B><I>multiple</I> function calls</B></FONT>,
+   you must
+   <FONT color="blue"><B>interrupt</B></FONT> the
+    <FONT color="red"><B>computation process</B></FONT> and
+    make a <FONT color="blue"><B>function call</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> As a <FONT color="red"><B>rule</B></FONT>,
+     when you have
+   <FONT color="blue"><B><I>multiple</I> function calls</B></FONT>
+   in an <FONT color="red"><B>expression</B></FONT>, such as:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    result = square(3) <FONT color="red">+ square(4)</FONT>;                   
+             ^^^^^^^^^   ^^^^^^^^^
+               2 function calls in this expression
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>computation</B></FONT> of the
+ <FONT color="blue"><B>expression</B></FONT> is <B>always</B>
+ <FONT color="red"><B><I>interrupted</I></B></FONT> by
+ a <FONT color="blue"><B>function call</B></FONT>.
+<P>
+This is because
+ when you <FONT color="red"><B>computes</B></FONT> an
+  <FONT color="blue"><B>expression</B></FONT> that contains
+ <FONT color="red"><B><I>multiple</I> function calls</B></FONT>, you must:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Make the <FONT color="red"><B>first</B></FONT>
+      <FONT color="blue"><B>function call</B></FONT>
+      (e.g. <FONT color="red"><B><TT>square(3)</TT></B></FONT>)
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>function call</B></FONT> will
+     <FONT color="blue"><B>return</B></FONT> a
+       <FONT color="red"><B>value (e.g.: <TT>square(3) = 9</TT></B></FONT> in
+       some <FONT color="blue"><B>register</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  <P>
+ <LI>  <FONT color="red"><B>But:</B></FONT> you 
+  <FONT color="blue"><B>cannot</B></FONT> use this value (9)
+  yet, because the <FONT color="red"><B>other operand
+   (e.g.: <TT>square(4)</TT></B></FONT> must
+  still need to be <FONT color="blue"><B>computed</B></FONT>
+  with a <FONT color="red"><B>function call</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You must <FONT color="red"><B>interrupt</B></FONT> the
+      <FONT color="blue"><B>computation (e.g.: add)</B></FONT> by
+     making a <FONT color="red"><B>function call
+    (e.g.: <TT>square(4)</TT>)</B></FONT>
+<P>
+
+     
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+This 
+  <FONT color="blue"><B>interrupted computation</B></FONT>
+  can <FONT color="red"><B>cause a big problem</B></FONT> because
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The  <FONT color="red"><B>function call
+    (e.g.: <TT>square(4)</TT>)</B></FONT>
+   <B>may</B>
+   <FONT color="blue"><B>overwrite</B></FONT>
+  a value <B>stored</B> in 
+  <FONT color="red"><B><I>any</I> register</B></FONT> !
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+As I said, we can't solve this problem yet.
+<P>
+ We must first learn how to use the <B>program stack</B> to
+ store things first.
+<P>
+If you can't wait,
+ the <FONT color="red"><B>webpage</B></FONT> that
+ explain how to solve this problem is:
+ <A HREF="interrupted-computation.html">click here</A>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Summary
+     </B></FONT>
+<P>
+<UL>
+<LI> When a <FONT color="red"><B><I>non-leaf</I> function (say: <TT>f( )</TT>)
+   </B></FONT> 
+     calls
+   <FONT color="blue"><B><I>another</I> function (say: <TT>g( )</TT>)
+   </B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The  <FONT color="blue"><B>function  <TT>g( )</TT></B></FONT>
+     can use 
+   <FONT color="red"><B><I>any</I> register</B></FONT>
+<P>
+ <LI> And <FONT color="red"><B>therefore</B></FONT>:
+       the <FONT color="blue"><B>function  <TT>g( )</TT></B></FONT>
+     can <FONT color="red"><B>overwrite</B></FONT>
+     <FONT color="blue"><B>any register</B></FONT> used
+     by <FONT color="red"><B>function  <TT>f( )</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A better (perfectly safe) place to store parameters and
+      local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Because the
+   <FONT color="red"><B>calling and return sequence</B></FONT> of
+   <FONT color="blue"><B>methods/functions</B></FONT> is
+   <FONT color="red"><B>LIFO
+      (Last Called function will Return First</B></FONT>,
+      a <FONT color="blue"><B>better (= more general) place (memory)</B></FONT>
+      to
+      <FONT color="red"><B>pass parameters</B></FONT> and
+      <FONT color="red"><B>store local variables</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>system stack</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We will discuss this next.
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

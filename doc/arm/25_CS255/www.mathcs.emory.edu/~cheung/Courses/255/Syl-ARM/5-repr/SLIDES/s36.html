@@ -1,0 +1,866 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Input number strings that that consist of
+  <FONT color="blue">exactly</FONT> 1 character
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  There are <FONT color="red"><B>exactly</B></FONT> 
+  <FONT color="blue"><B>10 possible</B></FONT>
+  <FONT color="red"><B>input number strings</B></FONT>
+    consist of
+  <FONT color="blue">exactly</FONT> 1 character:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  Input typed          ASCII code (in decimal)
+ -------------        -------------------------
+     "0"        ---->         48
+     "1"        ---->         49
+     "2"        ---->         50
+     "3"        ---->         51
+     "4"        ---->         52
+     "5"        ---->         53
+     "6"        ---->         54
+     "7"        ---->         55
+     "8"        ---->         56
+     "9"        ---->         57
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Input number strings that that consist of
+  <FONT color="blue">exactly</FONT> 1 character
+   </SPAN>
+   </B></FONT>
+   </div>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>See it</B></FONT> for
+   yourself:
+   </font>
+   </p>
+
+<center>
+
+<TABLE bgcolor="lightyellow" BORDER="5" width=500>
+<TR> <TD>
+<FONT size="+1">
+ <UL>
+ <LI> <FONT color="red"><B>Type a number string</B></FONT> that
+   consists of <FONT color="blue"><B>1 digit</B></FONT>:
+ 
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea pattern="[\x00-\xFF]*" autofocus cols=40 style="font-size: 18pt">
+</textarea>
+<P>
+<LI> The  <FONT color="red"><B>computer program</B></FONT> will
+   <FONT color="blue"><B>receive</B></FONT> the following:
+<BR>
+&nbsp;&nbsp;&nbsp;<textarea style="font-size: 18pt" cols=40 pattern="(\s*[01]{8}\s*)*">0100100001100101011100100110010100100000011000100110010100100000011100110110010101100011011100100110010101110100001000000110110101100101011100110111001101100001011001110110010101110011001000010010000100110001</textarea>
+<p id=footer>Made by <a href=http://mathiasbynens.be/>@mathias</a>  
+---- <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/binary-ascii>GitHub! source</a></p>
+<script>(function(i,o){var l=o.getElementsByTagName("textarea"),b=l[0],a=l[1],k=o.getElementById("permalink"),j=/\s*[01]{8}\s*/g,e=/[\s\S]/g,f=/^(\s*[01]{8}\s*)*$/,r=/^[\x00-\xff]*$/,p=(function(){var t=new Date,v,s;try{(v=i.localStorage).setItem(t,t);s=v.getItem(t)==t;v.removeItem(t);return s&&v}catch(u){}}()),n=String.fromCharCode;function d(s){return encodeURIComponent(s).replace(/['()_*]/g,function(t){return"%"+t.charCodeAt().toString(16)})}function m(s){return"00000000".slice(String(s).length)+s}function q(s){return s.replace(j,function(t){return n(parseInt(t,2))})}function c(s){return s.replace(e,function(t){return m(t.charCodeAt().toString(2))+' '})}function h(x,v,u,t){var w=x.value,s="";if(v.test(w)){t.value=s=u(w);x.className=t.className=""}else{t.value="ERROR: invalid input";x.className=t.className="invalid"}return x==b?w:s}function g(){var s=this==a?h(a,f,q,b):h(b,r,c,a);k.hash=d(s);p&&(p.ascii=s)}b.onkeyup=a.onkeyup=g;b.oninput=a.oninput=function(){b.onkeyup=a.onkeyup=null;g.call(this)};if(p){p.ascii&&(b.value=p.ascii);g()}i.onhashchange=function(){b.value=decodeURIComponent(location.hash.slice(1));g()};if(location.hash){i.onhashchange()}}(this,document));window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src="//www.google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"))</script>
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+
+
+</center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Note:</B></FONT>
+  <FONT color="blue"><B><TT>00110000<sub>(2)</sub></TT></B></FONT> =
+  <FONT color="red"><B>48<sub>(10)</sub></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="red"><B>mapping function</B></FONT> for
+   input strings consisting of
+  <FONT color="blue">exactly 1 digit</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   We must <FONT color="red"><B>construct</B></FONT> this
+  <FONT color="blue"><B>mapping function</B></FONT>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  Input string  ASCII code (decimal)   output value (decimal)
+ -------------  --------------------  --------------
+     "0"                48    ---->    0 
+     "1"                49    ---->    1
+     "2"                50    ---->    2 
+     "3"                51    ---->    3 
+     "4"                52    ---->    4 
+     "5"                53    ---->    5
+     "6"                54    ---->    6
+     "7"                55    ---->    7 
+     "8"                56    ---->    8 
+     "9"                57    ---->    9 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Remember that:</B></FONT>
+   &nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><I>we</I> write</B></FONT> expressions
+  in <FONT color="red"><B>decimal</B></FONT>, the
+  <FONT color="blue"><B>compiler</B></FONT> will
+  <FONT color="red"><B>translate</B></FONT> the numbers
+  into <FONT color="blue"><B>binary</B></FONT> !!
+ </SPAN>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    The <FONT color="red"><B>mapping function</B></FONT> for
+   input strings consisting of
+  <FONT color="blue">exactly 1 digit</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <SPAN style="BACKGROUND-COLOR: #aaffaa">
+   <FONT color="blue"><B>general</B></FONT></SPAN>
+   <FONT color="red"><B>mapping algorithm:</B></FONT>
+  (will 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B>work</B></FONT> for
+  <FONT color="red"><B><I>any</I> code assignment</B></FONT></SPAN>)
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+1"><PRE>
+        if ( s.charAt(0) == '0' )
+            x = 0;
+         else if ( s.charAt(0) == '1' )
+            x = 1;
+         else if ( s.charAt(0) == '2' )
+            x = 2;
+         else if ( s.charAt(0) == '3' )
+            x = 3;
+         else if ( s.charAt(0) == '4' )
+            x = 4;
+         else if ( s.charAt(0) == '5' )
+            x = 5;
+         else if ( s.charAt(0) == '6' )
+            x = 6;
+         else if ( s.charAt(0) == '7' )
+            x = 7;
+         else if ( s.charAt(0) == '8' )
+            x = 8;
+         else if ( s.charAt(0) == '9' )
+            x = 9;
+         else
+         {
+            System.out.println("NOT a digit !\n");
+            continue;
+         }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/atoi/ConvStr1DigitGen.java
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   An important property of the ASCII code assignment
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  An <FONT color="red"><B>important property</B></FONT> of
+  the <FONT color="blue"><B>ASCII code</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>ASCII codes
+    (= binary numbers)</B></FONT>
+     for the 
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="blue"><B>digits</B></FONT></SPAN> have
+   <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="red"><B> <I>consecutive</I> ASCII code 
+   values</B></FONT></SPAN>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Witness it:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightyellow" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  character   ASCII code (in decimal)    
+  ---------  -----------
+  '0'         48
+  '1'	      49
+  '2'	      50
+  '3'	      51
+  '4'	      52
+  '5'	      53
+  '6'	      54
+  '7'	      55
+  '8'	      56
+  '9'	      57</PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="red"><B>mapping function</B></FONT> for
+   input strings consisting of
+  <FONT color="blue">exactly 1 digit</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The
+  <FONT color="blue"><B>mapping function</B></FONT> can
+  <SPAN style="BACKGROUND-COLOR: #aaffaa">
+  <FONT color="red"><B>take advantage</B></FONT></SPAN> of  the
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+   <FONT color="blue"><B>consecutive code values</B></FONT> for
+  <FONT color="red"><B>digits</B></FONT></SPAN>:
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  Input string  ASCII code (decimal)   output value   
+ -------------  --------------------  --------------
+     "0"                48    ---->    0 (=  48 <FONT color="red">- 48</FONT>)
+     "1"                49    ---->    1 (=  49 <FONT color="red">- 48</FONT>)
+     "2"                50    ---->    2 (=  50 <FONT color="red">- 48</FONT>)
+     "3"                51    ---->    3 (=  51 <FONT color="red">- 48</FONT>)
+     "4"                52    ---->    4 (=  52 <FONT color="red">- 48</FONT>)
+     "5"                53    ---->    5 (=  53 <FONT color="red">- 48</FONT>)
+     "6"                54    ---->    6 (=  54 <FONT color="red">- 48</FONT>)
+     "7"                55    ---->    7 (=  55 <FONT color="red">- 48</FONT>)
+     "8"                56    ---->    8 (=  56 <FONT color="red">- 48</FONT>)
+     "9"                57    ---->    9 (=  57 <FONT color="red">- 48</FONT>)
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  The <FONT color="red"><B>mapping function</B></FONT> is:
+   &nbsp;
+  <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><TT>input.charAt(0) <FONT color="red">- '0'</FONT></TT></B></FONT></SPAN>
+   </font>
+   </p>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <SPAN style="BACKGROUND-COLOR: #000000">
+   <FONT color="yellow"><B>Important note:</B></FONT></SPAN> &nbsp;
+  the <FONT color="red"><B>mapping</B></FONT>
+  <FONT color="blue"><B><TT>input.charAt(0) - '0'</TT></B></FONT> will
+  <FONT color="red"><B>only work</B></FONT> 
+  when the 
+  <SPAN style="BACKGROUND-COLOR: #ffdd00">
+  <FONT color="blue"><B>digits</B></FONT> have
+  <FONT color="red"><B>consecutive code values</B></FONT></SPAN> !
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <FONT color="blue">Implementing</FONT>
+  the <FONT color="red"><B>mapping function</B></FONT> for
+   input strings consisting of
+  <FONT color="blue">exactly 1 digit</FONT>
+ 
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Implementation</B></FONT> of
+  <FONT color="blue"><B><TT>parseInt( )</TT></B></FONT> for
+  <FONT color="red"><B><I>single</I> digit strings</B></FONT>:
+   </font>
+   </p>
+
+ 
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   s = in.next( );     // Read a String from key board
+
+   int x = s.charAt(0) - '0';  // <FONT color="red">'0' &equiv; 48 !</FONT>
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+<P>
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO</B></FONT>:
+  <FONT color="blue"><B><TT>
+  /home/cs255001/demo/atoi/ConvStr1Digit.java
+  </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.6in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    Quiz to test your understanding
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Quiz:</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>What happens</B></FONT> when you enter:
+ <P>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <FONT color="blue"><B>:</B></FONT>
+ <P>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ???
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 1.2in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to handle <FONT color="blue">negative numbers</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>How</B></FONT> to
+  <FONT color="blue"><B>obtain</B></FONT> the
+   <FONT color="red"><B>2s complement representation</B></FONT>
+  for <FONT color="blue"><B>negative numbers</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>   The <FONT color="red"><B>negation operator (-)</B></FONT>
+    computes the
+    <FONT color="blue"><B>negative 2s complement representation</B></FONT>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+  <p style="margin-left: 1.2in">
+   <font size="+2">
+  <B>Example:</B>
+   </font>
+   </p>
+
+
+   <center>
+   <TABLE bgcolor="#FFEEEE" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   If x contains 00000001  (= 1)
+   then <FONT color="red"> -x</FONT>  will return  11111111
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   How to handle 
+   <FONT color="blue">negative numbers</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>Algorithm</B></FONT> to
+  <FONT color="blue"><B>convert</B></FONT> a
+  <FONT color="red"><B>one-digit</B></FONT>
+   <FONT color="blue"><B>negative number string</B></FONT>
+  (e.g.: <FONT color="red"><B><TT>"-4"</TT></B></FONT>):
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  // Make sure the string is "-N"
+  if ( s.length() != 2 || <FONT color="red">s.charAt(0) != '-'</FONT> )
+  {
+     System.out.println("Error: not 1 digit neg number !");
+     System.exit(1);
+ 
+  }
+
+  x = s.charAt(1) - '0';  // '0' = 48, so we subtract 48
+
+  x = <FONT color="red">-x</FONT>;                 // Get the negative value
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO:</B></FONT>
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/atoi/ConvStr1DigitNeg.java
+   </TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

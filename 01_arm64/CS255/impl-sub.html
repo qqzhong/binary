@@ -1,0 +1,325 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Implementing <FONT color="red">non-leaf methods/functions</FONT>
+  using the program stack
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Implementing a non-lead method/function using the program stack
+     </B></FONT>
+<P>
+ <UL>
+ <LI> What we have <FONT color="red"><B>discovered </B></FONT> in the
+     <FONT color="blue"><B>previous</B></FONT> discussion are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A 
+      <FONT color="blue"><B>non-leaf method/function</B></FONT>
+       <FONT color="blue"><B>must</B></FONT>
+      save its <FONT color="red"><B>return address</B></FONT>
+       (in the <FONT color="blue"><B><TT>lr</TT> register</B></FONT>
+        <P>
+  (because otherwise the
+   <FONT color="red"><B>return address</B></FONT> will
+   be <FONT color="blue"><B>overwritten</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="red"><B>most suitable</B></FONT>
+         <FONT color="blue"><B>data structure</B></FONT> used to
+	 save <FONT color="red"><B>return addresses</B></FONT>
+	 is a <FONT color="blue"><B>stack</B></FONT>
+ <P>
+ (because the <FONT color="red"><B>call/return ordering</B></FONT> of
+  <FONT color="blue"><B>methods</B></FONT> is
+  <FONT color="red"><B>FILO</B></FONT>
+  (first in last out))
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+Once you <FONT color="red"><B>understand</B></FONT> this, it's very easy to
+ solve the <FONT color="blue"><B>problem</B></FONT> so you don't lose the
+  return address.
+<P>
+We start with the 
+ <FONT color="red"><B>structure</B></FONT> of
+  a <FONT color="blue"><B><I>leaf</I> method</B></FONT>
+  that  was <FONT color="red"><B>discussed</B></FONT> prviously:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    leafMethod:
+                ....
+		.... (instructions in the method)     
+		....
+
+     /* -------------------------------------------
+        End of method, we need to return to caller
+        ------------------------------------------- */        
+		mov   pc, lr
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We <FONT color="red"><B>must</B></FONT>
+  <FONT color="blue"><B>save</B></FONT> the
+  <FONT color="red"><B>return address</B></FONT> by
+ <FONT color="blue"><B>pushing </B></FONT> the
+ <FONT color="red"><B><TT>lr</TT> register</B></FONT>
+  on the stack.
+<P>
+<B>And:</B>
+  when the <FONT color="red"><B>method</B></FONT> 
+   <FONT color="blue"><B>returns</B></FONT>,
+   we must <FONT color="red"><B>restore</B></FONT> the
+   <FONT color="blue"><B>return address</B></FONT> using the
+   value in the stack.
+<P>
+So the <FONT color="red"><B>structure</B></FONT> of
+ a <FONT color="blue"><B><I>non</I>-leaf method</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    nonLeafMethod:
+                   <FONT color="red"> push {lr}            // Save return address on stack</FONT>   
+
+                    ....
+		    .... (instructions in the method)     
+		    ....
+
+     /* -------------------------------------------
+        End of method, we need to return to caller
+        ------------------------------------------- */
+	            <FONT color="red">pop   {lr}               // Restore return address</FONT> 
+		    mov   pc, lr             // Return to caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Instead of popping the top of the stack into the
+ <FONT color="red"><B><TT>lr</TT> register</B></FONT>
+ and <FONT color="blue"><B>then</B></FONT> moving
+  the <FONT color="red"><B><TT>lr</TT> register</B></FONT>
+  into the <FONT color="blue"><B><TT>pc</TT> register</B></FONT>,
+  we can <FONT color="red"><B>simply</B></FONT> pop the
+  <FONT color="blue"><B>return address</B></FONT>
+  directly into the <FONT color="red"><B><TT>pc</TT> register </B></FONT> !!!
+<p>
+So a
+ <FONT color="red"><B>better solution</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    nonLeafMethod:
+                   <FONT color="red"> push {lr}            // Save return address on stack</FONT>   
+
+                    ....
+		    .... (instructions in the method)     
+		    ....
+
+     /* -------------------------------------------
+        End of method, we need to return to caller
+        ------------------------------------------- */
+	            <FONT color="red">pop   {pc}          // Return to caller !!!</FONT> 
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The non-leaf method example <FONT color="red">revisited</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public static void main(String[] args)
+   {
+      A( );
+   }
+
+   public static void<FONT color="red"> A( )</FONT>
+   {
+      ...
+      <FONT color="red">B( )</FONT>;   // Calls B( )
+      ...
+   }
+
+   public static void <FONT color="red">B( )</FONT>
+   {
+      ...     // Does not call any method/function     
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Solution:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">main:</FONT>
+        mov     r0, #1111
+        mov     r1, #1111
+        <FONT color="red">bl      A</FONT>
+        mov     r2, #2222
+        mov     r3, #2222
+        <FONT color="red">bl      A</FONT>
+        mov     r4, #3333
+        mov     r5, #3333
+
+Stop:
+
+<FONT color="red">A:</FONT>
+        <FONT color="red">push    {lr}            // Save return address</FONT>
+
+        mov     r0, #7777
+        mov     r1, #7777
+        <FONT color="red">bl      B               // Overwrites lr, it's OK, we saved it !!!</FONT>
+        mov     r2, #8888
+        mov     r3, #8888
+
+       <FONT color="red"> pop     {pc}            // A returns to main !!!</FONT>
+
+
+<FONT color="red">B:</FONT>
+        mov     r0, #9999
+        mov     r1, #9999
+
+        <FONT color="red">mov     pc, lr          // B can return to A</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/bl+pop.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 bl+pop</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

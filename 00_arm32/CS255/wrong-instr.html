@@ -1,0 +1,897 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+What happens when you use an
+ <FONT color="red">incorrect</FONT> load/store instruction
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important warning
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Warning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must</B></FONT> use
+     the <FONT color="blue"><B><I>correct</I></B></FONT>
+     <FONT color="red"><B><TT>load</TT></B></FONT> and
+     <FONT color="red"><B><TT>store</TT></B></FONT> instructions to
+     <FONT color="blue"><B>tranfer</B></FONT> data in
+    the <FONT color="red"><B>(memory) variables</B></FONT> to
+    the <FONT color="blue"><B>registers</B></FONT> inside the <B>CPU</B> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    Use              When the data type of the variable is
+   ------------     ------------------------------------------     
+    ldrsb/strb              byte
+    ldrsh/strh	            short
+    ldr  /str               int       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <LI> Your program will contain
+      a <FONT color="red"><B>bug (= program error)</B></FONT> if
+      you use
+      an <FONT color="blue"><B><I>incorrect</I></B></FONT>
+      <FONT color="red"><B>load/store</B></FONT> instruction
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In this webpage, I will show you
+ <FONT color="red"><B>what will happen</B></FONT> when you
+ use an
+ <FONT color="blue"><B><I>incorrect</I></B></FONT>
+      <FONT color="red"><B>load/store</B></FONT> instruction
+ (and <FONT color="blue"><B>quiz</B></FONT> you if you  can
+ <FONT color="red"><B>understand</B></FONT> the
+ <FONT color="blue"><B>cause</B></FONT> of
+ the <FONT color="red"><B>error</B></FONT>)
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Prelude to "understanding what happens when you use
+      an incorrect load instruction"
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>computer</B></FONT> is a
+     <FONT color="blue"><B>machine</B></FONT> that
+   does <FONT color="red"><B><I>exactly</I></B></FONT> what
+   it is
+   <FONT color="blue"><B>told to do</B></FONT>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>computer</B></FONT>
+          <FONT color="blue"><B>cannot</B></FONT>
+     <FONT color="red"><B>think</B></FONT> !!
+ <P>
+  (Well, you may have head about
+  <FONT color="red"><B>Artificial Intelligence</B></FONT>, that's
+  <FONT color="blue"><B>not</B></FONT> the <B>computer</B>.
+ <FONT color="red"><B>AI</B></FONT> is
+  a <FONT color="blue"><B>very large computer <I>program</I></B></FONT>
+  that examines a 
+  <FONT color="red"><B>lot of data</B></FONT>
+  <FONT color="blue"><B><I>using</I></B></FONT> a
+  <FONT color="red"><B>computer</B></FONT> 
+  - the <FONT color="blue"><B>computer</B></FONT> itself is
+  <FONT color="red"><B>not</B></FONT> intelligent)
+<P>
+ A <FONT color="red"><B>computer</B></FONT> is
+     just as <FONT color="blue"><B>dumb</B></FONT> as
+     a <FONT color="red"><B>door nail</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review</FONT> of the
+     <FONT color="red">load</FONT> instruction
+     </B></FONT>
+<P>
+<UL>
+
+We have learned what the
+ <FONT color="red"><B>load instructions</B></FONT> do:
+<P>
+<P>
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B> basic form</B></FONT> of
+ the  <FONT color="red"><B><TT>load register</TT> instruction</B></FONT>
+is:
+</SPAN>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldr  r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Load 4 bytes from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+
+        The 4 bytes are stored in the register as follows:
+
+               <IMG SRC="FIGS/reg03a.gif"></A>
+
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">ldrsh r<sub>N</sub>, [r<sub>M</sub>] </FONT> </SPAN>     Load 2 bytes from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+			AND fill the left half of register with the sign bit
+
+        The 2 bytes are stored at the right and then 
+        <FONT color="red">sign extended</FONT> to 32 bits:
+
+               <IMG SRC="FIGS/reg03b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> ldrsb r<sub>N</sub>, [r<sub>M</sub>]</FONT></SPAN>       Load 1 byte  from memory at the address given
+                        in r<sub>M</sub> into the (destination) register r<sub>N</sub>
+			AND fill the left 3/4 of register with the sign bit
+
+        The byte is stored at the right and then
+	<FONT color="red">sign extended</FONT> to 32 bits:
+
+
+               <IMG SRC="FIGS/reg03c.gif"></A>
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+Let's see
+ <FONT color="red"><B>how well</B></FONT> you can 
+ <FONT color="blue"><B>apply</B></FONT> your understanding...
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens when you use an incorrect load instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> A program contains 
+     <FONT color="red"><B>2 short variables <TT>x</TT> and
+   <TT>y</TT></B></FONT> stored as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/wrong-ldr01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+In the following program, I
+  <FONT color="red"><B>transfer</B></FONT> the
+  <FONT color="blue"><B>value</B></FONT> stored
+  at the
+  <FONT color="red"><B><I>memory</I> location <TT>x:</TT></B></FONT>
+  into the <FONT color="blue"><B>registers</B></FONT> using
+  <FONT color="blue"><B><I>3 different</I> <TT>load</TT></B></FONT>
+  instruction:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        // short x contains 254 = 0000000011111110
+        movw    r0, #:lower16:x         // Moves the address of memory
+        movt    r0, #:upper16:x         // variable x into register r0
+
+        // Move short x into r1 using ldrsh (correct !)
+        <FONT color="red">ldrsh   r1,[r0]</FONT>                 // r1 = 254, correct
+
+
+        // Move short x into r2 using ldrsb (wrong value !)
+        <FONT color="red">ldrsb   r2,[r0]</FONT>                 // r2 = -1, WRONG !!
+                                <FONT color="red">// Can you explain why r2 contains -1 ?</FONT>
+
+        // Move short x into r3 using ldr (wrong value !)
+        <FONT color="red">ldr     r3,[r0]</FONT>                 // r2 = 65790 = 2<sup>16</sup> + 254,  WRONG !!
+                                <FONT color="red">// Can you explain why r2 contains 2<sup>16</sup> + 254 ?</FONT>
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+x:      .2byte     254          // short typed variable
+y:      .2byte     1            // short typed variable
+
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>ldrsh</TT></B></FONT> instruction will
+  <FONT color="blue"><B>transfer</B></FONT> the
+  <FONT color="red"><B><I>correct</I></B></FONT> value
+  (<FONT color="blue"><B>254</B></FONT>) into
+  the <FONT color="red"><B>register <TT>r1</TT></B></FONT>
+<P>
+<FONT color="red"><B>But:</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B><TT>ldrsb</TT></B></FONT> instruction
+     stores a <FONT color="blue"><B>wrong value</B></FONT>
+  <FONT color="red"><B>&minus;2</B></FONT>
+ <LI>  The <FONT color="red"><B><TT>ldr</TT></B></FONT> instruction
+     stores a <FONT color="blue"><B>wrong value</B></FONT>
+  <FONT color="red"><B>65790 </B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Can you <FONT color="red"><B>explain why</B></FONT>
+ using what you <FONT color="blue"><B>know</B></FONT>
+ about these instructions (see above) ???
+<P>
+<HR>
+<HR>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/wrong-ldr.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 wrong-ldr</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+
+&nbsp;
+<P>
+  
+&nbsp;
+<P>
+<LI> <FONT color="red"><B>Why</B></FONT> does
+ the <FONT color="red"><B><TT>ldrsb</TT></B></FONT> instruction
+ store <FONT color="red"><B>&minus;2</B></FONT> into
+ a <B>register</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>ldrsb</TT></B></FONT> instruction
+      will load a 
+      <FONT color="blue"><B><I>byte</I></B></FONT> from 
+      <B>memory location</B>
+      <FONT color="red"><B><TT>x:</TT></B></FONT> and
+      <FONT color="blue"><B>sign-extend</B></FONT> the
+      <FONT color="red"><B><TT>byte</TT> </B></FONT>
+      into <FONT color="blue"><B>32 bits</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/wrong-ldr01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+So the  <FONT color="red"><B>register </B></FONT> will
+  <FONT color="blue"><B>contain</B></FONT> the
+  <FONT color="red"><B>2s complement code
+  <TT>11111111111111111111111111111110</TT></B></FONT>
+ which <FONT color="blue"><B>represents</B></FONT> the
+ <FONT color="red"><B>value &minus;2</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+
+<P>
+<LI> <FONT color="red"><B>Why</B></FONT> does
+ the <FONT color="red"><B><TT>ldr</TT></B></FONT> instruction
+ store <FONT color="red"><B>65790 = 2<sup>16</sup> + 254</B></FONT> into
+ a <B>register</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>ldr</TT></B></FONT> instruction
+      will load a 
+      <FONT color="blue"><B><I>int</I> (= 4 bytes)</B></FONT> from 
+      <B>memory location</B>
+      <FONT color="red"><B><TT>x:</TT></B></FONT> which will
+    <FONT color="blue"><B>read <I>too many</I> bytes</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/wrong-ldr01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>ldr</TT></B></FONT> instructions
+  has <FONT color="blue"><B><I>also</I></B></FONT> read the
+  <FONT color="red"><B>bytes</B></FONT> from the
+  <FONT color="blue"><B>variable <TT>y</TT></B></FONT> into the
+  <B>register</B> !!!
+<P>
+So the  <FONT color="red"><B>register </B></FONT> will
+  <FONT color="blue"><B>contain</B></FONT> the
+  <FONT color="red"><B>2s complement code
+  <TT><FONT color="blue">0000000000000001</FONT>0000000011111110</TT></B></FONT>
+ which <FONT color="blue"><B>represents</B></FONT> the
+ <FONT color="red"><B>value 2<sup>16</sup>+254 = 65790</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+<P>
+
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Review</FONT> of the
+     <FONT color="red">store</FONT> instruction
+     </B></FONT>
+<P>
+<UL>
+
+We have learned what the
+ <FONT color="red"><B>store instructions</B></FONT> do:
+<P>
+
+<SPAN style="BACKGROUND-COLOR: yellow">
+<B>Syntax and meaning</B> of the
+ <FONT color="blue"><B> basic form</B></FONT> of
+ the  <FONT color="red"><B><TT>store register</TT> instruction</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Syntax               Meaning of the instruction
+  ----------------     --------------------------------------------------    
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">str  r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Store 4 bytes from register r<sub>N</sub> to memory (consecutively) at 
+                        the address given in register r<sub>M</sub>
+
+        The 4 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04a.gif"></A>
+
+
+   <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">strh r<sub>N</sub>, [r<sub>M</sub>] </FONT></SPAN>       Store 2 bytes from register r<sub>N</sub> to memory (consecutively) at
+                        the address given in register r<sub>M</sub>
+
+        The 2 bytes are taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04b.gif"></A>
+
+
+  <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red"> strb r<sub>N</sub>, [r<sub>M</sub>]</FONT></SPAN>        Store 1 byte  from register r<sub>N</sub> to memory (consecutively) at
+                        the address given in register r<sub>M</sub>
+
+        The byte is taken from the register as follows:
+
+               <IMG SRC="FIGS/reg04c.gif"></A>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+Let's see
+ <FONT color="red"><B>how well</B></FONT> you can 
+ <FONT color="blue"><B>apply</B></FONT> your understanding...
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens when you use an incorrect store instruction
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>next program</B> contains  the following
+     <FONT color="red"><B>2 short variables <TT>x</TT> and
+   <TT>y</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/wrong-str01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+In the <B>main( )</B> method, I
+  <FONT color="red"><B>will update</B></FONT> the
+  <FONT color="blue"><B>memory variable</B></FONT> 
+  at the
+  <FONT color="red"><B><I>memory</I> location <TT>x:</TT></B></FONT>
+  with the <FONT color="blue"><B>value -2</B></FONT>
+  (stored in the <FONT color="blue"><B>register <TT>r1</TT></B></FONT>) using
+  <FONT color="red"><B><I>3 different</I> <TT>store</TT></B></FONT>
+  instructions:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        movw    r0, #:lower16:x         // Moves the address of memory
+        movt    r0, #:upper16:x         // variable x into register r0
+
+        mov     r1, #-2
+
+        // Move -2 into short var x (correct !)
+        <FONT color="red">strh</FONT>    r1,[r0]                 // x = -2, correct
+
+        // Change <FONT color="red">strh</FONT> to <FONT color="red">strb</FONT>   and you will get<FONT color="red"> x = 254</FONT> !!
+                                <FONT color="red">// Can you explain why x contains 254 ?</FONT>
+
+        // Change <FONT color="red">strh</FONT> to <FONT color="red">str</FONT>   and you will update <FONT color="red">y = -1</FONT>  !!
+                               <FONT color="red"> // Can you explain why y gets updated to -1 ?</FONT>       
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+x:      .2byte     4            // a short typed variable
+y:      .2byte     7            // a short typed variable
+
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You need to
+ <FONT color="red"><B>edit</B></FONT> the program and
+ <FONT color="blue"><B>recompile</B></FONT> and run again to
+ see the following results:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>strh</TT></B></FONT> instruction will
+  <FONT color="blue"><B>update</B></FONT> the
+  <FONT color="red"><B>variable <TT>x</TT></B></FONT> with the
+  <FONT color="blue"><B>correct value <TT>-2</TT></B></FONT> 
+  <B>and</B> does 
+  <FONT color="red"><B>not mistakenly update</B></FONT>
+  <FONT color="blue"><B><I>other </I>  variable</B></FONT>
+
+<P>
+<LI> <FONT color="red"><B>But:</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="red"><B><TT>strb</TT></B></FONT> instruction
+     stores a <FONT color="blue"><B>wrong value</B></FONT>
+  <FONT color="red"><B>254</B></FONT> in
+  the <FONT color="blue"><B>variable <TT>x</TT></B></FONT>
+ <LI>  The <FONT color="red"><B><TT>str</TT></B></FONT> instruction
+     will  <FONT color="blue"><B><I>also</I></B></FONT>
+     update
+     <FONT color="red"><B><I>another</I> variable <TT>y</TT></B></FONT>
+  (sets the variable  <FONT color="blue"><B><TT>y = -1</TT></B></FONT> !!!)
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+Can you <FONT color="red"><B>explain why</B></FONT>
+ using what you <FONT color="blue"><B>know</B></FONT>
+ about these <FONT color="red"><B>store</B></FONT> instructions (see above) ???
+<P>
+<HR>
+<HR>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/2-mov/wrong-str.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 wrong-str</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+
+&nbsp;
+<P>
+  
+&nbsp;
+<P>
+<LI> <FONT color="red"><B>Why</B></FONT> does
+ the <FONT color="red"><B><TT>strb</TT></B></FONT> instruction
+ store <FONT color="red"><B>254</B></FONT> into
+ the <FONT color="blue"><B>variable <TT>x</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>strb</TT></B></FONT> instruction
+      will update a 
+      <FONT color="blue"><B><I>byte</I> value</B></FONT>
+       in <FONT color="red"><B>register <TT>r1</TT></B></FONT>
+        into the 
+      <B>memory location</B>
+      <FONT color="blue"><B><TT>x:</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/wrong-str01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+So the  <FONT color="red"><B><TT>short</TT> typed memory variable
+  <TT>x</TT> </B></FONT> will
+  <FONT color="blue"><B>contain</B></FONT> the
+  <FONT color="red"><B>2s complement code
+  <TT>0000000011111110</TT></B></FONT>
+ which <FONT color="blue"><B>represents</B></FONT> the
+ <FONT color="red"><B>value 254 (decimal)</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+
+
+<P>
+<LI> <FONT color="red"><B>Why</B></FONT> does
+ the <FONT color="red"><B><TT>str</TT></B></FONT> instruction
+ <FONT color="blue"><B><I>also</I> update</B></FONT> the
+  <B>variable</B> <FONT color="red"><B><TT>y = -1</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>str</TT></B></FONT> instruction
+      will <B>transfer</B> a 
+      <FONT color="blue"><B><I>int</I> (= 4 bytes)</B></FONT> from
+      a <FONT color="red"><B>register</B></FONT> to the 
+      <B>memory location</B>
+      <FONT color="red"><B><TT>x:</TT></B></FONT>.
+<P>
+  The <FONT color="red"><B>4 bytes</B></FONT> are
+  <FONT color="blue"><B>stored</B></FONT> in memory
+  <FONT color="red"><B>as follows</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/wrong-str01c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>So</B> the <FONT color="red"><B><TT>str</TT></B></FONT> instructions
+  has <FONT color="blue"><B><I>also</I></B></FONT> updated the
+  <FONT color="red"><B>bytes</B></FONT> of the
+  <FONT color="blue"><B>variable <TT>y</TT></B></FONT> in
+  the <FONT color="red"><B>memory</B></FONT> !!!
+<P>
+The   <FONT color="red"><B><TT>short</TT> variable <TT>y</TT> </B></FONT>
+  will
+  <FONT color="blue"><B>contain</B></FONT> the
+  <FONT color="red"><B>2s complement code
+  <TT><FONT color="blue">1111111111111111</FONT></TT></B></FONT>
+ which <FONT color="blue"><B>represents</B></FONT> the
+ <FONT color="red"><B>value &minus;1</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</UL>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+

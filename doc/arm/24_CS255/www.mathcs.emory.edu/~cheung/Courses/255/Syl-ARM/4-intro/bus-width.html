@@ -1,0 +1,527 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The effect of the width of the data bus and the address bus
+<HR>
+</H3>
+<UL>
+<P>
+
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Effect of the width (= # wires) of the data bus
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> from <FONT color="blue"><B>above</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>databus (= wires)</B></FONT> are used
+    to <FONT color="red"><B>transfer</B></FONT> the
+    <FONT color="blue"><B>data bits (binary digits)</B></FONT>
+    between the <B>CPU</B> and <B>memory</B>
+<P>
+<B>Example:</B> data stored in memory address 4 (<TT>11111111 00000000</TT>)
+ is transfered over the data bus to the CPU
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01c.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Important Physical fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Each bit of the data</B></FONT>
+     must be <FONT color="blue"><B>transfered</B></FONT>
+      on a <FONT color="red"><B><I>different</I> wire</B></FONT> of the
+   <FONT color="blue"><B>data bus</B></FONT> !!!
+<P>
+(When you send more than 1 electrical signal on a wire, it cause
+ a <FONT color="red"><B>short circuit</B></FONT> !)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Width</B></FONT> of
+     the <FONT color="blue"><B>databus</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Width</B></FONT> of the
+   <FONT color="blue"><B>databus</B></FONT> =
+   <FONT color="red"><B># wires</B></FONT> used in the
+   <FONT color="blue"><B>data bus</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<P>
+ (The <FONT color="red"><B>more wires</B></FONT> you use, the
+ more <FONT color="blue"><B>costly</B></FONT> the computer system will
+  become - it's like the <FONT color="red"><B>number of lanes </B></FONT>
+  in a <FONT color="blue"><B>high way system</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<LI> <FONT color="red"><B>Effect</B></FONT> of
+   the <FONT color="blue"><B>width (= number of wires)</B></FONT> of the 
+   <FONT color="red"><B>databus</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>databus</B></FONT> that consists of
+      <FONT color="blue"><B>8 bits</B></FONT>, can transfer
+      <FONT color="red"><B>1 byte</B></FONT> of <B>data</B>
+      <FONT color="blue"><B>per read/write operation</B></FONT>
+<P>
+<LI> A <FONT color="red"><B>databus</B></FONT> that consists of
+      <FONT color="blue"><B>16 bits</B></FONT>, can transfer
+      <FONT color="red"><B>2 bytes</B></FONT> of <B>data</B>
+      <FONT color="blue"><B>per read/write operation</B></FONT>
+<P>
+<LI> A <FONT color="red"><B>databus</B></FONT> that consists of
+      <FONT color="blue"><B>32 bits</B></FONT>, can transfer
+      <FONT color="red"><B>4 bytes</B></FONT> of <B>data</B>
+      <FONT color="blue"><B>per read/write operation</B></FONT>
+<P>
+<LI> And so on
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Conclussion:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>width</B></FONT> of the
+      <FONT color="blue"><B>data bus</B></FONT> determines the
+      <FONT color="red"><B><I>amount</I> of data</B></FONT> transfered
+      per
+      <FONT color="blue"><B>memory transfer operation</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>wider (= more wires)</B></FONT> the
+     the <FONT color="blue"><B>daate bus</B></FONT>, the
+     <FONT color="red"><B>more data</B></FONT> you can
+     <FONT color="blue"><B>transfer</B></FONT>
+     per time unit (second)
+ <P>
+     That will result is a 
+   <FONT color="red"><B>faster running computer</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ (The <FONT color="red"><B>width</B></FONT> of the <FONT color="blue"><B>databus</B></FONT>
+ is <FONT color="red"><B>analogous</B></FONT> to the
+ <FONT color="blue"><B># lanes</B></FONT> on the
+ <FONT color="red"><B>high way</B></FONT>:
+  the more lanes (= more wires), the more cars (more bits) you
+  can transfer per time unit)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Current trend:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>All computers made in 2019</B></FONT> has 
+        <FONT color="red"><B>64 bits</B></FONT>
+	databuses
+	(64 bit machine)
+<P>
+<HR>
+<P>
+ <LI> Back in <FONT color="blue"><B>2012</B></FONT>,
+    computers used to have <FONT color="red"><B>32 bits</B></FONT>
+   data buses
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Databus width</B></FONT> is
+      <FONT color="red"><B><I>always</I></B></FONT> a
+      <FONT color="blue"><B>power of 2</B></FONT>
+<P>
+      (Because of the technology reason that result in the
+      <FONT color="red"><B>alignment requirement</B></FONT>....)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Effect of the width of the address bus
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall</B> from <FONT color="blue"><B>above</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>address bus (= wires)</B></FONT> is used
+    to <FONT color="red"><B>send</B></FONT> the
+    <FONT color="blue"><B>address (location) information</B></FONT>
+    to <B>memory</B>
+<P>
+<B>Example:</B> when the CPU want to read data stored in
+        <FONT color="red"><B>memory location (address) 4</B></FONT>,
+       the CPU sends the value
+     <FONT color="blue"><B>4 (in binary - explained later)</B></FONT> on
+       the <FONT color="red"><B>address bus</B></FONT>
+
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-access01b.gif" width=600 height=400></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Effect</B></FONT> of
+   the <FONT color="blue"><B>width</B></FONT> of the 
+   <FONT color="red"><B>address bus</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Each wire</B></FONT> of the 
+    <FONT color="blue"><B>address bus</B></FONT> can
+       convey (= transfer) <FONT color="red"><B>1 bit</B></FONT> of the
+       <FONT color="blue"><B>address</B></FONT>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>address bus</B></FONT> that contains
+      <FONT color="blue"><B><I>n</I> wires</B></FONT> can
+      convey <FONT color="red"><B><I>n</I> bits</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Each memory byte</B></FONT> is
+   <FONT color="blue"><B>identified</B></FONT> by
+   a <FONT color="red"><B><I>unique</I> memory address</B></FONT> !!!
+<P>
+<B>So:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> A <FONT color="red"><B>address bus</B></FONT> that consists of
+      <FONT color="blue"><B>8 wires (= bits)</B></FONT>, can 
+       convey
+     <FONT color="blue"><B>2<sup>8</sup> (= 256) different addresses</B></FONT>
+  <P>
+ <LI> A <FONT color="red"><B>address bus</B></FONT> that consists of
+      <FONT color="blue"><B>16 wires (= bits)</B></FONT>, can 
+       convey
+     <FONT color="blue"><B>2<sup>16</sup> (= 64K) different addresses</B></FONT>
+  <P>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>Apple II</B></FONT> PC has
+      a <FONT color="blue"><B>16 bit address bus</B></FONT> and
+      has maximum <FONT color="red"><B>64 K byte RAM memory</B></FONT>
+ <P>
+  Wikipedia:
+  <A HREF="https://en.wikipedia.org/wiki/Apple_II"> click here </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> A <FONT color="red"><B>address bus</B></FONT> that consists of
+      <FONT color="blue"><B>24 wires (= bits)</B></FONT>, can 
+       convey
+     <FONT color="blue"><B>2<sup>24</sup> (= 16M) different addresses</B></FONT>
+  <P>
+  <P>
+ <LI> A <FONT color="red"><B>address bus</B></FONT> that consists of
+      <FONT color="blue"><B>32 wires (= bits)</B></FONT>, can 
+       convey
+     <FONT color="blue"><B>2<sup>32</sup> (= 4G) different addresses</B></FONT>
+<P>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If your PC has <FONT color="red"><B>8 G byte memory</B></FONT>, then
+      your PC has an <FONT color="blue"><B>address bus</B></FONT> that
+      contain <B>at least</B>
+      <FONT color="red"><B>33 wires (bits)</B></FONT> because
+      <FONT color="blue"><B>2<sup>33</sup> = 
+     <FONT color="red">8,589,934,592 (~= 8 &times; 10<sup>9</sup>
+  = 8 G byte)</FONT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> And so on
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Conclussion:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>width</B></FONT> of the
+      <FONT color="blue"><B>address bus</B></FONT> determines the
+      <FONT color="red"><B><I>size</I> of the memory</B></FONT>
+      that the <B>computer</B> can <FONT color="blue"><B>use</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>wider</B></FONT> the
+        <FONT color="blue"><B>address bus</B></FONT>, the
+	<FONT color="red"><B>more memory</B></FONT> a
+   <FONT color="blue"><B>computer</B></FONT> can
+   use.
+ <P>
+  (<FONT color="red"><B>More memory</B></FONT> allows the 
+   <FONT color="blue"><B>computer</B></FONT> to 
+   store <FONT color="red"><B>more data</B></FONT> and
+   solve
+   <FONT color="blue"><B><I>larger</I> size problems</B></FONT>, e.g.,
+   sort more data)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Current trend:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>All PCs</B></FONT> has <B>at least</B>
+        <FONT color="red"><B>33 bits</B></FONT>
+	address buses and can use
+	<FONT color="blue"><B>8 G byte memory</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Some (high end) PCs</B></FONT> has
+       more than <FONT color="red"><B>34 or 35 bits</B></FONT> address bus
+      and can use  maximum
+      <FONT color="blue"><B>16 or 32</B></FONT> 
+      GBytes memory
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Famous (last) quote:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> "When we set the upper (memory) limit of PC-DOS at 
+   <FONT color="red"><B>640K</B></FONT>, we thought nobody would 
+  ever need that much memory."  (1985) 
+ <P>
+  <FONT color="blue"><B>William Gates</B></FONT>, chairman of Microsoft
+<P>
+ <A HREF="https://quoteinvestigator.com/2011/09/08/640k-enough/">
+ <FONT color="red"><B>source of the quote</B></FONT></A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+</UL>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

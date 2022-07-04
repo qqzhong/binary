@@ -1,0 +1,22 @@
+TABLE OF CONTENTS
+Acknowledgments.
+Contents.
+Introduction.
+Chapter 1: What Is Assembly Language?
+Chapter 2: The IA-32 Platform.
+Chapter 3: The Tools of the Trade.
+Chapter 4: A Sample Assembly Language Program.
+Chapter 5: Moving Data.
+Chapter 6: Controlling Execution Flow.
+Chapter 7: Using Numbers.
+Chapter 8: Basic Math Functions.
+Chapter 9: Advanced Math Functions.
+Chapter 10: Working with Strings.
+Chapter 11: Using Functions.
+Chapter 12: Using Linux System Calls.
+Chapter 13: Using Inline Assembly.
+Chapter 14: Calling Assembly Libraries.
+Chapter 15: Optimizing Routines.
+Chapter 16: Using Files.
+Chapter 17: Using Advanced IA-32 Features.
+Index.

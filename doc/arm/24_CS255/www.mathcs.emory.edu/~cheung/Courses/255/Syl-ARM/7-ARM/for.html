@@ -1,0 +1,547 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>for</TT>-statement in assembler
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>for</TT>-statement
+     </B></FONT>
+<P>
+
+<UL>
+<P>
+<LI> The <FONT color="red"><B><TT>for</TT> statement</B></FONT>
+      of the <FONT color="blue"><B>Java programming language</B></FONT>
+     is nothing more than
+	a "dressed up" 
+      <FONT color="red"><B><TT>while</TT> statement</B></FONT> !!!
+ <P>
+  We can <FONT color="red"><B>always</B></FONT>
+   <FONT color="blue"><B>re-write</B></FONT> a
+   <FONT color="red"><B><TT>for</TT>-statement</B></FONT> into
+   an <FONT color="blue"><B><I>equivalent</I></B></FONT> program
+   using a
+   <FONT color="red"><B><TT>while</TT>-statement</B></FONT>
+   as follows:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   for ( <FONT color="red">expr1; condition; expr2</FONT> )    <==>     <FONT color="red">expr1;</FONT>
+       statements                              while ( <FONT color="red">condition</FONT> )       
+					       {
+						  statements;
+						  <FONT color="red">expr2;</FONT>
+					       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We <FONT color="red"><B>already</B></FONT> discussed how
+ to <FONT color="blue"><B>convert</B></FONT>
+  a <FONT color="red"><B><TT>while</TT>-construct</B></FONT> in
+<FONT color="blue"><B>assembler code</B></FONT>....
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     For-loop example 1 (no nesting of other constructs)
+     </B></FONT>
+<P>
+<UL>
+
+
+
+<P>
+<LI> <B>Example:</B> sum the elements in an array
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int A[10];
+    int sum, i;
+
+    sum = 0;
+
+    for (i = 0; i < 10; i++);                
+        sum = sum + A[i];
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We first convert the <FONT color="red"><B>for-loop</B></FONT> into
+  an <FONT color="blue"><B>equivalent</B></FONT>
+ <FONT color="red"><B>while-loop</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    int A[10];
+    int sum, i;
+
+    sum = 0;
+    i = 0;
+
+    while ( i < 10 )
+    {                
+        sum = sum + A[i];                     
+	i = i + 1;
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+The <FONT color="red"><B>flow chart</B></FONT> of the
+ <B>above program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/for1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+An <FONT color="red"><B>ARM assembler program</B></FONT> that
+  implement the above <FONT color="blue"><B>loop construct</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        <FONT color="red">// sum = 0;  - always execute the RHS first !!!</FONT>
+        mov     r0, #0                  // r0 = 0 - ready to save it
+
+        movw    r1, #:lower16:sum
+        movt    r1, #:upper16:sum       // r1 = addr(sum)
+        str     r0, [r1]                // sum = 0;
+
+        <FONT color="red">// i = 0;</FONT>
+        mov     r0, #0                  // r0 = 0 - ready to save it 
+                                        <FONT color="red">// (not necessary, because r0 is already = 0...)</FONT>
+
+        movw    r1, #:lower16:i
+        movt    r1, #:upper16:i         // r1 = addr(i)
+        str     r0, [r1]                // i = 0;
+
+while:  // START of while loop
+
+        <FONT color="red">// Test while condition  i < 10</FONT>
+        movw    r0, #:lower16:i
+        movt    r0, #:upper16:i         // r0 = addr(i)
+        ldr     r1, [r0]                // r1 = i;
+
+        cmp     r1, #10                 // Check:  i < 10
+        <FONT color="red">bge     whileEnd                // If i >= 10: exit while loop</font>
+<FONT color="darkgreen">
+        /* ***********************************
+           While body
+           *********************************** */</FONT>
+        <FONT color="red">// sum = sum + A[i]</FONT>
+
+        //// Get sum
+        movw    r0, #:lower16:sum
+        movt    r0, #:upper16:sum       // r0 = addr(sum)
+        ldr     r2, [r0]                // r2 = sum;
+
+
+        //// Get A[i]  (use base + offset access technique !)
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = addr(sum)  --- Base address
+
+        movw    r1, #:lower16:i
+        movt    r1, #:upper16:i         // r1 = addr(i)
+        ldr     r1, [r1]                // r1 = i           --- index
+
+        add     r1, r1, r1              // r1 = 2*i
+        add     r1, r1, r1              // r1 = 4*i         --- Offset !
+
+        ldr     r3, [r0,r1]             // r3 = A[i]
+
+        //// compute   sum + A[i]
+        add     r2, r2, r3              // r2 = sum + A[i]
+
+        //// Store result in sum (in memory)
+        movw    r0, #:lower16:sum
+        movt    r0, #:upper16:sum       // r0 = addr(sum)
+        str     r2, [r0]                // sum = sum + A[i]
+
+        <FONT color="red">// i = i + 1</FONT>
+        movw    r0, #:lower16:i
+        movt    r0, #:upper16:i         // r0 = addr(i)
+        ldr     r2, [r0]                // r2 = i;
+
+        add     r2, r2, #1              // r2 = i + 1
+
+        str     r2, [r0]                // i = i + 1;
+
+        // End of while body --- branch back to test !!
+        <FONT color="red">b       while</FONT>
+
+whileEnd:
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+A:      .4byte  4, 6, 7, 3, 8, 2, 9, 1, 5, 10      // int array (with 10 values)
+sum:    .skip   4
+i:      .skip   4
+
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+    <FONT color="red"><B><TT>
+    /home/cs255001/demo/asm/7-while/for-sum-array.s
+    </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 for-sum-array</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     For-loop example 2:
+       nesting if-statement inside a while-statement
+     </B></FONT>
+<P>
+<UL>
+<LI> When <FONT color="red"><B>control structures</B></FONT> as
+     <FONT color="blue"><B>nested</B></FONT>, you simply need to
+     discover the
+     <FONT color="red"><B>program flow control</B></FONT>
+     created by the
+     <FONT color="blue"><B>nested control structure</B></FONT> and
+     then
+     use the <FONT color="red"><B>appropriate</B></FONT>
+     <FONT color="blue"><B>labels</B></FONT> and
+     <FONT color="red"><B>branch instructions</B></FONT> to
+     create the
+     <FONT color="blue"><B><I>same</I> program flow</B></FONT>
+     in <FONT color="red"><B>assembler</B></FONT>.
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> find the <FONT color="red"><B>maximum</B></FONT>
+       value in an array
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int A[10];
+   int max, i;
+
+   max = A[0];
+   for ( i = 1; i < 10; i++ )                
+   {
+      if ( A[i] > max )
+         max = A[i];
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Convert to <FONT color="red"><B>while</B></FONT> loop:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int A[10];
+   int max, i;
+
+   max = A[0];
+   i = 1;
+   while ( i < 10 )                      
+   {
+      if ( A[i] > max )
+         max = A[i];
+
+      i++;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>flow chart</B></FONT> of the
+ <B>above program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/for2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+<FONT color="red"><B>ARM assembler program</B></FONT> that
+ <FONT color="blue"><B>implements (= realizes)</B></FONT> this
+ <FONT color="red"><B>program control flow</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        <FONT color="red">// max = A[0];  - always execute the RHS first !!!</FONT>
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = addr(A) = addr(A[0])
+        ldr     r0, [r0]                // r0 = A[0];  - ready to save it
+
+        movw    r1, #:lower16:max
+        movt    r1, #:upper16:max       // r1 = addr(max)
+        str     r0, [r1]                // max = 0;
+
+        <FONT color="red">// i = 1;</FONT>
+        mov     r0, #1                  // r0 = 1 - ready to save it
+
+        movw    r1, #:lower16:i
+        movt    r1, #:upper16:i         // r1 = addr(i)
+        str     r0, [r1]                // i = 1;
+<FONT color="darkgreen">
+while:  // START of while loop</FONT>
+
+        <FONT color="red">// Test while condition  i < 10</FONT>
+        movw    r0, #:lower16:i
+        movt    r0, #:upper16:i         // r0 = addr(i)
+        ldr     r1, [r0]                // r1 = i;
+
+        cmp     r1, #10                 // <FONT color="red">Check:  i < 10</FONT>
+        <FONT color="red">bge     whileEnd </FONT>               // If i >= 10: exit while loop
+
+        /* ***********************************
+           While body
+           *********************************** */
+        // if ( A[i] > max )
+
+        //// Get A[i]  (use base + offset access technique !)
+        movw    r0, #:lower16:A
+        movt    r0, #:upper16:A         // r0 = addr(sum)  --- Base address
+
+        movw    r1, #:lower16:i
+        movt    r1, #:upper16:i         // r1 = addr(i)
+        ldr     r1, [r1]                // r1 = i           --- index
+
+        add     r1, r1, r1              // r1 = 2*i
+        add     r1, r1, r1              // r1 = 4*i         --- Offset !
+
+        ldr     r2, [r0,r1]             // r2 = A[i]
+
+        //// Get max
+        movw    r0, #:lower16:max
+        movt    r0, #:upper16:max       // r0 = addr(max)
+        ldr     r3, [r0]                // r3 = max;
+
+        //// Compare  A[i] (= r2) < max (= r3)
+        cmp     r2, r3
+
+        ble     ifEnd
+
+        /* ********************************
+           <FONT color="red">Then-part:</FONT> max = A[i]
+
+           <FONT color="red">Note:</FONT> r0 = addr(max),  r2 = A[i]
+           ******************************** */
+        str     r2, [r0]                // max = A[i]
+
+ifEnd:
+        // i = i + 1
+        movw    r0, #:lower16:i
+        movt    r0, #:upper16:i         // r0 = addr(i)
+        ldr     r2, [r0]                // r2 = i;
+
+        add     r2, r2, #1              // r2 = i + 1
+
+        str     r2, [r0]                // i = i + 1;
+
+        // End of while body --- branch back to test !!
+        b       while
+
+whileEnd:
+
+/* --------------------------------------------------
+   Begin of the permanent program variables
+   -------------------------------------------------- */
+        .data
+
+A:      .4byte  4, 6, 7, -3, 8, 2, -9, 1, 5, -10
+max:    .skip   4
+i:      .skip   4
+
+        .end
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/7-while/for-max-array.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 for-max-array</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+   use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+<HR>
+<HR>

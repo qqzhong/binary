@@ -1,0 +1,353 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How about more complex functions ?
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Instruction set of a CPU
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="blue"><B>instructions</B></FONT> that 
+    a CPU can execute can e divided into 3 categories:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Data movement</B></FONT>
+           (= copy)
+ <P>
+ <LI> <FONT color="blue"><B>Arithmetic</B></FONT> (+, -, *, %, /), 
+       <FONT color="blue"><B>logic</B></FONT> (and, or, not, including
+       bitwise operations), 
+       <FONT color="blue"><B>shift</B></FONT> or
+       <FONT color="blue"><B>rotate</B></FONT> instructions
+ <P>
+ <LI> <FONT color="red"><B>Branching</B></FONT>
+    (including call and return)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Take a look at the list of
+        <FONT color="blue"><B>instructions</B></FONT> that
+     the popular <B>Intel</B> can execute:
+    <A HREF="http://en.wikipedia.org/wiki/X86_instruction_listings">
+    <FONT color="red"><B>click here</B></FONT> </A>
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How does a computer compute more complex values, like "sin(x)"
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Answer</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B><I>interpolation</I> !!!!</B></FONT>
+<P>
+ From <FONT color="blue"><B>Mathematics</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  We can <FONT color="red"><B>approximate</B></FONT>
+    a (any) function with a
+    <FONT color="blue"><B>polynomial</B></FONT>
+    to <FONT color="red"><B>arbitrary accuracy</B></FONT>
+<P>
+ (And we can <FONT color="blue"><B>compute (evaulate)</B></FONT>
+  a <FONT color="red"><B>polynomial</B></FONT> using <B><I>only</I></B>
+  +, -, * and / operations !!!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(Google 
+ <FONT color="red"><B>"Taylor serie"</B></FONT>
+  and <FONT color="red"><B>"Lagrange interpolation"</B></FONT>
+  for more details.)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> I found a <FONT color="blue"><B>highly optimized</B></FONT>
+    (= very good approximation with
+       <FONT color="red"><B>very few operations</B></FONT>) of
+       the <FONT color="blue"><B>sin(x)</B></FONT> function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   sin(x) ~= 0.775 * ( (4/&pi;)*x + (4/&pi;<sup>2</sup>)*x<sup>2</sup> ) + 0.225 * ( (4/&pi;)*x + (4/&pi;<sup>2</sup>)*x<sup>2</sup> )<sup>2</sup>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Here is the code in <FONT color="blue"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define pi 3.14159265358979l
+
+   double mySine(double x)
+   {
+       const double B = 4.0/pi;       // 2 special "interpolation constants    
+       const double C = 4.0/(pi*pi);
+
+       double y;
+
+       y = B*x - C*x*x;               // Highly optimized (= hokus pokus)
+       y = 0.775*y + 0.225*y*y;       // approximation of sin(x)
+       return y;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/sin-appr.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc sin-appr.c -lm</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+x = 0.0, sin(x) = 0.000000, mySine(x) = 0.000000, Diff = 0.000000 ( NaN%)
+x = 0.1, sin(x) = 0.099833, mySine(x) = 0.098954, Diff = 0.000879 (0.88%)
+x = 0.2, sin(x) = 0.198669, mySine(x) = 0.197580, Diff = 0.001089 (0.55%)
+x = 0.3, sin(x) = 0.295520, mySine(x) = 0.294617, Diff = 0.000903 (0.31%)
+x = 0.4, sin(x) = 0.389418, mySine(x) = 0.388895, Diff = 0.000524 (0.13%)
+x = 0.5, sin(x) = 0.479426, mySine(x) = 0.479329, Diff = 0.000097 (0.02%)
+x = 0.6, sin(x) = 0.564642, mySine(x) = 0.564926, Diff = -0.000284 (0.05%)
+x = 0.7, sin(x) = 0.644218, mySine(x) = 0.644781, Diff = -0.000564 (0.09%)
+x = 0.8, sin(x) = 0.717356, mySine(x) = 0.718077, Diff = -0.000721 (0.10%)
+x = 0.9, sin(x) = 0.783327, mySine(x) = 0.784086, Diff = -0.000759 (0.10%)
+x = 1.0, sin(x) = 0.841471, mySine(x) = 0.842168, Diff = -0.000697 (0.08%)
+x = 1.1, sin(x) = 0.891207, mySine(x) = 0.891773, Diff = -0.000565 (0.06%)
+x = 1.2, sin(x) = 0.932039, mySine(x) = 0.932438, Diff = -0.000399 (0.04%)
+x = 1.3, sin(x) = 0.963558, mySine(x) = 0.963792, Diff = -0.000234 (0.02%)
+x = 1.4, sin(x) = 0.985450, mySine(x) = 0.985549, Diff = -0.000099 (0.01%)
+x = 1.5, sin(x) = 0.997495, mySine(x) = 0.997513, Diff = -0.000018 (0.00%)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+As you know, sin(x) is <FONT color="blue"><B>periodic</B></FONT>.
+<P>
+The values compared are between 
+   <FONT color="red"><B>[0..&pi;/2]</B></FONT>; which is the main period.
+<P>
+You can always <FONT color="blue"><B>reduce any x value</B></FONT>
+ to <FONT color="red"><B>some value inside this range</B></FONT>
+  (and then to obtain the function value).
+<P>
+Doing so little work to get to
+ <FONT color="red"><B> < 1% error</B></FONT> in sin(x)
+  for <FONT color="blue"><B>any value of x</B></FONT>
+ is not too shaby !!!!
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Experiment
+     </B></FONT>
+<P>
+<UL>
+<LI> I found this page on a <FONT color="blue"><B>high accurate</B></FONT>
+     approximation of <FONT color="red"><B>sin/cos</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   //always wrap input angle to -PI..PI
+   if (x < -3.14159265)
+       x += 6.28318531;
+   else
+   if (x >  3.14159265)
+       x -= 6.28318531;
+    
+   //compute sine
+   if (x < 0)
+   {
+       sin = 1.27323954 * x + .405284735 * x * x;
+       
+       if (sin < 0)
+   	   sin = .225 * (sin *-sin - sin) + sin;
+       else
+   	   sin = .225 * (sin * sin - sin) + sin;
+   }
+   else
+   {
+       sin = 1.27323954 * x - 0.405284735 * x * x;                    
+       
+       if (sin < 0)
+   	   sin = .225 * (sin *-sin - sin) + sin;
+       else
+   	   sin = .225 * (sin * sin - sin) + sin;
+   }
+    
+   //compute cosine: sin(x + PI/2) = cos(x)
+   x += 1.57079632;
+   if (x >  3.14159265)
+       x -= 6.28318531;
+    
+   if (x < 0)
+   {
+       cos = 1.27323954 * x + 0.405284735 * x * x;
+       
+       if (cos < 0)
+   	   cos = .225 * (cos *-cos - cos) + cos;
+       else
+   	   cos = .225 * (cos * cos - cos) + cos;
+   }
+   else
+   {
+       cos = 1.27323954 * x - 0.405284735 * x * x;
+    
+       if (cos < 0)
+   	   cos = .225 * (cos *-cos - cos) + cos;
+       else
+   	   cos = .225 * (cos * cos - cos) + cos;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The URL:
+ <A HREF="http://lab.polygonal.de/?p=205">
+  http://lab.polygonal.de/?p=205 </A>
+<P>
+<FONT color="red"><B>Notice</B></FONT> you
+  <FONT color="blue"><B><I>only</I></B></FONT>
+ use <FONT color="red"><B>arithmetic opertions</B></FONT> !!!
+<P>
+Program it and see how <FONT color="red"><B>accurate</B></FONT> it
+ is....
+</UL>
+
+
+</UL>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,362 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Java review: String (array of ASCII character codes) 
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     String
+     </B></FONT>
+<P>
+ <UL>
+ <LI> In case you did not know already, I want to make
+      sure that you know know this before we start
+      the <FONT color="red"><B>discussion</B></FONT> on
+      <FONT color="blue"><B>converting</B></FONT>
+      <FONT color="red"><B>ASCII (string) representation</B></FONT>
+      into other representations:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>string</B></FONT>
+     (in 
+     <FONT color="blue"><B>Java or other programming languages</B></FONT> is
+     an <FONT color="red"><B>sequence (= array) of ASCII codes</B></FONT>
+ <P>
+  (One ASCII code represents one character)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> To illustrate this fact, I made this 
+    <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+//
+// File:  /home/cs255001/demo/atoi/JavaInput_2.java
+//
+// Demo String = array of ASCII codes
+//
+
+public class JavaInput_2
+{
+   public static void main(String[] args)  throws Exception
+   {
+      byte[] b = new byte[100];
+      int count;
+
+      while ( true )
+      {
+         System.out.print("Enter input: ");
+
+         count = System.in.read(b);     // Read from key board
+
+         System.out.println("# characters read = " + count);
+
+         for (int i = 0; i < count; i++)
+         {
+            System.out.println(b[i]);
+            // System.out.println(String.format("%x", b[i]) ); // Print in Hex
+         }
+         System.out.println("\n");
+
+         /* =====================================================
+            Make a string using the byte array
+            ===================================================== */
+         <FONT color="red">String s = new String(b);</FONT>   // Make a String s using byte array b
+
+         System.out.println("String = " + s);
+
+         System.out.println("ASCII codes (in decimal) for the string:");
+
+         for (int i = 0; i < s.length(); i++)
+         {
+            System.out.println( <FONT color="red">(int) s.charAt(i)</FONT> );
+         }
+      }
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is the <FONT color="red"><B><TT>JavaInput_1.java</TT></B></FONT> 
+ program but 
+  <FONT color="blue"><B>extended</B></FONT> with statements to:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  (1) Create a String from the byte array:
+
+         String s = new String(b);   // Make a String s using byte array b
+
+  (2) Show you the string:
+
+         System.out.println("String = " + s);
+
+  (3) And print the <FONT color="red">ASCII codes</FONT> of the string
+      in decimal numbers:
+
+
+         for (int i = 0; i < s.length(); i++)
+         {
+            System.out.println( <FONT color="red">(int) s.charAt(i)</FONT> );
+         }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you run this program
+ using <FONT color="red"><B><TT>12&lt;ENTER></TT></B></FONT> as
+ input, you will see that the
+ <FONT color="blue"><B>ASCII codes</B></FONT> printed
+ as the same:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@aruba> java JavaInput_2
+Enter input: 12
+# characters read = 3
+<FONT color="red">49
+50
+10</FONT>
+
+
+String = 12
+
+ASCII codes (in decimal) for the string:
+<FONT color="red">49
+50
+10</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Working with strings instead of array of characters
+     </B></FONT>
+<P>
+<UL>
+<LI> The rest of the discussion on conversion will
+    use <FONT color="red"><B><TT>String</TT></B></FONT> as
+    <FONT color="blue"><B>input</B></FONT> and
+    <FONT color="blue"><B>output</B></FONT>
+<P>
+  But you should <FONT color="red"><B>realize</B></FONT> that
+  a <FONT color="blue"><B>string</B></FONT> is just
+  a <FONT color="red"><B>series</B></FONT> of
+  <FONT color="blue"><B>ASCII codes</B></FONT>
+  (as you have seen in the example above).
+ <P>
+<LI> I do this because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You are <FONT color="red"><B>familiar</B></FONT> with
+     <FONT color="blue"><B><TT>String</TT></B></FONT> operations
+     from your
+     <FONT color="red"><B>CS170/CS171</B></FONT> classes
+ <LI> It is <FONT color="red"><B>easier</B></FONT> to
+      print <FONT color="blue"><B>strings</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reading strings from key board in my demo programs
+     </B></FONT>
+<P>
+<UL>
+<LI> I will use <FONT color="red"><B><TT>Scanner</TT></B></FONT> to
+       read <FONT color="blue"><B>Strings</B></FONT> from
+       the <FONT color="red"><B>key board</B></FONT>
+       because that's what you have learned in
+       <FONT color="blue"><B>CS170/CS171</B></FONT>.
+<P>
+ (But I will <FONT color="red"><B>only</B></FONT> use the
+  <FONT color="blue"><B><TT>next( )</TT></B></FONT> method in the
+ <FONT color="red"><B><TT>Scanner</TT></B></FONT> class.
+ <P>
+ I will <FONT color="red"><B>not</B></FONT> use 
+    <FONT color="blue"><B><TT>nextInt( )</TT></B></FONT> that
+   includes the <FONT color="red"><B>conversion algorithm</B></FONT> !!!)
+ <P>
+   <B>Example </B> on reading in a string:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+//
+// File:  /home/cs255001/demo/atoi/JavaInput_3.java
+//
+
+import java.util.Scanner;
+
+public class JavaInput_3
+{
+   public static void main(String[] args)  throws Exception
+   {
+      Scanner <FONT color="red">in = new Scanner(System.in);</FONT>
+      String  s  = null;
+
+      while ( true )
+      {
+         System.out.print("Enter input: ");
+
+         s =<FONT color="red"> in.next( )</FONT>;     // Read a String from key board
+
+         System.out.println("String = " + s);
+         System.out.println();
+
+         System.out.println("ASCII codes (in decimal) for the string:");
+
+         for (int i = 0; i < s.length(); i++)
+         {
+            System.out.println( (int) s.charAt(i) );
+         }
+      }
+   }     
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Notice that the <FONT color="red"><B>input string</B></FONT>
+ does <FONT color="blue"><B>not contain</B></FONT> the
+ <FONT color="red"><B><TT>NEWLINE</TT></B></FONT> character
+ when you type
+  <FONT color="blue"><B><TT>12&lt;ENTER></TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+cheung@aruba> java JavaInput_3      
+Enter input: 12
+String = 12
+
+ASCII codes (in decimal) for the string:
+<FONT color="red">49
+50</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>ASCII code <TT>10</TT></B></FONT> is
+ <FONT color="blue"><B>not present</B></FONT> in the input.
+<P>
+ (Because the  <FONT color="red"><B><TT>next( )</TT></B></FONT> method
+ in the <FONT color="blue"><B><TT>Scanner class</TT></B></FONT>
+ does not consider the
+  <FONT color="red"><B><TT>&lt;ENTER></TT> key press</B></FONT> as
+ part of the input line).
+<P>
+And this is the main reason why I use
+ the <FONT color="red"><B><TT>Scanner</TT></B></FONT> class to
+ read in an <FONT color="blue"><B>input string</B></FONT> -- because
+ we must <FONT color="red"><B>not process</B></FONT> the
+ <FONT color="blue"><B><TT>NEWLINE</TT></B></FONT> character
+ when we <FONT color="red"><B>convert</B></FONT> !!
+</UL>
+
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,728 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Sylabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+<h3>
+<HR>
+Representing unsigned (integer) values inside the computer in binary
+<HR>
+</H3>
+<UL>
+<LI> <B>Computers</B> use the 
+     <FONT color="red"><B>"binary number system"</B></FONT>
+         <FONT color="blue"><B> positional system</B></FONT>
+	to represent <B>unsigned (integer = whole) numbers</B>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>Binary number system</B></FONT>
+     is <FONT color="red"><B>similar</B></FONT>
+     to the <FONT color="red"><B>decimal number system</B></font>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Decimal number system:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <UL>
+  <LI> <FONT color="red"><B>10 digits </B></FONT> are used
+        to represent the following <FONT color="blue"><B>values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  digit      value
+ --------------------------
+    0    =    ( )
+    1    =    (*)
+    2	 =    (**)
+    3	 =    (***)
+    4	 =    (****)
+    5	 =    (*****)
+    6	 =    (******)
+    7	 =    (*******)
+    8	 =    (********)
+    9	 =    (*********)              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+  <LI> A <FONT color="blue"><B>digit</B></FONT> that appears
+     at the <FONT color="red"><B><I>n</I>-th position</B></FONT>
+     to the <FONT color="blue"><B>left</B></FONT> of the
+     <FONT color="red"><B>decimal point</B></FONT> has a 
+     <FONT color="blue"><B>value</B></FONT> equal to:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    value of the digit <FONT color="red">&times 10<sup>n</sup></font>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Binary number system</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Binary number system:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+  <UL>
+  <LI> <FONT color="red"><B>2 digits </B></FONT> are used
+        to represent the following <FONT color="blue"><B>values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  digit      value
+ --------------------------          
+    0    =    ( )
+    1    =    (*)   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+  <LI> A <FONT color="blue"><B>digit</B></FONT> that appears
+     at the <FONT color="red"><B><I>n</I>-th position</B></FONT>
+     to the <FONT color="blue"><B>left</B></FONT> of the
+     <FONT color="red"><B>decimal point</B></FONT> has a 
+     <FONT color="blue"><B>value</B></FONT> equal to:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    value of the digit <FONT color="red">&times 2<sup>n</sup></font>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+  </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Example:</B>
+<PRE>
+   Unsigned value    4 bit binary number   8 bit binary number
+   --------------    -------------------   -------------------
+             0             0000                 00000000
+             1             0001                 00000001
+             2             0010                 00000010
+             3             0011                 00000011
+</PRE>
+</UL>
+
+
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Interpreting binary numbers
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Humans</B></FONT> likes to
+        work with
+      <FONT color="blue"><B>decimal representation</B></FONT> of
+     <FONT color="red"><B>integer (whole) values</B></FONT>.
+ <P>
+   But <FONT color="red"><B>computers</B></FONT> 
+ <B>must</B> represent
+     <FONT color="blue"><B>integer (whole) values</B></FONT> in the
+     <FONT color="red"><B>binary number system</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Questions:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Suppose we have a <FONT color="red"><B>binary number</B></FONT>
+     - say <FONT color="blue"><B>10010101</B></FONT>
+  <P>
+     <FONT color="red"><B>What <I>value</I></B></FONT> does it
+     <FONT color="blue"><B>represent</B></FONT>
+    (expressed in <FONT color="red"><B>decimal</B></FONT> for
+    <FONT color="blue"><B>human "consumption</B></FONT>) ?
+
+
+<P>
+<HR>
+<P>
+ <LI> Suppose we have a <FONT color="red"><B>decimal value</B></FONT>
+     - say <FONT color="blue"><B>14</B></FONT>
+  <P>
+     <FONT color="red"><B>What</B></FONT> is the
+     <FONT color="blue"><B>corresponding representation</B></FONT> of
+     this decimal number expressed as a
+     <FONT color="red"><B>binary number</B></FONT> ?
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+<HR>
+<FONT color="red"><B>Converting</B></FONT> a
+   <FONT color="blue"><B>value</B></FONT> between
+  the <FONT color="red"><B>decimal number representation</B></FONT> and
+  the <FONT color="blue"><B>binary number representation</B></FONT>
+<HR>
+<UL>
+<P>
+<LI> Given a <FONT color="red"><B>binary number representing</B></FONT>
+    an unsigned value,
+     how to <FONT color="blue"><B>determine its decimal  represention</B></FONT> ?
+<P>
+  <UL>
+  <LI> <B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Sum</B></FONT> the value of each digit
+     <FONT color="red"><B> multiplied</B></FONT> by its 
+     <FONT color="blue"><B>"location factor"</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="blue"><B>unsigned value</B></FONT> 
+   is represented by <FONT color="red"><B>01011001</B></FONT> ?
+<P>
+ <LI> <B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Digits:            <FONT color="red">0   1   0   1   1   0   0   1</font>
+     Location factor:   128 64  32  16  8   4   2   1   
+                       --------------------------------
+                            64  +   16 +8         + 1 = 89 
+
+     Answer: 89
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+
+
+<HR>
+<HR>
+<P>
+<LI> Given an <FONT color="red"><B>decimal representation</B></FONT>,
+     how to find the <FONT color="blue"><B>binary representation</B></FONT>
+     that represent that 
+   <FONT color="red"><B>same value</B></FONT> ?
+<P>
+ <UL>
+ <LI> <B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Divide</B></FONT> the 
+   <B>value</B> repeatedly by 
+    <FONT color="blue"><B>2</B></FONT> and
+ <LI> <FONT color="red"><B> Collect</B></FONT>
+        the <B>remainders</B> of each <FONT color="blue"><B>division</B></FONT>
+	in the <FONT color="red"><B>reverse order</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What is the <FONT color="red"><B>8 bit binary number</B></FONT>
+       that represents the unsigned value 
+       <FONT color="blue"><B>89</B></FONT> ?
+<P>
+ <LI> <B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+                     89
+		/2 ------ <FONT color="red">1</font>   <--- <FONT color="red">remainder</font> of 89/2    
+                     44       <--- quotient of 89/2
+		/2 ------ <FONT color="red">0</font>   <--- <FONT color="red">remainder</font> of 44/2
+                     22       <--- quotient of 44/2
+		/2 ------ <FONT color="red">0</font>
+                     11
+		/2 ------ <FONT color="red">1</font>
+                      5
+		/2 ------ <FONT color="red">1</font>
+                      2
+		/2 ------ <FONT color="red">0</font>
+                      1
+		/2 ------ <FONT color="red">1</font>
+                      0      <----- Done
+
+     Binary number: <FONT color="red">1011001</font> (7 bits)
+
+     Pad to 8 bits: <FONT color="darkred">0</font><FONT color="red">1011001</font>
+
+     Answer: <FONT color="red">01011001</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Storing <FONT color="red">binary representations</font> of
+     unsigned values inside a computer
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Facts:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We can <FONT color="blue"><B>manufacture</B></FONT>
+         <FONT color="red"><B>electronic <I>switches</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>switch</B></FONT> can be
+     <FONT color="red"><B>on</B></FONT> or <FONT color="red"><B>off</B></FONT>
+ <LI> The <FONT color="red"><B>on <I>state</I></B></FONT> represents
+      a <FONT color="blue"><B>1 bit</B></FONT>
+ <LI> The <FONT color="red"><B>off <I>state</I></B></FONT> represents
+      a <FONT color="blue"><B>0 bit</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> A <FONT color="blue"><B>byte (memory)</B></FONT> = 
+       <FONT color="red"><B>8 switches</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Storing</B></FONT>
+       the <B>representation</B> of
+       <FONT color="red"><B>unsigned values</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Unsigned values</B></FONT> are stored
+       in <FONT color="red"><B>memory</B></FONT> using the
+       <FONT color="blue"><B>binary number system</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> How to <FONT color="blue"><B>represent</B></FONT>
+        the value <FONT color="red"><B>five (5)</B></FONT> using
+	<FONT color="blue"><B>1 byte memory (= byte variable)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+       00000101                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> How to <FONT color="blue"><B>represent</B></FONT>
+        the value <FONT color="red"><B>five (5)</B></FONT> using
+	<FONT color="blue"><B>2 bytes memory (= short variable)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+       00000000 00000101                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<HR>
+<P>
+ <LI> How to <FONT color="blue"><B>represent</B></FONT>
+        the value <FONT color="red"><B>five (5)</B></FONT> using
+	<FONT color="blue"><B>4 bytes memory (= int variable)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+       00000000 00000000 00000000 00000101
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Quiz:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="blue"><B>bit pattern</B></FONT> is stored
+      in memory 
+      (= in the memory cells reserved for the variable)
+      by the following <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">int</font>  x;
+
+     x = 9;                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> What <FONT color="blue"><B>bit pattern</B></FONT> is stored
+      in memory 
+      (= in the memory cells reserved for the variable)
+    by the following <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">short</font>  x;
+
+     x = 9;                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> What <FONT color="blue"><B>bit pattern</B></FONT> is stored
+      in memory 
+      (= in the memory cells reserved for the variable))
+      by the following <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">byte</font>  x;
+
+     x = 9;                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Test yourself if you understand binary numbers....
+     </B></FONT>
+<P>
+<UL>
+<LI> See if you understand the following jokes:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Joke #1:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/joke1.jpg" width="500"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+ <LI> Joke #2:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/joke2.gif" width="900"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

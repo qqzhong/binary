@@ -1,0 +1,972 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Parameter passing mechanism: <I>pass-by-reference</I>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Pass-by-reference</I> mechanism - the agreement
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Recall:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Parameter passing mechanism</B></FONT> =
+      <FONT color="blue"><B><I>agreement</I></B></FONT> between
+      the <FONT color="darkred"><B><I>calling</I> method</B></FONT> and
+      the <FONT color="red"><B><I>called</I> method</B></FONT> on
+      <FONT color="blue"><B><I>how</I></B></FONT> a
+      <B>parameter</B> is
+      <FONT color="red"><B><I>passed</I> between them</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="blue"><B><I>agreement</I></B></FONT> used in
+     the <FONT color="red"><B><I>Pass-by-reference</I> mechanism</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> For the <FONT color="darkred"><B><I>calling</I> method</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="darkred"><B><I>calling</I> method</B></FONT>
+      <B><I>creates</I></B> 
+   the <FONT color="red"><B>parameter variables</B></FONT>
+   for the <FONT color="red"><B><I>called</I> method</B></FONT>, 
+   .... and
+ <P>
+ <LI> The <FONT color="darkred"><B><I>calling</I> method</B></FONT>
+      <B><I>copies</I></B></FONT> the 
+     <FONT color="red"><B>reference (= address)</B></FONT> of
+   the <FONT color="blue"><B>actual parameter</B></FONT>
+   into the
+   <FONT color="magenta"><B>formal parameter</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> For the <FONT color="darkred"><B><I>called</I> method</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> First, the <FONT color="darkred"><B><I>called</I> method</B></FONT>
+	uses the <FONT color="red"><B>reference (= address)</B></FONT> 
+   stored in the <FONT color="darkred"><B>parameter variables</B></FONT>
+   to 
+   <FONT color="blue"><B><I>locate</I></B></FONT>
+	the
+   <FONT color="red"><B>actual parameter</B></FONT>
+ <P>
+ <LI> Once the 
+   <FONT color="red"><B>actual parameter</B></FONT>
+    have been
+   <FONT color="blue"><B><I>located</I></B></FONT>,
+	the <FONT color="darkred"><B><I>called</I> method</B></FONT>
+	can subsequently 
+      <B><I>obtain</I></B> the
+   <FONT color="blue"><B>information </B></FONT>
+   from the <FONT color="red"><B><I>actual</I> variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Pass-by-reference</I> mechanism is 
+    <FONT color="red"><I>not available</I></font> in Java
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>Java programming language</B></FONT>
+      <B><I>only</I></B> provides the
+      <FONT color="red"><B>pass-by-value</B></FONT> mechanism
+ <P>
+     It <FONT color="blue"><B>does <I>not</I></B></FONT> provide
+     the <FONT color="red"><B>pass-by-reference</B></FONT> mechanism
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Nevertheless:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> It is <FONT color="blue"><B>important</B></FONT> to
+    <B><I>know</I></B> 
+    the <FONT color="red"><B>pass-by-reference</B></FONT> mechanism
+ <P>
+   We are --- after all --- trying to 
+   <FONT color="blue"><B>teach</B></FONT> you
+   <FONT color="red"><B><I>Computer Science</I></B></FONT>,
+   and not
+   <FONT color="blue"><B><I>Java programming</I></B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> I will now <FONT color="blue"><B>show you an example</B></FONT>
+     of the <FONT color="red"><B><I>Pass-by-reference</I> mechanism</B></FONT>
+ <P>
+    The <FONT color="blue"><B>programming language </B></FONT> that I
+    will use is <FONT color="red"><B><I>Java</I></B></FONT> --
+    because you are
+    <FONT color="blue"><B>familiar</B></FONT> with
+    <FONT color="red"><B><I>Java</I></B></FONT>.
+ <P>
+  But realize that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>example</B></FONT> is
+      <FONT color="red"><B><I>purely</I> hypothetical</B></FONT>
+     --- because ....
+ <P>
+   <FONT color="blue"><B>Java</B></FONT> does
+   <FONT color="red"><B><I>not</I> support
+   <I>Pass-by-reference</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Pass-by-reference</I> mechanism - an hypothetical example
+	written in <I>Java</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example (hypothetical) program:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When <FONT color="blue"><B><TT>main</TT></B></FONT> starts running,
+     it will <B><I>first</I></B> create its
+     <FONT color="red"><B><I>local variables</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param13a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> We <FONT color="blue"><B>need to know</B></FONT> the
+     <FONT color="red"><B><I>address</I> of each variable</B></FONT>
+    to <B>expose the details</B> of the
+     <FONT color="blue"><B>pass-by-reference mechanism</B></FONT>.
+ <P>
+   <FONT color="blue"><B>Let us assume</B></FONT>
+    that the <FONT color="red"><B><I>addresses</I>
+     of the variables</B></FONT> are as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> When <B>execution</B> reaches the
+    <FONT color="blue"><B>method call <TT>ToolBox.min(x,y)</TT></B></FONT>,
+    the <FONT color="red"><B><I>Pass-by-reference</I> mechanism</B></FONT>
+      <B><I>first</I></B> creates the
+     <FONT color="darkred"><B><I>parameter variables</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Then</B>
+    the <FONT color="red"><B><I>Pass-by-reference</I> mechanism</B></FONT>
+      <B><I>copies</I></B>  the <FONT color="blue"><B>reference</B></FONT> of
+     the 
+     <FONT color="darkred"><B><I>actual parameter</I></B></FONT> to
+     the corresponding
+     <FONT color="red"><B><I>formal parameter</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>parameter variables</I></B></FONT>
+    (<FONT color="darkmagenta"><B><TT>a</TT></B></FONT> and
+    <FONT color="darkmagenta"><B><TT>b</TT></B></FONT>)
+    contains the
+    <FONT color="red"><B>addresses</B></FONT>
+    of the <B><I>actual parameters</I></B>
+ <P>
+ <LI> The <FONT color="blue"><B><I>parameter variables</I></B></FONT>
+    (<FONT color="darkmagenta"><B><TT>a</TT></B></FONT> and
+    <FONT color="darkmagenta"><B><TT>b</TT></B></FONT>) call
+    <B>tell us</B>
+    <FONT color="red"><B><I>where</I> to find</B></FONT> the
+    <B>information that we need</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>method invocation mechanism</B></FONT> is
+     <B><I>completed</I></B> as usually with
+     the following steps:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Save the <FONT color="red"><B>return address</B></FONT> on the
+    <FONT color="blue"><B>stack</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> Jump to the <FONT color="red"><B>called method</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16e.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> When the <FONT color="blue"><B><TT>min</TT> method</B></FONT> executes,
+      it will <FONT color="red"><B>create its <I>local variable</I>
+   <TT>m</TT></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16f.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> How the <FONT color="blue"><B><I>called</I> method</B></FONT>
+    uses the <FONT color="red"><B>parameter variables</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To access the 
+     <B><I>information</I></B> 
+     <FONT color="blue"><B>passed to the method</B></FONT>,
+    we <B><I>first</I></B> use
+    the <FONT color="red"><B><I>reference</I> information</B></FONT>
+    stored in the <FONT color="blue"><B>parameter variables</B></FONT>
+    to <B><I>locate</I></B> the
+      <FONT color="red"><B>actual parameters </B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16g.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> Then it access the
+     <B><I>information</I></B>
+	 using the
+      a <FONT color="red"><B>actual parameter </B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param16h.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A <I>quiz</I> on the <I>Pass-by-reference</I> mechanism
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following program
+   (again: <FONT color="blue"><B>hypothetical</B></FONT> because
+    <B>Java</B> does
+  <FONT color="red"><B><I>not</I> support
+  <I>pass-by-reference</I></B></FONT>):
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param17.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Questions:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What <FONT color="blue"><B>reference </B></FONT> is printed by the
+    <B>statement</B>
+   <FONT color="red"><B><TT>System.out.println(x);</TT></B></FONT> ?
+ <LI> What <FONT color="blue"><B>reference </B></FONT> is printed by the
+    <B>statement</B>
+   <FONT color="red"><B><TT>System.out.println(y);</TT></B></FONT> ?
+ <LI> What <FONT color="blue"><B>reference </B></FONT> is printed by the
+    <B>statement</B>
+   <FONT color="red"><B><TT>System.out.println(r);</TT></B></FONT> ?
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ 
+<P>
+<B>Answer:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE><FONT color="red">
+   2.0      (the value in x is CHANGEDD !!!!!!)             
+   6.0      (the value in y is CHANGEDD !!!!!!)</FONT>
+   8.0      (= 2.0 + 6.0)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Did you <FONT color="blue"><B>understand</B></FONT>
+ <FONT color="red"><B><I>why</I></B></FONT> the
+ <FONT color="blue"><B>update statements</B></FONT>
+ <B>"<TT>a = a + 1</TT>"</B> and
+  <B>"<TT>b = b + 2</TT>"</B>
+  <FONT color="red"><B><I>change</I></B></FONT>
+  the
+ <B>actual parameters <TT>x</TT> and <TT>y</TT></B>
+ ???
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>quiz</I> explained
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> According to the
+    <FONT color="blue"><B><I>Pass-by-reference</I> example</B></FONT> above,
+    when the <FONT color="red"><B><TT>ToolBox.min</TT> method</B></FONT>
+    starts running, the following
+    <FONT color="blue"><B>variables</B></FONT> have been
+    <FONT color="red"><B>created</B></FONT> on the <B>System Stack</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param17a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>parameter variables</I> <TT>a</TT> and 
+      <TT>b</TT></B></FONT> in the
+      <FONT color="blue"><B><TT>fun</TT> method</B></FONT>
+      <B><I>reference</I></B> to the
+      <FONT color="red"><B><I>local variables</I> <TT>x</TT> and 
+      <TT>y</TT></B></FONT>,
+   <B>respectively</B>, inside the
+      <FONT color="blue"><B><TT>main</TT> method</B></FONT> 
+ <P>
+ <LI> Therefore,
+      we will:
+ <P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> use the
+     <FONT color="red"><B><I>local variable</I> <TT>x</TT></B></FONT>
+     in an <B>operation</B> that
+     involves the
+     <FONT color="blue"><B><I>parameter variable </I> <TT>a</TT></B></FONT>
+ <LI> use the
+     <FONT color="red"><B><I>local variable</I> <TT>y</TT></B></FONT>
+     in an <B>operation</B> that
+     involves the
+     <FONT color="blue"><B><I>parameter variable </I> <TT>b</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+      
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>assignment statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   a = a + 1;       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="red"><B>change the values</B></FONT> of the
+ <FONT color="blue"><B><I>actual parameter</I> variable <TT>x</TT></B></FONT>
+ through the following
+  <B>mechanism</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param17b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+Similarly, the  <FONT color="blue"><B>assignment statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   b = b + 1;       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will <FONT color="red"><B>change the values</B></FONT> of the
+ <FONT color="blue"><B><I>actual parameter</I> variable <TT>y</TT></B></FONT>
+ to <FONT color="red"><B>6.0</B></FONT>
+ (not shown)
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Notice</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>values</I></B></FONT> in the
+     <FONT color="red"><B><I>actual parameters</I> (<TT>x</TT> and
+    <TT>y</TT>)</B></FONT>
+    are <FONT color="magenta"><B>unchanged</B></FONT> !!!
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/param14c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+That's why,
+  <FONT color="blue"><B><I>if</I></B></FONT> we could use
+  the <FONT color="red"><B>pass-by-reference</B></FONT> mechanism,
+   the <B>statements</B> would print:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+   System.out.println(x);   ---> prints 2.0       
+   System.out.println(y);   ---> prints 6.0
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Illustrating the <I>pass-by-reference</I> mechanism using C++
+     </B></FONT>
+<P>
+<UL>
+<LI> I <FONT color="blue"><B>can</B></FONT> show you
+    the <FONT color="red"><B>difference</B></FONT> between
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Pass-by-value</B></FONT>,  and
+ <LI> <FONT color="red"><B>Pass-by-reference</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+using the <FONT color="blue"><B>C++</B></FONT> language
+ (because <B>C++</B> provide
+  <FONT color="red"><B>both mechanisms</B></FONT>)
+<P>
+<HR>
+<P>
+<LI> <B>C++ programs of the above examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+&nbsp; Pass-by-value &nbsp;
+</TH> 
+<TH>
+&nbsp; Pass-by-reference &nbsp;
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="magenta">// No & means: pass-by-value</FONT>
+  double fun ( <FONT color="red">double a, double b</FONT> )   
+  {
+     double m;
+   
+     a = a + 1;
+     b = b + 2;
+     m = a + b;
+   
+     return(m);
+  }
+   
+  int main(int argc, char **argv)
+  {
+     double x = 1.0, y = 4.0;;
+     double r;
+   
+     r = fun( x,  y );
+   
+     cout << x << endl;
+     cout << y << endl;
+     cout << r << endl;
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="magenta">// With & means: pass-by-reference</FONT>
+  double fun ( <FONT color="red">double & a, double & b</FONT> )   
+  {
+     double m;
+   
+     a = a + 1;
+     b = b + 2;
+     m = a + b;
+   
+     return(m);
+  }
+   
+  int main(int argc, char **argv)
+  {
+     double x = 1.0, y = 4.0;;
+     double r;
+   
+     r = fun( x,  y );
+   
+     cout << x << endl;
+     cout << y << endl;
+     cout << r << endl;
+  }
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+</TR>
+
+
+
+<TR bgcolor="lightcyan"> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  Output:<FONT color="red">
+            1
+	    4
+	    8</FONT>
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+  Output:<FONT color="red">
+            2
+	    6
+	    8</FONT>
+</PRE>
+</B>
+</FONT>
+</TD> 
+
+</TR>
+
+
+
+
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> <B>C++</B> Prog file using
+       <FONT color="red"><B>pass-by-value</B></FONT>:
+       <A HREF="Progs/pass-by-ref/pass-by-value.C"> click here </A>
+  <LI> <B>C++</B> Prog file using
+       <FONT color="red"><B>pass-by-reference</B></FONT>:
+       <A HREF="Progs/pass-by-ref/pass-by-ref.C"> click here </A>
+  </UL>
+<P>
+ <B>How to run the programs:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on links and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+ <P>
+ <UL>
+ <LI>  &nbsp; <FONT color="red"><B><TT>CC -o pass-by-value &nbsp; pass-by-value.C</TT></B></FONT>
+  <LI>  &nbsp; <FONT color="red"><B><TT>CC -o pass-by-ref &nbsp; pass-by-ref.C</TT></B></FONT>
+ </UL>
+ <P>
+ <LI> To run: 
+<P>
+ <UL>
+ <LI>  &nbsp; <FONT color="red"><B><TT>pass-by-value &nbsp;</TT></B></FONT>
+  <LI>  &nbsp; <FONT color="red"><B><TT> pass-by-ref &nbsp; </TT></B></FONT>
+ </UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,520 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Allocating local variables using
+  <FONT color="red"> CPU registers</FONT>
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Principle in using registers as storage for
+  <FONT color="red">local variables</FONT>
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="red"><B>Pre-requisite</B></FONT> for
+   <FONT color="blue"><B>using a register</B></FONT> as storage for
+   a <FONT color="red"><B>local variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>register</B></FONT> that you use as storage for
+   a <FONT color="blue"><B>local variable</B></FONT>
+      must be
+       be <FONT color="red"><B>free</B></FONT>
+       (= <FONT color="blue"><B>not in used</B></FONT>, i.e.,
+       does not contain a value
+       needed by some later computation) 
+ <P>
+ I.e.:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the <FONT color="red"><B>method</B></FONT>
+    has reserved some register to <B>store</B> a 
+  <FONT color="blue"><B>parameter</B></FONT>,
+     the method <FONT color="red"><B>cannot</B></FONT> use it
+     to <B>store</B> a
+     <FONT color="blue"><B>local variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+ <P>
+ <LI> The <FONT color="red"><B>current function</B></FONT> 
+       must be
+   a <FONT color="blue"><B><I>leaf</I> function</B></FONT>
+  <P>
+   (Otherwise,
+	the <FONT color="red"><B>current function</B></FONT>
+	can
+	<FONT color="blue"><B>call some <I>other</I> function</B></FONT>
+	and
+	<B>that function</B>
+       may use some <FONT color="red"><B>registers</B></FONT>
+ 	that are
+       <FONT color="blue"><B>in used</B></FONT> and
+	destroy the values in the registers)
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> What happens when you use
+     a <FONT color="red"><B>register</B></FONT> as 
+  <FONT color="blue"><B>storage</B></FONT> for a
+   <FONT color="red"><B>local variable</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/pass-param02d.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> The <FONT color="red"><B>method </B></FONT> will
+      <FONT color="blue"><B>reserve</B></FONT> the
+      <FONT color="red"><B>register</B></FONT> <B>exclusive</B> 
+	to store the value of the
+      <FONT color="blue"><B>local variable</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B>method
+     </B></FONT>
+      <B>must</B>
+      <FONT color="blue"><B>not allow</B></FONT>
+	other methods
+      to use its <FONT color="red"><B>reserved register(s)</B></FONT>
+      <P>
+   (This usually means that the  <FONT color="red"><B>method </B></FONT>
+	can <FONT color="blue"><B>not call</B></FONT>
+        <B>other methods</B> because the
+	other method will assume that all registers are
+	<B>unused</B> and may destroy the values in some
+	reserved registers.
+ <P>
+    That's why the method must be a leaf method !)
+ 
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Example: using register as storage for local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> Consider the following 
+  <FONT color="red"><B>function invocation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="magenta">/* -------------------------------------------------------
+      sumRange(A,a,b):  returns  (A[a] + A[a+1] + ... + A[b-1]) 
+      ------------------------------------------------------- */  </FONT>       
+   <FONT color="red">int sumRange(int[] A, int a, int b )</FONT>           
+   {
+       int i, s;
+
+       s = 0;
+       for (i = a, i < b; i++)
+          s = s + A[i];
+       return(s);
+   }
+
+   void main( )
+   {
+      int[] B = {11,12,13,14,15,16,17,18,19,20};
+      int[] C = {1,2,3,4,5,6,7,8,9,10};
+      int x, y, sum;
+
+      <FONT color="red">sum = sumRange(B, 0, 5)</FONT>;
+      <FONT color="red">sum = sumRange(C, x, y)</FONT>;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Important note:</B></FONT>
+ <FONT color="blue"><B>how to</B></FONT> pass
+   an <FONT color="red"><B>array</B></FONT> to a <B>function</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> An <FONT color="red"><B>array</B></FONT> is
+    <FONT color="blue"><B>passed</B></FONT> by
+    <B>passing</B> the
+    <FONT color="red"><B>base address</B></FONT> of
+    the <FONT color="blue"><B>array</B></FONT>
+ <P>
+  <FONT color="blue"><B>Because</B></FONT> if we know the
+  <FONT color="red"><B>base address</B></FONT> of an
+  <FONT color="blue"><B>array</B></FONT>,
+  we can find 
+  <FONT color="red"><B><I>all</I> elements</B></FONT>
+  in the <FONT color="blue"><B>array</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> We will <FONT color="red"><B>pass the parameters</B></FONT>
+     and <FONT color="blue"><B>pass the return value</B></FONT> as follows
+    <FONT color="red"><B>using CPU registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <IMG SRC="FIGS/pass-param02a.gif"></IMG>
+
+  We assume that register <FONT color="red">r0</FONT> and <FONT color="red">r1</FONT> are <FONT color="red">"free" (unused)</FONT>
+
+     <FONT color="red">main</FONT> passes the <FONT color="red">address of the array A</FONT> in the register <FONT color="red">r0</FONT>
+     <FONT color="red">main</FONT> passes the parameter <FONT color="red">a</FONT> in the register <FONT color="red">r1</FONT>
+     <FONT color="red">main</FONT> passes the parameter <FONT color="red">b</FONT> in the register <FONT color="red">r2</FONT>
+
+     <FONT color="red">sumRange</FONT> passes the <FONT color="red">return value</FONT> back in the register <FONT color="red">r0</FONT>     
+
+<HR>
+  We will use register <FONT color="red">r3</FONT> as local variable <FONT color="red">i</FONT> 
+  We will use register <FONT color="red">r4</FONT> as local variable <FONT color="red">s</FONT> 
+
+  (We must make sure the <FONT color="red">r3</FONT> and <FONT color="red">r4</FONT> is not use for any other purpose !!!)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>main( )</TT> method</B></FONT>
+    will pass the
+    <FONT color="blue"><B>parameters <TT>x</TT> and <TT>y</TT></B></FONT>
+    and
+    <FONT color="red"><B>use the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="magenta">   //  Java statement: sum = sumRange(B, 0, 5):</FONT>
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass parameter address of array B in reg r0
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:B
+        movt    r0, #:upper16:B
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass 2nd parameter value 0 in reg r1
+           ------------------------------------------------- */</FONT>
+        mov	r1, #0
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass 3nd parameter value 5 in reg r2
+           ------------------------------------------------- */</FONT>
+        mov	r2, #5
+
+        /* ----------------------------------------------------------------
+	   <IMG SRC="FIGS/pass-param02e.gif"></IMG>
+
+           call sum = sumRange(A, a, b)
+                agreed inputs:  r0 = addr of array A, r1 = a, r2 = b
+                agreed return:  r0 = return value
+           ---------------------------------------------------------------- */
+        bl      sumRange
+
+
+        /* -----------------------------------------------------------------
+	   <IMG SRC="FIGS/pass-param02f.gif"></IMG>
+
+           Save return value (in r0) to variable sum (sum = sumRange(..))
+           ----------------------------------------------------------------- */
+        movw    r1, #:lower16:sum    // Do NOT use r0 !!!
+        movt    r1, #:upper16:sum    // (Because r0 contains the return value)
+
+        str    <FONT color="red"> r0</FONT>, [r1]             // This will store <FONT color="red">return value</FONT> in sum
+
+// -----------------------------------------------------------------------
+
+     <FONT color="magenta">   //  Java statement: sum = sumRange(C, a, b):</FONT>
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass parameter address of array C in reg r0
+           ------------------------------------------------- */</FONT>
+        movw    r0, #:lower16:C
+        movt    r0, #:upper16:C
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass 2nd parameter value a in reg r1
+           ------------------------------------------------- */</FONT>
+        movw    r1, #:lower16:a
+        movt    r1, #:upper16:a
+        ldr     r1, [r1]
+<FONT color="red">
+        /* -------------------------------------------------
+           Pass 3nd parameter value b in reg r2
+           ------------------------------------------------- */</FONT>
+        movw    r2, #:lower16:b
+        movt    r2, #:upper16:b
+        ldr     r2, [r2]
+
+        /* ----------------------------------------------------------------
+	   <IMG SRC="FIGS/pass-param02g.gif"></IMG>
+
+           call sum = sumRange(C, a, b)
+                agreed inputs:  r0 = addr of array C, r1 = a, r2 = b
+                agreed return:  r0 = return value
+           ---------------------------------------------------------------- */
+        bl      sumRange
+
+
+        /* -----------------------------------------------------------------
+	   <IMG SRC="FIGS/pass-param02h.gif"></IMG>
+
+           Save return value (in r0) to variable sum (sum = sumRange(..))
+           ----------------------------------------------------------------- */
+        movw    r1, #:lower16:sum    // Do NOT use r0 !!!
+        movt    r1, #:upper16:sum    // (Because r0 contains the return value)
+
+        str    <FONT color="red"> r0</FONT>, [r1]             // This will store <FONT color="red">return value</FONT> in sum
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <FONT color="red"><B>Using</B></FONT> the
+    <FONT color="blue"><B>agreed registers</B></FONT>,
+    the <FONT color="red"><B><TT>sumRange( )</TT> method</B></FONT>
+    will get the
+    <FONT color="blue"><B>parameters <TT>a</TT> and <TT>b</TT></B></FONT>
+    and
+    <FONT color="red"><B>pass the <I>return value</I></B></FONT>
+    as follows
+    (illustrtated in <FONT color="blue"><B>assembler code</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">/* ----------------------------------------------------------------
+   Function sumRange(a,b):
+        agreed inputs:  r0 = A, r1 = a, r2 = b
+        agreed return:  r0 = return value
+
+   Unused registers:   r3, r4, r5, r6, r7, r8, r9, r10
+
+   Use these registers as local vars:  *** r3 = i, r4 = s ***
+
+   Body of sumRange(A,a,b):
+
+       s = 0;
+       for (i = a, i < b; i++)
+          s = s + A[i];
+       return(s);
+   ---------------------------------------------------------------- */</FONT>
+
+sumRange:
+
+        <FONT color="red">// When  sumRange  begins, we will have: r0 = A, r1 = a, r2 = b</FONT>
+
+        <IMG SRC="FIGS/pass-param02d.gif"></IMG>
+
+        <FONT color="red">// s = 0;</FONT>
+        mov     r4, #0          // r4(=s) = 0
+
+        <FONT color="red">// i = a;</FONT>
+        mov     r3, r1          // r3(=i) = r1(=a)
+
+while:  <FONT color="red">// while (i < b)</FONT>
+
+        cmp     r3, r2          // r3 = i, r2 = b
+        bge     whileEnd
+
+        <FONT color="red">// s = s + A[i];</FONT>
+
+        ///// get A[i] in r10
+        mov     r5, r3          // r5 = i (because r3 = i)
+        add     r5, r5, r5      // r5 = 2*i
+        add     r5, r5, r5      // r5 = 4*i   = offset used to access A[i]
+
+        ldr     r10, [r0, r5]   // r10 = A[i] (r0=A(base), r5=offset)
+
+        add     r4, r4, r10     // r4(=s) = r4(=s) + r10(=A[i])
+
+
+        <FONT color="red">// i++</FONT>
+        add     r3, r3, #1      // r3(=i) = r3(=i) + 1
+
+        b       while           // End of while body - loop back !!
+
+whileEnd:
+
+        <FONT color="red">// return(s)</FONT>
+
+        <IMG SRC="FIGS/pass-param02c.gif"></IMG>
+        mov     <FONT color="red">r0</FONT>, r4          // r0(return location) = r4(=s)
+                                // The return value is now in r0
+
+        mov     pc, lr          // Return to the caller
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/8-sub/reg-local1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 reg-local1</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+	use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+</UL>
+
+<P>
+<UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

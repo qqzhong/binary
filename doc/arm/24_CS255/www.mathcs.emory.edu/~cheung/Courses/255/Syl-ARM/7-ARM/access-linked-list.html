@@ -1,0 +1,705 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Assembler programming examples of accessing fields in a linked list
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    Introduction
+     </B></FONT>
+<P>
+ <UL>
+ <LI> I will now show you
+     <FONT color="red"><B>assembler program example</B></FONT> on
+     <FONT color="blue"><B>how to</B></FONT> access
+     <FONT color="red"><B>linked list elements</B></FONT>
+<P>
+  I will assume that 
+      a <FONT color="red"><B>linked list</B></FONT> has
+      <B>already</B> been
+      <FONT color="blue"><B>initialized</B></FONT> and
+      has <FONT color="red"><B>multiple (enough) list elements</B></FONT>
+<P>
+  I will show you the <FONT color="blue"><B>list access techniques</B></FONT>
+   using <FONT color="red"><B>2 different linked list</B></FONT> - 
+  because <FONT color="blue"><B>depending</B></FONT> on
+  the <FONT color="red"><B><I>structure</I></B></FONT> of the
+  <FONT color="blue"><B><TT>List</TT> class</B></FONT>, the
+  <FONT color="red"><B><I>offsets</I></B></FONT> are
+  <FONT color="blue"><B>"computed"</B></FONT> differently.
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Accessing fields in a linked list - example 1
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>first example</B></FONT> uses
+     <FONT color="blue"><B><TT>List</TT> objects</B></FONT>
+     of the following 
+     <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">// File: /home/cs255001/demo/asm/4-linked-list/List.java
+</FONT>
+   public class List
+   {
+      <FONT color="red">int  value;</FONT>   // int typed variable takes up 4 bytes
+      <FONT color="red">List next;</FONT>    // reference variable contains an address, also 4 bytes   
+
+      // instance methods omitted - not relevant for discussion
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The
+ <FONT color="red"><B>placement</B></FONT> of the
+ <FONT color="blue"><B>data fields</B></FONT>
+ <FONT color="red"><B><TT>value</TT></B></FONT> and
+ <FONT color="red"><B><TT>next</TT></B></FONT> in
+ a <FONT color="blue"><B>list element</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Therefore, the <FONT color="red"><B>offsets</B></FONT> to access
+ the fields are
+ <FONT color="blue"><B>"computed"</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">value</FONT> field) = base address(list element) <FONT color="red">+ 0</FONT>
+   address(<FONT color="red">next</FONT> field)  = base address(list element) <FONT color="red">+ 4</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The program uses the following <FONT color="red"><B>linked list</B></FONT>
+     that starts at the <FONT color="blue"><B><TT>head</TT></B></FONT>
+     variable:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+This is <FONT color="red"><B>how</B></FONT> you
+ <FONT color="blue"><B>move (= access)</B></FONT> the
+ <FONT color="red"><B>fields</B></FONT> in
+ the <FONT color="blue"><B>list elements</B></FONT> in
+ <FONT color="red"><B>ARM assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        <FONT color="red">// We need to get the start of the list stored in the variable "head"</FONT>
+        //   1. Get the address of the variable "head"
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      <FONT color="red">// r0 = addr(head)</FONT>
+
+        //   2. Get the value stored in the variable "head"
+        ldr     r0, [r0]                // <FONT color="red">r0 = addr(first list elem)</FONT>
+                                        // <FONT color="red">r0</FONT> now has the<FONT color="red"> base address</FONT> of
+                                        // the<FONT color="red"> first list element</FONT> !
+
+        ldr     r1, [r0,<FONT color="red">#0</FONT>]             // r1 = head<FONT color="red">.value</FONT>
+                                        // Note: you can also use "ldr r1, [r0]"
+
+        ldr     r0, [r0,<FONT color="red">#4</FONT>]             // r0 = head<FONT color="red">.next</FONT> = addr(2nd list elem) !!!           
+                                        // r0 now has the base address of
+                                        // the 2nd list element !
+
+        ldr     r2, [r0,#0]             // r2 = head.next.value !!
+
+        ldr     r0, [r0,#4]             // r0 = addr(3rd list elem) !!!
+                                        // r0 now has the base address of
+                                        // the 3rd list element !
+        ldr     r3, [r0,#0]             // r3 = head.next.next.value !!
+
+        ldr     r0, [r0,#4]             // r0 = addr(4th list elem) !!!
+                                        // r0 now has the base address of
+                                        // the 4th list element !
+
+        ldr     r4, [r0,#0]             // r4 = head.next.next.next.value !!
+                                        // And so on...
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>comments</B></FONT> in the
+ <FONT color="blue"><B>code</B></FONT> should be
+ <FONT color="red"><B>sufficient</B></FONT> for you to
+ follow - even if you don't attend the lecture.
+ (I know my lecture notes are so extensive that many students
+ just study them and don't attend my lectures).
+<P>
+But if you don't follow the code above, make sure
+ you attend the lecture on this topic, because
+ I will show you in class what is going on in the program
+ using <FONT color="red"><B>EGTAPI</B></FONT>.
+<P>
+Using <FONT color="red"><B>EGTAPI</B></FONT>, you can
+ <FONT color="blue"><B>see</B></FONT> the
+ <FONT color="red"><B>address</B></FONT> in the
+ <FONT color="blue"><B>register <TT>r0</TT></B></FONT> going
+ through the
+ <FONT color="red"><B>linked list elements</B></FONT> one at a time.
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/list1.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255  list1</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+   use <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Accessing fields in a linked list - example 2
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>second  example</B></FONT> uses
+     <FONT color="blue"><B><TT>List</TT> objects</B></FONT>
+     of the following 
+     <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List
+   {
+      <FONT color="red">int   value1;</FONT>   // int typed variable takes up 4 bytes
+      <FONT color="red">short value2;</FONT>   // short typed variable takes up 2 bytes
+      <FONT color="red">short value3;</FONT>   // short typed variable takes up 2 bytes
+      <FONT color="red">List next;</FONT>    // reference variable contains an address, also 4 bytes   
+
+      // instance methods omitted - not relevant for discussion
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The
+ <FONT color="red"><B>placement</B></FONT> of the
+ <FONT color="blue"><B>data fields</B></FONT>
+ <FONT color="red"><B><TT>value1</TT></B></FONT>
+<FONT color="red"><B><TT>value2</TT></B></FONT>
+<FONT color="red"><B><TT>value3</TT></B></FONT>
+  and
+ <FONT color="red"><B><TT>next</TT></B></FONT> in
+ a <FONT color="blue"><B>list element</B></FONT> is as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+Therefore, the <FONT color="red"><B>offsets</B></FONT> to access
+ the fields are
+ <FONT color="blue"><B>"computed"</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   address(<FONT color="red">value1</FONT> field) = base address(list element) <FONT color="red">+ 0</FONT>
+   address(<FONT color="red">value2</FONT> field) = base address(list element) <FONT color="red">+ 4</FONT> 
+   address(<FONT color="red">value3</FONT> field) = base address(list element) <FONT color="red">+ 6</FONT> (= <FONT color="red">4+2</FONT>)
+   address(<FONT color="red">next</FONT>   field) = base address(list element) <FONT color="red">+ 8</FONT> (= <FONT color="red">4+2+2</FONT>)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Warning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>fields
+  <TT>value2</TT> and <TT>value3</TT></B></FONT> are
+   <FONT color="blue"><B><TT>short</TT></B></FONT> typed
+ <P>
+ <B>Therefore</B>, we must use the <FONT color="blue"><B>instruction</B></FONT>
+  <FONT color="red"><B><TT>ldrsh</TT></B></FONT> to
+  <FONT color="blue"><B>access</B></FONT> these
+  <FONT color="red"><B>fields</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> The program uses the following <FONT color="red"><B>linked list</B></FONT>
+     that starts at the <FONT color="blue"><B><TT>head</TT></B></FONT>
+     variable:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list05b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+This is <FONT color="red"><B>how</B></FONT> you
+ <FONT color="blue"><B>move (= access)</B></FONT> the
+ <FONT color="red"><B>fields</B></FONT> in
+ the <FONT color="blue"><B>list elements</B></FONT> in
+ <FONT color="red"><B>ARM assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        movw    r0, #:lower16:head
+        movt    r0, #:upper16:head      // r0 = addr(head)
+        ldr     r0, [r0]                // r0 = head.next = addr(1st list elem)
+
+        ldr     r1, [r0,#0]             // r1 = head.value1
+        ldrsh   r2, [r0,#4]             // r2 = head.value2
+        ldrsh   r3, [r0,#6]             // r3 = head.value3
+
+        ldr     r0, [r0,#8]             // r0 = head.next = addr(2nd list elem) !!!
+
+        ldr     r4, [r0,#0]             // r4 = head.next.value1
+        ldrsh   r5, [r0,#4]             // r5 = head.next.value2
+        ldrsh   r6, [r0,#6]             // r6 = head.next.value3
+
+        ldr     r0, [r0,#8]             // r0 = head.next.next = addr(3rd list elem) !!!       
+
+        ldr     r7, [r0,#0]             // r7 = head.next.next.value1
+        ldrsh   r8, [r0,#4]             // r8 = head.next.next.value2
+        ldrsh   r9, [r0,#6]             // r9 = head.next.next.value3
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>technique </B></FONT> is the
+ <FONT color="blue"><B><I>same</I></B></FONT> as in
+ <FONT color="red"><B>example 1</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="blue"><B>base address (of the list element)</B></FONT>
+     + <FONT color="red"><B>the appropriate offset</B></FONT> to
+     access a <FONT color="blue"><B>specific</B></FONT>
+     <FONT color="red"><B>data field</B></FONT> in the
+     <FONT color="blue"><B>list element</B></FONT>
+ <P>
+ <LI> <B>Also:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use the <FONT color="red"><B>appropriate</B></FONT>
+     <FONT color="blue"><B>load instruction</B></FONT> depending of the
+   <FONT color="red"><B><I>data type</I></B></FONT> of the
+   <FONT color="blue"><B>field</B></FONT> in the
+   <FONT color="red"><B>list element</B></FONT> that you are
+   <B>accessing</B> !!!
+ <P>
+ (The <FONT color="red"><B>data field</B></FONT> is
+  a <FONT color="blue"><B><I>simple</I> variable</B></FONT>, so
+  you <FONT color="red"><B>must</B></FONT> apply
+  what you have learned on
+  <FONT color="blue"><B>accessing <I>simple</I> variable</B></FONT> !!!
+ <P>
+ If you don't know what I am talking about in the last sentence,
+ read this webpage:
+  <A HREF="ldr.html"> <FONT color="red"><B>click here</B></FONT></A>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/list2.s
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255  list2</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+   use <FONT color="red"><B>EGTAPI</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assignment example 1 with linked list
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Translate</B></FONT> the following
+     <FONT color="blue"><B>statement</B></FONT> into
+     <FONT color="red"><B>ARM assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   head.next.value2 = 999;       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Solution:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   // Get the RHS first
+   mov    r0, #999                // r0 = 999
+
+   // Store r0 into LHS
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r0 = addr(head)
+   ldr    r1, [r1]                // r0 = head
+   ldr    r1, [r1, #8]            // r0 = head.next
+
+   strh   r0, [r1, #4]            // head.next.value2 = r0 = 999     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/list2a.s
+       </TT></B></FONT>
+  </UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Assignment example 2 with linked list
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Translate</B></FONT> the following
+     <FONT color="blue"><B>statement</B></FONT> into
+     <FONT color="red"><B>ARM assembler</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   head.value1 = head.next.next.value3;       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Solution:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   // Get the RHS first
+   movw   r0, #:lower16:head
+   movt   r0, #:upper16:head      // r0 = addr(head)
+   ldr    r0, [r0]                // r0 = head
+   ldr    r0, [r0, #8]            // r0 = head.next
+   ldr    r0, [r0, #8]            // r0 = head.next.next
+   ldrsh  r0, [r0, #6]            // r0 = head.next.next.value3        
+
+   // Store r0 into LHS
+   movw   r1, #:lower16:head
+   movt   r1, #:upper16:head      // r0 = addr(head)
+   ldr    r1, [r1]                // r0 = head
+
+   str    r0, [r1, #0]            // head.value1 = r0 
+                                  //  = head.next.next.value3
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/asm/4-linked-list/list2b.s
+       </TT></B></FONT>
+  </UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

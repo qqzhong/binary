@@ -1,0 +1,340 @@
+http://www.bravegnu.org/gnu-eprog/index.html
+
+mkdir -p chap{03..15}
+
+$ apt-get install qemu
+
+$ mkdir ~/toolchains
+$ cd ~/toolchains
+$ tar -jxf ~/downloads/arm-2008q1-126-arm-none-eabi-i686-pc-linux-gnu.tar.bz2
+
+$ PATH=$HOME/toolchains/arm-2008q1/bin:$PATH
+
+$ arm-none-eabi-as -o add.o add.s
+$ arm-none-eabi-ld -Ttext=0x0 -o add.elf add.o
+$ arm-none-eabi-nm add.elf
+... clip ...
+00000000 t start
+0000000c t stop
+
+$ arm-none-eabi-ld -Ttext=0x20000000 -o add.elf add.o
+$ arm-none-eabi-nm add.elf
+... clip ...
+20000000 t start
+2000000c t stop
+
+objcopy -O <output-format> <in-file> <out-file>
+
+$ arm-none-eabi-objcopy -O binary add.elf add.bin
+
+3.2. Executing in Qemu
+$ dd if=/dev/zero of=flash.bin bs=4096 count=4096
+$ dd if=add.bin of=flash.bin bs=4096 conv=notrunc
+$ qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
+
+(qemu) info registers
+R00=00000005 R01=00000004 R02=00000009 R03=00000000
+R04=00000000 R05=00000000 R06=00000000 R07=00000000
+R08=00000000 R09=00000000 R10=00000000 R11=00000000
+R12=00000000 R13=00000000 R14=00000000 R15=0000000c
+PSR=400001d3 -Z-- A svc32
+
+3.3. More Monitor Commands
+Some useful qemu monitor commands are listed in the following table.
+
+Command	Purpose
+help List available commands
+quit Quits the emulator
+xp /fmt addr Physical memory dump from addr
+system_reset Reset the system.
+
+(qemu) xp /4iw 0x0
+0x00000000:  mov        r0, #5  ; 0x5
+0x00000004:  mov        r1, #4  ; 0x4
+0x00000008:  add        r2, r1, r0
+0x0000000c:  b  0xc
+
+4.1.1. .byte Directive
+.byte   exp1, exp2, ...
+.2byte  exp1, exp2, ...
+.4byte  exp1, exp2, ...
+
+
+pattern:  .byte 0b01010101, 0b00110011, 0b00001111
+npattern: .byte npattern - pattern
+halpha:   .byte 'A', 'B', 'C', 'D', 'E', 'F'
+dummy:    .4byte 0xDEADBEEF
+nalpha:   .byte 'Z' - 'A' + 1
+
+6. Linker
+
+$ arm-none-eabi-as -o main.o main.s
+$ arm-none-eabi-as -o sum-sub.o sum-sub.s
+$ arm-none-eabi-nm main.o
+00000004 t arr
+00000007 t eoa
+00000008 t start
+00000018 t stop
+         U sum
+$ arm-none-eabi-nm sum-sub.o
+00000004 t loop
+00000000 T sum
+
+6.2.1. Section Merging
+
+$ arm-none-eabi-nm main.o
+00000004 t arr
+00000007 t eoa
+00000008 t start
+00000018 t stop
+         U sum
+$ arm-none-eabi-nm sum-sub.o
+00000004 t loop ❶
+00000000 T sum
+$ arm-none-eabi-ld -Ttext=0x0 -o sum.elf main.o sum-sub.o
+$ arm-none-eabi-nm sum.elf
+...
+00000004 t arr
+00000007 t eoa
+00000008 t start
+00000018 t stop
+00000028 t loop ❷
+00000024 T sum
+
+6.2.2. Section Placement
+$ arm-none-eabi-as -o sum.o sum.s
+$ arm-none-eabi-nm -n sum.o
+00000000 t entry ❶
+00000004 t arr
+00000007 t eoa
+00000008 t start
+00000014 t loop
+00000024 t stop
+$ arm-none-eabi-ld -Ttext=0x100 -o sum.elf sum.o ❷
+$ arm-none-eabi-nm -n sum.elf
+00000100 t entry ❸
+00000104 t arr
+00000107 t eoa
+00000108 t start
+00000114 t loop
+00000124 t stop
+
+
+$ arm-none-eabi-as -o sum-data.o sum-data.s
+$ arm-none-eabi-ld -T sum-data.lds -o sum-data.elf sum-data.o
+$ arm-none-eabi-nm -n sum-data.elf
+00000000 t start
+0000000c t loop
+0000001c t stop
+00000400 d arr
+00000403 d eoa
+
+7. Linker Script File
+
+Listing 6. Basic linker script
+
+SECTIONS { ❶
+        . = 0x00000000; ❷
+        .text : { ❸
+                abc.o (.text);
+                def.o (.text);
+        } ❹
+}
+
+Listing 7. Wildcard in linker scripts
+
+SECTIONS {
+        . = 0x00000000;
+        .text : { * (.text); }
+}
+
+Listing 8. Multiple sections in linker scripts
+
+SECTIONS {
+         . = 0x00000000;
+         .text : { * (.text); }
+
+         . = 0x00000400;
+         .data : { * (.data); }
+}
+
+$ arm-none-eabi-as -o sum-data.o sum-data.s
+$ arm-none-eabi-ld -T sum-data.lds -o sum-data.elf sum-data.o
+$ arm-none-eabi-nm -n sum-data.elf
+00000000 t start
+0000000c t loop
+0000001c t stop
+00000400 d arr
+00000403 d eoa
+
+
+8. Data in RAM, Example
+
+SECTIONS {
+        . = 0x00000000;
+        .text : { * (.text); }
+
+        . = 0xA0000000;
+        .data : { * (.data); }
+}
+$ arm-none-eabi-nm -n add-mem.elf
+00000000 t start
+0000001c t stop
+a0000000 d val1
+a0000001 d val2
+a0000002 d result
+
+
+8.3. Copying .data to RAM
+To copy the data from Flash to RAM, the following information is required.
+
+Address of data in Flash (flash_sdata)
+Address of data in RAM (ram_sdata)
+Size of the .data section. (data_size)
+With this information the data can be copied from Flash to RAM using the following code snippet.
+
+        ldr   r0, =flash_sdata
+        ldr   r1, =ram_sdata
+        ldr   r2, =data_size
+
+copy:
+        ldrb  r4, [r0], #1
+        strb  r4, [r1], #1
+        subs  r2, r2, #1
+        bne   copy
+
+Listing 10. Linker Script with Section Copy Symbols
+
+SECTIONS {
+        . = 0x00000000;
+        .text : {
+              * (.text);
+        }
+        flash_sdata = .; ❶
+
+        . = 0xA0000000;
+        ram_sdata = .; ❷
+        .data : AT (flash_sdata) {
+              * (.data);
+        };
+        ram_edata = .; ❸
+        data_size = ram_edata - ram_sdata; ❹
+}
+
+Listing 11. Add Data in RAM (with copy)
+qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
+(qemu) xp /4dw 0xA0000000
+a0000000:         10         30         40          0
+
+9. Exception Handling
+Table 1. Exception Vector Addresses
+Exception                 Address
+Reset                     0x00
+Undefined Instruction     0x04
+Software Interrupt (SWI)  0x08
+Prefetch Abort            0x0C
+Data Abort                0x10
+Reserved, not used        0x14
+IRQ                       0x18
+FIQ                       0x1C
+
+
+
+        .section "vectors"
+reset:  b     start
+undef:  b     undef
+swi:    b     swi
+pabt:   b     pabt
+dabt:   b     dabt
+        nop
+irq:    b     irq
+fiq:    b     fiq
+
+SECTIONS {
+        . = 0x00000000;
+        .text : {
+                * (vectors);
+                * (.text);
+                ...
+        }
+        ...
+}
+
+
+10. C Startup
+
+Listing 13. Linker Script for C code
+
+SECTIONS {
+        . = 0x00000000;
+        .text : {
+              * (vectors);
+              * (.text);
+        }
+        .rodata : {
+              * (.rodata);
+        }
+        flash_sdata = .;
+
+        . = 0xA0000000;
+        ram_sdata = .;
+        .data : AT (flash_sdata) {
+              * (.data);
+        }
+        ram_edata = .;
+        data_size = ram_edata - ram_sdata;
+
+        sbss = .;
+        .bss : {
+             * (.bss);
+        }
+        ebss = .;
+        bss_size = ebss - sbss;
+}
+
+The startup code has the following parts
+
+exception vectors
+code to copy the .data from Flash to RAM
+code to zero out the .bss
+code to setup the stack pointer
+branch to main
+Listing 14. C Startup Assembly
+
+
+$ arm-none-eabi-gcc -nostdlib -o csum.elf -T csum.lds csum.c startup.s
+
+$ arm-none-eabi-nm -n csum.elf
+00000000 t reset        ❶
+00000004 A bss_size
+00000004 t undef
+00000008 t swi
+0000000c t pabt
+00000010 t dabt
+00000018 A data_size
+00000018 t irq
+0000001c t fiq
+00000020 T main
+00000090 t start        ❷
+000000a0 t copy
+000000b0 t init_bss
+000000c4 t zero
+000000d0 t init_stack
+000000d8 t stop
+000000f4 r n            ❸
+000000f8 A flash_sdata
+a0000000 d arr          ❹
+a0000000 A ram_sdata
+a0000018 A ram_edata
+a0000018 A sbss
+a0000018 b sum          ❺
+a000001c A ebss
+
+$ arm-none-eabi-objcopy -O binary csum.elf csum.bin
+$ dd if=csum.bin of=flash.bin bs=4096 conv=notrunc
+$ qemu-system-arm -M connex -pflash flash.bin -nographic -serial /dev/null
+(qemu) xp /6dw 0xa0000000
+a0000000:          1         10          4          5
+a0000010:          6          7
+(qemu) xp /1dw 0xa0000018
+a0000018:         33

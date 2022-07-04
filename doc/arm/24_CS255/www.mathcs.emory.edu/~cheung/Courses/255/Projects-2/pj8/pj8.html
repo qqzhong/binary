@@ -1,0 +1,886 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - Home/Project Assignment </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<H3>
+CS 255 - Computer Organization/Architecture I <BR>
+Project 8
+</H3>
+</CENTER>
+<P>
+Due date: See Class Webpage
+
+
+<HR>
+<HR>
+<HR>
+
+<P>
+<H3>
+0. Preparations
+</H3>
+<UL>
+<P>
+<LI> To do this project, you must obtain a copy of the prepared
+   files using <B>EGTAPI</B> (use project code <B>pj8</B>)
+    - you have done this enough times that I don't need to give more
+   detailed instructions.
+<P>
+  The alternative method to get the prepared files is to
+  enter these commands in the <B>EGTAPI</B>  terminal:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   mkdir  ~/cs255/pj8
+
+   For CS255-1 students:
+       cp /home/cs255001/Handouts/pj8/*  ~/cs255/pj8       
+
+   For CS255-2 students:
+       cp /home/cs255002/Handouts/pj8/*  ~/cs255/pj8
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+1. A Recursive Function
+</H3>
+<P>
+<UL>
+
+Consider the following <FONT color="red"><B>recursive function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  int F(int i, int j, int k)
+  {
+     int s, t;
+
+     if ( i <= 0 || j <= 0 )
+        return(-1);
+     else if ( i + j < k )
+        return (i+j);
+     else
+     {
+        s = 0;
+        for (t = 1; t < k; t++)
+        {
+           s = s + F(i-t, j-t, k-1) + 1;               
+        }
+        return(s);
+     }
+  }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Do not try to figure <FONT color="blue"><B>what</B></FONT>
+ it does, just code it in <FONT color="red"><B>ARM</B></FONT> assembler code.
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<H3>
+2. Assignment
+</H3>
+<P>
+<UL>
+
+Write the <FONT color="blue"><B>recursive</B></FONT> function 
+ <FONT color="red"><B><TT>int F(int i, int j, int k)</TT></B></FONT>
+ in ARM inside the file:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">recursion.s</FONT>             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+that you have copied in the <FONT color="blue"><B>preparation step</B></FONT>
+ above.
+<P>
+<HR>
+<P>
+ The <FONT color="blue"><B>parameters</B></FONT> of
+    <FONT color="red"><B><TT>int F(int i, int j, int k)</TT></B></FONT> are
+    <B>passed</B> on the <FONT color="blue"><B>system tack</B></FONT> in
+   the <FONT color="red"><B><I>following order</I></B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+       push k                       
+       push j
+       push i
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>return value</B></FONT> of
+   <B>F( )</B> must be
+   returned in
+   <FONT color="red"><B>register <TT>r0</TT></B></FONT>.
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<H3>
+3. <FONT color="red">Compiling</FONT> and running this project
+</H3>
+<P>
+<UL>
+<P>
+Use the following
+ <FONT color="blue"><B>command</B></FONT> to
+<FONT color="red"><B>compile</B></FONT> project 8
+<P>
+Open the <B>Terminal</B> in <B>EGTAPI</B> and type these commands:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">cd  ~/cs255/pj8</font>
+
+
+    <FONT color="red">/home/cs255001/bin/as255    pj8.s  recursion.s</FONT>                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You can also compile it with <B>EGTAPI's file browser</B>:
+<P><UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+    1. First: press the CONTROL key  and  select  pj8.s
+
+    2. THEN:  
+
+	On a Windows PC: press the CONTROL key  and  select  recursion.s
+	On a Mac PC:     press the COMMAND key  and  select  recursion.s
+
+       NOTE: the ORDER of clicking is VERY IMPORTANT
+             DO NOT click on  recursion.s  first !!!!
+             (If you do, EGTAPI will generate the output "recursion.arm"
+              and not  pj8.arm)
+
+    3. Finally: click  "Compile"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+
+<P>
+Use <FONT color="red"><B>Egtapi</B></FONT> to
+  run the program compiled program
+  <B>pj8.arm</B>.
+
+</UL>
+<P>
+<HR>
+<HR>
+<H3>
+4. The <TT>pj8.s</TT> test program
+</H3>
+<P>
+<UL>
+
+<P>
+I have provide the <FONT color="blue"><B>pj8.s</TT></B></FONT> program file
+ (it's part of the <B>handouts</B> that you copied in the 
+ <B><I>preparation</I> step</B>)
+ for you to <FONT color="red"><B>test</B></FONT> the
+ <FONT color="blue"><B>recursive function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+main:
+        // Call F(-3, 5, 5)
+        mov     r0, #5
+        push    {r0}
+        mov     r0, #5
+        push    {r0}
+        mov     r0, #-3
+        push    {r0}
+        bl      F
+        add     sp, sp, #12
+
+        movw    r1, #:lower16:ans
+        movt    r1, #:upper16:ans
+        str     r0, [r1]                // ans = F()
+
+Stop1:
+        // Call F(5, -4, 5)
+        mov     r0, #5
+        push    {r0}
+        mov     r0, #-4
+        push    {r0}
+        mov     r0, #5
+        push    {r0}
+        bl      F
+        add     sp, sp, #12
+
+        movw    r1, #:lower16:ans
+        movt    r1, #:upper16:ans
+        str     r0, [r1]                // ans = F()             
+
+        ... (and so on)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This program calls <FONT color="red"><B><TT>F()</TT></B></FONT>
+ <FONT color="blue"><B>5 times</B></FONT> and test
+ <FONT color="red"><B><I>all</I> the possible cases</B></FONT>
+ that <FONT color="blue"><B><TT>F()</TT></B></FONT> must handle:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Case 1: F(-3,  5, 5)    - base case 1           (ans = -1)
+   Case 2: F( 5, -4, 5)    - base case 2           (ans = -1)
+   Case 3: F( 2,  5, 9)    - base case 3           (ans =  7)
+   Case 4: F( 2,  2, 2)    - 1 level recursion     (ans =  1)           
+   Case 5: F( 5,  5, 5)    - multi-level recursion (ans = 23)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The program will <FONT color="blue"><B>stop</B></FONT> after each
+ call and you should <FONT color="red"><B>check</B></FONT>
+ if your <FONT color="blue"><B>value</B></FONT> is
+ the <FONT color="red"><B>correct value</B></FONT> (or not)
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+5. A tool to find the calling sequence of the recursive function <TT>F()</TT>
+</H3>
+<P>
+<UL>
+<P>
+ To aid you in determining if your program is correct, the <B>handouts</B>
+  includes a C program that you can use to 
+  <FONT color="red"><B>display</B></FONT> the
+  <FONT color="blue"><B>calling sequence</B></FONT> of
+  the <FONT color="red"><B>recursive calls</B></FONT> to
+  <FONT color="blue"><B>F()</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     /home/cs255001/Handouts/pj8/pj8-check
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+How to use the <FONT color="blue"><B><TT>pj8-check</TT></B></FONT>
+program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   /home/cs255001/Handouts/pj8/pj8-check   i-value   j-value   k-value          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<B>Example 1:</B>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+	/home/cs255001/Handouts/pj8/pj8-check 2 2 2
+	Call sequence:
+	  >> F(2, 2, 2)
+	  >>     F(1, 1, 1)                  
+	Ans = 1
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Meaning:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>F(2,2,2)</TT></B></FONT> will
+      call <FONT color="red"><B><TT>F(1,1,1)</TT></B></FONT>
+ <P>
+ <LI>  <FONT color="blue"><B><TT>F(2,2,2)</TT></B></FONT> will
+     return the value <FONT color="red"><B>1</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example 2:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+	/home/cs255001/Handouts/pj8/pj8-check 5 4 3
+	Call sequence:
+	  >> F(5, 4, 3)
+	  >>     F(4, 3, 2)
+	  >>         F(3, 2, 1)                
+	  >>     F(3, 2, 2)
+	  >>         F(2, 1, 1)
+	Ans = 4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Meaning:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>F(5,4,3)</TT></B></FONT> will 
+     <B><I>first</I></B> call
+         <FONT color="red"><B><TT>F(4,3,2)</TT></B></FONT>
+ <LI> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <FONT color="red"><B><TT>F(4,3,2)</TT></B></FONT> will then call
+      <FONT color="darkred"><B><TT>F(3, 2, 1) </TT></B></FONT>
+ <LI> <FONT color="blue"><B><TT>F(5,4,3)</TT></B></FONT> will 
+       <B><I>next</I></B> call
+         <FONT color="red"><B><TT>F(3,2,2)</TT></B></FONT>
+ <LI> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <FONT color="red"><B><TT>F(3,2,2)</TT></B></FONT> will then call
+      <FONT color="darkred"><B><TT>F(2, 1, 1) </TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ <LI> <FONT color="blue"><B><TT>F(5,4,3)</TT></B></FONT> will
+     return the value <FONT color="red"><B>4</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> How to use <FONT color="blue"><B><TT>pj8-check</TT></B></FONT>
+    in this project:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>calling sequence</B></FONT>
+     is the <FONT color="red"><B>same</B></FONT> in your assembler program and
+ you should see the
+   <FONT color="blue"><B><I>same</I>  sequence</B></FONT>
+  of <FONT color="red"><B>parameters</B></FONT>
+  on the <FONT color="blue"><B>stack</B></FONT> if you set a
+ <FONT color="red"><B>breakpoint</B></FONT> at the subroutine 
+ <FONT color="blue"><B><TT>F</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+Another explanation on <B>pj8-check</B>:
+<PRE>
+p8-check helps you tracks the recursive execution of your assembler program. 
+You run it using the parameters that you pass to the recursive function. 
+pj8-check will print out information to the terminal to help you track 
+what should happen inside your assembler program.
+
+
+The main program will call F() 5 times as follows:
+
+   Case 1: F(-3,  5, 5)    - base case 1           (ans = -1)
+   Case 2: F( 5, -4, 5)    - base case 2           (ans = -1)
+   Case 3: F( 2,  5, 9)    - base case 3           (ans =  7)
+   Case 4: F( 2,  2, 2)    - 1 level recursion     (ans =  1)           
+   Case 5: F( 5,  5, 5)    - multi-level recursion (ans = 23)
+
+You can use pj8-check to predict what should happen in your assembler program.
+
+ 
+
+For example: to track HOW the first case (F(-3, 5, 5))  should run 
+             in your assembler program, you run:
+
+    /home/cs255001/Handouts/pj8/pj8-check -3 5 5
+
+It shows the call sequence and the answer that F() returns:
+
+Call sequence:
+  >> F(-3, 5, 5)
+Ans = -1
+
+ 
+
+The call sequence shows that F( ) will NOT call any other F( ); so this is a base case.
+
+When you step execute your assembler program, it should enter a base base (and return -1).
+
+ 
+
+Another example: the last example
+
+   F( 5,  5, 5)
+
+How should this call be executed ? You can see it by using:
+
+    /home/cs255001/Handouts/pj8/pj8-check 5 5 5 
+
+The output shows the call sequence:
+
+Call sequence:
+  >> F(5, 5, 5)
+  >>     F(4, 4, 4)
+  >>         F(3, 3, 3)
+  >>             F(2, 2, 2)
+  >>                 F(1, 1, 1)
+  >>             F(1, 1, 2)
+  >>                 F(0, 0, 1)
+  >>         F(2, 2, 3)
+  >>             F(1, 1, 2)
+  >>                 F(0, 0, 1)
+  >>             F(0, 0, 2)
+  >>         F(1, 1, 3)
+  >>     F(3, 3, 4)
+  >>         F(2, 2, 3)
+  >>             F(1, 1, 2)
+  >>                 F(0, 0, 1)
+  >>             F(0, 0, 2)
+  >>         F(1, 1, 3)
+  >>         F(0, 0, 3)
+  >>     F(2, 2, 4)
+  >>         F(1, 1, 3)
+  >>         F(0, 0, 3)
+  >>         F(-1, -1, 3)
+  >>     F(1, 1, 4)
+Ans = 23
+
+That means:
+
+ 
+
+   F(5,5,5)  will first call  F(4,4,4)
+
+        F(4,4,4) will first call F(3,3,3)
+
+       ...  and so on
+
+ 
+
+If you STEP execute your program, you MUST see:
+
+ 
+
+  5, 5, 5,  pushed as parameters first
+
+  Then: 4, 4, 4,  pushed as parameters next,
+
+  Then: 3,3,3,  pushed as parameters,
+
+  and so on...
+
+ 
+
+It will help you debug your code.
+
+</Pre> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<H3>
+6. The System Stack
+</H3>
+<P>
+<UL>
+
+<P>
+In this project, you have to look carefully in the Stack Window
+to see if you maintain the program stack correctly.
+Pay special attention to the stack when you change it:
+ when you enter the recursive function and when you leave it.
+
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<HR>
+<P>
+<H3>
+7. Debug Trick
+</H3>
+
+<P>
+<UL>
+<P>
+<LI> <B>Some Programming Advice:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Make certain that you
+   <FONT color="red"><B>clean up the stack <I>correctly</I></B></FONT>
+   <B>at the moment</B> that your program executes the
+   <FONT color="blue"><B><TT>pop {pc}</TT></B></FONT>
+   instruction to return.
+ <P>
+ <HR>
+ <P>
+ <LI> You can best <FONT color="red"><B>stop</B></FONT> the
+     program right before the program executes the
+     <FONT color="blue"><B><TT>pop {pc}</TT></B></FONT>
+   instruction.
+ <P>
+ You can do that as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Add a label to every <FONT color="blue"><B><TT>pop {pc}</TT></B></FONT>
+      instruction and <FONT color="red"><B>.global</B></FONT> that label
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+           <FONT color="red">.global Debug1</FONT>              
+
+
+
+      F:      ....
+
+              ....
+
+     <FONT color="red"> Debug1:</FONT> pop {pc}        // Label return instruction      
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Add the label as a <FONT color="red"><B>breakpoint</B></FONT> in
+   <B>Egtapi </B>
+  <P>
+  For more details, see the <B>Egtapi documentation</B> on how
+  to use breakpoints in debugging:
+ <A HREF="http://www.mathcs.emory.edu/~cheung/Courses/255/Projects/Egtapi/doc2019/breakpoint.html">
+ <FONT color="red"><B> click here </B></FONT> </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<P>
+<h3>
+8. Turn in
+</h3>
+<P>
+<UL>
+
+Turn in your <B>recursion.s</B> program using project code
+   <FONT color="red"><B> pj8</B></FONT>
+   using <B>EGTAPI</B>
+<P>
+   (In EGTAPI, select: File Browser, Turnin, 
+   click on the file you want to turn in (recursion.s),
+   use the turn in code: <B>pj8</B>)
+<P>
+<HR>
+<P>
+You can also use 
+the 
+  <FONT color="blue"><B><TT>turnin</TT> </B></FONT>
+command (executed while you're in your cs255 directory)
+<P>
+ Open the <B>Terminal</B> in <B>EGTAPI</B> and type in
+ these command:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+	cd   ~/cs255/pj8  
+
+        /home/cs255001/turnin  recursion.s  pj8   // If you're in section 1             
+  or
+        /home/cs255002/turnin  recursion.s  pj8   // If you're in section 2             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+As usual, I want the source (so I can read it).
+<B>DO NOT</B> turn in the executable or the object code !
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+</UL>
+
+<P>
+ <FONT COLOR="darkmagenta"><B>
+  9.   Extension request
+     </B></FONT>
+<P>
+<UL>
+<LI> The easiest way to request an extension is 
+     using EGTAPI.
+     See instructions in homework 1 handout write up:
+     <A HREF="../hw1/hw1.html#extension"> click here</A>.
+     <P>
+     <FONT color="red"><B>However</B></font>, you need to
+     use <B>pj8</B> as homework code to make extension for this
+     homework/project.
+<P>
+<LI> Alternately, you can request an <FONT color="red"><B>extension</B></FONT>
+      for <FONT color="blue"><B>pj8</B></FONT>, by
+      <FONT color="red"><B>executing</B></FONT> the following
+      <FONT color="blue"><B>command</B></FONT>
+      in <B>EGTAPI's console</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/req-ext    <FONT color="red">pj8</FONT>     // IF you're in section 1      
+
+ or:
+
+    /home/cs255002/req-ext    <FONT color="red">pj8</FONT>     // IF you're in section 2      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="blue"><B>request</B></FONT> will
+ be <FONT color="red"><B>successful</B></FONT> if
+ you have <FONT color="blue"><B>not exceeded</B></FONT> the
+ <FONT color="red"><B>maximum number of "free" (no-questions-asked)
+ requests</B></FONT> allowed
+</UL>
+
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,568 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>union</TT> data type
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>union</TT> data type
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Syntax</B> to define a <FONT color="blue"><B><TT>union</TT></B></FONT>
+      data <FONT color="red"><B><I>structure</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">union</FONT>  UnionName
+    {
+        datatype1  varName1;    // List of variables   
+        datatype2  varName2;           
+	...
+    };
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Meaning:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B><TT>union</TT></B></FONT> data structure
+      is a <B>number of memory cells</B> used to
+      store
+      <FONT color="red"><B>any <I>one</I></B></FONT>
+      of the <FONT color="blue"><B>variables specified in the <TT>union</TT>
+      structure</B></FONT>
+ <P>
+ In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>same</I> memory cell(s)</B></FONT>
+      are used to store
+      <FONT color="red"><B><I>one</I> of the variables</B></FONT> in
+       the
+      <B>list of variables</B>
+      <FONT color="blue"><B>at <I>any one time</I></B></FONT>
+ <P>
+ <LI> It is <FONT color="blue"><B>not possible</B></FONT> to
+   <FONT color="red"><B>store <I>more than one</I> of the variables</B></FONT>
+   given in the <B>list of variable</B></FONT>
+   <FONT color="magenta"><B>at the <I>same time</I></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Defining a <TT>union</TT> typed variable:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Just like a <FONT color="blue"><B><TT>struct</TT></B></FONT> data type,
+      you can <B>define <I>variables</I></B> of
+      a <FONT color="red"><B><TT>union</TT></B></FONT> data type
+      after you have 
+      <FONT color="blue"><B>defined</B></FONT> the
+      <FONT color="red"><B><I>structure</I> of a <TT>union</TT></B></FONT>
+      data type
+ <P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="darkred"><FONT color="red">union myExample</FONT>     <FONT color="blue">// Union definition  </FONT>       
+   {
+      int     a;
+      double  b;
+      short   c;
+      char    d;
+   };</FONT>
+
+   <FONT color="red">union myExample  x;</FONT>  // Define a variable of the type <FONT color="red">union myExample</FONT>          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>How</I></B></FONT> 
+    the <B>different variables</B>
+    in a <FONT color="blue"><B> <TT>union</TT> typed variable</B></FONT>
+    are <B>stored in memory</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Example</B> <FONT color="red"><B><TT>union</TT></B></FONT> definition:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">union  myExample</FONT>               
+   {
+      int     a;
+      double  b;
+      short   c;
+      char    d;
+   };
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>How</I></B></FONT> the
+     different  <FONT color="blue"><B>variable</B></FONT> in the type
+     <FONT color="red"><B><TT>union myExample</TT></B></FONT>
+     are stored in memory:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/union1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Observe that:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Every</I> member variable</B></FONT> in
+      a <FONT color="blue"><B><TT>union</TT> typed variable</B></FONT>
+      start at the 
+      <FONT color="red"><B><I>same</I> memory address</B></FONT>
+ <P>
+ <LI> The <FONT color="blue"><B>number of bytes</B></FONT> used to
+       store a <FONT color="red"><B>member variable</B></FONT>
+       depends on the
+     <FONT color="blue"><B><I>size</I> (= data type)</B></FONT>
+    of the <FONT color="blue"><B>member variable</B></FONT>,
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>a</TT></B></FONT> uses
+     <FONT color="blue"><B>4</B></FONT> because it is
+     an <FONT color="red"><B><TT>int</TT></B></FONT> type variable
+ <LI> <FONT color="red"><B><TT>b</TT></B></FONT> uses
+     <FONT color="blue"><B>8</B></FONT> because it is
+     an <FONT color="red"><B><TT>double</TT></B></FONT> type variable
+ <LI> And so on.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="blue"><B>size</B></FONT> of a
+      <FONT color="red"><B><TT>union</TT> typed variable</B></FONT>
+      is equal to the <FONT color="blue"><B>size</B></FONT>
+      of the
+      <FONT color="red"><B><I>largest</I> component variable</B></FONT>
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     A <I>C program</I> that shows the facts of the <TT>union</TT>
+      data structure
+     </B></FONT>
+<P>
+<UL>
+<LI> We can <FONT color="blue"><B>easily</B></FONT>
+     show the above <B>facts</B> with the following
+     <FONT color="red"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">union myUnion    // Union structure</FONT>
+   {
+      int    a;
+      double b;
+      short  c;
+      char  d;
+   };
+  <FONT color="red">  
+   struct myStruct     // Struct with the same member variables</FONT>      
+   {
+      int    a;
+      double b;
+      short  c;
+      char  d;
+   };
+    
+   int main(int argc, char *argv[])
+   {<FONT color="red">
+      struct myStruct s;      // Define a struct
+      union myUnion   u;      // and a union variable</FONT>
+<FONT color="darkmagenta">
+      // Print the size and the address of each component</FONT>
+
+      printf("Structure variable:\n");
+      printf("sizeof(s) = %d\n", <FONT color="red">sizeof(s)</FONT> );
+      printf("Address of s.a = %u\n", <FONT color="red">&(s.a)</FONT> );              
+      printf("Address of s.b = %u\n", <FONT color="red">&(s.b)</FONT> );
+      printf("Address of s.c = %u\n", <FONT color="red">&(s.c)</FONT> );
+      printf("Address of s.d = %u\n", <FONT color="red">&(s.d)</FONT> );
+    
+      putchar('\n');
+    
+      printf("Union variable:\n");
+      printf("sizeof(u) = %d\n", <FONT color="red">sizeof(u)</FONT> );
+      printf("Address of u.a = %u\n", <FONT color="red">&(u.a)</FONT> );
+      printf("Address of u.b = %u\n", <FONT color="red">&(u.b)</FONT> );
+      printf("Address of u.c = %u\n", <FONT color="red">&(u.c)</FONT> );
+      printf("Address of u.d = %u\n", <FONT color="red">&(u.d)</FONT> );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Structure variable:	   
+   sizeof(s) = 24		   
+   Address of s.a = 4290768696
+   Address of s.b = 4290768704
+   Address of s.c = 4290768712
+   Address of s.d = 4290768714
+   			      
+   Union variable:		   
+   sizeof(u) = 8		   
+   Address of u.a = <FONT color="red">4290768688    (Same location !!!)</FONT>     
+   Address of u.b = <FONT color="red">4290768688</FONT>
+   Address of u.c = <FONT color="red">4290768688</FONT>
+   Address of u.d = <FONT color="red">4290768688</FONT>            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/union1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc union1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>use</I> of <TT>union</TT> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Common uses</B> of 
+    <FONT color="red"><B><TT>union</TT></B></FONT> typed variables:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> As a <FONT color="red"><B>buffer</B></FONT> to store
+      a <B>value</B> for an
+      <FONT color="blue"><B><I>user-specified</I> operation</B></FONT>
+ <P>
+     The <FONT color="blue"><B><I>user-specified</I> operation</B></FONT>
+      can receive <FONT color="red"><B>different types</I></B></FONT> of
+      values.
+ <P>
+<HR>
+<P>
+ <LI> You can use
+     <B>multiple</B>
+     <FONT color="red"><B><TT>struct</TT> variables</B></FONT>
+     of the <B>same size</B> inside
+     a <FONT color="blue"><B><TT>union</TT> variable</B></FONT>
+     to
+     <FONT color="red"><B>re-map</B></FONT> the different
+     <B>bits</B> to make
+     <FONT color="blue"><B>accessing the bit information
+     <I>easier</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This technique is <B>commonly used</B> in
+      <FONT color="red"><B>network programming</B></FONT> to
+      process <FONT color="blue"><B>different <I>message headers</I></B></FONT>
+  <P>
+ <LI> This topic is <FONT color="blue"><B>beyond</B></FONT>
+   the <B>scope</B> of this course....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Personal anecdote</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>only</I> time</B></FONT> in my life
+    that I <FONT color="blue"><B>needed </B></FONT> to use
+    a <FONT color="red"><B><TT>union</TT> typed variable</B></FONT>
+    was when I was writing
+    an <FONT color="blue"><B>interpreter</B></FONT> for a
+    new <FONT color="red"><B>data base manipulation language</B></FONT>
+ <P>
+ <LI> I used a <FONT color="red"><B><TT>union</TT> typed variable</B></FONT>
+      to hold <B>value</B> from a 
+      <FONT color="blue"><B>parsed expression</B></FONT>
+ <P>
+<HR>
+ <P>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>expression</B>
+        <FONT color="red"><B><TT>3 <FONT color="blue">+</FONT>
+       4</TT></B></FONT> contains
+	 <FONT color="blue"><B>2 <I>integer</I> values</B></FONT>
+	 as <FONT color="red"><B>operands</B></FONT>
+	 for the <FONT color="blue"><B>operation +</B></FONT>
+ <P>
+ <LI> While the <B>expression</B>
+        <FONT color="red"><B><TT>(3 < 4)<FONT color="blue"> AND</FONT>
+    (4 < 5)</TT></B></FONT> contains
+	 <FONT color="blue"><B>2 <I>boolean</I> values</B></FONT>
+	 as <FONT color="red"><B>operands</B></FONT>
+	 for the <FONT color="blue"><B>operation AND</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I used a <FONT color="red"><B>union</B></FONT> typed variable
+ to store the <FONT color="blue"><B>operands</B></FONT>.
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Network programming:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you do <FONT color="blue"><B>network programming</B></FONT>
+      with <FONT color="red"><B>different package formats</B></FONT>,
+      you will encounter
+      <FONT color="blue"><B><TT>unions</TT></B></FONT> of
+      many <FONT color="red"><B>different <TT>struct</TT></B></FONT>
+      variables.
+  <P>
+     This allow you to manipulate
+     <FONT color="blue"><B>different <I>network protocol</I> headers</B></FONT>
+     easily.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,976 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H1>
+<HR>
+80x86 CPU architecture
+<HR>
+</H1>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     History of the Intel CPU
+     </B></FONT>
+<P>
+<UL>
+<LI>  <FONT color="blue"><B>8080</B></FONT>  
+	(around 1978, when I was an undergrad in Delft)
+  <P>
+  <UL>
+  <LI> This is the grand-daddy of the Intel processors:
+<P>
+<UL>
+<IMG SRC="FIGS/C8080-8.jpg">
+</UL>
+<P>
+  <LI> <FONT color="red"><B>No memory management</B></FONT> -
+	"real mode"
+	In this mode, a program may access any memory
+	address, even the memory of other programs! 
+  <P>
+  <LI> 8 bits data bus, 16 bits address bus (64 K memory !)
+  <P>
+  <LI> Registers in the CPU:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+      <FONT color="red"> 8 bits             8 bits</FONT>
+   <------------>     <------------>
+   +------------+     +------------+   
+   |     <FONT color="red">A</FONT>      |     |   Flags    |
+   +------------+     +------------+
+
+   +------------+     +------------+   
+   |     B      |     |      C     |
+   +------------+     +------------+
+
+   +------------+     +------------+   
+   |     D      |     |      E     |
+   +------------+     +------------+
+
+   +------------+     +------------+   
+   |     H      |     |      L     |
+   +------------+     +------------+
+
+   <-------  16 bits ------>
+   +------------------------+   
+   |         SP             | Stack pointer                  
+   +------------------------+
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Description:</B>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+<UL>
+ <LI> <FONT color="blue"><B>A</B></FONT> register =
+    <FONT color="red"><B>Accumuulator</B></FONT>,
+	<B>main register</B> used for calculations
+ <LI> <FONT color="blue"><B>Flag</B></FONT> register = contains flags...
+<HR>
+ <LI> <FONT color="blue"><B>B</B></FONT> register = 
+   <FONT color="red"><B>general purpose reg</B></FONT>
+ <LI> <FONT color="blue"><B>C</B></FONT> register = <B>Counting</B> register,
+	can be used as <B>counter</B> in <B>for</B> loops
+ <LI> <FONT color="red"><B>Note:</B></FONT>
+    The <FONT color="blue"><B>B</B></FONT> and
+   <FONT color="blue"><B>C</B></FONT>
+  registers
+	can be <FONT color="red"><B>concatenated</B></FONT> together
+	to form a <FONT color="darkmagenta"><B>16 bit register</B></FONT> 
+      <FONT color="blue"><B>BC</B></FONT>
+<HR>
+ <LI> <FONT color="blue"><B>D</B></FONT> register = general purpose reg
+
+      <FONT color="blue"><B>DE</B></FONT>
+ <LI> <FONT color="blue"><B>E</B></FONT> register = general purpose reg
+ <LI> <FONT color="red"><B>Note:</B></FONT>
+    The <FONT color="blue"><B>D</B></FONT> and
+   <FONT color="blue"><B>E</B></FONT>
+  registers
+	can be <FONT color="red"><B>concatenated</B></FONT> together
+	to form a <FONT color="darkmagenta"><B>16 bit register</B></FONT> 
+      <FONT color="blue"><B>DE</B></FONT>
+<HR>
+ <LI> <FONT color="blue"><B>H</B></FONT> register = general purpose register
+ <LI> <FONT color="blue"><B>L</B></FONT> register = general purpose reg
+ <LI> <FONT color="red"><B>Note:</B></FONT>
+    The <FONT color="blue"><B>H</B></FONT> and
+   <FONT color="blue"><B>L</B></FONT>
+  registers
+	can be <FONT color="red"><B>concatenated</B></FONT> together
+	to form a <FONT color="darkmagenta"><B>16 bit register</B></FONT> 
+      <FONT color="blue"><B>HL</B></FONT>
+</UL>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+ <P>
+ <HR>
+ <P>
+<LI>  <FONT color="blue"><B>8086</B></FONT>  
+	(around 1981)
+  <P>
+  <UL>
+  <LI> <FONT color="red"><B>No memory management</B></FONT> -
+	(<FONT color="blue"><B>only</B></FONT> has the
+   <FONT color="darkmagenta"><B>"real mode"</B></FONT>)
+  <P>
+  <LI> <FONT color="red"><B>16 bits data bus</B></FONT>
+     (can transfer data <FONT color="blue"><B>twice as fast</B></FONT> as
+     the <FONT color="darkmagenta"><B>8080</B></FONT>)
+  <P>
+  <LI> <FONT color="red"><B>20 bits address bus</B></FONT>
+     (wow, <FONT color="blue"><B>1 Mega byte memory</B></FONT> !)
+  <P>
+  <LI> <B>Memory</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  The <FONT color="blue"><B>8086 CPU</B></FONT> 
+         <FONT color="red"><B>cannot</B></FONT> address
+	 the <FONT color="darkmagenta"><B>entire 1 Mbyte memory</B></FONT>
+	 at once
+  <P>
+ <LI> The <FONT color="blue"><B>8086 CPU</B></FONT> can <B>only</B>
+      access
+	<FONT color="red"><B>64 KBytes</B></FONT> of memory 
+	<FONT color="blue"><B>at any one time</B></FONT>
+ <P>
+ <LI> It uses a <FONT color="red"><B>segment register</B></FONT>
+     that points to the <FONT color="blue"><B>start (base)</B></FONT>
+     of a <FONT color="darkmagenta"><B>64 K byte segment</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+             			Memory    
+    CS=<FONT color="red">1</FONT>0000 --+        	+--------+
+               |		|        |
+               |		. .....  .
+               |        	. .....  .
+               |		|        |
+               +------>	 <FONT color="red">16</FONT>0000 +--------+ -
+             			|        | ^
+             			|        | | 64 K byte memory ("segment")
+             			|        | |
+             			|        | v
+             			+--------+ -
+             			|        |
+				.  ....  .
+				.  ....  .
+             			|        |
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+  <LI> A <FONT color="blue"><B>memory address</B></FONT>
+       in <FONT color="darkmagenta"><B>8086</B></FONT> has 
+       <FONT color="red"><B>20 bits</B></FONT>
+    (<FONT color="blue"><B>1 Mbytes</B></FONT>)
+ <P>
+     A <FONT color="blue"><B>memory address</B></FONT> is formed as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+      <------- 16 bits ----->
+      +---------------------+     
+      | <FONT color="red">A segment register</FONT>  |0000
+      +---------------------+   
+           <------- 16 bits ----->
+           +---------------------+     
+  +        | <FONT color="red">A general register</FONT>  |    
+           +---------------------+   
+ ----------------------------------      
+      +--------------------------+     
+      |     <FONT color="red">a 20 bits value</FONT>      |
+      +--------------------------+   
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(The <FONT color="blue"><B>segment register</B></FONT> is
+  <FONT color="red"><B>shifted 4 bits</B></FONT> and then
+  <FONT color="darkmagenta"><B>added</B></FONT> to
+  a <FONT color="blue"><B>general purpose register</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B> segment register</B></FONT>
+    is used  as a <FONT color="red"><B>"base pointer</B></FONT>
+     and the <FONT color="blue"><B>general
+	purpose register<FONT color="darkmagenta"><B> is used
+        as an <FONT color="red"><B>"offset"</B></FONT> to access
+	the memory:
+   <P>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+                                     Memory
+				|		|
+	+-------------+----+	|		|
+	| <FONT color="red">Segment reg</FONT> |0000|--->|---------------| ---
+	+-------------+----+	|		|  ^
+		  +		|		|  |
+	   +---------------+	|		|  | <font color="red">1 segment</font>
+	   | <FONT color="red">gen. purp reg</FONT> |	|		|  |
+	   +---------------+	|		|  |
+		  |		|		|  |  64 K (2<sup>16</sup>)   
+		  |		|		|  |
+		  +------------>|---------------|  |
+		<FONT color="red">effective addr</FONT>	|		|  |
+				|---------------|  |
+				|		|  |
+				|		|  V
+				|---------------| ---
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Notation:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>XX:YY</B></FONT> = the <B>memory address</B>
+     from by the 
+       <FONT color="blue"><B>segment register XX</B></FONT> and
+       the <FONT color="darkmagenta"><B>index (offset) register YY</B></FONT>
+ <P>
+  The <FONT color="red"><B>effective memory address</B></FONT> is equal to:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+      <------- 16 bits ----->
+      +---------------------+     
+      |     <FONT color="red">Register XX</FONT>     |0000
+      +---------------------+   
+           <------- 16 bits ----->
+           +---------------------+     
+  +        |     <FONT color="red">Register YY</FONT>     |    
+           +---------------------+   
+ ----------------------------------      
+      +--------------------------+     
+      |     <FONT color="red">effective addr</FONT>       |
+      +--------------------------+   
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+  <P>
+  <LI> <FONT color="blue"><B>Registers</B></FONT> in the 
+  <FONT color="red"><B>8086 CPU</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+           16 bits                      16 bits
+   <--------------------->     <--------------------->
+   +---------------------+     +---------------------+   <FONT color="red">"General purpose"</FONT>
+   |         AX          |     |          BX         |    registers
+   +---------------------+     +---------------------+
+   +---------------------+     +---------------------+   
+   |         CX          |     |          DX         |
+   +---------------------+     +---------------------+
+<HR>
+   +---------------------+     +---------------------+   <FONT color="red">Index registers</FONT>
+   |         SI          |     |          DI         |
+   +---------------------+     +---------------------+
+<HR>
+   +---------------------+     +---------------------+   <FONT color="magenta">Segment registers</FONT>                
+   |         CS          |     |          DS         |
+   +---------------------+     +---------------------+
+   +---------------------+     +---------------------+   
+   |         SS          |     |          ES         |
+   +---------------------+     +---------------------+
+<HR>
+   +---------------------+     +---------------------+   <FONT color="red">Misc.</FONT>
+   |         BP          |     |          IP         |
+   +---------------------+     +---------------------+
+   +---------------------+
+   |         SP          |
+   +---------------------+
+
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Notes:</B>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+<UL>
+ <LI> <FONT color="red"><B>AX</B></FONT> = accumulator; 
+  <UL>
+  <LI> <FONT color="blue"><B>AH</B></FONT> = upper half of <B>AX</B>,
+  <LI> <FONT color="blue"><B>AL</B></FONT> = lower half of <B>AX</B>
+  </UL>
+ <LI> <FONT color="red"><B>BX</B></FONT> = general purpose register,
+  <UL>
+  <LI> <FONT color="blue"><B>BH</B></FONT> = upper half of <B>BX</B>,
+  <LI> <FONT color="blue"><B>BL</B></FONT> = lower half of <B>BX</B>
+  </UL>
+ <LI> <FONT color="red"><B>CX</B></FONT> = Counting register (implement
+   <FONT color="darkmagenta"><B> for loops</B></FONT>),
+  <UL>
+  <LI> <FONT color="blue"><B>CH</B></FONT> = upper half of <B>CX</B>,
+  <LI> <FONT color="blue"><B>CL</B></FONT> = lower half of <B>CX</B>
+  </UL>
+ <LI> <FONT color="red"><B>DX</B></FONT> = general purpose register,
+  <UL>
+  <LI> <FONT color="blue"><B>DH</B></FONT> = upper half of <B>DX</B>,
+  <LI> <FONT color="blue"><B>DL</B></FONT> = lower half of <B>DX</B>
+  </UL>
+<P>
+ <HR>
+ <P>
+<LI> <B>Segment registers:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>CS</B></FONT> = 
+     <FONT color="blue"><B>code segment register</B></FONT>
+     (base address of the segment
+	containing <FONT color="darkmagenta"><B>program  code</B></FONT>)
+ <LI> <FONT color="red"><B>DS</B></FONT> = 
+   <FONT color="blue"><B>data segment register</B></FONT>
+     (base address of the segment
+	containing <FONT color="darkmagenta"><B>memory variables</B></FONT>)
+ <LI> <FONT color="red"><B>SS</B></FONT> = 
+   <FONT color="blue"><B>stack segment register</B></FONT>
+      (base address of the segment
+	containing the <FONT color="darkmagenta"><B>stack</B></FONT>)
+ <LI> <FONT color="red"><B>ES</B></FONT> = 
+     <FONT color="blue"><B>"extra" segment register</B></FONT>
+    (base address of the <FONT color="darkmagenta"><B>destination
+	segment</B></FONT> in
+    <FONT color="blue"><B>string operations</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B>SI</B></FONT> = Source index register
+ <LI> <FONT color="red"><B>DI</B></FONT> = Destination index register
+   <P>
+	(The <FONT color="darkmagenta"><B>8086</B></FONT>
+      has a <FONT color="red"><B>memory copy instruction</B></FONT>
+    that <B>transfer data</B> at memory location
+	given by 
+   <FONT color="blue"><B>SS:SI</B></FONT> to memory location given by 
+  <FONT color="red"><B>ES:DI</B></FONT>)
+ <P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <font color="red"><B>BP</B></font> = 
+   <FONT color="blue"><B>Base pointer</B></FONT> 
+	<font color="darkred"><B>(= frame pointer !)</B></font>
+
+ <LI> <font color="red"><B>SP</B></font> = 
+   <FONT color="blue"><B>Stack pointer </B></FONT>
+
+ <P>
+ <LI> <FONT color="red"><B>IP</B></FONT> =
+  <FONT color="blue"><B>Instruction pointer</B></FONT>
+        (<FONT color="darkmagenta"><B>CS:IP</B></FONT> =
+	<FONT color="blue"><B> program counter</B></FONT>)
+</UL>
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+<HR>
+
+<P>
+ <LI> <B>SI</B>, <B>DI</B>, <B>SP</B>, <B>BP</B> and
+    <B>IP</B>
+	are <FONT color="darkmagenta"><B>"offset" registers</B></FONT>. 
+  <P>
+    <B>Each "offset" register</B> works in conjunction with 
+     its own <FONT color="red"><B>default segment register</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+  <LI> <FONT color="red"><B>CS:IP</B></FONT> =
+        the <FONT color="blue"><B>address</B></FONT> of
+	 the <B> next instruction</B> in memory. 
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="red"><B>DS:AX</B></FONT>, &nbsp;
+     <FONT color="red"><B>DS:BX</B></FONT>, &nbsp;
+     <FONT color="red"><B>DS:CX</B></FONT>, &nbsp;
+     <FONT color="red"><B>DS:DX</B></FONT>,
+       = the <FONT color="blue"><B>memory address</B></FONT> of
+        a <FONT color="darkmagenta"><B>memory operand</B></FONT>
+ <P>
+<HR>
+<HR>
+  <P>
+  <LI> <FONT color="red"><B>DS:SI</B></FONT> = the
+   <FONT color="blue"><B>source address</B></FONT> of the
+    <FONT color="darkmagenta"><B>string</B></FONT> instruction
+  <P>
+  <LI> <FONT color="red"><B>ES:DI</B></FONT> =
+    the
+   <FONT color="blue"><B>destination address</B></FONT> of the
+    <FONT color="darkmagenta"><B>string</B></FONT> instruction
+ <P>
+<HR>
+  <P>
+  <LI> <FONT color="red"><B>SS:SP</B></FONT> = the
+   <FONT color="blue"><B> stack pointer</B></FONT>
+<P>
+  <LI> <FONT color="red"><B>SS:BP</B></FONT> = the
+   <FONT color="blue"><B> frame pointer</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+<P>
+<LI> <B>Segment register "override"</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>index registers</B></FONT>
+     (<B>SI, DI, SP, BP, IP</B>) can be used with
+     <FONT color="red"><B>other segments</B></FONT>
+     (overriding the <FONT color="darkmagenta"><B>default segment
+     register</B></FONT>)
+ <P>
+ <LI> The <FONT color="blue"><B>8086</B></FONT> has the following
+     <FONT color="red"><B><I>general</I> addressing format</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+   mov	ax, [<FONT color="red">baseReg</FONT> + indexReg + constant]           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When you specify a
+  <FONT color="red"><B>baseReg</B></FONT> in the instruction,
+  you <FONT color="blue"><B>override</B></FONT> the
+  <FONT color="red"><B>default base register</B></FONT>
+  for <FONT color="darkmagenta"><B>indexReg</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  </UL> 
+ <P>
+ <HR>
+<HR>
+<HR>
+ <P>
+<LI>  <FONT color="blue"><B>80286</B></FONT>  
+	(around 1985)
+  <P>
+  <UL>
+ <LI> <B>Main improvement:</B>
+<P>
+<UL>
+<TABLE bgcolor="mistyrose" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>"Protected" mode</B></FONT>
+ <P>
+    This <B>operational mode</B>
+    uses <FONT color="red"><B>"virtual" memory (cs355)</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Short-comings:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> <FONT color="darkmagenta"><B>Unfortunately</B></FONT>, it is a
+<FONT color="blue"><B>very weird "<FONT color="red">24 bits</FONT>
+    protected mode"</B></FONT> :
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+   <UL>
+   <LI> The <B>80286</B> CPU can access up to 
+    <FONT color="red"><B>16 megabytes</B> </FONT>
+<P>
+   <LI> The <FONT color="blue"><B>virtual memory</B></FONT>
+    protects programs from accessing each other's memory.
+<P>
+   <LI> <FONT color="red"><B>However</B></FONT>, 
+  programs are still using <FONT color="blue"><B> <B>64 K segments</B></FONT> 
+   </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+  <P>
+ <LI> The <FONT color="blue"><B>80286</B></FONT>
+       can also run in 
+   <FONT color="red"><B>"real mode"</B></FONT> (for compatability reasons)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+  <P>
+ <LI> <B>80286 registers:</B>
+<P>
+<UL>
+<TABLE bgcolor="palegreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There were <FONT color="red"><B>no improvements (changes)</B></FONT>
+     in <B>registers</B> 
+ <P>
+ <LI> The <B>registers</B> of the <FONT color="blue"><B>80286</B></FONT> 
+   are <FONT color="darkmagenta"><B>exactly the same</B></FONT>
+   as those in
+   <FONT color="red"><B>8086</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+ <HR>
+ <HR>
+ <HR>
+ <HR>
+ <HR>
+
+ <P>
+<LI>  <FONT color="blue"><B>80386</B></FONT>  
+  <P>
+  <UL>
+  <LI> <B>Finally....</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>80386</B></FONT> is the
+     <FONT color="red"><B>first modern 32 bit CPU</B></FONT> in the
+     Intel family
+ <P>
+<HR>
+<P>
+  <LI> <B>80386</B> provides the
+      <FONT color="red"><B>full <I>32 bit</I> protected mode</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+   <UL>
+   <LI> <FONT color="blue"><B>32 bit registers</B></FONT>
+   <LI> <FONT color="blue"><B>32 bit address bus</B></FONT>
+  <P>
+  <LI> I.e.: a <FONT color="blue"><B>complete</B></FONT>
+    <FONT color="red"><B>32 bit computer</B></FONT>
+   </UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Modern Intel assembler programs</B></FONT>
+   are all written using the
+  <FONT color="red"><B>pretected mode</B></FONT>...
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+  <P>
+  <LI> <FONT color="blue"><B>Registers</B></FONT> in the
+     <B>80386 CPU</B>:
+<P>
+<UL>
+<TABLE bgcolor="yellow" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+           32 bits                      32 bits
+   <--------------------->     <--------------------->
+   +---------------------+     +---------------------+   "General purpose"
+   |        EAX          |     |         EBX         |    registers
+   +---------------------+     +---------------------+
+   +---------------------+     +---------------------+   
+   |        ECX          |     |         EDX         |
+   +---------------------+     +---------------------+
+<HR>
+   +---------------------+     +---------------------+   Index registers
+   |        ESI          |     |         EDI         |
+   +---------------------+     +---------------------+
+<HR>
+   +---------------------+     +---------------------+   Misc.
+   |        EBP          |     |         EIP         |
+   +---------------------+     +---------------------+
+   +---------------------+
+   |        ESP          |
+   +---------------------+
+<HR><font color="darkmagenta">
+   <FONT color="red">Segment registers: (Not used in protected mode !) 
+   ====================</FONT>
+           16 bits                      16 bits
+   <--------------------->     <--------------------->
+   +---------------------+     +---------------------+  
+   |         CS          |     |          DS         |
+   +---------------------+     +---------------------+
+   +---------------------+     +---------------------+  
+   |         SS          |     |          ES         |   
+   +---------------------+     +---------------------+
+   +---------------------+     +---------------------+   
+   |         FS          |     |          GS         |
+   +---------------------+     +---------------------+
+</font>
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Notes:</B>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+<UL>
+ <LI> <FONT color="red"><B>EAX</B></FONT> = accumulator;
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>AX</B></FONT> = 
+    <FONT color="red"><B>lower half</B></FONT> of <B>EAX</B>
+ <LI> <FONT color="blue"><B>AL</B></FONT> = 
+    <FONT color="red"><B>lower quart</B></FONT> of <B>EAX</B>
+ <P>
+ <B>Graphically:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+     EAX register:
+     +----------+----------+----------+----------+      
+     |          |          |          |          |
+     +----------+----------+----------+----------+<FONT color="red">
+                                      |<-------->|</FONT>
+				           AL
+<FONT color="darkmagenta">
+                           |<------------------->|</FONT>
+			              AX
+<FONT color="red">
+      |<-----------------------------------------|</FONT>
+                         EAX
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+	
+ <LI> <FONT color="red"><B>EBX</B></FONT> = general purpose register
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>BX</B></FONT> =
+   <FONT color="red"><B>lower half</B></FONT>
+     of <B>EBX</B>,
+ <LI> <FONT color="blue"><B>BL</B></FONT> = 
+     <FONT color="red"><B>lower quart</B></FONT> of <B>EBX</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+	
+ <LI> <FONT color="red"><B>ECX</B></FONT> = Counting register (for for loop)
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>CX</B></FONT> =
+   <FONT color="red"><B>lower half</B></FONT>
+     of <B>ECX</B>,
+ <LI> <FONT color="blue"><B>CL</B></FONT> = 
+     <FONT color="red"><B>lower quart</B></FONT> of <B>ECX</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <LI> <FONT color="red"><B>EDX</B></FONT> = general purpose register,
+	<B>DX</B> = lower half of <B>EDX</B>,
+	<B>DL</B> = lower quart of <B>EDX</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>DX</B></FONT> =
+   <FONT color="red"><B>lower half</B></FONT>
+     of <B>EDX</B>,
+ <LI> <FONT color="blue"><B>DL</B></FONT> = 
+     <FONT color="red"><B>lower quart</B></FONT> of <B>EDX</B>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>ESI</B></FONT> = Source index register
+ <LI> <FONT color="red"><B>EDI</B></FONT> = Destination index register
+   <P>
+<HR>
+<P>
+ <LI> <font color="red"><B>EBP</B></font> = 
+   <FONT color="blue"><B>Base pointer</B></FONT>
+	<font color="red"><B>(= frame pointer !)</B></font>
+ <LI> <font color="red"><B>ESP</B></font> = 
+      <FONT color="blue"><B>Stack pointer</B></FONT>
+ <LI> <FONT color="red"><B>EIP</B></FONT> = 
+     <FONT color="blue"><B>Instruction pointer</B></FONT>
+      (= <FONT color="red"><B>program counter</B></FONT>)
+ <P>
+<HR>
+<P>
+ <LI> <B>16 bit segment registers:</B>
+<P>
+<UL>
+<TABLE bgcolor="khaki" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> <B>CS</B> = code segment register (base address of the segment
+	containing program  code)
+ <LI> <B>DS</B> = data segment register (base address of the segment
+	containing memory variables)
+ <LI> <B>SS</B> = stack segment register (base address of the segment
+	containing the stack)
+ <LI> <B>ES</B> = "extra" segment register (base address of the "auxiliary"
+	segment)
+ <LI> <B>FS</B> = additional auxiliary segment register 
+ <LI> <B>GS</B> = additional auxiliary segment register 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(These <FONT color="blue"><B>segment registers</B></FONT> are
+  <FONT color="red"><B>not used</B></FONT> in the
+  <FONT color="darkmagenta"><B>protected mode</B></FONT>)
+</UL>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Graphically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/x86-registers.png"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <P>
+  </UL>
+<P>
+ <HR>
+<HR>
+ <P>
+<LI>  <FONT color="blue"><B>80486</B></FONT>  
+  <P>
+  <UL>
+  <LI> Nothing new to report, just faster...
+  </UL>
+ <P>
+<P>
+ <HR>
+<HR>
+ <P>
+<LI>  <FONT color="blue"><B>Pentium</B></FONT>  
+  <P>
+  <UL>
+  <LI> Nothing new to report, just faster...
+  </UL>
+</UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>

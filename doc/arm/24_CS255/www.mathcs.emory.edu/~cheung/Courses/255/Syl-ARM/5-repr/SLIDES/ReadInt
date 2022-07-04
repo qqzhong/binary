@@ -1,0 +1,492 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Review: String in Java (and other programming languages)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   What is a <FONT color="red"><B>string</B></FONT>
+   in a <FONT color="blue"><B>computer program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI>  A <FONT color="red"><B>string</B></FONT>
+     (in <FONT color="blue"><B>
+    Java or other programming languages</B></FONT>) is
+     an <FONT color="red"><B>sequence (= array) of ASCII codes</B></FONT>
+ <P>
+   (One ASCII code represents one character in the string)
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+ 
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 1.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Java program that shows that a String is a series of ASCII codes (binary numbers)
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+public class CharAt
+{
+   public static void main(String[] args)  throws Exception
+   {
+      String s = <FONT color="red">"ABC123"</FONT>;
+
+      for ( int i = 0; i < s.length(); i++)
+      {  
+         System.out.println( s.charAt(i) );
+         System.out.println( Integer.toBinaryString(s.charAt(i)) );
+         System.out.println( Integer.toString(s.charAt(i)) );
+      }
+   }
+}
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>DEMO program:</B></FONT>
+  <FONT color="blue"><B><TT>
+   /home/cs255001/demo/atoi/CharAt.java</TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Reading integer numbers from keyboard input
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   In <FONT color="red"><B>CS170</B></FONT>, you have learned
+   this <FONT color="blue"><B>method</B></FONT> to
+   <FONT color="red"><B>read integer inputs</B></FONT>
+   from the <FONT color="blue"><B>console (keyboard)</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Scanner in = new Scanner(System.in); 
+
+   int x = in.<FONT color="red">nextInt( )</FONT>;
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B><TT>nextInt( )</TT></B></FONT> method
+   in <FONT color="blue"><B>Java</B></FONT> consists of 
+   <FONT color="red"><B>2 method calls</B></FONT>.
+  <BR>
+  This is an
+  <FONT color="red"><B>alternate way</B></FONT> to
+   <FONT color="blue"><B>read integer input</B></FONT>
+   in <FONT color="red"><B>Java</B></FONT>:
+   </font>
+   </p>
+
+  <center>
+   <TABLE bgcolor="#CCFFCC" BORDER="5" width=800>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   Scanner in = new Scanner(System.in); 
+
+   String s = in.<FONT color="red">next( )</FONT>; // Read input as a String
+   int x = Integer.<FONT color="red">parseInt(s)</FONT>; // Conv String to 2s compl
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <TT>next( )</TT> method in the <TT>Scanner</TT> class
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B><TT>next( )</TT></B></FONT> method:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B><TT>next( )</TT></B></FONT> method
+     returns the
+   <FONT color="blue"><B>input string</B></FONT>
+   (= <FONT color="red"><B>series of ASCII codes (= binary numbers)</B></FONT>
+   entered by the <FONT color="blue"><B>user</B></FONT>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+&nbsp;
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT>
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/atoi/Next.java</TT></B></FONT>
+   </font>
+   </p>
+
+   <p style="padding: 1.2in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <TT>parseInt( )</TT> method in the <TT>Scanner</TT> class
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B><TT>parseInt( )</TT></B></FONT> method:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B><TT>parseInt( )</TT></B></FONT> method
+     returns the
+   <FONT color="blue"><B>integer representation 
+   (= a 2s complement code)</B></FONT>
+   for the <B>input</B>
+   <FONT color="red"><B>number string
+   (= <FONT color="red"><B>series of ASCII codes</B></FONT>
+   passed to the <B>method</B>
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+&nbsp;
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B>DEMO:</B></FONT>
+   <FONT color="blue"><B><TT>
+   /home/cs255001/demo/atoi/parseInt.java</TT></B></FONT>
+   </font>
+   </p>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B><TT>parseInt( )</TT></B></FONT> method
+   is an <FONT color="blue"><B>example</B></FONT> of
+   a <FONT color="red"><B><I>conversion</I> method</B></FONT>
+   <B>needed</B> in
+   <FONT color="blue"><B>computer programming</B></FONT> that
+   <FONT color="red"><B>convert</B></FONT> between
+   <FONT color="blue"><B>different</I> kinds of 
+   representations</B></FONT>!!!
+   </font>
+   </p>
+
+   <p style="padding: 0.1in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+ 
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

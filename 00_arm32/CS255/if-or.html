@@ -1,0 +1,427 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+
+<H3>
+<HR>
+<TT>If</TT>-statement with a compound condition with an OR clause
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Short-circuit evaluation for an <TT>OR</TT> clause
+     </B></FONT>
+<P>
+<UL>
+
+ <LI> Consider this   <FONT color="red"><B><TT> if</TT>-statement</B></FONT>
+       with an <FONT color="blue"><B>or</B></FONT> logical operator:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( cond <FONT color="red">or</FONT> "Other conditions" )       
+      statement1;
+   else
+      statement2;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>compound condition</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    cond  <FONT color="red">or</FONT>  "Other conditions"           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+When we <FONT color="red"><B>evaluation</B></FONT> the
+ <FONT color="blue"><B>condition <TT>cond</TT></B></FONT> at the
+  <FONT color="red"><B><I>left</I> hand side</B></FONT>, there are
+  <FONT color="blue"><B>2 possible outcomes</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B><TT>cond</TT> &equiv; true</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this case, we <FONT color="red"><B>know</B></FONT>  the
+  outcome of
+  <FONT color="blue"><B><TT>cond  <FONT color="red">or</FONT>
+    "Other conditions"</TT></B></FONT>
+    <FONT color="red"><B>&equiv; true</B></FONT> !!!
+ <P>
+ (Because <FONT color="blue"><B><TT>true <FONT color="red">or</FONT> any-boolean-value
+   <FONT color="red">&equiv; true</FONT></TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<P>
+ <LI> <FONT color="red"><B><TT>cond</TT> &equiv; false</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this case, we <FONT color="red"><B>must</B></FONT> evaluate the
+  <FONT color="blue"><B>"Other conditions"</B></FONT> to determine the
+  outcome of
+  <FONT color="blue"><B><TT>cond  <FONT color="red">or</FONT>
+    "Other conditions"</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So in the case that
+ <FONT color="red"><B><TT>cond &equiv; true</TT></B></FONT>,
+ we can take the
+  <FONT color="blue"><B><TT>then</TT></B></FONT> branch of the program flow
+  <FONT color="red"><B>immediately</B></FONT> 
+ (and terminate the boolean evaluation 
+  <FONT color="blue"><B>prematurely</B></FONT> !!!)
+<P>
+<HR>
+<HR>
+<P>
+<LI> We can <FONT color="red"><B>use</B></FONT> this
+   <FONT color="blue"><B><I>short</I>-circuit boolean evalation</B></FONT> to
+   draw up the  following
+ <FONT color="red"><B>program flow control</B></FONT> where we
+   make the <FONT color="blue"><B>branch decision</B></FONT>
+   <FONT color="red"><B><I>immediately</I></B></FONT>
+   after evaluating a
+   <FONT color="blue"><B> part</B></FONT> of the
+   <FONT color="red"><B>boolean expression</B></FONT>:
+   
+
+ <P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+   if ( cond  <FONT color="red">or</FONT>  "Other conditions" )   ---->         |
+      statement1;		                       V
+   else				                +--------------+ <FONT color="red">TRUE</FONT>
+      statement2;				|  eval cond   |--------+
+						+--------------+	|
+				                       |		|
+						       | <FONT color="red">FALSE</FONT>		|
+						       V                |
+                                                +--------------+ <FONT color="red">FALSE</FONT>  |
+					        | eval theRest |--------|---+    
+					        +--------------+        |   |
+				                       | <FONT color="red">TRUE</FONT>		|   |
+						       |		|   |
+						       V		|   |
+				                   statement1 <---------+   |
+				                       |                    |
+			                     +---------+                    |
+					     |	                            |
+					     |	       +--------------------+
+					     |	       |
+					     |	       V
+					     |	   statement2
+					     |	       |
+					     |	       |
+					     +-------->+
+				                       |
+						       |
+						       V
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>assembler construct</B></FONT>
+    that <FONT color="blue"><B>realizes</B></FONT> the 
+   <FONT color="red"><B>program control flow</B></FONT>
+     of the 
+       <FONT color="blue"><B><TT>if</TT>-statement</B></FONT> 
+	with an 
+       <B>compound condition</B>
+     <FONT color="red"><B><TT>"cond  or   OtherConditions"</TT></B></FONT> is as follows:
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR>
+<TD>
+<B> <FONT color="blue">
+<PRE>
+
+      Evaluate "cond" (with <FONT color="red">cmp</FONT>)
+
+							       <FONT color="red">TRUE</FONT>
+      Branch on <FONT color="red">TRUE</FONT> outcome of <FONT color="red">"cond"</FONT> to label A: ---------------+
+		|						  |
+		| <FONT color="red">FALSE</FONT>				                  |
+		V						  |
+      Evaluate "Other Conditions" (another <FONT color="red">cmp</FONT>)		          |
+								  |  FALSE
+      Branch on FALSE outcome of "Other Conditions" to label B: --|-----+    
+		|						  |     |
+		| TRUE						  |     |
+		V						  |     |
+  A:       "statement1" assembler code <--------------------------+     |
+		|							|
+	Branch always to label C: ---------------+			|
+       		 				 |		  	|
+       		 				 |		  	|
+  B:       "statement2" assembler code <---------|----------------------+
+                |				 |
+                V				 |
+  C:            +<-------------------------------+
+		|
+		V
+</PRE>
+</FONT> </B>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     If-statement with an <TT>OR</TT> clause - assembler example
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <FONT color="red"><B>High level programming langange</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x, y, a; 
+
+   if (x <= a || x >= b)                  
+      x = x + 1;
+   else
+      x = x - 1;
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+The <FONT color="red"><B>flow chart</B></FONT> of the
+ <B>above program</B> is:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/if-or1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+The 
+ <FONT color="red"><B>assembler program code</B></FONT>
+  for this 
+  <FONT color="blue"><B>compound if-statement</B></FONT> is:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+/* --------------------------------------------------
+        <----a          b----->
+       ------+----------+--------
+
+   if (x <= a or x >= b)
+      x = x + 1;
+   else
+      x = x - 1;
+   -------------------------------------------------- */
+        .text
+main:
+        // Test if ( <FONT color="red">x <= a</FONT> )
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+        ldr     r0, [r0]                // r0 = x
+
+        movw    r1, #:lower16:a
+        movt    r1, #:upper16:a         // r1 = addr(a)
+        ldr     r1, [r1]                // r1 = a
+
+        cmp     r0, r1                  // x <= a ?
+        <FONT color="red">ble     then </FONT>                   // Branch to "then" if  x <= a
+
+        // test if (<FONT color="red"> x >= b</FONT> )
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+        ldr     r0, [r0]                // r0 = x
+
+        movw    r1, #:lower16:b
+        movt    r1, #:upper16:b         // r1 = addr(b)
+        ldr     r1, [r1]                // r1 = b
+
+        cmp     r0, r1                  // x >= b ?
+        <FONT color="red">blt     else</FONT>                    // Branch to "else" if  x < b
+
+then:
+        // x = x + 1
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+
+        ldr     r1, [r0]                // r1 = x
+        add     r1, r1, #1              // r1 = x+1
+        str     r1, [r0]                // x = x+1
+
+       <FONT color="red"> b       ifEnd                   // ** SKIP over the else part !!! ***</FONT>     
+
+else:
+        // x = x - 1
+        movw    r0, #:lower16:x
+        movt    r0, #:upper16:x         // r0 = addr(x)
+
+        ldr     r1, [r0]                // r1 = x
+        sub     r1, r1, #1              // r1 = x-1
+        str     r1, [r0]                // x = x-1
+
+ifEnd:
+
+        .data
+x:      .4byte   5      // Try x: 10 < x < 20
+a:      .4byte  10
+b:      .4byte  20
+
+        .end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+     <FONT color="red"><B><TT>
+     /home/cs255001/demo/asm/6-if/if-or.s
+     </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>as255 if-or</TT></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+ use
+  <FONT color="red"><B><TT>EGTAPI</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+<HR>
+<HR>

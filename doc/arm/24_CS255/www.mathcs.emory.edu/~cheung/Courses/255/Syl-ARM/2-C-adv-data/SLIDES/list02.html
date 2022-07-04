@@ -1,0 +1,1071 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body 
+<!--- {font-family: Verdana, sans-serif; margin:0}   ---- Cheung -->
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text --- Originally: top: -35px;  Cheung */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: -55px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+</style>
+</head>
+
+<!-- ------------------------------------------------------------------- -->
+
+<body>
+
+
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<P>
+&nbsp;
+<P>
+&nbsp;
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+<!-- Full-width images with number and caption text -->
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ class List {
+   int          value;
+   List         next;  
+ }
+
+ public class demo {
+   public static void main( String[] args )
+   { 
+     List         <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable
+                  
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <FONT color="red">new</FONT> List( ); // The <FONT color="red">new</FONT> operator allocates
+                      // <FONT color="red">memory</FONT> for a <FONT color="red">list object</FONT>
+		      // and <FONT color="red">returns</FONT> its <FONT color="red">base address</FONT>
+		      // <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">#bytes of memory</FONT> needed</SPAN> depends
+		      // of <FONT color="red">fields</FONT> in List class
+   }
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.2in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT>
+  <FONT color="blue"><B>what happens</B></FONT>
+  <FONT color="red"><B>inside the computer system</B></FONT>
+  in this
+  <FONT color="blue"><B>program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public static void main( String[] args )
+   { 
+     <SPAN style="BACKGROUND-COLOR: #ffff00">List         <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable     </SPAN>
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <FONT color="red">new</FONT> List( ); 
+   } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="blue"><B><TT>"List p;"</TT></B></FONT> will
+   <FONT color="red"><B>allocate (reserve memory)</B></FONT>
+   a <FONT color="blue"><B><I>reference</I> variable</B></FONT>
+   <FONT color="red"><B><TT>p</TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT>
+  <FONT color="blue"><B>what happens</B></FONT>
+  <FONT color="red"><B>inside the computer system</B></FONT>
+  in this
+  <FONT color="blue"><B>program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public static void main( String[] args )
+   { 
+     List         <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable     
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">new</FONT> List( )</SPAN>; 
+   } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B><TT>"new List( )"</TT></B></FONT> will
+   <FONT color="blue"><B><I>dynamically</I> allocate (reserve memory)
+    </B></FONT> for
+   a <FONT color="red"><B><TT>List</TT> object</B></FONT>
+   and <FONT color="blue"><B>return</B></FONT> its
+  <FONT color="red"><B>base address</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01b.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT>
+  <FONT color="blue"><B>what happens</B></FONT>
+  <FONT color="red"><B>inside the computer system</B></FONT>
+  in this
+  <FONT color="blue"><B>program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+   public static void main( String[] args )
+   { 
+     List         <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable     
+     <SPAN style="BACKGROUND-COLOR: #ffff00"><SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = </SPAN><FONT color="red">new</FONT> List( ); 
+   } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B><TT>"p = "</TT></B></FONT> will
+   <FONT color="blue"><B><I>assign</I> the return value
+    </B></FONT>
+  to the  <FONT color="red"><B>variable <TT>p</TT></B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01c.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Summary</B></FONT> of the
+  <FONT color="blue"><B>effect</B></FONT> of:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+     List         <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable     
+     <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <FONT color="red">new</FONT> List( );  </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>reference variable <TT>p</TT></B></FONT> will
+   <FONT color="blue"><B><I>point</I>
+    </B></FONT>
+  to a <FONT color="red"><B>newly created  <TT>List</TT> object</B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01d.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-------------------------- C ------------------------->
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (creating) 
+   <FONT color="blue"><B><TT>struct</TT> variables</B></FONT>
+   in <FONT color="blue">C</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+ 
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> The <FONT color="red"><B>standard C library</B></FONT> provides
+      the <FONT color="blue"><B>function
+      <TT>malloc( )</TT></B></FONT>
+      (memory allocate)
+      that 
+      <FONT color="red"><B>allocates (= reserve)</B></FONT>
+      <FONT color="blue"><B>memory </B></FONT> for
+      <FONT color="red"><B><I>dynamically</I> created <TT>struct</TT>
+      variables (= "objects")</B></FONT>
+<P>
+<LI> <FONT color="red"><B>Syntax</B></FONT> of the 
+   <FONT color="blue"><B><TT>malloc( )</TT> library function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+ malloc(<SPAN style="BACKGROUND-COLOR: #ffff00"> <FONT color="red">n</FONT> </SPAN>)  // Allocate <FONT color="red">n bytes</FONT> of memory and  
+              // <FONT color="red">return</FONT> the <FONT color="red">base address</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Problem:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+<font size="+2">
+ <UL>
+ <LI> What <FONT color="blue"><B>value</B></FONT>  for 
+   <FONT color="red"><B><TT>n</TT></B></FONT> do we
+   need to <FONT color="blue"><B>use</B></FONT> ???
+<P>
+ <LI> We <FONT color="red"><B>need to know</B></FONT>
+     <FONT color="blue"><B>how many bytes of memory</B></FONT> needed
+     to <FONT color="red"><B>store</B></FONT> the
+     <FONT color="blue"><B>fields</B></FONT> in
+     <FONT color="red"><B><TT>struct</TT> variables (= objects)</B></FONT>
+     !!
+ </UL>
+</FONT>
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   The <FONT color="blue"><B><TT>sizeof</TT> operator</B></FONT> in
+   <FONT color="blue">C</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=800>
+   <TR> <TD>
+   <font size="+2">
+   <UL>
+
+   <LI> <FONT color="red"><B>C</B></FONT> provides
+     the 
+ <SPAN style="BACKGROUND-COLOR: #ffff00">
+   <FONT color="blue"><B><TT>sizeof</TT> operator</B></FONT></SPAN>
+    that
+     <FONT color="red"><B>returns</B></FONT>
+     the <FONT color="blue"><B>#bytes needed</B></FONT>
+     to <FONT color="red"><B>store</B></FONT>
+     a <FONT color="blue"><B>variable</B></FONT> of
+     a <FONT color="red"><B>data type</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>Syntax</B></FONT> of the
+    <FONT color="blue"><B><TT>sizeof</TT> operator</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue" size="+2">
+<B>
+<PRE>
+     sizeof( dataTypeName )      
+ or
+     sizeof( varName )
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   </UL>
+   </font>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.9in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Example of usage of the <FONT color="blue"><B><TT>sizeof</TT>
+   operator</B></FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+&nbsp;
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  <FONT color="red"><B>Example program</B></FONT> to
+  <FONT color="blue"><B>print</B></FONT> the
+  <FONT color="red"><B>storage size</B></FONT> of
+  some <FONT color="blue"><B>variable types</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ #include &lt;stdio.h>
+
+ struct List {
+   int          value;
+   struct List *next;  
+ };
+
+ int main( int argc, char *argv[] )
+ { 
+    struct List a, *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>;
+
+    printf("sizeof(int)            = %ld\n", <FONT color="red">sizeof(int)</FONT>);
+    printf("sizeof(double)         = %ld\n", sizeof(double));
+
+    printf("sizeof(struct List)    = %ld\n", <FONT color="red">sizeof(struct List)</FONT>);
+    printf("sizeof(struct List a)  = %ld\n", sizeof(a));
+    printf("sizeof(struct List *p) = %ld\n", sizeof(<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>));
+ } 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   <SPAN style="BACKGROUND-COLOR: orange">
+    <FONT color="blue">Repeated for contrast:</FONT></SPAN>
+   allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+
+
+ class  List {
+   int          value;
+   List         next;  
+ }
+
+ public class demo {
+  public static void main( String[] args )
+  { 
+    List         <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a <FONT color="red">reference variable</FONT>
+                  
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <FONT color="red">new</FONT> List( ); // The <FONT color="red">new</FONT> operator allocates
+                     // <FONT color="red">memory</FONT> for a <FONT color="red">list object</FONT>
+		     // and <FONT color="red">returns</FONT> its <FONT color="red">base address</FONT>
+		     // <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">#bytes of memory</FONT> needed</SPAN> depends
+		     // of <FONT color="red">fields</FONT> in List class
+
+  }
+ }
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">Java</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+
+&nbsp;
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+ <FONT color="red">#include &lt;stdlib.h></FONT> // <FONT color="red">Header file</FONT> that contains
+                     // <FONT color="red">declaration</FONT> for <FONT color="red">malloc( )</FONT>
+ struct List {
+   int          value;
+   struct List *next;  
+ } ;
+
+
+  int main( int argc, char *argv[] )
+  { 
+    struct List *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a <FONT color="red">reference variable</FONT>
+                  
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <FONT color="red">malloc(sizeof(struct List))</FONT>;
+                     // The <FONT color="red">malloc</FONT> function allocates
+                     // <FONT color="red">memory</FONT> for a <FONT color="red">struct List variable</FONT>
+		     // and <FONT color="red">returns</FONT> its <FONT color="red">base address</FONT>
+		     // <SPAN style="BACKGROUND-COLOR: #ffff00"><FONT color="red">#bytes of memory</FONT> needed</SPAN> depends
+		     // of <FONT color="red">fields</FONT> in List class
+  }
+ 
+   </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   </font>
+   </p>
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+<!---- malloc illustrated ----------------->
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">C</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT>
+  <FONT color="blue"><B>what happens</B></FONT>
+  <FONT color="red"><B>inside the computer system</B></FONT>
+  in this
+  <FONT color="blue"><B>program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  int main( int argc, char *argv[] )
+  { 
+    <SPAN style="BACKGROUND-COLOR: #ffff00">struct List *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable     </SPAN>        
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = malloc(sizeof(struct List));
+  } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="blue"><B><TT>"struct List *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>;"</TT></B></FONT> will
+   <FONT color="red"><B>allocate (reserve memory)</B></FONT>
+   a <FONT color="blue"><B><I>reference</I> variable</B></FONT>
+   <FONT color="red"><B><TT><SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN></TT></B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">C</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT>
+  <FONT color="blue"><B>what happens</B></FONT>
+  <FONT color="red"><B>inside the computer system</B></FONT>
+  in this
+  <FONT color="blue"><B>program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  int main( int argc, char *argv[] )
+  { 
+    struct List *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable             
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = <SPAN style="BACKGROUND-COLOR: #ffff00">malloc(sizeof(struct List))</SPAN>;
+  } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B><TT>"malloc(sizeof(struct List))"</TT></B></FONT> will
+   <FONT color="blue"><B><I>dynamically</I> allocate (reserve memory)
+    </B></FONT>
+   a <FONT color="red"><B><TT>struct List</TT> variable (= object)</B></FONT>
+   and <FONT color="blue"><B>return</B></FONT> its
+  <FONT color="red"><B>base address</B></FONT>
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01e.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">C</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+  I will <FONT color="red"><B>illustrate</B></FONT>
+  <FONT color="blue"><B>what happens</B></FONT>
+  <FONT color="red"><B>inside the computer system</B></FONT>
+  in this
+  <FONT color="blue"><B>program</B></FONT>:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+  int main( int argc, char *argv[] )
+  { 
+    struct List *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable             
+    <SPAN style="BACKGROUND-COLOR: #ffff00"><SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = </SPAN>malloc(sizeof(struct List));
+  } </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   <FONT color="red"><B><TT>"p = "</TT></B></FONT> will
+   <FONT color="blue"><B><I>assign</I> the return value
+    </B></FONT>
+  to the  <FONT color="red"><B>variable <TT>p</TT></B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01f.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+ <div class="mySlides">
+   <div class="text">
+   <FONT color="red" size=+2><B>
+   <SPAN style="BACKGROUND-COLOR: yellow">
+   Allocating (= creating) objects in <FONT color="blue">C</FONT>
+   - <FONT color="blue">illustrated</FONT>
+   </SPAN>
+   </B></FONT>
+   </div>
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+ <FONT color="red"><B>Summary</B></FONT> of the
+  <FONT color="blue"><B>effect</B></FONT> of:
+   </font>
+   </p>
+
+   <center>
+   <TABLE bgcolor="lightcyan" BORDER="5" width=900>
+   <TR> <TD>
+   <FONT color="blue"><B><font size="+2"><PRE>
+    struct List *<SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN>; // p is a reference variable             
+    <SPAN style="BACKGROUND-COLOR: #aaffaa">p</SPAN> = malloc(sizeof(struct List)); </PRE></FONT></B></FONT>
+   </TD> </TR>
+   </TABLE>
+   </center>
+
+
+   <p style="margin-left: 1.2in">
+   <font size="+2">
+   The <FONT color="red"><B>reference variable <TT>p</TT></B></FONT> will
+   <FONT color="blue"><B><I>point</I>
+    </B></FONT>
+  to a <FONT color="red"><B>newly created  <TT>struct List</TT>
+  var (= "object")</B></FONT>:
+  
+   </font>
+   </p>
+
+   <center>
+   <img src="../FIGS/new01g.gif" style="width:50%">
+   </center>
+
+
+
+   <p style="padding: 0.0in">
+   </p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------------->
+
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+  <span class="dot" onclick="currentSlide(10)"></span>
+  <span class="dot" onclick="currentSlide(11)"></span>
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+</div> 
+
+
+
+
+
+
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">
+       <FONT size="+2" color="red"><B>&#10094;</B></FONT></a>
+  <a class="next" onclick="plusSlides(1)">
+       <FONT size="+2" color="red"><B>&#10095;</B></FONT></a>
+
+</div>
+<br>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+<P>

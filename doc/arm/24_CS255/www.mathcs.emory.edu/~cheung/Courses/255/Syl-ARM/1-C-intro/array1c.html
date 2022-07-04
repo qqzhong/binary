@@ -1,0 +1,431 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Array bound <I>check</I>
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Array bound <I>check</I>:
+    a notable difference between arrays in <I>C</I> and <I>Java</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B><I>more</I> information</B></FONT>
+      you maintain on a <B>thing</B>, the
+      <FONT color="red"><B><I>more</I> services/capabilities</B></FONT>
+      you can provide with that <B>thing</B>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Information</B> maintained 
+     on <FONT color="blue"><B>arrays</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Java
+</TH> 
+<TH>
+C
+</TH> 
+</TR>
+
+<TR> 
+<TD align="left">
+<P>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Location (address)</B></FONT> of the
+     <B>array</B> in memory
+      &nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B>Number of elements</B></FONT> in the
+     <B>array</B>
+ </UL>
+
+</TD> 
+<TD align="left">
+
+
+ <UL>
+ <LI> <FONT color="blue"><B>Location (address)</B></FONT> of the
+     <B>array</B> in memory
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+&nbsp;
+<P>
+
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Consequence:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Using the <FONT color="blue"><B>length (= number of elements)</B></FONT>
+       information,
+       the <B>Java compiler</B> can
+       <FONT color="red"><B><I>detect</I></B></FONT>
+       if the <B>array index</B> is
+       <FONT color="blue"><B>out of bound</B></FONT>
+       (= <B>too large</B>)
+ <P>
+ <HR>
+ <P>
+ <LI> Because <B>C</B> does
+    <FONT color="red"><B><I>not</I> keep</B></FONT> any
+    information on the
+     <FONT color="blue"><B>length (= number of elements)</B></FONT> of
+     an array,
+     the <B>C compiler</B>
+     <FONT color="red"><B><I>cannot</I> detect</B></FONT>
+     if an <B>array index</B> is
+     <FONT color="blue"><B>out of bound</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B> <FONT color="red"><B>Java</B></FONT> detects
+     <FONT color="blue"><B>array index out of bound error</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class array2
+   {
+      public static void main( String[] args )
+      {
+   	 double[] a = new double[<FONT color="red">10</FONT>];
+   	 int    i;
+    
+   	 for ( i = 0; i < 10; i++ )
+   	    a[i] = i;
+    
+   	 for ( i = 0; <FONT color="red">i < 30</FONT>; i++ )
+   	    System.out.println( "a[" + i + "] = " + a[i] );
+      }
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a[0] = 0.0			      
+   a[1] = 1.0			      
+   a[2] = 2.0			      
+   a[3] = 3.0			      
+   a[4] = 4.0			      
+   a[5] = 5.0			      
+   a[6] = 6.0			      
+   a[7] = 7.0			      
+   a[8] = 8.0			      
+   a[9] = 9.0			      
+   Exception in thread "main" java.lang.<FONT color="red">ArrayIndexOutOfBounds</FONT>Exception: 10     
+   	   at array2.main(array2.java:14)
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array2.java"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac array2.java</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>java array2</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B> a <FONT color="blue"><B>C program</B></FONT> 
+     does <FONT color="red"><B>not</B></font> check on
+     <FONT color="blue"><B>array index out of bound error</B></FONT>
+   (insuffience information)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char* argv[] )
+   {
+      double <FONT color="red">a[10]</FONT>;
+      int    i;
+    
+      for ( i = 0; i < 10; i++ )
+   	 a[i] = i;
+    
+      for ( i = 0; <FONT color="red">i < 30</FONT>; i++ )
+   	 printf( "a[%d] = %lf\n", i, a[i] );               
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Sample output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   a[0] = 0.000000
+   a[1] = 1.000000
+   a[2] = 2.000000
+   a[3] = 3.000000
+   a[4] = 4.000000
+   a[5] = 5.000000
+   a[6] = 6.000000
+   a[7] = 7.000000
+   a[8] = 8.000000
+   a[9] = 9.000000<FONT color="red">
+   a[10] = 0.000000
+   a[11] = 0.000000
+   a[12] = 0.000000
+   ...
+   a[22] = -2243494719485605301116825811....     
+   ...</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/array2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc array2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Postscript: run time overhead
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>reason</B> that <FONT color="blue"><B>Java</B></FONT> can
+     <FONT color="red"><B>detect</B></FONT> an
+    <B>index out of bound</B> error is because:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Each time</B> a Java  program uses an
+    <FONT color="blue"><B>array variable</B></FONT>, the
+    <B>Java run time system</B> performs
+    an <FONT color="red"><B>index out of bound <I>check</I></B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These 
+   <FONT color="red"><B>index out of bound <I>checks</I></B></FONT>
+   takes up <FONT color="blue"><B>CPU cycles</B></FONT>
+   (uses the CPU)
+<P>
+<HR>
+<P>
+<LI> That is why:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> programs are <FONT color="blue"><B>more efficient</B></FONT>
+      than <B>Java</B> program
+      (i.e., <FONT color="red"><B>faster</B></FONT>)
+    because <B>C</B> programs 
+     <FONT color="blue"><B>not <I>not</I></B></FONT>
+     perform
+     <FONT color="red"><B>array bound checks</B></FONT>
+     at <B>run time</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We say that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> programs incur 
+        <FONT color="blue"><B>less</B></FONT>
+	<FONT color="red"><B><I>run time overhead</I></B></FONT>....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(BTW, C is a "system language" and one of its goal is
+ speed !!!)
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,495 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+How are the general purpose registers used in assembler programs ?
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Important fact about the computer system
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Important fact</B></FONT> that you need
+      to <FONT color="blue"><B>recall</B></FONT> about the
+     <FONT color="red"><B>memory</B></FONT> to help
+    you understand 
+     <FONT color="blue"><B><I>why</I></B></FONT> we need
+     <FONT color="red"><B>registers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>computer memory</B></FONT> can
+       <FONT color="blue"><B>return</B></FONT> some data 
+       to the <FONT color="red"><B>CPU</B></FONT>
+ <LI> The <FONT color="red"><B>computer memory</B></FONT> can
+      <FONT color="blue"><B>store</B></FONT> some
+      data from the <FONT color="red"><B>CPU</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+See:
+  <A HREF="../4-intro/mem-access.html">
+  click here </A>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Other than these <FONT color="red"><B>2 operations</B></FONT>
+   (read from memory and write to memory), the
+   <FONT color="blue"><B>computer memory</B></FONT> cannot
+   perform any other operation....
+ <P>
+   The memory cannot even transfer some data from
+  one memory cell to another memory cell <B>on its own</B>
+  (without the use of the <FONT color="red"><B>CPU</B></FONT>)
+<P>
+  <B>In fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you want to <FONT color="blue"><B>copy</B></FONT>
+       some data from
+       some memory cell to another memory cell,
+   the data has to be <FONT color="red"><B>read by the CPU</B></FONT> first,
+   and then the <B>CPU</B> will
+   <FONT color="blue"><B>write</B></FONT> the data
+   to <FONT color="red"><B>another memory cell</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to use the general purpose registers (of any CPU)
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B>general purpose registers</B></FONT>
+     are <FONT color="blue"><B>primarily</B></FONT> used
+     like a <FONT color="red"><B>scratch pad</B></FONT> to
+     <FONT color="blue"><B>store values</B></FONT> used in
+     <FONT color="red"><B>computations</B></FONT>
+ <P>
+  Because the <FONT color="red"><B>ALU (Arithmetic and Logic Unit)</B></FONT>
+  is the <FONT color="blue"><B>computation circuit</B></FONT> of the
+  <FONT color="red"><B>CPU</B></FONT> and the
+   <FONT color="blue"><B>ALU</B></FONT>
+   takes <FONT color="red"><B>inputs</B></FONT> from the
+  <FONT color="blue"><B>general purpose registers</B></FONT>,
+  a <FONT color="red"><B>rule of thumb</B></FONT> in
+  <FONT color="blue"><B>assembler programming</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> When you want to perform
+     <FONT color="red"><B>computation</B></FONT> on
+     some <FONT color="blue"><B>value</B></FONT>,
+     you must <FONT color="red"><B>first</B></FONT>
+     get that <FONT color="blue"><B>value</B></FONT>
+     in one of the
+     <FONT color="red"><B>general purpose registers</B></FONT> !!!
+<P>
+ <B>For example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>Java</B></FONT>, you would write:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     z = x + y;           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+when you want to <FONT color="red"><B>add</B></FONT> the values 
+ in <FONT color="blue"><B><TT>x</TT></B></FONT> and
+ <FONT color="blue"><B><TT>y</TT></B></FONT> and store the sum
+  in <FONT color="blue"><B><TT>z</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> This <FONT color="red"><B>Java statement</B></FONT> is
+   <FONT color="blue"><B>excuted</B></FONT> by 
+   the <FONT color="red"><B>computer </B></FONT> using the
+  following <FONT color="blue"><B>assembler instructions</B></FONT>
+  (I give them now in English-description, later, we will learn how to write
+  them in ARM assembler code):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     Get the value of x in register R0
+     Get the value of y in register R1
+     Add R0 and R1 and store result in R0            
+     Put the value in R0 in variable z
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review of mixed typed arithmetics
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Recall</B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="blue"><B>Java</B></FONT>,
+       <FONT color="red"><B><I>integer</I> typed operands</B></FONT>
+     (e.g.: <B><TT>byte</TT></B>,
+      <B><TT>short</TT></B> and <B><TT>int</TT></B>)
+         in
+       an <FONT color="blue"><B>arithmetic expression</B></FONT> are
+       <B><I>first</I></B>
+       <FONT color="red"><B>converted </B></FONT>
+       to the <FONT color="blue"><B><TT>int</TT> data type</B></FONT>
+     (and then the <FONT color="red"><B>arithmetic operations</B></FONT> are
+     <FONT color="blue"><B>performed</B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Byte operands in general purpose registers
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Recall</B></FONT> that
+     a  <FONT color="red"><B>general purpose register</B></FONT>
+     in the <FONT color="blue"><B>ARM processor</B></FONT> consists of
+     <FONT color="red"><B>4 bytes</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/reg01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Recall that
+       <FONT color="red"><B>high level programming language</B></FONT>
+      has <FONT color="blue"><B>different data types</B></FONT>,
+    e.g.:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">byte    (8 bites)        <----- byte operands     </FONT>
+    short   (16 bits)
+    int     (32 bits)                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT>
+      the <FONT color="blue"><B>ARM processor</B></FONT>
+      loads a
+       <FONT color="red"><B><TT>byte</TT> typed value</B></FONT>
+      into <FONT color="blue"><B>registers</B></FONT> to perform
+      <FONT color="red"><B>arithmetic/logic operations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>byte</TT> typed value</B></FONT>
+   is <FONT color="blue"><B>stored</B></FONT> in the
+     <FONT color="red"><B><I>right</I> most byte</B></FONT> of the
+     <FONT color="blue"><B>register</B></FONT>
+ <P>
+ <LI> Then the <FONT color="red"><B><TT>byte</TT> typed value </B></FONT>
+  is <FONT color="blue"><B>sign-extended</B></FONT> to
+  an <FONT color="red"><B><TT>int</TT> typed value</B></FONT>
+<P>
+<B>Graphically explained:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/reg02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Later</B></FONT>, I will show you
+ <FONT color="blue"><B>assembler programming example</B></FONT>.
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Short  operands in general purpose registers
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Recall</B></FONT> that
+     a  <FONT color="red"><B>general purpose register</B></FONT>
+     in the <FONT color="blue"><B>ARM processor</B></FONT> consists of
+     <FONT color="red"><B>4 bytes</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/reg01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Recall that
+       <FONT color="red"><B>high level programming language</B></FONT>
+      has <FONT color="blue"><B>different data types</B></FONT>,
+    e.g.:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+    byte    (8 bits)
+    <FONT color="red">short   (16 bites)        <----- short operands     </FONT>
+    int     (32 bits)                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT>
+      the <FONT color="blue"><B>ARM processor</B></FONT>
+      loads a
+       <FONT color="red"><B><TT>short</TT> typed value</B></FONT>
+      into <FONT color="blue"><B>registers</B></FONT> to perform
+      <FONT color="red"><B>arithmetic/logic operations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>short</TT> typed value</B></FONT>
+   is <FONT color="blue"><B>stored</B></FONT> in the
+     <FONT color="red"><B><I>right</I> most 2 bytes</B></FONT> of the
+     <FONT color="blue"><B>register</B></FONT>
+ <P>
+ <LI> Then the <FONT color="red"><B><TT>short</TT> typed value </B></FONT>
+  is <FONT color="blue"><B>sign-extended</B></FONT> to
+  an <FONT color="red"><B><TT>int</TT> typed value</B></FONT>
+<P>
+<B>Graphically explained:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/reg02c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Later</B></FONT>, I will show you
+ <FONT color="blue"><B>assembler programming example</B></FONT>.
+
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Int  operands in general purpose registers
+     </B></FONT>
+<P>
+<UL>
+<LI> Because a <FONT color="red"><B>register</B></FONT> in 
+    the <FONT color="blue"><B>ARM processor</B></FONT> is
+   <FONT color="red"><B>4 bytes</B></FONT> long,
+   an <FONT color="blue"><B><TT>int</TT> typed value</B></FONT>
+   is stored in
+   a <FONT color="red"><B>register</B></FONT>
+   <FONT color="blue"><B>"verbatim"</B></FONT>
+ <P>
+ I.e.: the processor does not need to perform any operation
+ after storing the <FONT color="red"><B>4 bytes</B></FONT> into
+ the <FONT color="blue"><B>register</B></FONT>.
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

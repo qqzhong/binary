@@ -1,0 +1,836 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+
+
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<I>Scope</I> of <I>Local</I> and <I>Parameter</I> variables in <I>C</I>
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Reminder: Program Scope and scoping rules
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Program scope:</B>
+    (See: 
+<A HREF=
+ "http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/08/scope.html">
+ cs170 material on scoping </A>)
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>program scope</B></FONT>
+      is   <B>delimited</B>
+    by a
+   <FONT color="red"><B> pair of (matching) <I>braces</I> { .... }
+   </B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> There are <FONT color="red"><B>2 <I>special</I> scope
+    configurations</B></FONT> formed by
+    <FONT color="blue"><B>multiple pairs of braces</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Non-overlapping scopes</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping01a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <B><I>Nested</I> scopes</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="blue"><B>Scoping rules</B></FONT></SPAN>
+     for the
+      <FONT color="red"><B>2 special scope configurations</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>variable</B></FONT> defined inside 
+   <FONT color="blue"><B>one <I>disjoint</I> scope</B></FONT>
+   is <FONT color="red"><B><I>not</I> accessible</B></FONT>
+   inside the <FONT color="blue"><B><I>other</I> disjoint scope</B></FONT>
+<P>
+ <B>Illustrated</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping02a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> A <FONT color="red"><B>variable</B></FONT> defined inside the
+   <FONT color="blue"><B><I>outer</I> scope</B></FONT>
+   is <FONT color="red"><B><I>accessible</I></B></FONT>
+   inside the <FONT color="blue"><B><I>inner</I> scope</B></FONT>
+<P>
+ <B>Illustrated</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping02b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The scope of <I>Local</I>  variables in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Scope</B> of <FONT color="red"><B><I>Local</I> variables</B></FONT>
+     in <B><I>C</I></B>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Starts</B> at the <FONT color="blue"><B><I>location</I></B></FONT> 
+       where the
+       <B>Local variable</B>
+      is <FONT color="blue"><B>defined</B></FONT>
+ <P>
+ <LI> <B>Ends</B> at the
+     <FONT color="blue"><B><I>end</I></B></FONT> of the
+     <FONT color="red"><B>enclosing scope</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B><I>Except:</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Inside</I></B> an 
+     <FONT color="red"><B><I>inner</I> scope</B></FONT>
+      where you define 
+       <B>another</B> <FONT color="blue"><B><I>local</I> variable</B></FONT>
+       with
+       <FONT color="red"><B><I>same</I> name</B></FONT> as
+       an <B><I>outer</I> local variable</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping03a.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There are <FONT color="red"><B>2 <I>different</I> 
+       local variables</B></FONT>
+       defined inside the <FONT color="blue"><B><TT>main()</TT></B></FONT> 
+       function:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>double r</TT></B></FONT> is defined
+      inside the <FONT color="red"><B><I>outer</I> scope</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B><TT>int r</TT></B></FONT> is defined
+      inside the <FONT color="blue"><B><I>inner</I> scope</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT> 
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><I>inner</I> local variable defintion</B></FONT>
+  is <FONT color="blue"><B>illegal</B></FONT> in
+  <B>Java</B>; but 
+   <FONT color="red"><B>perfectly OK</B></FONT> in <B>C</B> !
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<P>
+<HR>
+<P>
+<LI> The  <FONT color="blue"><B>scope</B></FONT> of the 
+     <FONT color="red"><B><I>inner</I> variable definition
+     (<TT>int r</TT>)</B></FONT> is the
+     <FONT color="blue"><B>cyan colored area</B></FONT> in the
+     following figure:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping03b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+
+
+<LI> The <FONT color="red"><B>scope</B></FONT> of the 
+     <FONT color="blue"><B><I>outer</I> variable definition
+     (<TT>double r</TT>)</B></FONT> is the
+    <FONT color="red"><B>green colored area</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping03c.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Consequently</B>,
+     the <FONT color="blue"><B>name <TT>r</TT></B></FONT>
+     refers to
+     <FONT color="red"><B>different <I>local</I> variables</B></FONT>
+     in <FONT color="blue"><B>different locations</B></FONT>
+     inside the <B>function</B>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h>
+
+   int main( int argc, char* argv[] )
+   {  
+      /* Outer scope */
+    <FONT color="red">
+      double r = 3.14;                        /* (1) */</FONT>
+    
+      printf( "1. r = %lf\n", <FONT color="red">r</FONT> );               /* Access r(1) */       
+    
+      { /* Inner scope (a new scope !) */
+    
+    
+   	 printf( "2. r = %lf\n", <FONT color="red">r</FONT> );            /* Access r(1) */
+    
+    <FONT color="magenta">
+   	 double r = 4.444;                    /* (2) */</FONT>
+    
+   	 printf( "3. r = %lf\n", <FONT color="magenta">r</FONT> );            /* Access r(2) */
+      }
+    
+      printf( "4. r = %lf\n", <FONT color="red">r</FONT> );               /* Access r(1) */
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. r = 3.140000                           
+   2. r = 3.140000<FONT color="red">
+   3. r = 4.444000</FONT>
+   4. r = 3.140000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/scoping1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc scoping1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Note on scoping rules in <FONT color="red">Java</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Java</B></FONT> does 
+     <FONT color="blue"><B>not allow</B></FONT> a
+     <FONT color="red"><B>variable with the <I>same</I> name</B></FONT>
+    to be defined inside
+    an <FONT color="blue"><B><I>inner</I> scope</B></FONT>
+<P>
+So this <FONT color="red"><B> example</B></FONT> is
+  <FONT color="blue"><B><I>illegal</I></B></FONT> in
+  <FONT color="red"><B>Java</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+public class scoping1
+{
+   public static void main( String[] args )
+   {
+
+      <FONT color="red">double r</FONT> = 3.14;
+
+      { /* Inner scope (a new scope !) */
+
+         <FONT color="red">int r</FONT> = 4;                    /* <FONT color="red">Illegal in Java</FONT> */     
+
+      }
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Gosling</B></FONT>
+ (designer of <FONT color="blue"><B>Java</B></FONT>)
+ thinks that 
+ <FONT color="red"><B>variables</B></FONT> with the
+  <FONT color="blue"><B><I>same</I> name</B></FONT> inside
+ <FONT color="red"><B><I>one</I> function</B></FONT>
+ is 
+  <FONT color="blue"><B><I>too confusing</I></B></FONT>....
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Here's a true story:
+      I know a professor who teaching a compiler construction course
+      who was confused by Java's scoping rule....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/scoping1.java
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>javac scoping1.java</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Look for this error message:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+scoping1.java:12: error: <FONT color="red">variable r is already defined</FONT> in method main(String[])
+         int r = 4;                    /* Illegal in Java */
+             ^
+1 error
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The scope of <I>Parameter</I>  variables in <I>C</I>
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Scope</B> of <FONT color="red"><B><I>Parameter</I> variables</B></FONT>
+     in <B><I>C</I></B>:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Starts</B> at the <FONT color="blue"><B><I>beginning</I></B></FONT> of
+      the <FONT color="red"><B>function</B></FONT>
+      (in which the <B>Local variable</B>
+      is <FONT color="blue"><B>defined</B></FONT>
+ <P>
+ <LI> <B>Ends</B> at the
+     <FONT color="blue"><B><I>end</I></B></FONT> of the
+     <FONT color="red"><B>function</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B><I>Except:</I></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B><I>Inside</I></B> an 
+     <FONT color="red"><B><I>inner</I> scope</B></FONT>
+      where you define 
+       <B>another</B> <FONT color="blue"><B><I>local</I> variable</B></FONT>
+       with
+       <FONT color="red"><B><I>same</I> name</B></FONT> as
+       an <B><I>outer</I> local variable</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/scoping04.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example in C:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void func( <FONT color="red">double r</FONT> )
+   {  
+    
+      {  <FONT color="red">/* Start of a new scope */</FONT>
+    
+   	 /* NOTE: without this inner scope, you will get error:
+   		  'r' redeclared !!!                                */     
+    
+   	 printf( "1. r = %lf\n", <FONT color="red">r</FONT> );         /* Access parameter r */
+    
+    <FONT color="magenta">
+   	 double r = 4.444;                    /* (1) */</FONT>
+    
+   	 printf( "2. r = %lf\n", <FONT color="magenta">r</FONT> );         /* Access r(1) */
+      }
+   }
+    
+   int main( int argc, char* argv[] )
+   { 
+      func( <FONT color="red">3.14</FONT> );        <FONT color="red">// Pass 3.14 into parameter variable r</FONT>
+    
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1. r = 3.140000
+   <FONT color="red">2. r = 4.444000</FONT>                      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/scoping2.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc scoping2.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Final note: no need to <I>declare</I> parameter/local variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is <FONT color="blue"><B>no way/need</B></FONT> to
+     <FONT color="red"><B>declare</B></FONT> a
+     <B>local variable</B> or a
+     <B>parameter variable</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Reason:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>local/parameter variable</B></FONT> is
+ <FONT color="red"><B><I>only</I> accessible</B></FONT> 
+ <B><I>inside</I></B> the
+ <FONT color="blue"><B>function</B></FONT> where it is
+ <B>defined</B>
+ <P>
+ <LI> Since the <FONT color="blue"><B>local/parameter variable</B></FONT>
+   is <FONT color="red"><B><I>not</I> accessible</B></FONT> 
+   in <FONT color="blue"><B>other functions</B></FONT>,
+   there is
+   <FONT color="red"><B><I>no need</I></B></FONT> to
+   <B>declare</B> them in other places....
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

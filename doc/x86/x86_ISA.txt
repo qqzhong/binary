@@ -1,0 +1,37 @@
+In x86-64, instructions generally specify what size data to access from memory and then operate upon.
+
+x86-64 Data Sizes
+
+Integer
+• 4 Sizes Defined
+– Byte (B)
+• 8-bits
+– Word (W)
+• 16-bits = 2 bytes
+– Double word (L)
+• 32-bits = 4 bytes
+– Quad word (Q)
+• 64-bits = 8 bytes
+
+Floating Point
+• 3 Sizes Defined
+– Single (S)
+• 32-bits = 4 bytes
+– Double (D)
+• 64-bits = 8 bytes
+• (For a 32-bit data bus, a
+double would be accessed
+from memory in 2 reads)
+
+
+Intel x86 Register Set
+• 8-bit processors in late 1970s
+– 4 registers for integer data: A, B, C, D
+– 4 registers for address/pointers: SP (stack pointer), BP
+(base pointer), SI (source index), DI (dest. index)
+• 16-bit processors extended registers to 16-bits but
+continued to support 8-bit access
+– Use prefix/suffix to indicate size: AL referenced the lower
+8-bits of register A, AH referenced the high 8-bits, AX
+referenced the full 16-bit value
+

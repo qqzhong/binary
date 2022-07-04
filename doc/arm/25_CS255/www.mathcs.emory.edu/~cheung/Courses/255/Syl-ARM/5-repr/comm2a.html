@@ -1,0 +1,424 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction: converting ASCII representation of numbers to
+ 2's complement representation and vice versa
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review of the ASCII representation and
+    the 2's complement representation of  integer value (whole number)
+     </B></FONT>
+
+<UL>
+<P>
+ <LI> <FONT color="red"><B>Recall</B></FONT> that
+     <FONT color="blue"><B>computers</B></FONT> use
+     the <FONT color="red"><B>2's complement code</B></FONT> to
+     <FONT color="blue"><B>represent</B></FONT>
+     <FONT color="red"><B>(signed) integer (number) values</B></FONT>
+     used for
+     <FONT color="blue"><B>computation</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   value     Representation in 8 bits    Repr in 16 bits
+  --------+----------------------------+--------------------       
+    ...       ...                          ....
+    -3	      11111101			   1111111111111101
+    -2	      11111110			   1111111111111110
+    -1	      11111111			   1111111111111111
+     0        00000000                     0000000000000000
+     1	      00000001			   0000000000000001
+     2	      00000010			   0000000000000010
+     3	      00000011			   0000000000000011
+     ...      ...			   ....
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>computer</B></FONT> can <B>easily</B>
+ perform <FONT color="blue"><B>+, -, *, / operations</B></FONT>
+ on <FONT color="red"><B>integer values</B></FONT> when
+ they are in <FONT color="blue"><B>2's complement code</B></FONT>
+<P>
+
+ 
+<HR>
+<HR>
+<P>
+
+<LI> <FONT color="red"><B>Recall</B></FONT> <B>also</B> that
+      the <FONT color="blue"><B>key board/terminal</B></FONT> that
+      <FONT color="red"><B>humans </B></FONT> use to
+      <FONT color="blue"><B>input/output</B></FONT>
+      <FONT color="red"><B>numbers</B></FONT> use:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>ASCII code</B></FONT> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<B>Examples:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Number (String)     Representation
+ ------------------+----------------------      
+   <FONT color="red">"1"</font>                 00110001
+   <FONT color="red">"12"</font>                00110001 00110010
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+(These are sometimes  call "numerical strings")
+<P>
+<HR>
+<P>
+<LI> <B>Therefore</B>,
+    before the computer can
+    perform computation on the
+   <FONT color="red"><B>integer numbers</B></FONT>
+   entered in the <FONT color="blue"><B>key board</B></FONT>,
+   it must convert the
+   <FONT color="red"><B>ASCII representation</B></FONT> into
+   <FONT color="blue"><B>2's complement representation</B></FONT>.
+<P>
+<LI> <FONT color="red"><B>Furthermore</B></FONT>,
+     in order to <FONT color="blue"><B>display</B></FONT>
+     a <B>number</B> in
+     <FONT color="red"><B>2's complement representation</B></FONT>
+     on a <FONT color="blue"><B>terminal</B></FONT>,
+     we must
+     <FONT color="red"><B>convert</B></FONT> the
+     <B>2's complement representation</B> into
+     <FONT color="red"><B>ASCII representation</B></FONT>
+     first !!!
+  <P>
+   (Because a <FONT color="blue"><B>terminal</B></FONT> can
+   <FONT color="red"><B>only</B></FONT> display
+   <FONT color="blue"><B>characters</B></FONT> according to their
+   <FONT color="red"><B>ASCII codes</B></FONT>).
+
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Converting (translating) between the 2 number representations
+     </B></FONT>
+<P>
+<UL>
+
+<LI> In the next few webpages in the CS255 syllabus,
+     we will  <FONT color="red"><B>study</B></FONT>
+     <FONT color="blue"><B>how</B></FONT> to
+     convert
+     between
+     <FONT color="red"><B>ASCII representation</B></FONT>
+     (of <B>numbers</B>) and
+     <FONT color="blue"><B>2's complement represention</B></FONT>
+     (of the <B><I>same</I> number</B>).
+<P>
+<HR>
+<P>
+<LI> BTW: the
+      <FONT color="blue"><B>Java standard library</B></FONT>
+      has provides <FONT color="red"><B>conversion methods</B></FONT>
+      between <FONT color="blue"><B>ASCII <--> 2's complement
+   representations</B></FONT>
+    inside the <FONT color="red"><B><TT>Integer</TT> class</B></FONT>
+    to the <FONT color="blue"><B>Java programmers</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int  parseInt( String s )</font>:  return the int value translated from   
+                               the input string s
+
+   <FONT color="red">String toString( int x )</font>: return a String that represents the integral value x
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So basically we will be studying
+ <FONT color="red"><B>how</B></FONT> these methods
+ are <FONT color="blue"><B>written</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> In <FONT color="red"><B>CS170</B></FONT>, you learned
+   how to <FONT color="blue"><B>use</B></FONT> those methods to
+   <FONT color="red"><B>convert</B></FONT>
+   between <FONT color="blue"><B><TT>String</TT>
+  (= ASCII representation)</B></FONT> and
+  <FONT color="red"><B><TT>int</TT> (= 2's complement representation)</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     String s = "-123";
+     int    i;
+
+     i = Integer.parseInt( s );     // Convert number string into integer      
+
+     s = Integer.toString( i );     // Convert integer value to string
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here in <FONT color="red"><B>CS255</B></FONT>, I will show
+ you <FONT color="blue"><B>what happens</B></FONT>
+ inside these <FONT color="red"><B>2 conversion methods</B></FONT>
+<P>
+I.e.: I will show you the algorithm used inside the Java conversion methods.
+<P>
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Making sure you understand what exactly is the problem
+     </B></FONT>
+<P>
+<UL>
+<LI> There are <FONT color="red"><B>2 problems</B></FONT> that
+     we are solving:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> An <FONT color="red"><B>input problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>signed number</B></FONT> used in
+    <FONT color="blue"><B>computation</B></FONT> is
+       <FONT color="red"><B>represented</B></FONT> using
+       the <FONT color="blue"><B>2's complement code</B></FONT>
+        <B>inside</B> the <FONT color="red"><B>computer</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>However</B></FONT>:
+      the <FONT color="blue"><B>user</B></FONT>
+      can <B>only</B> enter a <FONT color="red"><B>signed number</B></FONT>
+     on the <FONT color="blue"><B>key board</B></FONT>
+    that transmit <FONT color="red"><B>ASCII codes</B></FONT>
+    to the <FONT color="blue"><B>computer</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B><TT>Integer.parseInt( String )</TT></B></FONT>
+      method <FONT color="blue"><B>solves </B></FONT> the
+      <FONT color="red"><B>input problem</B></FONT> by
+      <FONT color="blue"><B>converting</B></FONT>
+      an <FONT color="red"><B>ASCII representation</B></FONT> of
+      a <FONT color="blue"><B>number</B></FONT> into
+      its <FONT color="red"><B>2'c complement code</B></FONT>
+<P>
+<B>Examples</B> of
+  <FONT color="red"><B><TT>Integer.parseInt( )</TT></B></FONT> results:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Integer.parseInt( <FONT color="red"> "1"</FONT> )  returns <FONT color="red">1 (= 00000000000000000000000000000001)</FONT>
+
+  Integer.parseInt(<FONT color="red"> "-1"</FONT> )  returns <FONT color="red">-1 (= 11111111111111111111111111111111)</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT> I  want to 
+  <FONT color="blue"><B>make sure</B></FONT> that you
+  <FONT color="red"><B>know</B></FONT> that
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  "1"   is this sequence of ASCII code: 00110001
+
+  "-1"  is this sequence of ASCII code: 00101101 00110001       
+        (00101101 is code for the '-' char)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> An <FONT color="red"><B>output problem</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>signed number</B></FONT> used in
+    <FONT color="blue"><B>computation</B></FONT> is (as before)
+       <FONT color="red"><B>represented</B></FONT> using
+       the <FONT color="blue"><B>2's complement code</B></FONT>
+       <B>inside</B> the <FONT color="red"><B>computer</B></FONT>
+ <P>
+ <LI> <FONT color="red"><B>However</B></FONT>:
+      the <FONT color="blue"><B>computer</B></FONT> can
+      <FONT color="red"><B>only</B></FONT> display
+      a <FONT color="blue"><B>signed number</B></FONT>
+      as <FONT color="red"><B>(a sequence of) characters</B></FONT>
+     by  transmiting <FONT color="blue"><B>ASCII codes</B></FONT>
+    of the <B>digits</B> to the <FONT color="red"><B>terminal</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B><TT>Integer.toString( integer )</TT></B></FONT>
+      method <FONT color="blue"><B>solves </B></FONT> the
+      <FONT color="red"><B>output problem</B></FONT> by
+      <FONT color="blue"><B>converting</B></FONT>
+      a <FONT color="red"><B>2's complement representation</B></FONT> of
+      a <FONT color="blue"><B>number</B></FONT> into
+      its <FONT color="red"><B>(sequence of) character ASCII codes</B></FONT>
+<P>
+<B>Examples</B> of
+  <FONT color="red"><B><TT>Integer.toString( )</TT></B></FONT> results:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  Integer.toString( <FONT color="red">1 (= 00000000000000000000000000000001)</FONT> )  returns <FONT color="red"> "1"</FONT>
+
+  Integer.toString(<FONT color="red"> -1 (= 11111111111111111111111111111111)</FONT> )  returns <FONT color="red"> "-1"</FONT>       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+  see note above on what "1" and "-1" means
+<P>
+A <FONT color="blue"><B>string</B></FONT> inside
+ the computer is <B>actually</B>  an
+ <FONT color="red"><B>array (= sequence) of character (codes)</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

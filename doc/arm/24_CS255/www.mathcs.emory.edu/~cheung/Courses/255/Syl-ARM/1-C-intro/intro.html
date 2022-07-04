@@ -1,0 +1,928 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Introduction to <I>C</I> programming
+<HR>
+</H3>
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     Java is an <FONT color="red">object-oriented</FONT> programming
+     language
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Schematically</B></FONT>,
+     the <FONT color="blue"><B>things</B></FONT> in
+     a <FONT color="red"><B>Java</B></FONT> program can be
+     <FONT color="blue"><B>represented</B></FONT> by
+     the following
+     <FONT color="red"><B>diagram</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/Java-prog01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+At the <FONT color="red"><B>top level</B></FONT>,
+ you will see the following
+ <FONT color="blue"><B>constructs</B></FONT> in
+  a <FONT color="red"><B>Java program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>Java program</B></FONT> consist of
+      one or more <FONT color="red"><B>classes</B></FONT>
+ <P>
+ <LI> A <FONT color="red"><B>class</B></FONT> contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> One or more <FONT color="red"><B>instance/class variables</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> One or more <FONT color="red"><B>functions (= methods)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Important property</B></FONT>
+ of <FONT color="blue"><B>Object Oriented Programming Languages</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>class</B></FONT> construct
+  in <B>OOP (Object Oriented Programming) languages</B>
+   can <FONT color="blue"><B>restrict</B></FONT> the
+   <FONT color="red"><B>access</B></FONT> of
+   <FONT color="blue"><B>instance/class variables</B></FONT> by
+   <FONT color="red"><B>methods in <I>other</I> classes</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/Java-prog01b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Methods</B></FONT> in
+  <FONT color="blue"><B><TT>class2</TT></B></FONT> 
+  <FONT color="red"><B>cannot access</B></FONT> a
+ <FONT color="blue"><B>private variable</B></FONT> 
+ in <FONT color="red"><B>another class</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Data <I>abstraction</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Since the <FONT color="red"><B><TT>main( )</TT></B></FONT>
+     function is usually in a
+     <FONT color="blue"><B>seperate class</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>private variables</B></FONT>
+     defined in a <FONT color="blue"><B>user-defined class</B></FONT> is
+     <FONT color="red"><B><I>inaccessible</I> </B></FONT> to
+     the <FONT color="blue"><B>program statements</B></FONT>
+     in the <FONT color="red"><B><TT>main( )</TT></B></FONT> function.
+<P>
+ I.e.: you can't <FONT color="red"><B>access</B></FONT>
+  the <FONT color="blue"><B>private variables</B></FONT> in
+   a class <FONT color="red"><B>directly</B></FONT> using for example:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     objVar.<FONT color="red">privateVarName</FONT> = ....          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+in <FONT color="red"><B><TT>main( )</TT></B></FONT>.
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So these 
+ <FONT color="red"><B>private variables</B></FONT> are
+  <FONT color="blue"><B><I>hidden</I></B></FONT> from
+ the <FONT color="red"><B>programmer</B></FONT> that
+ write the <FONT color="blue"><B><TT>main( )</TT></B></FONT> program....
+<P>
+They call this
+ <FONT color="red"><B>information hiding</B></FONT> by a 
+  <FONT color="blue"><B>fancy term</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Data <I>abstraction</I></B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     C is <I>not</I> an object orient programming language !
+     </B></FONT>
+<P>
+ <UL>
+ 
+ <P>
+
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> <FONT color="red"><B>does <I>not</I></B></FONT> provide
+      <B>any mechanism</B> to
+      <FONT color="blue"><B>associate</B></FONT>
+      <FONT color="red"><B>data (variables)</B></FONT> and
+      <FONT color="red"><B>code (methods/functions)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+What this mean is:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>C</B></FONT> does not
+   have the <FONT color="blue"><B>class construct</B></FONT>
+     that you can use to
+     <FONT color="red"><B>hide some variables</B></FONT>
+     from being access
+     by <FONT color="blue"><B>functions in <I>another</I> class</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Structure of a C program
+     </B></FONT>
+<P>
+<UL>
+<LI> Structure of a <B>C</B> program:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>C</B></FONT> program consists of a 
+      <FONT color="red"><B>collection</B></FONT> of
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Data structures/types definitions</B></FONT>
+ <LI> <FONT color="red"><B>(Global) variables</B></FONT>
+ <LI> <FONT color="red"><B>Functions 
+    (with local variables and statements)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+stored in <FONT color="blue"><B>one or more <I>files</I></B></FONT>.
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Schematically:</B>
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-prog.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>C</B></FONT> does not
+    provide <FONT color="blue"><B>access protection</B></FONT>
+    in <FONT color="red"><B>things</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C-prog2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+A <FONT color="red"><B>function</B></FONT> can 
+ <FONT color="blue"><B>access</B></FONT> any
+ <FONT color="red"><B>variable</B></FONT> that is
+ <FONT color="blue"><B>defined outside a function</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>later revision</B></FONT> of
+   the <FONT color="blue"><B>C programming language (C99)</B></FONT>
+   has <FONT color="red"><B>added</B></FONT> a
+   <FONT color="blue"><B>construct
+    (<TT>static</TT> globals) </B></FONT> to
+   <FONT color="red"><B>limit</B></FONT> the
+   <FONT color="blue"><B>accessibility</B></FONT> of
+   <FONT color="red"><B>global variables</B></FONT>
+   <P>
+  We will discuss this <FONT color="red"><B>later</B></FONT> in
+  <FONT color="blue"><B>scoping rules</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+
+<P>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Terminology: Function, method, procedure, subroutine....
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>Historical note:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> What we now call a <FONT color="blue"><B>method</B></FONT>,
+    was <B><I>traditionally</I></B> called:
+<P>
+<P>
+<UL>
+<TABLE bgcolor="CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> a <FONT color="red"><B>subroutine</B></FONT>
+    (or subprogram), or
+<LI> a <FONT color="blue"><B>procedure</B></FONT>, or
+<LI> a <FONT color="red"><B>function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Personal practice:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In this course, I was use
+   <FONT color="red"><B>function</B></FONT> instead of
+ <FONT color="blue"><B>method</B></FONT> because that's
+ still the common practice in <B>C</B>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Start of the execution of a C program
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="blue"><B>start</B></FONT> of the <B>execution</B>
+    of a <FONT color="red"><B>C program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>execution</B></FONT> 
+     of a <B>C</B> program begins with the
+     <FONT color="red"><B><TT>main()</TT></B></FONT> 
+   <B><I>function</I></B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Everyone's <I>first</I> C program: Hello World
+     </B></FONT>
+<P>
+<UL>
+<LI> The <B>Hello World</B> program in <FONT color="red"><B>C</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #include &lt;stdio.h&gt;
+
+   int <FONT color="red">main( int argc, char* argv[] )</FONT>            
+   {
+      printf( "Hello World !\n" );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/hello.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc  hello.c</TT></B></FONT>
+   (output file is named <FONT color="blue"><B><TT>a.out</TT></B></FONT>)
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Or:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -o hello hello.c</TT></B></FONT>
+   (option <B>-o</B>
+   renames output file to <FONT color="blue"><B><TT>hello</TT></B></FONT>)
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./hello</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+<P>
+<HR>
+<P>
+<LI> <B>Explantion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>#include &lt;stdio.h&gt;</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>#</TT></B></FONT> symbol
+       starts a <B>command</B> for the
+       <FONT color="blue"><B>C pre-processor</B></FONT>
+ <P>
+ <LI> The <FONT color="red"><B><TT>#include</TT></B></FONT>
+      <B>command</B> instructs
+       the <FONT color="blue"><B>C pre-processor</B></FONT> to
+      <FONT color="red"><B>read in</B></FONT> the file
+      <FONT color="blue"><B><TT>stdio.h</TT></B></FONT>
+      from the <FONT color="red"><B>System include directory</B></FONT>
+       (this is traditionally the directory: 
+    <FONT color="blue"><B><TT>/usr/include</TT></B></FONT>)
+ <P>
+ <LI> The file
+     <FONT color="blue"><B><TT>stdio.h
+   (/usr/include/stdio.h)</TT></B></FONT> is 
+    <B>C</B>'s
+    <FONT color="red"><B>standard IO</B></FONT> include file
+  <P>
+    This file contains 
+    <FONT color="blue"><B>constant and variable definitions</B></FONT>
+     to allow <B>C programs</B> to
+    perform commonly used 
+    <FONT color="red"><B>input/output operations</B></FONT>.
+ <P>
+  Take a look at the file
+   <FONT color="red"><B><TT>/usr/include/stdio.h</TT></B></FONT>....
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><TT>int main( int argc, char* argv[] )
+   </TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This line is the <FONT color="red"><B>header</B></FONT> of the
+      <B>definition</B> of the <FONT color="blue"><B><TT>main()</TT></B></FONT>
+      <B><I>function</I></B>
+ <P>
+ <LI> The function <FONT color="blue"><B><TT>main()</TT></B></FONT> 
+    will return an <B>integer</B> <FONT color="red"><B>error code</B></FONT>
+    (may be used by a <B>shell script</B> to check for the outcome)
+ <P>
+ <LI> The <B>parameters</B> of <FONT color="blue"><B><TT>main()</TT></B></FONT>
+    are:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int   <FONT color="red">argc</FONT>     =  number of parameter strings
+   char* <FONT color="red">argv</FONT>[]   =  array of String 
+                        argv[0] = first argument
+		        argv[1] = second argument
+		        ...       
+		        argv[argc-1] = last argument     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><TT>printf("Hello World !\n");</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This is the <B>statement</B> inside the 
+      <FONT color="red"><B>body</B></FONT> of the
+      <FONT color="blue"><B><TT>main()</TT></B></FONT>
+      <B><I>function</I></B>
+ <P>
+ <LI> <FONT color="red"><B><TT>printf</TT></B></FONT> is the
+    <B>C</B> library function to print outputs to the <B>terminal</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Terminology in C
+     </B></FONT>
+<P>
+<UL>
+<LI> Some terminilogy used in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>stdio.h</TT></B></FONT> = header file
+     containing definitions for the
+     <FONT color="blue"><B>standard Input/Output</B></FONT> operations
+ <P>
+ <LI> <FONT color="red"><B><TT>stdin</TT></B></FONT> = the
+     <B><I>name</I></B> of the
+      <FONT color="blue"><B>standard input</B></FONT> device
+      (which is the <B>keyboard</B>)
+ <P>
+ <LI> <FONT color="red"><B><TT>stdout</TT></B></FONT> = the
+     <B><I>name</I></B> of the
+      <FONT color="blue"><B>standard output</B></FONT> device
+      (which is the <B>screen</B> or <B>terminal</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The C compilation process
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Unlike <I>Java</I></B></FONT>,
+    the <B>C</B> compiler translates the 
+    <B>C program <I>source code</I></B> into
+    <FONT color="red"><B>machine executable instructions (code)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> This is the process used to
+    <FONT color="blue"><B>compile</B></FONT> and
+    then <FONT color="red"><B>run</B></FONT> a
+   <B><I>Java</I> program</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Compile</B></FONT> the <B>Java source code</B>
+    <B><I>using</I></B> a <FONT color="red"><B>Java compiler
+    (<TT>javac</TT></B></FONT>
+    (output is a file containing
+      <FONT color="blue"><B>Java byte code</B></FONT> -
+      instruction code for a <B>virtual</B> machine)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/java1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Execute</B></FONT> the <B>Java source code</B>
+    <B><I>using</I></B> a <FONT color="red"><B>Java byte code
+    <I>interpreter</I> (<TT>java</TT>)</B></FONT>
+    (execution may generate output to the terminal or file(s)).
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/java2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+<HR>
+<P>
+<LI> This is the process used to
+    <FONT color="blue"><B>compile</B></FONT> and
+    then <FONT color="red"><B>run</B></FONT> a
+   <B><I>C</I> program</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Compile</B></FONT> the <B><I>C</I> source code</B>
+    <B><I>using</I></B> a <FONT color="red"><B>C compiler
+    (<TT>gcc</TT></B></FONT>
+    (output is a file containing
+      <FONT color="blue"><B>machine executable code</B></FONT> -
+      instruction code for a <B><I>actual</I></B> computer !!!)
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Execute</B></FONT> the <B>machine code</B>
+    <B><I>directly</I></B> by the 
+    <FONT color="red"><B>computer</B></FONT>:
+    (execution may generate output to the terminal or file(s)).
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/C2.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Facts:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Interpretation</B></FONT> (executing code
+     using an <FONT color="red"><B>interpreter</B></FONT>) is
+     <FONT color="blue"><B>very <I>inefficient</I></B></FONT>.
+ <P>
+ <LI> Due to the fact that <FONT color="blue"><B>C</B></FONT>
+      program source is translated
+    <FONT color="red"><B>machine code</B></FONT>,
+    <FONT color="blue"><B>C programs</B></FONT> 
+    run multiple times (at least 10) faster than
+    <FONT color="darkmagenta"><B>Java programs</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

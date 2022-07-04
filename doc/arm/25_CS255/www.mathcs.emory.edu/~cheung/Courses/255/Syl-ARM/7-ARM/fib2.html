@@ -1,0 +1,895 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H1>
+<HR>
+Second Recursive Function: Fibonacci
+<HR>
+</H1>
+
+<UL>
+<P>
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>classic</I> Fibonacci function
+     </B></FONT>
+<P>
+<UL>
+
+<LI> The <FONT color="red"><B>classic</B></FONT>
+          <B>Fibonacci function</B>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ int <FONT color="red">fib</font>(int n)
+ {
+   if (n = 0)
+      return 1;
+   else if (n == 1)
+      return 1;
+   else
+    {
+      return <FONT color="red">fib(n-1) + fib(n-2)</font>;                
+    }
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+ </UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Calling the Fibonacci function
+     </B></FONT>
+<P>
+<UL>
+<P>
+ <LI> The <FONT color="blue"><B>Fibonacci</B></FONT> function is
+      <B> called</B> with a statement that look like this:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int n, result;
+
+   result = <FONT color="red">fib(n)</font>;                         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Passing</B></FONT>
+     parameter <FONT color="red"><B>n</B></FONT> from 
+     <FONT color="blue"><B>main</B></FONT> program to 
+     <FONT color="red"><B>fib()</B></font>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="blue"><B>Because</B></FONT> the
+   <FONT color="red"><B>Fibonacci</B></FONT> function is
+     <FONT color="blue"><B><I>recursive</I></B></FONT>,
+     <B>each invocation</B> must
+     has its <FONT color="red"><B>own</B></FONT> copy
+     of <FONT color="blue"><B>parameter variables</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> This can <FONT color="red"><B><I>only</I></B></FONT> be
+         <B>realized</B> by using a
+	 <FONT color="blue"><B>stack</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+ <P>
+
+<B>Therefore</B>, the
+   <FONT color="blue"><B> main</B></FONT> program
+   <FONT color="red"><B>must</B></FONT> pass
+    the parameter <FONT color="blue"><B>n</B></FONT>
+     to <FONT color="red"><B>Fibonacci</B></FONT> by pushing
+	<FONT color="blue"><B>n</B></FONT>
+       onto the system stack:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red"> move.l n, -(a7) </font>                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This <FONT color="blue"><B>instruction</B></FONT>
+  will create the following <FONT color="red"><B>stack structure:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">+---------------------+ <------------ Stack pointer (A7)           
+   |     parameter n     |
+   +---------------------+</font>
+   |     .......         |
+   |  rest of the stack  |
+   |     .......         |
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Next</B>, the
+    <FONT color="blue"><B>main</B></FONT>
+   program will <FONT color="red"><B>call</B></FONT>
+  the <FONT color="blue"><B><TT> fib( )</TT> function</B></font>
+  with a <B>bsr</B> instruction:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">bsr  fib</font>                   
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ This will <FONT color="red"><B>push</B></FONT> the
+  <FONT color="blue"><B>return address</B></FONT> on the <B>stack</B>
+  and create the <FONT color="red"><B>following stack structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">+---------------------+ <------------ Stack pointer (A7)       
+   |     return address  |
+   +---------------------+
+   |     parameter n     |
+   +---------------------+</font>
+   |     .......         |
+   |  rest of the stack  |
+   |     .......         |
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <I>Prelude</I> of the Fibonacci function
+     </B></FONT>
+<P>
+<UL>
+ <LI> If you <FONT color="blue"><B>look</B></FONT> at the
+    <FONT color="red"><B>Fibonacci function</B></FONT> 
+    <B><I>carefully</I></B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+ int <FONT color="red">fib</font>(int n)
+ {
+   if (n = 0)
+      return 1;
+   else if (n == 1)
+      return 1;
+   else
+    {
+      return <SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">fib(n-1)</font> + <FONT color="red">fib(n-2)</font></SPAN>;                
+    }
+ }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will <FONT color="blue"><B>notice</B></FONT> that
+ there are <FONT color="red"><B><I>two</I></B></FONT>
+ (<B>recursive</B>) calls
+ to <FONT color="blue"><B>Fibonacci</B></FONT>.
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>In order</B></FONT> to
+   <FONT color="red"><B> <I>compute</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">fib(n-1)</font> + <FONT color="red">fib(n-2)</font>        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+we <FONT color="red"><B>must</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Call</B></FONT>
+      the function
+      <FONT color="red"><B><TT>fib(n-1)</tt></B></FONT>
+      <P>
+      (and <B>obtain</B> the <FONT color="red"><B>return value (x)</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B><I>Then</I></B></FONT>,
+      <FONT color="blue"><B>call</B></FONT>
+      the function
+      <FONT color="red"><B><TT>fib(n-2)</tt></B></FONT>
+      <P>
+      and <B>obtain</B> the <FONT color="red"><B>return value (y)</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+And add <FONT color="red"><B>x</B></FONT> and <FONT color="red"><B>y</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Very</I> important fact:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><I>After</I></B></FONT> we <B>obtained</B>
+       the <FONT color="red"><B>return value (x)</B></FONT> from
+       <FONT color="blue"><B><TT>fib(n-1)</TT></B></FONT>, we
+       <FONT color="red"><B><I>cannot</I></B></FONT> compute the
+       <B>result </B> <FONT color="blue"><B><I>yet</I></B></FONT> !!!
+<P>
+<HR>
+<P>
+<LI> We must <FONT color="blue"><B><I>still</I></B></FONT> find the
+    <FONT color="red"><B><I>second</I> Fibonacci value</B></FONT>
+      (<FONT color="blue"><B><TT>fib(n-2)</TT></B></FONT>)
+      <B>before</B> we can 
+      compute the
+       <FONT color="red"><B>result </B></font> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Conclussion:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We must <FONT color="red"><B><I>save</I></B></FONT> the
+      <FONT color="blue"><B>return value (x)</B></FONT>
+      in a <FONT color="red"><B><I>safe</I> place</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>Where</B></FONT> is a
+       <FONT color="red"><B><I>safe</I> place</B></FONT> in
+  <B><I>recursive</I> programming</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+  <LI> The <FONT color="red"><B><I>only</I> safe place</B></FONT>
+   in  to <FONT color="blue"><B><I>recursive</I> programming</B></FONT>
+     to
+     <Font color="red"><B>store</B></FONT> values is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> 
+      <FONT color="red"><B><I>Local</I> variables</B></FONT> on
+      the <FONT color="blue"><B><I>stack</I></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Therefore:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B>must</B></FONT> create
+      <FONT color="red"><B><I>one</I> local variable</B></FONT>
+      to <FONT color="blue"><B>save</B></FONT> the
+      <FONT color="red"><B>return value (x)</B></FONT> of
+      the <B>call</B>
+      <FONT color="blue"><B><TT>fib(n-1)</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+  <P>
+<LI>  The <FONT color="red"><B>prelude</B></FONT> of the
+  <FONT color="blue"><B> Fibonacci function</B></FONT>
+   is <B>therefore</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+********************************* PRELUDE
+        move.l a6, -(a7)    ; Save caller's frame pointer
+        move.l a7, a6       ; Setup my own frame pointer
+       <FONT color="red"> suba.l #4, a7       ; Allocate space for local variable for fib(n-1)</font>    
+********************************* 
+
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  I will explain what each one does below.
+  Make sure that you realise that the structure of the stack frame is
+   like this when the prelude is <B>always</B> executed:
+<PRE>
+   +---------------------+ <------------ Stack pointer (A7)
+   |     return address  |
+   +---------------------+
+   |     parameter n     |
+   +---------------------+
+   |     .......         |
+   |  rest of the stack  |
+   |     .......         |
+</PRE>
+
+  <UL>
+  <LI> move.l a6, -(a7) 
+   <P>
+   This will save the frame pointer on the stack, creating this partial
+	stack frame structure:
+<PRE>
+   +---------------------+ <------------ Stack pointer (A7)
+   |     saved a6        |
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |     parameter n     |
+   +---------------------+
+   |     .......         |
+   |  rest of the stack  |
+   |     .......         |
+</PRE>
+
+  <LI> move.l a7, a6 
+   <P>
+   This will make the frame pointer A6 points to the stack frame that
+	is now being built:
+<PRE>
+   +---------------------+ <---- Frame pointer A6 & Stack pointer (A7)
+   |     saved a6        |       point to the same location....
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |     parameter n     |
+   +---------------------+
+   |     .......         |
+   |  rest of the stack  |
+   |     .......         |
+</PRE>
+
+  <LI> suba.l #4, a7 
+   <P>
+   This will push the stack pointer A7 <FONT color="red">4 bytes</font> up, allocating 1 integer
+	variables -- used to save the <FONT color="red">return value</font> of <FONT color="red">fib(n-1)</font>.
+
+<PRE>
+   +---------------------+ <---- Stack pointer (A7)
+   |     help (local var)|
+   +---------------------+ <---- Frame pointer (A6)
+   |     saved a6        |
+   +---------------------+
+   |     return address  |
+   +---------------------+
+   |     parameter n     |
+   +---------------------+
+   |     .......         |
+   |  rest of the stack  |
+   |     .......         |
+</PRE>
+
+ <LI> When the prelude is finish, the stack frame is complete and
+	the actual function can begin.
+ </UL>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How to access the parameter and local variables inside the
+     <TT>fib</TT> function
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <B>How</B> to access the 
+     <FONT color="red"><B>parameter</B></FONT> and the 
+   <FONT color="blue"><B>local variables</B></FONT> inside
+   the <FONT color="red"><B><TT> fib( )</TT></B></FONT>
+       <B>function</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <P>
+ <UL>
+ <LI> Parameter <FONT color="red"><B>n</B></FONT>
+     is located 8 bytes <B>below</B> starting 
+	from the address contained in the frame pointer A6.
+    <P>
+     So the address mode that will let you get to this variable is
+	<FONT color="red"><B>8(A6)</B></FONT>
+   <P>
+<HR>
+<P>
+  <LI> Local variable <FONT color="blue"><B>help</B></FONT>
+       is located 4 bytes <B>above</B> starting 
+	from the address contained in the frame pointer A6.
+    <P>
+     So the address mode that will let you get to this variable is
+	<FONT color="blue"><B>-4(A6)</B></FONT>
+ 
+  </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Calling <TT>fib( )</TT> from within <TT>fib( )</TT>:
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+<LI> <B>How</B> <FONT color="red"><B> Fibonacci</B></FONT>
+        calls <B>itself:</B>
+  <P>
+  <LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  It is the <FONT color="red"><B><I>same</I> way</B></FONT>
+    as <B>how</B>  the 
+   <FONT color="blue"><B>main program</B></FONT> calls the 
+    <FONT color="red"><B>Fibonacci function</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Method:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Pass</B></FONT> the
+     <FONT color="red"><B>parameter</B></FONT>
+     on the <B>stack</B>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Call</B></FONT> the
+     <FONT color="blue"><B>Fibonacci</B></FONT> function</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Clean up</B></FONT> the
+       <FONT color="blue"><B>parameter</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Use</B></FONT> the
+     <FONT color="red"><B>return value</B></FONT>
+           (in <B>D0</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <B>Make sure</B> you <B>pop the parameter</B> from the stack after
+	Fibonacci returns - because the parameter has not been cleaned up.
+  <P>
+<HR>
+<HR>
+<P>
+  The following is the program fragment where Fibonacci calls fib(n-1):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+
+
+ <PRE>
+       move.l 8(a6), d0    ; retrieve parameter n into register d0
+       sub.l #1, d0        ; d0 = n - 1
+*
+* ----------------------------- ; fib is calling fib now !!!!
+*
+        move.l d0, -(a7)    ; Push (n-1) as parameter
+        bsr    fib          ; Call fib(n-1)
+        adda.l #4,a7        ; Clean up parameter from stack
+
+        <FONT color="red">move.l d0, -4(a6)   ; help = return value of fib(n-1) in register D0</font>
+  </PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  <P>
+  Fibonacci will call itself a second time with value n-2.
+	The following is the program fragment where Fibonacci calls fib(n-2):
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+ <PRE>
+       move.l 8(a6), d0    ; retrieve parameter n into register d0
+       <B>sub.l #2, d0        ; d0 = n - 2</B>
+*
+* ----------------------------- ; fib is calling fib again....
+*
+        move.l d0, -(a7)    ; Push (n-2) as parameter
+        bsr    fib          ; Call fib(n-2)
+        adda.l #4,a7        ; Clean up parameter from stack
+<FONT color="red">
+        add.l -4(a6),d0       ; Compute the value: fib(n-1)+fib(n-2)</font>
+  </PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+  I have highlighted the difference between the first call and the second.
+  The second call uses a different parameter value and stores
+	the return value in a different local variable !
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>full</B></FONT> assembler program:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+* ===============================================
+* main: result = fib(n)
+* ===============================================
+
+Start:  
+        movea.l #12345,a6    	; Store something in a6 to make it dramatic
+
+        move.l n,-(a7)          ; Call fib(n)
+        bsr    fib
+        adda.l #4,a7            ; pop parameter off the stack
+        move.l d0,result        ; result = return value
+
+Stop:   nop
+
+n:      dc.l 5                  ; variable n (input)
+result: ds.l 1                  ; variable result (output)
+
+
+
+* ========================================================= Fib
+* int fib(int n)
+* { 
+*   if (n = 0)
+*      return 1;
+*   else if (n == 1)
+*      return 1;
+*   else
+*    { 
+*      return fib(n-1) + fib(n-2);
+*    }
+* }
+*
+* ----------------------------------------------------
+* Input: n on stack
+* Output: fib(n) in register d0
+
+fib:
+********************************* PRELUDE
+        move.l a6,-(a7)        ; Save caller's frame pointer
+        move.l a7,a6           ; Setup my own frame pointer
+        suba.l #4,a7           ; Allocate space for local var. "help"
+*********************************
+* Start of function....
+
+        move.l 8(a6),d0        ; n
+        cmp.l  #0,d0           ; n == 0 ?
+        bne    else1
+
+        move.l #1,d0           ; return(1)
+
+********************************* POSTLUDE
+        move.l a6,a7           ; Deallocate local variable(s)
+        move.l (a7)+,a6        ; restore caller's frame pointer
+*********************************
+        rts
+
+else1:  move.l 8(a6),d0        ; n
+        cmp.l  #1,d0           ; n == 1 ?
+        bne    else2            
+
+        move.l #1,d0           ; return(1)
+
+********************************* POSTLUDE
+        move.l a6,a7           ; Deallocate local variable(s)
+        move.l (a7)+,a6        ; restore caller's frame pointer
+*********************************
+        rts
+
+else2:
+********************************* fib(n-1)
+        move.l 8(a6),d0        ; n
+        sub.l #1,d0            ; n - 1
+        move.l d0,-(a7)        ; Push (n-1)
+        bsr    fib             ; call fib(n-1) - will return to next instruction
+
+        adda.l #4,a7           ; Clean up: Pop parameter (n-1) from stack
+
+        move.l d0,-4(a6)       ; Save return value (fib(n-1)) in local var !!
+
+********************************* compute fib(n-2)
+        move.l 8(a6),d0        ; n
+        sub.l #2,d0            ; n - 2
+        move.l d0,-(a7)        ; Push (n-2)
+        bsr    fib             ; call fib(n-2) - will return to next instruction
+
+        adda.l #4,a7           ; Clean up: Pop parameter (n-2) from stack
+
+**********
+        add.l -4(a6),d0       ; Compute the return value: fib(n-1)+fib(n-2)
+
+********************************* POSTLUDE
+        move.l a6,a7           ; Deallocate local variable(s)
+        move.l (a7)+,a6        ; restore caller's frame pointer
+*********************************
+        rts
+
+End:
+        end
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="../demo/fib.s"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>as255  fib</TT></B></FONT>
+ <LI> To run: use <B>Egtapi</B>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>m68000</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>

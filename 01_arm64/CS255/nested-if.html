@@ -1,0 +1,886 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Nested if-statements
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Observation
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="blue"><B>if-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( C )                      
+   {
+      s1;
+      s2;
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+give rise to an <FONT color="blue"><B>assembler program</B></FONT>
+ with the following <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          instructions to perform a compare
+          specified by the condition <FONT color="red">C</font>
+
+          branch of <FONT color="red">FALSE</font> of the condition <FONT color="red">C</font> to label <FONT color="red">IfEnd</font>     
+
+
+	  instructions to perform s1
+	  instructions to perform s2
+	  ....
+  <FONT color="red">IfEnd:</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>if-else-statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   if ( C )                      
+   {
+      s1;
+      s2;
+      ...
+   }
+   else
+   {
+      t1;
+      t2;
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+give rise to an <FONT color="blue"><B>assembler program</B></FONT>
+ with the following <FONT color="red"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+          instructions to perform a compare
+          specified by the condition <FONT color="red">C</font>
+
+          branch of <FONT color="red">FALSE</font> of the condition <FONT color="red">C</font> to label <FONT color="red">Else</font>     
+
+
+	  instructions to perform s1
+	  instructions to perform s2
+	  ....
+          <FONT color="magenta">bra  IfEnd</font>
+
+  <FONT color="red">Else:</font>
+	  instructions to perform t1
+	  instructions to perform t2
+	  ....
+  <FONT color="red">IfEnd:</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+<HR>
+<P>
+<LI> <B>Note:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>statements (s1, s2, ... t1, t2, ...)
+   </B></FONT> inside
+     the <B>then/else parts</B> can be
+     <FONT color="red"><B>"translated"</B></FONT> into
+     <B>assembler code</B>
+     <FONT color="blue"><B><I>independently</I></B></FONT> from
+     the <FONT color="red"><B>if-statement</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> Use this <FONT color="blue"><B>property</B></FONT> to
+      <B>handle</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Nesting</I></B></FONT> of an
+       <FONT color="blue"><B>if/if-else</B></FONT> statement
+       inside another
+       <FONT color="red"><B>if/if-else</B></FONT> statment
+
+        
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Nesting of if-statements
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE><FONT color="red">
+    // x = max of a and b when c > 0                   
+    //     otherwise, x = min of a and b</FONT>
+
+    int x, a, b, c;
+<FONT color="red">
+    if ( c > 0 )
+    {</FONT>
+       // Find maximum
+       if ( a > b )
+       {
+          x = a;
+       }
+       else
+       {
+          x = b;
+       }<FONT color="red">
+    }
+    else
+    {</FONT>
+       // Find minimum
+       if ( a < b )
+       {
+          x = a;
+       }
+       else
+       {
+          x = b;
+       }<FONT color="red">
+    }</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Modular approach
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Method:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Work from the <FONT color="red"><B>outside</B></FONT>
+      <FONT color="blue"><B>inwards</B></FONT>
+<P>
+ <LI> <B>Ignore</B> the <FONT color="blue"><B>inner section
+     (body of the then and else) </B></FONT>
+     of the <FONT color="red"><B>if-statement</B></FONT>
+     <FONT color="darkmagenta"><B>at first</B></FONT>
+<P>
+ <LI> After coding the <FONT color="blue"><B>outer if-statement</B></FONT>,
+      write the code of the statements inside
+      the
+      <FONT color="darkmagenta"><B>then part </B></FONT> and
+      <FONT color="darkmagenta"><B>else part</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Coding the outer if-statement
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Example with the then (and else) body stripped:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+<FONT color="red">
+    if ( c > 0 )
+    {</FONT>
+
+       "then" body stripped                              
+     <FONT color="red">
+    }
+    else
+    {</FONT>
+
+       "else" body stripped
+     <FONT color="red">
+    }</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Corresponding program flow chart:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+          +----------------+    FALSE (branch)
+	  |   test c > 0   | --------+           
+	  +----------------+</FONT>         |
+	          | True             |
+		  V		     |
+          +-----------------+	     |
+	  | code for body   |	     |
+	  | of "then" part  |	     |
+	  +-----------------+	     |
+	          <FONT color="red">|	</FONT>	     |<FONT color="red">
+		  +------------------------------+ (jump over "else" part)</FONT>                
+                                     |           |
+                                     |		 |<FONT color="red">
+   If1_Else:	  +<-----------------+	</FONT>	 |
+		  |                              |
+		  V				 |
+          +-----------------+			 |
+	  | code for body   |			 |
+	  | of "else" part  |			 |
+	  +-----------------+			 |
+	          |				 |
+		  |				 |<FONT color="red">
+    If1_End:	  +<-----------------------------+
+		  |
+		  V</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Corresponding assembler code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+              move.l c,d0
+	      cmp.l  #0,d0         Tests: c ?? 0
+</FONT><FONT color="red">
+	      ble    If1_Else      Branch when !(c < 0) <=> c <= 0</FONT>     
+
+              .....
+	      code for body of "then" part            
+	      .....
+<FONT color="red">
+	      bra    If1_End</FONT>
+
+<FONT color="red">
+   If1_Else:</FONT>
+
+              .....
+	      code for body of "else" part            
+	      .....
+<FONT color="red">
+   If1_End:
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Next: code the body of the "then" (and "else") part
+     (individually)
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Body of the "then" part (ignore the <I>outer</I> if-statement !):</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+       if ( a > b )              
+       {
+          x = a;
+       }
+       else
+       {
+          x = b;
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Corresponding program flow chart:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+          +----------------+    FALSE (branch)
+	  |   test a > b   | --------+           
+	  +----------------+</FONT>         |
+	          | True             |
+		  V		     |
+          +-----------------+	     |
+	  |     x = a       |	     |
+	  +-----------------+	     |
+	          <FONT color="red">|	</FONT>	     |<FONT color="red">
+		  +------------------------------+ (jump over "else" part)</FONT>                
+                                     |           |
+                                     |		 |<FONT color="red">
+   If2_Else:	  +<-----------------+	</FONT>	 |
+		  |                              |
+		  V				 |
+          +-----------------+			 |
+	  |      x = b      |			 |
+	  +-----------------+			 |
+	          |				 |
+		  |				 |<FONT color="red">
+    If2_End:	  +<-----------------------------+
+		  |
+		  V</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Corresponding assembler code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+              move.l a,d0
+	      cmp.l  b,d0        Tests: a ?? b</FONT>
+<FONT color="red">
+	      ble    If2_Else    Branch when !(a > b) <=> a <= b</FONT>       
+
+	      move.l a,d0
+	      move.l d0,x
+<FONT color="red">
+	      bra    If2_End</FONT>
+
+<FONT color="red">
+   If2_Else:</FONT>
+
+	      move.l b,d0
+	      move.l d0,x
+
+<FONT color="red">
+   If2_End:</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Continued....: code the body of the "else" part
+     (individually)
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Body of the "else" part (ignore the <I>outer</I> if-statement !):</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+
+       if ( <FONT color="red">a < b</FONT> )              
+       {
+          x = a;
+       }
+       else
+       {
+          x = b;
+       }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <B>Corresponding program flow chart:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">
+          +----------------+    FALSE (branch)
+	  |   test a < b   | --------+           
+	  +----------------+</FONT>         |
+	          | True             |
+		  V		     |
+          +-----------------+	     |
+	  |     x = a       |	     |
+	  +-----------------+	     |
+	          <FONT color="red">|	</FONT>	     |<FONT color="red">
+		  +------------------------------+ (jump over "else" part)</FONT>                
+                                     |           |
+                                     |		 |<FONT color="red">
+   If3_Else:	  +<-----------------+	</FONT>	 |
+		  |                              |
+		  V				 |
+          +-----------------+			 |
+	  |      x = b      |			 |
+	  +-----------------+			 |
+	          |				 |
+		  |				 |<FONT color="red">
+    If3_End:	  +<-----------------------------+
+		  |
+		  V</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<LI> <B>Corresponding assembler code:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+              move.l a,d0
+	      cmp.l  b,d0        Tests: a ?? b</FONT>
+<FONT color="red">
+	      bge    If3_Else    Branch when !(a < b ) <=> a >= b</FONT>        
+
+	      move.l a,d0
+	      move.l d0,x
+<FONT color="red">
+	      bra    If3_End</FONT>
+
+<FONT color="red">
+   If3_Else:</FONT>
+
+	      move.l b,d0
+	      move.l d0,x
+
+<FONT color="red">
+   If3_End:</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Finally, put the "then" and "else" parts into their places
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Originally:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+              move.l c,d0
+	      cmp.l  #0,d0         Tests: c ?? 0
+</FONT><FONT color="red">
+	      ble    If1_Else      Branch when c <= 0</FONT>     
+
+              .....
+	      code for body of "then" part            
+	      .....
+<FONT color="red">
+	      bra    If1_End</FONT>
+
+<FONT color="red">
+   If1_Else:</FONT>
+
+              .....
+	      code for body of "else" part            
+	      .....
+<FONT color="red">
+   If1_End:
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> After inserting the code
+    for the <FONT color="blue"><B>"then"</B></FONT> body:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+              move.l c,d0
+	      cmp.l  #0,d0         Tests: c ?? 0
+</FONT><FONT color="red">
+	      ble    If1_Else      Branch when c <= 0</FONT>   
+  
+-----------------------------------------------------------------------
+<FONT color="darkred">
+              move.l a,d0
+	      cmp.l  b,d0        Tests: a ?? b</FONT>
+<FONT color="red">
+	      ble    If2_Else    Branch when a <= b</FONT>       
+
+	      move.l a,d0
+	      move.l d0,x
+<FONT color="red">
+	      bra    If2_End</FONT>
+
+<FONT color="red">
+   If2_Else:</FONT>
+
+	      move.l b,d0
+	      move.l d0,x
+
+<FONT color="red">
+   If2_End:</FONT>
+
+-----------------------------------------------------------------------
+<FONT color="red">
+	      bra    If1_End</FONT>
+
+
+<FONT color="red">
+   If1_Else:</FONT>
+
+              .....
+	      code for body of "else" part            
+	      .....
+<FONT color="red">
+   If1_End:</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> Finally, after inserting the code
+    for the <FONT color="blue"><B>"else"</B></FONT> body:
+<P>
+<UL>
+<TABLE bgcolor="lightgreen" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="darkred">
+              move.l c,d0
+	      cmp.l  #0,d0         Tests: c ?? 0
+</FONT><FONT color="red">
+	      ble    If1_Else      Branch when c <= 0</FONT>   
+  
+-----------------------------------------------------------------------
+<FONT color="darkred">
+              move.l a,d0
+	      cmp.l  b,d0        Tests: a ?? b</FONT>
+<FONT color="red">
+	      ble    If2_Else    Branch when a <= b</FONT>       
+
+	      move.l a,d0
+	      move.l d0,x
+<FONT color="red">
+	      bra    If2_End</FONT>
+
+<FONT color="red">
+   If2_Else:</FONT>
+
+	      move.l b,d0
+	      move.l d0,x
+
+<FONT color="red">
+   If2_End:</FONT>
+
+-----------------------------------------------------------------------
+<FONT color="red">
+	      bra    If1_End</FONT>
+
+
+<FONT color="red">
+   If1_Else:</FONT>
+----------------------------------------------------------------------
+<FONT color="darkred">
+              move.l a,d0
+	      cmp.l  b,d0        Tests: a ?? b</FONT>
+<FONT color="red">
+	      bge    If3_Else    Branch when a >= b</FONT>        
+
+	      move.l a,d0
+	      move.l d0,x
+<FONT color="red">
+	      bra    If3_End</FONT>
+
+<FONT color="red">
+   If3_Else:</FONT>
+
+	      move.l b,d0
+	      move.l d0,x
+
+<FONT color="red">
+   If3_End:</FONT>
+
+----------------------------------------------------------------------
+<FONT color="red">
+   If1_End:</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> <FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> you may have <FONT color="blue"><B>multiple labels</B></FONT>
+    marking the <FONT color="red"><B>same location</B></FONT>
+  <P>
+  <B>E.g.:</B>
+   <FONT color="darkmagenta"><B>If1_End</B></FONT> and
+    <FONT color="darkmagenta"><B>If3_End</B></FONT> mark
+    the same location in the program....
+ <P>
+  <HR>
+ <P>
+ <LI> That's OK, it <FONT color="blue"><B>will <I>not</I> compromise</B></FONT>
+    the <FONT color="red"><B>correctness</B></FONT>
+    of the code
+ <P>
+ <LI> (Besides, compilers do that all the time)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+      
+ <P>
+
+</UL>
+
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

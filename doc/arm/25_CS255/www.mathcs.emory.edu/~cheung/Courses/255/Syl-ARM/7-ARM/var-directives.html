@@ -1,0 +1,249 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Assembler directives used to define permanent program constants and variables
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>.data</TT> section of an assembler program
+     </B></FONT>
+<P>
+ <UL>
+ <LI> Recall in the 
+   <A HREF="directives.html">
+   <FONT color="blue"><B>previous webpage</B></FONT>
+   </A>, we learned about the
+   <FONT color="red"><B><TT>.data</TT></B></FONT> directive:
+      
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     <FONT color="red">.data</FONT>
+
+     // Tell the assmbler to put the lines that<FONT color="red"> follows .data</FONT> in the <FONT color="red">data segment</FONT>      
+
+     // I.e.: treat these lines as <FONT color="red">variable definitions</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>data section</B></FONT> of
+ the <FONT color="blue"><B>computer program</B></FONT> contains the
+ <FONT color="red"><B>permanent program constants and variables</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="../4-intro/FIGS/run-time1.gif" width=350 height=350></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The effect of defining variables in high level programming language
+     </B></FONT>
+<P>
+<UL>
+<LI> What happens when you <FONT color="red"><B>define</B></FONT>
+     a <FONT color="blue"><B>(class) variable</B></FONT> in
+     <FONT color="red"><B>Java</B></FONT>, such as
+     the variable <FONT color="blue"><B><TT>age</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class JavaProg
+   {
+      public static int <FONT color="red">age</FONT>;
+
+      ... // other stuff omitted because it's not relevant to the discussion     
+
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In order to <FONT color="red"><B>store</B></FONT> an
+ <FONT color="blue"><B>integer value</B></FONT> into the
+  <B>program variable</B>
+  <FONT color="red"><B><TT>age</TT></B></FONT>, we need to:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+      <FONT color="blue"><B>Reserve</B></FONT>
+       <FONT color="red"><B>4 bytes</B></FONT> of
+       <FONT color="blue"><B>memory</B></FONT></SPAN>
+ <P>
+ (We need <FONT color="red"><B>4 bytes</B></FONT> because
+  an <FONT color="blue"><B><TT>int</TT> typed variable</B></FONT> in
+  <FONT color="red"><B>Java</B></FONT>
+  can store values between
+  <FONT color="blue"><B>-2147483648 (-2<sup>31</sup>) and
+     2147483647 (2<sup>31</sup>-1)</B></FONT>
+  -- should be knowledge from CS170 !!!!
+ <P>
+  In order to hold this <FONT color="red"><B>range of values</B></FONT>,
+  we need <FONT color="blue"><B>32 bits</B></FONT> which is equal to
+  <FONT color="red"><B>4 bytes</B></FONT>.)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In addition to
+  <FONT color="red"><B>reserving the memory cells</B></FONT> to
+  <FONT color="blue"><B>store the value</B></FONT>,
+  we need to do <FONT color="red"><B>one more thing</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We must 
+    <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>remember</B></FONT> the
+     <FONT color="blue"><B><I>location</I> (= address)</B></FONT>
+     of these <FONT color="red"><B>bytes</B></FONT></SPAN>
+      that are used to
+     store the value of the
+     <SPAN style="BACKGROUND-COLOR: yellow">
+     <B>variable</B> <FONT color="blue"><B>called</B></FONT>
+     <FONT color="red"><B><TT>age</TT></B></FONT></SPAN> !!!
+     <P>
+ (Because if you <FONT color="red"><B>do not know</B></FONT>
+  where these <FONT color="blue"><B>memory bytes</B></FONT> are
+  <FONT color="red"><B>located</B></FONT>, you
+ won't be able to <FONT color="blue"><B>find time</B></FONT> again !!!)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So when you <FONT color="red"><B>define</B></FONT> a
+  <FONT color="blue"><B>variable</B></FONT> in
+   <FONT color="red"><B>Java</B></FONT>, such as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class JavaProg
+   {
+      public static int <FONT color="red">age</FONT>;
+
+      ... // other stuff omitted because it's not relevant to the discussion     
+
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>Java compiler</B></FONT> will do
+ <FONT color="blue"><B>2 things</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Reserve</B></FONT>
+        the <FONT color="blue"><B>required amount of (contiguous) memory cells
+	</B></FONT> to
+	<FONT color="red"><B>store the value</B></FONT> of
+	the <FONT color="blue"><B>variable</B></FONT>
+	somewhere in memory
+  <P>
+ (We don't care where the Java compiler has reserved the memory cells; 
+ anywhere in the memory will work !)
+ <P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Associate</B></FONT> the
+    <FONT color="blue"><B><I>address</I></B></FONT> of the
+   <FONT color="red"><B><I>first</I> memory cell</B></FONT> with the
+    <FONT color="blue"><B>identifier <TT>age</TT></B></FONT> 
+ <P>
+ (Because the reserved memory cells are
+  <FONT color="red"><B>contiguous</B></FONT>, if we know the
+  <FONT color="blue"><B>address</B></FONT> of the
+  <FONT color="red"><B><I>first</I> memory cell</B></FONT>, we can
+  find the <FONT color="blue"><B><I>rest</I> (the next 3 !!)</B></FONT> of the
+  reserved memory cells !!!)
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

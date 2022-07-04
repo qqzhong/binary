@@ -1,0 +1,1105 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The <TT>.data</TT> section of the assembler program
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <FONT color="red"><B><TT>.data</TT> section</B></FONT>
+      of an assembler program
+     </B></FONT>
+<P>
+ <UL>
+ <LI> The <FONT color="red"><B><TT>.data</TT> assembler directive</B></FONT>
+      tells the <FONT color="blue"><B>ARM assembler</B></FONT> to
+      <FONT color="red"><B>start assembling</B></FONT>
+      the line <FONT color="blue"><B>after the directive</B></FONT> into
+      the <FONT color="red"><B><TT>.data</TT> section</B></FONT> of the
+      <B>computer program</B>
+<P>
+ <LI> The  <FONT color="red"><B><TT>.data</TT> section</B></FONT>
+    of a <FONT color="blue"><B>computer  program</B></FONT> contains
+   <B>permanent</B>
+    <FONT color="red"><B><I>constants</I></B></FONT> and
+    <FONT color="red"><B><I>variables</I></B></FONT> used in
+	computer program.
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/data01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+That means:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>After</B></FONT> the
+    <FONT color="red"><B><TT>.data</TT> directive</B></FONT>
+    in an <FONT color="blue"><B>assembler program</B></font>,
+    we can define 
+    <FONT color="red"><B>constants</B></FONT>
+	and
+    <FONT color="red"><B>program variables</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Example:</B> the
+   <FONT color="red"><B><TT>Hello World</TT></B></FONT> program
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        .global main
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">
+// ************************ Starting variable definition *****************    
+        .data                                                                 
+// ***********************************************************************</FONT>    
+                                                                              
+HelloStr:                                                                     
+        .asciz "<FONT color="red">Hello World\n</FONT>"          // <--- This a String constant        
+</SPAN>
+<FONT color="red">
+// ************************ Starting computer instruction ****************     
+        .text                                                                  
+// ***********************************************************************</FONT>     
+main:                                                                          
+        push    {lr}                    // Save the return address on the stack
+        push    {fp}                    // Save the frame pointer on the stack 
+                                        // Explained later in CS255            
+                                                                               
+        /* ----------------------------------------                            
+           Pass the string to printf function                                  
+           ---------------------------------------- */                         
+        movw    r0, #:lower16:HelloStr                                         
+        movt    r0, #:upper16:HelloStr                                         
+                                                                               
+        /* ----------------------------------------                            
+           Call the printf function                                            
+           ---------------------------------------- */                         
+        <FONT color="red">bl      printf                  // Call printf function</FONT>                
+                                                                               
+        pop     {fp}                    // Pop the frame pointer               
+        pop     {lr}                    // Pop the return address              
+                                        // Explained later in CS255            
+       <FONT color="red"> .end</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<FONT color="blue"><B>After</B></FONT> processing the
+  <FONT color="red"><B><TT>.data</TT> directive</B></FONT>,
+ the <FONT color="blue"><B>assembler</B></FONT> will:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> <FONT color="red"><B>Translate the lines</B></FONT> that follows the
+     <FONT color="blue"><B><TT>.data</TT></B></FONT>
+      (the section highlighted in yellow)
+	and 
+ <P>
+ <LI> Store the <FONT color="blue"><B>constants/variables</B></FONT> in the
+  <FONT color="red"><B><TT>.data</TT> section</B></FONT> of the program:
+<P>
+<UL>
+<IMG SRC="FIGS/data01.gif"></IMG>
+</UL>
+<P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>assembler </B></FONT> will keep doing this
+  <B>until</B> it encounters
+  a <FONT color="blue"><B><TT>.text</TT> dirctive</B></FONT>
+<P>
+So you can <FONT color="red"><B>switch</B></FONT> between
+ <FONT color="blue"><B><TT>.data</TT></B></FONT> and
+ <FONT color="blue"><B><TT>.text</TT></B></FONT> section 
+ as often as you wish in an
+ <B>assembler program</B>
+
+<P>
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Creating initialized variables in the <TT>.data</TT> section
+     </B></FONT>
+<P>
+<UL>
+<LI> An <FONT color="red"><B>initialized variable</B></FONT> is
+     a <B>program variable</B> with an
+    <FONT color="blue"><B>initial constant value</B></FONT>
+<P>
+In <FONT color="red"><B>Java</B></FONT>, you define an
+  <FONT color="blue"><B>initialized variable</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int   x = 123;    // x has an initial value 123        
+     short y = 22;     // y has an initial value 22
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<LI> There are <FONT color="red"><B>different types</B></FONT> of
+     <FONT color="blue"><B>initialized variable</B></FONT> used in
+     <B>computer programs</B> that contains:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>int</TT></B></FONT> typed constants
+      (= a binary number that consists of 
+      <FONT color="blue"><B>32 bits</B></FONT>)
+ <LI> <FONT color="red"><B><TT>short</TT></B></FONT> typed constants
+      (= a binary number that consists of 
+      <FONT color="blue"><B>16 bits</B></FONT>)
+ <LI> <FONT color="red"><B><TT>byte</TT></B></FONT> typed constants
+      (= a binary number that consists of 
+      <FONT color="blue"><B>8 bits</B></FONT>)
+<P>
+ <LI> <FONT color="red"><B><TT>float</TT></B></FONT> typed constants
+      (= a <B>IEEE 754 coded</B> number that consists of 
+      <FONT color="blue"><B>32 bits</B></FONT>)
+ <LI> <FONT color="red"><B><TT>double</TT></B></FONT> typed constants
+      (= a <B>IEEE 754 coded</B> number that consists of 
+      <FONT color="blue"><B>64 bits</B></FONT>)
+<P>
+ <LI> <FONT color="red"><B><TT>String</TT></B></FONT> typed constants
+      (= a series of <B>ASCII codes</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Each type</B></FONT> of
+ <FONT color="blue"><B>value</B></FONT> is
+  defined using its own
+  <FONT color="red"><B>assembler <I>directive</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>assembler</B></FONT> will
+      <FONT color="blue"><B>convert</B></FONT> the
+      <FONT color="red"><B>constants</B></FONT> in the
+      <FONT color="blue"><B>appropriate</B></FONT>
+      <FONT color="red"><B>code</B></FONT> according to the
+      given <FONT color="blue"><B>directive</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Directives</B></FONT> used to
+    <FONT color="blue"><B>define</B></FONT> <B>various types</B>
+    of <FONT color="red"><B>constant values</B></FONT>
+    in <FONT color="blue"><B>ARM assembler langaue</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  <FONT color="red">.byte</FONT> Value    - defines an <FONT color="red">1 byte  2's complementary binary code</FONT> the represents Value    
+
+  <FONT color="red">.2byte</FONT> Value   - defines a  <FONT color="red">2 bytes 2's complementary binary code</FONT> the represents Value
+
+  <FONT color="red">.4byte</FONT> Value   - defines a  <FONT color="red">4 bytes 2's complementary binary code</FONT> the represents Value
+
+  <FONT color="red">.float</FONT> Value   - defines a  <FONT color="red">4 bytes IEEE 754 binary code</FONT> the represents Value
+
+  <FONT color="red">.double</FONT> Value  - defines an <FONT color="red">8 bytes IEEE 754 binary code</FONT> the represents Value
+
+  <FONT color="red">.asciz</FONT> "..."   - defines a series <FONT color="red">ASCII binary code</FONT> the represents string "..."
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// ************************ Starting variable definition *****************
+        .data
+// ***********************************************************************
+
+DataStart:
+ 
+        <FONT color="red">.byte</FONT>  15
+        <FONT color="red">.2byte</FONT> 15
+        <FONT color="red">.4byte</FONT> 15
+        <FONT color="red">.float</FONT>  5
+        <FONT color="red">.asciz</FONT> "ABC"                         
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These <FONT color="red"><B>assembler directives</B></FONT>
+ will <FONT color="blue"><B>translate</B></FONT> into the
+  following
+  <FONT color="red"><B><TT>.data</TT> section</B></FONT>
+ -- I will show you this in class
+  using <FONT color="blue"><B>EGTAPI</B></FONT>:
+<P>
+
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/0/constants01.jpg" width=400 height=240></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+ <FONT color="red"><B><TT>
+  /home/cs255001/demo/asm/1-directives/constants.s
+ </TT></B></FONT> 
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B>EGTAPI</B></FONT> on the
+    file <FONT color="blue"><B>demo/1-directives/constants.s</B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+
+<P>
+You can <FONT color="red"><B>see</B></FONT> the
+ <FONT color="blue"><B>values</B></FONT> stored in
+ <FONT color="red"><B>memory</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B><TT>Data segment</TT></B></FONT> contains
+      the following series of
+      <FONT color="blue"><B>hexadecimal number</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0f  0f  00  0f  00  00  00  00  00  a0  40  41  42  43  00  00    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+These <FONT color="red"><B>values</B></FONT> were
+ <FONT color="blue"><B>defined</B></FONT> by the
+ list of <FONT color="red"><B>assembler directive</B></FONT> in the 
+  <B>example</B>.
+<P>
+Let me explain what each directive has create....
+<P>
+<HR>
+<P>
+ <LI> The "<FONT color="red"><B><TT>.byte</TT> <FONT color="blue">15</FONT>
+      </B></FONT>
+      <B>assembler directive</B> has
+      created the
+      <FONT color="blue"><B>1 byte 2's complement code</B></FONT>
+      <FONT color="red"><B><TT>00001111</TT></B></FONT> 
+      (that represents the <FONT color="blue"><B>value 15</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    <FONT color="red">0f</FONT>  0f  00  0f  00  00  00  00  00  a0  40  41  42  43  00  00    
+
+    Hex <FONT color="red">0f</FONT> = <FONT color="red">00001111</FONT><sub>(2)</sub>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+ <LI> The "<FONT color="red"><B><TT>.2byte</TT> <FONT color="blue">15</FONT>
+      </B></FONT>
+      <B>assembler directive</B> has
+      created the
+      <FONT color="blue"><B>2 bytes 2's complement code</B></FONT>
+      <FONT color="red"><B><TT>0000000000001111</TT></B></FONT> 
+      (that represents the <FONT color="blue"><B>value 15</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0f  <FONT color="red">0f  00</FONT>  0f  00  00  00  00  00  a0  40  41  42  43  00  00    
+
+    Hex <FONT color="red">0f 00</FONT> = (you have to reverse the order - <A HREF="endian.html">explained later</A>)
+
+              = 000f<sub>(16)</sub>
+
+              = <FONT color="red">0000000000001111</FONT><sub>(2)</sub>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<HR>
+<P>
+ <LI> The "<FONT color="red"><B><TT>.4byte</TT> <FONT color="blue">15</FONT>
+      </B></FONT>
+      <B>assembler directive</B> has
+      created the
+      <FONT color="blue"><B>4 bytes 2's complement code</B></FONT>
+      <FONT color="red"><B><TT>00000000000000000000000000001111</TT></B></FONT> 
+      (that represents the <FONT color="blue"><B>value 15</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0f  0f  00  <FONT color="red">0f  00  00  00</FONT>  00  00  a0  40  41  42  43  00  00    
+
+    Hex <FONT color="red">0f 00 00 00</FONT> = (you have to reverse the order - <A HREF="endian.html">explained later</A>)
+
+              = 0000000f<sub>(16)</sub>
+
+              = <FONT color="red">00000000000000000000000000001111</FONT><sub>(2)</sub>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+<HR>
+<P>
+ <LI> The "<FONT color="red"><B><TT>.float</TT> <FONT color="blue">5</FONT>
+      </B></FONT>
+      <B>assembler directive</B> has
+      created the
+      <FONT color="blue"><B>4 bytes IEEE 754 code</B></FONT>
+      <FONT color="red"><B><TT>01000000101000000000000000000000
+      </TT></B></FONT> 
+      (that represents the <FONT color="blue"><B>(floating point)
+      value 5</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0f  0f  00  0f  00  00  00  <FONT color="red">00  00  a0  40</FONT>  41  42  43  00  00    
+
+    Hex <FONT color="red">00 00 a0 40</FONT> = (you have to reverse the order - <A HREF="endian.html">explained later</A>)
+
+              = 40a00000<sub>(16)</sub>
+
+              = <FONT color="red">01000000101000000000000000000000</FONT><sub>(2)</sub>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Previously</B>,
+  in this <FONT color="blue"><B>webpage (and lecture)</B></FONT>, we saw that
+ the 
+ <FONT color="red"><B>IEEE 754 code
+  <TT>01000000101000000000000000000000</TT></B></FONT>
+ represents the <FONT color="blue"><B>floating point value 5</B></FONT>
+ -
+ <A HREF="../5-repr/float.html#float15">click here</A>
+
+
+
+
+
+
+
+<HR>
+<P>
+ <LI> And finally,
+     the "<FONT color="red"><B><TT>.asciz</TT> <FONT color="blue">"abc"</FONT>
+      </B></FONT>
+      <B>assembler directive</B> has
+      created this series of
+      <FONT color="blue"><B>ASCII code</B></FONT>:
+      <FONT color="red"><B><TT>01000001 &nbsp; 01000010 &nbsp;
+      01000011
+      </TT></B></FONT> 
+      (that represents the 3 characters <FONT color="blue"><B>
+      <TT>a &nbsp; b &nbsp; c</B></FONT>):
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    0f  0f  00  0f  00  00  00  00  00  a0  40  <FONT color="red">41  42  43 </FONT> 00  00    
+
+    Hex <FONT color="red">41 42 43</FONT> = 01000001<sub>(2)</sub>  01000010<sub>(2)</sub>  01000011<sub>(2)</sub>
+
+                 = <FONT color="red">    a            b           c</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+
+
+
+
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Creating  an <I>uninitialized</I>
+    program variable in the <TT>.data</TT> section
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Uninitialized variables</B></FONT> are
+    <FONT color="blue"><B>program variables</B></FONT> that
+    do not have an initial value.
+ <P>
+ In <FONT color="blue"><B>Java</B></FONT>, an 
+  <FONT color="red"><B>uninitialized variable</B></FONT>
+  is defined like this:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     int  x;
+ or  short y;                          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> An <FONT color="red"><B><I>uninitialized</I>
+   program variable</B></FONT> is
+     created
+     using the
+     <FONT color="blue"><B><TT>.skip</TT> assembler directive</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">.skip</FONT>  n       <FONT color="red">// will reserve n bytes for a program variable</FONT>    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In order to use <FONT color="red"><B><TT>.skip</TT></B></FONT> to
+     <FONT color="blue"><B>define</B></FONT> variable of
+     a certain <FONT color="red"><B>data type</B></FONT>,
+     you will need to <FONT color="blue"><B>know</B></FONT>
+     how <FONT color="red"><B>many bytes</B></FONT> it takes
+     to store <FONT color="blue"><B>values</B></FONT> of that
+     <FONT color="red"><B>data type</B></FONT> !!!
+<P>
+Maybe you learned this in <FONT color="red"><B>CS170 or CS171</B></FONT>.
+<P>
+In any case, here are the
+ <FONT color="red"><B>sizes</B></FONT> of
+ the <FONT color="blue"><B>data types</B></FONT> used in
+  <FONT color="red"><B>most high level programming languages</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   byte   type:   1 byte
+   short  type:   2 bytes
+   int    type:   4 bytes
+   float  type:   4 bytes
+   double type:   8 bytes
+   char   type:   1 byte     (Java uses 2 bytes for Unicode)       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> Here's how you would define:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      In C/Java         How to define such variable in assembler
+     ------------     ---------------------------------------------      
+       int i;             .skip 4
+       short s;           .skip 2              
+       float f;           .skip 4
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+
+
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Identifying the location of an constant or program variable with a label
+     </B></FONT>
+<P>
+<UL>
+<LI> When a <FONT color="blue"><B>constant/variable</B></FONT> is
+     <FONT color="red"><B>defined</B></FONT> in the
+    <FONT color="blue"><B><TT>.data</TT> section</B></FONT>,
+    some
+    <FONT color="red"><B>memory cells</B></FONT> in the memory
+    are <FONT color="blue"><B>reserved</B></FONT> to
+    store its <FONT color="red"><B>value</B></FONT>
+<P>
+<P>
+  In order to <FONT color="red"><B>access</B></FONT>
+  the <FONT color="blue"><B>constant/variable</B></FONT> in
+  the <B>memory</B>, we need to
+  provide the
+  <FONT color="red"><B><I>address</I></B></FONT> of 
+  <FONT color="blue"><B>constant/variable</B></FONT> in
+  <B>memory</B> !!!
+
+<P>
+So we must <FONT color="red"><B>remember</B></FONT> the
+ <FONT color="blue"><B>location</B></FONT> of
+ <FONT color="red"><B><I>every</I> variable</B></FONT> defined
+ in the <FONT color="blue"><B>program</B></FONT>:
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Analogy:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose you are traveling and need
+   a room in a hotel
+   (= you need to store a value in memory)
+ <P>
+  <LI> Every room is the same in the hotel, each room has
+   a unique room number 
+   (= every memory cell is the same, each memory cell has
+   a unique address)
+ <P>
+ <LI> It does not matter which room you get (= it does not matter
+  which memory cell you reserve for the variable)
+ <P>
+ <LI>  But if your friend(s) need to find you, they will need to
+  know your room number
+  (if you need to use the variable, you will need to know the
+  memory address of that variable !)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>$64,000 question:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> do we 
+     <FONT color="blue"><B>find out</B></FONT>
+     the <FONT color="red"><B>memory location</B></FONT> 
+     where a <FONT color="blue"><B>variable</B></FONT>
+     is <FONT color="red"><B>stored</B></FONT> ???
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Well, we have discuss  this <FONT color="blue"><B>mechanism</B></FONT>
+    in the
+ <FONT color="red"><B>previous webpage</B></FONT>...
+<P>
+But I will <FONT color="red"><B>repeat</B></FONT> the
+ <FONT color="blue"><B>answer</B></FONT> here for
+ <FONT color="red"><B>emphasis</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>assembler</B></FONT> provides
+       a <FONT color="blue"><B>mechanism</B></FONT>
+       to <FONT color="red"><B>"mark"</B></FONT> a
+       <FONT color="blue"><B>memory location</B></FONT> that has
+       a <FONT color="red"><B>special significance</B></FONT>.
+ <P>
+   This <FONT color="red"><B>mechinism</B></FONT> is
+   called a <FONT color="blue"><B><I>label</I></B></FONT>
+   (see: <A HREF="directives.html#label"> click here </A>)
+ <P>
+ <B>For example:</B>
+  in the <FONT color="red"><B><TT>Hello World</TT></B></FONT> program
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<SPAN style="BACKGROUND-COLOR: yellow"><FONT color="red">
+// ************************ Starting variable definition *****************    
+        .data                                                                 
+// ***********************************************************************</FONT>    
+                                                                              
+HelloStr:        // <---- This is a label                                     
+        .asciz "<FONT color="red">Hello World\n</FONT>"                                                </SPAN>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Notice that:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>label</B></FONT> consists of:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>    An <FONT color="blue"><B>identifier</B></FONT> 
+      <B>followed</B> by a
+      <FONT color="red"><B>colon (:)</B></FONT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <P>
+ <B>Example:</B>
+  <FONT color="red"><B><TT>main:</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+   
+ <P>
+ <LI> You should add a <FONT color="blue"><B>label</B></FONT> before
+    <FONT color="red"><B><I>every</I> constant/variable definition
+    </B></FONT> in the
+    <B>assembler program</B> !!!
+ <P>
+<B>Because:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Without a <FONT color="blue"><B>label</B></FONT>,
+     you have <FONT color="red"><B>no way</B></FONT> to
+     <FONT color="blue"><B>find and use</B></FONT> the
+     <FONT color="red"><B>constant or program variable</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> So the <FONT color="red"><B>proper way</B></FONT> to
+      <FONT color="blue"><B>define</B></FONT> the
+      <FONT color="red"><B>various constants</B></FONT> in the
+      <FONT color="blue"><B>above example program</B></FONT> is
+      <FONT color="red"><B>add a label</B></FONT> to mark
+      the <B>location</B> of
+      <FONT color="blue"><B><I>each</I> constant</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+// ************************ Starting variable definition *****************
+        .data
+// ***********************************************************************
+
+byteConst:      .byte  15
+shortConst:     .2byte 15
+intConst:       .4byte 15
+floatConst:     .float  5
+doubleConst:    .double 5
+strConst:       .asciz "ABC"
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+
+<HR>
+<HR>
+<P>
+<LI> 
+It is <FONT color="red"><B>important</B></FONT> that you
+ realize that the
+ <FONT color="blue"><B>assembler (= translation program)</B></FONT>
+ will <FONT color="red"><B>keep track</B></FONT> of the
+ <FONT color="blue"><B>memory locations</B></FONT>
+ that it uses to store
+ the translated <FONT color="red"><B>constants and/or program variables
+ </B></FONT> in
+ <FONT color="blue"><B><TT>.data</TT> segment</B></FONT>
+  of the <B>memory</B> also.
+
+<P>
+<B>I.e.:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>assembler</B></FONT> knows
+   the <FONT color="blue"><B>exact memory location</B></FONT> that the
+   <FONT color="red"><B>next translated item</B></FONT> will
+   go in the <FONT color="blue"><B><TT>.data</TT> segment</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+When the <FONT color="red"><B>assembler</B></FONT> finds a
+ <FONT color="blue"><B>label</B></FONT>
+ (such as <FONT color="red"><B><TT>HelloStr:</TT></B></FONT>)
+  in the <B>assembler program</B>, the
+ <FONT color="blue"><B>assembler</B></FONT> will
+ <FONT color="red"><B><I>equate</I> </B></FONT> 
+ the <FONT color="red"><B>label</B></FONT> to
+ the <FONT color="blue"><B>memory address</B></FONT> where
+ it will put the
+ <FONT color="red"><B><I>next</I> constant or program variable</B></FONT>
+<P>
+
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT color="red"><B>
+       /home/cs255001/cs255/demo/1-directives/constants.s
+       </B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use <FONT color="red"><B>EGTAPI</B></FONT> on
+    <FONT color="blue"><B>demo/1-directives/constants.s</B></FONT>
+ <P>
+  <FONT color="red"><B>Right click on</B></FONT> the
+  <FONT color="blue"><B>variable name </B></FONT> to show
+  its <FONT color="red"><B>address</B></FONT> in memory
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using labels to access the constants and program variables
+     </B></FONT>
+<P>
+<UL>
+
+<P>
+We will learn <FONT color="red"><B>soon</B></FONT>  how to
+ <FONT color="red"><B>access</B></FONT> a
+  <FONT color="blue"><B>constant/program variable</B></FONT> in
+  a <B>computer program</B> using
+  its <FONT color="red"><B>label</B></FONT>
+<P>
+
+</UL>
+
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

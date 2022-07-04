@@ -1,0 +1,844 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 - A Brief Manual for Egtapi </title>
+<body
+text = "#000000"
+link="#0000ff"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<center>
+<B>
+<H2>CS 255 - Computer Organization/Architecture I <BR>
+EGTAPI Manual <BR></H2>
+</B>
+</CENTER>
+<P>
+<P><HR><HR><P>
+
+<P>
+<H3>
+<A HREF="index.html#TOC">
+Using breakpoints to help you find bugs in your program
+</A>
+</H3>
+<P>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Review of breakpoint (see: 
+    <A HREF="exec.html#bp"> click here </A>)
+     </B></FONT>
+<P>
+<UL>
+
+<LI> <FONT color="red"><B>What</B></FONT> is a
+     <B>breakpoint</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Breakpoint</B></FONT> =
+      a <FONT color="red"><B>location</B></FONT> in the
+      <FONT color="blue"><B>program</B></FONT> where
+       <FONT color="red"><B>execution</B></FONT> will be
+       <FONT color="blue"><B> temporarily halted</B></FONT> when the
+       <FONT color="red"><B>program execution</B></FONT> arrives at
+       that <FONT color="blue"><B>location</B></FONT>
+<P>
+   A <FONT color="red"><B>breakpoint</B></FONT> must <B>always</B> be
+      marked by an <FONT color="blue"><B><TT>.global</TT> label</B></FONT> in
+      the <FONT color="red"><B>program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Before you can fix (= debug) computer programs
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Pre-requisite</B></FONT> to
+   <FONT color="blue"><B>fixing</B></FONT> a
+     <FONT color="red"><B>computer program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Before</B></FONT> you can
+     <FONT color="blue"><B>fix</B></FONT> 
+   <B>something</B> (anything) that
+    is <FONT color="red"><B>broken</B></FONT>, you need to
+    <FONT color="blue"><B>know</B></FONT> the
+    <FONT color="red"><B><I>difference</I></B></FONT> between:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>Something</B> that
+        <FONT color="red"><B>work <I>correctly</I></B></FONT>
+ <LI> <B>Something</B> that
+   <FONT color="red"><B>does <I>not</I></B></FONT> 
+     <FONT color="blue"><B>work correctly</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+In other words:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If you <FONT color="red"><B>do not understand</B></FONT>
+       <FONT color="blue"><B><I>how</I></B></FONT> an
+    <FONT color="red"><B>algorithm </B></FONT> works,
+    you will <FONT color="blue"><B>not be able</B></FONT> to
+    <FONT color="red"><B><I>fix</I></B></FONT> the
+    <B>algorithm</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How good programmers fix their programs
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>good programmer</B></FONT>
+        <FONT color="red"><B>knows</B></FONT>
+	<B>exactly</B> 
+	<FONT color="blue"><B>what steps (and effects)</B></FONT> his/her
+	<FONT color="red"><B>program (algorithm)</B></FONT> will
+	<FONT color="blue"><B>perform</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>How</B></FONT> a
+   <FONT color="red"><B>good programmer</B></FONT>
+   <FONT color="blue"><B>finds errors</B></FONT> in his/her
+   <FONT color="red"><B>programs</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> They make their <FONT color="blue"><B>program</B></FONT>
+   <FONT color="red"><B>show</B></FONT> them
+   <FONT color="blue"><B>what</B></FONT> it is
+   <FONT color="red"><B>doing</B></FONT>
+<P>
+ When the <FONT color="blue"><B>program</B></FONT> is
+  doing something <FONT color="red"><B>unexpected</B></FONT>
+  (= something <FONT color="blue"><B>other</B></FONT> than
+  what the <B>program</B> <FONT color="red"><B>should do</B></FONT>),
+  a <FONT color="blue"><B>good programmer</B></FONT> has
+  find the <FONT color="red"><B>bug</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+    How to find and fix bugs in your program
+     </B></FONT>
+<P>
+
+<UL>
+<P>
+<LI> <FONT color="red"><B>Before</B></FONT> you can
+     <FONT color="blue"><B>use</B></FONT>
+     <B>breakpoints</B> to help you
+     <FONT color="red"><B>find bugs</B></FONT> in your 
+     <FONT color="blue"><B>program</B></FONT>, you
+     <FONT color="red"><B>must <I>first</I></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <SPAN style="BACKGROUND-COLOR: yellow">
+     <FONT color="red"><B>Locate</B></FONT> the
+       <FONT color="blue"><B>general (= approximate) area</B></FONT>
+       </SPAN>
+       in your <B>program</B> that contain
+       a <FONT color="red"><B>bug</B></FONT>
+ <P>
+ <B>I.e.:</B> find out
+  <FONT color="red"><B>when</B></FONT> an
+   <FONT color="blue"><B>error</B></FONT> occured
+   in the <FONT color="red"><B>execution</B></FONT> of your
+   <FONT color="blue"><B>program</B></FONT> !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You must <FONT color="blue"><B>know (understand)</B></FONT>
+     <FONT color="red"><B>what</B></FONT> your
+     <B>program</B> is <FONT color="blue"><B>doing</B></FONT>
+     (to the <B>variables</B>) in order to
+     <FONT color="red"><B>discover</B></FONT>
+     <FONT color="blue"><B>when</B></FONT> an
+     <FONT color="red"><B>error</B></FONT> has
+     <B>occurred</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="blue"><B>Medthodology</B></FONT> used to
+    <FONT color="red"><B>find bugs</B></FONT> in a
+    <FONT color="blue"><B>program</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>
+
+<FONT color="red"><B>Suppose</B></FONT> that the
+  <FONT color="blue"><B>bug (= error)</B></FONT> is
+  located this
+   <FONT color="red"><B>this part</B></FONT> of your 
+   <FONT color="blue"><B>program</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bug01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How to</B></FONT>
+     find the <FONT color="blue"><B>bug (= error)</B></FONT> in
+     your <B>program</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Execute</B></FONT>
+        <FONT color="blue"><B>each instruction</B></FONT> in the
+	<FONT color="red"><B>suspect area</B></FONT>
+ <LI> <FONT color="red"><B>Check</B></FONT> if
+     the <FONT color="blue"><B>result</B></FONT> of
+     <FONT color="red"><B>each instruction</B></FONT> is
+     <FONT color="blue"><B>exactly</B></FONT> what
+     <FONT color="red"><B>you expect</B></FONT> the
+     <FONT color="blue"><B>program</B></FONT> to
+     <B>perform</B> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>instruction(s)</B></FONT> that
+   <FONT color="blue"><B>fail</B></FONT> to
+   <B>perform</B> what <FONT color="red"><B>you expect</B></FONT>
+   them to do, are <FONT color="blue"><B>errors</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT color="red"><B>$64,000 question</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>How</B></FONT> can I
+      <FONT color="blue"><B>make the computer</B></FONT> to
+      <FONT color="red"><B>execute</B></FONT> 
+     <FONT color="blue"><B>each instruction</B></FONT> in the
+	<FONT color="red"><B>suspect area</B></FONT> ???
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>program</B></FONT> will
+      <FONT color="red"><B><I>always</I></B></FONT> start
+      running from the <FONT color="blue"><B>beginning </B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Using breakpoints to help you find (and fix) bugs in your program
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Breakpoints</B></FONT> can
+     <FONT color="blue"><B>help</B></FONT> you
+     <FONT color="red"><B>get to</B></FONT>
+     (or <FONT color="blue"><B>get "close" to</B></FONT>) the
+     <FONT color="red"><B>part</B></FONT> of the
+     <B>program</B> that <FONT color="blue"><B>contains a bug</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> <FONT color="blue"><B><I>How</I></B></FONT> to  
+      use
+      <FONT color="red"><B>break points</B></FONT> to help you
+    find bugs:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Suppose you <FONT color="blue"><B>determined</B></FONT> that
+      this <FONT color="red"><B>part</B></FONT> of your 
+    <FONT color="blue"><B>assembler program</B></FONT> contains a
+    <FONT color="red"><B>bug (= error)</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bug01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> Then define a <FONT color="blue"><B><TT>.global</TT> label</B></FONT>
+      just before
+     the <FONT color="red"><B>suspect section</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bug02.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<P>
+This <FONT color="blue"><B>labeled</B></FONT> must be defined using
+  <FONT color="red"><B><TT>.global</TT></B></FONT> !
+
+<P>
+<LI> <FONT color="red"><B>Save and re-compile</B></FONT>
+      the program and run it in <B>Egtapi</B>
+<P>
+<LI> <FONT color="red"><B>Add</B></FONT>
+    the <FONT color="blue"><B>breakpoint</B></FONT>
+     <FONT color="red"><B><TT>debug1</TT></B></FONT>
+     (optionally: <FONT color="blue"><B>save</B></FONT> the
+     <FONT color="red"><B>debug start up file</B></FONT>)
+<P>
+<LI> <FONT color="blue"><B>Run </B></FONT> the program until it
+     reaches the <B>break point</B>
+     <FONT color="red"><B><TT>debug1</TT></B></FONT>
+<P>
+<LI> Then <FONT color="red"><B>Step</B></FONT> through 
+   <B><I>each</I> instruction</B> in the
+    <FONT color="blue"><B>problem section</B></FONT> and
+    <FONT color="red"><B>observe</B></FONT> how the code <B>update</B>
+    the <FONT color="blue"><B>registers/variables</B></FONT>
+<P>
+<B>Recall:</B>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In order to <FONT color="blue"><B>find</B></FONT> a bug in a program,
+     <FONT color="red"><B>you</I></B></FONT> must know 
+    <FONT color="blue"><B><I>what</I></B></FONT> your program
+    must do to achieve the <FONT color="red"><B>correct result</B></FONT>
+<P>
+ <LI> When <FONT color="blue"><B>some instruction</B></FONT>
+      is <FONT color="red"><B><I>not</I></B></FONT> doing <B>what</B>
+      you expect to do, you have found your <FONT color="red"><B>bug</B></FONT>
+ <P>
+ (But if you have no idea what your program should accomplish, then
+  you need to brush up on your knowledge before you can tackle this task).
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Finding bugs inside the body of a <I>loop</I>
+     </B></FONT>
+<P>
+<UL>
+ <LI> <FONT color="red"><B>Consider</B></FONT> the
+    <FONT color="blue"><B>following</B></FONT>
+    program with a <FONT color="red"><B>bug</B></FONT> in
+    the <FONT color="blue"><B>body</B></FONT> of a
+    <FONT color="red"><B>loop</B></FONT>:
+
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bug03.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+
+ <LI> If you have a <FONT color="blue"><B>bug</B></FONT> 
+      that is inside a <FONT color="red"><B>loop</B></FONT>, finding the
+     <FONT color="blue"><B>bug</B></FONT> is a bit
+     <FONT color="red"><B>tricky</B></FONT> because:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>error</B></FONT> may
+   <FONT color="red"><B><I>not</I></B></FONT> manifest itself
+   (= program crash) during the
+   <FONT color="blue"><B><I>first</I> few executions</B></FONT> of
+   the <FONT color="red"><B>loop</B></FONT>
+<P>
+<B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Suppose</B></FONT>
+      you have an <FONT color="red"><B>array</B></FONT> of
+      <FONT color="blue"><B>100 elements</B></FONT>, and your
+      <FONT color="red"><B>loop <I>k</I></B></FONT> accesses
+      the <FONT color="blue"><B><I>k<sup>th</I> element</B></FONT> of
+      the <FONT color="red"><B>array</B></FONT> as follows:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    for ( k = 0; <FONT color="red">k <= 100</FONT>; k++ )          
+    {
+        access array element A[k]
+    }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> The <FONT color="blue"><B>loop</B></FONT> will
+    <FONT color="red"><B>crash</B></FONT> after
+    <FONT color="blue"><B>100 iterartions</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+ If you <FONT color="red"><B>step</B></FONT> 
+  <FONT color="blue"><B>all the instructions</B></FONT> in a
+  <B>loop</B>,
+   you will waste a lot of <FONT color="red"><B>time</B></FONT>
+   going through
+   <FONT color="blue"><B><I>many</I> iterations</B></FONT> of the
+   <B>loop</B> to <FONT color="red"><B>find</B></FONT> your 
+  <FONT color="blue"><B>bug (error)</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI>
+ <B>I</B> use the following
+  <FONT color="red"><B>2 step debug procedure</B></FONT>
+  to <FONT color="blue"><B>cut</B></FONT> the <B>time</B> to
+  <FONT color="red"><B>find the bug</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> Find out  <FONT color="red"><B><I>which</I> iteration</B></FONT>
+      of the <FONT color="blue"><B>loop</B></FONT> the 
+      <FONT color="red"><B>error</B></FONT> will
+      <FONT color="blue"><B>manifest itself</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> <FONT color="red"><B>Skip over</B></FONT> the
+     <FONT color="blue"><B><I>non</I>-crashing iterations</B></FONT> and
+     then <FONT color="red"><B><I>single-step</I></B></FONT>
+     through the
+     <B>execution</B> of the
+     <FONT color="blue"><B>iteration</B></FONT> that causes the
+     <FONT color="red"><B>program error</B></FONT>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="blue"><B>How to</B></FONT>
+ perform the
+ <FONT color="red"><B>2 step debug procedure</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI>  Find out  <FONT color="red"><B><I>which</I> iteration</B></FONT>
+      of the <FONT color="blue"><B>loop</B></FONT> the 
+      <FONT color="red"><B>error</B></FONT> will
+      <FONT color="blue"><B>manifest itself</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Put a <FONT color="red"><B> breakpoint</B></FONT>
+     <FONT color="magenta"><B><TT>debug1</TT></B></FONT>
+      before
+     <FONT color="blue"><B>problem area</B></FONT>   in the loop:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/bug04.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+ <LI> <FONT color="red"><B>Run</B></FONT> the program.
+	(The program will 
+   <FONT color="blue"><B>stop</B></FONT> at the
+   <FONT color="magenta"><B><TT>debug1</TT></B></FONT>
+   <FONT color="red"><B>breakpoint</B></FONT>
+    )
+ <P>
+ <LI> Then <FONT color="red"><B>repeatedly</B></FONT> click the
+     <FONT color="blue"><B>"Run"</B></FONT> button....
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The program will <B>repeatedly</B>
+   <FONT color="blue"><B>stop</B></FONT> at the
+   <FONT color="magenta"><B><TT>debug1</TT></B></FONT>
+   <FONT color="red"><B>breakpoint</B></FONT>
+ <P>
+  Keep <FONT color="blue"><B>pressing</B></FONT> the
+  <FONT color="red"><B>Run</B></FONT> button until
+  the <FONT color="blue"><B>program crashes</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You <FONT color="red"><B>must</B></FONT> <B>count</B>
+ the <FONT color="blue"><B>number of times</B></FONT> that
+ you have <FONT color="red"><B>clicked</B></FONT> the
+ <FONT color="blue"><B>"Run"</B></FONT> button !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+Let <FONT color="red"><B>n</B></FONT> =
+ the <FONT color="blue"><B>number of times</B></FONT> that
+ you have <FONT color="red"><B>clicked</B></FONT>
+  the <FONT color="blue"><B>"Run"</B></FONT> button
+<P>
+(I.e.: <FONT color="red"><B>n</B></FONT> =
+  the <FONT color="blue"><B>iteration number</B></FONT> in which
+  the <FONT color="red"><B>loop crashes</B></FONT>)
+<P>
+<HR>
+<HR>
+<P>
+
+ <LI> <FONT color="red"><B>How to</B></FONT> do the
+   <FONT color="blue"><B>debugging step</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Reload</B></FONT> the
+    <FONT color="blue"><B>program</B></FONT>
+<P>
+ <LI> Put a 
+     <FONT color="red"><B>breakpoint</B></FONT>
+   at <FONT color="magenta"><B><TT>debug1</TT></B></FONT> again
+   if necessary
+
+<P>
+ <LI> <FONT color="red"><B>Run</B></FONT> the 
+     <FONT color="blue"><B>program</B></FONT>.
+	(The program will 
+   <FONT color="red"><B>stop</B></FONT>
+     at the <FONT color="blue"><B>breakpoint</B></FONT>
+   <FONT color="magenta"><B><TT>debug1</TT></B></FONT>)
+ <P>
+ <LI> Then <FONT color="red"><B>click</B></FONT> the
+  <FONT color="blue"><B>"Run"</B></FONT> button
+    for
+   <FONT color="red"><B><I>n&minus;1</I> times</B></FONT>  !!!
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The program will <B>repeatedly</B>
+   <FONT color="red"><B>stop</B></FONT>
+     at the <FONT color="blue"><B>breakpoint</B></FONT>
+   <FONT color="magenta"><B><TT>debug1</TT></B></FONT>
+ <P>
+  We know that the <FONT color="red"><B>first <I>n&minus;1</I> times</B></FONT>
+  through the <FONT color="blue"><B>loop</B></FONT> was
+   <FONT color="red"><B>OK</B></FONT> --- so 
+   <FONT color="blue"><B>don't waste time</B></FONT>
+   <FONT color="red"><B>stepping</B></FONT> thorugh
+   <B>each instruction</B> of the <FONT color="blue"><B>loop</B></FONT> !!!
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <LI> When the <FONT color="red"><B>program</B></FONT> 
+    <FONT color="blue"><B>stops</B></FONT> after
+       <FONT color="red"><B><I>n&minus;1</I> times</B></FONT>
+       through the <B>loop</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Use the
+    <FONT color="red"><B>"Step"</B></FONT> button to
+    <FONT color="blue"><B>execute</B></FONT> and
+    <FONT color="red"><B>verify/observe/check</B></FONT>
+    the execution of <FONT color="blue"><B>each instruction</B></FONT> 
+    to <FONT color="red"><B>find the error</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+</UL>
+
+<P>
+<P>
+<A HREF="index.html#TOC">
+Back to tabel of contents
+</A>
+<P>
+
+<P>
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

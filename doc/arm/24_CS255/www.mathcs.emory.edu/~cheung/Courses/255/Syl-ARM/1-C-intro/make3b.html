@@ -1,0 +1,614 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Example of make file for a multi-file C program project
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Creating a Makefile for a  multi-files C program
+     </B></FONT>
+<P>
+<UL>
+
+<LI> Now consider a <B>C program</B> that consists of 
+    <FONT color="blue"><B>2 program files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We have a <FONT color="blue"><B>C programming project</B></FONT>
+    that consists of
+    <FONT color="red"><B>2 program files</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>f1.c</TT></B></FONT>&nbsp;&nbsp;&nbsp;
+   contains the <FONT color="blue"><B><TT>main( )</TT></B></FONT> function
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> <FONT color="red"><B><TT>f2.c</TT></B></FONT>&nbsp;&nbsp;&nbsp;
+   contains <FONT color="blue"><B>library functions</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>header file</B></FONT> for
+ the <FONT color="blue"><B>library functions</B></FONT> in
+  <FONT color="red"><B><TT>f2.c</TT></B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B><TT>f2.h</TT></B></FONT> &nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ 
+<HR>
+<P>
+<LI> The <FONT color="blue"><B> executable program name</B></FONT>
+  that we want to <FONT color="red"><B>create</B></FONT> is called:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><TT>main</TT></B></FONT> &nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is the <FONT color="red"><B><I>final</I> target</B></FONT>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+The <FONT color="red"><B>content</B></FONT> of the various
+  <FONT color="blue"><B>files</B></FONT> are
+   <FONT color="red"><B>as follows</B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+<FONT color="red"><B><TT>f1.c</TT></B></FONT>
+</TH> 
+<TH>
+<FONT color="red"><B><TT>f2.h</TT></B></FONT>
+</TH> 
+<TH>
+<FONT color="red"><B><TT>f2.c</TT></B></FONT>
+</TH> 
+</TR>
+
+
+
+<TR> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">#include "f2.h"</FONT>
+
+int main( int argc, char *argv[] )  
+{
+   double a, b;
+
+   a = 4.0;
+
+   b = square( a );  
+
+   print( a );      
+   print( b );                       
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+void print ( double x ) ;
+double square( double x ) ;
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</B>
+</FONT>
+</TD> 
+<TD align="left">
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+<FONT color="red">#include "f2.h"</FONT>
+
+void print ( double x )
+{
+   printf("Number = %lf\n", x );
+}
+
+double square( double x )        
+{
+   double r;          
+   r = x * x;      
+   return ( r );   
+}
+</PRE>
+</B>
+</FONT>
+</TD> 
+</TR>
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> To <FONT color="red"><B>compile</B></FONT> this
+    <FONT color="blue"><B>project</B></FONT>,
+   you will use the following
+   <FONT color="red"><B>commands</B></FONT>
+   (see: 
+  <A HREF="declare-func1b.html"><FONT color="blue"><B>click here</B></FONT>
+  </A>)
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc  -c   f1.c               (f1.c       ---> f1.o)
+    gcc  -c   f2.c               (f2.c       ---> f2.o)
+    gcc  -o   main  f1.o  f2.o   (f1.o, f2.o ---> main)      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+We can <FONT color="blue"><B>easily</B></FONT>
+   <FONT color="red"><B>discern</B></FONT> the following
+  <FONT color="blue"><B>file dependencies</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1.  f1.o:  f1.c
+
+   2.  f2.o:  f2.c
+
+   3.  main:  f1.o   f2.o                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>However</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Notice </B></FONT> that
+     the <FONT color="blue"><B>program file <TT>p1.c</TT></B></FONT> and
+      <FONT color="blue"><B><TT>p2.c</TT></B></FONT>
+      <B>both</B>
+      <FONT color="red"><B><I>included</I></B></FONT>
+      the <FONT color="blue"><B>header file</B></FONT>
+      <FONT color="red"><B><TT>h2.h</TT></B></FONT> !!!
+ <P>
+ <B>That means:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> If the <FONT color="red"><B>header file <TT>f2.h</TT></B></FONT>
+     is <FONT color="blue"><B><I>updated</I></B></FONT>, then
+     it will <FONT color="red"><B><I>affect</I></B></FONT> the
+     <FONT color="blue"><B>outcome</B></FONT> of the
+     <FONT color="red"><B>compilation</B></FONT> of
+     the <FONT color="blue"><B>program file <TT>p1.c</TT></B></FONT> and
+      <FONT color="blue"><B><TT>p2.c</TT></B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Therefore</B></FONT>,
+  the <FONT color="blue"><B>actualy</B></FONT>
+ <FONT color="red"><B>file dependencies</B></FONT> are:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   1.  f1.o:  f1.c  <FONT color="red">f2.h</FONT>
+
+   2.  f2.o:  f2.c  <FONT color="red">f2.h</FONT>
+
+   3.  main:  f1.o   f2.o                  
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+
+<LI> We can now <FONT color="blue"><B>create (edit)</B></FONT>
+     the follow <FONT color="red"><B>Makefile</B></FONT>
+    that <FONT color="blue"><B>represents</B></FONT> the
+    above <FONT color="red"><B>file dependencies</B></FONT>
+  and their
+  <FONT color="blue"><B>maintenance comamnds</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   main: f1.o f2.o          # We usually put the <FONT color="red">final</FONT> target <FONT color="red">first</FONT>      
+   	   gcc -o main f1.o f2.o
+   			  
+   f1.o:  f1.c  <FONT color="red">f2.h</FONT>        
+   	   gcc -c f1.c     
+   			  
+   f2.o:  f2.c  <FONT color="red">f2.h</FONT>
+   	   gcc -c f2.c
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/Make/2/*
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>make TARGET</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> Observe which commands are run by the 
+    <FONT color="red"><B><TT>make</TT></B></FONT> utility
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+<LI> <B>Result:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>first time</B></FONT> we run
+    <FONT color="red"><B><TT>make</TT></B></FONT>, you will see:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make<FONT color="red">
+   gcc -c f1.c
+   gcc -c f2.c
+   gcc -o main f1.o f2.o</FONT>     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and the <FONT color="blue"><B>make utility</B></FONT> creates the
+ <FONT color="red"><B>target <TT>main</TT></B></FONT>
+<P>
+<HR>
+<P>
+<LI> Now, run <FONT color="blue"><B>make</B></FONT>
+    <FONT color="red"><B>again</B></FONT>, and you will see:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make
+   <FONT color="red">`main' is up to date.</FONT>               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>make utility</B></FONT> has
+ determined that <FONT color="red"><B><TT>main</TT></B></FONT> is
+ <B>more recent</B> than the dependency file
+  <FONT color="blue"><B><TT>func5a.o</TT></B></FONT> and
+  <FONT color="blue"><B><TT>func5b.o</TT></B></FONT>  and
+ skips the compilation process !!!
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Next</B></FONT>,
+   <FONT color="blue"><B>edit <TT>f1.c</TT></B></FONT>
+  (add a space somewhere in the program),
+  <FONT color="red"><B>save it</B></FONT> and then run
+  <FONT color="blue"><B>make</B></FONT> again:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make<FONT color="red">
+   gcc -c f1.c
+   gcc -o main f1.o f2.o</FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>make utility</B></FONT> has
+ determined that <FONT color="red"><B><TT>f1.o</TT></B></FONT> is
+ <FONT color="blue"><B><I>out-of-date</I></B></FONT>
+ and runs:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc -c f1.c     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and <FONT color="red"><B>creates </B></FONT> a
+  <FONT color="blue"><B><I>up-to-date</I></B></FONT>
+  <FONT color="red"><B><TT>f1.o</TT></B></FONT>
+<P>
+<FONT color="red"><B>However</B></FONT>, the 
+  <FONT color="blue"><B><I>new</I></B></FONT> 
+  <FONT color="red"><B><TT>f1.o</TT></B></FONT> will
+  make <FONT color="blue"><B><TT>main</TT></B></FONT>
+  <FONT color="red"><B><I>out-of-date</I></B></FONT> !!!
+<P>
+ So <FONT color="red"><B>make</B></FONT> executes:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    gcc  -o  main  f1.o  f2.o      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+and <FONT color="blue"><B>creates</B></FONT> a
+  <FONT color="red"><B><I>new</I> <TT>main</TT> program</B></FONT> !!!
+
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>Finally</B></FONT>,
+   <FONT color="blue"><B>edit <I>header</I> file
+    <TT>func5b.h</TT></B></FONT>
+  (add a space somewhere in the program),
+  <FONT color="red"><B>save it</B></FONT> and then run
+  <FONT color="blue"><B>make</B></FONT> again:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   UNIX>> make<FONT color="red">
+   gcc -c f1.c
+   gcc -c f2.c
+   gcc -o main f1.o f2.o</FONT>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="blue"><B>make utility</B></FONT> re-compiles
+ <B>both</B>
+ <FONT color="red"><B><TT>f1.c</TT></B></FONT> and
+ <FONT color="red"><B><TT>f2.c</TT></B></FONT> because of the 
+ <FONT color="blue"><B><TT>f1.o</TT></B></FONT> and
+  <FONT color="blue"><B><TT>f2.o</TT></B></FONT>
+  depends
+ on
+  <FONT color="red"><B><TT>f2.h</TT></B></FONT>:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   f1.o:  f1.c  <FONT color="red">f2.h</FONT> 
+          gcc -c f1.c
+
+   f2.o:  f2.c  <FONT color="red">f2.h</FONT>          
+          gcc -c f1.c
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+<P>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+
+<P>

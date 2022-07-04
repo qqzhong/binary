@@ -1,0 +1,60 @@
+
+<LI> <FONT COLOR="darkmagenta"><B>
+     The <TT>List</TT> structure used in these lecture notes
+     </B></FONT>
+<P>
+<UL>
+<LI> To make the material more <FONT color="red"><B>concrete</B></FONT>,
+   I will use this <FONT color="blue"><B>List structure</B></FONT> to
+   illustrate the <FONT color="red"><B>recursive algorithm</B></FONT> on
+   <FONT color="blue"><B>linked lists</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class List
+   {
+      int value;
+      List next;       // This is a "reference" (= address) variable !!   
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+A <FONT color="red"><B>List object</B></FONT> has the following
+ <FONT color="blue"><B>structure</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/list04b.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>value</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>0</B></FONT>
+<BR>
+The <FONT color="red"><B>offset</B></FONT> of the
+ <FONT color="blue"><B>field <TT>next</TT></B></FONT> from the
+ <FONT color="red"><B>base address</B></FONT> is
+ <FONT color="blue"><B>4</B></FONT>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>

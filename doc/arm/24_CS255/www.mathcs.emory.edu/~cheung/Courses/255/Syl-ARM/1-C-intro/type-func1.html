@@ -1,0 +1,591 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Programming principle in a function call
+<HR>
+</H3>
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What <I>exactly</I> is a function definition (in any programming language)
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following
+     <FONT color="red"><B>function definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float</FONT> f(<FONT color="red">float x</FONT>)                              
+   {
+      return x*x;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<P>
+<LI> This <FONT color="red"><B>function definition</B></FONT>
+     <FONT color="blue"><B>defines</B></FONT> a
+    <FONT color="red"><B><I>black box</I></B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/blackbox1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+<B>Specifically:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>parameter definition</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   float f(<FONT color="red">float</FONT> x)                                  
+   {
+      return x*x;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>means:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>function</B></FONT>
+       will
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>require</B></FONT>
+  </SPAN>
+    an
+   <FONT color="blue"><B>input value</B></FONT> in
+       the <FONT color="red"><B><I>float</I> encoding</B></FONT>
+     (= in <FONT color="blue"><B>IEEE 754 code</B></FONT>)
+<P>
+ If you need to
+ <FONT color="red"><B>refresh</B></FONT> on
+ the <FONT color="blue"><B>IEEE 754 code</B></FONT>,
+       see: 
+   <A HREF="../5-repr/float.html"> <FONT color="red"><B>click here</B></FONT>
+   </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>return type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float</FONT> f(float x)                                             
+   {
+      return x*x;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>means:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>function</B></FONT> will
+        <FONT color="red"><B>return</B></FONT> a
+	<FONT color="blue"><B>value</B></FONT> is
+	<FONT color="red"><B><I>encoded</I></B></FONT>
+	using
+	the 
+	<FONT color="blue"><B><I>float</I> encoding (= IEEE 754)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B><I>Another</I> example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">int</FONT> g(<FONT color="red">int a</FONT>)                                              
+   {
+      return a*a;
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>means:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>function <TT>g( )</TT></B></FONT>
+       will
+   <SPAN style="BACKGROUND-COLOR: yellow">
+    <FONT color="red"><B>require</B></FONT></SPAN> an
+       <FONT color="blue"><B>input value</B></FONT> 
+       in the <FONT color="red"><B><I>2s complement</I> encoding</B></FONT>
+    
+<P>
+<HR>
+<P>
+ <LI> The <FONT color="blue"><B>function</B></FONT> will
+        <FONT color="red"><B>return</B></FONT> a
+	<FONT color="blue"><B>value</B></FONT> is
+	<FONT color="red"><B><I>encoded</I></B></FONT>
+	using
+	the 
+	<FONT color="blue"><B><I>2s complement</I> encoding</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <FONT color="red">Extremely important</FONT> fact
+     from the <FONT color="red">assembler lectures</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B><I>Extremely</I> important</B></FONT> <B>fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Computer</B></FONT> uses
+       <FONT color="red"><B><I>different</I> codes</B></FONT> to
+     <FONT color="blue"><B>represent</B></FONT>
+     <FONT color="red"><B><I>different</I> types</B></FONT> of
+     <B>values</B>
+<P>
+ <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+  int x =  2   
+  Binary number (code) in x = 00000000000000000000000000000010 
+
+  float y = 2;
+  Binary number (code) in y = 01000000000000000000000000000000
+      It's a IEEE 754 code:   0 <FONT color="red">10000000</FONT> 00000000000000000000000
+                                <FONT color="red">(exponent)</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Here is a
+ <FONT color="red"><B>C program</B></FONT> that
+ <FONT color="blue"><B>shows</B></FONT> the
+ <FONT color="red"><B>binary representation</B></FONT> of
+ the <FONT color="blue"><B>values</B></FONT> stored in
+ <FONT color="red"><B><TT>int</TT></B></FONT> and
+  <FONT color="red"><B><TT>float</TT></B></FONT> variables:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+#include &lt;stdio.h>
+
+int main(int argc, char *argv[] )
+{
+   int   <FONT color="red">a = 2</FONT>;
+   float <FONT color="red">b = 2</FONT>;
+
+   printf("int    %d representation in bits: ", a);
+   <FONT color="red">printBits(&a)</FONT>;   // Ignore the definition of this function for now...  
+   printf("\n\n");
+
+   b = 2;
+   printf("float %2.0f representation in bits: ", b);
+   <FONT color="red">printBits(&b)</FONT>;
+   printf("\n\n");
+}
+
+
+/* ------------------------------------------------------
+   Print bit representation
+   (Ignore this function for now; 
+    it uses some advanced pointer stuff
+    this will be discussed later)
+   ------------------------------------------------------- */
+void printBits( void *ptr )
+{
+   int x = *((int *)ptr);
+   int i;
+
+   for ( i = 31; i >= 0; i-- )
+   {
+      if ( (x & (1 << i)) != 0 )
+         printf("1");
+      else
+         printf("0");
+   }
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">int    2</FONT> representation in bits: <FONT color="red">00000000000000000000000000000010</FONT>
+
+<FONT color="red">float  2</FONT> representation in bits: <FONT color="red">01000000000000000000000000000000</FONT>           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is <FONT color="red"><B>exactly</B></FONT> what you have
+ <FONT color="blue"><B>learned</B></FONT> in the
+ <FONT color="red"><B>first part</B></FONT> of
+ <FONT color="blue"><B>CS255</B></FONT> !!!
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/set1/data-repr1.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc data-repr1.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     What happens when you <I>call</I> a function
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Consider</B> the following
+      <FONT color="blue"><B>function call</B></FONT> to
+      <FONT color="red"><B><TT>float f(float x)</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   <FONT color="red">float</FONT> f(<FONT color="red">float x</FONT>)
+
+   {
+      return x*x;
+   }
+
+   int main( int argc, char* argv[ ])            
+   {
+      ....
+<FONT color="red">
+      <SPAN style="BACKGROUND-COLOR: yellow">b = f(a); </SPAN>  </font>              
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This is <FONT color="red"><B>what happens</B></FONT> in
+ the
+ <FONT color="blue"><B>function call</B></FONT>
+ <SPAN style="BACKGROUND-COLOR: yellow">
+ <FONT color="red"><B><TT>b = f(a)</TT></B></FONT>:
+ </SPAN>
+
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compiler</B></FONT>
+       must <FONT color="blue"><B><I>make sure</I></B></FONT> that:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    b = f( <FONT color="red">a</FONT> );               
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="blue"><B>value</B></FONT> of
+  <FONT color="red"><B>parameter <TT>a</TT></B></FONT>
+  is <FONT color="blue"><B>encoding</B></FONT> using
+  <FONT color="red"><B><TT>float</TT> (IEEE 754)</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compiler</B></FONT> will
+   <FONT color="blue"><B>perform</B></FONT> a
+      <FONT color="red"><B>type <I>conversion</I> operation</B></FONT>
+      if <FONT color="blue"><B>necessary</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> The <FONT color="red"><B>compiler</B></FONT> <B>must</B>
+     <FONT color="blue"><B><I>also</I></B></FONT> make sure that:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     b = <FONT color="red">f</FONT>( a );          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+the <FONT color="red"><B>return value</B></FONT> of
+   <FONT color="blue"><B><TT>f( )</TT></B></FONT> is
+  <FONT color="red"><B>converted</B></FONT> to the
+  <FONT color="blue"><B>data type</B></FONT> of
+  the variable <FONT color="red"><B><TT>b</TT></B></FONT> !!!
+
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>compiler</B></FONT> will
+   <FONT color="blue"><B>perform</B></FONT> a
+      <FONT color="red"><B>type <I>conversion</I> operation</B></FONT>
+      if <FONT color="blue"><B>necessary</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> I will <FONT color="red"><B>illustrate</B></FONT> the
+    <FONT color="blue"><B>conversion</B></FONT> that
+    happens in a
+    <FONT color="red"><B>function call</B></FONT> in the
+    <FONT color="blue"><B>next web page</B></FONT>
+<P>
+ I will also
+  <FONT color="red"><B>high light</B></FONT> the
+  <FONT color="blue"><B><I>difference</I> in behavior</B></FONT>
+  between
+  <FONT color="red"><B>C</B></FONT> and
+  <FONT color="blue"><B>Java</B></FONT>....
+<P>
+</UL>
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

@@ -1,0 +1,902 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+Function parameter
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Passing a function to another function
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <B>Fact</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C programming language</B> has the
+       ability to pass a
+       <FONT color="blue"><B><I>function</I></B></FONT> as
+       a <B>paramter</B> to
+       <FONT color="red"><B><I>another</I> function</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void <FONT color="red">f()</FONT>
+   {
+      printf("Hello\n");
+   }
+    
+   void <FONT color="red">g()</FONT>
+   {
+      printf("Good-bye\n");
+   }
+    
+   void run( <FONT color="red">void h()</FONT> )   // Function with a function as parameter !
+   {
+      <FONT color="red">h();</FONT>    // Run h()...
+   }
+    
+    
+    
+   int main( int argc, char *argv[] )                    
+   {
+      <FONT color="red">run( f );</FONT>     // Call run with parameter f
+      <FONT color="red">run( g );</FONT>     // Call run with parameter g
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   Hello
+   Good-bye                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/func-param1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc func-param1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     How is this <I>implemented</I> ???
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Implementation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>function</B></FONT> is
+       <B><I>passed</I></B> <FONT color="red"><B>"by reference"</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>starting address</B></FONT> of
+      a <B>function</B> is copied into the
+      <FONT color="red"><B>parameter variable</B></FONT></B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>function</B></FONT> can be
+       <FONT color="red"><B>invoked</B></FONT> with
+       a <FONT color="blue"><B>special branch subroutine</B></FONT> instruction
+       (that I did not teach) that uses
+       a <FONT color="red"><B>register</B></FONT> as
+       <B>operand</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    bsr  Dn    // 1. Push return address on system stack
+               // 2. Move D0 into PC (jump to address given in D0)    
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+  this version of <FONT color="blue"><B><TT>bsr</TT></B></FONT>
+  is <FONT color="red"><B>not available</B></FONT> in
+  <FONT color="blue"><B>M68000</B></FONT>.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+        compiler the above program with
+    <FONT color="red"><B><TT>gcc -S func-param1.c</TT></B></FONT> and
+    look for this portion of code:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+<FONT color="red">run:</FONT>
+.LFB2:
+        .cfi_startproc
+        pushq   %rbp
+        .cfi_def_cfa_offset 16
+        movq    %rsp, %rbp
+        .cfi_offset 6, -16
+        .cfi_def_cfa_register 6
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        <FONT color="red">movq    -8(%rbp), %rdx       // Put starting address of function in rdx</FONT>
+        movl    $0, %eax
+       <FONT color="red"> call    *%rdx                // Call the function (bsr) !!!</FONT>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Defining <I>function parameter</I> type
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>"Type"</B> of a
+   <FONT color="blue"><B>function parameter</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>type</B></FONT> of
+      a <B>function parameter</B> consist of:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>return type</B></FONT> of the <B>function</B>
+ <P>
+ <LI> The <FONT color="blue"><B>type</B></FONT> of
+     <FONT color="red"><B><I>each </I> parameter</B></FONT> of the
+     <B>function</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Warning:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="blue"><B>function <I>passed</I> as
+     a parameter</B></FONT> must
+     <FONT color="red"><B>match</B></FONT>
+     the <FONT color="blue"><B>type</B></FONT> of the
+     <B>function parameter</B>
+ <P>
+<HR>
+<P>
+ <LI> I.e.:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>number</B></FONT>
+      and <FONT color="blue"><B>type</B></FONT> of the
+      parameters must <FONT color="red"><B>match</B></FONT>,
+      <B><I>and</I></B>
+ <P>
+ <LI> The <FONT color="blue"><B>return value</B></FONT>
+     must <FONT color="red"><B>match</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Example:</B> demos
+    <FONT color="red"><B>compiler error</B></FONT> when
+    <FONT color="blue"><B>parameters</B></FONT> do
+     <FONT color="red"><B>not match</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void f( <FONT color="red">char *s</FONT> )      <FONT color="magenta">// f has a string parameter s</FONT>
+   {
+      printf("%s\n", s);
+   }
+    
+   void g( <FONT color="red">int s</FONT> )        <FONT color="magenta">// g has an int parameter s</FONT>
+   {
+      printf("%d\n", s);
+   }
+
+   <FONT color="red">int</FONT> h( char * s )      <FONT color="magenta">  // h has different return type</FONT>
+   {
+      printf("%s\n", s);
+      return 0;
+   }
+
+   /* ----------------------------------------------------------------
+      <FONT color="red">run</FONT> has a function parameter of the form:
+    
+   	      void h( <FONT color="red">char *</FONT> ) --- i.e., a string (char[])
+    
+      Function <FONT color="red">f</FONT> matches this function parameter declaration
+      Function <FONT color="red">g</FONT> does <FONT color="red">NOT match</FONT> this function parameter declaration
+      ---------------------------------------------------------------- */
+   void run( <FONT color="red">void h( char * )</FONT>, char *a )
+   {
+      h(a);
+   }
+    
+    
+   int main( int argc, char *argv[] )
+   {
+    
+      run( <FONT color="darkred">f</FONT>, "Hello" );
+      run( <FONT color="red">g</FONT>, "Hello" );         // Error: <FONT color="red">argument 1 (g) has the wrong type !!!</FONT>     
+      run( <FONT color="red">h</FONT>, "Hello" );         // Error: <FONT color="red">argument 1 (h) has the wrong type !!!</FONT> 
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Explanation:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B><I>function</I> parameter</B>
+      <FONT color="red"><B><TT>h</TT></B></FONT>
+     of the <B>function</B> <FONT color="blue"><B><TT>run</TT></B></FONT>
+     has the <FONT color="red"><B>type</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    void h( <FONT color="red">char *</FONT> )             
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I.e.: it is a <B>function</B> with 
+   <FONT color="blue"><B>one parameter</B></FONT> of the 
+   <B>data type</B> <FONT color="red"><B><TT>char *</TT></B></FONT>.
+<P>
+<HR>
+<P>
+<LI> The <B>function</B> <FONT color="red"><B><TT>f</TT></B></FONT>
+     <B><I>matches</I></B> the type:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void  f( <FONT color="red">char *s</FONT> )          
+   {
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So there is <FONT color="red"><B>no error</B></FONT> in the
+ function call:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     run ( <FONT color="red">f</FONT>, "Hello" );   // f matches the function parameter type        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>However</B></FONT>,
+    the <B>function</B> <FONT color="blue"><B><TT>g</TT></B></FONT>
+    has the type:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   void  g( <FONT color="red">int s</FONT> )    // Parameter type of g is <FONT color="red">not char *</FONT>           
+   {
+      ...
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So there is a <FONT color="red"><B>compiler error</B></FONT> in the
+ function call:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+     run ( <FONT color="red">g</FONT>, "Hello" );   // g <FONT color="red">does not</FONT> match the function parameter type        
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <B>function</B> <FONT color="red"><B><TT>h</TT></B></FONT>
+     causes an error because the 
+     <FONT color="blue"><B>return type</B></FONT>
+     mismatches....
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/func-param2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc func-param2.c</TT></B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Check out the <FONT color="red"><B>compiler error</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <I>Using</I> function parameters
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Problem description:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Write the <FONT color="blue"><B>bi-section</B></FONT> algorithm
+      in <B>C</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>bi-section</B></FONT> algorithm
+      solves the <B>equation</B>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="red">
+<B>
+<PRE>
+       f(x) = 0              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+by <FONT color="red"><B>cutting</B></FONT> an
+ interval successively in half.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>bi-section</B></FONT> algorithm
+     was discussed in <FONT color="red"><B>CS170</B></FONT>:
+    <A HREF=
+  "http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/07/bisection.html">
+   <FONT color="red"><B>click here </B></FONT> </A>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>bi-section algorithm</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define epsilon 0.00001
+  <FONT color="darkred"> 
+   /* ----------------------------
+      <FONT color="red">We solve this equation...</FONT>
+      ---------------------------- */
+   double f( double x )
+   {
+      return <FONT color="red">x*x*x + 2*x - 5</FONT> ;       // Solve: x^3 + 2x - 5 = 0
+   }</FONT>
+    
+   int main( int argc, char *argv[] )
+   {
+      double a, b, m, y_m, y_a;
+       <FONT color="red">
+      a = 0;  b = 10;          // Start interval [a .. b]</FONT>
+       
+      while ( <FONT color="red">(b-a) > epsilon</FONT> )
+      {<FONT color="red">
+   	 m = (a+b)/2;          // Mid point of [a .. b]</FONT>
+       
+   	 y_m = f(m);       // y_m = f(m)
+   	 y_a = f(a);       // y_a = f(a)
+       
+   	 if ( <FONT color="red">(y_m > 0 && y_a < 0)</FONT> || <FONT color="red">(y_m < 0 && y_a > 0)</FONT> )
+   	 {  // f(a) and f(m) have <FONT color="red">different signs</FONT>: move b
+   	    b = m;
+   	 }
+   	 else
+   	 {  // f(a) and f(m) have <FONT color="red">same signs</FONT>: move a
+   	    a = m;
+   	 }
+    
+   	 printf("New interval: [%lf .. %lf]\n", a, b);   // Print progress       
+      }
+       
+      printf("Approximate solution = %lf\n" , (a+b)/2 );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bi-section1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bi-section1.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>bi-section algorithm</B></FONT>
+    written as a <FONT color="red"><B>function</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   #define epsilon 0.00001
+    
+   double f( double x )
+   {
+      return x*x*x + 2*x - 5 ;       // Solve: x^3 + 2x - 5 = 0
+   }
+
+   double g( double x )
+   {
+      return x*<FONT color="red">log(x)</FONT> + 3*sin(x) - 7 ;       // Solve: x*ln(x) + 3*sin(x) - 7
+   }
+
+<FONT color="darkred">
+   /* ======================================================
+      BiSection algorithm: uses a function parameter !!!
+      ====================================================== */</FONT>
+   double <FONT color="red">BiSection</FONT>( <FONT color="red">double f(double)</FONT>, double a, double b )
+   {
+      double m, y_m, y_a;
+    
+      while ( <FONT color="red">fabs(b-a)</FONT> > epsilon )  <FONT color="red"> // fabs() = floating point (double) absolute</FONT>   
+      {
+   	 m = (a+b)/2;           // Mid point
+    
+   	 y_m = <FONT color="red">f(m)</FONT>;       // y_m = f(m)
+   	 y_a = <FONT color="red">f(a)</FONT>;       // y_a = f(a)
+    
+   	 if ( (y_m > 0 && y_a < 0) || (y_m < 0 && y_a > 0) )
+   	 {  // f(a) and f(m) have different signs: move b
+   	    b = m;
+   	 }
+   	 else
+   	 {  // f(a) and f(m) have same signs: move a
+   	    a = m;
+   	 }
+    
+   	 printf("New interval: [%lf .. %lf]\n", a, b);   // Print progress               
+      }
+    
+      return (a+b)/2 ;
+    
+   }
+    
+    
+   int main( int argc, char *argv[] )
+   {
+      double r;
+
+      r = <FONT color="red">BiSection( f, 0, 10 )</FONT>;
+      printf("x^3 + 2x - 5 = 0, x = %lf\n" , r );
+
+      r = <FONT color="red">BiSection( g, 0, 10 )</FONT>;
+      printf("x*ln(x) + 3*sin(x) - 7, x = %lf\n" , r );
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    x^3 + 2x - 5 = 0, x = 1.328273
+
+    x*ln(x) + 3*sin(x) - 7, x = 5.445571                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/bi-section2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc bi-section2.c</TT></B></FONT>
+ <LI> To run: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

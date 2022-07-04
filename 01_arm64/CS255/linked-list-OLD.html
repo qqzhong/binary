@@ -1,0 +1,195 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<A name = "top"></A>
+<title> CS255 Syllabus </title>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H1>
+<HR>
+How Linked List are Stored inside the Computer
+<HR>
+</H1>
+<UL>
+<P>
+<LI> One of the few data structures that will become very clear in assembler
+	is the linked list because you will need to manipulate the
+	low level addresses to traverse the entire list
+<P>
+<LI> A computer program needs information to do its work (solve some problem)
+ <P>
+     A linked list is one of the many <B>data structures</B> that
+	Computer Science has developed to manage/organize information
+ <P>
+     The linked list is a <B>dynamic</B> structure, i.e.,
+	the number of elements in a linked list can <B>increase</B>
+	and <B>decrease</B> in time
+ <P>
+     (In contrast, the <B>array</B> data structure  is <B>static</B>,
+	number of elements stays constant)
+
+<P>
+<LI> Structure of a linked list <B>element</B>
+ <P>
+ <UL>
+ <LI> A linked list element <B>always</B> consists of 2 parts...
+ <LI> A <B>data</B> part consisting of one or more variables
+	that hold the actual information you want to stored
+ <LI> A <B>linkage</B> part consisting of one or more <B>reference</B>
+	variables that hold <B>addresses</B> of the <B>neighboring</B>
+	linked list elements
+ </UL>
+<P>
+Symbolically:
+ <PRE>
+    Linked list element:
+
+    +-----------------------+
+    |			    |
+    |			    | <---- data part (variables that
+    |			    |	    hold actually information
+    |			    |	    that you want to store
+    +-----------------------+
+    |			    | <---- linkage part (reference variable
+    |			    |	    containing address of neighboring
+    +-----------------------+	    list elements
+ </PRE>
+
+
+<P>
+<LI> Structure of a <B>linked list</B>
+ <P>
+ <UL>
+ <LI> A linked list consists of zero or more
+	linked list elements <B>chained</B> together
+	by their <B>linkage</B> parts.
+ <LI> The special reference value <B>null</B> indicates 
+	"no more elements"
+ <LI> The <B>data</B> parts of the elements chained would contain
+	the actual information stored
+ </UL>
+<P>
+Symbolically:
+ <PRE>
+    A simple linked list:
+
+    +--------+    -->+--------+    -->+--------+
+    | info1  |   /   | info2  |   /   | info3  |
+    |        |  /    |        |  /    |        |
+    +--------+ /     +--------+ /     +--------+
+    | ref1   |-      | ref2   |-      | null   |
+    +--------+       +--------+       +--------+
+ </PRE>
+
+<P>
+<LI> The linked list elements are <B>linked</B> together by
+	using <B>references</B> which are <B>addresses</B>
+ <P>
+   Each linked list element is located <B>somewhere</B> in memory, and
+	thus, each linked list element has a <B>starting</B>
+	memory address
+ <P>
+   The linkage <B>reference</B> variables contains the <B>address</B>
+   of the next linked list element
+ <P>
+ <B>Example:</B> the above linked list of 3 element would be linked
+	together as follows:
+ <PRE>
+ We have to make some assumptions to do the example.
+
+ The assumptions are:
+	First element of linked is is located at address 8000
+	Second element of linked is is located at address 10000
+	Third element of linked is is located at address 9000
+
+ Memory:
+        |               |
+        +---------------+
+  8000  |  info1        |  Linked list element 1
+        +---------------+
+        | ref1=10000    |-------------------------------------+
+        +---------------+                                     |
+        |               |                                     |
+        +---------------+                                     |
+	  .......                                             |
+	  .......                                             |
+        +---------------+                                     |
+  9000  |  info3        |  Linked list element 3 <----+       |
+        +---------------+                             |       |
+        | ref3=0 (null) |                             |       |
+        +---------------+                             |       |
+	  .......                                     |       |
+	  .......                                     |       |
+        +---------------+                             |       |
+ 10000  |  info2        |  Linked list element 2      | <-----+
+        +---------------+                             |
+        | ref2=9000     |-----------------------------+
+        +---------------+
+ </PRE>
+ <UL>
+ <LI> Notice that although I drew <B>arrows</B> from one linked list element
+	to the next one, these arrows are just imaginary ones represented
+	by the <B>address</B> value contained by the "ref" variables
+ <LI> (A reference in Computer Science is the same as a memory address !)
+ </UL>
+
+<P>
+<LI> To access the <B>entire</B> linked list (i.e., to
+     access <B>all</B> elemenets in the linked list),
+     you (only) need to know the <B>location</B> (<B>address</B>)
+     of the <B>first</B> list element
+ <P>
+    That is why you need an extra variable usually called <B>head</B>
+    that contains a reference (<B>address</B>)
+    of the first element in the linked list:
+
+<P>
+Symbolically:
+ <PRE>
+    The user view of a linked list:
+
+   head
+    +--------+     +--------+    -->+--------+    -->+--------+
+    |        |---->| info1  |   /   | info2  |   /   | info3  |
+    +--------+     |        |  /    |        |  /    |        |
+                   +--------+ /     +--------+ /     +--------+
+                   | ref1   |-      | ref2   |-      | null   |
+                   +--------+       +--------+       +--------+
+ </PRE>
+ <P>
+ This is what happens in reality:
+ <PRE>
+ Memory:
+        +---------------+
+  head: |  <B>8000</B>         |-------------------------------+
+        +---------------+                               |
+        |               |                               |
+	  .......                                       |
+	  .......                                       |
+        +---------------+                               |
+  <B>8000</B>  |  info1        |  Linked list element 1  <-----+
+        +---------------+
+        | ref1=10000    |-------------------------------------+
+        +---------------+                                     |
+        |               |                                     |
+        +---------------+                                     |
+	  .......                                             |
+	  .......                                             |
+        +---------------+                                     |
+  9000  |  info3        |  Linked list element 3 <----+       |
+        +---------------+                             |       |
+        | ref3=0 (null) |                             |       |
+        +---------------+                             |       |
+	  .......                                     |       |
+	  .......                                     |       |
+        +---------------+                             |       |
+ 10000  |  info2        |  Linked list element 2      | <-----+
+        +---------------+                             |
+        | ref2=9000     |-----------------------------+
+        +---------------+
+ </PRE>
+</UL>

@@ -1,0 +1,1078 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+The program <I>translation</I> process
+<HR>
+</H3>
+<UL>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Machine instructions
+     </B></FONT>
+<P>
+ <UL>
+ <LI> <FONT color="blue"><B>Recall</B></FONT> that
+      the <FONT color="red"><B>computer memory </B></FONT> contains
+      a <B>bunch</B> of
+      <FONT color="blue"><B>binary digits (= bits)</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/mem-content1.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+
+<LI> <FONT color="red"><B>Things</B></FONT> that are
+      <FONT color="blue"><B>stored</B></FONT> in
+      <FONT color="red"><B>memory</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Some</I></B></FONT> of the
+       <FONT color="blue"><B>bytes of the memory</B></FONT> contains
+       <FONT color="red"><B> instruction codes</B></FONT> of the
+       <FONT color="blue"><B>computer program</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> We <FONT color="blue"><B>call</B></FONT> these 
+     <B>binary numbers</B>:
+      <FONT color="red"><B>machine instruction codes</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B><I>Some</I></B></FONT> of the
+    <FONT color="blue"><B>bytes of the memory</B></FONT> are used store
+    <FONT color="red"><B>program variables</B></FONT> defined in the
+    <FONT color="blue"><B>computer program</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> An <FONT color="red"><B>important fact</B></FONT> that
+     you must <FONT color="blue"><B>always remember</B></FONT>
+     when you take <FONT color="red"><B>CS255</B></FONT> is:
+
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Everything</I></B></FONT> stored
+      inside the <FONT color="blue"><B>computer (memory)</B></FONT>
+      are
+      <FONT color="red"><B><I>represented</I></B></FONT> by:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI>  <FONT color="red"><B>binary numbers</B></FONT> 
+    (because the
+    <FONT color="blue"><B>computer memory</B></FONT> can
+    <FONT color="red"><B>only record</B></FONT>
+    <FONT color="blue"><B>binary digits, or bits</B></FONT> !!!)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+    
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The  program translation process
+     </B></FONT>
+<P>
+<UL>
+<LI> In <FONT color="red"><B>CS170/CS171</B></FONT>,
+        you write <FONT color="blue"><B>program</B></FONT> in
+  a  <FONT color="red"><B>high level programming language</B></FONT>
+   -- such as <FONT color="red"><B>Java</B></FONT>
+ <P>
+<LI> A <FONT color="blue"><B>programmer (= you)</B></FONT> will 
+        typically writes
+      a <FONT color="red"><B>(Java) program</B></FONT> such as:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   public class MyProg
+   {
+       public  int  x;
+
+       public  double myMethod( ... )             
+       {
+          ...
+       }
+
+       ....
+
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>computer</B></FONT> 
+        <FONT color="red"><B>cannot</B></FONT> execute
+	<FONT color="blue"><B>statements</B></FONT> in a
+	<FONT color="red"><B>high level programming language</B></FONT> !!!
+ <P>
+ In other words:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>computer</B></FONT>
+       <FONT color="red"><B>cannot</B></FONT> execute the
+       <FONT color="blue"><B>statements</B></FONT> in the
+       <FONT color="red"><B>(Java) program</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+<LI> What your professor in <FONT color="red"><B>CS170/CS171</B></FONT> tell
+   you to do <FONT color="blue"><B>after</B></FONT> you have
+    written your <FONT color="red"><B>Java program</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Compile</B></FONT> your program
+       using a
+      <FONT color="blue"><B>"compiler"</B></FONT>
+      before you can <FONT color="red"><B>run </B></FONT> it
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> A <FONT color="red"><B>compiler</B></FONT> is
+     a <FONT color="blue"><B>"language translator"</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+<LI> A <FONT color="red"><B>compiler (e.g.: <TT>javac</TT>)</B></FONT>
+    will
+    <FONT color="red"><B>translate</B></FONT>
+    the <FONT color="blue"><B>statements (commands)</B></FONT> 
+    written in a 
+   <FONT color="red"><B>high level programming language</B></FONT> into
+    a <FONT color="blue"><B>sequence</B></FONT> of
+    <FONT color="red"><B>machine instructions</B></FONT> that
+    achieves the <FONT color="blue"><B>effect (= result)</B></FONT>
+    of the <FONT color="red"><B>statements</B></FONT>.
+<P>
+ E.g.: when you run
+  <FONT color="red"><B><TT>javac</TT></B></FONT> on
+   a <FONT color="blue"><B>Java source program</B></FONT>, it will
+   produce an
+  <FONT color="red"><B>output file</B></FONT> (with
+  the extension <FONT color="blue"><B><TT>.class</TT></B></FONT>)
+  that contains the
+  <FONT color="red"><B>machine instructions</B></FONT>:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/translate01.gif"></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     The translation process <FONT color="red">in general</FONT>
+     </B></FONT>
+<P>
+<UL>
+<LI> The <FONT color="red"><B>Java compiler</B></FONT> produces
+     the <FONT color="blue"><B>machine instructions</B></FONT> using
+     one <FONT color="red"><B>single command</B></FONT>
+     (i.e.: <FONT color="blue"><B><TT>javac</TT></B></FONT>)
+<P>
+    <FONT color="red"><B>In general</B></FONT>, the
+    <FONT color="blue"><B>porgram translation</B></FONT> is
+   a <FONT color="red"><B><I>two </I> (2) step process</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> In the<FONT color="blue"><B> first step</B></FONT>,
+   the <FONT color="red"><B>compiler</B></FONT>
+      translates the
+     <FONT color="blue"><B>high level programming constructs</B></FONT> into
+     an <FONT color="red"><B>equivalent program</B></FONT> written in an
+     <FONT color="blue"><B><I>assembler</I> language</B></FONT>
+ <P>
+  This <FONT color="blue"><B>program</B></FONT> is called
+  an <FONT color="red"><B>assembler program</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>assembler language</B></FONT> is
+  a <FONT color="blue"><B>low level programming language</B></FONT> that
+  consists of
+  <FONT color="red"><B>nmemonics</B></FONT> used to
+  represent <FONT color="blue"><B>binary machine instruction codes</B></FONT>
+  (so instead of remembering binary numbers such as
+   <FONT color="red"><B><TT>10101010101010101010</TT></B></FONT>,
+   you can write its nmemonics
+     <FONT color="blue"><B><TT>add R0, R1, R2</TT></B></FONT>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> In <FONT color="blue"><B>step 2</B></FONT>,
+     a program called the <FONT color="red"><B>assembler</B></FONT>,
+       translates the
+     resulting <FONT color="blue"><B>assembler program</B></FONT> into
+     <FONT color="red"><B>binary machine instruction codes</B></FONT>
+ 
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+This <FONT color="red"><B>2 steps</B></FONT> process is
+ the result of the <FONT color="blue"><B>historical development</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <OL>
+ <LI> The <FONT color="red"><B>first generation programmers</B></FONT>
+        (pioneers) write <FONT color="blue"><B>computer programs</B></FONT>
+   as <FONT color="red"><B>binary machine instruction codes</B></FONT> !!!
+<P>
+   This process was very <FONT color="red"><B>error prone</B></FONT> !!
+ <P>
+   Programming in
+   <FONT color="red"><B>binary machine instruction code</B></FONT>
+  was called:
+   the <FONT color="blue"><B>1st generate programming language</B></FONT>
+<P>
+<HR>
+<P>
+ <LI> Later, we developed (= wrote) an
+       <FONT color="red"><B>assembler</B></FONT> to
+        allow <FONT color="blue"><B>programmers</B></FONT> to
+       write <B>computer programs</B> in a low level
+       <FONT color="red"><B>assembler programming language</B></FONT>
+       consisting of
+       <FONT color="blue"><B>nmemonic codes</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> There is a <FONT color="red"><B>one-to-one correspondence</B></FONT>
+  between <FONT color="blue"><B>assembler nmemonics</B></FONT> and
+  <FONT color="red"><B>binary machine instruction codes</B></FONT>
+ <P>
+ E.g.:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+      <FONT color="red">add</FONT> R0,R1,R2   &xharr;     <FONT color="red">1010</FONT>101010101010101
+      <FONT color="red">sub</FONT> R0,R1,R2   &xharr;     <FONT color="red">1110</FONT>101010101010101       
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+Now programmers can write <FONT color="red"><B>nmemonics</B></FONT> 
+  (like <FONT color="blue"><B><TT>add R0,R1,R2</TT></B></FONT>) instead of
+  <FONT color="red"><B>binary machine instruction codes</B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Because there is
+    <FONT color="red"><B>one-to-one correspondence</B></FONT> between
+     <FONT color="blue"><B>assembler nmemonics</B></FONT> and 
+     <FONT color="red"><B>binary machine instruction codes</B></FONT>,
+     <FONT color="blue"><B>assembler porgrams</B></FONT> are
+     highly <FONT color="red"><B>machine dependent</B></FONT> !!!
+ <P>
+   An <FONT color="red"><B>assembler program</B></FONT> written
+   for one type of <FONT color="blue"><B>computer A</B></FONT> can
+   <FONT color="red"><B>not run</B></FONT> on
+   another type of <FONT color="blue"><B>computer B</B></FONT>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+  The <FONT color="red"><B>assembler langauge</B></FONT> is called
+  the <FONT color="blue"><B>2nd generation programming language</B></FONT>
+  and have the program <FONT color="red"><B>translated</B></FONT>
+  by the <FONT color="blue"><B>assembler</B></FONT>
+<P>
+<HR>
+<P>
+<LI> Finally (in 1959), we developed the
+   <FONT color="blue"><B>first high level programming language</B></FONT>
+    (called <FONT color="red"><B>Fortran (Formula Translator)</B></FONT>)
+   and written the <FONT color="blue"><B>first (Fortran) compiler</B></FONT>
+
+
+ <P>
+   The 
+   <FONT color="red"><B>compiler</B></FONT> translates
+   <FONT color="blue"><B>statements in a high level programming language</B></FONT>
+   into an <FONT color="red"><B>equivalent program</B></FONT>
+   in <FONT color="blue"><B>assembler language</B></FONT>
+<P>
+ With the introduction of 
+  <FONT color="red"><B>high level programming language</B></FONT>,
+  the job of
+  <FONT color="blue"><B>programming a computer</B></FONT> has been
+  made <FONT color="red"><B>simple enough</B></FONT> to be
+  accessible by
+  a <FONT color="blue"><B>wide group of people</B></FONT>.
+<P>
+<B>Also:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>standardization</B></FONT> of
+        <FONT color="red"><B>high level programming languae</B></FONT>
+	also make it <FONT color="blue"><B>possible</B></FONT> to
+	<FONT color="red"><B>"port"</B></FONT> a program written in a
+	<FONT color="blue"><B>high level programming language</B></FONT> to
+	<FONT color="red"><B>different types</B></FONT> of
+	computers.
+ <P>
+   You must <FONT color="red"><B>re-compile</B></FONT> the
+   <FONT color="blue"><B>source code</B></FONT> on
+   <FONT color="red"><B>each type of computer</B></FONT>
+   before running the program !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have written about the 
+ <FONT color="red"><B>evolution</B></FONT> of
+ <FONT color="blue"><B>programming languages</B></FONT> before and
+ <FONT color="red"><B>kept</B></FONT> the webpage here -
+ you can read it for further details:
+ <A HREF="../Old-Keep-6-CPU/intro1.html"> click here</A>
+
+<P>
+<HR>
+<HR>
+<P>
+<LI> I don't have a <FONT color="red"><B>Fortran compiler</B></FONT>
+  handy, so I will 
+   show you the <B>general</B>
+  <FONT color="blue"><B>program translatio process</B></FONT> in
+  the <FONT color="red"><B>C programming language</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> A <FONT color="red"><B>C program</B></FONT>
+         (C is very similar to Java) is
+     <FONT color="blue"><B>translated</B></FONT> as follows:
+<P>
+<UL>
+<TABLE BORDER="5">
+
+<TR> <TD>
+<IMG SRC="FIGS/translate02.gif" width=600 height=500></IMG>
+</TD> </TR>
+
+</TABLE>
+</UL>
+<P>
+First, the <FONT color="red"><B>C compiler</B></FONT> translates
+ the <FONT color="blue"><B>C source program</B></FONT> into
+  an <FONT color="red"><B>equivalent program</B></FONT> written in
+  an <FONT color="blue"><B>assembler (nemonic) programming language</B></FONT>
+<P>
+Then an <FONT color="red"><B>assembler</B></FONT> translate
+ the <FONT color="blue"><B>assembler code (program)</B></FONT> into
+  <FONT color="red"><B>(binary) machine code (instruction)</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I will <FONT color="red"><B>illustrate</B></FONT> this
+ <FONT color="blue"><B>process</B></FONT> in class
+ using the <FONT color="red"><B>command below</B></FONT>
+
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> Check out the following <FONT color="blue"><B>C program</B></FONT>:
+     <FONT color="red"><B><TT>/home/cs255000/demo/c-asm/main.c</TT></B></FONT>
+ <P>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int x;
+    
+   int main( )
+   {
+      x = x + 44;               
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<P>
+ <LI> <FONT color="blue"><B>Compile</B></FONT> the
+    <FONT color="red"><B><TT>main.c</TT></B></FONT> program
+    with this <B>command</B>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/bin/cc255  -S  main.c                     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>cc255</TT> (C compiler for 255)</B></FONT>
+  will
+  produce the
+  <FONT color="red"><B>assembler program</B></FONT>
+  <FONT color="blue"><B><TT>main.s</TT></B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+        ...
+	ldr	r3, .L3             // This is the variable x !!!
+	ldr	r3, [r3]
+	<FONT color="red">add	r3, r3, #44</FONT>      // This is the add operation for x+44 !!    
+	ldr	r2, .L3
+	str	r3, [r2]
+	mov	r3, #0
+	mov	r0, r3
+	...
+
+.L3:
+	.word	x                       // .L3 is the variable x
+
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+There are lots of stuff that you don't need to understand; but the
+ <FONT color="red"><B>gist</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> This <FONT color="red"><B>example</B></FONT> shows you that
+    the
+ <FONT color="blue"><B>compiler</B></FONT> translates
+ the <FONT color="red"><B>high level (C) program statements</B></FONT> into
+ <FONT color="blue"><B>assembler instructions</B></FONT>
+ that performs the
+ <FONT color="red"><B>same operation (add !)</B></FONT> specified
+ by the <B>high level program statements</B> 
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+So <FONT color="red"><B>Java/C</B></FONT> is
+ an <FONT color="blue"><B><I>artificial</I> language</B></FONT> for
+ the <FONT color="red"><B>computer</B></FONT>.
+<P>
+The <FONT color="red"><B>language</B></FONT> that
+ the <FONT color="blue"><B>computer </B></FONT> uses is:
+ the <FONT color="red"><B>assembler langange</B></FONT> !!!
+<P>
+<FONT color="red"><B>Note:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL> 
+ <LI> <FONT color="red"><B>Every CPU (chip)</B></FONT>
+     has its <FONT color="blue"><B>own</B></FONT>
+     <FONT color="red"><B>assembler language</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<P>
+<HR>
+<P>
+<LI> You can  <FONT color="red"><B>compile</B></FONT>
+     the <FONT color="blue"><B>assembler program
+      <TT>main.s</TT></B></FONT> with:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/bin/cc255   -c   main.s          
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B>C compiler</B></FONT> will
+ invoke the <FONT color="blue"><B>assembler</B></FONT>
+ to
+  produce the
+  <FONT color="red"><B>machine (object) program code</B></FONT>
+  <FONT color="blue"><B><TT>main.o</TT></B></FONT>
+<P>
+You can view the content of the
+  (binary) object file using this command:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    /home/cs255001/bin/dump255   main.o           
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+You will see this output:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+Disassembly of section .text:
+
+00000000 <main>:
+<FONT color="red">   0:	e52db004</FONT> 	push	{fp}		; (str fp, [sp, #-4]!)
+<FONT color="red">   4:	e28db000</FONT> 	add	fp, sp, #0
+<FONT color="red">   8:	e59f3020 </FONT>	ldr	r3, [pc, #32]	; 30 <main+0x30>
+<FONT color="red">   c:	e5933000 </FONT>	ldr	r3, [r3]
+<FONT color="red">  10:	e283302c </FONT>	add	r3, r3, #44	; 0x2c
+<FONT color="red">  14:	e59f2014 </FONT>	ldr	r2, [pc, #20]	; 30 <main+0x30>
+<FONT color="red">  18:	e5823000 </FONT>	str	r3, [r2]
+<FONT color="red">  1c:	e3a03000 </FONT>	mov	r3, #0
+<FONT color="red">  20:	e1a00003 </FONT>	mov	r0, r3
+<FONT color="red">  24:	e28bd000 </FONT>	add	sp, fp, #0
+<FONT color="red">  28:	e49db004 </FONT>	pop	{fp}		; (ldr fp, [sp], #4)
+<FONT color="red">  2c:	e12fff1e </FONT>	bx	lr
+  30:	00000000 	.word	0x00000000
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The list of <FONT color="red"><B>hexadecimal numbers</B></FONT> in
+  <FONT color="blue"><B>red</B></FONT> represent
+  the <FONT color="red"><B>binary machine instruction codes</B></FONT> !!!
+<P>
+ (The <FONT color="blue"><B>blue text</B></FONT>
+ contains the <B>source</B>
+ <FONT color="red"><B>assembler instructions</B></FONT>).
+<P>
+ These <FONT color="red"><B>binary numbers</B></FONT> are
+ the <FONT color="blue"><B>computer instructions</B></FONT> that
+ are stored in <FONT color="red"><B>memory</B></FONT> when the program
+ is run --- the CPU will fetch them one by one and execute it when
+ the program is run.
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+I have written on the translation process before 
+ and kept the old write up here:
+ <A HREF="../Old-Keep-6-CPU/intro2.html"> click here</A>
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Repeated:  Assembler programming language
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Assembler language</B>:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler programming language</B></FONT> =
+     a <FONT color="red"><B>machine dependent</B></FONT>
+     <B>programming language</B> that
+     is <FONT color="red"><B><I>closely</I> associated</B></FONT> with
+     the <FONT color="blue"><B>machine language</B></FONT> of
+     a <B>computer</B>
+ <P>
+ <B>In fact:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>Each instruction</B></FONT> in
+      an <FONT color="blue"><B>assembler language</B></FONT> 
+      <B>corresponds</B> 
+      (uniquely) to
+      <FONT color="red"><B><I>one</I> instruction</B></FONT> in
+      the <FONT color="blue"><B>machine language</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Assembler program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Assembler program</B></FONT> =
+     a <FONT color="red"><B>program</B></FONT> that
+     is <FONT color="blue"><B>written</B></FONT> in an
+     <FONT color="red"><B>assembler language</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Repeat (in case you missed the first class):
+   Why we learn programming in assembler in CS255
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="blue"><B>Most CS professionals</B></FONT>
+    will <FONT color="red"><B>never</B></FONT> write
+    programs in <FONT color="blue"><B>assembler language</B></FONT> !!!
+<P>
+ But as a <FONT color="red"><B>Computer Science professional</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You <FONT color="red"><B>must understand</B></FONT>
+      what your <FONT color="blue"><B>program</B></FONT> is
+    <FONT color="red"><B>doing</B></FONT> !!!
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <P>
+ (Just like a good mechanic will understand what a car is doing...)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+<HR>
+<HR>
+<P>
+
+<LI> <FONT color="red"><B>Why</B></FONT> we use
+     <FONT color="blue"><B>assembler language</B></FONT> to
+     <FONT color="red"><B>understand</B></FONT>
+     <FONT color="blue"><B>computer programs</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="red"><B>only way</B></FONT> to 
+     <FONT color="blue"><B>understand</B></FONT> what
+     the <FONT color="red"><B>computer program</B></FONT> is 
+     doing is to
+     <FONT color="blue"><B>understand</B></FONT> the
+     <FONT color="red"><B>effects</B></FONT> of
+     <FONT color="blue"><B>each computer instruction</B></FONT>
+<P>
+<HR>
+<P>
+     
+ <LI> <FONT color="blue"><B>Because</B></FONT> 
+    the <FONT color="red"><B>assembler language</B></FONT> is
+    <FONT color="blue"><B><I>closely</I> associated</B></FONT> with
+    <FONT color="red"><B>machine instructions</B></FONT>, we will
+    <FONT color="blue"><B>understand</B></FONT>
+    <FONT color="red"><B><I>what</I> is going on</B></FONT> inside
+    the <B>computer</B>
+    when it
+    <FONT color="blue"><B>execute</B></FONT> a
+    <FONT color="red"><B>computer program</B></FONT> !!!
+  
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<LI> In <FONT color="blue"><B>CS255</B></FONT>, we will show you:
+     
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when you
+     <FONT color="blue"><B>define</B></FONT> 
+    <FONT color="red"><B>variables</B></FONT>
+ <LI> <FONT color="red"><B>How</B></FONT> is 
+     an <FONT color="blue"><B>array variable</B></FONT> stored/organized
+     inside the <FONT color="red"><B>computer memory</B></FONT>
+ <LI> <FONT color="red"><B>How</B></FONT> statements
+      in Java <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B>variables</B></FONT> in memory
+<P>
+<HR>
+ <P>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>assignment statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>if-statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>while-statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+ <LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when an
+     <FONT color="blue"><B>for-statement</B></FONT> is
+     <FONT color="red"><B>executed</B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> the computer
+     <FONT color="blue"><B>executes</B></FONT> a
+     <FONT color="red"><B>method call</B></FONT>
+<LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when a method 
+     <FONT color="blue"><B>passes parameters</B></FONT> and
+     <FONT color="red"><B>returns a value</B></FONT>
+<LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when a 
+     <FONT color="blue"><B>parameter</B></FONT> is
+     <FONT color="red"><B>passed by <I>value</I></B></FONT> and
+     <FONT color="blue"><B>passed by <I>reference</I></B></FONT>
+<LI> <FONT color="red"><B>What happens inside the computer</B></FONT>
+     when a 
+     <FONT color="blue"><B>function/method</B></FONT> is
+     <FONT color="red"><B><I>recursive</I></B></FONT>
+<P>
+<HR>
+<P>
+<LI> <FONT color="red"><B>How</B></FONT> to
+      <FONT color="blue"><B>store</B></FONT> an
+      <FONT color="red"><B>array</B></FONT> - and
+      how to <FONT color="blue"><B>access</B></FONT> the
+      <FONT color="red"><B>array elements</B></FONT>
+<LI> <FONT color="red"><B>How</B></FONT> to
+      <FONT color="blue"><B>store</B></FONT> an
+      <FONT color="red"><B>linked list</B></FONT> - and
+      <FONT color="blue"><B>what happens inside the computer</B></FONT> when
+      you
+      <FONT color="red"><B>insert/delete/access</B></FONT> the
+      <FONT color="blue"><B>linked list elements</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<FONT color="red"><B>What</B></FONT> will you
+ <FONT color="blue"><B>gain/learn</B></FONT> by taking
+ <FONT color="red"><B>CS255</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> You will <FONT color="red"><B>completely understand</B></FONT>
+      the <FONT color="blue"><B>internal operations</B></FONT> of
+      <B><I>any</I></B> <FONT color="red"><B>computer programming 
+      language</B></FONT> and
+      <FONT color="blue"><B>language construct</B></FONT>
+ <LI> You will <B>also</B> know the
+    <FONT color="red"><B>capabilities and <I>limitations</I></B></FONT>
+    of a <FONT color="blue"><B>computer</B></FONT>
+	and <B>computer programs</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

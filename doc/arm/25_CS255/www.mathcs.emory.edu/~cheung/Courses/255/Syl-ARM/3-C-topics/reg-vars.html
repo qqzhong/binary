@@ -1,0 +1,338 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+
+<head>
+<style type="text/css">
+table {font-size: 100%;}
+</style>
+</head>
+
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<H3>
+<HR>
+<TT>register</TT> variables
+<HR>
+</H3>
+<UL>
+<P>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     <TT>Register</TT> variables
+     </B></FONT>
+<P>
+<UL>
+<LI> <B><TT>Register</TT> variables:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>keyword</B> <FONT color="red"><B><TT>register</TT></B></FONT>
+      is used to
+      define
+      <FONT color="blue"><B><I>register</I> local variables</B></FONT>
+    in <B>C</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B><I>Only</I></B></FONT> a
+     <FONT color="blue"><B>local variable</B></FONT> can be
+     defined as 
+     <FONT color="red"><B><TT>register</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ <P>
+<HR>
+ <P>
+ <LI> The <B>keyword</B> <FONT color="red"><B><TT>register</TT></B></FONT>
+      is a <FONT color="blue"><B>non-binding <I>hint</I></B></FONT>
+      given to the <B>C compiler</B> that the <B>variable</B>
+      will be access 
+      <FONT color="red"><B><I>very</I> frequently</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <B>C compiler</B> has the
+     <FONT color="blue"><B>option</B></FONT> to use
+     one of the <FONT color="red"><B>registers</B></FONT> of the 
+     <B>CPU</B> as the
+     <FONT color="blue"><B>storage location </B></FONT>
+     for the <B><TT>register</TT> variable</B> !!!
+ <P>
+ (Because storing the <B>variable</B> in a
+   <FONT color="blue"><B>register</B></FONT> will
+   <FONT color="red"><B>reduce</B></FONT> the
+   access time for that <B>variable</B>)
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B> (compiled on an <FONT color="red"><B>Intel</B></FONT>
+     platform)
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char *argv[] )             
+   {
+      int a;
+    <FONT color="darkred">
+      a = 1234567;</FONT>
+    
+      printf("%d\n", a);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>translates</B></FONT> the statement
+   <FONT color="red"><B><TT>a = 1234567</TT></B></FONT> into:
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   movl    $1234567, <FONT color="red">-4(%rbp)</font>            // == move.l #1234567, <FONT color="red">-4(a6)</font>      
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/register1.c"> click here </A>
+  </UL>
+<P>
+ <B>How to compile the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -S register1.c</TT></B></FONT>
+ <LI> Check out the file: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./register1.s</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<FONT color="red"><B>However:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   int main( int argc, char *argv[] )       
+   {
+       <FONT color="red">register</FONT> int a;
+   <FONT color="darkred">
+       a = 1234567;</FONT>
+    
+       printf("%d\n", a);
+   }
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>translates</B></FONT> the statement
+   <FONT color="red"><B><TT>a = 1234567</TT></B></FONT> into:
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   movl    $1234567, <FONT color="red">%ebx</font>    // Similar to:  move.l #1234567, <FONT color="red">d0</FONT>        
+
+        *** Uses <FONT color="red">register ebx</FONT> for variable <FONT color="red">a</FONT> !!!     
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/register2.c"> click here </A>
+  </UL>
+<P>
+ <B>How to compile the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link(s) and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc -S register2.c</TT></B></FONT>
+ <LI> Check out the file: 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./register2.s</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <B>Final Notes:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <OL>
+
+ <LI> You <FONT color="red"><B>cannot</B></FONT> use the
+     <FONT color="magenta"><B>reference operator &</B></FONT>
+     on a <FONT color="blue"><B><TT>register</TT> variable</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="red"><B>&</B></FONT> will return the
+    <FONT color="blue"><B>address</B></FONT> of a <B>variable</B>
+ <P>
+ <LI> <B>Variables</B> stored in a <FONT color="blue"><B>register</B></FONT> 
+     does <FONT color="red"><B><I>not</I>
+    have a (memory) address</B></FONT> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> In some <B>C compilers</B>,
+     the <FONT color="blue"><B><TT>register</TT></B></FONT> 
+     <B>keyword</B> will 
+     <FONT color="red"><B>only work</B></FONT> for
+     the type <FONT color="blue"><B><TT>int</TT></B></FONT>
+     (and maybe <FONT color="blue"><B><TT>float</TT></B></FONT> and
+     <FONT color="blue"><B><TT>double</TT></B></FONT>)
+ <P>
+    (Because <B>registers</B> can only store
+     <FONT color="blue"><B>basic data types</B></FONT>)
+<P>
+<HR>
+<P>
+ <LI> A <FONT color="blue"><B><TT>register</TT></B></FONT>
+       declaration is only a 
+      <FONT color="red"><B>"recommendation"</B></FONT>
+       to the <B>C compiler</B>, it 
+       <FONT color="blue"><B>may</B></FONT> be 
+       <FONT color="red"><B>ignored</B></FONT>...
+ <P>
+ </OL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+</UL>
+
+
+<P>
+</UL>
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+

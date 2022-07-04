@@ -1,0 +1,514 @@
+<META HTTP-EQUIV="expires" CONTENT="0">
+<html>
+<body
+text = "#000000"
+link="#00ff00"
+vlink="#f00000"
+bgcolor="#ffffff"
+>
+
+<HR>
+<FONT SIZE=+2><B>Printing in C</B></FONT>
+<HR>
+
+<UL>
+
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Printing value of the built-in data types
+     </B></FONT>
+<P>
+<UL>
+<LI> <B>Preliminary:</B>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> In <FONT color="red"><B>printing</B></FONT>,
+       <B>C</B> will view the
+    <FONT color="red"><B>content</B></FONT> of a
+     <FONT color="blue"><B>variable</B></FONT> as
+     a (generic) <FONT color="red"><B>sequence of bits</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <B>C</B> does <FONT color="red"><B>not</B></FONT>
+         know (nor <B><I>care</I></B>) about the
+	 <FONT color="blue"><B>data type</B></FONT> of the 
+	 <B>variable</B>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>You</B> must tell (instruct) <FONT color="red"><B>C</B></FONT>
+     on <FONT color="blue"><B>how</B></FONT> to
+     <FONT color="red"><B><I>interpret</I></B></FONT> the
+     <B>bit pattern</B> !!!
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B><TT>printf()</TT></B></FONT> function
+     is used to print <B>values</B> of
+     <FONT color="red"><B><I>all</I> built-in data types</B></FONT>
+     in <B>C</B>.
+<P>
+<HR>
+<P>
+<LI> <B>Syntax</B> of the <FONT color="blue"><B><TT>printf()</TT></B></FONT>
+     function:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+    printf ( <FONT color="red">" format string "</FONT> , value1, value2, ..... );            
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+The <FONT color="red"><B><TT>"format string"</TT></B></FONT> contains
+  <FONT color="blue"><B>instructions</B></FONT> on
+  <FONT color="red"><B><I>how</I></B></FONT> to
+  <FONT color="blue"><B><I>interpret</I></B></FONT> each
+  of the <B>values</B> in the
+  <FONT color="red"><B>parameter list</B></FONT>
+<P>
+<HR>
+<HR>
+<P>
+<LI> <B>Format string:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>format string</B></FONT> in the
+       <B><TT>printf()</TT></B> function contains
+       <FONT color="red"><B>formatting characters</B></FONT> that
+       instruct the <B>C compiler</B> to print
+       a <FONT color="blue"><B>value</B></FONT> in the given
+       <FONT color="red"><B>format</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Commonly used formatting characters:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+
+<TR bgcolor="#CCFFCC"> 
+<TH>
+Formatting character
+</TH> 
+<TH>
+Meaning
+</TH> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%d</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><I>signed</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%u</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B><I>unsigned</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%ld</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>long <I>signed</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%lu</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>long <I>unsigned</I> integer value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%f</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>floating point value</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center">
+<FONT color="red"><B><TT>%lf</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>double precision floating point value</B></FONT>
+</TD> 
+</TR>
+
+<TR>
+<TD align="center" bgcolor="#FFEEEE">
+<FONT color="red"><B><TT>%o</TT></B></FONT>
+</TD>
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>octal based number</B></FONT>
+</TD>
+</TR>
+
+<TR>
+<TD align="center" bgcolor="#FFEEEE">
+<FONT color="red"><B><TT>%x</TT></B></FONT>
+</TD>
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>hexadecimal based number</B></FONT>
+</TD>
+</TR>
+
+<TR>
+<TD align="center" bgcolor="#FFEEEE">
+<FONT color="red"><B><TT>%p</TT></B></FONT>
+</TD>
+<TD align="left">
+Print the <B><I>address</I> </B> as a
+ <FONT color="blue"><B>hexadecimal based number</B></FONT>
+</TD>
+</TR>
+
+
+<TR> 
+<TD align="center" bgcolor="lightcyan">
+<FONT color="red"><B><TT>%c</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>character (i.e., used the ASCII code)</B></FONT>
+</TD> 
+</TR>
+
+<TR> 
+<TD align="center" bgcolor="lightcyan">
+<FONT color="red"><B><TT>%s</TT></B></FONT>
+</TD> 
+<TD align="left">
+Print the <B>(next) value</B> as a
+ <FONT color="blue"><B>string (will be explained much later)</B></FONT>
+</TD> 
+</TR>
+
+<TR>
+<TD align="center" bgcolor="lightcyan">
+<FONT color="red"><B><TT>%%</TT></B></FONT>
+</TD>
+<TD align="left">
+Print a
+ <FONT color="blue"><B>% character </B></FONT>
+</TD>
+</TR>
+
+
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+int main( int argc, char* argv[] )
+{
+   int  x;
+
+   <FONT color="red">x = 'A';</FONT>
+   printf( "x = 'A':  <FONT color="red">%d,  %u, %c</FONT>\n", x, x, x);               
+
+   <FONT color="red">x = 64;</FONT>
+   printf( "x = 64:   <FONT color="red">%d,  %u, %c</FONT>\n", x, x, x);
+
+   <FONT color="red">x = -1;</FONT>
+   printf( "x = -1:   <FONT color="red">%d,  %u, %c</FONT>\n", x, x, x);
+
+}
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<B>Output:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+x = 'A':  65,  65, A
+x = 64:   64,  64, @
+x = -1:   -1,  4294967295, &#xffff;  (FFFF is not a printable chracater)                
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <FONT COLOR="red"><B><TT>
+       /home/cs255001/demo/C/printf1-new.c
+       </TT></B></FONT>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> To compile: 
+  &nbsp; <FONT color="red"><B><TT>gcc printf1-new.c</TT></B></FONT>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <LI> To run: 
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+
+
+</UL>
+
+<P>
+<HR>
+<HR>
+<HR>
+<HR>
+<P>
+<LI> <FONT COLOR="darkmagenta"><B>
+     Warning
+     </B></FONT>
+<P>
+<UL>
+<LI> <FONT color="red"><B>Warning:</B></FONT>
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> The <FONT color="blue"><B>C compiler</B></FONT> do
+        <FONT color="red"><B><I>not</I></B></FONT> perform any
+       <FONT color="blue"><B>type checks</B></FONT> in the
+       <FONT color="red"><B>printf( )</B></FONT> function call
+<P>
+<HR>
+<P>
+<LI> <B>Therefore</B>, <FONT color="blue"><B>you</B></FONT> must
+          <FONT color="red"><B>make sure</B></FONT> that
+	  the <FONT color="blue"><B>data type</B></FONT> of
+	  the <FONT color="red"><B>variables</B></FONT> <B>correspond</B>
+	  to <FONT color="blue"><B>formatting character</B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> <B>Example:</B>
+<P>
+<UL>
+<TABLE bgcolor="lightcyan" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Recall</B></FONT> that
+    <FONT color="red"><B>float</B></FONT> uses the
+     <FONT color="blue"><B>IEEE 754</B></FONT> representation
+ <P>
+ <HR>
+ <P>
+ <LI> The <FONT color="blue"><B>representation</B></FONT> for
+         <FONT color="red"><B>2.0</B></FONT> is:
+<P>
+<UL>
+<TABLE bgcolor="lightyellow" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   2.0<sub>(10)</sub>  =  10.0<sub>(2)</sub> (binary)          
+           = 10.0<sub>(2)</sub>  exp 0
+	   = 1.0<sub>(2)</sub>  exp 1
+
+   Stored Mantissa = .<FONT color="red">0000000000000000000000000</font>
+   Stored Exponent = 01111111 + 1 = <FONT color="red">10000000</font>       (excess 127)     
+
+ The IEEE 754 representation of 2.0 is:
+
+        0 10000000 00000000000000000000000
+  Or:
+        <FONT color="red">01000000000000000000000000000000</font>
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+<HR>
+<P>
+<LI> The <FONT color="blue"><B>statement</B></FONT>:
+<P>
+<UL>
+<TABLE bgcolor="#FFEEEE" BORDER="5">
+<TR> <TD>
+
+<FONT color="blue">
+<B>
+<PRE>
+   float x = 2.0;
+
+   printf("<FONT color="red">%d</FONT>\n", <FONT color="red">x</FONT>);              
+</PRE>
+</B>
+</FONT>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+will print
+  <FONT color="red"><B><I>absurd</I> things</B></FONT>....
+<P>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+ <HR>
+ <P>
+ <LI> <FONT color="#00a000"><B> Example Program: </B></font>
+      (Demo above code)
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+      <SUB><SUB><SUB>
+        <IMG SRC="../../../Common/Example.jpg"></IMG>
+        </SUB></SUB></SUB>
+  <P>
+  <UL>
+  <LI> Prog file:
+       <A HREF="Progs/printf2"> click here </A>
+  </UL>
+<P>
+ <B>How to run the program:</B>
+<P>
+<UL>
+<TABLE bgcolor="#CCFFCC" BORDER="5">
+<TR> <TD>
+
+ <UL>
+ <LI> <FONT color="blue"><B>Right click</B></FONT> on link and
+      <FONT color="red"><B>save</B></FONT> in a scratch directory
+ <P>
+ <LI> To compile:
+  &nbsp; <FONT color="red"><B><TT>gcc printf2.c</TT></B></FONT>
+ <LI> To run:
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <FONT color="red"><B><TT>./a.out</TT></B></FONT>
+ </UL>
+
+</TD> </TR>
+</TABLE>
+</UL>
+<P>
+</UL>
+
+
+</UL>
+
+
+
+</UL>
+<HR>
+<HR>
+<HR>
+<HR>
+<HR>
